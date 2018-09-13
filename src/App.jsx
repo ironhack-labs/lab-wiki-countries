@@ -1,50 +1,39 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import countries from "./countries";
+import React, { Component } from "react";
+import { Link, Route } from "react-router-dom";
+import Header from "./Header";
+import List from "./List";
+import Details from "./Details";
+import data from "./countries";
 
-class App extends React.Component {
+class index extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      countryList: countries
+      countries: data
     };
   }
-  render() {
-    const displayCountries = this.state.countryList.map((country, index) => {
-      return (
-        <a
-          className="list-group-item list-group-item-action"
-          href={"/" + country.cca3}
-          key={index}
-        >
-          {country.flag} {country.name.common}
-        </a>
-      );
-    });
 
+  render() {
     return (
       <div>
-        <nav className="navbar navbar-dark bg-primary mb-3">
-          <div className="container">
-            <a className="navbar-brand" href="/">
-              WikiCountries
-            </a>
-          </div>
-        </nav>
-        <div className="container">
-          <div
-            className="col-5"
-            style={{ width: "300px", maxHeight: "90vh", overflowY: "scroll" }}
-          >
-            {/* TESTING */}
-            <div className="list-group">{displayCountries}</div>
-            {/* TESTING */}
-          </div>
+        <Header />
+        <div className="content">
+          <List data={data} />
+          <Route
+            path="/:cc"
+            render={() => {
+              return <Details countries={this.state.countries} />;
+            }}
+          />
         </div>
       </div>
     );
   }
+
+  _searchCountry(){
+    
+  }
 }
 
-export default App;
+export default index;

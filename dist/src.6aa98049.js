@@ -25361,7 +25361,231 @@ module.hot.accept(reloadCSS);
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"countries.json":[function(require,module,exports) {
+},{"_css_loader":"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Header.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header() {
+  return _react2.default.createElement(
+    "nav",
+    { className: "navbar navbar-dark bg-primary mb-3" },
+    _react2.default.createElement(
+      "div",
+      { className: "container" },
+      _react2.default.createElement(
+        "a",
+        { className: "navbar-brand", href: "/" },
+        "WikiCountries"
+      ),
+      _react2.default.createElement(
+        "form",
+        { className: "form-inline" },
+        _react2.default.createElement("input", {
+          className: "form-control mr-sm-2",
+          type: "search",
+          placeholder: "Search",
+          "aria-label": "Search"
+        })
+      )
+    )
+  );
+};
+
+exports.default = Header;
+},{"react":"../node_modules/react/index.js"}],"List.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var List = function List(props) {
+  var displayCountries = props.data.map(function (country, index) {
+    return _react2.default.createElement(
+      "li",
+      { key: index },
+      _react2.default.createElement(
+        _reactRouterDom.Link,
+        {
+          to: "/" + country.cca3,
+          className: "list-group-item list-group-item-action"
+        },
+        country.flag,
+        "\xA0",
+        country.name.common
+      )
+    );
+  });
+
+  return _react2.default.createElement(
+    "div",
+    { className: "col-4", style: { maxHeight: "90vh", overflowY: "scroll" } },
+    _react2.default.createElement(
+      "ul",
+      { className: "list-group" },
+      displayCountries
+    )
+  );
+};
+
+exports.default = List;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"../node_modules/react-router/es/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.withRouter = exports.matchPath = exports.generatePath = exports.Switch = exports.StaticRouter = exports.Router = exports.Route = exports.Redirect = exports.Prompt = exports.MemoryRouter = undefined;
+
+var _MemoryRouter2 = require("./MemoryRouter");
+
+var _MemoryRouter3 = _interopRequireDefault(_MemoryRouter2);
+
+var _Prompt2 = require("./Prompt");
+
+var _Prompt3 = _interopRequireDefault(_Prompt2);
+
+var _Redirect2 = require("./Redirect");
+
+var _Redirect3 = _interopRequireDefault(_Redirect2);
+
+var _Route2 = require("./Route");
+
+var _Route3 = _interopRequireDefault(_Route2);
+
+var _Router2 = require("./Router");
+
+var _Router3 = _interopRequireDefault(_Router2);
+
+var _StaticRouter2 = require("./StaticRouter");
+
+var _StaticRouter3 = _interopRequireDefault(_StaticRouter2);
+
+var _Switch2 = require("./Switch");
+
+var _Switch3 = _interopRequireDefault(_Switch2);
+
+var _generatePath2 = require("./generatePath");
+
+var _generatePath3 = _interopRequireDefault(_generatePath2);
+
+var _matchPath2 = require("./matchPath");
+
+var _matchPath3 = _interopRequireDefault(_matchPath2);
+
+var _withRouter2 = require("./withRouter");
+
+var _withRouter3 = _interopRequireDefault(_withRouter2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.MemoryRouter = _MemoryRouter3.default;
+exports.Prompt = _Prompt3.default;
+exports.Redirect = _Redirect3.default;
+exports.Route = _Route3.default;
+exports.Router = _Router3.default;
+exports.StaticRouter = _StaticRouter3.default;
+exports.Switch = _Switch3.default;
+exports.generatePath = _generatePath3.default;
+exports.matchPath = _matchPath3.default;
+exports.withRouter = _withRouter3.default;
+},{"./MemoryRouter":"../node_modules/react-router/es/MemoryRouter.js","./Prompt":"../node_modules/react-router/es/Prompt.js","./Redirect":"../node_modules/react-router/es/Redirect.js","./Route":"../node_modules/react-router/es/Route.js","./Router":"../node_modules/react-router/es/Router.js","./StaticRouter":"../node_modules/react-router/es/StaticRouter.js","./Switch":"../node_modules/react-router/es/Switch.js","./generatePath":"../node_modules/react-router/es/generatePath.js","./matchPath":"../node_modules/react-router/es/matchPath.js","./withRouter":"../node_modules/react-router/es/withRouter.js"}],"Details.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require("react-router");
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Details = function Details(props) {
+  var matchingCountry = props.countries.find(function (el) {
+    return el.cca3 === props.match.params.cc;
+  });
+
+  var mappedBorders = matchingCountry.borders.map(function (el) {
+    var foundCountry = props.countries.find(function (country) {
+      return country.cca3 === el;
+    });
+    return _react2.default.createElement(
+      "li",
+      null,
+      _react2.default.createElement(
+        _reactRouterDom.Link,
+        { to: "/" + el },
+        foundCountry.name.common
+      )
+    );
+  });
+
+  return _react2.default.createElement(
+    "div",
+    { className: "col-6 details" },
+    _react2.default.createElement(
+      "div",
+      null,
+      _react2.default.createElement(
+        "h1",
+        null,
+        matchingCountry.name.common
+      ),
+      _react2.default.createElement("hr", null),
+      _react2.default.createElement(
+        "h4",
+        null,
+        "Capital: ",
+        matchingCountry.capital[0]
+      ),
+      _react2.default.createElement("hr", null),
+      _react2.default.createElement(
+        "h4",
+        null,
+        "Area: ",
+        matchingCountry.area,
+        " km",
+        _react2.default.createElement(
+          "sup",
+          null,
+          "2"
+        )
+      ),
+      _react2.default.createElement("br", null),
+      _react2.default.createElement(
+        "ul",
+        null,
+        mappedBorders
+      )
+    )
+  );
+};
+
+exports.default = (0, _reactRouter.withRouter)(Details);
+},{"react":"../node_modules/react/index.js","react-router":"../node_modules/react-router/es/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"countries.json":[function(require,module,exports) {
 module.exports = [{
 	"name": {
 		"common": "Aruba",
@@ -38485,6 +38709,18 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = require("react-router-dom");
 
+var _Header = require("./Header");
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _List = require("./List");
+
+var _List2 = _interopRequireDefault(_List);
+
+var _Details = require("./Details");
+
+var _Details2 = _interopRequireDefault(_Details);
+
 var _countries = require("./countries");
 
 var _countries2 = _interopRequireDefault(_countries);
@@ -38497,78 +38733,52 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var App = function (_React$Component) {
-  _inherits(App, _React$Component);
+var index = function (_Component) {
+  _inherits(index, _Component);
 
-  function App(props) {
-    _classCallCheck(this, App);
+  function index(props) {
+    _classCallCheck(this, index);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (index.__proto__ || Object.getPrototypeOf(index)).call(this, props));
 
     _this.state = {
-      countryList: _countries2.default
+      countries: _countries2.default
     };
     return _this;
   }
 
-  _createClass(App, [{
+  _createClass(index, [{
     key: "render",
     value: function render() {
-      var displayCountries = this.state.countryList.map(function (country, index) {
-        return _react2.default.createElement(
-          "a",
-          {
-            className: "list-group-item list-group-item-action",
-            href: "/" + country.cca3,
-            key: index
-          },
-          country.flag,
-          " ",
-          country.name.common
-        );
-      });
+      var _this2 = this;
 
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement(
-          "nav",
-          { className: "navbar navbar-dark bg-primary mb-3" },
-          _react2.default.createElement(
-            "div",
-            { className: "container" },
-            _react2.default.createElement(
-              "a",
-              { className: "navbar-brand", href: "/" },
-              "WikiCountries"
-            )
-          )
-        ),
+        _react2.default.createElement(_Header2.default, null),
         _react2.default.createElement(
           "div",
-          { className: "container" },
-          _react2.default.createElement(
-            "div",
-            {
-              className: "col-5",
-              style: { width: "300px", maxHeight: "90vh", overflowY: "scroll" }
-            },
-            _react2.default.createElement(
-              "div",
-              { className: "list-group" },
-              displayCountries
-            )
-          )
+          { className: "content" },
+          _react2.default.createElement(_List2.default, { data: _countries2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, {
+            path: "/:cc",
+            render: function render() {
+              return _react2.default.createElement(_Details2.default, { countries: _this2.state.countries });
+            }
+          })
         )
       );
     }
+  }, {
+    key: "_searchCountry",
+    value: function _searchCountry() {}
   }]);
 
-  return App;
-}(_react2.default.Component);
+  return index;
+}(_react.Component);
 
-exports.default = App;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","./countries":"countries.json"}],"index.js":[function(require,module,exports) {
+exports.default = index;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","./Header":"Header.jsx","./List":"List.jsx","./Details":"Details.jsx","./countries":"countries.json"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = require("react");
@@ -38625,7 +38835,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '36485' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '44245' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

@@ -1,0 +1,7 @@
+.content {
+  display: flex;
+}
+
+.list-group {
+  list-style: none;
+}
