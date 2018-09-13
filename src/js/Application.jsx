@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import List from "./List";
 import Details from "./Details";
+import Navbar from "./Navbar";
 import countries from "../countries.json";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -21,6 +22,7 @@ class Application extends React.Component {
     return (
       <BrowserRouter>
         <div>
+        <Navbar />
           <div className="row">
             <div className="col-5">
               <List countries={this.state.countries} />

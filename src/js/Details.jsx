@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router";
 import Borders from "./Borders";
 
+
 const Details = props => {
   const matchedCountry = props.countries.filter(el => {
     return props.match.params.id === el.cca3;
@@ -18,7 +19,7 @@ const Details = props => {
 
 
   return (
-    <div>
+    <div className="details">
       <h1>{matchedCountry[0].name.common}</h1>
       <table>
         <tbody>
@@ -30,9 +31,10 @@ const Details = props => {
             <td>Area</td>
             <td>{`${matchedCountry[0].area} km2`}</td>
           </tr>
-          <tr>
+          {borders.length !== 0 && <tr>
+             <td>Borders</td>
             <Borders borders={borders} />
-          </tr>
+          </tr>}
         </tbody>
       </table>
     </div>
