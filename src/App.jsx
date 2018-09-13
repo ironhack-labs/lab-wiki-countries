@@ -12,27 +12,35 @@ class index extends Component {
     this.state = {
       countries: data
     };
+
+    this._searchCountry = this._searchCountry.bind(this);
   }
 
   render() {
     return (
       <div>
-        <Header />
+        <Header searchCountry={this._searchCountry} />
         <div className="content">
-          <List data={data} />
+          <List data={this.state.countries} />
           <Route
             path="/:cc"
             render={() => {
-              return <Details countries={this.state.countries} />;
+              return <Details countries={data} />;
             }}
           />
         </div>
       </div>
     );
   }
-
-  _searchCountry(){
-    
+  _searchCountry(event) {
+    let newCountries = data.filter(el => {
+      return el.name.common
+        .toLowerCase()
+        .includes(event.target.value.toLowerCase());
+    });
+    this.setState({
+      countries: newCountries
+    });
   }
 }
 

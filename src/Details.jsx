@@ -7,10 +7,10 @@ const Details = props => {
     el => el.cca3 === props.match.params.cc
   );
 
-  const mappedBorders = matchingCountry.borders.map(el => {
+  const mappedBorders = matchingCountry.borders.map((el, index) => {
     const foundCountry = props.countries.find(country => country.cca3 === el);
     return (
-      <li>
+      <li key={index}>
         <Link to={`/${el}`}>{foundCountry.name.common}</Link>
       </li>
     );

@@ -25374,7 +25374,7 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Header = function Header() {
+var Header = function Header(props) {
   return _react2.default.createElement(
     "nav",
     { className: "navbar navbar-dark bg-primary mb-3" },
@@ -25393,7 +25393,10 @@ var Header = function Header() {
           className: "form-control mr-sm-2",
           type: "search",
           placeholder: "Search",
-          "aria-label": "Search"
+          "aria-label": "Search",
+          onChange: function onChange(event) {
+            return props.searchCountry(event);
+          }
         })
       )
     )
@@ -25528,13 +25531,13 @@ var Details = function Details(props) {
     return el.cca3 === props.match.params.cc;
   });
 
-  var mappedBorders = matchingCountry.borders.map(function (el) {
+  var mappedBorders = matchingCountry.borders.map(function (el, index) {
     var foundCountry = props.countries.find(function (country) {
       return country.cca3 === el;
     });
     return _react2.default.createElement(
       "li",
-      null,
+      { key: index },
       _react2.default.createElement(
         _reactRouterDom.Link,
         { to: "/" + el },
@@ -38744,26 +38747,26 @@ var index = function (_Component) {
     _this.state = {
       countries: _countries2.default
     };
+
+    _this._searchCountry = _this._searchCountry.bind(_this);
     return _this;
   }
 
   _createClass(index, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(_Header2.default, { searchCountry: this._searchCountry }),
         _react2.default.createElement(
           "div",
           { className: "content" },
-          _react2.default.createElement(_List2.default, { data: _countries2.default }),
+          _react2.default.createElement(_List2.default, { data: this.state.countries }),
           _react2.default.createElement(_reactRouterDom.Route, {
             path: "/:cc",
             render: function render() {
-              return _react2.default.createElement(_Details2.default, { countries: _this2.state.countries });
+              return _react2.default.createElement(_Details2.default, { countries: _countries2.default });
             }
           })
         )
@@ -38771,7 +38774,14 @@ var index = function (_Component) {
     }
   }, {
     key: "_searchCountry",
-    value: function _searchCountry() {}
+    value: function _searchCountry(event) {
+      var newCountries = _countries2.default.filter(function (el) {
+        return el.name.common.toLowerCase().includes(event.target.value.toLowerCase());
+      });
+      this.setState({
+        countries: newCountries
+      });
+    }
   }]);
 
   return index;
@@ -38835,7 +38845,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '44245' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '46549' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

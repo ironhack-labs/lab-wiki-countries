@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const Header = props => {
   return (
     <nav className="navbar navbar-dark bg-primary mb-3">
       <div className="container">
@@ -13,6 +13,7 @@ const Header = () => {
             type="search"
             placeholder="Search"
             aria-label="Search"
+            onChange={event => props.searchCountry(event)}
           />
         </form>
       </div>
