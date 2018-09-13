@@ -7,7 +7,7 @@ const List = props => {
   .map((el, index) => {
     return (
       <Link key={"country_" + index} to={`/${el.cca3}`} className="clickable list-group-item list-group-item-action">
-        {el.name.common}
+        {el.flag} {el.name.common}
       </Link>
     );
   });

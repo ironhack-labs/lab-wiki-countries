@@ -20,7 +20,7 @@ const Details = props => {
 
   return (
     <div className="details">
-      <h1>{matchedCountry[0].name.common}</h1>
+      <h1>{matchedCountry[0].name.common} {matchedCountry[0].flag}</h1>
       <table>
         <tbody>
           <tr>
