@@ -1,0 +1,8 @@
+.main-content {
+    padding: 50px;
+}
+
+.list-wrapper {
+    height: 600px;
+    overflow: scroll;
+}
