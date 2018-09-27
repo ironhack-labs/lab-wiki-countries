@@ -1,0 +1,13 @@
+.detail-table tr {
+    height: 50px;
+    border-top: 1px solid darkgrey;
+}
+
+td {
+    width: 220px;
+}
+
+.borders {
+    display: flex;
+    padding-top:10px;
+}

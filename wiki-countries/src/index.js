@@ -14,8 +14,8 @@ class App extends React.Component {
 
     state={
         countries: countries.slice(),
-        selectedId: "",
-        selectedCountry: null
+        selectedId: countries[0].cca3,
+        selectedCountry: {...countries[0]}
     };
 
     selectCountry = (id) => {
@@ -33,6 +33,16 @@ class App extends React.Component {
     render() {
 
         const { countries } = this.state;
+        const country = {...this.state.selectedCountry };
+
+
+        if(country.borders) {
+            country.borders = country.borders.map( b => {
+                return [b, this.state.countries.find(c => c.cca3 === b).name.common];
+            });
+        }
+
+
         return (
             <div>
                 <Header />
@@ -42,7 +52,7 @@ class App extends React.Component {
                             <CountryList list={ countries } selectCountry={ this.selectCountry }/>
                         </div>
                         <div className="col-12 col-md-8">
-                            <Route  path='/countries/:id' render={ () => CountryDetail(this.state.selectedCountry) }/>
+                            <Route  path='/countries/:id' render={ () =>  <CountryDetail country={ country } select={ this.selectCountry } /> }/>
                         </div>
                     </div>
                 </div>
