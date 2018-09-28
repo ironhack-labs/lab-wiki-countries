@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import allCountries from './countries.json';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 class CountryDetail extends Component {
@@ -19,7 +20,7 @@ class CountryDetail extends Component {
 
     const actualCountryDetail = this.getCountry(this.props.match.params.id)
     console.log("carajo", actualCountryDetail)
-
+  actualCountryDetail
     // actualCountryDetail.borders.map((one)=>{
     //     console.log('1', one)
     // })
@@ -27,10 +28,12 @@ class CountryDetail extends Component {
     const newCountry= actualCountryDetail.borders.map((one)=>{
       return(
         <ul>
-          <li className="newLi"> {this.getCountry(one).name.common}  </li>
+          <Link to={`/country/${this.getCountry(one).cca3}`}> <li className="newLi"> {this.getCountry(one).name.common}  </li>  </Link>
+
         </ul>
+        
       )
-    // console.log("pais",this.getCountry(one).name.common)
+    // console.log("pais1",this.getCountry(one).cca3)
     })
 
     return (
