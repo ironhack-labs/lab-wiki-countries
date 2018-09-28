@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Main from './Main';
 
 
+
 const CountryDetails = (props) => {
 
     const getCountry = (name) => {
@@ -24,6 +25,8 @@ const CountryDetails = (props) => {
 
     
     return (
+
+     
         <div className="row justify-content-between  mt-4">
         <Main />
         <div className="col-7">
@@ -35,7 +38,7 @@ const CountryDetails = (props) => {
            <hr/>
             <div className="row">
                 <div className="col-6">
-                    Borders:
+                   {theActualCountry.borders.length >0 && <p>Borders: </p> } 
                 </div>  
                 <ul className="col-6">
                 {theActualCountry.borders.map((oneCode, index) => {
@@ -55,6 +58,7 @@ const CountryDetails = (props) => {
             </div> 
            
         </div>
+     
     )
 
 

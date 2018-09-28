@@ -8,6 +8,7 @@ import allCountries from '../countries.json';
 const Main = () => {
   return (
 
+
       <div className="main list-group col-5">
         {allCountries.map((oneCountry, index) => {
           return (
@@ -21,6 +22,7 @@ const Main = () => {
           )
               })}
       </div>
+
 
 
   )
