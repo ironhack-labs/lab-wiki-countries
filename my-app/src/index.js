@@ -4,6 +4,17 @@ import { BrowserRouter } from 'react-router-dom'
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
+class Countrydetail extends React.Component {
+    render() {
+        const { cca3 } = this.props;
+        return(
+            <div>
+                
+            </div>
+        )
+    }
+}
+
 class App extends React.Component {
   render() {
     return (
