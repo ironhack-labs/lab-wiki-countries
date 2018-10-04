@@ -34,7 +34,6 @@ export class CountryList extends Component {
 		}
 
 		this.props.onCountrySelected(id, countrySelected);
-	
 	}
  
 	renderCountries = (el) => {
