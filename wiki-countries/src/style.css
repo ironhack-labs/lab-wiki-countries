@@ -1,0 +1,25 @@
+header{
+  width: 100%;
+  background:rgb(0, 154, 250);
+  padding:10px;
+  color:white;
+}
+.row{
+  width: 100%;
+}
+.list-group {
+  overflow-y: scroll;
+  height: calc(100vh - 80px);
+}
+div>ul>li{
+  padding:5px;
+  list-style: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+div>ul{
+  
+  padding:10px
+}
+div ul li ul li{
+  list-style: disc;
+}
