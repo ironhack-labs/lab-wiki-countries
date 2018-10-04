@@ -1,5 +1,4 @@
 import React from "react";
-import { Switch, Route } from 'react-router-dom';
 import { CountryList } from './components/CountryList';
 import { CountryDetail } from './components/CountryDetail';
 import './app.css';
@@ -9,10 +8,23 @@ export class App extends React.Component {
 
 	constructor(props){
 		super(props);
-		this.state = {}
+		this.state = {
+			id:'',
+			country: ''
+		}
+	}
+
+
+	handleCountrySelected = (id, countrySelected) => {
+		
+		//this.setState({id});
+		this.setState({id, country: countrySelected});
+		
 	}
 
 	render() {
+		let {id, country} = this.state;
+		console.log(this.state)
 		return (
 			<section className="container">
 				<div className="row">
@@ -22,10 +34,10 @@ export class App extends React.Component {
 				</div>
 				<div className="row">
 					<div className="col-sm-6 col-md-4">
-						<CountryList/>
+						<CountryList onCountrySelected={(id, countrySelected) => this.handleCountrySelected(id, countrySelected)}/>
 					</div>
 					<div className="col-sm-6 col-md-8">
-						<CountryDetail/>
+						<CountryDetail id={id} country={country}/>
 					</div>
 				</div>
 			</section>

@@ -1,16 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
+import './countryDetail.css';
 
-export class CountryDetail extends React.Component {
+
+export class CountryDetail extends Component {
 	
-	constructor(props) {
-		super(props)
-			this.state = {
-		}
-	}
-	
+
+
+
 	render() {
+		let {id, country} = this.props;
+		
 		return (
-			<p>DETAIL</p>
+			<div className="country-detail">
+				<h2 >Hola {id}</h2>
+				<div>{country.capital[0]}</div>
+			</div>
 		)
 	}
 }

@@ -1,3 +1,5 @@
 .country-detail {
-	margin-top: 60px;
+	position: fixed;
+	top: 70px;
+
 }
