@@ -27,6 +27,7 @@ export class CountryList extends Component {
 
 		country = country[0];
 		let countrySelected = {
+			name: country.name.common,
 			capital: country.capital,
 			area: country.area,
 			borders: country.borders
@@ -43,7 +44,6 @@ export class CountryList extends Component {
 			flag={el.flag} 
 			id={el.ccn3} 
 			onCountryClick={id => this.handleCountryClick(id)}/>
-			
 	}
 
 	render() {

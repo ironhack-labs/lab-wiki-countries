@@ -8,12 +8,15 @@ export class CountryDetail extends Component {
 
 
 	render() {
-		let {id, country} = this.props;
-		
+		let {country} = this.props;
+
+
 		return (
 			<div className="country-detail">
-				<h2 >Hola {id}</h2>
-				<div>{country.capital[0]}</div>
+				<h2>{country.name}</h2>
+				<div>{country.capital}</div>
+				<div>{country.area &&  country.area !=='' ? `${country.area} Km`:''} </div>
+				
 			</div>
 		)
 	}

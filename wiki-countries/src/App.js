@@ -17,7 +17,6 @@ export class App extends React.Component {
 
 	handleCountrySelected = (id, countrySelected) => {
 		
-		//this.setState({id});
 		this.setState({id, country: countrySelected});
 		
 	}
