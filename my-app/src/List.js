@@ -12,7 +12,7 @@ class CountryDetail extends Component {
     <div>
       <h2>{country[0].name.official}</h2>
       <hr />
-      <span>  Country Capital:  </span>
+      <span> Country Capital:  </span>
       <span>{country[0].capital}</span>
       <hr />
       <span>  Country Area:  </span>

@@ -18,8 +18,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Countries} />
                 <Route path="/countries" component={Countries} />
-                <Route path="/countries/:name" component={List}
-                />
+                <Route path="/countries/:id" component={List} />
               </Switch>
             </div>
           </div>
