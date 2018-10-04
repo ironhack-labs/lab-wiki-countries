@@ -1,5 +1,17 @@
 .country-detail {
 	position: fixed;
 	top: 70px;
+}
 
+.country-detail div {
+	padding: 15px;
+
+}
+
+.country-detail div:not(:last-child) {
+	border-bottom: 1px solid #ededed;
+}
+
+.country-detail strong {
+	padding-right: 10px;
 }

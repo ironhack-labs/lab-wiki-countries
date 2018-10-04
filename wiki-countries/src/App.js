@@ -16,14 +16,11 @@ export class App extends React.Component {
 
 
 	handleCountrySelected = (id, countrySelected) => {
-		
 		this.setState({id, country: countrySelected});
-		
 	}
 
 	render() {
 		let {id, country} = this.state;
-		console.log(this.state)
 		return (
 			<section className="container">
 				<div className="row">
