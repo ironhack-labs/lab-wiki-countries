@@ -9,7 +9,6 @@ class CountryDetail extends React.Component {
     render() {
         const { cca3 } = this.props.match.params;
         const country = countries.filter(e => e.cca3 === cca3)[0];
-        // console.log(country.borders)
         return (
             <div>
                 <div className='row container'>
