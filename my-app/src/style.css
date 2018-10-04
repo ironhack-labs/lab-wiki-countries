@@ -1,0 +1,10 @@
+.selected{
+    color: white;
+    background-color: blue;
+}
+
+.countries{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 80vh;
+}
