@@ -18,7 +18,7 @@ class CountryDetail extends Component{
            <div>
              <p>País: {pais.name?pais.name.common:''}</p>
              <p>Capital: {pais.name?pais.capital:''}</p>
-             <p>Area: {pais.name?pais.name.common:''}</p>
+             <p>Area: {pais.name?pais.name.area:''}</p>
            </div>
        )
    }
