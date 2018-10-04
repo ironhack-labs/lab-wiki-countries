@@ -8,7 +8,7 @@ const Routes = () => {
     return (
         <Switch>
 
-            <Route path="/detail" component={CountryDetail} />
+            <Route path="/detail/:id" component={CountryDetail} />
 
         </Switch>
     )
