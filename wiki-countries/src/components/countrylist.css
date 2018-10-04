@@ -1,0 +1,28 @@
+.country-list {
+	border-right: 1px solid #ededed;
+	border-left: 1px solid #ededed;
+	margin-top: 60px;
+}
+
+.country-list ul {
+	padding-left: 0;
+	margin-left: 0;
+	list-style-type: none;
+	border-top: 1px solid #ededed;
+}
+
+.country-item {
+	padding: 15px 25px;
+	border-bottom: 1px solid #ededed;
+	cursor: pointer;
+}
+
+.country-item:hover {
+	background-color: #efefef;
+}
+
+.country-item p {
+	display: inline-block;
+	margin-bottom: 0;
+	padding-right: 5px;
+}

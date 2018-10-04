@@ -1,0 +1,16 @@
+.header {
+	background-color: #0D8FF4;
+	padding: 12px 25px;
+	position: fixed;
+	width: 100%;
+	height: 50px;
+	width: 75%;
+	z-index: 1;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.header .title {
+	color: #fff;
+	margin-bottom: 0;
+}
