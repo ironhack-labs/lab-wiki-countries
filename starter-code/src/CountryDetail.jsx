@@ -26,7 +26,7 @@ class CountryDetail extends Component {
           {countryBorders.map(e => (
             <li>
               <Link
-                to={"/" + e.cca3}
+                to={`/${e.cca3}`}
                 className="list-group-item list-group-item-action"
                 key={e.cca3}
               >
