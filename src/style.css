@@ -1,0 +1,34 @@
+.App{
+    display: flex;
+    flex-direction: row;
+}
+
+.Title{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    background-color: #0087FB;
+    height: 60px;
+    color:white;
+    vertical-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left:20px;
+
+}
+
+.lista{
+    height: 90vh;
+	width: 25%;
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+	overflow-y: scroll;
+}
+
+.detalle{
+    padding-top: 5%;
+    padding-left: 5%;
+    width:100%;
+    background-color: #ECECEC;
+}
