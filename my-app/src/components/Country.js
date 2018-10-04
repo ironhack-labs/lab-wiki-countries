@@ -11,7 +11,7 @@ export class Country extends Component {
         <div className="list-group col-5 pre-scrollable">
             {countriesList.map((country, index) => {
                 return (
-                    <div key={index}className="list-group-item list-group-item-action">
+                    <div key={index} className="list-group-item list-group-item-action">
                   <Link to={'/country/' + country.cca3}><div><spam>{country.flag}</spam>{country.name.common}</div></Link>
                 </div>
                     )
