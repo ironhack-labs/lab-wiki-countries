@@ -24,7 +24,8 @@ class App extends React.Component {
           <div class="col-5">
             <div className="list-group perso">
             { this.state.data.map((e,i) => 
-            <NavLink to={"/"+e.cca3} className="list-group-item list-group-item-action" key={e.cca3}>{e.name.common}</NavLink>)
+            <NavLink to={"/"+e.cca3} className="list-group-item list-group-item-action" key={e.cca3}>
+            <img src={e.flag} alt="" /> {e.name.common}</NavLink>)
             }
             </div>
           </div>
