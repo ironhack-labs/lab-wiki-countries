@@ -4,8 +4,11 @@ import {Link} from 'react-router-dom';
 
 
 class CountryDetail extends Component {
+    // constructor(props){
+    //     super(props)
+
   render() {
-    let cca3 = this.props.params.cca3
+    let cca3 = this.params.cca3
 
     let country = countriesList.filter(e => e.cca3.includes(cca3));
 
@@ -17,9 +20,7 @@ class CountryDetail extends Component {
             <p>{country.borders}<Link to={'/country/' + country.cca3}>{country.name.common}</Link></p>
 
         </div>
-    )
-      
-
+    )  
   }
 }
 
