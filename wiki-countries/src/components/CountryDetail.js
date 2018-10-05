@@ -6,7 +6,6 @@ export class CountryDetail extends Component {
 	
 
 
-
 	render() {
 		let {id, country} = this.props;
 
