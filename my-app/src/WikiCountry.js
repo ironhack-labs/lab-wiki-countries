@@ -6,7 +6,7 @@ import { CountryDetail } from "./Components/CountryDetail";
 
 // import Navigation from "./Navigation";
 
-export class WikiCountry extends Component {
+export class WikiCountry extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -15,7 +15,7 @@ export class WikiCountry extends Component {
   }
 
   render() {
-    console.log(this.state.countries);
+    // console.log(this.state.countries);
 
     return (
       <div className="container">
@@ -34,35 +34,32 @@ export class WikiCountry extends Component {
             <h3>Search Country</h3>
             <div className="list-group">
               {this.state.countries.map((ele, i) => {
-                console.log(ele.cca3, i, ele.name.common);
+                // console.log(ele.cca3, i, ele.name.common);
                 return (
-                  <a
+                  <NavLink
                     key={ele.cca3}
-                    href="#"
+                    to={'/'+ele.cca3}
                     className="list-group-item list-group-item-action disable"
                   >
                     {ele.flag} {ele.name.common}
-                  </a>
+                  </NavLink>
                 );
               })}
-              {/* <a href="#" className="list-group-item list-group-item-action active">
-                Elemento Country     to={'/+ele.cca3'}
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                Elemento 2
-              </a> */}
             </div>
           </div>
 
           <div className="col-7">
             <h3>Details</h3>
             <div className="list-group">
-              {/* <a href="#" className="list-group-item list-group-item-action active">
-                Elemento 1
-              </a> */}
-              <a href="#" className="list-group-item list-group-item-action">
-                <CountryDetail/>
-              </a>
+              <Route
+                path="/:id"
+                render={(props) => (
+                  <CountryDetail
+                    id={props.match.params.id}
+                    data={this.state.countries}
+                  />
+                )}
+              />
             </div>
           </div>
         </div>

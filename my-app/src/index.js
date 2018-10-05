@@ -14,11 +14,9 @@ class App extends React.Component {
 ReactDOM.render(
   <div>
     <h1>IronWiki Country Information</h1>
-    <WikiCountry/>
-
-    {/* <BrowserRouter>
-    <App />
-  </BrowserRouter> */}
+    <BrowserRouter>
+      <WikiCountry />
+    </BrowserRouter>
   </div>,
   document.getElementById("root")
 );
