@@ -19,9 +19,6 @@ export class App extends React.Component {
 		this.setState({id, country: countrySelected});
 	}
 
-	handleBorderSelected = (id, countrySelected) => {
-		this.setState({id, country: countrySelected});
-	}
 
 	render() {
 		let {id, country} = this.state;
@@ -37,7 +34,7 @@ export class App extends React.Component {
 						<CountryList onCountrySelected={(id, countrySelected) => this.handleCountrySelected(id, countrySelected)}/>
 					</div>
 					<div className="col-sm-6 col-md-8">
-						<CountryDetail onCountrySelected={(id, countrySelected) => this.handleCountrySelected(id, countrySelected)} id={id} country={country}/>
+						<CountryDetail onBorderSelected={(id, countrySelected) => this.handleCountrySelected(id, countrySelected)} id={id} country={country}/>
 					</div>
 				</div>
 			</section>
