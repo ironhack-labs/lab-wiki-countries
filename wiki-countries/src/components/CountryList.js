@@ -13,24 +13,31 @@ export class CountryList extends Component {
 		};
 	}
 
-	bordersToNames = (country) => {
-		
+	filterCountries = (country) => {
 		let borders = country.borders;
-		let countriesFiltered = [];
-
-		countries.forEach((country) => {
+		let countriesFiltered = countries.filter((country) => {
 			if (borders.includes(country.cca3)) {
-				countriesFiltered.push(country);
-			} 
+				return country;
+			}
+			return false;
 		})
+		return countriesFiltered;
+	}
 
+
+	bordersId = (country) => {
+		let countriesFiltered = this.filterCountries(country);
+		let countriesId = countriesFiltered.map(country =>  country.ccn3);
+		return countriesId;
+	}
+
+	bordersToNames = (country) => {
+		let countriesFiltered = this.filterCountries(country);
 		let countriesName = countriesFiltered.map(country =>  country.name.common);
-
 		return countriesName;
 	}
 
 	handleCountryClick = (id) => {
-
 		let countries = this.state.countries;
 		let country = countries.filter(country => country.ccn3 === id);
 		country = country[0];
@@ -39,7 +46,8 @@ export class CountryList extends Component {
 			name: country.name.common,
 			capital: country.capital,
 			area: country.area,
-			borders: this.bordersToNames(country)
+			borders: this.bordersToNames(country),
+			bordersId: this.bordersId(country)
 		}
 
 		this.props.onCountrySelected(id, countrySelected);
