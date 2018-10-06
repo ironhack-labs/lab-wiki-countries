@@ -5,9 +5,8 @@ import { App } from './App';
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 
-ReactDOM.render(
+ReactDOM.render((
 	<Router>
 		<App />
-	</Router>,
-	document.getElementById("root")
-);
+	</Router>
+), document.getElementById('root'));
