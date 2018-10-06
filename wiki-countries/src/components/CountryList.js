@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CountryItem } from '../components/CountryItem';
+import { CountryListItem } from './CountryListItem';
 import countries from '../countries.json';
 import "./countrylist.css";
 
@@ -54,7 +54,7 @@ export class CountryList extends Component {
 	}
  
 	renderCountries = (el) => {
-		return <CountryItem 
+		return <CountryListItem 
 			key={el.ccn3} 
 			name={el.name.common} 
 			flag={el.flag} 
