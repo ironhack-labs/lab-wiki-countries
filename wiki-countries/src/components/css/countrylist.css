@@ -12,12 +12,17 @@
 }
 
 .country-item {
-	padding: 15px 25px;
+	
 	border-bottom: 1px solid #ededed;
 	cursor: pointer;
 }
 
-.country-item:hover {
+.country-item a {
+	display: block;
+	padding: 15px 25px;
+}
+
+.country-item a:hover {
 	background-color: #efefef;
 }
 
