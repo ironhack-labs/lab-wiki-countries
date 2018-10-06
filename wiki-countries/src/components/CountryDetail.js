@@ -13,10 +13,8 @@ export class CountryDetail extends Component {
 		}
 	}
 
-	handleClick = (e, id, country) => {
-		console.log(this.props.id)
-		this.props.onBorderSelected(id, country);
-		
+	handleClick = (e) => {
+		//this.props.onBorderClick(this.props.id)
 	}
 
 
@@ -25,7 +23,7 @@ export class CountryDetail extends Component {
 
 		if(country.borders.length > 0){
 			let bordersToHtml = country.borders.map((border,i) => {
-				return (<li onClick={(e) => {this.handleClick(e, bordersId[i], country)}} key={i}>
+				return (<li onClick={(e) => {this.handleClick(e, bordersId[i])}} key={i}>
 							<Link to={bordersId[i]}>{border}</Link>
 						</li>)
 			})

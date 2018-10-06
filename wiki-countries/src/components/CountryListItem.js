@@ -11,7 +11,6 @@ export class CountryListItem extends Component {
 	render() {
 		
 		let { flag, id, name } = this.props;
-		
 
 		return (
 			<li className="country-item" onClick={e => this.handleClick(e)}>

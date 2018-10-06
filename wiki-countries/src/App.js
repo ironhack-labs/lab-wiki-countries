@@ -37,7 +37,7 @@ export class App extends React.Component {
 						<CountryList onCountrySelected={(id, countrySelected) => this.handleCountrySelected(id, countrySelected)}/>
 					</div>
 					<div className="col-sm-6 col-md-8">
-						<CountryDetail onBorderSelected={(id, country) => this.handleBorderSelected(id, country)} id={id} country={country}/>
+						<CountryDetail onCountrySelected={(id, countrySelected) => this.handleCountrySelected(id, countrySelected)} id={id} country={country}/>
 					</div>
 				</div>
 			</section>
