@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import './countryDetail.css';
+import './css/countryDetail.css';
 
 
 export class CountryDetail extends Component {

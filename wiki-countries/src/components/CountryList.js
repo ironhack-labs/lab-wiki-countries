@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { CountryListItem } from './CountryListItem';
 import countries from '../countries.json';
-import "./countrylist.css";
+import "./css/countrylist.css";
 
 
 export class CountryList extends Component {
