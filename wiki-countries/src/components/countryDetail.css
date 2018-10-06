@@ -15,3 +15,11 @@
 .country-detail strong {
 	padding-right: 10px;
 }
+
+.country-detail ul {
+	padding-top: 15px;
+}
+
+.country-detail li {
+	padding-bottom: 5px;
+}
