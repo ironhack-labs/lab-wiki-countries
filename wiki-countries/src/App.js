@@ -19,6 +19,10 @@ export class App extends React.Component {
 		this.setState({id, country: countrySelected});
 	}
 
+	handleBorderSelected = (id, countrySelected) => {
+		this.setState({id, country: countrySelected});
+	}
+
 	render() {
 		let {id, country} = this.state;
 		return (
@@ -33,10 +37,12 @@ export class App extends React.Component {
 						<CountryList onCountrySelected={(id, countrySelected) => this.handleCountrySelected(id, countrySelected)}/>
 					</div>
 					<div className="col-sm-6 col-md-8">
-						<CountryDetail id={id} country={country}/>
+						<CountryDetail onBorderSelected={(id, country) => this.handleBorderSelected(id, country)} id={id} country={country}/>
 					</div>
 				</div>
 			</section>
 		)
 	}
 }
+
+//

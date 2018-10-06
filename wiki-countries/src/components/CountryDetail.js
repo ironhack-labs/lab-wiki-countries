@@ -5,13 +5,29 @@ import './css/countryDetail.css';
 
 export class CountryDetail extends Component {
 	
+	constructor(props){
+		super(props);
+		this.state = {
+			id:'',
+			country: ''
+		}
+	}
+
+	handleClick = (e, id, country) => {
+		console.log(this.props.id)
+		this.props.onBorderSelected(id, country);
+		
+	}
+
 
 	renderCountryBorders = (country) => {
 		let bordersId = country.bordersId;
 
 		if(country.borders.length > 0){
 			let bordersToHtml = country.borders.map((border,i) => {
-				return (<li key={i}><Link to={bordersId[i]}>{border}</Link></li>)
+				return (<li onClick={(e) => {this.handleClick(e, bordersId[i], country)}} key={i}>
+							<Link to={bordersId[i]}>{border}</Link>
+						</li>)
 			})
 			return (<div><strong>Borders:</strong><ul>{bordersToHtml}</ul></div>)
 		}	

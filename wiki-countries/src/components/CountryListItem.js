@@ -5,7 +5,6 @@ export class CountryListItem extends Component {
 
 
 	handleClick = (e) => {
-		console.log('PROPS', this.props);
 		this.props.onCountryClick(this.props.id)
 	}
 	
