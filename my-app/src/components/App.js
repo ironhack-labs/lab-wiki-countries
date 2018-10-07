@@ -1,20 +1,29 @@
 import React, {Component} from 'react';
-import CountryList from './CountryList'
-import CountryDetail from './CountryDetail'
-import { Link } from 'react-router-dom';
+import CountryList from './CountryList';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      countries: this.props.countries
+    };
   }
 
-  render() {
-    // console.log(this.props.countries)
-    return (
+  sortCountries(a,b) {
+      if (a.name.common < b.name.common)
+        return -1;
+      if (a.name.common > b.name.common)
+        return 1;
+      return 0;
+    }
+    
+    render() {
+      const countries = this.state.countries
+      countries.sort(this.sortCountries)
+      return (
       <div>
         <h1 class="title">Wiki Countries</h1>
-        <CountryList countries={this.props.countries}></CountryList>
+        <CountryList countries={countries}></CountryList>
       </div>
     );
   }

@@ -7,3 +7,31 @@
   text-align: left;
   margin-left: 20px;
 }
+
+.countries {
+  padding: 10px;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.1;
+}
+
+.countryList {
+  border-right: 0.5px solid rgba(0, 0, 0, 0.2)
+}
+
+.countryTitle, .capital, .borderList {
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.borders {
+  padding-left: 20px;
+}
+
+.borderList li {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.borderList {
+  
+}

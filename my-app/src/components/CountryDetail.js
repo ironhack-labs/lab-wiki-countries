@@ -12,7 +12,7 @@ class CountryDetail extends Component {
   printCountries(code) {
     let allCountries = this.props.allCountries;
 
-    return allCountries.find(e => code === e.cca3).name.common
+    return allCountries.find(e => code === e.cca3)
   }
 
   
@@ -23,12 +23,14 @@ class CountryDetail extends Component {
     // console.log(countries)
     return (
       <div class="col-8">
-        <h3>{country.name.common}</h3>
-        <h4><strong>Capital:</strong> {country.capital}</h4>
-        <ul>
+        <h3 class="countryTitle">{country.name.common}</h3>
+        <h5 class="capital"><strong>Capital:</strong> {country.capital}</h5>
+        <h5 class="borders"><strong>Borders:</strong></h5>
+        <ul class="borderList">
+
         { country.borders.map((e, i) => {
             return (
-              <li key={i}><Link to={`/country/${e}`}>{this.printCountries(e)}</Link></li>
+              <li key={i}><Link to={`/country/${e}`}>{this.printCountries(e).flag} {this.printCountries(e).name.common}</Link></li>
             )
           })}
         </ul>

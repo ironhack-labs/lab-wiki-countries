@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {Link} from "react-router-dom";
 import CountryDetail from "./CountryDetail";
 import {Switch, Route} from 'react-router-dom';
+
 class CountryList extends Component {
   constructor(props) {
     super(props);
@@ -13,10 +14,10 @@ class CountryList extends Component {
     // console.log(countries);
     return (
       <div class="row">
-        <div class="list-group col-4">
+        <div class="list-group col-4 countryList">
         { countries.map((e, i) => {
           return (
-            <Link to={`/country/${e.cca3}`} key={i}> {e.name.common}</Link>
+            <Link to={`/country/${e.cca3}`} key={i} class="countries"> {e.flag} {e.name.common}</Link>
           )
         })}
         </div>
