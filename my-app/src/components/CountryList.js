@@ -12,17 +12,17 @@ class CountryList extends Component {
     const countries = this.props.countries;
     // console.log(countries);
     return (
-      <div>
-        <div class="list-group col-4 border">
+      <div class="row">
+        <div class="list-group col-4">
         { countries.map((e, i) => {
           return (
-            <Link to={`/country/${e.cca3}`}> {e.name.common}</Link>
+            <Link to={`/country/${e.cca3}`} key={i}> {e.name.common}</Link>
           )
         })}
         </div>
         <Switch>
           <Route path='/country/:id' render={(props) =>
-            <CountryDetail country={countries.find(e => props.match.params.id === e.cca3)} />
+            <CountryDetail allCountries={countries} country={countries.find(e => props.match.params.id === e.cca3)} />
           } />
         </Switch>
       </div>

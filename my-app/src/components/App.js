@@ -13,8 +13,8 @@ class App extends Component {
     // console.log(this.props.countries)
     return (
       <div>
+        <h1 class="title">Wiki Countries</h1>
         <CountryList countries={this.props.countries}></CountryList>
-        {/* <CountryDetail countries={this.props.countries}/> */}
       </div>
     );
   }
