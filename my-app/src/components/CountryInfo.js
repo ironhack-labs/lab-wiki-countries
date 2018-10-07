@@ -1,21 +1,39 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import countriesJson from '../countries.json'
+import { Link } from 'react-router-dom';
 
-const CountryInfo = ({country}) => {
-    return (
+class CountryInfo extends React.Component {
+    constructor(props) {
+        super(props)
+        this.name = this.props.country.name.common;
+        this.capital = this.props.country.capital;
+        this.area = this.props.country.area
+        this.borders = this.props.country.borders
+        console.log(this.props.country);
+    }
 
-        <div className='container' style={{
-            width: '700px',
-            height: '900px',
-            float: 'left',
-            background: 'grey'
-        }}>
 
-        <h1>hola</h1>
-        </div>
 
-    )
+    render() {
+        return (
+            <div className='dets'>
+                <h1>{this.name}</h1>
+                <hr />
+                <h3>Capital: {this.capital}</h3>
+                <hr />
+                <h3>Area: {this.area}</h3>
+                <hr />
+                <h3>Borders: </h3>
+                <div className='borderCountries'>
+                    <ul>
+                        {
+                        this.borders.map(e => <Link to={e}><li>{e}</li></Link>)
+                        }
+                    </ul>
+                </div>
+            </div>
+        )
+    }
 }
 
 export default CountryInfo;

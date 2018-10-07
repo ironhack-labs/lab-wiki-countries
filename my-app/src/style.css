@@ -2,3 +2,36 @@
     padding: 0;
     margin: 0
 }
+
+.details{
+    float: left;
+    height: 100%;
+}
+
+.countries {
+    display: block;
+}
+
+.container {
+    width: 100%;
+}
+
+.borderCountries {
+    font-size: 40px;
+    float: right;
+}
+
+.clr {
+    clear: both;
+}
+
+.element {
+    position:fixed;
+    width:50px;
+    height:70px;
+    border:0px solid #d6d6d6;
+}
+
+.dets {
+    width: 600px;
+}
