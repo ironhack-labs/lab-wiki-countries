@@ -4,59 +4,69 @@
 
 ## Introduction
 
-After spending too much time on GitHub, you found a [JSON database of countries](https://github.com/mledoze/countries/blob/master/countries.json) and you decide to use it to create your Wikipedia for countries!
+After spending too much time on GitHub, you found a [JSON database of countries](https://raw.githubusercontent.com/mledoze/countries/master/countries.json) and you decide to use it to create your Wikipedia for countries!
 
 ![](https://media.giphy.com/media/fdUHHKI36bTVduRDfB/giphy.gif)
 
 
-## Installation 
+## Requirements
 
-### Setup a basic project
-Commands to launch
+- Fork this repo
+- Clone this repo
+
+## Submission
+
+- Upon completion, run the following commands:
+
+  ```
+  git add .
+  git commit -m "done"
+  git push origin master
+  ```
+
+- Create Pull Request so your TAs can check up your work.
+
+## Instructions
+
+### React Router installation
+Don't forget to install the React Router:
 ```sh
-$ npm install -g create-react-app # Install globally the `create-react-app` command
-$ create-react-app my-app # Create a React project folder "my-app"
-$ cd my-app
-$ npm install --save react-router-dom
-$ rm -f src/*
-$ touch src/index.js src/style.css # Create 2 files
+$ npm install react-router-dom
 ```
 
-Your `src/index.js` file
-```javascript
+And setup the router in your `src/index.js` file:
+
+```jsx
+// src/index.js
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'
-import './style.css';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        {/* Your application code */}
-      </div>
-    );
-  }
-}
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.render((
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-  ),
-  document.getElementById('root')
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>, 
+    document.getElementById('root')
 );
 
-```
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();
 
-To help you, we gave you an example of page inside [`example.html`](example.html)
+```
 
 ### Bootstrap installation
 
-We will use [Twitter Bootstrap V4](https://getbootstrap.com/) for the design :)
+We will use [Bootstrap V4](https://getbootstrap.com/) for the design :+1: 
 
 ```sh
-$ npm install bootstrap --save
+$ npm install bootstrap
 ```
 
 ```javascript
@@ -71,14 +81,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 In this iteration, we will focus on general layout. You will create at least 2 components:
 - `App`: For the general layout
-- `CountryDetail`: A component that will receive `cca3` as a props, that is going to respresent the id of the country (example: `ESP` for Spain, `FRA` for France).
+- `CountryDetail`: Your only `Route` that will show a component that will receive the country code (`cca3`) in the URL. That is going to represent the id of the country (example: `ESP` for Spain, `FRA` for France).
 
-To help you, you can use:
-- `example.html`: An example of what you can render
-- `countries.json`: The JSON database of countries. It's an array of object where each object represents a country and the property `cca3` is unique and will be used as the key to navigate.
+To help you, we gave you an example of a page inside [`example.html`](https://github.com/sandrabosk/lab-wiki-countries/blob/master/starter-code/example.html)
 
-
-As a reminder with Twitter Bootstrap:
+As a reminder with Bootstrap:
 ```html
 <!-- Grid: https://getbootstrap.com/docs/4.0/layout/grid/#setting-one-column-width -->
 <div class="row">
@@ -97,10 +104,13 @@ As a reminder with Twitter Bootstrap:
 ```
 
 
-### Iteration 2 | Create the all application
+### Iteration 2 | Create the entire application
 
-Everything is in the title. Good luck :)
+Everything is in the title. Good luck :smile: 
+
+In this case you only need a `Switch` to either show the `CountryDetail`
+component or show nothing.
+Your `App` component should **always** show the list of countries.
 
 
-
-
+Happy coding! :heart:
