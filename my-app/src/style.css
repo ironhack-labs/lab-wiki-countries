@@ -1,0 +1,9 @@
+.App{
+  display: flex;
+}
+
+.fix{
+  position: fixed;
+  margin-left:280px;
+  margin-top: 200px 
+}
