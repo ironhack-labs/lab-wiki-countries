@@ -1,0 +1,11 @@
+.App{
+  display:flex;
+}
+.ant-menu-inline{
+  overflow-y: scroll!important;
+  width:400px!important;
+}
+.fix{
+  position: fixed;
+  margin-left:420px;
+}
