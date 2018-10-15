@@ -1,0 +1,8 @@
+.app{
+  display: flex;
+}
+
+.fix{
+  position: fixed;
+  margin-left: 300px;
+}
