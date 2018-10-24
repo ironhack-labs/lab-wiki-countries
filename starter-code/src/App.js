@@ -17,8 +17,8 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path="/" component={countryList} />
-          <Route exact path="/countrydetail/:id" component={CountryDet} />
+          <Route exact path="/" component={countryList} className="all-countries-list"/>
+          <Route exact path="/countrydetail/:id" component={CountryDet}  className='countries-list'/>
         </Switch>
       </div>
     );
