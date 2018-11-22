@@ -15,18 +15,19 @@ export default function CountryDetail(props) {
   return (
     <div className="country-detail">
       <h1>{detailCountry.name.common}</h1>
-      <table>
+      <table className="table">
         <tbody>
             <tr>
-                <th>Capital</th>
+                <th scope="row">Capital</th>
                 <td>{detailCountry.capital[0]}</td>
             </tr>
             <tr>
-                <th>Area</th>
+                <th scope="row">Area</th>
                 <td>{detailCountry.area}km2</td>
             </tr>
+            {detailCountry.borders.length > 0 &&
             <tr>
-                <th>Borders</th>
+                <th scope="row">Borders</th>
                 <td>
                     <ul>
                         {detailCountry.borders.map(border => (
@@ -35,6 +36,7 @@ export default function CountryDetail(props) {
                     </ul>
                 </td>
             </tr>
+        }
         </tbody>
       </table>
     </div>

@@ -13,12 +13,12 @@ class App extends Component {
         <div className="leftColumn">
           <ul>
             {countriesJSON.map(ctr => (
-              <li>
-                {unescape(ctr.flag)}
-                <NavLink to={"/" + ctr.cca3}> 
-                  {ctr.name.common}
-                </NavLink>
-              </li>
+              <NavLink to={"/" + ctr.cca3}> 
+                <li className="countries-list">
+                  {unescape(ctr.flag)}
+                    {ctr.name.common}
+                </li>
+              </NavLink>
             ))}
           </ul>
         </div>
