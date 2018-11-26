@@ -1,12 +1,14 @@
 .App {
   text-align: center;
 }
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
 }
-
+.col-7{
+  float: right;
+  margin: -64% -50px 0 0;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

@@ -11,7 +11,8 @@
 				"pap": {
 					"official": "Aruba",
 					"common": "Aruba"
-				}
+				},
+				"id": 1
 			}
 		},
 		"tld": [".aw"],
