@@ -1,25 +1,47 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Switch, Route, Link } from "react-router-dom";
+
+import CountryDetail from "./components/CountryDetail.js"
+
+import countriesList from "./countries.json";
+
 import './App.css';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      country: countriesList,
+    }
+  }
+
   render() {
+
+    const { country } = this.state;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        
+        <div className="row">
+
+          <div className="col-5 biglist">
+            <div className="list-group">
+              {country.map(oneCountry => {
+                  return (
+                    <Link to={`/${oneCountry.cca3}`}  className="list-group-item list-group-item-action">
+                      {oneCountry.flag} {oneCountry.name.common}                        
+                    </Link>
+                  )
+              })}
+        </div>
+      </div>
+
+          <div className="col-7">
+            <Switch>
+              <Route path="/:cca3" component = {CountryDetail} />
+            </Switch>
+          </div>
+
       </div>
     );
   }
