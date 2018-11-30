@@ -1,27 +1,45 @@
 import React, { Component } from "react";
+import countries from "../countries.json";
+import { Link } from "react-router-dom";
 
 class CountryDetail extends Component {
-  /*componentWillUpdate() {
-    console.log(this.props);
+  constructor() {
+    super();
+    this.state = {
+      country: ""
+    };
+  }
+
+  /*componentDidUpdate() {
+    let { country } = this.state;
+
+    country = countries.find(
+      countrie => countrie.cca3 === this.props.match.params.countrie
+    );
+
+    this.setState({ country });
   }*/
 
   render() {
-    console.log(this.props);
+    let { country } = this.state;
+    country = countries.find(
+      countrie => countrie.cca3 === this.props.match.params.countrie
+    );
 
     return (
       <div className="col-7">
-        <h1>France</h1>
+        <h1>{country.name.common}</h1>
         <table className="table">
           <thead />
           <tbody>
             <tr>
               <td>Capital</td>
-              <td>Paris</td>
+              <td>{country.capital}</td>
             </tr>
             <tr>
               <td>Area</td>
               <td>
-                551695 km
+                {country.area} km
                 <sup>2</sup>
               </td>
             </tr>
@@ -29,30 +47,14 @@ class CountryDetail extends Component {
               <td>Borders</td>
               <td>
                 <ul>
-                  <li>
-                    <a href="/AND">Andorra</a>
-                  </li>
-                  <li>
-                    <a href="/BEL">Belgium</a>
-                  </li>
-                  <li>
-                    <a href="/DEU">Germany</a>
-                  </li>
-                  <li>
-                    <a href="/ITA">Italy</a>
-                  </li>
-                  <li>
-                    <a href="/LUX">Luxembourg</a>
-                  </li>
-                  <li>
-                    <a href="/MCO">Monaco</a>
-                  </li>
-                  <li>
-                    <a href="/ESP">Spain</a>
-                  </li>
-                  <li>
-                    <a href="/CHE">Switzerland</a>
-                  </li>
+                  {country.borders.map((countrie, i) => {
+                    let name = countries.find(c => c.cca3 === countrie);
+                    return (
+                      <li key={i}>
+                        <Link to={`/${countrie}`}>{name.name.common}</Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </td>
             </tr>
