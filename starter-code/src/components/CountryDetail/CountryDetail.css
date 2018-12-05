@@ -1,0 +1,17 @@
+.detail-container{
+padding: 40px 70px;
+  width: 800px;
+}
+.area{
+  display: flex;
+  justify-content: space-between;
+}
+
+.capital{
+  display: flex;
+  justify-content: space-between;
+}
+.borders{
+  display: flex;
+  justify-content: space-between;
+}

@@ -7,7 +7,7 @@ export default class ListCountries extends Component {
     return (
       <div>
         <Link to={`/countrydetail/${this.props.cca3}`} style={{ textDecoration: 'none' }}>
-          <div>
+          <div className="container-boxCountry">
             <div className="boxCountry" >
               <span>{this.props.flag}</span>
               <p>{this.props.name.common}</p>

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ListCountries from './components/ListCountries/ListCountries.js'
 import countries from './countries.json'
-import { Link, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import CountryDetail from './components/CountryDetail/CountryDetail';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div className="App">
        
-          <div>
+          <div className="prueba">
             {this.state.country.map(country => <ListCountries {...country} />)}
           </div>
       
