@@ -6,9 +6,9 @@ export default class CountryDetail extends Component {
   render() {
     let {name,capital,borders,area}=countries.find(country=>country.cca3==this.props.match.params.id)
     return (
-      <div class="col-7">
+      <div className="col-7">
       <h1>{name.common}</h1>
-      <table class="table">
+      <table className="table">
         <thead></thead>
         <tbody>
           <tr>
