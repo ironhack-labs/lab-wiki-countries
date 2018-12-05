@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CountryDetail from './components/CountryDetail/CountryDetail';
+import countries from './countries.json'
 
-class App extends Component {
+export default class App extends Component {
+
+  constructor(){
+    super();
+
+    this.state = {
+      countries
+    }
+
+  }
+
+
   render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        {/* <CountryDetail/> */}  
+
+  
+        {
+          this.state.countries.map(country => <h1>{country.name.common}</h1>)
+        }
+        
       </div>
     );
-  }
+    
+  }  
 }
 
-export default App;
+
