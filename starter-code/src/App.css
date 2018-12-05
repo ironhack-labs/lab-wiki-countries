@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -29,4 +27,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.countries-list{
+    max-height: 90vh; overflow: scroll;
 }
