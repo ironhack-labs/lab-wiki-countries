@@ -7,7 +7,7 @@ class CountryDetails extends Component {
   
 
   render () {
-      const country = countries.find(country => country.cca3 === this.props.match.params.cca3)
+      const country = countries.find(country => country.cca3 === this.props.match.params.cca3);
       console.log(country)
       return (
           <div>
@@ -18,19 +18,20 @@ class CountryDetails extends Component {
           <hr/>
           <h5>Area {country.area} km2</h5>
           <hr/>
-          <td>borders</td>
+          <td>borders </td>
           <td>
             <ul>
 
             {country.borders.map((e) => {
+             const completeName = countries.find(country => country.cca3 ===  e)
                 return (
-                  <li><Link to={e}>{e}</Link></li>
+                  <li><Link to={e}>{completeName.name.common}</Link></li>
                 )
             }) 
+
             }
             </ul>
           </td>
-          {/* <h5>Borders {country.borders}</h5> */}
 
             </div>
       )
