@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import countries from "../../countries.json";
 import { Link } from "react-router-dom";
+
+import countries from "../../countries.json";
 
 export default class CountryDetail extends Component {
   state = {

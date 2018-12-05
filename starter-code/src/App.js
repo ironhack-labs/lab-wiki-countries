@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import countries from "./countries.json";
 import { Switch, Link, Route } from "react-router-dom";
+
 import CountryDetail from './components/CountryDetail';
+
+import countries from "./countries.json";
 
 class App extends Component {
   state = {
