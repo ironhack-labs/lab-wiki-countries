@@ -1,25 +1,36 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import "./components/ListCountries/ListCountries";
+import ListCountries from "./components/ListCountries/ListCountries";
+import countries from "./countries.json";
+import CountryDetails from "./components/CountryDetail/CountryDetail";
+
+import { Switch, Route } from "react-router-dom";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      countries: countries
+    };
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <nav className="nav-bar">
+          <div>WikiCountries</div>
+        </nav>
+        <div className="main">
+          <div>
+            {this.state.countries.map((countrie, index) => (
+              <ListCountries key={index} {...countrie} />
+            ))}
+          </div>
+          <div className="detail">
+              <Route exact path="/CountryDetail/:id" component={CountryDetails} />
+          </div>
+        </div>
       </div>
     );
   }
