@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import countries from './countries.json'
+import CountryDetail from './components/CountryDetail/CountryDetail';
+import { Link, Switch, Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -18,13 +20,14 @@ class App extends Component {
               <div className="col-5" style={{ "maxHeight": "90vh", "overflow": "scroll" }}>
                 <div className="list-group">
                   {countries.map((country, index) => {
-                    console.log(country.name.common);
-                    return (<a className="list-group-item list-group-item-action" key={index} href={"/"+country.cca3}> {country.name.common}</a>)
+                    return (<Link className="list-group-item list-group-item-action" key={index} to={"/" + country.cca3}> {country.name.common}</Link>)
                   })}
                 </div>
               </div>
               <div className="col-7">
-
+                <Switch>
+                  <Route exact path='/:id' component={CountryDetail} />
+                </Switch>
               </div>
             </div>
           </div>
