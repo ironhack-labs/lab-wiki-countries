@@ -30,3 +30,9 @@
     transform: rotate(360deg);
   }
 }
+
+.countryDetail {
+ margin-left: 600px;
+ margin-top: -550px;
+ 
+}
