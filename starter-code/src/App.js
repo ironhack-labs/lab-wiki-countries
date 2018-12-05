@@ -31,6 +31,8 @@ export default class App extends Component {
           )
         })}
 
+      
+
         <Switch>
           <Route exact path='/:id' component={CountryDetail}/>
         </Switch>
