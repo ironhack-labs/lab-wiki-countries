@@ -1,0 +1,9 @@
+.vertical-menu {
+  width: 20vw;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.NavBar{
+  margin: 0;
+}
