@@ -15,7 +15,7 @@ export default class CountryDetail extends Component {
   render() {
     const country = countries.find(country => country.cca3 === this.props.match.params.cca3
 )
-    console.log(country)
+   
     return (
       <div>
         
@@ -39,11 +39,15 @@ export default class CountryDetail extends Component {
                     <td>
                       <ul>
                         
-                        {country.borders.map((e) => (
-                 
-                       <li><Link to={e}>{e}</Link></li>
-              
-                        ))}
+                     
+                     {country.borders.map((e) => {
+                  const completeName = countries.find(country => country.cca3 ===  e)
+                 return (
+                 <li><Link to={e}>{completeName.name.common}</Link></li>
+               )
+                  })
+
+                 }
                      
                       </ul>
                     </td>
