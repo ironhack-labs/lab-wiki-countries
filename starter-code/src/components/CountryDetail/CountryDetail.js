@@ -7,10 +7,9 @@ export default class CountryDetail extends Component {
     country: {}
   };
 
-  getCountry = countryCca3 => countries.filter(e => e.cca3 === countryCca3);
+  getCountry = countryCca3 => countries.filter(e => e.cca3 === countryCca3)[0];
 
-  setCountry = country =>
-    this.setState({ ...this.state, country: { ...country } });
+  setCountry = country => this.setState({ ...this.state, country: { ...country } });
 
   componentWillMount() {
     this.setCountry(this.getCountry(this.props.match.params.id));
@@ -25,18 +24,18 @@ export default class CountryDetail extends Component {
   render() {
     return (
       <div className="col-7">
-        <h1>{this.state.country[0].name.official}</h1>
+        <h1>{this.state.country.name.official}</h1>
         <table className="table">
           <thead />
           <tbody>
             <tr>
               <td style={{ width: "30%" }}>Capital</td>
-              <td>{this.state.country[0].capital}</td>
+              <td>{this.state.country.capital}</td>
             </tr>
             <tr>
               <td>Area</td>
               <td>
-                {this.state.country[0].area} km
+                {this.state.country.area} km
                 <sup>2 </sup>
               </td>
             </tr>
@@ -44,9 +43,11 @@ export default class CountryDetail extends Component {
               <td>Borders</td>
               <td>
                 <ul>
-                  {this.state.country[0].borders.map((elem, i) => (
+                  {this.state.country.borders.map((elem, i) => (
                     <li key={i}>
-                      <Link to={elem}>{elem}</Link>
+                      <Link to={elem}>
+                        {this.getCountry(elem).name.official}
+                      </Link>
                     </li>
                   ))}
                 </ul>
