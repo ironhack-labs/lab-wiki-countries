@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -29,4 +29,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.select-countries {
+  max-height: 90vh; overflow: scroll;
+}
+
+.capital {
+  width: 30%
 }
