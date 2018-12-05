@@ -18,16 +18,15 @@ export default class App extends Component {
   render() {
 
     return (
+      
       <div>
-        {/* <CountryDetail/> */}  
 
-  
         {
-          this.state.countries.map(country => <h1>{country.name.common}</h1>)
+          this.state.countries.map(country => <h5>{country.name.common}</h5>)
         }
-        
-      </div>
-    );
+
+     </div>
+  );
     
   }  
 }
