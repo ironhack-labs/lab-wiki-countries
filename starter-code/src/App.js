@@ -13,6 +13,7 @@ class App extends Component {
       countries
     }
   }
+
   render() {
     return (
       <div className="App">
@@ -24,7 +25,7 @@ class App extends Component {
         <div className="row">
           <div className="col-5">
             <div className="list-group">
-              {this.state.countries.map((country, index) => <a className="list-group-item list-group-item-action" href="" key={index} ><Link to={`/${country.cca3}`}>{country.flag} {country.name.official}</Link></a>)}
+              {this.state.countries.map((country, index) => <a className="list-group-item list-group-item-action" key={index} ><Link to={`/${country.cca3}`}>{country.flag} {country.name.official}</Link></a>)}
             </div>
           </div>
           <div className="col-7">
