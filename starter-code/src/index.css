@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.country-container{
+  
+  border: solid black 1px;
+  width: 50%;
+}
+.flag-container{
+  display: inline;
+  color: black;
+}
+.name-container{
+  display: inline;
+  color: black;
+}
