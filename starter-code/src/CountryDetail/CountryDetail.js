@@ -13,7 +13,8 @@ export default class CountryDetail extends Component {
   }
 
   render() {
-    const country = countries.find(country => country.cca3 === this.props.match.params.cca3)
+    const country = countries.find(country => country.cca3 === this.props.match.params.cca3
+)
     console.log(country)
     return (
       <div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import countries from "./countries.json";
-import { Link, Route } from 'react-router-dom';
+import { Link,Switch, Route } from 'react-router-dom';
 import CountryDetail from './CountryDetail/CountryDetail';
 
 class App extends Component {
@@ -39,11 +39,16 @@ class App extends Component {
               </div>
             </div>
 
+            
+            <Switch>
             <Route exact path="/:cca3" component={CountryDetail}/>
-
+            </Switch>
           </div>
         </div>
       </div>
+             
+  
+            
     </div>
 
 
