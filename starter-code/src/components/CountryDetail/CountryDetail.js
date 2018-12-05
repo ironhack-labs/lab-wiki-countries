@@ -24,7 +24,7 @@ export default class CountryDetail extends Component {
   render() {
     return (
       <div className="col-7">
-        <h1>{this.state.country.name.official}</h1>
+        <h1>{this.state.country.name.common}</h1>
         <table className="table">
           <thead />
           <tbody>
@@ -46,7 +46,7 @@ export default class CountryDetail extends Component {
                   {this.state.country.borders.map((elem, i) => (
                     <li key={i}>
                       <Link to={elem}>
-                        {this.getCountry(elem).name.official}
+                        {this.getCountry(elem).name.common}
                       </Link>
                     </li>
                   ))}

@@ -32,7 +32,7 @@ class App extends Component {
                     className="list-group-item list-group-item-action"
                     to={elem.cca3}
                   >
-                    {elem.flag} {elem.name.official}
+                    {elem.flag} {elem.name.common}
                   </Link>
                 ))}
               </div>
