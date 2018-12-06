@@ -4,6 +4,7 @@ import './App.css';
 import { Link, Switch, Route } from "react-router-dom";
 
 import countriesJSON from './countries.json';
+import CountryDetail from './components/CountryDetail/CountryDetail'
 
 // import CountryDetail from "./components/CountryDetail/CountryDetail";
 
@@ -31,14 +32,16 @@ class App extends Component {
           <div class="row">
             <div className="col-5" style={{maxHeight: "90vh", overflow: "scroll"}}>
               {this.state.countriesJSON.map((country, index) => (<div key={index}  className="list-group">
-              <Link className="list-group-item list-group-item-action" to={country.cca3}>
+              <Link className="list-group-item list-group-item-action" to={"/" + country.cca3}>
                   {country.flag}
                   {country.name.common}
                 </Link>
                   </div>
                   ))}
             </div>
-           {/* creo que aquí va el switch */}
+           <Switch>
+             <Route exact path ="/:cca3" component={CountryDetail}></Route>
+           </Switch>
             
           </div>
         </div>
