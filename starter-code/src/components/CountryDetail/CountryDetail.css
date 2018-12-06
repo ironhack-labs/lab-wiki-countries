@@ -1,3 +1,13 @@
 .list-group-item-action{
-  width: 400px;
+  width: 600px;
+}
+.fixed{
+  position: fixed;
+  top:0;
+  width: 100vw;
+  height: 70px;
+  line-height: 45px;
+}
+body{
+  padding-top: 70px;
 }
