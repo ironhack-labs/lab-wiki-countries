@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import CountryDetails from './Components/CountryDetails'
+import CountryItem from './Components/ItemCountry'
+import { Switch, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
-  countriesToBeShown = ["EE", "ES", "DE"
-  ]
-
   render() {
     return (
       <div className="App">
         <div className="countries">
+         <Switch>
+            <Route path="/:countryCode" component={CountryItem}/>
+          </Switch>
           <CountryDetails />
+         
         </div>
       </div>
           
