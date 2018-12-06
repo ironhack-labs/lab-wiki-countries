@@ -43,9 +43,24 @@ export default class CountryDetail extends Component {
           return (
             <div>
               <h1>{resp.name.common}</h1>
-              <p>{resp.capital}</p>
-              <p>{resp.area}</p>
-              <p>{resp.borders}</p>
+              <p>Capital: {resp.capital}</p>
+              <p>
+                Area {resp.area} Km<sup>2</sup>
+              </p>
+              <p>Border with:</p>
+              {resp.borders.map(borderWith => {
+                return <p>{borderWith}</p>;
+              })}
+              {/* {resp.borders.map(borderWith => {
+                const completeName = this.getCountry("cca3",borderWith)
+                
+                console.log(completeName[0])
+                return (
+                  <p>hola</p>
+                    // <p>{completeName[0].name}</p>
+                  
+                );
+              })} */}
             </div>
           );
         })}
