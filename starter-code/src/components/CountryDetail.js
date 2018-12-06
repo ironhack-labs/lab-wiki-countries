@@ -45,7 +45,7 @@ export default class CountryDetail extends Component {
               <h1>{resp.name.common}</h1>
               <p>Capital: {resp.capital}</p>
               <p>
-                Area {resp.area} Km<sup>2</sup>
+                Area: {resp.area} Km<sup>2</sup>
               </p>
               <p>Border with:</p>
               {resp.borders.map(borderWith => {
