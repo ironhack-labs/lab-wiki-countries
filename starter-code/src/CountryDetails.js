@@ -9,34 +9,41 @@ class CountryDetails extends Component {
     countries: countries
   }
   render() {
-    const details = this.state.countries.filter((country)=>{
-      return (country.cca3 === this.props.match.params.countryCode)
+    const details = this.state.countries.find((country)=>{
+      return country.cca3 === this.props.match.params.countryCode
     })
     
-    const borderList = this.state.countries.map((country)=>{
-      if(details[0].borders.includes(country.cca3)) {
+    const borderList = this.state.countries.map((country, i)=>{
+      if(details.borders.includes(country.cca3)) {
         return(
-          <li><Link to={details[0].borders[details[0].borders.indexOf(country.cca3)]}>{country.name.common}</Link></li>
+          <li key={i}>
+            <Link to={details.borders[details.borders.indexOf(country.cca3)]}>
+              {country.flag}{country.name.common}
+            </Link>
+          </li>
           )
       }  
     })
 
     return (
       <div className="col-7">
-        <h1>{details[0].name.common}</h1>
-            <table class="table">
+        <h1>{details.name.common}</h1>
+            <table className="table">
               <thead></thead>
               <tbody>
+                {(details.capital[0] !== "") ?
                 <tr>
                   <td className="capital">Capital</td>
-                  <td>{details[0].capital}</td>
+                  <td>{details.capital}</td>
                 </tr>
+                : <tr></tr>}
                 <tr>
                   <td>Area</td>
-                  <td>{details[0].area} km
+                  <td>{details.area} km
                     <sup>2</sup>
                   </td>
                 </tr>
+                {(details.borders[0]) ?
                 <tr>
                   <td>Borders</td>
                   <td>
@@ -45,6 +52,7 @@ class CountryDetails extends Component {
                     </ul>
                   </td>
                 </tr>
+                : <tr></tr>}
               </tbody>
             </table>
       </div>
