@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-//import Navbar from './components/Navbar';
 import './App.css';
-// import Home from './components/Home';
-// import About from './components/About';
 import CountryList from './components/CountryList';
 import CountryDetails from './components/CountryDetails';
-//import ProjectDetails from './components/ProjectDetails';
 import countries from './countries.json'
 import { Switch, Route } from 'react-router-dom';
 
@@ -26,12 +22,11 @@ class App extends Component {
           </div>
           <div className="row">
             <div className="col-md-4">
-          <CountryList />
+          <CountryList countries={this.state.allCountries} />
           </div>
           <div className="col-md-8">
             <Switch>
-              {/* <Route exact path='/' component={CountryList} data={countries}/> */}
-              <Route exact path="/country/:common" component={CountryDetails} data={countries} />
+              <Route exact path="/country/:common" component={CountryDetails} />
             </Switch>
           </div>
         </div>
