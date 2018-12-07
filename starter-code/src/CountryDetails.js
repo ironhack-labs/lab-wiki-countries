@@ -12,11 +12,13 @@ class CountryDetails extends Component {
     const details = this.state.countries.filter((country)=>{
       return (country.cca3 === this.props.match.params.countryCode)
     })
-
-    const borders = details[0].borders.map((border)=>{
-      return(
-        <li><Link to={border}>{border}</Link></li>
-      )
+    
+    const borderList = this.state.countries.map((country)=>{
+      if(details[0].borders.includes(country.cca3)) {
+        return(
+          <li><Link to={details[0].borders[details[0].borders.indexOf(country.cca3)]}>{country.name.common}</Link></li>
+          )
+      }  
     })
 
     return (
@@ -39,7 +41,7 @@ class CountryDetails extends Component {
                   <td>Borders</td>
                   <td>
                     <ul>
-                      {borders}
+                      {borderList}
                     </ul>
                   </td>
                 </tr>
