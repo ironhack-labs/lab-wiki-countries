@@ -1,0 +1,29 @@
+.countryContainer{
+  width: 20%;
+  height: 70px;
+  background-color: aqua;
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flag{
+  margin-right: 10px;
+}
+
+.container{
+  height: 600px;
+  width: 50%;
+  overflow-y: scroll;
+  margin: 0 auto;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+}
+
+ul li {
+  cursor: pointer;
+}
