@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
-import Countries from './countries';
+import './countries.css';
+import Countries from './countries'
+import 'bootstrap/dist/css/bootstrap.css';;
 
 class App extends Component {
   state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      selectedCountry: {}
     };
   
+    
   componentDidMount() {
     fetch("http://206.189.7.127/countries/")
       .then(result => result.json())
@@ -31,11 +35,16 @@ class App extends Component {
       )
   }
 
+  addObject = (newCountry) =>{
+    this.setState({selectedCountry: newCountry})
+    console.log(this.state.selectedCountry)
+  }
+
   render() {
-     
+     var country = this.state.selectedCountry
     return (
       <div className="App">
-        <Countries countries={this.state.items} />
+        <Countries country={country} countries={this.state.items} addObject={this.addObject}/> 
       </div>
     );
   }
