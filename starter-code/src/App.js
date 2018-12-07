@@ -27,18 +27,21 @@ class App extends Component {
   }
 
 
+
+
   render() {
     
     return (
       <div className="App">
+      <Switch>
+          <Route exact path='/country-code/:theURL' component={CountryDetail} />
+        </Switch>
        {this.getAllTheCountries()}
        {/* <Link to="/country-code">
        <button className='btn-primary bg-primary'>Check out the CountryList</button>
        </Link> */}
 
-        <Switch>
-          <Route exact path='/country-code/:theURL' component={CountryDetail} />
-        </Switch>
+        
       </div>
     );
   }
