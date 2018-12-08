@@ -1,0 +1,5 @@
+.capital.list-group-item, .area.list-group-item{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: flex-start;
+}
