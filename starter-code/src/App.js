@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Switch, Route} from 'react-router-dom';
+import countries from './countries.json';
+import Slug from './components/Slug/Slug.js';
+import CountryDetail from './components/CountryDetail/CountryDetail.js';
 
 class App extends Component {
   render() {
+
+    const slugList = countries.map((country, index) => {
+      return <Slug key={index} {...country} />
+    })
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+
+        <nav className="nav bg-primary mb-3 text-white pl-3">
+          <h1>WikiCountries</h1>
+        </nav>
+
+        <div className="row">
+
+          <div className="col-5">
+
+            <div className="list-group">
+              {slugList}
+            </div>
+
+          </div>
+          
+          <Switch>
+            <Route path='/CountryDetail/:cca3' component={CountryDetail}/>
+          </Switch>
+          
+        </div>
+
+
+
       </div>
     );
   }
