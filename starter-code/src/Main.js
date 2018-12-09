@@ -12,9 +12,6 @@ class Main extends Component{
                 <h1>WikiCountries</h1>
             </nav>
             <CountryList />
-
-    
-
         </div>
             
         )

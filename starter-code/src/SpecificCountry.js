@@ -1,21 +1,26 @@
 import React, {Component} from 'react';
 import Countries from './countries.json';
 
+
 class SpecificCountry extends Component{
 
+    constructor(props){
+        super(props)
+    }
     // Countries.find((countryName)=>{
         
     // })
 
     findThisCountry = () => {
-        let myCountry = Countries.map((eachCountry, index)=>{
+        console.log("MAXI", this.props)
+        return  Countries.map((eachCountry, index)=>{
             console.log(eachCountry)
-            if(this.props.match.params.name === eachCountry.name){
+            if(this.props.match.params.official === eachCountry.name.official){
                 return(
                     <div>
-                       <h1>{this.props.match.params.name.official}</h1>
+                       <h1>{eachCountry.name.official}</h1>
 
-                       <h2>{this.props.match.params.name.common}</h2> 
+                       <h2>{eachCountry.name.common}</h2> 
 
                     </div>
                 )

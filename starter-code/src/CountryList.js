@@ -17,7 +17,7 @@ class CountryList extends Component{
         return(
             <div>
              <Switch>
-                        <Route path ="/specificCountry/:name" component={SpecificCountry}/>
+                 <Route exact path ="/specificCountry/:official" component={SpecificCountry}/>
             </Switch>
                     
             {this.state.countries.map((eachCountry, index)=>{
