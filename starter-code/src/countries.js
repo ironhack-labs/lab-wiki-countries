@@ -11,6 +11,8 @@ class Countries extends Component {
     area: selectedCountryObject[0].area,
     borders: selectedCountryObject[0].borders
   }
+
+
   this.props.addObject(newCountry);
   console.log(newCountry)
   }
@@ -19,8 +21,7 @@ class Countries extends Component {
     var countriesResult = this.props.countries.map((country, index)=> <li key={index} onClick={this.selectCountry} className="list-group-item list-group-item-action"><span>{country.flag}</span><span>{country.name.common}</span></li>)
     
     var countryBorders = this.props.country.borders
-   
-    
+  
     
     return (
       <div>
