@@ -9,9 +9,13 @@ class App extends Component {
       error: null,
       isLoaded: false,
       items: [],
-      selectedCountry: {}
+      selectedCountry: {
+        country: "No country selected",
+        capital: "No country selected",
+        area: "No country selected",
+        borders: ["No country selected"]
+      }
     };
-  
     
   componentDidMount() {
     fetch("http://206.189.7.127/countries/")
@@ -37,7 +41,6 @@ class App extends Component {
 
   addObject = (newCountry) =>{
     this.setState({selectedCountry: newCountry})
-    console.log(this.state.selectedCountry)
   }
 
   render() {

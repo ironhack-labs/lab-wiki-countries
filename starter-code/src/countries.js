@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 
+
 class Countries extends Component {
 
   selectCountry = (event) => {
@@ -11,17 +12,13 @@ class Countries extends Component {
     area: selectedCountryObject[0].area,
     borders: selectedCountryObject[0].borders
   }
-
-
   this.props.addObject(newCountry);
-  console.log(newCountry)
   }
 
   render() {
     var countriesResult = this.props.countries.map((country, index)=> <li key={index} onClick={this.selectCountry} className="list-group-item list-group-item-action"><span>{country.flag}</span><span>{country.name.common}</span></li>)
     
-    var countryBorders = this.props.country.borders
-  
+    var borderList = this.props.country.borders.map((borderName, index) => <li key={index}>{borderName}</li>)
     
     return (
       <div>
@@ -48,13 +45,11 @@ class Countries extends Component {
                   <td className="borders">Borders</td>
                   <td>
                     <ul className="border-list">
-                      {countryBorders}   
+                      {borderList}
                     </ul>
                   </td>
                 </tr>
               </table>
-
-
             </div>
           </div>
         </div>
