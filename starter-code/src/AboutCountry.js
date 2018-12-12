@@ -7,7 +7,7 @@ import listOfCountryNames from './countries.json'
 
 import {Link} from 'react-router-dom';
 
-import { Switch, Route } from 'react-router-dom';
+
 
 class AboutCountry extends Component{
 
@@ -20,9 +20,8 @@ class AboutCountry extends Component{
 
     componentWillReceiveProps(props){
 
-     this.setState({ link: props.match.params.cca3 }, () =>{
-        
-     })
+     this.setState({ link: props.match.params.cca3 })
+
     }
 
     showListOfBorders(country){
