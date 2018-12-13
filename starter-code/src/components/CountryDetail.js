@@ -1,34 +1,39 @@
 import React,{Component} from 'react'
-
+import {Link} from 'react-router-dom'
 
 
 class CountryDetail extends Component{
   
   
-  searchCountry = e => {
-    const regEx = RegExp(e, "i");
-    const filtered = this.state.countries.filter(d => regEx.test(d.cca3));
-    console.log(filtered)
-    return filtered
-  };
 
-
+    componentWillMount() {
+      const {countries} = this.props.location.state;
+      this.setState( {
+        countries 
+      });
+    }
+    
+  
 
   render(){
+    let country = this.state.countries.filter(c => {
+      return c.cca3 == this.props.match.params.id;
+    });
+ 
     return(
       
       <div className="col-7">
-            <h1>France</h1>
+            <h1>{country[0].name.common}</h1>
             <table className="table">
               <thead></thead>
               <tbody>
                 <tr>
                   <td style={{width: "30%"}}>Capital</td>
-                  <td>Paris</td>
+                  <td>{country[0].capital}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
-                  <td>551695 km
+                  <td>{country[0].area} km
                     <sup>2</sup>
                   </td>
                 </tr>
@@ -36,14 +41,15 @@ class CountryDetail extends Component{
                   <td>Borders</td>
                   <td>
                     <ul>
-                      <li><a href="/AND">Andorra</a></li>
-                      <li><a href="/BEL">Belgium</a></li>
-                      <li><a href="/DEU">Germany</a></li>
-                      <li><a href="/ITA">Italy</a></li>
-                      <li><a href="/LUX">Luxembourg</a></li>
-                      <li><a href="/MCO">Monaco</a></li>
-                      <li><a href="/ESP">Spain</a></li>
-                      <li><a href="/CHE">Switzerland</a></li>
+                    {country[0].borders.map(borderCountry => {
+                    return (
+                      <Link to={`/${borderCountry}`}>
+                        <li>
+                          <p>{borderCountry}</p>
+                        </li>
+                      </Link>
+                    );
+                    })}
                     </ul>
                   </td>
                 </tr>

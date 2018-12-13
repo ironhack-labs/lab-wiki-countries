@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Routes from './Routes'
 import Axios from 'axios'
-import {Link,NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 
 class App extends Component {
@@ -22,6 +22,7 @@ class App extends Component {
     
   }
 
+ 
 
   render() {
     return (
@@ -38,7 +39,7 @@ class App extends Component {
           <div className="col-5" style={{maxHeight: "90vh", overflow: "scroll"}}>
             <div className="list-group">
            { this.state.countries.map((country,index) => {
-             return <NavLink className="list-group-item list-group-item-action" to={`/${country.cca3}`}> {country.flag} {country.name.official} </NavLink>
+             return <NavLink className="list-group-item list-group-item-action" to={{ pathname:`/${country.cca3}`, state:{countries: this.state.countries}  }}> {country.flag} {country.name.official} </NavLink>
             }) }
             </div>
           </div>
@@ -55,3 +56,4 @@ class App extends Component {
 }
 
 export default App;
+

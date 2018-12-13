@@ -5,7 +5,7 @@ import CountryDetail from './components/CountryDetail';
 
 const Routes = () =>(
   <Switch>
-    <Route  path='/:cca3' component={CountryDetail}/>
+    <Route exact path='/:id' component={CountryDetail}/>
   </Switch>
 )
 
