@@ -4,7 +4,9 @@ import {Link} from "react-router-dom";
 const Country = (props) =>{
     return(
         <Link to={`/country/${props.cca3}`}>
-            <p>{props.name.common}</p>
+            <li className="list-group-item">
+                <p>{props.name.common}</p>
+            </li>
         </Link>
     )
 }

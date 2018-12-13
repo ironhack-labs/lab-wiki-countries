@@ -5,8 +5,8 @@ import CountryDetail from './components/CountryDetail'
 const Routes = () => (
     //switch just use the components of the router that you are using
     <Switch>
-        <Route exact path="/" component={Home}/>
         <Route path='/country/:id' component={CountryDetail}/>
+        <Route path="/" component={Home}/>
     </Switch>)
 
 export default Routes

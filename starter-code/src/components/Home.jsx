@@ -14,17 +14,17 @@ class Home extends Component{
     }
     drawCountries =()=>{
         const {countries} = this.state
-        return countries.map((element,index) =>
-            <Country key={index} {...element}  />)
+        return countries.map((element,index) => <Country key={index} {...element}  />)
     }
     render(){
         const {countries} = this.state
         console.log(countries)
         return(
-
-            <div>
+            <div className="halfScreen">
                 <h1>Home</h1>
-                {this.drawCountries()}
+                <ul className="list-group">
+                    {this.drawCountries()}
+                </ul>
             </div>
         )
     }

@@ -18,18 +18,27 @@ class CountryDetail extends Component {
         })
         console.log(country[0].borders)
         return(
-            <div>
-                <p>Information</p>
-                <p>{country[0].name.common}</p>
-                <p>{country[0].flag}</p>
-                {country[0].borders.map((c)=>{
-                    return(<Link onClick={()=>this.setState({id:c})}  to={`/country/${c}`}>
-                        {c}
-                    </Link>)
-                })}
-                <button onClick={()=> this.props.history.push('/')}>
-                    GoBack
-                </button>
+            <div className="halfOver">
+                <div className="card">
+
+                    <p>Information</p>
+                    <p>{country[0].name.common}</p>
+                    <p>{country[0].flag}</p>
+                    <ul className="list-group">
+                    {country[0].borders.map((c)=>{
+                        return(
+                                <Link onClick={()=>this.setState({id:c})}  to={`/country/${c}`}>
+                                    <li className="list-group-item">
+                                        {c}
+                                    </li>
+                                </Link>
+                        )
+                    })}
+                    </ul>
+                    <button onClick={()=> this.props.history.push('/')}>
+                        GoBack
+                    </button>
+                </div>
             </div>
         )
     }

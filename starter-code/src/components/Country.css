@@ -1,0 +1,14 @@
+.halfScreen{
+    width: 50vw;
+    margin: 0;
+    right: 0;
+}
+.halfOver{
+    left:0;
+    top:0;
+    z-index: 4;
+    float:left;
+}
+.card{
+    width: 18rem;
+}
