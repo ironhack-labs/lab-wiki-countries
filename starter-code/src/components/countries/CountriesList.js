@@ -6,9 +6,9 @@ const CountriesList = () =>{
     return(
         <div>
             <h1>WikiCountries</h1>
-            {countries.map(country =>{
+            {countries.map((country,index) =>{
                 return(
-                        <Link to={`/country/${country.cca3}`}>
+                        <Link to={'/country/'+country.ccn3} key={index}>
                             <p>{country.flag}{country.name.common}</p>
                         </Link>
                 )
