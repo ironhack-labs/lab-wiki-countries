@@ -18,7 +18,6 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/countries/:code' component={CountryDetail}/>
-            {/* <CountryDetail key={c.ccn3} country={c}></CountryDetail> */}
           </Switch>
         </Container>
       </div>

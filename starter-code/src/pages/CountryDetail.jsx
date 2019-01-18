@@ -24,7 +24,7 @@ const CountryDetail = ({match}) => {
             <td>Borders</td>
             <td>
               <ul className={country.borders.length < 1 ? "noBorders" : ""}>
-                { country.borders.length < 1 ? <li className="noDisc">This country does not have any registered borders</li> : country.borders.map(b => <li key={b}><NavLink to={`/countries/${b}`}>{getCountry(b).name.common}</NavLink></li>)}
+                {country.borders.length < 1 ? <li className="noDisc">This country does not have any registered borders</li> : country.borders.map(b => <li key={b}><NavLink to={`/countries/${b}`}>{getCountry(b).name.common}</NavLink></li>)}
               </ul>
             </td>
           </tr>
