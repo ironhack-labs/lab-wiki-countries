@@ -4,16 +4,8 @@ import countries from '../countries';
 
 const CountryDetail = ({match}) => {
   const {code} = match.params;
-
-  const getCountry = (code) => {
-    const theCountry = c => {
-      return c.cca3 === code;
-    }
-    return countries.find(theCountry);
-  };
-
+  const getCountry = code => countries.filter(c => c.cca3 === code)[0];
   const country = getCountry(code);
-
   return (
     <div className="col-7">
       <h1><span className="emoji" role="img" aria-label="emoji">{country.flag}</span> {country.name.common}</h1>
