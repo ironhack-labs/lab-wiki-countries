@@ -1,25 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { Navbar } from "./components/Navbar";
+import { CountyList } from "./components/CountyList";
+import data from "./countries.json";
+import { Switch, Route } from "react-router-dom";
+import { CountryDetail } from "./pages/CountryDetail";
+import { Home } from "./pages/Home";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: data
+    };
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Navbar />
+        <div className="container">
+          <div className="row">
+            <CountyList countryData={this.state.data} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route
+                path="/:cca3"
+                render={props => (
+                  <CountryDetail {...props} countryData={this.state.data} />
+                )}
+              />
+            </Switch>
+          </div>
+        </div>
       </div>
     );
   }
