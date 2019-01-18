@@ -12,7 +12,7 @@ export const CountryDetail = ({ match, countryData }) => {
         <tbody>
           <tr>
             <td width="30%">Capital</td>
-            <td>{country.capital}</td>
+              <td>{country.capital}</td>
           </tr>
           <tr>
             <td>Area</td>
@@ -29,7 +29,7 @@ export const CountryDetail = ({ match, countryData }) => {
                   This country has not borders!
                 </div>
               ) : (
-                <Borders country={country} countryData={countryData}/>
+                <Borders country={country} countryData={countryData} />
               )}
             </td>
           </tr>

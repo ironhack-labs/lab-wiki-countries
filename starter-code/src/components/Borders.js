@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 export const Borders = ({country, countryData}) => {
   return (
@@ -7,7 +8,7 @@ export const Borders = ({country, countryData}) => {
         let index = countryData.findIndex(c => c.cca3 === borderCountry);
         return (
           <li key={borderCountry}>
-            <a href={"/" + borderCountry}>{countryData[index].name.official}</a>
+            <Link to={"/" + borderCountry}>{countryData[index].name.official}</Link>
           </li>
         );
       })}
