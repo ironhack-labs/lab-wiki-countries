@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import "./App.css";
 import CountryDetail from "./components/CountryDetail.js";
-import data from './countries.json';
+import data from "./countries.json";
 
 class App extends Component {
   constructor(props) {
@@ -14,16 +14,20 @@ class App extends Component {
 
   render() {
     return (
-      <div >
-      <div className="header">
-        <h3>wikiCountries</h3>
-        </div >
+      <div>
+        <div className="header">
+          <h3>wikiCountries</h3>
+        </div>
         <div className="row">
           <div className="col-5">
             <div className="list-group">
-              {this.state.datacopy.map((e, index) => (
-                <NavLink to={`/${e.cca3}`} key={index} className="list-group-item list-group-item-action">
-                 {e.flag} {e.name.common}
+              {this.state.datacopy.map(e => (
+                <NavLink
+                  to={`/${e.cca3}`}
+                  key={e.name.common}
+                  className="list-group-item list-group-item-action"
+                >
+                  {e.flag} {e.name.common}
                 </NavLink>
               ))}
             </div>
