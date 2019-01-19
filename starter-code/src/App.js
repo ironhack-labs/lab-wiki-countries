@@ -1,28 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import "./App.css";
+import CountryDetail from "./components/CountryDetail.js";
+import data from './countries.json';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      datacopy: data
+    };
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div >
+      <div className="header">
+        <h3>wikiCountries</h3>
+        </div >
+        <div className="row">
+          <div className="col-5">
+            <div className="list-group">
+              {this.state.datacopy.map((e, index) => (
+                <NavLink to={`/${e.cca3}`} key={index} className="list-group-item list-group-item-action">
+                 {e.flag} {e.name.common}
+                </NavLink>
+              ))}
+            </div>
+          </div>
+          <div className="col-7">
+            <CountryDetail data={this.state.datacopy} />
+          </div>
+        </div>
       </div>
     );
   }
 }
-
 export default App;
