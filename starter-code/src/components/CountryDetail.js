@@ -8,7 +8,7 @@ class CountryDetail extends Component {
         <div >
              <Switch>
           <Route exact path='/' component={NothingSelect}/>
-      { <Route  path='/:id' data={this.props.data} component={Info}/> }
+       <Route  path='/:id' component={Info}/> 
          
         </Switch>
      
