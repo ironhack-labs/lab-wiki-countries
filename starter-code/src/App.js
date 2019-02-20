@@ -9,25 +9,29 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="navbar navbar-dark bg-primary mb-3">
-          <h3>Wikicountries</h3>
-        </nav>
-        <div className="row">
-          <div className="col-5" style={{ maxHeight: "100vh", overflow: "scroll" }}>
-            {CountriesInfo.map((country, index) => {
-              return (
-                <div key={index} className="container">
-                  <h3>
-                    <Link to={`/countries/${country.cca3}`} className="navbar-brand"> {country.flag}{country.name.official}</Link>
-                  </h3>
-                </div>
-              );
-            })}
+          <div className="container">
+            <a className="navbar-brand">Wikicountries</a>
           </div>
-        <div className="col-7">
-          <Switch>
-            <Route exact path="/countries/:id" component={CountryDetails} />
-          </Switch>
-        </div>
+        </nav>
+        <div className="container">
+          <div className="row">
+            <div className="col-5" style={{ maxHeight: "100vh", overflow: "scroll" }}>
+            <div className="list-group">
+              {CountriesInfo.map((country, index) => {
+                return (
+
+                      <Link  className="list-group-item list-group-item-action" key={country.cca3} to={`/countries/${country.cca3}`}>{country.flag}{country.name.official}</Link>
+
+                );
+              })}
+              </div>
+            </div>
+            <div className="col-7">
+              <Switch>
+                <Route exact path="/countries/:id" component={CountryDetails} />
+              </Switch>
+            </div>
+          </div>
         </div>
       </div>
     );
