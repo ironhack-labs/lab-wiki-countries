@@ -16,23 +16,27 @@ class App extends Component {
             </a>
           </div>
         </nav>
-        <Switch>
-          <Route exact path="/countries/:id" component={CountryDetail} />
-        </Switch>
-      
-        {countries.map((country, idx) => {
-          return (
-            <div key={idx}>
-              <h3>
-                <Link to={`/countries/${country.cca3}`}>
-                  {country.flag} {country.name.official}
-                </Link>
-              </h3>
-            </div>
-           
-      
-          );
-        })}
+        <div class="row">
+        <div class="col-5 list-group">
+            {countries.map((country, idx) => {
+              return (
+                <div  class="list-group-item list-group-item-action" key={idx}>
+                  <h3>
+                    <Link to={`/countries/${country.cca3}`}>
+                      {country.flag} {country.name.official}
+                    </Link>
+                  </h3>
+                </div>
+              );
+            })}
+          </div>
+
+          <div class="col-7">
+            <Switch>
+              <Route exact path="/countries/:id" component={CountryDetail} />
+            </Switch>
+          </div>
+        </div>
       </div>
     );
   }
