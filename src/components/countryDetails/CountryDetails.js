@@ -19,8 +19,8 @@ class CountryDetails extends Component {
     });
 
     const listCountries = () => {
-      return borders.map((border) => {
-        return <li><Link to={`/${border.cca3}`} >{border.name.official}</Link></li>
+      return borders.map((border, index) => {
+        return <li><Link key={`${border.name.official}-${index}`} to={`/${border.cca3}`} >{border.name.official}</Link></li>
       });
     };
 
@@ -29,22 +29,31 @@ class CountryDetails extends Component {
     return (
       <div>
         <h1>{selectedCountry[0].name.official}</h1>
-        <div class="section-container">
-          <p class="section-name">Capital</p>
-          <p class="section-content">{selectedCountry[0].capital[0]}</p>
-        </div>
-        <div class="section-container">
-          <p class="section-name">Area</p>
-          <p class="section-content">{selectedCountry[0].area} Km<sup>2</sup></p>
-        </div>
-        {(borderingCountries.length > 0 ?
-        <div class="section-container">
-          <p class="section-name">Borders</p>
-          <ul class="section-content-list">
-            {listCountries()}
-          </ul>
-        </div>
-        : null)}
+        <table className="table">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td>Capital</td>
+              <td>{selectedCountry[0].capital[0]}</td>
+            </tr>
+            <tr>
+              <td>Area</td>
+              <td>{selectedCountry[0].area} km
+                <sup>2</sup>
+              </td>
+            </tr>
+            {(borderingCountries.length > 0 ?
+            <tr>
+              <td>Borders</td>
+              <td>
+                <ul>
+                  {listCountries()}
+                </ul>
+              </td>
+            </tr>
+            : null)}
+          </tbody>
+        </table>
       </div>
     )
   }

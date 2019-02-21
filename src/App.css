@@ -34,3 +34,13 @@ ul{
 a{
   text-decoration: none;  
 }
+
+.margin-top{
+  margin-top: 2rem;
+}
+
+.sticky{
+  top: 2rem;
+  position: sticky !important;
+  height: 100%;
+}
