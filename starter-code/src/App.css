@@ -30,3 +30,14 @@
     transform: rotate(360deg);
   }
 }
+
+
+.list-more-select {
+	margin-top: 70px;
+}
+
+.allcountries {
+	height: 400px;
+	overflow: auto;
+}
+
