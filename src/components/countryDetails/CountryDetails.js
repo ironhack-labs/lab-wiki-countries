@@ -37,12 +37,14 @@ class CountryDetails extends Component {
           <p class="section-name">Area</p>
           <p class="section-content">{selectedCountry[0].area} Square Km</p>
         </div>
+        {(borderingCountries.length > 0 ?
         <div class="section-container">
           <p class="section-name">Borders</p>
           <ul class="section-content-list">
             {listCountries()}
           </ul>
         </div>
+        : null)}
       </div>
     )
   }
