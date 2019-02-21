@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <!-- Example a what could be rendered -->
+  <div id="root">
+    <div>
+      <nav class="navbar navbar-dark bg-primary mb-3">
+        <div class="container">
+          <a class="navbar-brand" href="/">WikiCountries</a>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <div class="col-5" style="max-height: 90vh; overflow: scroll;">
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action" href="/ABW">🇦🇼 Aruba</a>
+ LOOP CONTRIES
+            </div>
+          </div>
+          <div class="col-7">
+            # CONTRY  DETAIL SWITCH ROUTE 
+            <h1>COUNTRY NAME</h1>
+            <table class="table">
+              <thead></thead>
+              <tbody>
+                <tr>
+                  <td style="width: 30%;">Capital</td>
+                  <td>COUNTRY CAPITAL</td>
+                </tr>
+                <tr>
+                  <td>Area</td>
+                  <td>COUNTRY AREA SIZE (km)
+                    <sup>2</sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Borders</td>
+                  <td>
+                    <ul>
+                      <li><a href="/AND">Andorra</a></li>
+                      LOOP COUNTRY BORDERS (with a query)
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
