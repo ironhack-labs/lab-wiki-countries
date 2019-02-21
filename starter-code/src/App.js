@@ -1,25 +1,57 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Switch, Route, NavLink } from "react-router-dom";
+
+import "./App.css";
+import allCountries from "./countries.json";
+
+import CountryDetail from "./components/CountryDetail";
+import NotFound from "./components/NotFound";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { countryArray: allCountries };
+  }
+
   render() {
+    const { countryArray } = this.state;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        <header>
+          <h2>Wiki Countries</h2>
         </header>
+
+        <div className="row">
+          {/* Left Panel */}
+          <div className="col-5">
+            <div className="list-group">
+              {countryArray.map((oneCountry, index) => {
+                return (
+                  <NavLink
+                    key={index}
+                    to={`/country-detail/${oneCountry.cca3}`}
+                    className="list-group-item list-group-item-action"
+                  >
+                    <span>{oneCountry.flag}</span> {oneCountry.name.common}
+                  </NavLink>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right Panel */}
+          <div className="col-7">
+            <Switch>
+              <Route exact path="/" />
+              <Route
+                path="/country-detail/:countryId"
+                component={CountryDetail}
+              />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
+        </div>
       </div>
     );
   }
