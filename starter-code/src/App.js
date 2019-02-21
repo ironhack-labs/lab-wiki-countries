@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route, NavLink, Link } from "react-router-dom";
 
 import "./App.css";
 import allCountries from "./countries.json";
@@ -17,10 +17,12 @@ class App extends Component {
     const { countryArray } = this.state;
 
     return (
-      <div className="App">
-        <header>
-          <h2>Wiki Countries</h2>
-        </header>
+      <div className="App container">
+        <nav class="navbar navbar-dark bg-primary">
+          <Link class="navbar-brand" to="/">
+            Wiki Countries
+          </Link>
+        </nav>
 
         <div className="row">
           {/* Left Panel */}

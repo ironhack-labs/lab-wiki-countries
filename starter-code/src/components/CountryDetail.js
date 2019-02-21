@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 class CountryDetail extends Component {
   render() {
-    console.log(this.props.match);
     const { params } = this.props.match;
 
     const countryItem = allCountries.find(oneCountry => {
@@ -17,29 +16,42 @@ class CountryDetail extends Component {
         {countryItem ? (
           <div>
             <h1>{countryItem.name.common}</h1>
-            <p>Capital: {countryItem.capital}</p>
-            <p>Area: {countryItem.area}</p>
+            <hr />
+            <div class="row">
+              <div class="col">Capital</div>
+              <div class="col">
+                <p>{countryItem.capital}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col">Area</div>
+              <div class="col">
+                <p>{countryItem.area} km²</p>
+              </div>
+            </div>
 
-            <p>
-              Borders:
-              <ul>
-                {countryItem.borders.map((oneBorder, index) => {
-                  const borderCountryItem = allCountries.find(oneCountry => {
-                    return oneCountry.cca3 === oneBorder;
-                  });
+            <hr />
+            <div class="row">
+              <div class="col">Borders</div>
+              <div class="col">
+                <ul>
+                  {countryItem.borders.map((oneBorder, index) => {
+                    const borderCountryItem = allCountries.find(oneCountry => {
+                      return oneCountry.cca3 === oneBorder;
+                    });
 
-                  console.log("BORDER COUNTRY", borderCountryItem);
-
-                  return (
-                    <li key={index}>
-                      <Link to={`/country-detail/${borderCountryItem.cca3}`}>
-                        {borderCountryItem.name.common}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </p>
+                    return (
+                      <li key={index}>
+                        <Link to={`/country-detail/${borderCountryItem.cca3}`}>
+                          {borderCountryItem.name.common}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
           </div>
         ) : (
           <h2>Country Not Found</h2>
