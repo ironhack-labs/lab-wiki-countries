@@ -10,7 +10,7 @@ class CountryDetails extends Component {
   render() {
 
     const { countries } = this.state;
-    const id = this.props.match.params.id;
+    const { id } = this.props.match.params;
     const selectedCountry = countries.filter((country) => country.cca3 === id);
     const borderingCountries = selectedCountry[0].borders;
 
@@ -35,7 +35,7 @@ class CountryDetails extends Component {
         </div>
         <div class="section-container">
           <p class="section-name">Area</p>
-          <p class="section-content">{selectedCountry[0].area} Square Km</p>
+          <p class="section-content">{selectedCountry[0].area} Km<sup>2</sup></p>
         </div>
         {(borderingCountries.length > 0 ?
         <div class="section-container">
