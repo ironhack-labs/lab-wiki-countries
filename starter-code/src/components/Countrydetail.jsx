@@ -12,9 +12,10 @@ const Details = (props) =>{
 
                   return(
                       <div key={idx}>
+                          <p>{country.name.common}</p>
                           <p>{country.capital[0]}</p>
-                          <p>{country.area}</p>
-                          <p>{country.borders}</p>
+                          <p>{country.area} km²</p>
+                          <p>{`${country.borders}`}</p>
                       </div>
                   )
               }
