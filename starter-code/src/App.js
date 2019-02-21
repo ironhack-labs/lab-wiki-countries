@@ -1,25 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import countries from './countries.json'
+import CountryDetails from './CountryDetail.js'
+import { Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
+
   render() {
+
+    const colStyle = {
+      maxHeight: '90vh',
+      overflow: 'scroll'
+    };
+
+
+    const countryList = countries.map(a => {
+      const link = '/' + a.cca3
+      return <Link to={link} className="list-group-item list-group-item-action">{a.name.official}</Link>   
+    })
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div>
+          <nav className="navbar navbar-dark bg-primary mb-3">
+            <div className="container">
+              <a className="navbar-brand" href="/">WikiCountries</a>
+            </div>
+          </nav>
+          <div className="container">
+            <div className="row">
+              <div className="col-5" style={colStyle}>
+                <div className="list-group">
+                  {countryList}
+                </div>
+              </div>
+            <switch>
+                <Route exact path='/:cca3' component={CountryDetails}/>   
+            </switch>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
