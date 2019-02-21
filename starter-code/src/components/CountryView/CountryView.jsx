@@ -12,7 +12,7 @@ export default class CountryDetail extends Component {
     render() {
         const country = this.state.countries.filter(country => country.cca3 === this.props.match.params.cca3)[0]
         return (
-            <div className="container">
+            <div className="container" style={{ textAlign: "left" }}>
                 <h3>{country.name.common}</h3>
                 <table className="table">
                     <tbody>
