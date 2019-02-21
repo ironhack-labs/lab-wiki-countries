@@ -4,18 +4,20 @@ import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
 
+function convertToName(currentCountryCode) {
+  const match = countriesList.find(oneCountry => {
+    return oneCountry.cca3 === currentCountryCode;
+  });
+  return match.name.common;
+}
 class CountryShow extends Component {
   render() {
+    // retrieve current url parameter
     const { params } = this.props.match;
 
-    // get param id and fetch the corresponding item
+    // using it to fetch the corresponding full object (same for DB QUERY)
     const countryItem = countriesList.find(oneCountry => {
       return oneCountry.cca3 === params.countryId;
-    });
-
-    // get param id and fetch the corresponding item
-    const countryName = countriesList.find(oneCountry => {
-      return oneCountry.name === params.countryId;
     });
 
     return (
@@ -39,10 +41,14 @@ class CountryShow extends Component {
               <td>Borders</td>
               <td>
                 <ul className="list-unstyled">
+                  {/* turn related countries array into clickable links */}
                   {countryItem.borders.map(oneCountry => {
                     return (
                       <li key={oneCountry}>
-                        <Link to={`/${oneCountry}`}>{countryName} foo</Link>
+                        <Link to={`/${oneCountry}`}>
+                          {/* find country names with respective countryIds */}
+                          {convertToName(oneCountry)}
+                        </Link>
                       </li>
                     );
                   })}
