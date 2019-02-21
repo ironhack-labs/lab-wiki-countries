@@ -20,10 +20,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="primary" variant="dark" className="mb-3">
+        <Navbar bg="primary" variant="dark" className="mb-3" light>
           <Container>
             <Navbar.Brand>
-              <NavLink to="/">WikiCountries</NavLink>
+              <NavLink to="/" className="text-white" exact>
+                WikiCountries
+              </NavLink>
             </Navbar.Brand>
           </Container>
         </Navbar>
@@ -34,9 +36,10 @@ class App extends Component {
                 {countriesList.map(oneCountry => {
                   return (
                     <ListGroup.Item key={oneCountry.cca3}>
-                      <Link to={`/${oneCountry.cca3}`}>
+                      {oneCountry.flag}
+                      <NavLink to={`/${oneCountry.cca3}`}>
                         {oneCountry.name.common}
-                      </Link>
+                      </NavLink>
                     </ListGroup.Item>
                   );
                 })}
