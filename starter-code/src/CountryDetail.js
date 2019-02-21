@@ -38,8 +38,11 @@ class CountryDetail extends Component {
                                 <td><p>Borders</p></td>
                                 <td>
                                     {countryItem.borders.map(countryBorder => {
+                                        const country = allCountries.find(oneCountry => {
+                                            return oneCountry.cca3 === countryBorder;
+                                        })
                                         return (
-                                            <li key={countryBorder}>{countryBorder}</li>
+                                            <li key={countryBorder}>{country.name.common}</li>
                                         )
                                     })}
                                 </td>
