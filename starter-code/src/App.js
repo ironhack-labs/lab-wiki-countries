@@ -17,7 +17,7 @@ class App extends Component {
 
     const countryList = countries.map(a => {
       const link = '/' + a.cca3
-      return <Link to={link} className="list-group-item list-group-item-action">{a.name.official}</Link>   
+      return <Link to={link} className="list-group-item list-group-item-action">{a.name.official}</Link>
     })
     return (
       <div className="App">
@@ -34,9 +34,9 @@ class App extends Component {
                   {countryList}
                 </div>
               </div>
-            <switch>
-                <Route exact path='/:cca3' component={CountryDetails}/>   
-            </switch>
+              <Switch>
+                <Route exact path='/:cca3' component={CountryDetails} />
+              </Switch>
             </div>
           </div>
         </div>
