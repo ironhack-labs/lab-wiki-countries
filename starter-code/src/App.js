@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+// import projects from './CountryDetail';
+import { projects } from './CountryDetail';
+
 import logo from './logo.svg';
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
+
+
 
 class App extends Component {
   render() {
@@ -20,6 +26,10 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <Switch>
+        <Route exact path='/projects' component={projects}/>
+        </Switch>
+        
       </div>
     );
   }
