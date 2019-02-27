@@ -30,3 +30,28 @@
     transform: rotate(360deg);
   }
 }
+
+.NavBar-wiki{
+  background-color: #0087fa;
+  color: #FFF;
+}
+.card-country{
+  border: solid 1px #f0f0f0;
+  padding: 2vh;
+  margin-top: 1vh;
+  text-decoration: none;
+}
+.card-country:hover{
+  background-color: #0087fa;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.sideBar-margin{
+  margin-top: 10vh;
+  margin-left: 2vh;
+}
+
+a{
+  color: black;
+}
