@@ -8,12 +8,10 @@ import contry from './countries.json'
         <h2>Paises:</h2>
         {contry.map((eachProject, index) => {
           return (
-            <div key={eachProject.cca2}>
+            <div key={index}>
               <h3>
-                <Link to={`/projects/${eachProject.cca2}`}>{eachProject.cca2}</Link>
+                <Link to={`/projects/${eachProject.name.official}`}>{eachProject.name.official}</Link>
               </h3>
-              <h4>{eachProject.status}</h4>
-              <hr />
             </div>
           )
         })}
