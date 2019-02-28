@@ -18,9 +18,9 @@ const CountryDetail = props => {
   return(
     <div className="col-7">
       <h1>{country.name.common}</h1>
-      <table className="table">
-        <thead>
-
+      <table className="table table-dark">
+        <thead className="thead-light">
+          <h1>Information</h1>
         </thead>
         <tbody>
         <tr>

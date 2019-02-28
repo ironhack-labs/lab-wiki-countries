@@ -25,6 +25,7 @@ class App extends Component {
                           key={index}
                           to={`/countrydetail/${el.cca3}`}
                         >
+                          {el.flag}
                           {el.name.common}
                         </NavLink>
                       )
