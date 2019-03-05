@@ -60,6 +60,7 @@ class Home extends Component {
                       <Link to={`/${bord}`}>{bordName}</Link>
                       </li>
                   })}
+                  {borders.length === 0 ? <li>None</li>: <p></p>}
                 </ul>
               </td>
             </tr>
