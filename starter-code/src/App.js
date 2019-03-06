@@ -10,13 +10,16 @@ class App extends Component {
     return (
       <div className="App">
         < Navbar />
-        < CountryList />
+          <div className="container">
+            <div className="row">
+            < CountryList />
 
-        <div className="country-details">
-              <Switch>
-                <Route exact path='/:id' component={CountryDetails}></Route>
-              </Switch>
-        </div>
+                  <Switch>
+                    <Route exact path='/:id' component={CountryDetails}></Route>
+                  </Switch>
+           
+            </div>
+          </div>
       </div>
     );
   }
