@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar'
 import CountryList from './components/CountryList.js'
 import CountryDetails from './components/CountryDetail.js'
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
             < CountryList />
 
                   <Switch>
-                    <Route exact path='/:id' component={CountryDetails}></Route>
+                    <Route path='/:id' component={CountryDetails}></Route>
                   </Switch>
            
             </div>
