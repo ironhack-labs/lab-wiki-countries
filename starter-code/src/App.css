@@ -1,4 +1,18 @@
-.App {
+.countrylist{
+  max-height: 90vh; 
+  overflow: scroll;
+}
+
+
+
+
+
+
+
+
+
+
+/* .App {
   text-align: center;
 }
 
@@ -29,4 +43,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
