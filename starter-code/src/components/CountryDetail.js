@@ -8,6 +8,11 @@ class CountryDetail extends Component {
     this.state = {};
   }
 
+  componentDidUpdate = () => {
+    console.log("rafraichi");
+    this.props.scrollActive();
+  };
+
   render() {
     const { params } = this.props.match;
 
@@ -45,7 +50,7 @@ class CountryDetail extends Component {
                   {foundCountry.borders.map(oneBorder => {
                     // return <li>{oneBorder}</li>;
                     return (
-                      <li>
+                      <li key={oneBorder}>
                         <Link to={`/${getCountry(oneBorder).cca3}`}>
                           {getCountry(oneBorder).name.common}
                         </Link>

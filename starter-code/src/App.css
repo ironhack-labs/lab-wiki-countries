@@ -34,3 +34,7 @@
 .scroll {
   overflow: scroll;
 }
+
+.list-group {
+  scroll-behavior: smooth;
+}

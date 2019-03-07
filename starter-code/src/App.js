@@ -12,6 +12,12 @@ class App extends Component {
       allCountriesArray: allCountries
     };
   }
+
+  scrollToActive = () => {
+    let el = document.querySelector(".active");
+    el.scrollIntoView({ behavior: "smooth" });
+  };
+
   render() {
     return (
       <div className="App">
@@ -28,24 +34,33 @@ class App extends Component {
             <div className="list-group">
               {this.state.allCountriesArray.map(eachCountry => {
                 return (
-                  // <div className="scroll">
                   <NavLink
                     to={`/${eachCountry.cca3}`}
-                    // activeClassName="active"
+                    activeClassName="active"
                     key={eachCountry.cca3}
                     className="list-group-item list-group-item-action"
                   >
                     {eachCountry.flag}
                     {eachCountry.name.common}
                   </NavLink>
-                  // </div>
                 );
               })}
             </div>
           </div>
           <div className="col-sm-7">
             <Switch>
-              <Route exact path="/:id" component={CountryDetail} />
+              <Route
+                exact
+                path="/:id"
+                render={props => {
+                  return (
+                    <CountryDetail
+                      scrollActive={this.scrollToActive}
+                      {...props}
+                    />
+                  );
+                }}
+              />
             </Switch>
           </div>
         </div>
