@@ -28,7 +28,7 @@ const CountryDetail = props => {
             <li key={index}>
               <NavLink
                 className="list-group"
-                to={border}
+                to={`/${border}`}
               >
                 {getName(border)}
               </NavLink>

@@ -10,8 +10,8 @@ class CountryList extends Component {
           return (
             <NavLink
               key={index}
+              to={`/${country.cca3}`}
               className="list-group-item list-group-item-action"
-              to={country.cca3}
             >
               {country.name.official}
             </NavLink>
