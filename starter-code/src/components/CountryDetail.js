@@ -25,7 +25,11 @@ const CountryDetail = props => {
       <ul>
         {borders.map((border, index) => {
           return (
-            <li key={index}>
+              /* on avait mis key={index} mais c'est une très mauvaise pratique car si on filtre ou on réordonne notre 
+              countries.json => nos éléments vont changer d'index et ça va foutre le bordel. Donc il faut mettre
+              key={un id unique} => key={border.cca3}*/
+
+            <li key={border.cca3}>
               <NavLink
                 className="list-group"
                 to={`/${border}`}
