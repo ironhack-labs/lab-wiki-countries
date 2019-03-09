@@ -30,3 +30,8 @@
     transform: rotate(360deg);
   }
 }
+
+.CountryList {
+  width: 500px;
+  text-align: left;
+}
