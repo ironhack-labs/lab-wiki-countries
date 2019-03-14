@@ -9,6 +9,9 @@ class App extends Component {
       <div>
         <NavBar />
         <ListCountries />
+        <h3>My Google Maps Demo</h3>
+        
+
       </div>
     );
   }

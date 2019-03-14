@@ -1,75 +1,38 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
-  <!-- Example a what could be rendered -->
-  <div id="root">
-    <div>
-      <nav class="navbar navbar-dark bg-primary mb-3">
-        <div class="container">
-          <a class="navbar-brand" href="/">WikiCountries</a>
-        </div>
-      </nav>
-      <div class="container">
-        <div class="row">
-          <div class="col-5" style="max-height: 90vh; overflow: scroll;">
-            <div class="list-group">
-              <a class="list-group-item list-group-item-action" href="/ABW">🇦🇼 Aruba</a>
-              <a class="list-group-item list-group-item-action" href="/AFG">🇦🇫 Afghanistan</a>
-              <a class="list-group-item list-group-item-action" href="/AGO">🇦🇴 Angola</a>
-              <a class="list-group-item list-group-item-action" href="/AIA">🇦🇮 Anguilla</a>
-              <a class="list-group-item list-group-item-action" href="/ALA">🇦🇽 Åland Islands</a>
-              <a class="list-group-item list-group-item-action" href="/ALB">🇦🇱 Albania</a>
-              <a class="list-group-item list-group-item-action" href="/AND">🇦🇩 Andorra</a>
-              <a class="list-group-item list-group-item-action" href="/ARE">🇦🇪 United Arab Emirates</a>
-              <a class="list-group-item list-group-item-action" href="/ARG">🇦🇷 Argentina</a>
-              <a class="list-group-item list-group-item-action" href="/ARM">🇦🇲 Armenia</a>
-              <a class="list-group-item list-group-item-action" href="/ASM">🇦🇸 American Samoa</a>
-              <a class="list-group-item list-group-item-action" href="/ATA">🇦🇶 Antarctica</a>
-              <a class="list-group-item list-group-item-action" href="/FLK">🇫🇰 Falkland Islands</a>
-              <a class="list-group-item list-group-item-action active" href="/FRA">🇫🇷 France</a>
-              <a class="list-group-item list-group-item-action" href="/ZWE">🇿🇼 Zimbabwe</a>
-            </div>
-          </div>
-          <div class="col-7">
-            <h1>France</h1>
-            <table class="table">
-              <thead></thead>
-              <tbody>
-                <tr>
-                  <td style="width: 30%;">Capital</td>
-                  <td>Paris</td>
-                </tr>
-                <tr>
-                  <td>Area</td>
-                  <td>551695 km
-                    <sup>2</sup>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Borders</td>
-                  <td>
-                    <ul>
-                      <li><a href="/AND">Andorra</a></li>
-                      <li><a href="/BEL">Belgium</a></li>
-                      <li><a href="/DEU">Germany</a></li>
-                      <li><a href="/ITA">Italy</a></li>
-                      <li><a href="/LUX">Luxembourg</a></li>
-                      <li><a href="/MCO">Monaco</a></li>
-                      <li><a href="/ESP">Spain</a></li>
-                      <li><a href="/CHE">Switzerland</a></li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: -25.344, lng: 131.036};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
+  </body>
 </html>

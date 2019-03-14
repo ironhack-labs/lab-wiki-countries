@@ -11,9 +11,8 @@ export default class ListCountries extends Component {
           <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
             <div className="list-group">
               {countries.map((country) => {
-                return <Link to={country.cca3} ><p onClick={this.showCountry} id={country.cca3} className="list-group-item list-group-item-action">
+                return <Link to={country.cca3} className="list-group-item list-group-item-action">
                   {country.flag} {country.name.common}
-                </p>
                 </Link>
               })}
             </div>
@@ -23,7 +22,7 @@ export default class ListCountries extends Component {
               {countries.map((country) => {
                 return <Route
                   path={'/'+country.cca3}
-                  render={() => <CountryDetails showCountry={this.showCountry} countryCode={country.cca3} />}
+                  render={() => <CountryDetails countryCode={country.cca3} />}
                 />
               })}
             </Switch>

@@ -8,26 +8,7 @@ export default class CountryDetails extends Component {
     var country = countries
       .find(country => country.cca3 === this.props.countryCode);
     if (country === undefined) {
-      return (
-        <div>
-          <h1>Neutral</h1>
-          <table className="table">
-            <thead></thead>
-            <tbody>
-              <tr>
-                <td style={{ width: '30%' }}>Capital</td>
-                <td>City</td>
-              </tr>
-              <tr>
-                <td>Area</td>
-                <td>47 km
-                    <sup>2</sup>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      )
+      return ('')
     } else {
       return (
         <div>
@@ -50,14 +31,30 @@ export default class CountryDetails extends Component {
                 <td>
                   <ul>
                     {country.borders.map((border) => {
+                      var borderName = countries
+                      .find(country => country.cca3 === border);
                       return <li style={{ color: 'blue', textDecoration: 'underline', cursor: 'pointer' }}><Link to={border} >
-                        {border}</Link></li>
+                      {borderName.name.common}</Link>
+                        </li>
+                    })}
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>Languages</td>
+                <td>
+                  <ul>
+                    {Object.values(country.languages).map((language) => {
+                      return <li>{language}</li>
                     })}
                   </ul>
                 </td>
               </tr>
             </tbody>
           </table>
+          <iframe title="jaman" style={{width: '500px', height: '500px'}}
+              src={'https://maps.google.com/maps?q='+country.latlng[0]+','+country.latlng[1]+'&hl=es;z=14&output=embed&z=3'}
+              />
         </div>
       )
     }
