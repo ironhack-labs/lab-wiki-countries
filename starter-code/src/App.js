@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import countries from './countries.json'
+import { Link } from 'react-router-dom'
+import Country from './components/Country'
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+    <div class="container">
+        <div class="row">
+          <div class="col-5" style={{maxHeight: `90vh`, overflow: `scroll`}}>
+            <div class="list-group">
+            {
+              countries.map((elm,id) => <Link key={id} class="list-group-item list-group-item-action" to={`/${elm.cca3}`}>{elm.flag} - {elm.name.common}</Link>)
+            }
+            </div>
+          </div>
+          <Switch>
+            <Route exact path='/:id' component={Country} />
+          </Switch>
+        </div>
       </div>
+
     );
   }
 }
