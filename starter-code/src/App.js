@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import  ShowCountries from "./components/ShowCountries"
 
 class App extends Component {
   render() {
@@ -20,6 +21,11 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <div className="row">
+        <ShowCountries className="col-5"/>
+  <div className="col-7">Column 7sdbsdhish2</div>
+</div>
+        
       </div>
     );
   }

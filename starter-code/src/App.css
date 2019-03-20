@@ -9,7 +9,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+ height: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,4 +29,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.flag-img{
+  padding: 40px
+
 }
