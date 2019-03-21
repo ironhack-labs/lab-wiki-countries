@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CountryDetail from "./components/CountryDetail"
+
+import { Switch, Route } from 'react-router-dom';
 import  ShowCountries from "./components/ShowCountries"
 
 class App extends Component {
@@ -22,8 +25,18 @@ class App extends Component {
           </a>
         </header>
         <div className="row">
+        
         <ShowCountries className="col-5"/>
-  <div className="col-7">Column 7sdbsdhish2</div>
+        
+  <div className="col-7">
+  <Switch>
+
+
+
+<Route exact path="/country-details/:cca3" component={CountryDetail}/>
+
+</Switch>
+</div>
 </div>
         
       </div>
