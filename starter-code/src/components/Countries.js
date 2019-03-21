@@ -1,47 +1,26 @@
-import React, { Component } from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import countries from '../src/countries.json'
-import { Switch, Route } from 'react-router-dom';
+import React from "react";
 
+const Countries = (props) => {
 
+return (
 
-import CountryDetail from './components/CountryDetail'
-import { Link } from 'react-router-dom';
-
-class App extends Component {
-
-  constructor() {
-    super()
-    this.state = {
-      countries : countries
-    }
-  }
-
-  render() {
-    return (
+  <div id="root">
+  <div>
+    <nav className="navbar navbar-dark bg-primary mb-3">
       <div className="container">
+        <a className="navbar-brand" href="/">WikiCountries</a>
+      </div>
+    </nav>
+    <div className="container">
       <div className="row">
         <div className="col-5" >
           <div className="list-group">
-            {/* <a className="list-group-item list-group-item-action" href="/">🇦🇼</a> */}
-            
-          
-                {this.state.countries.map((country, index) => {
-               return <Link key={index} to={`/${country.cca3}`}> {country.flag} {country.name.common} 
-                      </Link> })}
-
+            <a className="list-group-item list-group-item-action" href="/">🇦🇼 {props.name.common}</a>
+            {/* <Link to={`/projects/${this.props.cca3}`}>{this.props.name.common}</Link> */}
 
           </div>
-
-
-        <Switch>
-          <Route exact path='/:id' component={CountryDetail} />
-
-        </Switch>
-
         </div>
-        {/* <div className="col-7">
+        <div className="col-7">
           <h1>{props.name.official}</h1>
           <table className="table">
             <thead></thead>
@@ -77,15 +56,13 @@ class App extends Component {
               </tr>
             </tbody>
           </table>
-        </div> */}
+        </div>
       </div>
     </div>
-
-    
-
-        
-    );
-  }
+  </div>
+</div>
+)
 }
 
-export default App;
+
+export default Countries;
