@@ -7,13 +7,12 @@ class Countries extends Component {
 
   render() {
     return (
-      <div className="">
-      <ul>
-
-      {countries.map(c=> 
-          <li>{c.name}</li>
+      <div class="col-5" style={{maxHeight: '90vh', overflow: 'scroll'}}>
+      <div className="list-group">
+      {countries.map(country=> 
+          <Country name={country.name.common} flag={country.flag} href={`/${country.cca3}`}/>
       )}
-      </ul>
+      </div>
       </div>
     );
   }
