@@ -1,22 +1,26 @@
 import React, { Fragment } from 'react';
 import countries from "../countries.json";
+import { NavLink } from 'react-router-dom';
 
 const CountryDetail = (props) => {
-  console.log(props)
+  console.log(props.match.params.id)
 
   const getProject = (id) => {
     const theProject = oneProject => {
       return oneProject.id === id;
     }
-    return countries.find(theProject)
+    return countries.filter(country => {
+      return country.cca3 == id
+    })[0]
   };
 
   const { params } = props.match;
-  const foundProject = getProject(params.id, 10);
+  const foundProject = getProject(props.match.params.id);
+
 
 
   return (
-
+<div className="col-8"> 
     <Fragment>
 
       {
@@ -34,13 +38,24 @@ const CountryDetail = (props) => {
               </tr>
               <tr>
                 <th scope="row">Area</th>
-                <td>{foundProject.area}</td>
+                <td>{foundProject.area} km2</td>
               </tr>
               <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <th scope="row">Borders</th>
+<td>
+{ foundProject.borders.length == 0 ? 
+<span>This country has no borders</span>
+:
+<Fragment> {
+  foundProject.borders.map(country => {
+    console.log(getProject(country))
+
+    return <li><NavLink to={`/${getProject(country).cca3}`}>{getProject(country).name.common}</NavLink></li>
+  })
+}
+</Fragment>
+}
+</td>
               </tr>
             </tbody>
           </table>
@@ -48,7 +63,7 @@ const CountryDetail = (props) => {
         }
 
 </Fragment>
-              
+    </div>          
   
   
     )

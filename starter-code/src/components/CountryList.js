@@ -11,16 +11,25 @@ class CountryList extends Component {
 
   return(
 
-    <div>
 
 
+<div className="col-4" style={{maxHeight: '90vh', overflow: 'scroll'}}>
 
-  <li className="list-group-item"><NavLink to={this.props.cca3} activeClassName="active" >
+{
+  this.props.countries.map((oneCountry, index) => {
+    return   <NavLink to={`/${oneCountry.cca3}`} className="list-group-item" activeClassName="active" >
   
-  {this.props.flag} - {this.props.name.common} </NavLink></li>
+  {oneCountry.flag} - {oneCountry.name.common} </NavLink>
 
 
-    </div>
+  })
+}
+
+
+</div>
+
+
+
 
   )
 }
