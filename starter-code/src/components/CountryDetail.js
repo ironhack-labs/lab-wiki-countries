@@ -8,7 +8,7 @@ export default class CountryDetail extends Component {
     let url = "http://localhost:3000/about/" + this.props.name;
     return (
       <div>
-       <p><a href={url}> <i class={clase}></i> {this.props.name}</a></p> 
+       <p> <i class={clase}></i> {this.props.name}</p> 
       </div>
     )
   }

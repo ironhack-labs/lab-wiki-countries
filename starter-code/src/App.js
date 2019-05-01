@@ -4,7 +4,7 @@ import "./App.css";
 import CountryDetail from "./components/CountryDetail";
 import countries from "./countries.json";
 
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 import About from './About'
 import Default from "./components/Defalut";
@@ -26,11 +26,12 @@ class App extends Component {
         <div className="row mt-3">
           <div className="col-5 ml-3">
             {this.state.allCountries.map(yaEsViernes => (
+              <Link to={`/about/`+ yaEsViernes.name.common} >
               <CountryDetail 
                 name={yaEsViernes.name.common}
                 flag={yaEsViernes.cca2.toLowerCase()}
                 
-              />
+              /></Link>
             ))}
           </div>
           <div className="col-6">
