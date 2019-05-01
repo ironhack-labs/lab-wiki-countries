@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import CountryDetail from "./components/CountryDetail";
-import countries from "./countries.json"
+import countries from "./countries.json";
+
+import { Switch, Route, Redirect } from 'react-router-dom';
+
+import About from './About'
+import Default from "./components/Defalut";
 
 class App extends Component {
   constructor() {
@@ -20,11 +25,20 @@ class App extends Component {
         </header>
         <div className="row mt-3">
           <div className="col-5 ml-3">
-          {this.state.allCountries.map(yaEsViernes=> <CountryDetail name={yaEsViernes.name.common} />)}
-            
+            {this.state.allCountries.map(yaEsViernes => (
+              <CountryDetail 
+                name={yaEsViernes.name.common}
+                flag={yaEsViernes.cca2.toLowerCase()}
+                
+              />
+            ))}
           </div>
           <div className="col-6">
-            <CountryDetail />
+          <Switch>
+            <Route exact path='/' component={Default} />
+
+            <Route path='/about/:id' component={About} />
+          </Switch>
           </div>
         </div>
       </React.Fragment>
