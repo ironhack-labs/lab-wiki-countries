@@ -11,10 +11,7 @@ export default class CountryDetail extends Component {
           <div className="col-5" style={{maxHeight: '90vh', overflowY: 'scroll'}}>
             <div className="list-group">
               {
-                countries.map(country => {
-                  const url = `/${country.cca3}`;
-                  return <Link className="list-group-item list-group-item-action" key={country.cca3} to={url}>{country.flag} {country.name.official}</Link>;
-                })
+                countries.map(country => <Link className="list-group-item list-group-item-action" key={country.cca3} to={'/'+country.cca3}>{country.flag} {country.name.official}</Link>)
               }
             </div>
           </div>

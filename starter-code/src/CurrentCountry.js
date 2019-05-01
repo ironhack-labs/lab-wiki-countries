@@ -9,17 +9,17 @@ export default class CurrentCountry extends Component {
 
     return (
       <div className="col-7">
-          <h1>{currentCountry.name.official}</h1>
+          <h1>{currentCountry.name.official || currentCountry.name.common}</h1>
           <table className="table">
             <thead></thead>
             <tbody>
               <tr>
                 <td style={{width: "30%"}}>Capital</td>
-                <td>{currentCountry.capital[0]}</td>
+                <td>{currentCountry.capital[0] || "Not available"}</td>
               </tr>
               <tr>
                 <td>Area</td>
-                <td>{currentCountry.area} km
+                <td>{currentCountry.area || 0} km
                   <sup>2</sup>
                 </td>
               </tr>
