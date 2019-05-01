@@ -11,6 +11,7 @@ class App extends Component {
         <Navigation/>
         <Switch>
           <Route exact path="/" component={CountryDetail}/>
+          <Route exact path="/:country" component={CountryDetail}/>
           <Route render={()=><Redirect to="/"/>}/>
         </Switch>
       </React.Fragment>

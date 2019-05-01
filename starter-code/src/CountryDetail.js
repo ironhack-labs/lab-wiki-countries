@@ -1,49 +1,29 @@
 import React, { Component } from 'react';
 import countries from './countries.json';
+import { Link } from 'react-router-dom';
+import CurrentCountry from './CurrentCountry';
 
 export default class CountryDetail extends Component {
   render() {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-5" style={{maxHeight: '90vh', overflow: 'scroll'}}>
+          <div className="col-5" style={{maxHeight: '90vh', overflowY: 'scroll'}}>
             <div className="list-group">
-              Enlaces
+              {
+                countries.map(country => {
+                  const url = `/${country.cca3}`;
+                  return <Link className="list-group-item list-group-item-action" key={country.cca3} to={url}>{country.flag} {country.name.official}</Link>;
+                })
+              }
             </div>
           </div>
-          <div className="col-7">
-            <h1>France</h1>
-            <table className="table">
-              <thead></thead>
-              <tbody>
-                <tr>
-                  <td style={{width: "30%"}}>Capital</td>
-                  <td>Paris</td>
-                </tr>
-                <tr>
-                  <td>Area</td>
-                  <td>551695 km
-                    <sup>2</sup>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Borders</td>
-                  <td>
-                    <ul>
-                      <li><a href="/AND">Andorra</a></li>
-                      <li><a href="/BEL">Belgium</a></li>
-                      <li><a href="/DEU">Germany</a></li>
-                      <li><a href="/ITA">Italy</a></li>
-                      <li><a href="/LUX">Luxembourg</a></li>
-                      <li><a href="/MCO">Monaco</a></li>
-                      <li><a href="/ESP">Spain</a></li>
-                      <li><a href="/CHE">Switzerland</a></li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          {
+            
+            (this.props.match !== "" && this.props.match.params !== "" && this.props.match.params.country !== "") ?
+            <CurrentCountry country={this.props.match.params.country}/> :
+            null
+          }
         </div>
       </div>
     )
