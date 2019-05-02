@@ -1,3 +1,7 @@
 .all {
   display: flex;
 }
+
+.navbar-brand {
+  margin-left: -200px;
+}
