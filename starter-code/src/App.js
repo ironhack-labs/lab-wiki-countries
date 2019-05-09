@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import countries from './countries.json'
+import CardView from './components/CardView'
+import CardDetail from './components/CardDetail'
 
 class App extends Component {
+  
+  state = {
+    allCountries: countries
+  }
+  
   render() {
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+       <CardView/>
+       <CardDetail/>
       </div>
-    );
+    )
   }
 }
 
