@@ -2,12 +2,14 @@ import React from 'react';
 import Countries from './CountriesList';
 
 const CountryDetails = (props) => {
-  console.log(props)
+  console.log(props.match)
     return ( 
       <div class='row'>
+      <div class='col-5'>
         <Countries />
+        </div>
         <div class="col-7 list">
-            <h1>France</h1>
+            <h1>{props.match.params.id}</h1>
             <table class="table">
               <thead></thead>
               <tbody>

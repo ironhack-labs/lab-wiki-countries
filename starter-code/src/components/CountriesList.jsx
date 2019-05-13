@@ -28,11 +28,6 @@ class CountriesList extends Component {
             </div>
             </div>
             <div class='col-7 list'>
-            {/* {
-              this.state.arrCountries.map((OneCountry, index) => {
-                return <CountryDetails key={index} {...OneCountry}/>
-              })
-            } */}
             </div>
           </div> 
           </div>
