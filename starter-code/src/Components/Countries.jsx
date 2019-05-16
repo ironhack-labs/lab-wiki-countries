@@ -17,6 +17,15 @@ export default class Country extends Component {
     return countryList;
   };
 
+  getInfo = i => {
+    // console.log(<CountryDetail name={this.state.countries[i].name} />);
+    // console.log(this.state.countries[i]);
+
+    console.log((this.name = this.state.countries[i]));
+    console.log('this name is ', this.name);
+    // return <CountryDetail name={this.state.countries[i].name} />;
+  };
+
   render() {
     return (
       <div className="container">

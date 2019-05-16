@@ -21,7 +21,8 @@ class App extends Component {
           <Route exact path="/countries" component={Countries} />
           {/* <Route exact path="/countries/:id" component={CountryDetail} /> */}
         </Switch>
-        <Countries onClick={this.toggleInfo} />
+        {/* <Countries onClick={this.toggleInfo} /> */}
+        <Countries />
       </div>
     );
   }
