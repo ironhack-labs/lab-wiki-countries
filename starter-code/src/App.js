@@ -8,11 +8,12 @@ import { Switch, Route } from 'react-router-dom';
 class App extends Component {
 
   state = {
-    countries
+    countries,
+    filteredCountries: countries
   }
 
   showAllCountries = () => {
-    let show = countries.map((country, i) => {
+    let show = this.state.filteredCountries.map((country, i) => {
       return <CountryBox name={country.name.common} code={country.cca3} flag={country.cca2} key={i} />
     })
     return show
@@ -23,12 +24,29 @@ class App extends Component {
 
   }
 
+  search = (e) => {
+    let filter = this.state.countries.filter((country) => {
+      return country.name.common.toLowerCase().includes(e.target.value.toLowerCase())
+    })
+    this.setState({
+      filteredCountries: filter
+    })
+  }
+
+
   render() {
     return (
       <Fragment>
         <nav className="navbar navbar-dark bg-primary mb-3">
           <div className="container">
-            <div className="navbar-brand">WikiCountries</div>
+            <div className="row">
+              <div className="col">
+                <div className="navbar-brand">WikiCountries</div>
+              </div>
+              <div className="col">
+                <input className="form-control bg-dark text-white" type="search" onChange={this.search} placeholder="Search for country..."></input>
+              </div>
+            </div>
           </div>
         </nav>
         <div className="container">
@@ -43,9 +61,6 @@ class App extends Component {
             </div>
           </div>
         </div>
-
-
-
       </Fragment >
     );
   }

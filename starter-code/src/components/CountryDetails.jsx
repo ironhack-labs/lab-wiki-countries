@@ -13,7 +13,7 @@ class CountryDetails extends Component {
         let currentCountry = this.props.countries.find(country => {
             return country.cca3 === this.props.match.params.id
         })
-        console.log(currentCountry.borders)
+        // console.log(currentCountry.borders)
         let borders = currentCountry.borders.map(border => {
             return <Link to={border}>{border}</Link>
         })
@@ -32,13 +32,12 @@ class CountryDetails extends Component {
         })
 
 
-        console.log('ssdsdsdsd', borders)
+        // console.log('ssdsdsdsd', borders)
 
 
         return (
             <Fragment>
-
-                <h1>{currentCountry.name.common}</h1>
+                <h1>{currentCountry.name.common}{currentCountry.flag}</h1>
                 <table class="table">
                     <thead></thead>
                     <tbody>
@@ -57,9 +56,24 @@ class CountryDetails extends Component {
                             <td>
                                 <ol>
                                     {links}
-
-
                                 </ol>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Currency</td>
+                            <td>{currentCountry.currency}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Region</td>
+                            <td>{currentCountry.region}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Languages</td>
+                            <td>{Object.values(currentCountry.languages).map(lan => {
+                                return <li>{lan}</li>
+                            })}
                             </td>
                         </tr>
                     </tbody>
