@@ -44,3 +44,7 @@ ul {
   max-height: 90vh;
   overflow: scroll;
 }
+
+body {
+  text-align: right;
+}

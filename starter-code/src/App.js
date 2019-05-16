@@ -13,10 +13,14 @@ class App extends Component {
       <div className="App">
         <Nav />
         <div className="main" />
-        <Countries countries={countries} />
-        <Switch>
-          <Route path="/country/:countryCode" render={_ => <CountryDetail countries={countries} />} />
-        </Switch>
+        <div className="container">
+          <div className="row">
+            <Countries countries={countries} />
+            <Switch>
+              <Route path="/country/:countryCode" render={_ => <CountryDetail countries={countries} />} />
+            </Switch>
+          </div>
+        </div>
       </div>
     );
   }
