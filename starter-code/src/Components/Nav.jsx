@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default class Nav extends Component {
-  render() {
-    return (
-      <nav className="navbar navbar-dark bg-primary mb-3">
-        <div className="container">
-          <a className="navbar-brand" href="/">
-            WikiCountries
-          </a>
-        </div>
-      </nav>
-    );
-  }
-}
+const Nav = _ => (
+  <nav className="navbar navbar-dark bg-primary mb-3">
+    <div className="container">
+      <Link className="navbar-brand" to="/">
+        WikiCountries
+      </Link>
+    </div>
+  </nav>
+);
+
+export default Nav;
