@@ -30,3 +30,17 @@
     transform: rotate(360deg);
   }
 }
+
+nav {
+  background-color: blue;
+}
+
+ul {
+  list-style: none;
+  text-align: left;
+}
+
+.col-5-style {
+  max-height: 90vh;
+  overflow: scroll;
+}

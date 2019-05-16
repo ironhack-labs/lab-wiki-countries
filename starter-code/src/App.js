@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Nav from './Components/Nav';
+import Countries from './Components/Countries';
+import CountryBorders from './Components/CountryBorders';
+import CountryDetail from './Components/CountryDetail';
+
+import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
+  state = { infoActive: false };
+
+  toggleInfo = _ => this.setState({ infoActive: !this.state.infoActive });
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Nav />
+        <Switch>
+          {/* <Route exact path="/" component={Home} /> */}
+          <Route exact path="/countries" component={Countries} />
+          {/* <Route exact path="/countries/:id" component={CountryDetail} /> */}
+        </Switch>
+        <Countries onClick={this.toggleInfo} />
       </div>
     );
   }
