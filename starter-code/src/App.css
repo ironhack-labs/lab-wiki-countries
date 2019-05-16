@@ -30,3 +30,8 @@
     transform: rotate(360deg);
   }
 }
+
+.container{
+  max-height: 90 vh;
+  overflow: scroll;
+}
