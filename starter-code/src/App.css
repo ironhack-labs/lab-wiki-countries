@@ -30,3 +30,7 @@
     transform: rotate(360deg);
   }
 }
+.col-5 {
+  overflow: scroll;
+  height: 100vh;
+}
