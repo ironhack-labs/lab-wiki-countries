@@ -12,3 +12,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.fill-viewport{
+  max-height: calc(100vh - 80px);
+}
+
+/* UIKit overrides */
