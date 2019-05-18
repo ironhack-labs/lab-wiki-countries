@@ -4,7 +4,11 @@ import CountryDetail from "./components/CountryDetail";
 
 const Router = () => (
   <Switch>
-    <Route exact path="/" component={CountryDetail}/>
+    <Route
+      exact
+      path="/detail/:id"
+      render={props => <CountryDetail {...props} />}
+    />
   </Switch>
 );
 
