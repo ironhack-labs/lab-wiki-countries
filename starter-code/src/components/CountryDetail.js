@@ -3,15 +3,12 @@ import Countries from "../countries.json";
 import { Link } from "react-router-dom";
 
 const CountryDetail = props => {
-  console.log(props);
 
   let foundCountry = Countries.find(item =>
-    props.match.params.id.includes(item.name.common)
+    props.match.params.id === (":" + item.cca3)
   );
 
   let { borders } = foundCountry;
-  console.log();
-
   console.log(foundCountry);
   return (
     <div className="country-detail">
@@ -32,7 +29,7 @@ const CountryDetail = props => {
             <ul>
               {borders.map((item, index) => (
                 <li key={index}>
-                  <Link to="#">{item}</Link>
+                  <Link to={`/:${item}`}>{item}</Link>
                 </li>
               ))}
             </ul>
