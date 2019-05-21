@@ -1,25 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import countries from './countries';
+import {NavLink} from "react-router-dom";
+import Router from "./Router";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <nav className="navbar navbar-dark bg-primary mb-3">
+          <div className="container">
+            <a className="navbar-brand" href="/">WikiCountries</a>
+          </div>
+        </nav>
+        <div className="container">
+          <div className="row">
+            <div className="col-5  stylos"  >
+              <div className="list-group">
+                {
+                  countries
+                    .map((el,index)=>{
+                      return(
+                        <NavLink
+                          className="list-group-item list-group-item-action"
+                          key={index}
+                          to={`/countrydetail/${el.cca3}`}
+                        >
+                          {el.flag}
+                          {el.name.common}
+                        </NavLink>
+                      )
+                    })
+                }
+              </div>
+            </div>
+            <Router/>
+          </div>
+        </div>
       </div>
     );
   }
