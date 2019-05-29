@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import CountryList from './components/CountryList'
 import CountryDetail from './components/CountryDetail'
-import { Router, Route, Switch } from "react-router";
-import './App.css';
+import {Route, Link} from 'react-router-dom'
+
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
       <div>
         <nav className="navbar navbar-dark bg-primary mb-3">
           <div className="container">
-            <a className="navbar-brand" href="/">WikiCountries</a>
+            <Link className="navbar-brand" to="/">WikiCountries</Link>
           </div>
         </nav>
         <div className="container">
@@ -19,7 +19,7 @@ class App extends Component {
               <CountryList />
             </div>
             <div className="col-7">
-              <CountryDetail />
+              <Route path="/country/:id" component={CountryDetail} />
             </div>
           </div>
         </div>

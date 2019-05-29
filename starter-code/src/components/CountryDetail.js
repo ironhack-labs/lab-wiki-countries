@@ -1,6 +1,8 @@
 import React from 'react'
+// import countries from './../countries.json'
 
-const CountryDetail = () => {
+const CountryDetail = (props) => {
+  console.log(props);
   return (
     <React.Fragment>
       <h1>France</h1>
