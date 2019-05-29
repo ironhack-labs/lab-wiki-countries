@@ -1,21 +1,21 @@
 import React from 'react'
-// import countries from './../countries.json'
-
+import countries from './../countries.json'
+import {Link} from 'react-router-dom'
 const CountryDetail = (props) => {
-  console.log(props);
+  const country = countries.find(e => e.cca3 === props.match.params.cca3)
   return (
     <React.Fragment>
-      <h1>France</h1>
+      <h1>{country.name.official}</h1>
       <table className="table">
         <thead></thead>
         <tbody>
           <tr>
             <td style={{width:'30%'}}>Capital</td>
-            <td>Paris</td>
+            <td>{country.capital}</td>
           </tr>
           <tr>
             <td>Area</td>
-            <td>551695 km
+            <td>{country.area} km
               <sup>2</sup>
             </td>
           </tr>
@@ -23,7 +23,12 @@ const CountryDetail = (props) => {
             <td>Borders</td>
             <td>
               <ul>
-                <li><a href="/AND">Andorra</a></li>
+                {country.borders.map((cca3,i)=>{
+                  const pais = countries.find(e => e.cca3 === cca3)
+                  return (
+                    <li key={i}><Link to={`/country/${cca3}`}>{pais.name.common}</Link></li>
+                  )
+                })}
               </ul>
             </td>
           </tr>

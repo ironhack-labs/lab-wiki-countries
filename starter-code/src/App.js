@@ -19,7 +19,7 @@ class App extends Component {
               <CountryList />
             </div>
             <div className="col-7">
-              <Route path="/country/:id" component={CountryDetail} />
+              <Route path="/country/:cca3" component={CountryDetail} />
             </div>
           </div>
         </div>
