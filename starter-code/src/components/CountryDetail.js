@@ -7,7 +7,7 @@ class CountryDetail extends Component {
     country: {}
   }
 
-  componentDidMount() {
+  componentWillReceiveProps() {
     const { id } = this.props.match.params
     console.log(id)
     const country = countries.find(country => country.cca3 === id)
