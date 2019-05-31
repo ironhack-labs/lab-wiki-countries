@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react'
 import countries from '../data/countries.json'
 import { Link } from 'react-router-dom'
@@ -11,7 +10,6 @@ class CountryList extends Component {
 
   componentWillReceiveProps() {
     const { id } = this.props.match.params
-    console.log(id)
     const country = countries.find(country => country.cca3 === id)
     this.setState({ country })
   }
