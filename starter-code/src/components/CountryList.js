@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import countries from '../data/countries.json'
 import { Link } from 'react-router-dom'
 
@@ -8,24 +8,22 @@ class CountryList extends Component {
     country: {}
   }
 
-  componentWillReceiveProps() {
-    const { id } = this.props.match.params
+  componentWillReceiveProps(nextProps) {
+    const { id } = nextProps.match.params
     const country = countries.find(country => country.cca3 === id)
     this.setState({ country })
   }
-
 
   render() {
     console.log(this.state.country)
     const { country } = this.state
     return country.name ? (
-      <div className="col-7">
+      <div className="col-5">
         <h1>{country.name.common}</h1>
         <table className="table">
-          <thead></thead>
           <tbody>
             <tr>
-              <td style={{"width": "30%"}}>Capital</td>
+              <td>Capital</td>
               <td>{country.capital[0]}</td>
             </tr>
             <tr>
@@ -38,14 +36,14 @@ class CountryList extends Component {
               <td>Borders</td>
               <td>
                 <ol>
-                  {country.borders.map((a,i) => <li key={i}><Link to={`/${a}`}>{a}</Link></li>)}
+                  {country.borders.map((elem, index) => <li key={index}><Link to={`/${elem}`}>{elem}</Link></li>)}
                 </ol>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-    )  : null;
+    ) : null;
   }
 }
 
