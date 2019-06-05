@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -21,7 +21,6 @@
 .App-link {
   color: #61dafb;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -29,4 +28,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+ul li{
+  list-style: none;
+}
+ul li a{
+  text-decoration: none;
+  color: black;
+}
+
+ul li a:hover {
+text-decoration: none;
+color: grey;
 }
