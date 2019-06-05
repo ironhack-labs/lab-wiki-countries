@@ -41,3 +41,18 @@ ul li a:hover {
 text-decoration: none;
 color: grey;
 }
+.country {
+  text-align: center;
+  background-color: rgba(128, 124, 124, 0.493)
+}
+main {
+    background-color: rgba(128, 124, 124, 0.493)
+
+
+}
+.country h1 {
+  font-size: 45px;
+}
+.country p {
+  font-size: 30px;
+}
