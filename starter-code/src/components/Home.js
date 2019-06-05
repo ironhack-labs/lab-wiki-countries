@@ -2,6 +2,7 @@ import React from 'react'
 import CountryList from './CountryList';
 import data from '../data.json'
 import CountryDetail from './CountryDetail';
+import { Route } from 'react-router-dom';
 
 const Home = () => {
   return(
@@ -11,9 +12,9 @@ const Home = () => {
           <CountryList data={data}/>
         </div>
           
-        {/* <div className="col-7">
-          <CountryDetail dataDetail={data}/>
-        </div> */}
+        <div className="col-7">
+          <Route exact path="/:cca3" component={ CountryDetail } />
+        </div>
       </div>
     </div>
   )

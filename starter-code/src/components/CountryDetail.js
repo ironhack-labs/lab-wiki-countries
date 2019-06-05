@@ -1,13 +1,21 @@
 import React from 'react';
-import data from '../data.json'
+import data from '../data.json';
+import { Link } from 'react-router-dom';
+
+  const matchCountry = (arg)  => {
+    return data.map(e => {
+        if(e.cca3 === arg){
+          return e.name.common
+        } else {
+          return false
+        }
+      })
+  }
 
 const CountryDetail = (props) => {
   const filterData = data.filter(element => element.cca3 === props.match.params.cca3)
-  console.log(filterData[0].name.common)
   const [oneData] = filterData;  
-
   return (
-  <div className="col-7">
   <div>
     <h1>{oneData.name.common}</h1>
         <table className="table">
@@ -19,7 +27,7 @@ const CountryDetail = (props) => {
             </tr>
             <tr>
               <td>Area</td>
-              <td>551695 km
+              <td>{oneData.area} km
                 <sup>2</sup>
               </td>
             </tr>
@@ -27,20 +35,20 @@ const CountryDetail = (props) => {
               <td>Borders</td>
               <td>
                 <ul>
-                  <li><a href="/AND">Andorra</a></li>
-                  <li><a href="/BEL">Belgium</a></li>
-                  <li><a href="/DEU">Germany</a></li>
-                  <li><a href="/ITA">Italy</a></li>
-                  <li><a href="/LUX">Luxembourg</a></li>
-                  <li><a href="/MCO">Monaco</a></li>
-                  <li><a href="/ESP">Spain</a></li>
-                  <li><a href="/CHE">Switzerland</a></li>
+                  {
+                    oneData.borders.map((eachCountry, index) => {
+                      return <li key={index}><Link  to={`/${eachCountry}`}>{
+                        
+                        matchCountry(eachCountry)
+                      
+                      }</Link></li>
+                    })
+                  }
                 </ul>
               </td>
             </tr>
           </tbody>
         </table> 
-  </div>
   </div>
   )
 }
