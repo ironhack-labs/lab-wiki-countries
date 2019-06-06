@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import queryString from "query-string"
 import Countries from "../countries.json"
 import Country from './Country.js';
-// import {Link} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 class CountryDetail extends Component {
   constructor(props){
@@ -33,7 +33,17 @@ const borderCountries = border.map(elm =>{
         <p>{qString.area} KM </p>
         <ul>
           {borderCountries.map(elm => (
-            <li key={elm.cca3}>{elm.name.common}</li>
+            <li key={elm.cca3}>
+              {" "}
+              <Link
+                to={`/${elm.cca3}?name=${elm.name.official}&flag=${
+                  elm.flag
+                }&region=${elm.region}&area=${elm.area}&borders=${
+                  elm.borders
+                }&capital=${elm.capital}`}
+              >
+              {elm.name.common}
+            </Link></li>
           ))}
         </ul>
       </article>
