@@ -1,3 +1,8 @@
+#root {
+  background-color: rgba(53, 53, 53, 0.87); 
+  color: white;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,4 +16,31 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+li  {
+  list-style: none;
+  font-size: 1.3em;
+}
+
+li a {
+  color: white;
+
+}
+
+a  {
+  color: white;
+}
+
+.navBar {
+  position: absolute;
+  left:0;
+  font-size: 1.2em;
+}
+
+.details {
+  position: fixed;
+  top: 10vh;
+  left: 44vw;
+  font-size: 1.5em;
 }
