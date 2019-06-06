@@ -2,7 +2,7 @@ import React from 'react';
 import countries from "../countries.json"
 import { Link } from 'react-router-dom';
 
-const countryDetail = () => {
+const countryList = () => {
 
   return (
     <div className="container">
@@ -18,7 +18,7 @@ const countryDetail = () => {
 
   )
 }
-export default countryDetail
+export default countryList
   
 // countries.map (country)
 // <Link `/list/${country.ccar}?name=${country.name.common}`

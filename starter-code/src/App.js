@@ -15,10 +15,10 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path='/list' exact component ={CountryList}/>
-          <Route path='/list/:id' exact component={countryDetail} />          
+          <Route path='/' exact component ={CountryList}/>
         </Switch>
+        <Route path='/list/:id' exact component={countryDetail} />          
+
       </div>
     );
   }
