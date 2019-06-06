@@ -20,7 +20,7 @@ class Navbar extends Component {
         {
           this.state.ourCountries.map((eachCountry) => {
             console.log(eachCountry)
-            return <li><Link to={`/country/${eachCountry.cca3}`} key={eachCountry.cca3}>{eachCountry.name.common}</Link></li>
+            return <li><Link to={`/country/${eachCountry.cca3}`} key={eachCountry.cca3}>{eachCountry.flag}{eachCountry.name.common}</Link></li>
           })
         }
       </ul>
