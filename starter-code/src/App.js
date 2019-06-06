@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Countries from './components/Countries'
+import CountryDetail from './components/CountryDetail'
+
+
+import { Switch, Route } from 'react-router-dom'
+
+
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
@@ -20,6 +28,12 @@ class App extends Component {
             Learn React
           </a>
         </header>
+
+        <Switch>
+          <Route path='/' exact component={Countries} />
+          <Route path='/detail/:country_id' component={CountryDetail} />
+        </Switch>
+
       </div>
     );
   }
