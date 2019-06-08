@@ -30,3 +30,12 @@
     transform: rotate(360deg);
   }
 }
+
+.country-list {
+  max-height: 90vh; 
+  overflow: scroll;
+}
+
+.info-capital {
+  width: 30%;
+}
