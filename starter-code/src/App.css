@@ -22,6 +22,11 @@
   color: #61dafb;
 }
 
+.scroll {
+  max-height: 90vh;
+  overflow: scroll
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
