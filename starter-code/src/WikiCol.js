@@ -4,6 +4,7 @@ import countries from './countries.json'
 
 class WikiCol extends React.Component {
   
+  
   render() {
     const country = countries.find(country => this.props.match.params.id === country.cca3)
     const borders = country.borders.map(border => {

@@ -9,16 +9,16 @@ function DetailsCountry({country, borders}) {
         <thead></thead>
         <tbody>
           <tr>
-            <td style={{ 'width': '30%' }}>Capital</td>
+            <td style={{ 'width': '30%' }}><strong>Capital</strong></td>
             <td>{country.translations.spa.official}</td>
           </tr>
           <tr>
-            <td>Area</td>
+            <td><strong>Area</strong></td>
             <td>{country.area} km<sup>2</sup>
             </td>
           </tr>
           <tr>
-            <td>Borders</td>
+            <td><strong>Borders</strong></td>
             <td>
               <ul className="text-left">
                 {borders.map((border, i) => (
