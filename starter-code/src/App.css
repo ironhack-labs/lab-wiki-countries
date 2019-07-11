@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -8,14 +8,9 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: dodgerblue;
   color: white;
+  padding: 2em;
 }
 
 .App-link {
@@ -29,4 +24,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.big-container {
+  display: flex;
+  height: 80vh;
+}
+
+.country-container {
+  padding: 2em;
+  flex-direction: column;
+}
+
+.column {
+  flex-direction: row;
+  display: flex;
+}
+
+.border-box a {
+  box-sizing: content-box;
 }
