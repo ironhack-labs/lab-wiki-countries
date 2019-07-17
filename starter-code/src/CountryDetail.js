@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class CountryDetail extends Component {
   render() {
@@ -23,30 +24,25 @@ export default class CountryDetail extends Component {
               <td>Borders</td>
               <td>
                 <ul>
-                  <li>
-                    <a href="/{this.props.country.cca3}">Andorra</a>
-                  </li>
-                  <li>
-                    <a href="/BEL">Belgium</a>
-                  </li>
-                  <li>
-                    <a href="/DEU">Germany</a>
-                  </li>
-                  <li>
-                    <a href="/ITA">Italy</a>
-                  </li>
-                  <li>
-                    <a href="/LUX">Luxembourg</a>
-                  </li>
-                  <li>
-                    <a href="/MCO">Monaco</a>
-                  </li>
-                  <li>
-                    <a href="/ESP">Spain</a>
-                  </li>
-                  <li>
-                    <a href="/CHE">Switzerland</a>
-                  </li>
+                  {this.props.country.borders.map((el, idx) => {
+                    let foundCountry = this.props.allCountries.filter(
+                      country => {
+                        console.log(el);
+                        return (
+                          country.cca3
+                            .toLowerCase()
+                            .indexOf(el.toLowerCase()) >= 0
+                        );
+                      }
+                    );
+                    return (
+                      <li style={{ listStyle: "none" }}>
+                        <Link to={"/viewCountry/" + el}>
+                          {foundCountry[0].name.common}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </td>
             </tr>

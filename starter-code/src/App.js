@@ -51,7 +51,12 @@ class App extends Component {
                           .indexOf(chosenCountry.toLowerCase()) >= 0
                       );
                     });
-                    return <CountryDetail country={filteredArray[0]} />;
+                    return (
+                      <CountryDetail
+                        country={filteredArray[0]}
+                        allCountries={this.state.countries}
+                      />
+                    );
                   }}
                 />
                 <Route component={notFound404} />
