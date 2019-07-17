@@ -5,19 +5,15 @@ import "bootstrap/dist/css/bootstrap.css";
 export default class CountryItem extends Component {
   render() {
     return (
-      <div className="col-5">
-        <div className="list-group">
-          <li
-            key={this.props.idx}
-            className="list-group-item list-group-item-action"
-          >
-            <Link to={"/viewCountry/" + this.props.countryitem.cca3}>
-              {this.props.countryitem.flag}
-              {this.props.countryitem.name.common}
-            </Link>
-          </li>
-        </div>
-      </div>
+      <li
+        key={this.props.idx}
+        className="list-group-item list-group-item-action"
+      >
+        <Link to={"/viewCountry/" + this.props.countryitem.cca3}>
+          {this.props.countryitem.flag}
+          {this.props.countryitem.name.common}
+        </Link>
+      </li>
     );
   }
 }
