@@ -42,7 +42,7 @@ export default class CountryDetail extends Component {
                         );
                       }
                     );
- return <li><Link to={"/country/" + el}>{foundCountry[0].name.common}</Link></li>
+ return <li style={{listStyle: "none"}} ><Link to={"/country/" + el}>{foundCountry[0].name.common}</Link></li>
                   })}
 
                 </ul>
