@@ -4,18 +4,18 @@ export default class CountryDetail extends Component {
   render() {
     return (
       <div class="col-7">
-        <h1>France</h1>
+        <h1>{this.props.country.name.common}</h1>
         <table class="table">
           <thead />
           <tbody>
             <tr>
-              <td style="width: 30%;">Capital</td>
-              <td>Paris</td>
+              <td>Capital</td>
+              <td>{this.props.country.capital}</td>
             </tr>
             <tr>
               <td>Area</td>
               <td>
-                551695 km
+                {this.props.country.area} km
                 <sup>2</sup>
               </td>
             </tr>
@@ -24,7 +24,7 @@ export default class CountryDetail extends Component {
               <td>
                 <ul>
                   <li>
-                    <a href="/AND">Andorra</a>
+                    <a href="/{this.props.country.cca3}">Andorra</a>
                   </li>
                   <li>
                     <a href="/BEL">Belgium</a>

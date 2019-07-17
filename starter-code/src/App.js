@@ -4,6 +4,8 @@ import "./App.css";
 import CountryItem from "./CountryItem";
 import CountryDetail from "./CountryDetail";
 import countries from "./countries.json";
+import { Switch, Route, Redirect } from "react-router-dom";
+import notFound404 from "./notFound404";
 
 class App extends Component {
   constructor() {
@@ -26,14 +28,34 @@ class App extends Component {
           </nav>
           <div class="container">
             <div class="row">
-              <div className="col-5">
+              <div
+                className="col-5"
+                style={{ maxHeight: "90vh", overflow: "scroll" }}
+              >
                 <div className="list-group">
                   {this.state.countries.map((country, idx) => (
-                    <CountryItem key={idx} countryitem={country} />
+                    <CountryItem key={idx} idx={idx} countryitem={country} />
                   ))}
                 </div>
               </div>
-              {/* <CountryDetail /> */}
+              <Switch>
+                <Route
+                  exact
+                  path="/viewCountry/:chosenCountry"
+                  render={props => {
+                    let chosenCountry = props.match.params.chosenCountry;
+                    let filteredArray = this.state.countries.filter(country => {
+                      return (
+                        country.cca3
+                          .toLowerCase()
+                          .indexOf(chosenCountry.toLowerCase()) >= 0
+                      );
+                    });
+                    return <CountryDetail country={filteredArray[0]} />;
+                  }}
+                />
+                <Route component={notFound404} />
+              </Switch>
             </div>
           </div>
         </div>
