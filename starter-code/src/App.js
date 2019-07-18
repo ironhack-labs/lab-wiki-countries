@@ -1,28 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import countries from './countries'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+import { Table } from 'reactstrap';
+import Navbar from "./Navbar"
+import { Route, Switch, Link } from "react-router-dom"
+import CountryDetail from "./CountryDetail"
+
+function App() {
+  return (
+    <div className="App">
+      <Navbar/>
+
+        <Route path="/country-detail/:cca3" exact component = {CountryDetail}  />
+
+      <Table className="table-center float-right" style={{width:"1000px", dispaly:"flex"}}>
+        <thead>
+          <tr>
+            <th>Countries</th>
+          </tr>
+        </thead>
+        <tbody>
+          {countries.map((country, i) => (
+            <tr key={i}>
+              <td>{country.flag}{country.name.common}</td>
+              
+              <td>
+                <Link to={"/country-detail/" + country.cca3}>Detail</Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </div>
+  );
 }
 
 export default App;
