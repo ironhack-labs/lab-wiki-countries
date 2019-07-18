@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link,Route} from 'react-router-dom'
 import Data from '../countries.json'
+import CountryDetail from './CountryDetail'
 
 
 export default class CountryContainer extends Component {
@@ -28,12 +29,14 @@ export default class CountryContainer extends Component {
                     </Link>
                   </div>
                 ))
-              }
-              
+              }        
             </div>
+       
+            <CountryDetail/>
+
+         {/* cierre div container y row */}
           </div>
         </div>
-          <div class="col-7"></div>
         
       </>
     )

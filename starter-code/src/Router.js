@@ -10,7 +10,6 @@ const Router = () => {
       <Switch>
         <Route exact path="/" component={CountryContainer}/>
         <Route path="/country/:id" component={CountryDetail}/>
-
       </Switch>
 
       </BrowserRouter>
