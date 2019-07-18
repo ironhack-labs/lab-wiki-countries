@@ -8,18 +8,31 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #61dafb;
+  min-height: 50px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-weight: bold;
+  padding-left: 30px;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: calc(100vh - 50px);
+  background-color: red;
+}
+
+.country-list{
+  height: 
 }
 
 @keyframes App-logo-spin {
