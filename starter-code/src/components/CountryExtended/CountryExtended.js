@@ -21,7 +21,7 @@ export default class CountryExtended extends Component {
               </tr>
               <tr>
                 <td>Area</td>
-                <td>{this.props.area}km
+                <td>{this.props.specificCountry.area}km
                     <sup>2</sup>
                 </td>
               </tr>
@@ -29,7 +29,7 @@ export default class CountryExtended extends Component {
                 <td>Borders</td>
                 <td>
                   <ul>
-                    {this.props.borders}
+                    {this.props.specificCountry.borders}
                   </ul>
                 </td>
               </tr>
