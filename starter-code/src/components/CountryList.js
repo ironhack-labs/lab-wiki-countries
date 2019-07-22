@@ -10,16 +10,14 @@ class CountryList extends Component {
 
   render() {
     return(
-          <ul className="list-group text-left" style={{height: '90vh', overflow: 'scroll'}}>
-            {this.state.countries.map((country, i)=> 
-              <li key={i} className="list-group-item list-group-item-action">
-                <Link to={`/details/${country.cca3}`}>
-                <span> {country.flag} {country.name.common}</span>
-                </Link>
-              </li>)}
-          </ul>
-      
-      
+      <ul className="list-group text-left" style={{height: '90vh', overflow: 'scroll'}}>
+        {this.state.countries.map((country, i)=> 
+          <li key={i} className="list-group-item list-group-item-action">
+            <Link to={`/details/${country.cca3}`}>
+            <span> {country.flag} {country.name.common}</span>
+            </Link>
+          </li>)}
+      </ul> 
     )
   }
 
