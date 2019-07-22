@@ -11,7 +11,7 @@ const CountryDetail = (props) => {
   const country = findCountry(props.match.params.id)
 
   const borders = country.borders.map((border, i) =>
-    <li>
+    <li key={i}>
       <Link to={`/details/${border}`}>
         {findCountry(border).name.common}
       </Link>
@@ -22,6 +22,7 @@ const CountryDetail = (props) => {
         <h1>{country.name.common}</h1>
 
         <table className="table">
+          <tbody>
           <tr>
             <td>Capital</td>
             <td>{country.capital}</td>
@@ -36,8 +37,9 @@ const CountryDetail = (props) => {
               <ul>{borders}</ul>
             </td>
           </tr>
+          </tbody>
         </table> 
-        
+
       </>
   )
 }
