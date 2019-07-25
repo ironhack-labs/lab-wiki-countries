@@ -17,7 +17,21 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.body{
+  display: flex;
+}
+.listOf{
+  margin: 40px;
+  width: 25%;
+  height: 400px;
+  border: 1px solid black;
+  overflow-y: scroll;
+}
+.listOf *{
+  list-style: none;
+  margin-right: 5%;
+  border: 1px solid black;
+}
 .App-link {
   color: #61dafb;
 }
@@ -29,4 +43,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+#capital,
+#area,
+#borders{
+  display: flex;
+  border: 1px lightgray solid;
+  justify-content: space-between;
+  align-content: center;
+}
+.list{
+  display: flex;
+  flex-direction: column
 }
