@@ -15,9 +15,9 @@ constructor(props){
 }
 
   componentDidMount(){
-   // let countryCode = this.props.match.params.idcountry;
+   let countryCode = this.props.match.params.idcountry;
 // console.log("+++++++++ componentDidMount   country code "+ countryCode)
-  //  this.setState({theCountryCode: countryCode})
+   this.setState({theCountryCode: countryCode});
 }
 
 
