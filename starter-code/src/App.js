@@ -3,23 +3,26 @@ import './App.css';
 import allTheCountries from './countries.json';
 import { Switch, Route } from 'react-router-dom';
 import CountryDetail from './countryDetail/CountryDetail';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 class App extends Component {
+ 
+  
   
   showListOfCounties () {
     return allTheCountries.map((eachCountry, i) => {
       return (
         <div key={i} className="list-group">
-        <Link to={`${eachCountry.cca3}`} className="list-group-item list-group-item-action my-1">
+        <NavLink   activeClassName="active" exact to={`/${eachCountry.cca3}`} className="list-group-item list-group-item-action my-1">
         {eachCountry.flag} {eachCountry.name.common} 
-        </Link>
+        </NavLink>
       
       </div>
       )
     })
 
   }
+
 
   render() {
     return (
@@ -31,7 +34,7 @@ class App extends Component {
           {this.showListOfCounties()}
         </div>
         <div className="col-7">
-          <Route exact path='/:country' component={CountryDetail}    />
+          <Route exact path='/:country' component={CountryDetail}   />
         </div>
       </div>
      

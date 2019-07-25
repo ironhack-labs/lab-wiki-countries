@@ -14,6 +14,7 @@ class CountryDetail extends Component {
       return country.cca3.includes(lookingFor)
     })
     .map((country, i)=> {
+      
       return (
         <div key={i} className="m-3 p-2">
 
