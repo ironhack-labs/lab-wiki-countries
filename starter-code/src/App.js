@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import allTheCountries from './countries.json';
+import { Switch, Route } from 'react-router-dom';
+import CountryDetail from './countryDetail/CountryDetail';
+import { Link } from 'react-router-dom';
 
 class App extends Component {
+  
+  showListOfCounties () {
+    return allTheCountries.map((eachCountry, i) => {
+      return (
+        <div key={i} className="list-group">
+        <Link to={`${eachCountry.cca3}`} className="list-group-item list-group-item-action my-1">
+        {eachCountry.flag} {eachCountry.name.common} 
+        </Link>
+      
+      </div>
+      )
+    })
+
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container-fluid">
+      <div className="row nav-row">Wiki Countries</div>
+      
+      <div className="row">
+        <div className="col-5 overflow-auto max-height-80">
+          {this.showListOfCounties()}
+        </div>
+        <div className="col-7">
+          <Route exact path='/:country' component={CountryDetail}    />
+        </div>
+      </div>
+     
       </div>
     );
   }
