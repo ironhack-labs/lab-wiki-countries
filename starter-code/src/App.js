@@ -11,11 +11,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Route path='/info/:country-code' component={Info}/>
         <Nav />
         <div className="flex-thing">
          <List countries={Countries} />
-          <div className="info-place"></div>
+          <div className="info-place">
+            <Route path='/info/:countrycode' component={Info}/>
+          </div>
         </div>
       </div>
     );

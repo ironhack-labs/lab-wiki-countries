@@ -6,7 +6,7 @@ function List(props) {
 
   let showCountries = () => {
     return props.countries.map((eachCountry, i)=>{
-      return <ListItems key={i} name={eachCountry.name.common} flag={eachCountry.flag} />
+      return <ListItems key={i} name={eachCountry.name.common} flag={eachCountry.flag} countrycode={eachCountry.cca3} />
     })
   }
 
