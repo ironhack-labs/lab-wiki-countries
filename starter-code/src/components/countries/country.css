@@ -1,0 +1,14 @@
+.country{
+    width: 350px;
+    height: 30px;
+    border: solid 1px black;
+    border-radius: 4px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+}
+
+.country div:first-of-type{
+    margin: 0px 15px;
+}
