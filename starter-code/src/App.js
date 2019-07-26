@@ -1,28 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import countriesData from './countries.json'
+import { Link } from 'react-router-dom'
 
-class App extends Component {
-  render() {
+export default function App() {
+  const [countries, setcountries] = useState([])
+  useEffect(() => {
+    setcountries(prevState => {
+      return [...prevState, ...countriesData]
+    })
+  }, [])
+  if (countries) {
+    // const getcountry = countries.find(() => countries[0].name.common === 'Mexico')
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <div className="row">
+          <div className="col-5">
+            <div className="list-group">
+              {countries.map((countries, i) => (
+                <Link key={i} to={`/${countries.cca3}`} className=" col-5 list-group-item list-group-item-action">
+                  {countries.name.common}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    );
+    )
+  } else {
+    return <div>{console.log('fail')}</div>
   }
 }
-
-export default App;
