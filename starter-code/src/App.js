@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Home from './components/Home';
-import CountryDetail from './components/CountryDetail';
+import CountryDetail from './components/CountryDetail/countryDetail';
 import Navbar from './components/Navbar';
 import './App.css';
 import countries from './countries';
