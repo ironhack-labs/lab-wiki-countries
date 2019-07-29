@@ -30,3 +30,24 @@
     transform: rotate(360deg);
   }
 }
+
+li {
+  text-align: left;
+}
+
+.wiki-body {
+  margin: 10px;
+}
+
+.col-5 {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+
+
+
+
+
+
+
