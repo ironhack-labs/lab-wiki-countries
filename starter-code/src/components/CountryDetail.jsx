@@ -8,28 +8,34 @@ class CountryDetail extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      countryCode: props.match.params.id
-    }
   };
 
-  countryObj = countriesData.find((country) => {
-    return country.cca3 === this.props.match.params.cca3;
-  })
-  
-
   render() {
+
+    let countryObj = countriesData.find((country) => {
+      return country.cca3 === this.props.match.params.cca3;
+    })
+
     return (
       <div className="CountryDetail">
 
-        <h2>{this.countryObj.name.common}</h2>
+        <h2>{countryObj.name.common}</h2>
 
-        <h3>Capital: {this.countryObj.capital}</h3>
+        <h3>Capital: {countryObj.capital}</h3>
 
-        <h3>Borders: {this.countryObj.borders}</h3>
+        <h3>Area: {countryObj.area}</h3>
 
+        <h3>Borders:</h3>
 
-        <Link to='/'>Back</Link>
+        <ul>
+          {countryObj.borders.map((element, index) => {
+            return (
+              <li key={index}><Link to={'/country/' + element}>{element}</Link></li>
+            )
+          })}
+        </ul>
+
+        <Link to='/'>Home</Link>
 
       </div>
     );
