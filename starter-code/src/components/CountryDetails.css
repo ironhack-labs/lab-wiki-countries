@@ -1,0 +1,29 @@
+.App-country-details{
+    width:100%;
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+}
+
+.App-country-details-container{
+    text-align: left;
+}
+
+.App-country-details-container table{
+    width: 100%;
+    height: 100%;
+}
+
+.App-country-details-container table tr{
+    border-top: 2px solid #eee;
+}
+
+.App-country-details-container table th, .App-country-details-container table td{
+    padding-top: 1em;
+    vertical-align: text-top;
+}
+
+.App-country-details-container table th, .App-country-details-container table th{
+    width:50%;
+}
+

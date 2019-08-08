@@ -1,0 +1,13 @@
+.App-nav{
+    height: 10vh;
+    color: white;
+    background-color: #0F8FF4;
+    padding: 10px;
+    display: flex;
+    align-content: center;
+}
+
+.App-nav h2{
+    margin-bottom: 0;
+    padding:5px;
+}
