@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-// import countriesData from "../countries.json";
 
 
 class CountryDetail extends Component {
@@ -15,8 +14,8 @@ class CountryDetail extends Component {
   };
 
   componentDidMount() {
-    debugger
-    axios.get("https://countries.tech-savvy.tech/countries")
+    // axios.get("https://countries.tech-savvy.tech/countries")
+    axios.get("http://localhost:3000/countries")   // How to avoid 2 calls to this API in my app (other in CountriesMenu)?
     .then(response => {
         this.setState({countriesData: response.data})
     })

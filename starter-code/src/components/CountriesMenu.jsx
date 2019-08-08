@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./CountriesMenu.css";
 import axios from 'axios';
-// import countriesData from "../countries.json";
+
 
 class CountriesMenu extends Component {
 
@@ -14,11 +14,14 @@ class CountriesMenu extends Component {
   };
 
   componentDidMount() {
-    axios.get("https://countries.tech-savvy.tech/countries")
+    // axios.get("https://countries.tech-savvy.tech/countries")
+    axios.get("http://localhost:3000/countries")
     .then(response => {
-        this.setState({countriesData: response.data})
+      this.setState({countriesData: response.data})
+      debugger
     })
     .catch((err) => {
+      debugger
       console.log(err);
     });
   };
@@ -27,7 +30,6 @@ class CountriesMenu extends Component {
 
     // Create array of "country link" objects for the menu:
     let CountryLinks = this.state.countriesData.map((country) => {
-      debugger
       return (
         <Link to={`/country/${country.cca3}`}>
           <a className="list-group-item list-group-item-action">
