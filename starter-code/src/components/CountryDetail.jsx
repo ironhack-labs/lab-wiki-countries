@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+import Button from 'react-bootstrap/Button';
+
 import "./CountryDetail.css";
 import countriesData from "../countries.json";
 
@@ -35,7 +38,9 @@ class CountryDetail extends Component {
           })}
         </ul>
 
-        <Link to='/'>Home</Link>
+        <Link to='/'><Button>Home</Button></Link>
+
+        
 
       </div>
     );
