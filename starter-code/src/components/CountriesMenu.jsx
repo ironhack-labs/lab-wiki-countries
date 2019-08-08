@@ -8,11 +8,11 @@ import countriesData from "../countries.json";
 
 let CountryLinks = countriesData.map((country) => {
   return (
-    <div className="CountriesMenu-country-container" >
-      <Link to={`/country/${country.cca3}`}>
-          <h3>{country.flag.normalize()} {country.name.common}</h3>
-      </Link>
-    </div>
+    <Link to={`/country/${country.cca3}`}>
+      <a className="list-group-item list-group-item-action">
+        {country.flag.normalize()} {country.name.common}
+      </a>
+    </Link>
   );
 });
 
@@ -21,9 +21,10 @@ class CountriesMenu extends Component {
 
   render() {
     return (
-      <div className="CountriesMenu">
-        <h1>Countries</h1>
-        {CountryLinks}
+      <div className="col-5">
+        <div className="list-group">
+          {CountryLinks}
+        </div>
       </div>
     );
   };

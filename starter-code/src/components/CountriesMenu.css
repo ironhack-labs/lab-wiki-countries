@@ -1,18 +1,4 @@
-.CountriesMenu {
-  display: flex;
-  width: 20%;
-  flex-wrap: wrap;
-  padding: 2%;
-  height: 100vh;
-  box-sizing: border-box;
+.col-5 {
+  height: 90vh;
   overflow-y: scroll;
-}
-
-.CountriesMenu-country-container {
-  width: 100%;
-  padding: 5%;
-}
-
-.CountriesMenu a {
-  color: black;
 }

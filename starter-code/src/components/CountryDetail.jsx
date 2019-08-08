@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 
-import "./CountryDetail.css";
 import countriesData from "../countries.json";
 
 
@@ -20,27 +19,42 @@ class CountryDetail extends Component {
     })
 
     return (
-      <div className="CountryDetail">
+      <div className="col-7">
 
-        <h2>{countryObj.name.common}</h2>
+        <h1>{countryObj.name.common}</h1>
 
-        <h3>Capital: {countryObj.capital}</h3>
+        <table className="table">
 
-        <h3>Area: {countryObj.area}</h3>
+        <thead></thead>
+          <tbody>
+            <tr>
+              <td style={{width: '30%'}}>Capital</td>
+              <td>{countryObj.capital}</td>
+            </tr>
 
-        <h3>Borders:</h3>
+            <tr>
+              <td>Area</td>
+              <td>{countryObj.area} km
+                <sup>2</sup>
+              </td>
+            </tr>
 
-        <ul>
-          {countryObj.borders.map((element, index) => {
-            return (
-              <li key={index}><Link to={'/country/' + element}>{element}</Link></li>
-            )
-          })}
-        </ul>
+            <tr>
+              <td>Borders</td>
+              <td>
+                <ul>
+                  {countryObj.borders.map((element, index) => {
+                    return (
+                      <li key={index}><Link to={'/country/' + element}>{element}</Link></li>
+                      )
+                  })}
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
         <Link to='/'><Button>Home</Button></Link>
-
-        
 
       </div>
     );
