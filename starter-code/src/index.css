@@ -12,3 +12,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.main-div {
+  margin: 0 250px;
+}
+
+.wikicountries {
+  background-color: #007bff;
+  color: white;
+}
+
+.wikicountries h3 {
+  margin-left: 200px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
