@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.countries {
+  display:flex;
+  justify-content: space-between;
+  align-items: left;
+  border: solid 0.5 grey
+
+}
+
+.list {
+  width: 20%;
+  align-content: left
+}
+
