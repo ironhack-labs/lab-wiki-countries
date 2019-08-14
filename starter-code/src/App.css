@@ -1,6 +1,12 @@
-.App {
-  text-align: center;
+.details {
+  float: right;
+  margin: 0 50px
 }
+
+.country{
+  font-weight: 1000
+}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
