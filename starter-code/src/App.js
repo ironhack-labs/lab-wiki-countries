@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/Nav'
-
+// import { NavLink } from 'react-router-dom'
 import CountryDetail from './components/CountryDetail'
+
+
 
 class App extends Component {
   render() {
@@ -11,6 +13,7 @@ class App extends Component {
         <NavBar />
         <div className="container marg-top">
           <CountryDetail />
+
         </div>
       </React.Fragment>
     )
