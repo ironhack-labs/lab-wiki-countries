@@ -14,16 +14,13 @@ const CountryDetails = props => {
     }
 
     const foundCountry = getCountry(props.match.params.id) // <== ojo
-    console.log("SOy el pais", foundCountry)
 
     let countryArr = []
-    const borders = foundCountry.borders.forEach(elm =>{
+    foundCountry.borders.forEach((elm, idx) =>{
         let myCountry = getCountry(elm)
         
-        countryArr.push(myCountry)
-        
+        countryArr.push(<li key={idx}><Link to={`/${myCountry.cca3}`}>{myCountry.name.common}</Link></li>)
     })
-    console.log(countryArr)
      return (
            
             <div className="details">
@@ -34,16 +31,10 @@ const CountryDetails = props => {
                 <h3>Area: {foundCountry.area} km2</h3>
                 <hr/>
                 <ul>Borders: 
-                    {
-                    countryArr.map((elm, idx) => {
-                        return (
-                        <li key={idx}><Link to={`/${elm.cca3}`}>
-                        {elm.name.common} 
-                        </Link></li>)
-                    })
-                    }
+                    {countryArr}
                 </ul> 
              </div>
+
     
     )
 }

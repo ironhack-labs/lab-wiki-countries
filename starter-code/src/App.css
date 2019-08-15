@@ -3,6 +3,15 @@
   margin: 0 50px
 }
 
+.list {
+  list-style: none
+}
+
+.scroll {
+  overflow: scroll;
+  max-height: 90vh
+}
+
 .country{
   font-weight: 1000
 }

@@ -27,19 +27,20 @@ class App extends Component {
         </Switch>
         <h1>WikiCountries</h1>
         <nav>
-          <ul>
+          <div className="scroll">
+            <ul>
 
-            {
-              countries.map((elm, idx) => {
-                  return (
-                  <li key={idx}><Link to={`/${elm.cca3}`}>
-                  <Card key={idx} name={elm.name.common} flag={elm.flag} />
-                  </Link></li>)
-              })
-            }
+              {
+                countries.map((elm, idx) => {
+                    return (
+                    <li className="list" key={idx}><Link className="list-group-item list-group-item-action" to={`/${elm.cca3}`}>
+                    <Card key={idx} name={elm.name.common} flag={elm.flag} />
+                    </Link></li>)
+                })
+              }
 
-          </ul>
-          
+            </ul>
+          </div>
         </nav>
 
         
