@@ -1,25 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import countries from "../src/countries";
+import { NavLink } from "react-router-dom";
+
+//console.log(countries);
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      countries: countries
+    };
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <nav class="navbar navbar-dark bg-primary mb-3">
+          <div class="container">
+            <a class="navbar-brand" href="/">
+              WikiCountries
+            </a>
+          </div>
+        </nav>
+        <ul>
+          {this.state.countries.map((elm, idx) => {
+            return (
+              <li>
+                <NavLink to="/">
+                  {idx} {elm.name.common} {elm.flag}
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
