@@ -30,3 +30,32 @@
     transform: rotate(360deg);
   }
 }
+
+
+.header{
+  height: 8vh;
+  background-color: #61dafb;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top:0;
+  text-align: left;
+  z-index:100;
+}
+
+.col-5{
+  margin-top:10vh;
+  margin-left:0;
+  max-height: 90vh;
+  overflow: scroll;
+  align-content: left;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.country-details{
+  margin-top: 10vh;
+}
