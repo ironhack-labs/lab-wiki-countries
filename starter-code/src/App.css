@@ -30,3 +30,42 @@
     transform: rotate(360deg);
   }
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,
+td {
+  border-top: 1px solid grey;
+  padding: 10px;
+}
+
+th {
+  width: 30%;
+  text-align: left;
+}
+td {
+  width: 70%;
+  text-align: left;
+}
+
+.borders {
+  border: none;
+  vertical-align: 2px;
+}
+
+ul {
+  -webkit-padding-start: 4px;
+}
+
+.noborder {
+  list-style-type: none;
+}
