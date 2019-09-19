@@ -1,5 +1,7 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .App-logo {
@@ -22,11 +24,69 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.country-list__img {
+  width: 50px;
+}
+.country-link {
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.country_list_wrapper {
+  width: 30%;
+}
+
+.countries__list__item {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.countries__list {
+  overflow-y: scroll;
+  height: 80vh;
+  margin: 10%;
+  border: 1px solid black;
+}
+
+.countries__list::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar {
+  background-color: cornflowerblue;
+  padding: 1%;
+  color: white;
+}
+
+.main-wrapper {
+  display: flex;
+}
+
+.borders,
+.capital,
+.area {
+  display: flex;
+  margin: 1% 0;
+}
+
+.area,
+.capital {
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.country-details {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+
+.border-links {
+  list-style-type: none;
+}
+
+.border-countries {
+  margin: 0 0 0 2%;
 }
