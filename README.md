@@ -81,7 +81,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 In this iteration, we will focus on general layout. You will create at least 2 components:
 - `App`: For the general layout
-- `CountryDetail`: Your only `Route` that will show a component that will receive the country code (`cca3`) in the URL. That is going to represent the id of the country (example: `ESP` for Spain, `FRA` for France).
+- `CountryDetail`: Your only `Route` that will show a component that will receive the country code (`cca3`) in the URL. That is going to represent the id of the country (example: `/ESP` for Spain, `/FRA` for France).
 
 To help you, we gave you an example of a page inside [`example.html`](https://github.com/sandrabosk/lab-wiki-countries/blob/master/starter-code/example.html)
 
@@ -103,13 +103,18 @@ As a reminder with Bootstrap:
 </div>
 ```
 
+For Windows users, there is no emoji for the `flag`. Instead, you can rely on these links: 
+- France: https://www.countryflags.io/fr/flat/64.png
+- Germany: https://www.countryflags.io/de/flat/64.png
+- Etc.
+
 
 ### Iteration 2 | Create the entire application
 
 Everything is in the title. Good luck :smile: 
 
-In this case you only need a `Switch` to either show the `CountryDetail`
-component or show nothing.
+In this case, you should use only 1 `<Route />` for `CountryDetail`. 
+
 Your `App` component should **always** show the list of countries.
 
 
