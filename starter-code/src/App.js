@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+import { Navbar, Table, Row, Col, Card } from "react-bootstrap";
+import { Link, Switch, Route, BrowserRouter as Router } from "react-router-dom";
+// import CountryDetail from "./components/CountryDetail";
+import Countries from "./countries";
+
+import CountryView from "./views/Country";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Navbar expand="lg" variant="dark" bg="primary">
+        <Navbar.Brand href="#">WikiCountries</Navbar.Brand>
+      </Navbar>
+      <Table>
+        <Row>
+          <Col className="list-group">
+            {Countries.map(country => (
+              < Link to={`/country/${country.cca3}`} key={country.cca3}>
+                <Card>{country.flag}{country.name.common}</Card>
+              </Link>
+            ))}
+          </Col>
+          <Col>
+            <Switch>
+              <Route path="/country/:id" component={CountryView} />
+            </Switch>
+          </Col>
+        </Row>
+      </Table>
+    </div >
   );
 }
 
