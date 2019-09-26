@@ -34,14 +34,18 @@ export default class CountryDetail extends Component {
             <h4>Area: {country.area} km&#178;</h4>
           </div>
           <div className="list-group-item list-group-item-action">
-            <h3>Borders: </h3>({country.borders.length} &&(
-            {country.borders.map(countryBorder => (
-              // countryBorder === country.cca3 && (
-              <ul>
-                <Link to={`/country/${countryBorder}`}>{countryBorder}</Link>
-              </ul>
-            ))}{" "}
-            ) || (<p>Swim</p>)
+            <h6>
+              Borders:
+              {(country.borders.length &&
+                country.borders.map(countryBorder => (
+                  // countryBorder === country.cca3 && (
+                  <ul>
+                    <Link to={`/country/${countryBorder}`}>
+                      {countryBorder}
+                    </Link>
+                  </ul>
+                ))) || <span> Swim</span>}
+            </h6>
           </div>
         </div>
       )) || (
