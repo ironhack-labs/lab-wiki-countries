@@ -14,18 +14,12 @@ export default class CountryView extends Component {
 
   getCountries = place => {
     let name = "";
-    let island = "This is an island!";
     countries.filter(item => {
       if (place === item.cca3) {
         name = item.name.common;
       }
     });
-
-    if (place.length < 1) {
-      return island;
-    } else {
-      return name;
-    }
+    return name;
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -70,12 +64,6 @@ export default class CountryView extends Component {
                   ) : (
                     <p>None! This is an island silly!</p>
                   )}
-
-                  {/* {country.borders.map(country => (
-                    <li>
-                      <a href={country}>{this.getCountries(country)}</a>
-                    </li>
-                  ))} */}
                 </ul>
               </td>
             </tr>
