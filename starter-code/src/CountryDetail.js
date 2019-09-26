@@ -48,11 +48,11 @@ const CountryDetail = props => {
             <td>Borders</td>
             <td>
               <ul>
-                {foundcountries.borderName.map(el => {
+                {foundcountries.borders.map((el,i) => {
                   console.log(foundcountries.borders);
                   return (
                     <li>
-                      <Link to={`/${foundcountries.borders}`}>{el}</Link>
+                      <Link to={`/${el}`}>{foundcountries.borderName[i]}</Link>
                     </li>
                   );
                 })}
