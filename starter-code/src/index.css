@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.cartita {
+ width: 30vw;
+  
+}
+
+.cartota{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 100vw;
+}
