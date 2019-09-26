@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import countries from ".././countries";
+import Country from "./Country";
+
+import { Link } from "react-router-dom";
+
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
-import Country from "./Country";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ListGroup from "react-bootstrap/ListGroup";
 
 export default class CountryDetail extends Component {
   constructor(props) {
@@ -15,7 +19,6 @@ export default class CountryDetail extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log(props);
     const code = props.match.params.code;
     const country = countries.find(item => item.cca3 === code);
     return {
@@ -27,7 +30,6 @@ export default class CountryDetail extends Component {
   render() {
     const code = this.props.match.params.code;
     const country = this.state.country;
-    console.log(code);
     console.log(country);
     return (
       <div>
@@ -43,7 +45,14 @@ export default class CountryDetail extends Component {
 
               <p>Capital: {country.capital}</p>
               <p>Area: {country.area} km2</p>
-              <p>Borders: {country.boarders}</p>
+
+              {country.borders.map(border => (
+                <ListGroup.Item>
+                  <Link to={`/country/${border}`} key={country.name.common}>
+                    {border}
+                  </Link>
+                </ListGroup.Item>
+              ))}
             </Container>
           </Col>
         </Row>
