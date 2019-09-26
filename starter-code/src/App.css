@@ -26,7 +26,17 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.list-style {
+  list-style-type: none;
+  margin: 2px 0;
+}
+
+.page-wrapper {
+  display: flex
 }
