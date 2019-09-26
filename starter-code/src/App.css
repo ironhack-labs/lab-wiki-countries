@@ -30,3 +30,18 @@
     transform: rotate(360deg);
   }
 }
+
+nav {
+  width: 100%;
+  background-color: blue;
+  height: 50px;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  background-color: blue !important;
+}
