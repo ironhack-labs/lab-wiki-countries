@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import CountryDetail from "./components/CountryDetail";
+import { Switch, Route, Link } from "react-router-dom";
+import Navbar from "./components/Navbar";
+// import CountriesList from "./components/CountriesList";
+import countries from "./countries.json";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    const countriesToRender = countries.map(country => {
+      return (
+        <Link
+          key={country.cca3}
+          className="list-group-item list-group-item-action"
+          to={`/${country.cca3}`}>
+          {country.flag}
+          {country.name.common}
+        </Link>
+      );
+    });
+
+    return (
+      <div className="App">
+        <Navbar />
+        <div className="container">
+          <div className="row">
+            <div
+              className="col-5"
+              style={{ maxHeight: "90vh", overflow: "scroll" }}>
+              <div className="list-group">{countriesToRender}</div>
+            </div>
+            <Switch>
+              <Route exact path="/:cca3" component={CountryDetail} />
+            </Switch>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
