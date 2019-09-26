@@ -30,3 +30,9 @@
     transform: rotate(360deg);
   }
 }
+
+.list-group {
+  max-height: 100vh;
+  margin-bottom: 10px;
+  overflow: scroll;
+}
