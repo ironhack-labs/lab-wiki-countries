@@ -27,12 +27,11 @@ export default class CountryDetail extends Component {
     return (
       (country && (
         <div>
-          <h1>{country.name.common}</h1>
-          <div >
+          <div className="row border-bottom p-3">
             <div className="col-5">Capital</div>
             <div className="col-7">{country.capital}</div>
           </div>
-          <div>
+          <div className="row border-bottom p-3">
             <div className="col-5">Area</div>
             <div className="col-7">
               {country.area} km<sup>2</sup>
@@ -45,6 +44,7 @@ export default class CountryDetail extends Component {
                 {country.borders.map(border => (
                   <Link to={`/country/${border}`}>
                     <li key={border}>
+                      {border}
                       {countries.find(item => item.cca3 === border).name.common}
                     </li>
                   </Link>

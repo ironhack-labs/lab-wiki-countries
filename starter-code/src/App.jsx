@@ -10,18 +10,22 @@ import CountryList from './components/CountryList';
 function App() {
   return (
     <div className="App">
+        <Router>
       <h1 className="nav-bar-header">WikiCountries</h1>
-
+<div className="row">
       <div className="col-5">
-        <CountryList countries = {countries}/>
+        <CountryList countries={countries}/>
       
       </div>
-
-      <Router>
+      <div className="col-7">
       <Switch>
-      <Route exact path = "/" />
-      <Route path = "/country/:id" component = {CountryDetail} />
+      <Route exact path="/" />
+      <Route path="/country/:id" component = {CountryDetail} />
       </Switch>
+
+      </div>
+
+</div>
 
       </Router>
     </div>

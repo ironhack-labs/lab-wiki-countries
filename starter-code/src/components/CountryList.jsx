@@ -8,7 +8,7 @@ export default class CountryList extends Component {
 
             <div>
                 {countries.map (country => (
-                    <Country country = {country} key = {country.cca3}/>
+                    <Country country={country} key={country.cca3}/>
                 ))}
             </div>
         )
