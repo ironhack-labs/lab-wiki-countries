@@ -12,3 +12,73 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.countryItem{
+  max-width: 400px;
+}
+
+
+.countryWord {
+ justify-content: center;
+}
+
+.containerList{
+  margin-right: 30px;
+ float: left;
+}
+
+.itemDetail {
+  text-align: left;
+  border-bottom: 0.2px solid rgba(156, 154, 154, 0.973);
+  padding: 20px;
+  font-weight: bold;
+}
+
+.itemDetailCap{
+  text-align: left;
+  border-top: 0.1px solid rgba(156, 154, 154, 0.973);
+  border-bottom: 0.2px solid rgba(156, 154, 154, 0.973);
+  padding: 20px;
+  font-weight: bold;
+}
+
+.borderDetail{
+  font-weight: bold;
+  padding: 20px;
+  text-align: left;
+}
+
+.borderList-item{
+  margin-top: 5px;
+  text-align: left;
+}
+
+.headCountries{
+  color: white;
+ background-color: #007bff;
+}
+
+.countryDetailContainer > h1{
+  margin-top: 20px;
+  text-align: left;
+}
+
+.countryContainer{
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+background-color: rgb(0, 0, 0);
+height: 70px;
+border-radius: 15px;
+outline: 1px solid slategrey;
+}
