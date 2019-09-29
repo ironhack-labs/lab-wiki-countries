@@ -25,6 +25,10 @@ code {
 
 .theMiniFlag{
   float: left;
+  margin-right: 20px;
+}
+.theCountryName {
+  float: left;
 }
 
 .countryWord {
