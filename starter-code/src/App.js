@@ -34,20 +34,20 @@ class App extends React.Component {
   displayCountry = () =>{
 let theList = [...this.state.countryList];
 return theList.map(eachCountry => {
-  // console.log(eachCountry.name.common);
-  return (<CountryList countryName={eachCountry.name.common} abbr={eachCountry.cca2}/>)
+ 
+  return (<CountryList countryName={eachCountry.name.common} abbr={eachCountry.cca2} key={eachCountry.cca2}/>)
 })
   }
 
   render(){
-    // console.log(this.state.list)
+
     return (
       <div className="App">
       <div className="navbar navbar-light headCountries">
       <h1>WikiCountries</h1>
       </div>
   <span className="containerList">
-       <div class="list-group countryContainer">
+       <div className="list-group countryContainer">
       {this.displayCountry()}
       </div>
       </span>

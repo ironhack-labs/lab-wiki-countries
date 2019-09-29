@@ -17,6 +17,15 @@ code {
   max-width: 400px;
 }
 
+.list-group-item-action{
+  justify-items: left;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.theMiniFlag{
+  float: left;
+}
 
 .countryWord {
  justify-content: center;
