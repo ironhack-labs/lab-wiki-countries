@@ -1,26 +1,63 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import countries from "./countries.json";
+import CountryList from "./CountryList";
+import CountryDetail from "./CountryDetail";
+import { Switch, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      countries: countries
+    };
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <nav className="navbar navbar-dark bg-primary mb-3">
+          <div className="container">
+            <a className="navbar-brand" href="/">
+              WikiCountries
+            </a>
+          </div>
+        </nav>
+        <div className="container">
+          <div className="row">
+            <div className="col-5 list-group">
+              {this.state.countries.map((countries, idx) => (
+                <CountryList key={idx} {...countries}></CountryList>
+                
+              ))}
+            </div>
+           
+              <Switch>
+                <Route exact path="/:cca3"
+                  render={(props) => {
+                    let chosenCountry = props.match.params.cca3;  
+                    let filteredArray = this.state.countries.filter(country => {
+                      return (
+                        country.cca3
+                          .toLowerCase()
+                          .indexOf(chosenCountry.toLowerCase()) >= 0
+                      );
+                    });
+                    return (
+                      <CountryDetail
+                        country={filteredArray[0]}
+                        allCountries={this.state.countries}
+                      />
+                    );
+                  }}
+                />
+              </Switch>
+            
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
