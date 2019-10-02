@@ -1,0 +1,6 @@
+{
+  "countries": {
+      "sectionName" : "Countries",
+      "path" :  "/countries"
+  }
+}
