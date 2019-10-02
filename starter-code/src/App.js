@@ -28,31 +28,30 @@ class App extends Component {
             <div className="col-5 list-group">
               {this.state.countries.map((countries, idx) => (
                 <CountryList key={idx} {...countries}></CountryList>
-                
               ))}
             </div>
-           
-              <Switch>
-                <Route exact path="/:cca3"
-                  render={(props) => {
-                    let chosenCountry = props.match.params.cca3;  
-                    let filteredArray = this.state.countries.filter(country => {
-                      return (
-                        country.cca3
-                          .toLowerCase()
-                          .indexOf(chosenCountry.toLowerCase()) >= 0
-                      );
-                    });
-                    return (
-                      <CountryDetail
-                        country={filteredArray[0]}
-                        allCountries={this.state.countries}
-                      />
-                    );
-                  }}
-                />
-              </Switch>
-            
+
+            <Switch>
+              <Route
+                exact
+                path="/:cca3"
+                render={props => {
+                  let chosenCountry = props.match.params.cca3;
+                  let filteredArray = this.state.countries.filter(country =>
+                    country.cca3
+                      .toLowerCase()
+                      .includes(chosenCountry.toLowerCase())
+                  );
+
+                  return (
+                    <CountryDetail
+                      country={filteredArray[0]}
+                      allCountries={this.state.countries}
+                    />
+                  );
+                }}
+              />
+            </Switch>
           </div>
         </div>
       </div>

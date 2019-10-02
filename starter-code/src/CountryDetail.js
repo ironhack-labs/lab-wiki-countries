@@ -24,18 +24,16 @@ export default class CountryDetail extends Component {
               <td>Borders</td>
               <td>
                 <ul>
-                {this.props.country.borders.map((allCountries, key) => {
+                  {this.props.country.borders.map((allCountries, idx) => {
                     let selectedCountry = this.props.allCountries.filter(
-                      country => {
-                        return (
-                          country.cca3
-                            .toLowerCase()
-                            .indexOf(allCountries.toLowerCase()) >= 0
-                        );
-                      }
+                      country =>
+                        country.cca3
+                          .toLowerCase()
+                          .includes(allCountries.toLowerCase())
                     );
+
                     return (
-                      <li>
+                      <li key={idx}>
                         <Link to={`/${selectedCountry[0].cca3}`}>
                           {selectedCountry[0].name.common}
                         </Link>
