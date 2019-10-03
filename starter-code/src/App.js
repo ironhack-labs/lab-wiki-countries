@@ -3,7 +3,8 @@ import countriesList from "./utils/countries.json";
 import Navbar from "./components/Navbar/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
 import CountryDetail from "./components/CountryDetail/CountryDetail.js";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, NavLink } from "react-router-dom";
+import "./App.css"
 
 export default class App extends Component {
   constructor(props) {
@@ -37,14 +38,15 @@ export default class App extends Component {
               <div className="list-group">
                 {this.state.countries.map((country, idx) => {
                   return (
-                    <Link
+                    <NavLink
                       className="list-group-item list-group-item-action"
                       to={`/${country.cca3}`}
                       key={idx}
                       onClick={() => this.setCountry(country.cca3)}
+                      activeClassName="active"
                       >
                       <span>{country.flag}</span> {country.name.official}
-                    </Link>
+                    </NavLink>
                   );
                 })}
               </div>

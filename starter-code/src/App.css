@@ -1,32 +1,28 @@
-.App {
-  text-align: center;
+body {
+  background-color: #F8F8F8;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.active {
+  /* Have to use !important to override Bootstrap 4 styles. */
+  background-color: var(--primary) !important;
+  color: #FFFFFF !important;
+  
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .35);
+  bottom: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.list-group {
+  height: 90vh;
+  overflow: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.list-group-item:hover {
+  background-color: initial;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-group-item:active {
+  background-color: initial;
 }
