@@ -31,6 +31,7 @@ const CountryDetails = props => {
   return (
     <div className="col-7 text-justify">
       <h1>{foundCountry.name.common}</h1>
+      <h6><em>{foundCountry.name.official}</em></h6>
       <table className="table">
         <thead></thead>
         <tbody>
