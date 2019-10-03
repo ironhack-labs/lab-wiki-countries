@@ -16,7 +16,7 @@ class CountryDetails extends Component {
             let country = this.findCountry(eachBorder);
             return (
             <li>
-                <Link to={`/country/:${eachBorder}`}>
+                <Link to={`/country/${eachBorder}`}>
                     {country.name.common}
                 </Link>
             </li>
