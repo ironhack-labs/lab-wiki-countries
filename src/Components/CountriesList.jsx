@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class CountriesList extends Component {
 //   state = {
@@ -19,14 +19,15 @@ class CountriesList extends Component {
     const classList = "list-group-item list-group-item-action text-left";
     return this.props.countries.map((each, i) => {
       return (
-        <Link
+        <NavLink
           key={i}
           to={`/${each.cca3}`}
           className={classList}
+          activeClassName="active"
         //   onClick={this.handleClick}
         >
           {each.flag} {each.name.common}
-        </Link>
+        </NavLink>
       );
     });
   };

@@ -29,3 +29,7 @@
 .capital {
   width: 30%;
 }
+
+*{
+  transition: all .5s;
+}
