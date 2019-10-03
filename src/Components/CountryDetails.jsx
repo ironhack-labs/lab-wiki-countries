@@ -16,14 +16,17 @@ const CountryDetails = props => {
   const foundCountry = getCountry(params.cca3);
 
   const getBorders = x => {
-    return x.map((each, i) => {
-      const country = getCountry(each);
-      return (
-        <li key={i}>
-          <Link to={`/${each}`}>{country.name.common}</Link>
-        </li>
-      );
-    });
+    if (x.length === 0) {
+      return <li>None</li>;
+    } else
+      return x.map((each, i) => {
+        const country = getCountry(each);
+        return (
+          <li key={i}>
+            <Link to={`/${each}`}>{country.name.common}</Link>
+          </li>
+        );
+      });
   };
 
   const borders = getBorders(foundCountry.borders);
