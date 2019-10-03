@@ -46,3 +46,8 @@
   display:flex;
   flex-direction: row;
 }
+
+.col-6{
+  height: 90vh;
+  overflow-y: scroll;
+}
