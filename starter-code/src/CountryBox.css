@@ -1,0 +1,9 @@
+li {
+  font-size: 15px;
+  padding: 10px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  max-width: 150px;
+  margin-left: 10px;
+}
