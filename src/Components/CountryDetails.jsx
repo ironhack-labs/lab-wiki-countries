@@ -1,7 +1,4 @@
 import React from "react";
-// import React from "react";
-// import CountriesList from "./CountriesList";
-// import countries from "../countries.json"
 import { Link } from "react-router-dom";
 
 const CountryDetails = props => {
@@ -31,9 +28,8 @@ const CountryDetails = props => {
 
   const borders = getBorders(foundCountry.borders);
 
-  // render() {
   return (
-    <div className="col-8 text-justify">
+    <div className="col-7 text-justify">
       <h1>{foundCountry.name.common}</h1>
       <table className="table">
         <thead></thead>

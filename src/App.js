@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import logo from './logo.svg';
 import "./App.css";
 import countries from "./countries.json";
 import Navbar from "./Components/Navbar";
@@ -24,7 +23,6 @@ class App extends Component {
               component={(props) => (
                 <CountryDetails {...props} countries={this.state.allCountries} />
               )}
-              // component={CountryDetails}
             />
           </div>
         </div>
