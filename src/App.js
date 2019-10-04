@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import countries from "./countries.json";
+// import countries from "./countries.json";
 import Navbar from "./Components/Navbar";
 import CountriesList from "./Components/CountriesList";
 import CountryDetails from "./Components/CountryDetails";
@@ -9,14 +9,15 @@ import axios from "axios";
 
 class App extends Component {
   state = {
-    allCountries: countries,
+    allCountries: [],
   };
 
-  // componentDidMount() {
-  //   axios.get("https://countries.tech-savvy.tech/countries").then(response => {
-  //     this.setState({ allCountries: response.data });
-  //   });
-  // }
+  componentDidMount() {
+    axios.get("https://countries.tech-savvy.tech/countries").then(response => {
+      console.log(response.data);
+      this.setState({ allCountries: response.data });
+    });
+  }
 
 
   render() {

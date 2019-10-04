@@ -27,11 +27,14 @@ const CountryDetails = props => {
   };
 
   const borders = getBorders(foundCountry.borders);
+  // console.log(foundCountry);
 
   return (
     <div className="col-7 text-justify">
       <h1>{foundCountry.name.common}</h1>
-      <h6><em>{foundCountry.name.official}</em></h6>
+      <h6>
+        <em>{foundCountry.name.official}</em>
+      </h6>
       <table className="table">
         <thead></thead>
         <tbody>
