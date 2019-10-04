@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import "./App.css";
-// import countries from "./countries.json";
+import countries from "./countries.json";
 import Navbar from "./Components/Navbar";
 import CountriesList from "./Components/CountriesList";
 import CountryDetails from "./Components/CountryDetails";
 import { Route } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 class App extends Component {
   state = {
-    allCountries: [],
+    allCountries: countries,
   };
 
-  componentDidMount() {
-    axios.get("https://countries.tech-savvy.tech/countries").then(response => {
-      console.log(response.data);
-      this.setState({ allCountries: response.data });
-    });
-  }
+  // componentDidMount() {
+  //   axios.get("https://countries.tech-savvy.tech/countries").then(response => {
+  //     console.log(response.data);
+  //     this.setState({ allCountries: response.data });
+  //   });
+  // }
 
 
   render() {
