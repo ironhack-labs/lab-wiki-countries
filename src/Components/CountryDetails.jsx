@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import countries from "../countries.json"
 
 const CountryDetails = props => {
   const getCountry = cca3 => {
     const theCountry = oneCountry => {
       return oneCountry.cca3 === cca3;
     };
-    return props.countries.find(theCountry);
+    return countries.find(theCountry);
   };
 
   const { params } = props.match;
@@ -32,9 +33,7 @@ const CountryDetails = props => {
   return (
     <div className="col-7 text-justify">
       <h1>{foundCountry.name.common}</h1>
-      <h6>
-        <em>{foundCountry.name.official}</em>
-      </h6>
+      <h6><em>{foundCountry.name.official}</em></h6>
       <table className="table">
         <thead></thead>
         <tbody>

@@ -31,7 +31,7 @@ class App extends Component {
               exact
               path="/:cca3"
               component={(props) => (
-                <CountryDetails {...props} countries={this.state.allCountries} />
+                <CountryDetails {...props} />
               )}
             />
           </div>
