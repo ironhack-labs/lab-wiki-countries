@@ -5,11 +5,20 @@ import Navbar from "./Components/Navbar";
 import CountriesList from "./Components/CountriesList";
 import CountryDetails from "./Components/CountryDetails";
 import { Route } from "react-router-dom";
+import axios from "axios";
 
 class App extends Component {
   state = {
-    allCountries: countries
+    allCountries: countries,
   };
+
+  // componentDidMount() {
+  //   axios.get("https://countries.tech-savvy.tech/countries").then(response => {
+  //     this.setState({ allCountries: response.data });
+  //   });
+  // }
+
+
   render() {
     return (
       <div className="App">
