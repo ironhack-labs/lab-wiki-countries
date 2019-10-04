@@ -1,17 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import countries from "../countries.json"
+// import countries from "../countries.json"
 
 const CountryDetails = props => {
-  const getCountry = cca3 => {
-    const theCountry = oneCountry => {
-      return oneCountry.cca3 === cca3;
-    };
-    return countries.find(theCountry);
-  };
+  // const [country, setCountry] = useState({});
 
-  const { params } = props.match;
-  const foundCountry = getCountry(params.cca3);
+  // useEffect = () => {
+    const getCountry = cca3 => {
+      const theCountry = oneCountry => {
+        return oneCountry.cca3 === cca3;
+      };
+      return props.countries.find(theCountry);
+    };
+
+    const { params } = props.match;
+    const foundCountry = getCountry(params.cca3);
+    // setCountry(foundCountry);
+    console.log(props, foundCountry, props.countries, params);
+  // };
+
 
   const getBorders = x => {
     if (x.length === 0) {
@@ -32,8 +39,11 @@ const CountryDetails = props => {
 
   return (
     <div className="col-7 text-justify">
+    can I see this
       <h1>{foundCountry.name.common}</h1>
-      <h6><em>{foundCountry.name.official}</em></h6>
+      <h6>
+        <em>{foundCountry.name.official}</em>
+      </h6>
       <table className="table">
         <thead></thead>
         <tbody>
@@ -58,7 +68,6 @@ const CountryDetails = props => {
       </table>
     </div>
   );
-  // }
 };
 
 export default CountryDetails;
