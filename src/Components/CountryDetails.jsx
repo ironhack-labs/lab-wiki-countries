@@ -13,6 +13,13 @@ const CountryDetails = props => {
       return props.countries.find(theCountry);
     };
 
+    const getCountry2 = cca3 => {
+      const theCountry = oneCountry => {
+        return oneCountry.cca3 === cca3;
+      };
+      return props.countries.find(theCountry);
+    };
+
     const { params } = props.match;
     const foundCountry = getCountry(params.cca3);
     // setCountry(foundCountry);
@@ -25,7 +32,7 @@ const CountryDetails = props => {
       return <li>None</li>;
     } else
       return x.map((each, i) => {
-        const country = getCountry(each);
+        const country = getCountry2(each);
         return (
           <li key={i}>
             <Link to={`/${each}`}>{country.name.common}</Link>
