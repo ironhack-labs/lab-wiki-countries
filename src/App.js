@@ -70,9 +70,10 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <CountriesList countries={this.state.allCountries} />
+            {/* <Switch>
+<Route exact path="/"></Route> */}
             <Route
-              exact
-              path="/:cca3"
+              path={"/:cca3"}
               component={props => (
                 <CountryDetails
                   {...props}
@@ -82,6 +83,7 @@ class App extends Component {
                 />
               )}
             />
+            {/* </Switch> */}
           </div>
         </div>
       </div>
