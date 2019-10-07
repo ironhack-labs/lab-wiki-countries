@@ -21,6 +21,10 @@
 .App-link {
   color: #61dafb;
 }
+.col-5{
+  max-height: 90vh;
+  overflow: scroll;
+ }
 
 @keyframes App-logo-spin {
   from {
@@ -30,3 +34,4 @@
     transform: rotate(360deg);
   }
 }
+
