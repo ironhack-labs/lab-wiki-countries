@@ -1,37 +1,37 @@
 import React from "react";
 import "./App.css";
-import myData from "./countries.json";
-import { Route } from "react-router-dom";
-import { Link, NavLink } from "react-router-dom";
+import countries from "./countries";
+import { Route , Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CountryDetail from "./components/CountryDetail";
+import Navbar from "./components/Navbar";
 
-const App = () => {
-    let showAllCountries = () => {
-          let allCountries = myData.map(el => {
-            return (
-              <div key={el.cca3} className="list-group-item list-group-item-action">
-                <NavLink to={`/${el.cca3}`} activeClassName="active">
-                  {el.flag} {el.name.common}
-                </NavLink>
-              </div>
-            );
-          });
-          return allCountries;
-    }
-  return(
+function App() {
+  return (
+    <div className="App">
+      <Navbar />
+      <h1 className="title"> WikiCountries</h1>
+      <div className="left-right">
+        <div className="container country-list col-5 right">
+          {countries.map(item => (
+            <ul className="list-group">
+              <li className="list-group-item" key={item.cca2}>
+                <Link to={`/country/${item.cca3}`}>
+                  {item.cca2} {item.name.common}
+                </Link>
+              </li>
+            </ul>
+          ))}
+        </div>
 
-<div>
-    <nav>
-     <div className="title">Wikicountries</div>
-    </nav>
-<div className="row">
-  <div>{showAllCountries()}</div>
-  <div className="col-7">
-    <Route exact path="/:cca" component={CountryDetail}></Route>
-  </div>
-</div>
-</div>
-  )
-};
+        <div className="container country-details col-7 left">
+          <Switch>
+            <Route path="/country/:id" component={CountryDetail} />
+          </Switch>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default App;

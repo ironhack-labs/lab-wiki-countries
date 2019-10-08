@@ -22,18 +22,24 @@
   }
 }
 
-nav {
-  width: 100%;
-  background-color: black;
-  height: 50px;
-  color: white;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .title {
   padding-top: 10px; 
   font-weight: bold;
+  padding-left: 220px;
+}
+
+#navlinks {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.links {
+  color: white;
+  padding: 0 20px;
+}
+
+.left-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

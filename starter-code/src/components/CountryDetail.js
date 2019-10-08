@@ -1,49 +1,61 @@
-import React from 'react'
-import Countries from '../countries.json';
+import React, {Component} from 'react'
+import countries from "./../countries";
 import { Link } from 'react-router-dom';
 
-const CountryDetail = props => {
-    const id = props.match.params.id;
-
-function placeholder() {
-    const foundCountry = Countries.find(el => {
-        // console.log(id, foundCountry, props);
-    return el.cca3 === id;  
-  });
-  console.log(props)
-}
-
-return (
-    <div className="col-7">
-    <h1>{placeholder()}</h1>
-        {/* <table className="table">
-            <thead></thead>
+export default class CountryDetail extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        country: null
+      };
+      this.fullName = this.fullName.bind(this);
+    }
+  
+    static getDerivedStateFromProps(props, state) {
+      const cca3 = props.match.params.id;
+      const country = countries.find(item => item.cca3 === cca3);
+      return {
+        ...state,
+        country
+      };
+    }
+  
+    fullName(cca3) {
+      const country = countries.find(item => item.cca3 === cca3);
+      return country.name.common;
+    }
+  
+    render() {
+      const country = this.state.country;
+      console.log(country);
+      return (
+        <div>
+          <h1>{country.name.common}</h1>
+          <table class="table table-dark">
             <tbody>
-            <tr>
-                <td style={{ "width": "30%" }}>Capital</td>
-                <td>{foundCountry.capital}</td>
-            </tr>
-            <tr>
-                <td>Area</td>
-                <td>{foundCountry.area} km    
-                <sup>2</sup>
-                </td>
-            </tr>
-            <tr>
-                <td>Borders</td>
+              <tr>
+                <th scope="row">Capital</th>
+                <td>{country.capital}</td>
+              </tr>
+              <tr>
+                <th scope="row">Area</th>
+                <td>{country.area} km2</td>
+              </tr>
+              <tr>
+                <th scope="row">Borders with:</th>
                 <td>
-                <ul>
-                    { foundCountry.borders.map(x => {
-                        return <li><Link to={`/projects/${x}`}>{x} </Link></li>
-                            })
-                    } 
-                </ul>
+                  <ul>
+                    {country.borders.map(border => (
+                      <li>
+                        <Link to={border}> {this.fullName(border)}</Link>
+                      </li>
+                    ))}
+                  </ul>
                 </td>
-            </tr>
+              </tr>
             </tbody>
-        </table> */}
-    </div>
-    )
-}
-
-export default CountryDetail;
+          </table>
+        </div>
+      );
+    }
+  }
