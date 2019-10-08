@@ -1,32 +1,61 @@
-.App {
-  text-align: center;
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+nav{
+  top: 0;
+  width: 100%;
+  background-color: #007BFF;
   color: white;
+  margin-bottom: 2vh;
 }
 
-.App-link {
-  color: #61dafb;
+nav > h3{
+  margin: auto 0 auto 15%;
+  padding: 15px 0;
+  font-weight: lighter;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#content-wrapper{
+  display: flex;
+  flex-direction: row;
+}
+
+#navigation-column{
+  margin-left: 15vw;
+  max-width: 25%;
+  max-height: 85vh;
+  overflow: auto;  
+}
+
+.navlinks{
+  display: block;
+  padding: .75rem 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.navlinks:hover{
+  background: rgba(0, 0, 0, 0.125);
+}
+
+.navlinks > a{
+  text-decoration: none;
+  color: #495057
+}
+
+.CCA2{
+  padding-right: 5px;
+}
+
+.country-details{
+  margin-left: 20px;
+  width: 45%;
+}
+
+.country-details > h1{
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 300;
 }
