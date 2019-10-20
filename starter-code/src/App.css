@@ -3,8 +3,17 @@
 }
 
 .sidebar {
+  height: 94vh;
   width: 30vw;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
+}
+
+.description {
+  display: flex;
+}
+
+.country-container {
+  display: flex;
 }

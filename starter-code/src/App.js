@@ -14,12 +14,12 @@ class App extends Component {
 
   return (
     
-    <div>
+    <div className="country-container">
       <div className="sidebar">
       <Link to="/testRoute">Test </Link>
       {
         countries.map((country) => 
-        <Link to={`/{country-detail/${country.cca3}`}>
+        <Link to={`/country-detail/${country.cca3}`} countries={countries} >
           {country.flag} {country.name.official}
         </Link>
         
@@ -28,8 +28,9 @@ class App extends Component {
       }
       
       </div>
-      <div>
-        <Route path="/testRoute"component={CountryDetail} ></Route>
+      <div className="description">
+        
+        <Route path={`/country-detail/:cca3`} render={(props) => <CountryDetail {...props} countries={this.state.countries}/> }></Route>
         {/* <Route path={`/country-detail/:cca3`} render={(props) => <CountryDetail {...props} countries={this.state.countries}/>} /> */}
       </div>
     </div>
