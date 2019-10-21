@@ -6,7 +6,9 @@ const CountryDetails = props => {
 
   return (
     <div className="col-7">
-      <h1>{country.name.common}</h1>
+      <h1>
+        {country.flag} {country.name.common}
+      </h1>
       <table className="table">
         <thead></thead>
         <tbody>
@@ -25,11 +27,16 @@ const CountryDetails = props => {
             <td>Borders</td>
             <td>
               <ul>
-                {country.borders.map(item => (
-                  <li key={item}>
-                    <NavLink to={`/${item}`}>{props.countries.find(el => el.cca3 === item).name.common}</NavLink>
-                  </li>
-                ))}
+                {country.borders.map(item => {
+                  const atualCountry = props.countries.find(el => el.cca3 === item);
+                  return (
+                    <li key={item}>
+                      <NavLink to={`/${item}`}>
+                        {atualCountry.flag} {atualCountry.name.common}
+                      </NavLink>
+                    </li>
+                  );
+                })}
               </ul>
             </td>
           </tr>

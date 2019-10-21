@@ -45,7 +45,7 @@ class App extends Component {
               <Route
                 path="/:id"
                 render={props =>
-                  this.state.countries.length === 0 ? <Redirect to="/" /> : <CountryDetails countries={this.state.countries} {...props} />
+                  this.state.countries[0]? <CountryDetails countries={this.state.countries} {...props} />:null
                 }
               />
             </Switch>
