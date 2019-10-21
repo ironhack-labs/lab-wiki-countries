@@ -5,10 +5,10 @@ import countries from '../countries.json';
 const ListCountries = () => {
   return (
     <nav className="navbar navbar-dark bg-primary mb-3">
-      <div className="container">
+      <div className="container list-group ">
         {
-          countries.map(country => (
-          <a className="list-group-item list-group-item-action" href={country.cca3}>{country.flag} {country.name.official}</a>
+          countries.map((country,idx) => (
+            <Link  className = "list-group-item text-left w-100" to={`${country.cca3}`} key={idx}>{country.flag} {country.name.official}</Link>
           ))
         }
       </div>
