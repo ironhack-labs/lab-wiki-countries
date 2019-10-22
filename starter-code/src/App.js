@@ -10,7 +10,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavBar />
-        <div className="container">
           <div className="row">
             <div className="col-5">
               <div className="list-group">
@@ -23,7 +22,6 @@ class App extends React.Component {
             </Switch>
             </div>
           </div>
-        </div>
       </div>
     );
   }

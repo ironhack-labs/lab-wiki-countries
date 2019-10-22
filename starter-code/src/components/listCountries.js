@@ -4,7 +4,6 @@ import countries from '../countries.json';
 
 const ListCountries = () => {
   return (
-    <nav className="navbar navbar-dark bg-primary mb-3">
       <div className="container list-group ">
         {
           countries.map((country,idx) => (
@@ -12,7 +11,6 @@ const ListCountries = () => {
           ))
         }
       </div>
-    </nav>
   );
 };
 
