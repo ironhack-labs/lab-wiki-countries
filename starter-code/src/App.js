@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import countries from './countries.json'
 import CountryDetail from './CountryDetail';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class App extends Component {
           <div className="col-5 style">
             <div className="list-group">
               {this.state.countries.map((elem, idx) => {
-                return <Link key={idx} className="list-group-item list-group-item-action" to={elem.cca3}>{elem.flag} {elem.name.common}</Link>
+                return <NavLink key={idx} className="list-group-item list-group-item-action" activeStyle={{fontWeight: 'bold', color: 'black' }} to={elem.cca3}>{elem.flag} {elem.name.common}</NavLink>
               })}
             </div>ß
           </div>
