@@ -8,6 +8,7 @@ const CountryDetail = (props) => {
   
   const { cca3 } = props.match.params;
   const foundCountry = getCountry(cca3)
+  
 
   return (
     < div >
@@ -30,7 +31,8 @@ const CountryDetail = (props) => {
           <td>
             <ul>
               {foundCountry.borders.map((elem, idx) => {
-                return <li><Link key={idx} to={elem}>{elem}</Link></li>
+                const { name } = getCountry(elem)
+                return <li><Link key={idx} to={elem}>{name.common}</Link></li>
               })}
             </ul>
           </td>
