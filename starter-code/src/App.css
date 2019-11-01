@@ -30,3 +30,34 @@
     transform: rotate(360deg);
   }
 }
+
+.country-table {
+  max-height: 90vh; 
+  overflow: scroll;
+}
+
+.navbar {
+  background-color: #007bff;
+}
+
+.navbar a {
+  background-color: #007bff;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 15px 15px 15px 50px;
+  text-decoration: none;
+}
+
+.country-detail-table {
+  width: 100%;
+  text-align: left;
+}
+
+.country-detail-headline {
+  padding: 10px;
+  text-align: left;
+}
+
+
+
+
