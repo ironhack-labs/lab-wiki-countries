@@ -3,15 +3,8 @@ import countries from '../countries.json';
 import Table from './Table';
 
 const CountryDetail = props => {
-  const getCountry = id => {
-    const theCountry = oneCountry => {
-      return oneCountry.cca3 === id
-    }
-    return countries.find(theCountry)
-  }
 
-  const { params } = props.match
-  const foundCountry = getCountry(params.id)
+  const foundCountry = countries.find(c => c.cca3 === props.match.params.cca3)
 
   return (
     <div className="col-7">

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import countries from './countries.json'
 import CountryList from './components/CountryList';
 import CountryDetail from './components/CountryDetail';
 import Navbar from './components/NavBar'
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -12,12 +11,10 @@ class App extends Component {
       <div className="App">
         <Navbar headline="WikiCountries" />
         <div className="row">
-          <CountryList countries={countries} />
-          <Switch>
-            <Route path='/:id' component={CountryDetail} />
-          </Switch>
+          <Route path='/' component={CountryList} />
+          <Route exact path='/:cca3' component={CountryDetail} />
         </div>
-      </div >
+      </div>
     )
   }
 }
