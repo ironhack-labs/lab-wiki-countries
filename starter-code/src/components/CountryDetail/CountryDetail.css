@@ -1,0 +1,8 @@
+.country-list {
+  max-height: 90vh;
+  overflow: scroll;
+}
+​
+.width-30 {
+  width: 30%;
+}
