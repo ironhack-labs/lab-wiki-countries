@@ -1,26 +1,34 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Link} from 'react-router-dom'
+import allTheCountries from './countries.json';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      countries: allTheCountries
+    }
+  }
+
+  showCountries = () => {
+    return this.state.countries.map((eachCountry) => (
+        <div key={eachCountry.cca3}>
+          <Link to={'/'+eachCountry.cca3}>
+            {eachCountry.name.common}
+          </Link>
+        </div>
+
+      ))
+
+  }
+
+  render(){
+    return <div>
+      { this.showCountries() }
     </div>
-  );
+  }
 }
 
 export default App;
