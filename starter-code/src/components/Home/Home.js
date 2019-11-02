@@ -13,7 +13,7 @@ const Home = ({ countries }) => {
               key={country.cca3}
               to={`/${country.cca3}`}
               >
-              {country.name.common}
+              {country.flag} {country.name.common}
             </Link>
           })
         }      
