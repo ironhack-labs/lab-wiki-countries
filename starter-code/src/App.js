@@ -17,7 +17,15 @@ function App() {
           </div>
         ))}
       </div>
-      <div class="col-7">Column 7/12</div>
+      <div class="col-7">
+        <Switch>
+          <Route
+            exact
+            path={"/CountryDetail/:cca3"}
+            component={CountryDetail}
+          />
+        </Switch>
+      </div>
     </div>
   );
 }
