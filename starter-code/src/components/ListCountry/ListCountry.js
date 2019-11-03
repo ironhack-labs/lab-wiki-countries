@@ -27,7 +27,7 @@ class ListCountry extends Component {
   render() {
     return(
         <div class="col-7">
-            <h1>{this.displayCountry('capital')}</h1> {/*verificar como retornar name.official*/}
+            <h1>{this.displayCountry('capital')}</h1> {/*como retornar name.official?*/}
             <table class="table">
               <thead></thead>
               <tbody>
