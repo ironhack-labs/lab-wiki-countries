@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = props => {
+const NavbarBrand = props => {
   return (
     <div>
       <nav className="navbar">
-        <span className="navbar-brand mb-0 h1"><Link to='/'>{props.headline}</Link></span>
+        <span className="navbar-brand mb-0 h1"><Link to='/'>{props.brand}</Link></span>
       </nav>
     </div>
   )
 }
 
-export default NavBar;
+export default NavbarBrand;

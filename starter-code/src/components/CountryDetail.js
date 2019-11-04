@@ -1,10 +1,9 @@
 import React from 'react'
-import countries from '../countries.json';
 import Table from './Table';
 
 const CountryDetail = props => {
 
-  const foundCountry = countries.find(c => c.cca3 === props.match.params.cca3)
+  const foundCountry = props.countries.find(c => c.cca3 === props.match.params.cca3)
 
   return (
     <div className="col-7">
