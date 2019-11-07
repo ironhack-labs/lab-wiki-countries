@@ -11,8 +11,12 @@ class CountryDetail extends Component {
   }
   
   componentDidMount() {
-    this.setState({
-      countries: countries
+    axios.get('https://countries.tech-savvy.tech/countries')
+    .then((result) => {
+      this.setState({
+        countries: result.data
+      })
+
     })
   }
   
