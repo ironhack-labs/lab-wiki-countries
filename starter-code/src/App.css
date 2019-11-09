@@ -1,5 +1,5 @@
-.App {
-  text-align: center;
+body {
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -22,11 +22,49 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.countries-container {
+  height: 500px;
+  overflow: scroll;
+}
+.general-container {
+  margin: 30px;
+}
+.title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #0f8ff4;
+  margin-bottom: 1em;
+}
+
+.title {
+  color: white;
+  padding: 1em;
+}
+
+.country-container {
+  padding: 1em;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.country-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.data-show {
+  padding: 1em;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.borders-list {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
 }
