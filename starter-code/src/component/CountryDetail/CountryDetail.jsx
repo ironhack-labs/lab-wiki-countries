@@ -34,7 +34,17 @@ function CountryDetail(props) {
         <thead>
           <tr>
             <td colSpan="2">
-              <h1>{theCountry.name.common}</h1>
+              <h1>
+                <img
+                  src={
+                    "https://www.countryflags.io/" +
+                    theCountry.cca2 +
+                    "/flat/64.png"
+                  }
+                  alt={theCountry.name.common}
+                />{" "}
+                {theCountry.name.common}
+              </h1>
             </td>
           </tr>
         </thead>
