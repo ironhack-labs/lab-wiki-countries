@@ -1,32 +1,29 @@
 import React from "react";
 import Countries from "./countries.json";
-// import CountryTag from "./comps/CountryTag";
-// import CountryCard from "./comps/CountryCard";
+import CountryTag from "./comps/CountryTag";
+import CountryCard from "./comps/CountryCard";
 // import { Link, Switch, Route } from "react-router-dom";
 
 export default class App extends React.Component {
   state = {
     countries: Countries,
-    flag: null,
+    flag: "Select a country.",
   };
   changeFlag = country => {
     this.setState({ flag: country.name.common });
   };
   showCard = country => {
-    return <div>{this.state.flag}</div>;
+    return <CountryCard flag={this.state.flag} />;
   };
 
   showList = () => {
-    return this.state.countries.map((theOne, i) => {
+    return this.state.countries.map((country, i) => {
       return (
-        <a
-          href="#"
-          key={i}
-          className="list-group-item list-group-item-action"
-          onClick={() => this.changeFlag(theOne)}
-        >
-          {theOne.name.common}
-        </a>
+        <CountryTag
+          id={i}
+          name={country.name.common}
+          click={() => this.changeFlag(country)}
+        />
       );
     });
   };

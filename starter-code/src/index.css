@@ -22,7 +22,7 @@ code {
 }
 .listBox {
   height: 90vh;
-  width: 40%;
+  width: 35%;
   scroll-behavior: smooth;
   overflow: scroll;
   padding: 30px;
