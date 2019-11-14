@@ -1,26 +1,59 @@
-import React from 'react';
-
+import React, { Component } from 'react';
+import countries from "./countries.json";
 import './App.css';
+import { Switch, Route, Link } from 'react-router-dom';
+import CountryDetails from './CountryDetails'
 
-function App() {
+class App extends Component {
+
+ state={
+   countries
+ }
+
+ showCountries = () => {
+  const allCountries = this.state.countries.map((eachCountry,i) => {
+      return (
+      <Link className="list-group-item list-group-item-action" key={i} to={`/country/${eachCountry.cca3}`}> {eachCountry.flag} { eachCountry.name.official } </Link>
+      )
+  })
+  return allCountries
+}
+ 
+
+render(){
   return (
-    <div >
-      <div className="row">
-  <div className="col-5">Column 5/12</div>
-  <div className="col-7">Column 7/12</div>
-</div>
+    <div className='App'>
+      <div>
+        <nav className="navbar navbar-dark bg-primary mb-3">
+          <div className="container">
+            <a className="navbar-brand" href="/">WikiCountries</a>
+          </div>
+        </nav>
+
+        <div className="container">
+          <div className="row">
+            <div className="col-5" >
+              <div className="list-group">
+                {this.showCountries()}
+              </div>
+            </div>
+
+            <Switch>
+              <Route exact path="/country/:id" component={CountryDetails}/>
+            </Switch>
+            {/* <CountryDetails countryInfo={this.state.countries}/> */}
 
 
-<div className="list-group">
-  <a href="#" className="list-group-item list-group-item-action active">Cras justo odio (active)</a>
-  <a href="#" className="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-  <a href="#" className="list-group-item list-group-item-action">Morbi leo risus</a>
-  <a href="#" className="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-  <a href="#" className="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
-</div>
-     
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
   );
 }
+}
 
 export default App;
+
