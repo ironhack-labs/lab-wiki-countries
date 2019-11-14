@@ -77,7 +77,7 @@
 .right-side div{
   border-bottom: 1px solid #cacaca73;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-left: 30px;
   padding: 5px;
 }
@@ -92,7 +92,6 @@
 .right-side p{
   display: inline;
   margin-top: 1rem;
-  margin-left: -100px;
 }
 
 .borders{
@@ -102,10 +101,12 @@
 .borders-links{
   display: flex;
   flex-direction: column;
-  margin-left: 0 !important;
   border-bottom: none !important;
+  margin-left: 0px !important;
+  padding-right:-10px !important;
+  text-align: right !important;
 }
 
-.correct-borders{
-  margin-left: -80px !important;
+.right-info{
+  padding-right: 50px;
 }

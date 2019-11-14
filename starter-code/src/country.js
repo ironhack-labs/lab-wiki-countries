@@ -17,7 +17,7 @@ export default function Country(props) {
                 <p>
                     Capital
                 </p>
-                <p>
+                <p className="right-info">
                     {theCountry.name.common}
                 </p>
                 </div>
@@ -25,7 +25,7 @@ export default function Country(props) {
                 <p>
                     Area
                 </p>
-                <p>
+                <p className="right-info">
                     {theCountry.area}
                 </p>
                 </div>
@@ -33,7 +33,7 @@ export default function Country(props) {
                 <p className="correct-borders">
                     Borders
                 </p>
-                <p>
+                <p className="right-info">
                     <Borders theCountry = {theCountry} props = {props}/>
                 </p>
                 </div>
