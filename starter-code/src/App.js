@@ -1,9 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import countries from './countries.json'
+import AboutUs from './about-us';
+
 
 function App() {
   return (
+ 
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -19,6 +23,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <Link to="/AboutUs">About Us</Link>
     </div>
   );
 }
