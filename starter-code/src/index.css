@@ -12,3 +12,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.container {
+  margin: 20px;
+  background-color: gray;
+  width: 100vw;
+  display: flex;
+  flex: row;
+  justify-content: center;
+  padding: 20px;
+}
+
+.country-list {
+  background-color: white;
+  width: 30vw;
+  font-size: 2em;
+}
+
+.country-list a {
+  font-size: 32px;
+}
+
+.country-detail {
+  background-color: white;
+  width: 70vw;
+}
