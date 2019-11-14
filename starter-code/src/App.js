@@ -16,6 +16,14 @@ class App extends React.Component {
       return (
         <li key={eachCountry.cca3}>
           <Link to={"/countrydetail/" + eachCountry.cca3}>
+            <img
+              src={
+                "https://www.countryflags.io/" +
+                eachCountry.cca2 +
+                "/flat/64.png"
+              }
+              alt={eachCountry.name.common}
+            />{" "}
             {eachCountry.name.common}
           </Link>
         </li>
@@ -28,15 +36,13 @@ class App extends React.Component {
       <div>
         <header className="col-12">Wiki Countries</header>
         <div className="App">
-          <div className="nav col-4">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              {this.showCountries()}
-            </ul>
+          <div className="nav col-5">
+            <ul>{this.showCountries()}</ul>
           </div>
-          <div className="body col-8">
+          <div className="body col-7">
+            <p>
+              Click on a country to the left to get more information about it!
+            </p>
             <Switch>
               <Route
                 exact

@@ -25,20 +25,43 @@ code {
   padding: 10px;
 }
 
+header {
+  font-size: 3em;
+  height: 90px;
+  text-align: center;
+}
+
 .nav {
   background-color: white;
   width: 30%;
-  font-size: 2em;
+  font-size: 0.9em;
   display: flex;
   flex-direction: row;
+  height: 400px;
 }
 
-.nav a {
-  font-size: 32px;
+table {
+  padding: 20px;
+}
+
+tr {
+  border-bottom: 1px solid black;
+}
+
+td {
+  padding: 20px;
 }
 
 .body {
   background-color: white;
   width: 70%;
   padding: 30px;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+li img {
+  height: 30px;
 }
