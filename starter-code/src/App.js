@@ -15,7 +15,6 @@ export default class App extends React.Component {
   showCard = country => {
     return <CountryCard flag={this.state.flag} />;
   };
-
   showList = () => {
     return this.state.countries.map((country, i) => {
       return (
