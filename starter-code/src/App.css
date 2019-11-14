@@ -21,6 +21,15 @@
 .App-link {
   color: #61dafb;
 }
+.country-list {
+  overflow:scroll;
+  height: 100vh;
+  font-size: 15px;
+  font-weight: bold;
+}
+.country-desc {
+  height: 100vh;
+}
 
 @keyframes App-logo-spin {
   from {
@@ -30,3 +39,4 @@
     transform: rotate(360deg);
   }
 }
+

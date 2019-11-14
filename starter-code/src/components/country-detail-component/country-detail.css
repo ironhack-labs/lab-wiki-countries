@@ -1,0 +1,44 @@
+.country-content {
+    height: 100vh;
+}
+.card-self {
+    height: 50vh;
+}
+
+.border-label {
+    align-items: flex-start;
+    height: 30vh;
+    padding-top: 25px;
+}
+.capital {
+    list-style: none;
+}
+p {
+    margin-left: 5px;
+}
+.border-list li{
+    color: rgba(4, 61, 167, 0.884); 
+}
+label{
+    text-align: left;
+}
+
+.list-self{
+  position: relative;
+  padding: 20px;
+  border-top: 1px solid rgba(156, 155, 155, 0.5);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+ul.border-list {
+    padding: 20px 0 0 0 !important;
+}
+
+
+.list-self p, .list-self ul {
+    position: absolute;
+    top:0;
+    left:50%;
+    padding-top:20px;
+}
