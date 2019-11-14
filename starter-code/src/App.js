@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import AllCountries from "./AllCountries";
-import CountryDetail from "./CountryDetail";
-import Navbar from "./Navbar";
+import AllCountries from "./components/AllCountries";
+import CountryDetail from "./components/CountryDetail";
+import Navbar from "./components/Navbar";
 import { Switch, Route } from "react-router-dom";
 
 function App() {

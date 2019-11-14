@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import countries from "./countries.json";
+import countries from "../countries.json";
 import { Link } from "react-router-dom";
 
 class CountryDetail extends Component {
@@ -8,7 +8,7 @@ class CountryDetail extends Component {
       country => country.cca3 === this.props.match.params.id
     );
     return (
-      <div className="col-7 text-justify padd">
+      <div className="col-8 text-justify">
         <h1>{myCountry.name.common}</h1>
         <table className="table">
           <tbody>
