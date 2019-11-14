@@ -21,14 +21,14 @@ code {
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .listBox {
-  height: 90vh;
+  height: 70vh;
   width: 35%;
   scroll-behavior: smooth;
   overflow: scroll;
   padding: 30px;
 }
 .wikiBox {
-  padding-left: 30px;
+  margin: 20px;
 }
 header {
   /* background-color: rgb(114, 140, 255); */

@@ -7,17 +7,17 @@ import CountryCard from "./comps/CountryCard";
 export default class App extends React.Component {
   state = {
     countries: Countries,
-    flag: {
-      name: {
-        common: "Select a country.",
-      },
-    },
+    flag: { name: { common: undefined } },
   };
   changeFlag = country => {
     this.setState({ flag: country });
   };
   showCard = country => {
-    return <CountryCard theCountry={this.state.flag} />;
+    return this.state.flag.name.common ? (
+      <CountryCard theCountry={this.state.flag} />
+    ) : (
+      <h3>Select a country.</h3>
+    );
   };
   showTags = () => {
     return this.state.countries.map((country, i) => {
@@ -40,9 +40,7 @@ export default class App extends React.Component {
         </header>
         <div className="wikiApp">
           <div className="list-group listBox">{this.showTags()}</div>
-          <div className="wikiBox">
-            <h1>{this.showCard()}</h1>
-          </div>
+          <div className="wikiBox">{this.showCard()}</div>
         </div>
       </React.Fragment>
     );
