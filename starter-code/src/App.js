@@ -7,20 +7,24 @@ import CountryCard from "./comps/CountryCard";
 export default class App extends React.Component {
   state = {
     countries: Countries,
-    flag: "Select a country.",
+    flag: {
+      name: {
+        common: "Select a country.",
+      },
+    },
   };
   changeFlag = country => {
-    this.setState({ flag: country.name.common });
+    this.setState({ flag: country });
   };
   showCard = country => {
-    return <CountryCard flag={this.state.flag} />;
+    return <CountryCard theCountry={this.state.flag} />;
   };
-  showList = () => {
+  showTags = () => {
     return this.state.countries.map((country, i) => {
       return (
         <CountryTag
           id={i}
-          name={country.name.common}
+          theCountry={country}
           click={() => this.changeFlag(country)}
         />
       );
@@ -35,7 +39,7 @@ export default class App extends React.Component {
           </div>
         </header>
         <div className="wikiApp">
-          <div className="list-group listBox">{this.showList()}</div>
+          <div className="list-group listBox">{this.showTags()}</div>
           <div className="wikiBox">
             <h1>{this.showCard()}</h1>
           </div>
