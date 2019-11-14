@@ -30,7 +30,12 @@
 .country-desc {
   height: 100vh;
 }
-
+.container a{
+  font-size: 30px;
+  font-weight: bold;
+  position: relative;
+  right: 15%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
