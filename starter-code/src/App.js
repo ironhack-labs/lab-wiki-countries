@@ -25,27 +25,31 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="country-list">
-          List of Countries
-          <br />
-          <Link to="/">Home</Link>
-          <br />
-          {this.showCountries()}
-        </div>
-        <div className="country-detail">
-          <Switch>
-            <Route
-              exact
-              path="/countrydetail/:id"
-              render={props => (
-                <CountryDetail
-                  {...props}
-                  listOfCountries={this.state.countries}
-                />
-              )}
-            />
-          </Switch>
+      <div>
+        <header className="col-12">Wiki Countries</header>
+        <div className="App">
+          <div className="nav col-4">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              {this.showCountries()}
+            </ul>
+          </div>
+          <div className="body col-8">
+            <Switch>
+              <Route
+                exact
+                path="/countrydetail/:id"
+                render={props => (
+                  <CountryDetail
+                    {...props}
+                    listOfCountries={this.state.countries}
+                  />
+                )}
+              />
+            </Switch>
+          </div>
         </div>
       </div>
     );

@@ -1,18 +1,33 @@
 import React from "react";
-// import { Link, Switch, Route } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
 
 function CountryDetail(props) {
   let theCountry = props.listOfCountries.find(country => {
     return country.cca3 === props.match.params.id;
   });
 
-  function borderCountries() {
-    if (theCountry.borders == "") {
+  let borderCountries;
+  function showBorderCountries() {
+    if (theCountry.borders === "") {
       //   console.log("Nothing on the border");
     } else {
       //   console.log("Something on the Border");
+      borderCountries = theCountry.borders.map((eachCountry, i) => {
+        return (
+          <li key={i}>
+            <Link to={"/countrydetail/" + eachCountry}>{eachCountry}</Link>
+          </li>
+        );
+      });
     }
+    return borderCountries;
   }
+
+  let borderCountriesDetails = () => {
+    if (borderCountries === props.cca3) {
+      console.log(props.name.common);
+    }
+  };
 
   return (
     <div>
@@ -35,10 +50,7 @@ function CountryDetail(props) {
           </tr>
           <tr>
             <th>Borders</th>
-            <td>
-              {theCountry.borders}
-              {borderCountries()}
-            </td>
+            <td>{showBorderCountries()}</td>
           </tr>
         </tbody>
       </table>

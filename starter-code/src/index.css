@@ -13,27 +13,32 @@ code {
     monospace;
 }
 
-.container {
-  margin: 20px;
-  background-color: gray;
-  width: 100vw;
+.App {
   display: flex;
-  flex: row;
+  flex-direction: row;
+}
+
+.container {
+  margin: 10px;
+  background-color: gray;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
 }
 
-.country-list {
+.nav {
   background-color: white;
-  width: 30vw;
+  width: 30%;
   font-size: 2em;
+  display: flex;
+  flex-direction: row;
 }
 
-.country-list a {
+.nav a {
   font-size: 32px;
 }
 
-.country-detail {
+.body {
   background-color: white;
-  width: 70vw;
+  width: 70%;
+  padding: 30px;
 }
