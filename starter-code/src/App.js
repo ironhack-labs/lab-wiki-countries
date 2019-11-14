@@ -25,7 +25,7 @@ searchInput = (e) => {
   console.log(e.target.value) 
   let search  = e.target.value
   let filteredCountries = countries.filter(countries => {
-    if (countries.name.common.toLowerCase().includes(search.toLowerCase())) {
+    if (countries.name.official.toLowerCase().includes(search.toLowerCase())) {
       return countries
     }
   })
