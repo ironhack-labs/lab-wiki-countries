@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 class CountryDetail extends Component {
   render() {
+    console.log(this.props);
     let myCountry = countries.find(
       country => country.cca3 === this.props.match.params.id
     );
