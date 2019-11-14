@@ -3,6 +3,7 @@ import countries from "./countries.json";
 import './App.css';
 import { Switch, Route, Link } from 'react-router-dom';
 import CountryDetails from './CountryDetails'
+import Search from './Search'
 
 class App extends Component {
 
@@ -18,6 +19,21 @@ class App extends Component {
   })
   return allCountries
 }
+
+
+searchInput = (e) => {
+  console.log(e.target.value) 
+  let search  = e.target.value
+  let filteredCountries = countries.filter(countries => {
+    if (countries.name.common.toLowerCase().includes(search.toLowerCase())) {
+      return countries
+    }
+  })
+
+  this.setState({
+    countries: filteredCountries
+  })
+}
  
 
 render(){
@@ -27,6 +43,8 @@ render(){
         <nav className="navbar navbar-dark bg-primary mb-3">
           <div className="container">
             <a className="navbar-brand" href="/">WikiCountries</a>
+            <Search searchInput={(e) => this.searchInput(e)} searchIt={() => this.searchIt(this.state.search)}/>
+          
           </div>
         </nav>
 
