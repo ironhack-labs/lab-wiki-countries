@@ -12,3 +12,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.country-details{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.country-details table{
+  width: 50%;
+}
+.country-details table td{
+  text-align: left;
+}
+
+div.col-4.pre-scrollable {
+  max-height: 90vh!important;
+}
