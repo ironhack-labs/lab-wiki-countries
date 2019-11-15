@@ -12,3 +12,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+li{
+  list-style-type: none;
+}
+
+td {
+  width: 30%
+}
+
+
+.col-5{
+  max-height: 90vh; overflow: scroll
+}
+
+.col-7{
+  position: fixed;
+  top:100px;
+  right:0;
+
+}
