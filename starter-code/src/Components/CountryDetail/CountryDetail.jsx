@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Switch, Link, Route } from "react-router-dom";
 export default function CountryDetail(props) {
   // console.log(props.countries);
   let country = props.countries.find(eachCountry => {
@@ -9,22 +9,30 @@ export default function CountryDetail(props) {
   // console.log(country);
 
   let loadBoarders = () => {
-    let borders = [
-      country.borders.map((border, i) => {
-        // return <li>{border}</li>;
-        props.countries.find(eachCountry => {
-          return border === eachCountry.cca3;
-        });
-        // console.log(borders);
-      })
-      // <li>{borders.i.name}<li>;
-    ];
+    let borders = country.borders.map((border, i) => {
+      return props.countries.find(eachCountry => {
+        if (border === eachCountry.cca3) {
+          // console.log(eachCountry);
+          return eachCountry;
+        }
+      });
+    });
+    // console.log(borders);
+    return borders.map((border, i) => {
+      return (
+        <li key={i}>
+          <Link
+            to={`/country/${border.cca3}`}
+            className="ist-group-item list-group-item-action"
+          >
+            {border.name.common}{" "}
+          </Link>
+        </li>
+      );
+    });
   };
-
   return (
     <div>
-      {/* //   this.props.match.params.id
-            //  this.props. */}
       <div className="list-group col-7">
         {/* <!-- List group: https://getbootstrap.com/docs/4.0/components/list-group/#links-and-buttons --> */}
         <h1>{country.name.common}</h1>
@@ -46,7 +54,16 @@ export default function CountryDetail(props) {
             <tr>
               <td>Borders</td>
               <td>
-                <ul>{loadBoarders()}</ul>
+                <ul>
+                  <Switch>
+                    <Route
+                      exact
+                      path="/country/:id"
+                      component={props => loadBoarders()}
+                    />
+                  </Switch>
+                  {loadBoarders()}
+                </ul>
               </td>
             </tr>
           </tbody>
