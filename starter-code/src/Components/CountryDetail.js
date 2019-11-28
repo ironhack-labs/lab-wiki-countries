@@ -11,13 +11,13 @@ const country = countries.find(el => {
 
 
 return (
-    <div>
+    <div className='col-7'>
         <h1>{country.name.common}</h1>
         <table>
             <thead></thead>
             <tbody>
                 <tr>
-        <td>Capital</td> 
+        <td  style={{width: '30%'}}>Capital</td> 
         <td>{country.capital}</td>
         <td>Area</td>
         <td>{country.area}</td>

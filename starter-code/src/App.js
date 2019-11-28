@@ -7,20 +7,22 @@ import countries from "./countries.json";
 function App() {
   return (
     <div>
-      <div>
-      <h1>Wiki Countries</h1>
-      </div>
+      <nav class="navbar navbar-dark bg-primary mb-3">
+        <div class="container">
+          <a class="navbar-brand" href="/">WikiCountries</a>
+        </div>
+      </nav>
       <div className="container">
         <div className="row">
           <div className="col-5" style={{maxHeight:" 90vh", overflow: "scroll"}}>
             <div className="list-group">
-              {countries.map(data => {
+              {countries.map(country => {
                 return (
                   <Link
                     className="list-group-item list-group-item-action active"
-                    to={`/${data.cca3}`}
+                    to={`/${country.cca3}`}
                   >
-                    {data.flag} {data.name.official}}
+                    {country.flag} {country.name.official}
                   </Link>
                 );
               })}
@@ -28,6 +30,7 @@ function App() {
           </div>
           <div className="col-5">
           <Route exact path="/:id" component={CountryDetail} />
+          <Route exact path='/'/>
             </div>
         </div>
       </div>
