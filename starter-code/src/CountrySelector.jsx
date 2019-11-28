@@ -18,9 +18,9 @@ export default class CountrySelector extends Component {
               </Link>);
               })}
             </div>
+            </div>
           </div>
-        </div>
-      </div>
+          </div>
     )
   }
 }

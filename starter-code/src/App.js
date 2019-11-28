@@ -9,13 +9,15 @@ import CountryDetail from './CountryDetail';
 
 function App() {
   return (
-    <div className="App d-flex">
-      {/* <Navbar /> */}
-      <CountrySelector />
-      <Switch>
-        {/* <Route exact path="/" component={CountrySelector} /> */}
-        <Route exact path="/:id" component={CountryDetail} />
-      </Switch>
+    <div className="App">
+      <Navbar />
+      <div className="d-flex">
+        <CountrySelector />
+        <Switch>
+          {/* <Route exact path="/" component={CountrySelector} /> */}
+          <Route exact path="/:id" component={CountryDetail} />
+        </Switch>
+      </div>
     </div>
   );
 }
