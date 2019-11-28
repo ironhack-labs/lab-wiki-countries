@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import data from "./countries";
 
+let nameList = "";
+
 export default class CountryDetail extends Component {
   render() {
     const countryInfo = data.find(el => {
@@ -9,10 +11,14 @@ export default class CountryDetail extends Component {
     });
 
     let border = countryInfo.borders.map(border => {
-      // let countryName = border
+      data.find(el => {
+        if (el.cca3 === border) {
+          return (nameList = el.name.common);
+        }
+      });
       return (
         <li>
-          <Link to={`/countryDetail/${border}`}>{border}</Link>
+          <Link to={`/countryDetail/${border}`}>{nameList}</Link>
         </li>
       );
     });
