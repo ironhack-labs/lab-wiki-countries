@@ -1,0 +1,12 @@
+
+/* --------------------------------------------------------------- Navbar --------------------------------------------------------------- */
+.nav-style {
+    display: flex;
+    flex-direction: column;
+}
+
+.wikiTitle {
+    color: white;
+    background-color: #0F8FF4;
+    padding: 10px 50px;
+}
