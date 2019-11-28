@@ -7,3 +7,15 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+import React, { Component } from 'react'
+
+export default class App.test extends Component {
+  render() {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
+}
