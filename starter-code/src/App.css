@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,11 +17,18 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.countryList {
+  max-height: 90vh;
+  overflow: scroll;
+}
+
+.nav-style {
+  display: flex;
+  flex-direction: column;
+}
+
+.wikiTitle {
+  color: white;
+  background-color: #0f8ff4;
+  padding: 10px 50px;
 }
