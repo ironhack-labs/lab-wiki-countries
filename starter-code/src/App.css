@@ -26,7 +26,31 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.full-list li {
+  /* text-decoration: none; */
+  list-style: none;
+  text-align: center;
+  border: solid rgba(200, 200, 200, .5) .3px;
+  padding: 5%;
+}
+
+.detail ul {
+  list-style: none;
+}
+
+.info {
+  text-align: left;
+  padding: 8%;
+  
+}
+.detail h1{
+  border-bottom: solid gray 1px;
+  line-height: 2em;
+  width: 150%;
 }
