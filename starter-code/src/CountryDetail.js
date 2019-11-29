@@ -8,7 +8,7 @@ const CountryDetail = props => {
   const singleCountry = Countries.find(el => el.cca3 === countryID);
 
   return (
-    <div className="col-7">
+    <div className="col-7" >
       <h1>{singleCountry.name.official}</h1>
       <table className="table">
         <thead></thead>
@@ -24,13 +24,14 @@ const CountryDetail = props => {
               <sup>2</sup>
             </td>
           </tr>
+          {singleCountry.borders.length > 0 && 
           <tr>
             <td>Borders</td>
             {
               <td>
                 {singleCountry.borders.map(el => {
                   return (
-                    <li>
+                    <li key={el} style={{textAlign: "left"}}>
                       <Link to={`/${el}`}>{Countries.find(countrinho => countrinho.cca3 === el).name.common}</Link>
                     </li>
                   );
@@ -38,6 +39,7 @@ const CountryDetail = props => {
               </td>
             }
           </tr>
+          }
         </tbody>
       </table>
     </div>

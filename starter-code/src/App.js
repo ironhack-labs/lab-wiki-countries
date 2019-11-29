@@ -19,7 +19,7 @@ function App() {
       <NavBar />
       <div className="container">
         <div className="row">
-      <Route path="/" component={WikiCountries} />
+      <WikiCountries />
       <Route exact path="/:country" component={CountryDetail} />
 
         </div>
