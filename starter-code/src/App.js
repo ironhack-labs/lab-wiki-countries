@@ -40,12 +40,6 @@ export default class App extends Component {
                     </Link>
                   );
                 })}
-                <a
-                  className="list-group-item list-group-item-action"
-                  href="/ABW"
-                >
-                  🇦🇼 Aruba
-                </a>
               </div>
             </div>
             <Switch>
