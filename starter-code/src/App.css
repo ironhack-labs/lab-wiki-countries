@@ -30,3 +30,8 @@
     transform: rotate(360deg);
   }
 }
+
+#list-of-countries {
+  max-height: 90vh; 
+  overflow: scroll;
+}
