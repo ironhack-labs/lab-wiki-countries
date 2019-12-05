@@ -1,7 +1,24 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  width: 100%;
+}
+.App {
+
+  .list-of-countries{ 
+    height: calc(100vh - 78px);
+    overflow-y: scroll;
+    
+    li {
+      list-style: none;  
+    }   
+  }
+}
+/* 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
@@ -30,3 +47,4 @@
     transform: rotate(360deg);
   }
 }
+ */
