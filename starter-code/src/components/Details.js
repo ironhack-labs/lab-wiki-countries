@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import countries from '../countries.json'
+import styled from "styled-components"
 
+const CountryDetails = styled.div`
+color: "blue"
+`
+	
 export default class Detail extends Component {
 	state = {
 		country: {}
@@ -22,14 +27,14 @@ onRouteChanged = () => {
 	render(){
 		const {country} = this.state
 		return(
-			<div className='details'>
+			<CountryDetails>
 
 				<p>Capital: {country.capital}</p>
 				<p>Area: {country.area}</p>
 
-			
-			{country.flag}
-			</div>
+				<p>Border: {country.border}</p>
+
+			</CountryDetails>
 		) 
 	}
 }
