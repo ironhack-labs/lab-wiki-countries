@@ -5,10 +5,6 @@ import countryData from "./../countries";
 import CountryCard from "./CountryCard";
 
 class ListOfCountries extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="list-group">

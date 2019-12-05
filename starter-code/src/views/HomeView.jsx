@@ -1,14 +1,58 @@
 // Your only Route that will show a component that will receive the country code (cca3) in the URL. That is going to represent the id of the country (example: /ESP for Spain, /FRA for France).
 import React, { Component } from "react";
 import ListOfCountries from "./../components/ListOfCountries";
-
-
+// import { loadCountry } from './../services/countries';
+import countryData from "./../countries";
+import { Link } from "react-router-dom";
 
 export class CountryDetail extends Component {
-  render() {
-    const tdStyle = {
-      width: "30%"
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      capital: "",
+      area: "",
+      borders: []
     };
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  fetchData() {
+    const countryCode = this.props.match.params.country;
+    console.log(countryCode);
+    countryData.map(country => {
+      if (country.cca3 === countryCode) {
+        this.setState({
+          name: country.name.common,
+          capital: country.capital,
+          area: country.area,
+          borders: country.borders
+        });
+      }
+    });
+  }
+
+  // ??? understand why this is needed
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  // for borders: covert the abbreviation into country name
+  convertToCountry(abrv) {
+    const country = countryData.find(country => country.cca3 === abrv);
+    if (!country) return;
+    return country.name.common;
+  }
+
+  // ??? understand why this is needed
+  componentDidUpdate(prevProp, prevState, snapshot) {
+    const prevParam = prevProp.match.params.country;
+    const actParam = this.props.match.params.country;
+    if (actParam !== prevParam) {
+      this.fetchData();
+    }
+  }
+  render() {
     return (
       <div>
         <div class="container">
@@ -20,18 +64,18 @@ export class CountryDetail extends Component {
               <ListOfCountries />
             </div>
             <div class="col-7">
-              <h1>France</h1>
+              <h1>{this.state.name}</h1>
               <table class="table">
                 <thead></thead>
                 <tbody>
                   <tr>
-                    <td style={tdStyle}>Capital</td>
-                    <td>Paris</td>
+                    <td style={{ width: "30%" }}>Capital</td>
+                    <td>{this.state.capital}</td>
                   </tr>
                   <tr>
                     <td>Area</td>
                     <td>
-                      551695 km
+                      {this.state.area} km
                       <sup>2</sup>
                     </td>
                   </tr>
@@ -39,30 +83,15 @@ export class CountryDetail extends Component {
                     <td>Borders</td>
                     <td>
                       <ul>
-                        <li>
-                          <a href="/AND">Andorra</a>
-                        </li>
-                        <li>
-                          <a href="/BEL">Belgium</a>
-                        </li>
-                        <li>
-                          <a href="/DEU">Germany</a>
-                        </li>
-                        <li>
-                          <a href="/ITA">Italy</a>
-                        </li>
-                        <li>
-                          <a href="/LUX">Luxembourg</a>
-                        </li>
-                        <li>
-                          <a href="/MCO">Monaco</a>
-                        </li>
-                        <li>
-                          <a href="/ESP">Spain</a>
-                        </li>
-                        <li>
-                          <a href="/CHE">Switzerland</a>
-                        </li>
+                        {this.state.borders.map(country => {
+                          return (
+                            <li key={country}>
+                              <Link to={`/${country}`}>
+                                {this.convertToCountry(country)}
+                              </Link>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </td>
                   </tr>
