@@ -1,0 +1,1 @@
+// copy detials from one country in here
