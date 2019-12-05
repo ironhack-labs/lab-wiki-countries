@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import countries from '../countries.json';
+import { Link } from 'react-router-dom';
+
 
 export default class CountryDetail extends Component {
     state = {
@@ -28,8 +30,22 @@ export default class CountryDetail extends Component {
     {country.flag} 
     <p>Capital: {country.capital}</p>
     <p>Area: {country.area}KM2</p>
-    <p>Borders: {country.borders} </p>
-     
+    
+
+    <ul>
+      {
+        (country && country.borders) ? 
+          country.borders.map ((country, i) => (
+            <Link key = { i } to={`/country/${country}`}>
+              <li>{(countries.find(
+                elem => elem.cca3 === country
+              )).name.official }</li>
+            </Link>
+        )) : 
+        ''
+      
+      } 
+      </ul>
     </div>
     ) 
   }
