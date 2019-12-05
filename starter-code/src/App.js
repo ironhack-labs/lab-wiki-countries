@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CountryList from "./components/CountryList/CountryList";
+import CountryDetail from "./components/CountryDetail/CountryDetail";
+
+import HomeView from "./components/HomeView/HomeView";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import "./App.css";
+import Countries from "./countries.json";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <BrowserRouter>
+      <header>
+        <p>Wiki Countries</p>
+
+        <Link to="/">Home</Link>
+        <Link to="/CountryList">Countries</Link>
       </header>
-    </div>
+
+      <Switch>
+        <Route exact path="/CountryList" component={CountryList} />
+        <Route exact path="/" component={HomeView} />
+        <Route path="/:id" component={CountryDetail} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
