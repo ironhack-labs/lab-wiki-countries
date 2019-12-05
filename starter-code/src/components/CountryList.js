@@ -6,11 +6,12 @@ import shortid from 'shortid'
 export default function CountryList(props) {
 
     return (
-        <div>
+        <div className="listContainer">
         {countries.map(country => (
-            <div key={shortid.generate()}>
+            <div className="CountryList" key={shortid.generate()}>
             <Link to={`/countrydetail/${country.cca3}`}>
                 <img
+                className="flag"
                 src={`https://www.countryflags.io/${country.cca2.toLowerCase()}/flat/64.png`}
                 alt=""
                 />

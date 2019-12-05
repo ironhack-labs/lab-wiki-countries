@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: auto;
 }
 
 .App-logo {
@@ -32,9 +34,92 @@
 }
 
 .Navbar {
-  background: blue;
+  background: #0f8ff4;
+  float: 'left';
+}
+
+.Navbar h3 {
+  color: white;
+  text-align: start;
+  margin: 0px 50px;
+  padding: 10px 10px 15px 10px;
+  font-family: Arial ;
 }
 
 .mainContainer {
   display: flex;
+}
+
+.listContainer {
+  border: 2px solid rgba(128, 128, 128, 0.2);
+  border-radius: 7px;
+  margin: 40px 60px;
+  height: 85vh;
+  width: auto;
+  overflow: scroll;
+  overflow-x: auto;
+}
+
+.CountryList {
+  border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+  font-size: 22px;
+  padding: 10px 30px;
+  text-align: left;
+}
+
+.flag {
+  height: 26px;
+  width: auto;
+  padding-right: 10px;
+}
+
+.CountryDetail {
+  margin: 40px 10px;
+  height: 85vh;
+  width: auto;
+}
+
+.countryName {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+.details {
+  border-top: 2px solid rgba(128, 128, 128, 0.2);
+  display: flex;
+  padding: 15px;
+  width: 350%;
+  height: auto;
+}
+
+.details p {
+  margin-right: 100px;
+  height: 0px;
+  width: 50px;
+  text-align: left;
+}
+
+.borderDetails {
+  border-top: 2px solid rgba(128, 128, 128, 0.2);
+  display: flex;
+  padding-top: 15px;
+  width: 350%;
+}
+
+.borderDetails p {
+padding-left: 10px;
+margin-right: 85px;
+height: 0px;
+width: 50px;
+text-align: left;
+}
+
+.listItem {
+  text-align: left;
+}
+/* makes it so scrollbar is invisible */
+::-webkit-scrollbar { 
+  display: none; 
 }

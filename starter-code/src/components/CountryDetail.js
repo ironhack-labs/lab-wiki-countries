@@ -20,14 +20,14 @@ export default function CountryDetail(props) {
 
   return (
     <div className="CountryDetail">
-      <h1>{foundCountry.name.common}</h1>
-      <div>Capital {foundCountry.capital}</div>
-      <div>Area {foundCountry.area}</div>
-      <div>
-        <h3>Borders</h3>
+      <h1 className='countryName'>{foundCountry.name.common}</h1>
+      <div className="details"><p>Capital</p> {foundCountry.capital}</div>
+      <div className="details"><p>Area</p> {foundCountry.area}</div>
+      <div className="borderDetails">
+        <p>Borders</p>
         <ul>
           {foundCountry.borders.map(countryCC3 => 
-            <li key={shortid.generate()}><Link to={`/countrydetail/${getCountryById(countryCC3).cca3}`}>{getCountryById(countryCC3).name.common}</Link></li>
+            <li className="listItem" key={shortid.generate()}><Link to={`/countrydetail/${getCountryById(countryCC3).cca3}`}>{getCountryById(countryCC3).name.common}</Link></li>
           )}
           {/*                     
                     foundCountry.borders.map(countryCC3=>
