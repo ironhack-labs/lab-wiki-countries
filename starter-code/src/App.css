@@ -30,3 +30,11 @@
     transform: rotate(360deg);
   }
 }
+
+.Navbar {
+  background: blue;
+}
+
+.mainContainer {
+  display: flex;
+}
