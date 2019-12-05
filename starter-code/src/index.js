@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -11,16 +11,18 @@ import CountryDetail from './components/CountryDetail/CountryDetail';
 ReactDOM.render(
 	<BrowserRouter>
 		<Nav />
-		<div className='App'>
-			<div className='row'>
-				<div className='col-5'>
-					<Route path='/' component={App} />
-				</div>
-				<div className='col-7'>
-					<Route path='/country/:cca3' component={CountryDetail} />
+		<Switch>
+			<div className='App'>
+				<div className='row'>
+					<div className='col-5'>
+						<Route path='/' component={App} />
+					</div>
+					<div className='col-7'>
+						<Route path='/country/:cca3' component={CountryDetail} exact />
+					</div>
 				</div>
 			</div>
-		</div>
+		</Switch>
 	</BrowserRouter>,
 	document.getElementById('root')
 );

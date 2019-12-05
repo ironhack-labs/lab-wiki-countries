@@ -16,6 +16,16 @@ class CountryDetail extends Component {
 		this.setState({ country, borders });
 	}
 
+	componentDidUpdate() {
+		if (this.props.match.params.cca3 !== this.state.country.cca3) {
+			const country = countries.find((country) => country.cca3 === this.props.match.params.cca3);
+			const borders = country.borders.map((border) => {
+				return countries.find((country) => country.cca3 === border);
+			});
+			this.setState({ country, borders });
+		}
+	}
+
 	render() {
 		const { country, borders } = this.state;
 		const { name, capital, area } = country;
