@@ -12,3 +12,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#root{
+display: flex;
+}
+.menu{
+   width: 26vw;
+	 height: 100vh;
+   overflow: scroll;
+   background-color: rgb(218, 213, 213);
+}
