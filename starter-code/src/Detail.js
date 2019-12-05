@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import countries from "./countries.json";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const DetailBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+`;
 
 export default class Detail extends Component {
   state = {
@@ -20,7 +27,7 @@ export default class Detail extends Component {
     });
     console.log(this.state.borders);
     return (
-      <>
+      <DetailBox>
         <h1>{country.name.common}</h1>
         <hr />
         <p>Capital : {country.capital[0]}</p>
@@ -34,7 +41,7 @@ export default class Detail extends Component {
             </li>
           ))}
         </ul>
-      </>
+      </DetailBox>
     );
   }
 }
