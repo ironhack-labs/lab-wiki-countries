@@ -8,7 +8,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root{
+  display: flex;
+  flex-direction: row;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.principal{
+  width: '50%';
+  display: flex;
+  justify-content: 'center';
+  flex-direction:'column';
+  align-items:'center'
+}
+
+.sub{
+    width: '30vw';
+    height:'800px';
+    overflow: 'scroll';
+    margin-top:'30px';
+    text-align: 'center';
+    font-size: '18px';
+    border-style: 'solid'
 }

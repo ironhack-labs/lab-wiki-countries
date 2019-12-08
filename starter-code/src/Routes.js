@@ -1,17 +1,17 @@
 import React from 'react';
+import { BrowserRouter, Route } from "react-router-dom";
+import MenuComponent from './components/MenuComponent'
+import CountryDetail from './components/CountryDetail';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Menu from "./components/Menu"
-import Detail from "./components/Detail"
-
 const Routes = () =>(
     <BrowserRouter>
-        <Route exact path="/" component={Menu} />
-        <Route exact path="/country/:cca3" component={Detail} />
+        <Route exact path="/" component={MenuComponent} />
+        <Route exact path="/country/:cca3" component={CountryDetail} />
+        
     </BrowserRouter>
 )
 
-export default Routes
+export default Routes;
