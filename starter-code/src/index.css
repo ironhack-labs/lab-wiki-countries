@@ -12,3 +12,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+nav {
+  background-color: rgb(0, 110, 255);
+  text-align: left;
+  margin-bottom: 2em;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  margin-left: 2em;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+.Content {
+  display: flex;
+}
+
+.Country {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  width: 30em;
+  border: 1px solid black;
+}
+
+.Country a {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Country img {
+  margin-right: 1em;
+}
+
+.Countries {
+  display: flex;
+  flex-direction: column;
+}
+.Countries hr {
+  width: 30em;
+}
