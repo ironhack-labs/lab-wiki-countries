@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.homeview {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu > p {
+  text-decoration: none;
+}
+#root {
+  display: flex;
+}
