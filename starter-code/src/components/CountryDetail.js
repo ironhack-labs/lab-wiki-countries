@@ -1,46 +1,46 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import countries from '../countries.json';
 import { Link } from 'react-router-dom';
-import countries from '../countries.json' ;
-
-export default class CountryDetailComp extends Component {
+export default class CountryDetail extends Component {
     state = {
-        country: {},
-        borders:[]
+        country: {}
     }
-
-    componentDidMount() {
-        const country = countries.find(
-            country => country.cca3 === this.props.match.params.cca3
-        )
-        console.log(this.props.match.params.cca3)
-        this.setState({ country })
+  componentDidMount() {
+    const country = countries.find(
+        country => country.cca3 === this.props.match.params.cca3
+    )
+      this.setState({ country })
     }
-
-    render() {
-        // console.log(countries)
-        // console.log(this.state)
-        const { country } = this.state
-
-        const { borders } = country;
-        console.log(borders)
-
-        //Este map va en el return de abajo, pero me da error entonces por eso lo comenté aca arriba
-        // {borders.map(border => (
-        //     <Link key={border.cca3} to={`/country/${border.cca3}`}>
-                
-        //     </Link>
-        // ))}
-        return (
-            <div>
-                <h2>{ country.capital }</h2>
-                { country.flag }
-                <h4>Area {country.area} km2</h4>
-                <h4>
-
-                </h4>
-               
-            </div>
-
-        )
-    }
-}
+  render() {
+      const { country } = this.state
+    //   const {name} = country;
+    //   console.log(name.official)
+    return(
+    <div style={{
+      display:'flex',
+      alignItems:'center',
+      marginTop:'25%',
+      flexDirection:'column',
+      width: '40%',
+      fontSize: '18px'
+      }}>
+      
+    <h5>Capital: {country.capital}</h5>
+    <h5>Area: {country.area}KM2</h5>
+    <ul>
+      {
+        (country && country.borders) ?
+          country.borders.map ((country, i) => (
+            <Link key = { i } to={`/country/${country}`}>
+              <li>{(countries.find(
+                elem => elem.cca3 === country
+              )).name.official }</li>
+            </Link>
+        )) :
+        ''
+      }
+      </ul>
+    </div>
+    )
+  }
+}//class

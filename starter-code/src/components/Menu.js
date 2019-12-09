@@ -13,16 +13,25 @@ export default class Menu extends Component {
         return (
             <div
                 style={{
-                    width: '30vw',
-                    height:'800px',
+                    width: '40vw',
+                    height:'100vh',
                     overflow: 'scroll',
-                    backgroundColor: 'red'
                 }}
             >
             {countries.map((country, i) => (
-                <Link key={i} to={`/country/${country.cca3}`}>
-                    <p>{ country.flag }</p>
-                    <p>{country.name.official}</p>
+                <Link key={i} to={`/country/${country.cca3}`}
+                    style ={{
+                        color: 'black',
+                        textDecoration: 'none',
+                    }}
+                >
+                    <p style={{
+                        width: '100%',
+                        borderTop: 'thin solid grey',
+                        padding:'2%',
+                    }}
+                    
+                    >{ country.flag } {country.name.official}</p>
                 </Link>
             ))}
             </div>
