@@ -103,7 +103,7 @@ class CountryDetail extends Component {
                   <div className="inline">
                     {country.area}
                     <span className="text-gray-700 text-sm font-hairline">
-                      m<sup>2</sup> of amazing land for you to explore.
+                      km<sup>2</sup> of amazing land for you to explore.
                     </span>
                   </div>
                 )}
@@ -129,6 +129,7 @@ class CountryDetail extends Component {
               </div>
             )}
             {/* <p>{country.latlng}</p> */}
+            <div id="map"></div>
           </div>
         )}
       </div>
