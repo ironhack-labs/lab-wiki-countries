@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import countries from "./countries.json";
-import Country from "./components/Country.js";
-const { Header, Sider } = Layout;
+import Country from "./component/Countrydetail";
+const { Header, Content, Sider } = Layout;
 
 class Router extends React.Component {
   state = {
