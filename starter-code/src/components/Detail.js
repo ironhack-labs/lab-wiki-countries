@@ -1,6 +1,7 @@
 import React from "react";
 import Data from "../countries.json";
 import Border from './Border'
+import '../styles/Detail.css'
 
 const Detail = props => {
 
@@ -9,9 +10,9 @@ const Detail = props => {
   const countryBorders = country.borders.map(c => <Border key={c} id={c}/>);
 
   return (
-    <div className="col-7">
+    <div className="">
       <h1>{country.name.common}</h1>
-      <table class="table">
+      <table className="table">
         <thead></thead>
         <tbody>
           <tr>

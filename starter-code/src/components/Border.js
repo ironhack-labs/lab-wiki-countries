@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 
 const Border = ({id}) => {
     const country = Data.find(c => c.cca3 === id)
-    console.log(country.name.common)
+    
     return ( 
-        <li><Link to={id}>{country.name.common}</Link></li>
+        <li className="borders"><Link to={id}>{country.name.common}</Link></li>
      );
 }
  
