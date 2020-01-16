@@ -4,7 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// MDH: want to be able to React routing
+import { BrowserRouter as Router } from 'react-router-dom';
+
+// MDH: after npm i bootstrap access to bootstrap stuff
+import 'bootstrap/dist/css/bootstrap.css';
+
+// MDH: wrap <App/> in Router so we can do routing
+ReactDOM.render(<Router><App/></Router>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
