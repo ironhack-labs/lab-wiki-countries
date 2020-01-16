@@ -1,0 +1,7 @@
+.navigationPanel {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #0E8FF4;
+    color: white;
+    padding-left: 11.5%;
+}
