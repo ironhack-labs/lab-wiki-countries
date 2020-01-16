@@ -1,9 +1,15 @@
 import React from 'react';
+import CountryItem from './CountryItem'
+import '../styles/Countries.css'
 
-const Countries = () => {
+
+const Countries = ({countries}) => {
+
+    const countriesList = countries.map(country => <CountryItem key={country.ccn3} country={country}/>)
+
     return ( 
-        <div className="col-5">
-            
+        <div className="countriesList" >
+            {countriesList}
         </div>
      );
 }

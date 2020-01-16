@@ -1,0 +1,4 @@
+.countriesList{
+    max-height: 190vh;
+    overflow: scroll;
+}
