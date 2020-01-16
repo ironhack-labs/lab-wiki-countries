@@ -1,18 +1,20 @@
 import React from 'react';
-import CountryItem from './CountryItem'
+import { Link } from 'react-router-dom';
 import '../styles/Countries.css'
 
+const isActive = (origin, target) => origin === target ? 'active' : ''
 
-const Countries = (props) => {
-    const {countries, changeSelected} = props
-    console.log(props)
-    const countriesList = countries.map(country => <CountryItem key={country.ccn3} country={country} onClick={changeSelected}/>)
-
-    return ( 
-        <div className="countriesList" >
-            {countriesList}
-        </div>
-     );
-}
+const Countries = ({ countries, handleSelect, regionSelected, link }) =>
+    <div className="countriesList" >
+        {countries.map(({ cca3, flag, name }) =>
+            <Link
+                key={cca3}
+                onClick={() => handleSelect(cca3)}
+                className={`list-group-item list-group-item-action countryList ${isActive(cca3, regionSelected)}`}
+                to={link}>
+                    {flag} - {name.common}
+            </Link>
+        )}
+    </div>
  
 export default Countries;

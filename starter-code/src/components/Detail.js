@@ -1,14 +1,8 @@
-import React from "react";
-import Data from "../countries.json";
+import React from "react"
 import Border from './Border'
 import '../styles/Detail.css'
 
-const Detail = props => {
-
-  const country = Data.find(c => c.cca3 === props.match.params.id);
-
-  const countryBorders = country.borders.map(c => <Border key={c} id={c}/>);
-
+const Detail = ({ country, handleSelect }) => {
   return (
     <div className="">
       <h1>{country.name.common}</h1>
@@ -29,7 +23,9 @@ const Detail = props => {
           <tr>
             <td>Borders</td>
             <td>
-              <ul>{countryBorders}</ul>
+              <ul>
+                {country.borders.map(border => <Border handleSelect={handleSelect} key={border} id={border}/>)}
+              </ul>
             </td>
           </tr>
         </tbody>
