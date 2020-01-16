@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/CountryItem.css'
 
 const CountryItem = ({country}) => {
     const link = country.cca3 === undefined ? '/': country.cca3

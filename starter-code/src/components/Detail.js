@@ -1,15 +1,12 @@
 import React from "react";
 import Data from "../countries.json";
-import { Link } from "react-router-dom";
+import Border from './Border'
 
 const Detail = props => {
 
   const country = Data.find(c => c.cca3 === props.match.params.id);
 
-  const countryBorders = country.borders.map(c => {
-    
-    return <Link to={c}>{c}</Link>;
-  });
+  const countryBorders = country.borders.map(c => <Border key={c} id={c}/>);
 
   return (
     <div className="col-7">
