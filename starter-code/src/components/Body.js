@@ -9,16 +9,12 @@ class Body extends Component {
        selected: null
    }
 
-   selectedItem(id){
-    this.setState({selected: id})
-   }
-
   render() {
     return (
       <div className="container">
         <div className="row">
           <div className="list-group col-5">
-            <Countries countries={Data}/>
+            <Countries countries={Data} />
           </div>
           <div className="Details col-7">
           <Switch>

@@ -22,7 +22,7 @@ const Detail = props => {
           <tr>
             <td>Area</td>
             <td>
-              {country.area} km
+              {country.area.toLocaleString()} km
               <sup>2</sup>
             </td>
           </tr>
