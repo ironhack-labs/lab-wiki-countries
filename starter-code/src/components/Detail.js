@@ -1,28 +1,43 @@
-import React, { Component } from 'react';
-import Data from '../countries.json'
+import React from "react";
+import Data from "../countries.json";
+import { Link } from "react-router-dom";
 
-class Detail extends Component{
-    state={
-        country: Data.find(c => c.id === this.props.match.cca3)
-    }
+const Detail = props => {
 
-    componentDidMount(){
-        const countryDetail = Data.find(c => c.id === this.props.match.cca3)
-        this.setState({country: countryDetail})
-    }
+  const country = Data.find(c => c.cca3 === props.match.params.id);
 
-
-
-    render(){
-        console.log(this.props, this.state)
-
-        return ( 
-            <div className="col-7">
-                <h1>{this.state.country.name.common}</h1>
-            </div>
-         );
-    }
+  const countryBorders = country.borders.map(c => {
     
-}
- 
+    return <Link to={c}>{c}</Link>;
+  });
+
+  return (
+    <div className="col-7">
+      <h1>{country.name.common}</h1>
+      <table class="table">
+        <thead></thead>
+        <tbody>
+          <tr>
+            <td style={{ width: "30%" }}>Capital</td>
+            <td>{country.capital}</td>
+          </tr>
+          <tr>
+            <td>Area</td>
+            <td>
+              {country.area} km
+              <sup>2</sup>
+            </td>
+          </tr>
+          <tr>
+            <td>Borders</td>
+            <td>
+              <ul>{countryBorders}</ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
 export default Detail;
