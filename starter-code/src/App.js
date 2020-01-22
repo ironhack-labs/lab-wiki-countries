@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import './index.css';
 import CountryDetail from './component/CountryDetail';
 import { Switch, Route } from 'react-router-dom';
 import api from './Services/api';
@@ -26,7 +26,6 @@ class App extends React.Component {
     return (
       <div className="App">
         {/* <CountryDetail /> */}
-
         <div>
           <div>
             <nav className="navbar navbar-dark bg-primary mb-3">
@@ -36,31 +35,21 @@ class App extends React.Component {
             </nav>
             <div className="container">
               <div className="row">
-                <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
+                <div className="col-5" style={{  maxHeight: '90vh', overflow: 'scroll' }}>
                   <div className="list-group">
                     {countries.map(item => (
-                      <Link className="list-group-item list-group-item-action" to={`/${item.cca3}`} onClick={() => this.updateCountry(item.cca3) }>🇦🇼 {item.name.common}</Link>
+                      <Link className="list-group-item list-group-item-action" to={`/${item.cca3}`} onClick={() => this.updateCountry(item.cca3)}> <img className='countryImage' src={`https://www.countryflags.io/${item.cca2}/flat/64.png`} /> {item.name.common}</Link>
                     ))}
                   </div>
                 </div>
-
-
-
-
                 <Switch>
                   <Route exact path='/' component={CountryDetail} />
-                  <Route exact path='/:countryCode' render={() => <CountryDetail update={this.updateCountry}  />} />
+                  <Route exact path='/:countryCode' render={() => <CountryDetail update={this.updateCountry} />} />
                 </Switch>
-
-
-
-
               </div>
             </div>
           </div>
         </div>
-
-
       </div>
     )
   }
