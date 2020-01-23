@@ -30,3 +30,42 @@
     transform: rotate(360deg);
   }
 }
+
+#Country-List {
+  height: 300px;
+  overflow: scroll;
+  width: 25vw;
+  align-content: center;
+
+}
+
+#Title {
+  background-color: skyblue;
+  color:white;
+  font-weight: bold;
+  width: 80vw;
+  margin-top:5vh;
+}
+
+#Page{
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#Body{
+  display: flex;
+	flex-direction: row;
+}
+
+#Country-Overview{
+  display: flex;
+	flex-direction: column;
+}
+
+#Country-Box{
+  outline: 1px solid grey;
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 20vw;
+}
