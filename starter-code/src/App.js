@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './Components/Navbar';
 
-function App() {
+import { Switch, Route } from 'react-router-dom';
+import CountryDetails from './Components/CountryDetail.jsx';
+import CountryList from './Components/CountryList.jsx';
+
+import Contries from './countries.json';
+
+export default function App() {
+  // uma lista de países. Com nome e flag.
+  // link passado para o componente filho.
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <div className="container">
+        <div className="row">
+          <div
+            className="col-5"
+            style={{ height: '90vh', overflowY: 'scroll', fontSize: '12px' }}
+          >
+            <CountryList countriesArr={Contries} />
+          </div>
+          <div className="col-7">
+            <Route
+              exact
+              path="/:countryId"
+              render={(props) => (
+                <CountryDetails countriesArr={Contries} {...props} />
+              )}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-
-export default App;
