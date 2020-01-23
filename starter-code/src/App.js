@@ -15,10 +15,6 @@ class App extends Component {
     }
   }
 
-  // allCountries(){
-  //   const countriesArrayCopy = [...this.state.countriesArray];
-  //   countriesArrayCopy.map((eachCountry, idx) => eachCountry.name.official)
-  // }
 
   render(){
     return (
