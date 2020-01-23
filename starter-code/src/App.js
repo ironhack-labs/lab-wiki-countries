@@ -18,23 +18,31 @@ class App extends Component  {
   }
   
   render()  {
-    const {name, capital, area, borders} = countries
-    // console.log(countries[0].cca3)
-    console.log(capital)    
-      return (
-        <div className="App">
-          <div className='list-group'>
-
-          {countries.map((item) => <CoutrieBox image={item.flag} name={item.name.common} cca3={item.cca3}/>)}
-
-          </div>
-          <CountryDetail/>
+    return (
+      
+      <div className="App">
+    <div className = "row" >
+    <div className = " col-5 list-group" > 
+    
+    
+    {countries.map((item) => <CoutrieBox image={item.flag} name={item.name.common} cca3={item.cca3}/>)}
+    
+    
+     </ div >
+    <div className = " col-7 " > 
           <Switch>
-            <Route exact path='/:cca3' Component='CountryDetail'/>
+            {/* <CountryDetail/> */}
+            <Route exact path='/:cca3' component={CountryDetail}/>
           </Switch>
+    
+     </ div >
+  </ div >
+  
+  
 
 
     
+        
         </div>
       );
   }
