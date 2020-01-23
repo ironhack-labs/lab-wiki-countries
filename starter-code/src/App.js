@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import countries from './countries.json';
+import CountryDetails from './components/CountryDetails';
+import { Switch, Route } from 'react-router-dom';
+import CountryListItem from './components/CountryListItem';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav className="navbar navbar-dark bg-primary mb-3">
+        <div className="container">
+          <a className="navbar-brand" href="/">WikiCountries</a>
+        </div>
+      </nav>
+      <div className="container">
+        <div className="row">
+          <div className="col-5" style={{maxHeight: '90vh', overflow: 'scroll'}}>
+            <div className="list-group">
+              {
+                countries.map((country, idx) => <CountryListItem key={idx} country={country}/>)
+              }
+            </div>
+          </div>
+        <Switch>
+          <Route exact path="/:countryCode" component={CountryDetails}/>
+        </Switch>
+        </div>
+      </div>
     </div>
   );
 }

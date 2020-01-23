@@ -30,3 +30,15 @@
     transform: rotate(360deg);
   }
 }
+
+.text-left {
+  text-align: start;
+}
+
+h1, h4 {
+  text-align: start;
+}
+
+.table {
+  text-align: start;
+}
