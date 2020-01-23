@@ -32,3 +32,18 @@
   }
 }
 
+h1{
+  text-align: center;
+}
+h2{
+  text-align: center;
+}
+
+.left{
+  text-align: right;
+}
+
+.right{
+  text-align: left;
+}
+
