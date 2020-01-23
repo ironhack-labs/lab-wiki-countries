@@ -6,15 +6,15 @@ export default function CountryList(props) {
   return countriesArr.map((e, i) => {
     const { name, cca2, cca3 } = e;
     return (
-      <div key={i}>
         <NavLink activeClassName="highlighted" to={`/${cca3}`}>
+      <div key={i}>
           <img
             src={`https://www.countryflags.io/${cca2}/flat/32.png`}
             alt={name.common}
           />
           <span style={{ marginLeft: '10px' }}>{name.common}</span>
-        </NavLink>
       </div>
+        </NavLink>
     );
   });
 }
