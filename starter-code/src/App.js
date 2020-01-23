@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { Route, Switch, NavLink } from 'react-router-dom';
+import { render } from 'react-dom';
+import CountryDetails from './components/CountryDetails';
+import countries from './countries.json';
+import { Link } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      countriesArray: countries,
+    }
+  }
+
+  // allCountries(){
+  //   const countriesArrayCopy = [...this.state.countriesArray];
+  //   countriesArrayCopy.map((eachCountry, idx) => eachCountry.name.official)
+  // }
+
+  render(){
+    return (
+      <div className="App">
+        <nav class="navbar navbar-dark bg-primary mb-3">
+          <div class="container">
+            <a class="navbar-brand" href="/">WikiCountries</a>
+          </div>
+        </nav>
+        <div className='mainDiv'>
+          <div className="list-group listGroup">
+            { 
+              this.state.countriesArray.map((eachCountry, idx) => {
+                return <Link key={idx} to={`/${eachCountry.cca3}`} className="list-group-item list-group-item-action">{eachCountry.flag}{eachCountry.name.official}</Link>
+              })
+            }
+          </div>
+        <Switch>
+          <Route exact path='/:id' component={CountryDetails}></Route>
+        </Switch>
+        </div>
+      </div>
+    )
+  }
 }
+
+
+
+
 
 export default App;
