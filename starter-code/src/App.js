@@ -20,7 +20,7 @@ class App extends Component  {
   render()  {
     return (
       
-      <div className="App">
+    <div className="App">
     <div className = "row" >
     <div className = " col-5 list-group" > 
     
@@ -28,22 +28,16 @@ class App extends Component  {
     {countries.map((item) => <CoutrieBox image={item.flag} name={item.name.common} cca3={item.cca3}/>)}
     
     
-     </ div >
-    <div className = " col-7 " > 
+    </ div >
+    <div className=" col-7 "> 
           <Switch>
-            {/* <CountryDetail/> */}
             <Route exact path='/:cca3' component={CountryDetail}/>
           </Switch>
     
-     </ div >
-  </ div >
+    </div>
+    </div>
   
-  
-
-
-    
-        
-        </div>
+    </div>
       );
   }
 }
