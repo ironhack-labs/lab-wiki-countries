@@ -30,3 +30,38 @@
     transform: rotate(360deg);
   }
 }
+
+.nav-bar {
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  background-color: rgb(76, 76, 218);
+  padding: 1rem 0;
+}
+
+.CountryDetail {
+  border:2px solid rgb(233, 233, 233);
+  margin: 1rem;
+  padding: 0.25rem;
+}
+
+.CountryList.list-group {
+  border:2px solid rgb(233, 233, 233);
+  padding: 0.25rem;
+  max-height: 50vh;
+  overflow-y: scroll;
+  direction: rtl;
+  margin: 1rem;
+}
+
+.CountryList li{
+  color: black;
+  direction: ltr;
+}
+
+.CountryList li a{
+  text-decoration: none;
+}
+.CountryList li.active a{
+  color: white;
+}
