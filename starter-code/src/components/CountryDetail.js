@@ -17,7 +17,7 @@ class CountryDetail extends Component {
         <hr></hr>
         <h3>Capital: {countryObj.capital}</h3>
         <hr></hr>
-        <h3>Area: {countryObj.area}</h3>
+        <h3>Area: {countryObj.area} km2</h3>
         <hr></hr>
         <h3>Borders: {
           <ul>
