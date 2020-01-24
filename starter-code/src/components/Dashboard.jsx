@@ -10,7 +10,7 @@ class Dashboard extends Component {
       <div className="col-5" style={{height: "90vh", overflow: "scroll"}} >
             <div className="list-group">
 
-              {countries.sort((a,b) => a.name.commom-b.name.commom).map(e =>
+              {countries.sort((a,b) => (a.name.commom) ? a.name.commom.localeCompare(b.name.commom) : a.name.official.localeCompare(b.name.official)).map(e =>
                 <Link className="list-group-item list-group-item-action" to={'/'+e.cca3}>{e.flag} {e.name.common} ({e.cca3})</Link>
                 )}
 
