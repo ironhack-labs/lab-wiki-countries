@@ -19,10 +19,10 @@ const CountryDetails = props => {
 	//   ));
 
 	const countryBorders = [...countries]
-		.filter(e => country.borders.includes(e.ccn3))
+		.filter(e => country.borders.includes(e.cca3))
 		.map((border, i) => (
 			<li key={i}>
-				<Link to={`/${border}`}>{border.name.common}</Link>
+				<Link to={`/${border.ccn3}`}>{border.name.common}</Link>
 			</li>
 		));
 
@@ -33,7 +33,7 @@ const CountryDetails = props => {
 				<thead></thead>
 				<tbody>
 					<tr>
-						<td style={{ width: "30%;" }}>Capital</td>
+						<td style={{ width: "30%" }}>Capital</td>
 						<td>{country.capital}</td>
 					</tr>
 					<tr>
