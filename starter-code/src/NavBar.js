@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
-import countries from './countries.json'
-import NavBarEntry from './NavBarEntry';
-
+import { Link } from 'react-router-dom'
 
 export default class NavBar extends Component {
-
-
-
     render() {
-
         return (
-            <div className="NavBar">
-                {countries.map(oneCountry => {return <NavBarEntry key={oneCountry.cca3} country = {oneCountry}/>})}  
+            <div className="sticky-top">
+                <Link to={'/'} className='list-group-item list-group-item-action active'>WikiCountries</Link>
             </div>
         )
     }
