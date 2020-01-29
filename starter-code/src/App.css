@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  display: flex;
 }
 
 .App-logo {
@@ -8,7 +9,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -29,4 +30,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.NavBar{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
