@@ -15,21 +15,30 @@ class App extends Component {
   }
 
 
-render() {
-  return (
-    <div className="App">
-      <h1> Wiki Countries</h1>
-      <div>
-        {countries.map(country => 
-                                  <CountryDetail country={country}/>
-        )}
+  render() {
+    return (
+      <div className="App">
+        <div className="container">
+          <a className="navbar-brand"   >WikiCountries</a>
+        </div>
+        <div className="container">
+          <div className="col-xs-4">
+            <div className="col-5" style={{maxHeight: "90vh", overflow: "scroll" }}>
+              <div className="list-group">
+                {countries.map(country =>
+                  <CountryDetail country={country} />
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <Switch>
+          <Route exact path="/:id" component={Detail} />
+        </Switch>
+
       </div>
-      <Switch>
-        <Route exact path="/:id" component={Detail}/>
-      </Switch>
-    </div>
-  );
-}
+    );
+  }
 }
 
 export default App;

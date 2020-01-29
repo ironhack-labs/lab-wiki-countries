@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  text-align: left;
+  margin: 5px;
 }
 
 .App-logo {
@@ -29,4 +30,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.left{
+  text-align: right;
+}
+
+.right{
+  text-align: left;
 }
