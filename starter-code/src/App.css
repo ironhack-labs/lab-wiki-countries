@@ -1,5 +1,23 @@
 .App {
-  text-align: center;
+  text-align: left;
+  font-size: 20px;
+}
+
+.AppUndDetails {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.CountryDetails li {
+  list-style-type: disc;
+}
+
+.backlink {
+  margin-top: 50px;
+}
+
+li {
+  list-style-type: none;
 }
 
 .App-logo {
