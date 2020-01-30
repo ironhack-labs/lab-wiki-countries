@@ -30,3 +30,14 @@
     transform: rotate(360deg);
   }
 }
+
+.col-5 {
+  overflow: scroll;
+  max-height: 90vh
+}
+
+/* img {
+  width: fit-content;
+  height: fit-content;    
+} */
+
