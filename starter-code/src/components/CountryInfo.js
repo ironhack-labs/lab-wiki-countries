@@ -1,11 +1,10 @@
 import React from 'react'
 
 const CountryInfo = (props) => {
-  
-  debugger
+  console.info('Hey! => ', props)
   return(
     <div>
-      {props.match.params.name}
+      {props.match.params.countryCca3}
     </div>
   )
 }
