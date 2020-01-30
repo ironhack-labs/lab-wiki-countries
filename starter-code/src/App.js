@@ -1,23 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Navbar from './misc/Navbar';
-import CountryDetails from './components/CountryDetail';
-import countriesData from './data/countries.json'
+import CountryDetail from './components/CountryDetail';
+import { Switch, Route } from 'react-router-dom';
 
-class App extends Component {
-  state = {
-    data: [...countriesData]
-  }
+const App = () => {
 
-  render(){
     return (
       <div className="App">
         <Navbar/>
 
-        <CountryDetails countries={this.state.data}/>
+        <Switch>
+          <Route exact path="/" component={CountryDetail} />
+        </Switch>
       </div>
     )
-  }
 }
 
 export default App;
