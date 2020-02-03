@@ -18,7 +18,17 @@ const App = () => {
 
             <div className="col-7">
               <Switch>
-                <Route exact path="/:countryCca3" component={CountryInfo} />
+              {/* Si la ruta es un exact match del elemento al que hemos seleccionado del listado, ejecutará la función CountryInfo pasandole las props + json */}
+              <Route 
+                exact path="/:countryCca3"
+                component={props => 
+                  <CountryInfo 
+                    countries={data}
+                    {...props}
+                  />
+                }
+              />
+
               </Switch>
             </div>
           </div>
