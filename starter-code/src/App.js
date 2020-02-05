@@ -18,7 +18,7 @@ const App = () => {
 
             <div className="col-7">
               <Switch>
-                <Route exact path="/:countryCca3" component={CountryInfo} />
+                <Route exact path="/:countryCca3" component={CountryInfo}/>
               </Switch>
             </div>
           </div>
