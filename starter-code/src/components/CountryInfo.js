@@ -4,19 +4,18 @@ import { Link } from 'react-router-dom'
 const CountryInfo = (props) => {
 
   //return only one country that matches dthe params
-  const country = props.countries.filter(c => {
+  const  country = props.countries.filter(c => {
     if(c.cca3 === props.match.params.countryCca3) return c
   })
 
+
   const getBorderName = country.map(c => {
-    c.borders.map(element => {
-      return props.countries.filter(n => {
-        if(element === n.cca3) return n.name.common
+    return c.borders.filter(el => {
+      return props.countries.map(data => {
+        if(data.cca3 === el) return data.name.common
       })
     })
   })
-
-  
 
   return(
     <div className="text-left">
@@ -44,7 +43,12 @@ const CountryInfo = (props) => {
                     {c.borders.map((border, index) => {
                       return(
                         <Link key={index} to={`/${border}`}>
-                          <li>{getBorderName}</li>
+                          <li>
+                            {Object.keys(props.countries).map(c => {
+                              if(props.countries[c].cca3 === border)
+                                return props.countries[c].name.common
+                            })}
+                          </li>
                         </Link>
                       )
                     })}
