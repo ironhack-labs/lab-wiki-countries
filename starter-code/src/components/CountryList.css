@@ -1,0 +1,17 @@
+.country {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.country:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px green;
+}
+
+.country li {
+  text-decoration: none;
+}
