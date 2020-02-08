@@ -7,7 +7,7 @@ class Countries extends Component {
   }
   render() {
     return (
-      <Link className="clearLinkStyle" to={`/country/${this.props.key}`}>
+      <Link className="clearLinkStyle" to={`/country/${this.props.url}`}>
         <button type="button" className="btn btn-lg btn-block">
           {this.props.flag}
           {this.props.name}

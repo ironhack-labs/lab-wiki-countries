@@ -12,21 +12,6 @@ class App extends Component {
       countries: countriesImport
     };
   }
-  
-
-const countries = () => { 
-  const arrayOfCountries = Object.keys(country).map(key => {
-    const eachCountry = country[key];
-    return (
-      <Link className="clearLinkStyle" to={`/country/${eachCountry.key}`}>
-        <button type="button" className="btn btn-lg btn-block">
-          {eachCountry.flag}
-          {eacCountry.name}
-        </button>
-      </Link>
-    );
-  });
-}
 
   render() {
     return (
@@ -34,10 +19,10 @@ const countries = () => {
         <div className="row">
           <div className="col-5">
             <div className="list-group">
-
               {this.state.countries.map(country => (
                 <Countries
                   key={country.cca3}
+                  url={country.cca3}
                   name={country.name.common}
                   flag={country.flag}
                 />
@@ -46,7 +31,7 @@ const countries = () => {
           </div>
 
           <div className="col-7">
-            <CountryDetails />
+            <Route path="/country/:id" component={CountryDetails} />
           </div>
         </div>
       </div>
