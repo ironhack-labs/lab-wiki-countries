@@ -30,3 +30,28 @@
     transform: rotate(360deg);
   }
 }
+
+/* .listCountries{
+  border: solid 0.5px grey;
+  color: blue
+}
+
+.listCountries :hover{
+  background-color: blue;
+  color: white;
+} */
+
+.btn{
+  border-radius: 0;
+  border: solid 1px lightgray;
+
+}
+
+.btn:hover{
+  background-color: rgb(80,138,235);
+  color: white;
+}
+
+.clearLinkStyle:hover{
+  text-decoration: none;
+}
