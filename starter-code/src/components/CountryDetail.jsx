@@ -24,7 +24,6 @@ class CountryDetail extends Component {
             <div>
                 <div className="row">
                     <div className="col-5 scroll" >
-                        <h2>| Country List</h2>
                         {this.countryList()}                            
                     </div>
                     <div className="col-7">
