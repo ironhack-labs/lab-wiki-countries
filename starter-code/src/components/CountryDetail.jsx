@@ -20,16 +20,13 @@ class CountryDetail extends Component {
     }
 
     render() {
-
         return (
             <div>
                 <div className="row">
-                    <div className="col-5 scroll">
-                        <h2>Country List</h2>
+                    <div className="col-5 scroll" >
+                        <h2>| Country List</h2>
                         {this.countryList()}                            
                     </div>
-
-
                     <div className="col-7">
                     <Switch>
                         <Route path="/:countryId" render={(props) => <FinerDetails {...props} countries={this.state.Countries}/>} />

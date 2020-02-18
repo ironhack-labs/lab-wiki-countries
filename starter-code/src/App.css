@@ -1,6 +1,3 @@
-.App {
-  text-align: center;
-}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -16,6 +13,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-left: 30px;
 }
 
 .App-link {
