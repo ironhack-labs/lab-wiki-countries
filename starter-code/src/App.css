@@ -4,5 +4,10 @@
 
 img {
   height: 5vh;
-  margin-right: 5px;
+  margin-right: 15px;
+}
+
+.col-5{
+  overflow: scroll;
+  max-height: 90vh;
 }

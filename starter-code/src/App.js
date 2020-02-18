@@ -14,7 +14,7 @@ class App extends Component {
   showCountryLinks = () => {
     let countryList = [...this.state.countries]
     return countryList.map(eachCountry => {
-      return <Link key={eachCountry.cca3} to={`/country-detail/${eachCountry.cca3}`} className="list-group-item list-group-item-action"><img src={`https://www.countryflags.io/${eachCountry.cca2}/flat/64.png`}></img>{eachCountry.name.common}</Link>
+      return <Link key={eachCountry.cca3} to={`/country-detail/${eachCountry.cca3}`} className="list-group-item list-group-item-action" ><img src={`https://www.countryflags.io/${eachCountry.cca2}/flat/64.png`}></img>{eachCountry.name.common}</Link>
     })
   }
 
