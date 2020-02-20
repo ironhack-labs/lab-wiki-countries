@@ -1,26 +1,31 @@
 import React from 'react';
 import logo from './logo.svg';
+import axios from 'axios'
+import {Link} from 'react-router-dom'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  state = {
+    data: []
+  }
+
+  async componentDidMount(){
+    let {data} = await axios.get('https://raw.githubusercontent.com/mledoze/countries/master/countries.json')
+    this.setState({data})
+    console.log(data)
+  }
+
+  render(){
+    let {data} = this.state
+    return (
+      <div>
+        <div>Wikicountries</div>
+      {data.map((el, index) => {
+        return (<Link to={`/detail/${el.name.common}`} key={index}><div>{el.flag} {el.name.common}</div></Link>)
+      })}
+      </div>
+    )
+  }
 }
 
 export default App;
