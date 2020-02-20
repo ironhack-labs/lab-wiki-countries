@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import countriesAll from "./countries.json";
+import { Route, Switch, Link } from "react-router-dom";
+import CountryDetail from "./Components/CountryDetComp";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      countriesAll
+    };
+  }
+  render() {
+    return (
+      <div className="App">
+        <nav className="navbar navbar-dark bg-primary mb-3">
+          <div className="container">
+            <a className="navbar-brand" href="/">
+              Wiki Countries
+            </a>
+          </div>
+        </nav>
+        <div className="mainDiv">
+          <div className="list-group listGroup">
+            {this.state.countriesAll.map((eachCountry, index) => {
+              return (
+                <Link
+                  key={index}
+                  to={`/${eachCountry.cca3}`}
+                  className="list-group-item list-group-item-action"
+                >
+                  {eachCountry.flag}
+                  {eachCountry.name.common}
+                </Link>
+              );
+            })}
+          </div>
+          <Switch>
+            <Route exact path="/:id" component={CountryDetail}></Route>
+          </Switch>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
