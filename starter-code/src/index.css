@@ -12,3 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#lista{
+  max-height: 90vh;
+  overflow: scroll;
+}
+
+#capital{
+  width: 30%;
+}
