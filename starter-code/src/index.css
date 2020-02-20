@@ -12,3 +12,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#root{
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  height: 100%;
+}
+
+.nav{
+  width: 30%;
+  height: 100vh;
+  overflow-y: auto;
+}
+.nav > a{
+  width: 100%;
+  display: inline-block;
+  padding: 8px 0;
+  border: 1px solid silver;
+  text-decoration: none;
+}
+
+.nav > a:hover {
+  background-color: aqua;
+  text-decoration: none;
+}
+
+#root > div {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
