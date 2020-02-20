@@ -21,7 +21,7 @@ class App extends React.Component{
       <div>
         <div>Wikicountries</div>
       {data.map((el, index) => {
-        return (<Link to={`/detail/${el.name.common}`} key={index}><div>{el.flag} {el.name.common}</div></Link>)
+        return (<Link to={`/detail/${el.name.common}`} key={index} data={this.state.data}><div>{el.flag} {el.name.common}</div></Link>)
       })}
       </div>
     )
