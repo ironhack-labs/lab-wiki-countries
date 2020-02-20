@@ -13,9 +13,9 @@ export default class Countries extends Component {
         return (
             <>
                 <Nav />
-                <div class="container">
-                    <div class="row">
-                        <div class="col-5">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-5">
                             <List data={this.state.countries}/>
                         </div>
                         <Detail />
