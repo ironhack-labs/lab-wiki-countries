@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import './App.css';
@@ -18,7 +17,7 @@ class App extends React.Component{
   render(){
     let {data} = this.state
     return (
-      <div>
+      <div style={{width: '30%'}}>
         <div>Wikicountries</div>
       {data.map((el, index) => {
         return (<Link to={`/detail/${el.name.common}`} key={index} data={this.state.data}><div>{el.flag} {el.name.common}</div></Link>)

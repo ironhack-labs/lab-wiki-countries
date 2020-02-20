@@ -6,8 +6,8 @@ import App from './App'
 function Router() {
   return (
     <BrowserRouter>
-        <Route exact path="/" component={App} />
-      <Switch>
+        <App />
+      <Switch style={{display: 'flex', flexDirection: 'row'}}>
         <Route exact path='/detail/:country' component={Detail}/>
       </Switch>
     </BrowserRouter>
