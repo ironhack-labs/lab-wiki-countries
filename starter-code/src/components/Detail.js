@@ -21,7 +21,7 @@ function Detail(props) {
             <td>Borders</td>
             <td>
                 <ul>
-                {props.country.borders.map((borde,i)=><li key={i}><a href={`/countries/${borde}`}>{borde}</a></li>)}
+                {props.borders.map((borde,i)=><li key={i}><a href={`/countries/${borde[0]}`}>{borde[1]}</a></li>)}
                 </ul>
             </td>
             </tr>
