@@ -29,7 +29,7 @@ export default class App extends Component {
             </div>
             <div className="col-7">
               <Switch>
-                <Route exact path="/:code" render={routeProps => <CountryDetails {...routeProps} />}></Route>
+                <Route exact path="/:code" render={routeProps => <CountryDetails {...routeProps} countries={countries} />}></Route>
               </Switch>
             </div>
           </div>

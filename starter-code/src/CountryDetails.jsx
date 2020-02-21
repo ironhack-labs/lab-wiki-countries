@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import countries from "./countries.json";
+// import countries from "./countries.json";
 
 export default function CountryDetails(props) {
   const {
-    params: { code }
-  } = props.match;
+    match: {
+      params: { code }
+    },
+    countries
+  } = props;
 
   const getCountryObject = countryCode => {
     return countries.find(e => countryCode === e.cca3);
