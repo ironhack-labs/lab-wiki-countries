@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import axios from 'axios'
+import {Link} from 'react-router-dom'
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  state={
+    Contris:[]
+  }
+ async  componentDidMount(){
+    const {data} = await axios.get('https://raw.githubusercontent.com/mledoze/countries/master/countries.json')
+    this.setState(this.state.Contris = data)
+    console.log(this.state.Contris);
+  }
+
+  render() {
+    return (
+      <div>
+
+      {this.state.Contris.map(el=>(
+
+        <p key={el.name.common}>{el.name.common}</p>
+      //  <img src={`https://www.countryflags.io/${(el.flag).toLowerCase()}/flat/64.png`}/>
+
+      ))}
+      </div>
+    )
+  }
 }
 
-export default App;
+
+export default App
