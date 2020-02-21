@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+let contri = ''
 
 class Detalles extends Component {
     state = {
@@ -10,6 +11,7 @@ class Detalles extends Component {
     }
     async componentDidMount(props){
         let {contri}= this.props.match.params
+
         let {data} = await axios.get('https://raw.githubusercontent.com/mledoze/countries/master/countries.json')
         // this.setState(this.state.name= data.find(el=>el.name.common) )
     }
@@ -18,9 +20,8 @@ class Detalles extends Component {
         return (
             <div>
                     <h1>Hoooola</h1>
-                        asdasdasdas
-                        {console.log("hola")}
-                        
+                    {contri? contri: "loading..."}
+
             </div>
         )
     }
