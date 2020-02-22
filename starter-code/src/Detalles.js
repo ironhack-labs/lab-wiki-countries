@@ -34,14 +34,42 @@ class Detalles extends Component {
     render() {
         return (
             <div style={{
-                
-            }}>
+                    position:'absolute',
+                    backgroundColor: '#f5fffd',
+                    top:'5%',
+                    left:'30%',
+                    width:'40vw',
+                    display:'inline-block',
+                    padding:'3%',
+                    boxShadow:'0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02)'
+
+                }}>
                     <h1>Country</h1>
-                    <p> Name: {this.state.name? this.state.name:"loading..."}</p>
-                    <p>Capital is: {this.state.capital? this.state.capital:"loading..."}</p>
-                    <p>Area: {this.state.area? this.state.area:"loading..."}</p>
-                    <p>Borders:
-{this.state.borders? this.state.borders.map(el=>(<li key={el}><Link>{el}</Link></li>)):"loading..."}
+                    <p style={{
+                        fontWeight:'bold'
+
+                    }}> Name: {this.state.name? this.state.name:"loading..."}</p>
+                    <p style={{
+                        fontWeight:'bold'
+
+                    }}>Capital is: {this.state.capital? this.state.capital:"loading..."}</p>
+                    <p style={{
+                        fontWeight:'bold'
+
+                    }}>Area: {this.state.area? this.state.area:"loading..."}</p>
+                    <p style={{
+                        fontWeight:'bold'
+
+                    }}>Borders:
+{this.state.borders? this.state.borders.map(el=>(<li key={el}
+    style ={{
+        listStyleType:'none',
+        margin:'3%'
+    }}
+    ><Link>
+    {el}
+    </Link>
+    </li>)):"loading..."}
                     </p>
 
 
@@ -49,5 +77,7 @@ class Detalles extends Component {
         )
     }
 }
+
+
 
 export default Detalles

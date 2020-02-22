@@ -16,16 +16,20 @@ class App extends Component {
       <>
       <div style={{
         height:'100vh',
-        width:'15vw',
+        width:'20vw',
         overflowY:'scroll',
         marginBottom:'1%',
-        paddingLeft:'2%',
-        borderBottom:'black 1px'
+
       }}>
 
       {this.state.Contris.map(el=>(
         <Link to={`/Detalles/${el.cca3}`} key={el.name.common}>
-        <p>{el.name.common}</p>
+        <p style={{
+            width:'100',
+            borderBottom:'solid rgba(0,0,0,.1) 1px',
+            paddingLeft:'10%'
+
+        }}>{el.name.common}</p>
         </Link>
       //  <img src={`https://www.countryflags.io/${(el.flag).toLowerCase()}/flat/64.png`}/>
       // {}Estoy en windows y no me da las banderas porque al parecer no me cambia la flag a minúsculas, pero
