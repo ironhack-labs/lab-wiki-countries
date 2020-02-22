@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './views/CountryDetails';
+import ApiHandler from './api/api';
+import {Switch, Route} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const api = new ApiHandler();
+
+export default class App extends Component {
+state = {
+  listCountries: [],
+  selectedCountry:'yoyoyo'
+}
+componentDidMount(){
+  api.get()
+  .then(apiRes => this.setState({listCountries : apiRes.data}))
 }
 
-export default App;
+  render() {
+    return (
+      <div className="App">
+        <nav className='navbar navbar-dark bg-primary'>
+          <div className='navbar-brand'>WikiCountries</div>
+        </nav>
+        <div className='flex'>
+        <CountriesList list={this.state.listCountries}/>
+        <Switch>
+          <Route path='/:code' render={(routeProps)=>(<CountryDetails {...routeProps} example={this.state.listCountries}/>)}/>
+        </Switch>
+        </div>
+      </div>
+    )
+  }
+}
