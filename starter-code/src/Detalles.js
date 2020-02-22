@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
-import data from './countries.json'
 import { Link } from 'react-router-dom'
-
+import axios from 'axios'
 class Detalles extends Component {
 
     state = {
         name: '',
         capital: '',
         area: '',
-        borders: [],
+        borders: []
     }
     async componentDidMount(props){
         let {contri}= this.props.match.params
-
+            let {data} =await axios.get('https://raw.githubusercontent.com/mledoze/countries/master/countries.json')
         let esContri = (place) =>{return place.cca3===contri}
         let conectionName = data.find(esContri)
                 this.setState({
@@ -25,11 +24,7 @@ class Detalles extends Component {
 
 
     }
-    handleETarget(e){
 
-        console.log(e.target)
-
-    }
 
     render() {
         return (
@@ -68,8 +63,7 @@ class Detalles extends Component {
     }}
     ><Link>
     {el}
-    </Link>
-    </li>)):"loading..."}
+    </Link></li>)):"loading..."}
                     </p>
 
 
@@ -77,7 +71,5 @@ class Detalles extends Component {
         )
     }
 }
-
-
 
 export default Detalles
