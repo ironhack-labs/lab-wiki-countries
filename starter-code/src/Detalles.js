@@ -1,26 +1,49 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-let contri = ''
+import data from './countries.json'
+import { Link } from 'react-router-dom'
 
 class Detalles extends Component {
+
     state = {
         name: '',
         capital: '',
         area: '',
-        borders: []
+        borders: [],
     }
     async componentDidMount(props){
         let {contri}= this.props.match.params
 
-        let {data} = await axios.get('https://raw.githubusercontent.com/mledoze/countries/master/countries.json')
-        // this.setState(this.state.name= data.find(el=>el.name.common) )
+        let esContri = (place) =>{return place.cca3===contri}
+        let conectionName = data.find(esContri)
+                this.setState({
+            name:conectionName.name.common,
+            capital:conectionName.capital,
+            area:conectionName.area,
+            borders:conectionName.borders
+            })
+
+
+
+    }
+    handleETarget(e){
+
+        console.log(e.target)
+
     }
 
     render() {
         return (
-            <div>
-                    <h1>Hoooola</h1>
-                    {contri? contri: "loading..."}
+            <div style={{
+                
+            }}>
+                    <h1>Country</h1>
+                    <p> Name: {this.state.name? this.state.name:"loading..."}</p>
+                    <p>Capital is: {this.state.capital? this.state.capital:"loading..."}</p>
+                    <p>Area: {this.state.area? this.state.area:"loading..."}</p>
+                    <p>Borders:
+{this.state.borders? this.state.borders.map(el=>(<li key={el}><Link>{el}</Link></li>)):"loading..."}
+                    </p>
+
 
             </div>
         )

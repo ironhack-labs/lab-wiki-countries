@@ -24,8 +24,7 @@ class App extends Component {
       }}>
 
       {this.state.Contris.map(el=>(
-
-        <Link to={`/Detalles/:${el.name.common}`}  key={el.name.common}>
+        <Link to={`/Detalles/${el.cca3}`} key={el.name.common}>
         <p>{el.name.common}</p>
         </Link>
       //  <img src={`https://www.countryflags.io/${(el.flag).toLowerCase()}/flat/64.png`}/>
