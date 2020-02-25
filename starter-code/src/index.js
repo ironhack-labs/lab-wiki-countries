@@ -9,7 +9,6 @@ import CountryDetail from './components/CountryDetail'
 
 ReactDOM.render(
     <BrowserRouter>
-        <App />
         <Router path='/country/:cca3' component={CountryDetail} />
     </BrowserRouter>, 
     document.getElementById('root')

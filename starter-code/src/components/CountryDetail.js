@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 class CountryDetail extends Component {
@@ -24,6 +25,7 @@ class CountryDetail extends Component {
   }
 
   render() {
+    console.log(this.setState)
     return (
       <div style={{
         display: 'flex',
@@ -36,7 +38,8 @@ class CountryDetail extends Component {
         <h3>Capital: {this.state.capital}</h3>
         <h3>Area: {this.state.area} km2</h3>
         <ul>
-          {this.state.borders.map((element, index) => <li key={index}>{element}</li>)}
+          <li>Borders:</li>
+          <li>{this.state.borders.map((element, index) => <li key={index}>{element}</li>)}</li>
         </ul>
       </div>
     )
