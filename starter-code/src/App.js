@@ -1,25 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import CountriesList from './components/CountriesList';
+import { Switch, Route } from 'react-router-dom'
+import CountryDetails from './components/CountryDetails';
+import countries from './countries.json'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container as='main'>
+      <h1 style={ { marginTop: "20px" } }>WikiCountries</h1>
+      <br></br>
+      <hr></hr>
+      <Row>
+
+        <Col>
+          <CountriesList></CountriesList>
+        </Col>
+
+        <Col>
+          <Switch>
+            <Route path='/details/:id' render={ match => <CountryDetails { ...countries.filter(elm => elm.cca3 === match.match.params.id)[0] }></CountryDetails> }></Route>
+          </Switch>
+        </Col>
+
+      </Row >
+    </Container >
   );
 }
 

@@ -1,0 +1,8 @@
+.country img{
+    width: 100%;
+}
+
+.country{
+    display: flex;
+    align-items: center;
+}
