@@ -1,6 +1,3 @@
-.App {
-  text-align: center;
-}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -20,6 +17,20 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.title{
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: darkcyan;
+  color: white;
+}
+
+.scrolli{
+
+  overflow: scroll;
+  height: 75vh;
 }
 
 @keyframes App-logo-spin {
