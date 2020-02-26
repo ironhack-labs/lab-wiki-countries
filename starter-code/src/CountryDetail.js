@@ -1,6 +1,7 @@
 import React from "react";
 import "./CountryDetail.css";
 import countries from "./countries.json";
+import { Link } from "react-router-dom";
 let arrCountries = [...countries];
 
 export default class Country extends React.Component {
@@ -8,7 +9,7 @@ export default class Country extends React.Component {
     return (
       <div>
         <h1>{arrCountries.name.official}</h1>
-        <table className="table">
+        {/* <table className="table">
           <thead></thead>
           <tbody>
             <tr>
@@ -35,7 +36,7 @@ export default class Country extends React.Component {
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> */}
       </div>
     );
   }

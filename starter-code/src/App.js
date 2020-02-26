@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import './App.css';
 import countries from "./countries.json";
 import Country from "./CountryDetail";
+import { Route, Link, Switch } from "react-router-dom";
 
 let arrCountries = [...countries]
 
@@ -22,14 +23,18 @@ class App extends Component {
               <div className="row">
                 <div className="col-5 divList">
                   <div className="list-group">
-
                     {this.state.arrCountries.map(country => (
-                      <a className="list-group-item list-group-item-action" href={country.cca3}>{country.flag} {country.name.official}</a>))}
-
+                      <Link
+                        className="list-group-item list-group-item-action"
+                        key={country.cca3}
+                      >{country.flag} {country.name.official}
+                      </Link>))}
                   </div>
                 </div>
                 <div className="col-7">
-                  {/* <Country></Country> */}
+                  <Switch>
+                    <Route path="/cca3" component={arrCountries} />
+                  </Switch>
                 </div>
               </div>
             </div>
