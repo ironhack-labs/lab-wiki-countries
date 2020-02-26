@@ -24,6 +24,12 @@ class App extends Component {
     }
   }
 
+  findCountry = match => {
+
+    console.log('Los URL Params son en APP:', match) //  no entiendo como funciona el enrutado 
+  }
+
+
   render() {
     return (
       <div className='App'>
@@ -34,10 +40,14 @@ class App extends Component {
         </Navbar>
         <Container>
           <Row>
-            <Col className>
+            <Col md={{ span: 5, offset: 1 }}>
               {this.state.countries.map((elm, idx) => <Country key={idx} {...elm} />)}
             </Col>
-
+            <Col md={{ span: 5 }}>
+              <Switch>
+                <Route path="/:countryCode" render={match => <CountryDetail {...match} findCountry={() => this.findCountry(match.params)} />} />
+              </Switch>
+            </Col>
           </Row>
 
 
