@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
+import CountryDetails from './components/CountryDetail'
+import countries from '../src/countries.json'
+import Country from './components/country'
+import {
+  Switch,
+  Route,
+} from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
+class App extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+ countries
+    }
+
+  }
+
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container >
+      <h1>WIKICOUNTRY</h1>
+  <Row >
+    <Col>
+      {this.state.countries.map((elm, idx) => <Country key={idx} code={elm.cca3} name={elm.name.common} flag={elm.flag} />)}
+  </Col>
+  <Col>
+  <Switch>
+        <Route path="/CountryDetails/:code" render={match => <CountryDetails {...match} />} />     
+  </Switch>
+  </Col>
+</Row>
+    </Container>
   );
-}
+}}
 
 export default App;
