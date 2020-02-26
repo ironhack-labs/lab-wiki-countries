@@ -1,0 +1,14 @@
+main {
+  padding: 40px 0;
+}
+
+.countriesList {
+  height: 80vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+p {
+  padding: 0 !important;
+  margin: 0;
+}
