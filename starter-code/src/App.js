@@ -17,15 +17,6 @@ export default class App extends Component {
     return (
       <div className="App">
         <h1>test app</h1>
-        {/* <Route
-            path="/"
-            render={() => {
-              let allCountries = this.state.countries;
-              // console.log(allCountries);
-
-            }}
-          />
-         */}
         <div className="App"></div>
         <div>
           <nav className="navbar navbar-dark bg-primary mb-3">
@@ -48,13 +39,6 @@ export default class App extends Component {
                       {country.flag + country.name.common}
                     </Link>
                   ))}
-                  <a
-                    className="list-group-item list-group-item-action"
-                    href="/ABW"
-                  >
-                    {" "}
-                    Aruba
-                  </a>
                 </div>
               </div>
               <Switch>

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import countries from "./countries.json";
+import React from "react";
+
 import "./App.css";
 import { Link } from "react-router-dom";
 
@@ -9,6 +9,7 @@ export default class CountryDetails extends React.Component {
       <div>
         {this.props.countries.map((country, idx) => {
           console.log(country.name.common);
+
           return (
             <div className="col-7">
               <h1>{country.name.common}</h1>
@@ -34,7 +35,9 @@ export default class CountryDetails extends React.Component {
                           console.log(border);
                           return (
                             <li>
-                              <Link to={"/" + border}>{border}</Link>
+                              <Link key={border} to={"/" + border}>
+                                {border}
+                              </Link>
                             </li>
                           );
                         })}
