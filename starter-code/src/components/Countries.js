@@ -24,13 +24,13 @@ class Countries extends Component {
                 {this.state.countries.map((elm, idx) => {
 
                     return (
-
-                        <div key={idx} className="row border py-2" >
-                            <div className="col-2"> {elm.flag}</div>
-                            <div className="col-9"><NavLink to={`/country-detail/${elm.cca3}`} onClick={() => this.color(idx)}
-                                activeStyle={{ color: 'purple' }}>
-                                <h5>{elm.name.official}</h5>
-                            </NavLink></div>
+                        <div>
+                            <NavLink to={`/country-detail/${elm.cca3}`} key={idx} className="row border py-2" onClick={() => this.color(idx)}
+                                activeStyle={{ backgroundColor: '#8fd6d6' }}>
+                                <div className="col-2"> {elm.flag}</div>
+                                <div className="col-9">
+                                    <h5>{elm.name.official}</h5></div>
+                            </NavLink>
                         </div>
 
 

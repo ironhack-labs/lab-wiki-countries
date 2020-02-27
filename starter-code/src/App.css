@@ -33,6 +33,14 @@
   height: 75vh;
 }
 
+a{
+  color: black !important;
+}
+
+a:hover{
+  text-decoration: none !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
