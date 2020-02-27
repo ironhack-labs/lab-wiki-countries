@@ -30,3 +30,8 @@
     transform: rotate(360deg);
   }
 }
+
+.sidebar {
+  max-height: 92vh;
+  overflow: scroll;
+}
