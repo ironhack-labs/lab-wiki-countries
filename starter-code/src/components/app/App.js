@@ -19,7 +19,7 @@ function App() {
             <div className="col-5">
               <div className="countriesList">
                 <div className="list-group">
-                  {countries.map((elem, idx) => <NavLink activeStyle={{}} key={idx} to={"/" + elem.cca3} className="list-group-item list-group-item-action">{elem.flag + elem.name.common}</NavLink>)}
+                  {countries.map((elem, idx) => <NavLink key={idx} to={"/" + elem.cca3} className="list-group-item list-group-item-action">{elem.flag + elem.name.common}</NavLink>)}
                 </div>
               </div>
             </div>
