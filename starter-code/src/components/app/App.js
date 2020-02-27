@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import countries from './../../countries.json'
 import CountryDetail from './../CountryDetail/CountryDetail'
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 
 function App() {
   let position
@@ -19,7 +19,7 @@ function App() {
             <div className="col-5">
               <div className="countriesList">
                 <div className="list-group">
-                  {countries.map((elem, idx) => <Link key={idx} to={"/" + elem.cca3} className="list-group-item list-group-item-action">{elem.flag + elem.name.common}</Link>)}
+                  {countries.map((elem, idx) => <NavLink activeStyle={{}} key={idx} to={"/" + elem.cca3} className="list-group-item list-group-item-action">{elem.flag + elem.name.common}</NavLink>)}
                 </div>
               </div>
             </div>
