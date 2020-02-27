@@ -19,12 +19,12 @@ class App extends Component {
   }
 
   // somefunction = () =>{}
-
   render() {
     console.log(this.state);
     
     return (
       <div>
+
       <div className="countriesContainer">
         
       </div>  
