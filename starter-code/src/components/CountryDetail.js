@@ -18,7 +18,13 @@ const CountryDetail = (props) => {
               <h2>Borders: </h2>
               <ul>
                 {country.borders.map((border) => {
-                  return <li><Link to={`/${border}`}>{border}</Link></li>
+                  return <li><Link to={`/${border}`}>
+                    {data.map((country) => {
+                      if (country.cca3 === border) {
+                        return <p>{country.name.common}</p>
+                      }
+                    })}
+                    </Link></li>
                 })}
               </ul>
             </div>
