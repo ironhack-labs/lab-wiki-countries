@@ -2,24 +2,59 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Countries from "./countries.json"
+import { Link, Route } from "react-router-dom";
+import  CountryDetail  from "./components/CountryDetail"
+
+
+
 function App() {
+  
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <nav className="navbar navbar-dark bg-primary mb-3">
+        <div className="container">
+          <a className="navbar-brand" href="/">WikiCountries</a>
+        </div>
+      </nav>
+
+        <div className="container">
+        <div className="row"> 
+          <div className="col-5 list-scroll">
+            <div className="list-group"> 
+
+      {
+        Countries.map( (country) => {
+          return (
+
+            <Link to={`/${country.cca3}`} className={"list-group-item list-group-item-action"}>
+              <div>
+
+              {country.flag} {country.name.common}
+              </div>
+
+            </Link>
+
+          )
+          }
+
+        )
+      }
+      </div>
+      </div>
+      
+            <Route exact path="/:countryId" component={CountryDetail} />
+      
+      
+      </div>
+      </div>
+
+
     </div>
+
+
   );
 }
 
