@@ -13,11 +13,15 @@ const getCountryByCca3 = (cca3) => {
   return result;
 }
 
+const getCountryName = (cca3) => { 
+  const result = countries.find ( (country) =>  country.cca3 === cca3);
+    return result.name.official;
+  } 
 
 const { countryCca3 } = props.match.params;
 const countryToDisplay = getCountryByCca3(countryCca3);
 
-
+// const countryInfo= getCountryByCca3(country)
 
   return (
     <div>
@@ -28,7 +32,7 @@ const countryToDisplay = getCountryByCca3(countryCca3);
       countryToDisplay.borders.map( (country) => {
         return (
         <Link to={`/${country}`}>
-          <p>{country}</p>
+          <p>{getCountryName(country)}</p>
         </Link>
         );
       })
@@ -38,4 +42,4 @@ const countryToDisplay = getCountryByCca3(countryCca3);
   )
 }
 
-export default CountryDetail
+export default CountryDetail;
