@@ -44,6 +44,7 @@ export default class App extends React.Component {
                       capital={filteredCountry[0].capital}
                       area={filteredCountry[0].area}
                       borders={filteredCountry[0].borders}
+                      flag={filteredCountry[0].flag}
                       countries={this.state.countries}
                     ></CountryDetail>
                   )

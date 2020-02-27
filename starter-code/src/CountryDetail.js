@@ -5,7 +5,7 @@ export default class CountryDetail extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.props.name}</h1>
+        <h1>{this.props.flag + " " + this.props.name}</h1>
         <table className="table">
           <thead></thead>
           <tbody>
