@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from "react";
 import './App.css';
 import CountryDetail from './components/CountryDetail';
 import { Switch, Route, Link } from 'react-router-dom';
