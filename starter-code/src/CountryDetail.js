@@ -25,7 +25,7 @@ export default class CountryDetail extends Component {
                       <ul>
                         {this.props.country.borders.map(border => (
                           <li>
-                          <Link to={border}>{this.props.country.borders[border]}</Link>
+                          <Link to={border}>{border}</Link>
                           </li>
                         ))}
                       </ul>
