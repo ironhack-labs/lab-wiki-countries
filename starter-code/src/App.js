@@ -49,9 +49,7 @@ export default class App extends React.Component{
                 render={props => {
                   let id = props.match.params.id;
                   let countryClone = [...this.state.countries];
-                  countryClone = countryClone.filter(country => {
-                    return id === country.cca3;
-                    });
+                  countryClone = countryClone.filter(country => id === country.cca3);
                   return (
                     <CountryDetail country={countryClone[0]} ></CountryDetail>
                     );
