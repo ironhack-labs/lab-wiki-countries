@@ -13,10 +13,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 ReactDOM.render(
     <BrowserRouter>
-        <Route path="/" component={App} />
-        <Route path="/:countryCca3" component={CountryDetail} />
-        
-        
+      <App />               
     </BrowserRouter>, 
     document.getElementById('root')
 );

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Countries from './components/Countries';
-import CountryDetails from "./components/CountryDetail";
+import CountryDetail from "./components/CountryDetail";
 import countriesList from "./countries.json";
-
+import {Route, Switch} from "react-router-dom";
 
 
 class App extends Component {
@@ -25,9 +25,6 @@ class App extends Component {
     return (
       <div>
 
-      <div className="countriesContainer">
-        
-      </div>  
         <ul>
           {
             this.state.cList.map( (country) => {
@@ -35,6 +32,10 @@ class App extends Component {
             })
           }
         </ul>
+        <Switch>
+         <Route path="/:countryCca3" component={CountryDetail}/>
+
+        </Switch>
 
         
       </div>
