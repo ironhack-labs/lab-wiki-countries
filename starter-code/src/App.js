@@ -1,24 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import CountryDetail from './components/CountryDetail'
+import countries from './countries.json'
+import 'bootstrap/dist/css/bootstrap.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   {/* <CountryDetail name="infocountries" capital="capital" area="area"/> */} 
+   <div className="list-group">
+        <a href="#" className="list-group-item list-group-item-action active">Wiki countries</a>
+       
+      </div>
+    
+   <div className="row">
+   
+        <div className="col-5">
+            
+            {countries.map(item => {
+              return <div> {item.flag}  {item.name.common}</div>
+            })}
+        </div>
+        <div className="col-7">
+
+        <CountryDetail  name= {countries[0].name.common} capital ={countries[0].capital} area= {countries[0].area} />
+
+        </div>
+      </div>
+      
+
+      
     </div>
   );
 }
