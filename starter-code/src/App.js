@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import CountryList from './components/CountryList'
+import countries from './countries.json'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends Component{
+  style= {
+    'max-height': "90vh",
+    'overflow': "scroll"
+  }
+  render(){
+    return(
+      <div className="App">
+      <div>
+        <nav>
+          <div className="container">
+            {/* Here goes nav component */}
+          </div>
+        </nav>
+        <div className="container">
+          <div className="row">
+          
+          <div className="col-5 countries" style={this.style}>
+             
+              <CountryList countries={countries} />
+            </div> 
+            <div className="col-7">
+              <h1>Detail component</h1>
+            </div>   
+        </div>
+      </div>
     </div>
-  );
+    </div>
+    )
+  }
 }
-
+  
+ 
 export default App;
