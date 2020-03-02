@@ -22,6 +22,25 @@
   color: #61dafb;
 }
 
+.h5 {
+  position: absolute;
+  top: 50%;
+}
+
+.country-detail {
+  padding: 20px;
+
+}
+
+.capital{
+  top: 50%;
+}
+
+.ul
+{
+    list-style-type: none;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
