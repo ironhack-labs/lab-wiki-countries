@@ -4,8 +4,8 @@ class Nav extends Component {
     render() {
         return (
             <div className="Navbar">
-                <nav class="navbar navbarBlue">
-                    <a class="navbar-brand" href="/">
+                <nav className="navbar navbarBlue">
+                    <a className="navbar-brand" href="/">
                         
                         WikiCountries
                     </a>

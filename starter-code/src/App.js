@@ -6,7 +6,7 @@ import CountryDetail from './components/CountryDetail'
 import Nav from './components/Nav'
 class App extends Component{
   style= {
-    'max-height': "90vh",
+    'maxHeight': "90vh",
     'overflow': "scroll"
   }
   render(){
@@ -15,7 +15,6 @@ class App extends Component{
       <div>
         <nav>
           <div className="container-fluid">
-            {/* Here goes nav component */}
             <Nav /> 
           </div>
         </nav>
@@ -27,7 +26,7 @@ class App extends Component{
               <CountryList countries={countries} />
             </div> 
             <div className="col-7">
-              <h1>Detail component</h1>
+              
               <CountryDetail countries={countries} />
             </div>   
         </div>

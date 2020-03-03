@@ -9,7 +9,7 @@ class CountryList extends Component {
 
                     {
                         this.props.countries.map((country,index) =>{
-                        return <a className="list-group-item list-group-item-action" href={country.cca3}>{country.flag} {country.name.common}</a>
+                        return <a key={ country.cca3} className="list-group-item list-group-item-action" href={country.cca3}>{country.flag} {country.name.common}</a>
                         })
                     }
                 </div>
