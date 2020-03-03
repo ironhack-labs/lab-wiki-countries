@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 const CountryDetail = (props) =>  {
   const { name,  capital, area, borders } = props;
@@ -22,7 +23,7 @@ const CountryDetail = (props) =>  {
               <td>
                   <ul>
                   {borders.map((item, index) => {
-                    return <li key={index}><a href={Object.keys(item)[0]}>{Object.values(item)[0]}</a></li>
+                    return <li key={index}><Link to={`/${Object.keys(item)[0]}`}>{Object.values(item)[0]}</Link></li>
                   })}
                   </ul>
               </td>
