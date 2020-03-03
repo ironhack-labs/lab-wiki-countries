@@ -3,8 +3,13 @@ import React, { Component } from 'react'
 class Nav extends Component {
     render() {
         return (
-            <div>
-                WikiCountries
+            <div className="Navbar">
+                <nav class="navbar navbarBlue">
+                    <a class="navbar-brand" href="/">
+                        
+                        WikiCountries
+                    </a>
+            </nav>
             </div>
         )
     }

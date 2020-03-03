@@ -33,3 +33,11 @@
 .countries{
   margin-top: 3em;
 }
+.navbarBlue{
+  background-color:#0F8FF4;
+  color: black;
+  
+}
+nav > a{
+  color:white;
+}
