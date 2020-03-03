@@ -1,18 +1,14 @@
 import React from 'react';
 
 import './App.css';
-import CountryDetail from './components/CountryDetail';
 import countries from './countries.json';
+import Navbar from './components/Navbar';
+import CountryDetail from './components/CountryDetail';
 
 function App() {
   return (
     <div className="App">
-
-    <nav className="navbar navbar-dark bg-primary mb-3">
-      <div className="container">
-        <a className="navbar-brand" href="/">WikiCountries</a>
-      </div>
-    </nav>
+      <Navbar />
 
     <div className="container">
       <div className="row">
