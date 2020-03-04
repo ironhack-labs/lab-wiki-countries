@@ -9,6 +9,7 @@ class App extends Component{
     'maxHeight': "90vh",
     'overflow': "scroll"
   }
+  
   render(){
     return(
       <div className="App">
