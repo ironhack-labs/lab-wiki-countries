@@ -11,7 +11,7 @@ class CountryDetail extends Component {
 
   render() {
     let { params } = this.props.match
-    let country = this.state.countries.find(country => country.cca· === params.id)
+    let country = this.state.countries.find(country => country.cca3 === params.id)
     let countryBorders = country.borders.map(border => this.state.countries.find(country => country.cca3 === border && country))
 
     return (

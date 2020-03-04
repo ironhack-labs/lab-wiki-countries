@@ -18,7 +18,7 @@ class Countries extends Component {
                         <div key={idx} className="row border py-2" >
                             <div className="col-2"> {elm.flag}</div>
                             <div className="col-9"><Link to={`/country-detail/${elm.cca3}`}>
-                                <h5>{elm.name.common}</h5>
+                                <h4>{elm.name.common}</h4>
                             </Link></div>
                         </div>
                     )
