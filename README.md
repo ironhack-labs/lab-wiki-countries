@@ -98,6 +98,17 @@ As a reminder with Bootstrap:
 </div>
 ```
 
+#### Note for Windows users
+
+If you're working on a Windows machine, flag emojis might not be visible. As a workaround, you can include an `img` tag instead of the icon, and dinamically generate the URL following the pattern `https://www.countryflags.io/COUNTRY_CODE/flat/64.png`, where `COUNTRY_CODE` stands for the `cc2` value for each country. For example:
+
+```html
+<!-- Flag icon for France -->
+<img src="https://www.countryflags.io/fr/flat/64.png" />
+<!-- Flag icon for Germany -->
+<img src="https://www.countryflags.io/de/flat/64.png" />
+```
+
 ### Iteration 2 | Create the entire application
 
 Everything is in the title. Good luck :smile:
