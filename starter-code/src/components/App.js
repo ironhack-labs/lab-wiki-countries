@@ -1,11 +1,12 @@
 import React from "react";
-
-import "./App.css";
+import "../App.css";
+import { CountryDetail } from "./CountryDetail";
 
 export const App = () => {
   return (
-    <div>
+    <>
       <h1>Hola1</h1>
-    </div>
+      <CountryDetail />
+    </>
   );
 };
