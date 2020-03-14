@@ -1,10 +1,9 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import logo from "./logo.svg";
-import "./App.css";
-//import CountryDetail from "./component/CountryDetail";
 import Countries from "./countries.json";
 import CountryDetail from "./component/CountryDetail";
+import "./App.css";
 
 function App() {
   return (
@@ -19,7 +18,7 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="col-5" style={{ height: "90vh", overflow: "scroll" }}>
-            <div className="list-group">
+            <div className="list-group listNames">
               {Countries.map(country => {
                 return (
                   <Link
