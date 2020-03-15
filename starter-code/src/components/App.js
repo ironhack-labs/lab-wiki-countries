@@ -14,7 +14,6 @@ export const App = () => {
       <div className="container row">
         <List countries={Countries} />
         <Switch>
-          <Route path="/" exact />
           {Countries.map((country, i) => {
             return (
               <Route
