@@ -11,6 +11,13 @@ export const CountryDetail = ({ country }) => {
 
   const borders = findBorderCountries();
 
+  const favicon = document.getElementById("favicon");
+
+  // URL of the image is given by country flags API
+  const setFavicon = cca2 =>
+    (favicon.href = `https://www.countryflags.io/${cca2}/flat/32.png`);
+
+  setFavicon(country.cca2);
   return (
     <>
       <div className="mt-5">
