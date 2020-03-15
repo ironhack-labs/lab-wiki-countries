@@ -3,11 +3,9 @@ import { CountryContext } from "../context/countries.context";
 import { Link } from "react-router-dom";
 
 export const CountryDetails = props => {
-  const { countries } = useContext(CountryContext);
+  const { getCountry } = useContext(CountryContext);
   const countryCode = props.match.params.cca3;
-  const country = countries.filter(c => c.cca3 === countryCode)[0];
-  const countryName = country.name.common;
-  console.log("COUNTRY", country, "COUNTRY CODE", countryCode);
+  const country = getCountry(countryCode);
 
   return (
     <div className="col-7">
@@ -30,12 +28,10 @@ export const CountryDetails = props => {
             <td>Borders</td>
             <td>
               <ul>
-                {country.borders.map(border => {
-                  const countryBorder = countries.filter(c => c.cca3 === border)[0];
-                  console.log("COUNTRY BORDER", countryBorder);
-
+                {country.borders.map((border, i) => {
+                  const countryBorder = getCountry(border);
                   return (
-                    <li>
+                    <li key={i}>
                       <Link to={border}>{countryBorder.name.common}</Link>
                     </li>
                   );

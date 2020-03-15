@@ -9,17 +9,17 @@ import { CountryContextProvider } from "./context/countries.context";
 function App() {
   return (
     <>
-      <NavBar />
-      <div>
-        <div className="container">
-          <CountryContextProvider>
+      <CountryContextProvider>
+        <NavBar />
+        <div>
+          <div className="container">
             <div className="row">
               <CountryList />
               <Route path="/:cca3" component={CountryDetails} />
             </div>
-          </CountryContextProvider>
+          </div>
         </div>
-      </div>
+      </CountryContextProvider>
     </>
   );
 }

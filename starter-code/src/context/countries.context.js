@@ -1,8 +1,9 @@
-import React, { createContext, useState } from "react";
-import countriesList from "../countries.json";
+import React, { createContext } from "react";
+import countries from "../countries.json";
 
 export const CountryContext = createContext();
 export const CountryContextProvider = props => {
-  const [countries, setCountries] = useState(countriesList);
-  return <CountryContext.Provider value={{ countries }}>{props.children}</CountryContext.Provider>;
+  const getCountry = code => countries.filter(c => c.cca3 === code)[0];
+
+  return <CountryContext.Provider value={{ countries, getCountry }}>{props.children}</CountryContext.Provider>;
 };
