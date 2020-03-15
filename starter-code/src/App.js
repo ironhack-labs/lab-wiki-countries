@@ -1,17 +1,26 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Header from "./components/Header";
-import Countries from "./components/Countries";
-import CountryDetails from "./components/ContryDetail";
+import { CountryDetails } from "./components/CountryDetail";
+import { Route } from "react-router-dom";
+import { NavBar } from "./components/NavBar";
+import { CountryList } from "./components/CountryList";
+import { CountryContextProvider } from "./context/countries.context";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Countries />
-      <CountryDetails />
-    </div>
+    <>
+      <NavBar />
+      <div>
+        <div className="container">
+          <CountryContextProvider>
+            <div className="row">
+              <CountryList />
+              <Route path="/:cca3" component={CountryDetails} />
+            </div>
+          </CountryContextProvider>
+        </div>
+      </div>
+    </>
   );
 }
 
