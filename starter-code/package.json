@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "react-scripts build",
+    "build": "parcel build --public-url ./public/",
     "test": "react-scripts test"
   },
   "eslintConfig": {
