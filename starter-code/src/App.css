@@ -1,1 +1,32 @@
+.navbar {
+    background: linear-gradient(90deg, rgba(21, 37, 71, 1) 0%, rgba(44, 71, 124, 1) 35%, rgba(112, 129, 163, 1) 100%);
+    color: white
+}
 
+nav .navbar-brand {
+    margin-left: 2%;
+    font-size: 1.75rem;
+}
+
+.list-group {
+    max-height: 75vh;
+    margin-bottom: 10px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1 {
+    color: #183163;
+}
+
+.blue-color {
+    color: #5472AD;
+}
+
+li {
+    color: #5472AD;
+}
+
+td {
+    color: #666666
+}
