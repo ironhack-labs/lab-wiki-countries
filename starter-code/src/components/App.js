@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 import { CountryDetail } from "./CountryDetail";
 import { List } from "./List";
@@ -14,7 +14,6 @@ export const App = () => {
       <div className="container row">
         <List countries={Countries} />
         <Switch>
-          <Route path="/" exact />
           {Countries.map((country, i) => {
             return (
               <Route
