@@ -1,15 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { CountryDetail } from './components/CountryDetail';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Countries } from './pages/Countries';
 
 // Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.css';
 
 export const App = () => (
     <Router>
-        <Switch>
-            <Route path="/:country_code" component={() => <CountryDetail />}></Route>
-        </Switch>
+        <Route path="/" exact component={() => <Countries />}></Route>
+        <Route path="/:country_code" component={() => <Countries />}></Route>
     </Router>
 )
 
