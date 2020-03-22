@@ -1,16 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import countries from '../countries.json'
-import './CountryDetail.css'
 
-export default function CountryDetails(props) {
+export default function CountryDetails({match, countries}) {
+    const { params:{id} } = match;
+    const country = countries.filter(country => country.area.toString() === id)[0]
 
-        const { params:{id} } = props.match;
-       const country = countries.filter(country => country.area.toString() === id)[0]
-    console.log("Output for: CountryDetails -> country", country)
     const borders = country.borders
     const neighborCountries = countries.filter(country => borders.includes(country.cca3))
-    console.log("Output for: CountryDetails -> neighborCountries", neighborCountries)
 
     return (
         <div>

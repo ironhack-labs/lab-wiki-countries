@@ -4,7 +4,7 @@ import { Switch, Route} from 'react-router-dom'
 import CountryDetails from './CountryDetails'
 import './CountryDetail.css'
 
-export class CountryDetail extends Component {
+export class Countries extends Component {
     render() {
         const {countries} = this.props
         return (
@@ -27,7 +27,11 @@ export class CountryDetail extends Component {
                         <div className="countries-header">Country details</div>
                         <div>
                         <Switch>
-                                <Route exact path="/country/:id" component={CountryDetails}/>
+                                {/* <Route exact path="/country/:id" component={CountryDetails}/> */}
+                                <Route exact path="/country/:id" render={ props => {
+                                    props.countries = countries
+                                    return <CountryDetails {...props}/>
+                                }}/>
                         </Switch>
                         </div>
                     </div>
@@ -37,4 +41,4 @@ export class CountryDetail extends Component {
     }
 }
 
-export default CountryDetail
+export default Countries
