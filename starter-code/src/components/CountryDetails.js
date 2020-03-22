@@ -27,10 +27,25 @@ class CountryDetails extends Component {
             );
           })}
         </div>
-        <div>
+        <div className="details">
           <h1>{this.state.country.name.common}</h1>
-          <div>Capital {this.state.country.capital}</div>
-          <div>Area {this.state.country.area}</div>
+          <div>
+            <span>Capital</span> {this.state.country.capital}
+          </div>
+          <div>
+            <span>Area</span> {this.state.country.area}
+          </div>
+          <div>
+            {/* {this.state.country.borders === undefined ? ( */}
+              <ul>
+                {this.state.country.borders.map((border, index) => (
+                  <li key={index}>{border}</li>
+                ))}
+              </ul>
+            {/* ) : (
+              "No Borders"
+            )} */}
+          </div>
         </div>
       </div>
     );
