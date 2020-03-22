@@ -28,10 +28,9 @@ export class Countries extends Component {
                         <div>
                         <Switch>
                                 {/* <Route exact path="/country/:id" component={CountryDetails}/> */}
-                                <Route exact path="/country/:id" render={ props => {
-                                    props.countries = countries
-                                    return <CountryDetails {...props}/>
-                                }}/>
+                                <Route exact path="/country/:id" 
+                                render={ props => <CountryDetails {...props} countries={countries}/>}
+                                />
                         </Switch>
                         </div>
                     </div>
