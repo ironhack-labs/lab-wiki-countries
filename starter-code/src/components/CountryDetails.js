@@ -1,51 +1,34 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class CountryDetails extends Component {
-  state = {
-    country: this.props.countries[0],
-    borders: this.props.countries[0].borders[0]
-  };
-
-  getCountryDetails = index => {
-    this.setState({ country: this.props.countries[index] });
-  };
-
   render() {
+    const { area } = this.props.match.params;
+    const eachCountry = this.props.countries.filter(
+      country => country.area == area
+    )[0];
     return (
-      <div className="app">
+      <div className="details">
+        <h1>{eachCountry.name.official}</h1>
         <div>
-          {this.props.countries.map((country, index) => {
-            return (
-              <div
-                onClick={() => this.getCountryDetails(index)}
-                key={index}
-                className="country"
-              >
-                <span>{country.flag}</span>
-                <span>{country.name.common}</span>
-              </div>
-            );
-          })}
+          <span>Capital: </span> {eachCountry.capital}
         </div>
-        <div className="details">
-          <h1>{this.state.country.name.common}</h1>
-          <div>
-            <span>Capital</span> {this.state.country.capital}
-          </div>
-          <div>
-            <span>Area</span> {this.state.country.area}
-          </div>
-          <div>
-            {/* {this.state.country.borders === undefined ? ( */}
-              <ul>
-                {this.state.country.borders.map((border, index) => (
+        <div>
+          <span>Area: </span> {eachCountry.area}
+        </div>
+        <div>
+          <span>Borders: </span>
+          {eachCountry.borders.length >= 1 ? (
+            <ul>
+              {eachCountry.borders.map((border, index) => (
+                <Link to={`/country/${area}`}>
                   <li key={index}>{border}</li>
-                ))}
-              </ul>
-            {/* ) : (
-              "No Borders"
-            )} */}
-          </div>
+                </Link>
+              ))}
+            </ul>
+          ) : (
+            "None"
+          )}
         </div>
       </div>
     );
