@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import data from "./countries.json";
+import Countries from "./components/Countries";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    countries: [...data]
+  };
+
+  render() {
+    return (
+      <div className="App">
+        {/* Navbar */}
+        <nav className="navbar navbar-dark bg-primary mb-3">
+          <div className="container">
+            <a className="navbar-brand" href="/">
+              WikiCountries
+            </a>
+          </div>
+        </nav>
+
+        {/* Render the countries component */}
+        <div>
+          <Countries countries={this.state.countries} />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
