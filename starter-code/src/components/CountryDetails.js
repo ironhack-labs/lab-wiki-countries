@@ -7,6 +7,10 @@ class CountryDetails extends Component {
     const eachCountry = this.props.countries.filter(
       country => country.area == area
     )[0];
+    const neighborCountries = this.props.countries.filter(country =>
+      country.borders.includes(eachCountry.cca3)
+    );
+
     return (
       <div className="details">
         <h1>{eachCountry.name.official}</h1>
@@ -16,14 +20,16 @@ class CountryDetails extends Component {
         <div>
           <span>Area: </span> {eachCountry.area}
         </div>
-        <div>
+        <div className="borders">
           <span>Borders: </span>
           {eachCountry.borders.length >= 1 ? (
             <ul>
-              {eachCountry.borders.map((border, index) => (
-                <Link to={`/country/${area}`}>
-                  <li key={index}>{border}</li>
-                </Link>
+              {neighborCountries.map((neighbor, index) => (
+                <li key={index}>
+                  <Link to={`/country/${neighbor.area}`}>
+                    {neighbor.name.common}
+                  </Link>
+                </li>
               ))}
             </ul>
           ) : (
