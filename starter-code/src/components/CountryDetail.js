@@ -1,17 +1,40 @@
-import React, { Component } from 'react';
-import data from './countries.json';
+import React, { Component } from "react";
 
-export class CountryDetail extends Component {
+class CountryDetails extends Component {
   state = {
-    countries: [...data]
-  }
+    country: this.props.countries[0],
+    borders: this.props.countries[0].borders[0]
+  };
+
+  getCountryDetails = index => {
+    this.setState({ country: this.props.countries[index] });
+  };
+
   render() {
     return (
-      <div>
-        
+      <div className="app">
+        <div>
+          {this.props.countries.map((country, index) => {
+            return (
+              <div
+                onClick={() => this.getCountryDetails(index)}
+                key={index}
+                className="country"
+              >
+                <span>{country.flag}</span>
+                <span>{country.name.common}</span>
+              </div>
+            );
+          })}
+        </div>
+        <div>
+          <h1>{this.state.country.name.common}</h1>
+          <div>Capital {this.state.country.capital}</div>
+          <div>Area {this.state.country.area}</div>
+        </div>
       </div>
-    )
+    );
   }
 }
 
-export default CountryDetail
+export default CountryDetails;
