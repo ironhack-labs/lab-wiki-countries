@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import data from "./countries.json";
 import { Switch, Route } from "react-router-dom";
-import CountryDetails from './components/CountryDetails';
+import CountryDetails from "./components/CountryDetails";
 
 class App extends Component {
   render() {
@@ -19,11 +19,14 @@ class App extends Component {
 
         {/* Render the countries component */}
         <div>
-          {/* <Switch>
+          <Switch>
             <Route exact path="/country/:name" render={(props)=> <CountryDetails {...props} countries={this.state.countries}/> }/>
-          </Switch> */}
+          </Switch>
           <Countries countries={this.state.countries} />
         </div>
       </div>
-  );
+    );
+  }
+}
+
 export default App;

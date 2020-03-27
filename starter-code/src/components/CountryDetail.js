@@ -1,36 +1,42 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class CountryDetails extends Component {
-  state = {
-    country: this.props.countries[0],
-    borders: this.props.countries[0].borders[0]
-  };
-
-  getCountryDetails = index => {
-    this.setState({ country: this.props.countries[index] });
-  };
-
   render() {
+    const { area } = this.props.match.params;
+    const eachCountry = this.props.countries.filter(
+      country => country.area == area
+    )[0];
+    const neighborCountries = this.props.countries.filter(country =>
+      country.borders.includes(eachCountry.cca3)
+    );
+
+
     return (
-      <div className="app">
+      <div className="details">
+        <h1>{eachCountry.name.official}</h1>
         <div>
-          {this.props.countries.map((country, index) => {
-            return (
-              <div
-                onClick={() => this.getCountryDetails(index)}
-                key={index}
-                className="country"
-              >
-                <span>{country.flag}</span>
-                <span>{country.name.common}</span>
-              </div>
-            );
-          })}
+          <span>Capital: </span> {eachCountry.capital}
         </div>
         <div>
-          <h1>{this.state.country.name.common}</h1>
-          <div>Capital {this.state.country.capital}</div>
-          <div>Area {this.state.country.area}</div>
+          <span>Area: </span> {eachCountry.area}
+        </div>
+        <div>
+        <div className="borders"></div>
+          <span>Borders: </span>
+          {eachCountry.borders.length >= 1 ? (
+            <ul>
+            {neighborCountries.map((neighbor, index) => (
+                <li key={index}>
+                  <Link to={`/country/${neighbor.area}`}>
+                    {neighbor.name.common}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            "None"
+          )}
         </div>
       </div>
     );

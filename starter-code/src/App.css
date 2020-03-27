@@ -29,6 +29,7 @@
   width: 50%;
   margin: 10px;
   text-align: center;
+  overflow: scroll;
 }
 
 .details h1 {
@@ -36,9 +37,12 @@
   margin: 20px 0;
 }
 
-.details div {
+.details > div {
   font-size: 1.8em;
   display: flex;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+  padding: 5px 20%;
 }
 
 
