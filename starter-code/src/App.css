@@ -1,25 +1,11 @@
 .App {
-  text-align: center;
+  padding-left: 10px;
+  text-align: left;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+  flex-direction: row;
 }
 
 @keyframes App-logo-spin {
@@ -29,4 +15,32 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.countriesList {
+  position: relative;
+}
+.countriesList h2 {
+
+  padding-left: 20px;
+  color: white;
+  background-color: rgb(48, 127, 247);
+}
+
+.countryDetails {
+  width: 50%;
+  float: right;
+  position: absolute;
+  transform: translatey(-50%, -50%);
+  top: 6%;
+  right: 10%;
+  text-align: left;
+}
+
+.jsonData{
+  float: right;
+}
+
+.List{
+  text-align: right;
 }
