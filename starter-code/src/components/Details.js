@@ -12,7 +12,10 @@ function Details(props) {
 
   const borderCountry = foundCountry.borders
 
+  
   return (
+     
+  
         <div className='flex_direction'>
             <div className='col'>
                 <h1>{foundCountry.flag} {foundCountry.name.common}</h1>
@@ -20,8 +23,9 @@ function Details(props) {
                 <h3>{foundCountry.area} km<sup>2</sup></h3>
 
                 <h2>Borders:</h2>
-                     
-                    {borderCountry.map(countryCode => {
+              
+                     {borderCountry.length ? (
+                        borderCountry.map(countryCode => {
                     return (
                         <div key={countryCode}>
                             <h5><Link to={`/${getCountry(countryCode).cca3}`}>
@@ -32,7 +36,11 @@ function Details(props) {
                         </Link></h5>
                         </div>
                     )
-                    } )}
+                    } )
+                      ) : <h4>¡Has no borders!</h4>
+                     
+                     }
+                    
             </div>
         </div>
   )
