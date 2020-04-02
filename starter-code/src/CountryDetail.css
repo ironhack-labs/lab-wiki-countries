@@ -1,0 +1,45 @@
+.details {
+    width: 100%;
+    height: 100%;
+}
+
+.country-info {
+    border-top:1px solid rgb(209, 209, 209);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 50%;
+    font-size: 1.5rem;
+    color: rgb(90, 90, 90);
+}
+
+.country-name {
+    height: 15%;
+    padding-left: 5%;
+
+
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.country-capital {
+    height: 15%;
+}
+
+.country-area {
+    height: 15%;
+}
+
+.country-borders {
+    height: 15%;
+    align-items: start;
+    padding-top: 50px;
+    text-align: right;
+}
+
+.border-list {
+    display: flex;
+    flex-direction: column;
+}

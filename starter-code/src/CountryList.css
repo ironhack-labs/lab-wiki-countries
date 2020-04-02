@@ -1,0 +1,50 @@
+header {
+    background-color: dodgerblue;
+    height: 10vh;
+    color:white;
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
+    padding-left:10px;
+}
+
+
+.container {
+    display: flex;
+    height: 90vh;
+    width: 100%;
+}
+
+.country-list {
+    width: 40%;
+    height: 100%;
+    overflow-y:scroll;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+    /* Width*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+    /* Track */
+::-webkit-scrollbar-track {
+    border:1px solid rgba(230, 230, 230, 0.466);
+    border-radius: 5px;
+}
+  
+    /* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(30, 143, 255, 0.466);
+    border: 1px solid white;
+    border-radius: 5px;
+}
