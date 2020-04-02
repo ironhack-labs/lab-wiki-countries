@@ -30,3 +30,19 @@
     transform: rotate(360deg);
   }
 }
+
+.links {
+  text-decoration: none;
+  color: black;
+}
+
+.flex_direction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list-group {
+  height: 661px;
+  overflow: scroll;
+}
