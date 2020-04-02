@@ -1755,7 +1755,7 @@
 		"cioc": "",
 		"independent": false,
 		"status": "officially-assigned",
-		"currency": ["USD"],
+		"currency": ["USD"],  
 		"callingCode": ["599"],
 		"capital": [],
 		"altSpellings": ["BES islands"],
@@ -1784,7 +1784,7 @@
             "pol": {"official": "Bonaire, Sint Eustatius i Saba", "common": "Antyle Holenderskie"}
 		},
 		"latlng": [12.18, -68.25],
-		"demonym": "Dutch",
+		"demonym": "Dutch", 
 		"landlocked": false,
 		"borders": [],
 		"area": 328,

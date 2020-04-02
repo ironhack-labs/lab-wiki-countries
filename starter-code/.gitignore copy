@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-
+/starter-code/node_modules
 # testing
 /coverage
 
