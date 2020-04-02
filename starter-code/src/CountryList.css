@@ -1,0 +1,12 @@
+.countriesoverview {
+    display: flex;
+    justify-content: center;
+}
+
+.countriesoverview .countrieslist {
+    width: 30vw;
+}
+
+.countriesoverview .countrydetail {
+    width: 70vw;
+}
