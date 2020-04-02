@@ -30,3 +30,30 @@
     transform: rotate(360deg);
   }
 }
+
+.home{
+  display: flex;
+  flex-direction: row;
+}
+
+.list-group{
+  width: 400px;
+}
+
+.countryCard{
+  border: 1px solid black;
+  margin: 40px;
+  width: 400px;
+  height: 600px;
+  padding: 30px;
+}
+
+.detailscountry{
+ margin-left: 150px;
+ width: 700px;
+ margin-top: 120px;
+}
+
+.countries{
+  width: 600px;
+}
