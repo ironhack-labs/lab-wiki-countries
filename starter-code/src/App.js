@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Nav from './components/Nav';
+import Country from './pages/Country';
+import CountryDetail from './pages/Country-detail'
+import countriesList from './countries.json';
+import {Switch, Route} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  render (){
+
+    const colStyle = {
+      "max-height": "90vh",
+      overflow: "scroll"
+    }
+
+    return (
+      <div>
+        <Nav />
+        <div className="container">
+          <div className="row">
+            <div className="col-5" style={colStyle}>
+              <div className="list-group">
+                {countriesList.map((item, indexN)=>(
+                  <Country
+                      key = {indexN.toString()} 
+                      name = {item.name.common}
+                      cca3 = {item.cca3}
+                  />
+                ))}
+                </div>
+            </div>
+          </div>
+        </div>
+        <Switch>
+          <Route path = "/country-detail/:cca3" component = {CountryDetail}/>
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
