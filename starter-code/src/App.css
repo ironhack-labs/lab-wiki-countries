@@ -1,5 +1,12 @@
 .App {
+  overflow-x: hidden;
+}
+
+.list-group{
+  max-height: 92vh;
   text-align: center;
+  overflow-y: scroll;
+  margin-left: 30px;
 }
 
 .App-logo {
@@ -22,6 +29,10 @@
   color: #61dafb;
 }
 
+.country-details{
+  margin: 40px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -29,4 +40,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+.row{
+  padding-top: 70px
+}
+
+.text-white> a{
+  color:white !important;
+  font-weight: bold !important;
+  text-decoration: none;
 }
