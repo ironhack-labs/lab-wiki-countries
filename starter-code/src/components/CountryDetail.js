@@ -19,19 +19,19 @@ export const CountryDetail = data => {
         Area: {country.area} KM<sup>2</sup>
       </h1>
       <h1>Borders:</h1>
-      <ul>
-        {country.borders.map(countryId => (
-          <Link to={`/${countryId}`}>
-            <li>
-              {countriesList.map(country => {
-                if (country.cca3 === countryId) {
-                  return country.name.common;
-                }
-              })}
-            </li>
+      
+        {country.borders.map((countryId, i) => (
+          <Link key={i} to={`/${countryId}`}>
+            <p>
+              {countriesList.map((country, i) => { 
+                  if (country.cca3 === countryId) { 
+                      return <span key={i}>country.name.common</span>
+                      } return null
+                      })
+                      }
+            </p>
           </Link>
-        ))}
-      </ul>
+             ))}
     </div>
   );
 };
