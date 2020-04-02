@@ -3,7 +3,7 @@ import React from 'react'
 const Navbar = props => {
     return (
         <div>
-            <nav className="navbar navbar-dark bg-primary mb-3">
+            <nav className="navbar navbar-dark bg-primary mb-3 fixed-top">
                 <div className="container">
                     <a className="navbar-brand" href="/">WikiCountries</a>
                 </div>

@@ -3,7 +3,6 @@ import paises from '../countries.json';
 import { Link } from 'react-router-dom';
 
 export const Countries = props => {
-    console.log(props);
     return (
         <div>
             <ul>{paises.map((pais,index)=>{

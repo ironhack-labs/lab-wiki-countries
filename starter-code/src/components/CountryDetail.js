@@ -5,10 +5,14 @@ import paises from '../countries.json'
 const CountryDetail = props => {
     const cca3=props.match.params.cca3;
     let paisCopy=[...paises]
-    const filtCount = paisCopy.filter((pais)=>pais.cca3.includes(cca3))
-    return ( <div>
+    const filtCount = paisCopy.filter((pais)=>pais.cca3.includes(cca3));
+    let border = filtCount[0].borders;
+    let borArray = paisCopy.filter(bord => bord.borders.includes(border[0]))
+    console.log(borArray);
+
+    return ( <div className="position-fixed">
             {filtCount.map((pais)=>{
-                return <div className="col-7">
+                return <div className="col-7 m-5 pt-5">
                   <h1>{pais.name.common}</h1>
                   <table className="table">
                     <thead />
@@ -27,8 +31,8 @@ const CountryDetail = props => {
                         <td>Borders</td>
                         <td>
                           <ul>
-                            {pais.borders.map((border)=>{
-                                return <li><Link to={border}>{border}</Link></li>
+                            {borArray.map((border)=>{
+                                return <li><Link key={border.cca3} to={border.cca3}>{border.name.common}</Link></li>
                             } )} 
                           </ul>
                         </td>
