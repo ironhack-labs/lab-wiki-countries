@@ -1,0 +1,10 @@
+.countries h4 {
+  background-color: #0e90f4;
+  color: white;
+  padding: 10px; 
+}
+
+.countries li {
+  height: 100vw;
+  overflow-y: scroll;
+}
