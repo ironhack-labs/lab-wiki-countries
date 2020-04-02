@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import countries from '../countries.json'
+import 'bootstrap/dist/css/bootstrap.css';
 
 const CountryDetail = props => {
 
@@ -18,7 +19,7 @@ const CountryDetail = props => {
     console.log(countriesCode)
 
     return (
-        <div className="col-7">
+        <div className="col-7 m-5 pt-5">
             <h1> {foundCountry.name.common}</h1>
             <table className="table">
                 <thead></thead>
