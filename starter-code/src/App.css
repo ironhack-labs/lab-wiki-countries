@@ -30,3 +30,16 @@
     transform: rotate(360deg);
   }
 }
+
+.list-group {
+  overflow-y: scroll !important;
+}
+
+.list-group li {
+  display: flex;
+  
+}
+
+.list-group img {
+  margin-right: 20px;
+}
