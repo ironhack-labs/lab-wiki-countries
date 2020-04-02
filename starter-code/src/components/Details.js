@@ -17,7 +17,7 @@ function Details(props) {
             <div className='col'>
                 <h1>{foundCountry.flag} {foundCountry.name.common}</h1>
                 <h3>{foundCountry.capital}</h3>
-                <h3>{foundCountry.area} km2</h3>
+                <h3>{foundCountry.area} km<sup>2</sup></h3>
 
                 <h2>Borders:</h2>
                      
