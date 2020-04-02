@@ -1,0 +1,15 @@
+.countries-list{
+  text-align: left;
+  list-style: none;
+  height: 100vh;
+  /* overflow: hidden; */
+  overflow-y: scroll;
+}
+
+.country-detail {
+  border-top: 1px solid rgba(0,0,0,0.17);
+}
+
+.countries-list a:hover {
+  text-decoration:none;
+}

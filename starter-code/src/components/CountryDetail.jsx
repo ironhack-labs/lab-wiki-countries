@@ -11,22 +11,18 @@ class CountryDetail extends React.Component {
     })
 
     const borderCountries = Countries.filter((item) => {
-      // console.log('c', country.borders, country.cca3)
       return item.borders.includes(country.cca3)
     })
-
-    // const borders = result.borders.map(countryCode => (
-    //   Countries.filter((element => element.cca3.includes(countryCode)))))
 
     console.log('borders', borderCountries)
 
     return (
       
-      <div>
+      <div className="container">
         <h1>{country.name.common}</h1>
-        <table >
+        <table className="table">
           <tbody>
-            <tr>
+            <tr className="country-detail">
               <td>Capital</td>
               <td>{country.capital}</td>
             </tr>

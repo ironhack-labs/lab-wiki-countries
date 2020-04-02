@@ -12,3 +12,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.app-title{
+  background-color: rgb(15, 143, 244);
+  color:white;
+  text-align: left;
+  padding: 10px;
+}

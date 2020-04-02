@@ -1,0 +1,13 @@
+.country-list-item {
+  border: 1px solid #dee2e6;
+  padding: 0.75rem;
+}
+
+.country-list-item {
+  color: black
+}
+
+.selected li {
+  background-color: rgb(15, 143, 244);
+  color:white
+}
