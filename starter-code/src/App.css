@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  display: flex;
 }
 
 .App-logo {
@@ -29,4 +30,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+a{
+  display: block;
+}
+.details{
+  text-align: left;
+  padding: 50px;
+  width: 500px;
+}
+.list-group{
+  text-align: left;
+}
+.list{
+  padding: 50px;
 }
