@@ -15,12 +15,11 @@ function App() {
       <header className="App-header">
         <h1>Countries Wiki</h1>{" "}
         <div className="list-group">
-        {countriesList.map( e => <Link to={`/${e.cca3}`} key={e.cca3} className="list-group-item list-group-item-action"> {e.name.common} </Link> )}
+        {countriesList.map(e => <Link to={`/${e.cca3}`} key={e.cca3} className="list-group-item list-group-item-action"> {e.name.common} </Link> )}
         </div>
-        <CountryDetail></CountryDetail>
-        <Switch>
+        
           <Route path="/:cca3" component={CountryDetail} />
-        </Switch>
+        
       </header>
     </div>
   );
