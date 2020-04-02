@@ -1,0 +1,16 @@
+.country-info {
+  margin-left: 90px;
+  width: 30%;
+
+  & > * {
+    padding: 15px 30px 15px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  & > *:not(:last-child) {
+    border-bottom: 1px solid grey;
+  }
+}

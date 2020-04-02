@@ -1,0 +1,17 @@
+.country-page {
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px;
+
+  h2 {
+    background: #0063ff;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+  }
+}
