@@ -8,12 +8,12 @@ import CountryDetails from "./Components/CountryDetails";
 
 export default class App extends Component {
 
-  activeCountryHandler=(props)=>{
-    let allLinks= [...document.getElementsByClassName("country-menu")]
-    let clickedLink = document.getElementById(props)
-    allLinks.map(link => link.classList.remove("active", "text-white"))
-    clickedLink.classList.add("active", "text-white")
-  }
+  // activeCountryHandler=(props)=>{
+  //   let allLinks= [...document.getElementsByClassName("country-menu")]
+  //   let clickedLink = document.getElementById(props)
+  //   allLinks.map(link => link.classList.remove("active", "text-white"))
+  //   clickedLink.classList.add("active", "text-white")
+  // }
 
   render() {
     return (
@@ -24,7 +24,10 @@ export default class App extends Component {
         <div className="row">
           <div className="col-xl-2 col-lg-3 col-sm-4 list-group">
             {countries.map(country => (
-              <CountryList country={country} key={country.cca3} activeLink={this.activeCountryHandler}/>
+              <CountryList country={country} key={country.cca3} 
+              // activeLink={this.activeCountryHandler}
+
+              />
             ))}
           </div>
 
