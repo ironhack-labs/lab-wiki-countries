@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import Countries from './countrie/Countries';
+import CountryDetail from './countrie/CountryDetail';
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
   <div className="row">
     <div className="col-4">
       <Route path="/" component={Countries} />
+    </div>
+    <div className="col-8">
+      <Route path="/:id" component={CountryDetail} />
     </div>
     </div>
 </Switch>
