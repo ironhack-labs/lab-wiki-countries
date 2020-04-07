@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -29,4 +29,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.wiki-header {
+  background-color: #0e8ff4;
+  color: #fff;
+}
+
+.wiki-countries .list-group {
+  width: 20%;
+}
+
+.wiki-countries-container {
+  height: 100vh;
+  overflow-y: scroll;
 }
