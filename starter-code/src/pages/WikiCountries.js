@@ -3,6 +3,7 @@ import countries from "../countries.json";
 import { Route } from "react-router-dom";
 import CountryList from "../components/CountryList";
 import CountryDetail from "../components/CountryDetail";
+import "../styling/WikiCountries.css"
 
 class WikiCountries extends React.Component {
     render(){

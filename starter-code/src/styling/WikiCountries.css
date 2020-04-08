@@ -1,0 +1,13 @@
+.list-countries {
+    list-style: none;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.list-countries a:hover {
+    text-decoration: none;
+}
+
+.list-countries a {
+    color: black;
+}

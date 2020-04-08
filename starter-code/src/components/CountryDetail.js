@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import countries from "../countries.json"
+import "../styling/CountryDetail.css"
 
 class CountryDetail extends React.Component {
     state = {
@@ -9,7 +10,7 @@ class CountryDetail extends React.Component {
     render(){
         let country = this.state.countryData.find(country => country.cca3 === this.props.match.params.code)
         return (
-            <div className="container">
+            <div className="container country-details">
                 <h1>{country.name.common}</h1>
                 <table className="table">
                     <tbody>

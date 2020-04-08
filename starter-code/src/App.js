@@ -7,7 +7,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="title-page">
+          <div className="welcome-title">
           <h2>WikiCountries</h2>
+          </div>
           <WikiCountries />
         </div>
         

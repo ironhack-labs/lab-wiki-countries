@@ -1,0 +1,8 @@
+.container h1 {
+    font-weight: bold;
+    font-size: 3.5em;
+}
+
+.country-details {
+    margin: 4%;
+}
