@@ -3,7 +3,7 @@ import "./ShowCountry.css"
 import { Link } from 'react-router-dom';
 import countries from "../countries.json"
 
-const ShowCountry = (props) => {
+export default function ShowCountry(props) {
   const code = props.match.params.country
   var countryResult = countries.filter(element => element.cca3.includes(code));
   var country = countryResult[0]
@@ -17,7 +17,6 @@ const ShowCountry = (props) => {
               <tbody>
                 <tr>
                   <td className="width30">Capital</td>
-                  <td>{country.capital}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
@@ -41,5 +40,3 @@ const ShowCountry = (props) => {
           </div>
     );
 }
-
-export default ShowCountry;

@@ -36,6 +36,7 @@ render() {
               code={country.cca3}
               flag={country.flag}
               name={country.name.common}  
+              
             />     
             ))
             }

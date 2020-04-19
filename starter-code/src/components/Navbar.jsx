@@ -2,14 +2,13 @@ import React from 'react';
 import './Navbar.css';
 
 
-const Navbar = () => {
+export default function Navbar () {
     return (
-        <div class="navigationPanel">
+        <div className="navigationPanel">
             <h1>WikiCountries</h1>
         </div>
     );
 }
 
-export default Navbar;
 
 
