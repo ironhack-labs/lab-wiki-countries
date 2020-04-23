@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import Navbar from './NavBar'
+import Home from './Home'
+import About from './About'
+import Contact from './Contact'
+import CountryDetail from './CountryDetail'
+import 'bootstrap/dist/css/bootstrap.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  state = { }
+
+  componentDidMount(){ //window.onload happens once when the components first mounts 
+    console.log(this)  //Get your data from an API or where you'll get data from your server DB. 
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Welcome to Routing</h1>
+        <Navbar /> {/*  This will always show because it not in the switch statement  */}
+        <Switch>
+          <Route exact path='/' component={(props) =>   <Home {...props} /> }></Route>
+          <Route exact path='/about' component={(props) =>    <About {...props} /> }></Route>
+          <Route exact path='/contact' component={(props) =>  <Contact {...props} /> }></Route>
+          <Route path='/country/:id' component={(props) => <CountryDetail {...props} />}></Route>
+          
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
+
