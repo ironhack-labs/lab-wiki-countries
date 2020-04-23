@@ -18,6 +18,11 @@
   color: white;
 }
 
+.container {
+  height: 50vh; 
+  overflow: scroll
+}
+
 .App-link {
   color: #61dafb;
 }
