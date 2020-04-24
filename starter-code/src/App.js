@@ -16,12 +16,12 @@ class App extends Component {
   render() {
     return (
       <div className="Wiki">
-        <nav className="navbar">
-          <h2 className="">WikiCountries</h2>
+        <nav className="navbar navbar-dark bg-primary mb-3">
+        <a class="navbar-brand" href="/">WikiCountries</a>
         </nav>
-        <div className="list">
-         <div className="list-each-country">
-          {this.state.listCountries.map((country, index) => <Link className="" to={country.cca3} key={index}> {country.flag} {country.name.official}</Link> )}
+        <div className="container">
+         <div className="row">
+         <div className="col-5 list-group scroll">{this.state.listCountries.map((country, index) => <Link className="list-group-item list-group-item-action" to={country.cca3} key={index}> {country.flag} {country.name.official}</Link> )} </div>
          </div>
            <Route exact path="/country" component={CountryDetail}></Route>
         </div>
