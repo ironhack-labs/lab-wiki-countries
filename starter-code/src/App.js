@@ -50,7 +50,7 @@ class App extends Component {
         </div>
 
         </div>
-        Feona
+        powered by caffeine :)
 
       </div>
     );
