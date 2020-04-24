@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Header from './components/Header';
-import CountryDetail from './components/CountryDetail';
+import Countries from './components/Countries';
 import './App.css';
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <CountryDetail />
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <Countries />
+    </div>
+  );
 }
+
+export default App;
