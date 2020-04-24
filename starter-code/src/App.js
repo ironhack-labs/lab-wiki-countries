@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { Route, Link, Switch, withRouter } from "react-router-dom";
+import Countries from './countries.json'
+import CountryDetail from './components/CountryDetail.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  render(){
+    return (
+      <div className="App">
+  
+        <nav className="navbar navbar-dark bg-primary mb-3">
+          <div className="container">
+            <a className="navbar-brand" href="/">WikiCountries</a>
+          </div>
+        </nav>      
+  
+        <div className="container">
+          <div className="row">
+            <div className="col-5" style={{maxHeight: '90vh', overflow: 'scroll'}}>
+              <div className="list-group">
+                {Countries.map((country) =>{
+                  return <Link to={country.cca3} key={country.cca3} className="list-group-item list-group-item-action">{country.name.common} {country.flag}</Link>
+                })
+                }
+              </div>
+            </div>
+
+            <Route path="/:id" component={CountryDetail} />
+
+          </div>
+        </div>
+      </div>
+    );
+
+  }
 }
 
 export default App;
