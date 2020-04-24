@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const getCountry = (countries, id) => {
   const countryIndex = countries.findIndex(country => country.cca3 === id);
@@ -30,9 +31,9 @@ const CountryDetail = ({ countries, match }) => {
               <ul>
                 {borders.map(id =>
                   <li key={id}>
-                    <a href={`/${id}`}>
+                    <Link to={`/${id}`}>
                       {getCountry(countries, id).name.common}
-                    </a>
+                    </Link>
                   </li>)}
               </ul>
             </td>

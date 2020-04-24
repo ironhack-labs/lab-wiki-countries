@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const CountriesNav = ({ countries }) => {
   return (
@@ -13,7 +13,7 @@ const CountriesNav = ({ countries }) => {
 
 const CountryLink = ({ country }) => {
   const { cca3, flag, name } = country;
-  return <a className='list-group-item list-group-item-action' href={`/${cca3}`}>{flag}&nbsp;{name.common}</a>
+  return <Link className='list-group-item list-group-item-action' to={`/${cca3}`}>{flag}&nbsp;{name.common}</Link>
 }
 
 export default CountriesNav;
