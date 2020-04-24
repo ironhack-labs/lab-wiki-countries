@@ -27,7 +27,7 @@ class App extends Component {
               {this.showCountries()}
             </div>
           </div>
-          <Route exact path='/:id' render={(props) => <CountryDetail {...props} countries={countries} />} /> 
+          <Route exact path='/:id' component={CountryDetail} />
         </div>
       </div>
     </div>
