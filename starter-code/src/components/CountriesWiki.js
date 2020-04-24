@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch } from 'react-router-dom';
 import CountriesNav from './CountriesNav';
 import CountryDetail from './CountryDetail';
 import Loading from './Loading';
@@ -8,7 +8,7 @@ import Error from './Error';
 const DATA_URL = 'http://raw.githubusercontent.com/mledoze/countries/master/countries.json';
 const STATUS = { LOADING: 'loading', LOADED: 'loaded', ERROR: 'error' };
 
-export default class Countries extends Component {
+export default class CountriesWiki extends Component {
   state = {
     countries: [],
     status: STATUS.LOADING,
@@ -27,7 +27,6 @@ export default class Countries extends Component {
 
   render() {
     const { countries, status, error } = this.state;
-    console.log('countries', countries);
     // eslint-disable-next-line default-case
     switch (status) {
       case STATUS.LOADING:

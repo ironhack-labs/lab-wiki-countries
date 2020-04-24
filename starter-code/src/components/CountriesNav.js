@@ -5,7 +5,7 @@ const CountriesNav = ({ countries }) => {
   return (
     <div className='col-5' style={{maxHeight: '90vh', overflow: 'scroll'}}>
       <div className='list-group'>
-        {countries.map((country, i) => <CountryLink key={i} country={country} />)}
+        {countries.map(country => <CountryLink key={country.name.cca3} country={country} />)}
       </div>
   </div>
   );
