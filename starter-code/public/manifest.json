@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Wiki Countries",
+  "name": "Wiki Countries Lab for Ironhack",
   "icons": [
     {
       "src": "favicon.ico",
