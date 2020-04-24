@@ -1,0 +1,21 @@
+.CountryDetails {
+    margin: 20px 30px;
+}
+
+.CountryDetails-h2 {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.CountryDetails-hr {
+    width: 700px;
+}
+
+.CountryDetails-row {
+    display: flex;
+    margin-left: 15px;
+}
+
+.CountryDetails-first-column {
+    width: 250px;
+}
