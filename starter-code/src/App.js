@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import CountryDetails from './components/CountryDetail';
+import CountryDetails from './components/CountryDetails';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import countries from './countries.json';
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 
 
 
@@ -12,6 +12,11 @@ class App extends Component {
   state = {
       listCountries: countries,
     }
+
+    renderCountryDetails = (props) => {
+      console.log('Props match:', props.match.params )
+      return <CountryDetails ID={ props.match.params.id } countries= { this.state.listCountries } />;  // how to match the path in Route component ==> https://reacttraining.com/react-router/web/api/match
+    };           
 
   render() {
     return (
@@ -34,6 +39,8 @@ class App extends Component {
                       )}
                     </div>
                   </div>
+                  <Route exact path='/:id' render={ this.renderCountryDetails }/>
+                    {/* render a function in route ==> https://reacttraining.com/react-router/web/api/Route/render-func */}
                 </div>
               </div>
             </div>
