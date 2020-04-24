@@ -12,3 +12,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.title {
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  margin: 0px;
+}
+
+.boxTitle{
+  background-color: #0f8ff4;
+}
+
+.box-list {
+  border: 1px solid lightslategrey;
+  width: 40%;
+  margin: 4%;
+  float: left;
+}
+
+.nb {
+  border: none;
+}
