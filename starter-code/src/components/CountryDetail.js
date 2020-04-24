@@ -3,55 +3,31 @@ import countries from '../countries.json';
 import { Link } from "react-router-dom";
 
 class CountryDetail extends Component {
- 
-  printName = () => {
-    return countries.map(item => {
-      if ('/' + item.cca3 === this.props.match.url ) {
-        return item.name.common;
-      } 
-    })
+
+  country = (id) => {
+    return countries.find(element => element.cca3 === id);
   }
 
-  printCapital = () => {
-    return countries.map(item => {
-      if ('/' + item.cca3 === this.props.match.url ) {
-        return item.capital;
-      } 
-    })
-  }
-
-  printArea = () => {
-    return countries.map(item => {
-      if ('/' + item.cca3 === this.props.match.url ) {
-        return item.area;
-      } 
-    })
-  }
-
-  /* <li><a href="/AND">Andorra</a></li> */
-
-  printBorders = () => {
-    return countries.map(item => {
-      if ('/' + item.cca3 === this.props.match.url ) {
-        return item.borders.map(newItem => <li><Link to={`/${newItem}`}>{newItem}</Link></li>);
-      } 
-    })
+  printBorders = (item) => {
+    const nameOfCountry = this.country(item);
+    return nameOfCountry.name.common;
   }
   
   render() {
+    const foundCountry = this.country(this.props.match.params.id);
     return (
       <div className="col-7">
-            <h1>{this.printName()}</h1>
+            <h1>{foundCountry.name.common}</h1>
             <table className="table">
               <thead></thead>
               <tbody>
                 <tr>
                   <td>Capital</td>
-                  <td>{this.printCapital()}</td>
+                  <td>{foundCountry.capital[0]}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
-                  <td>{this.printArea()} km
+                  <td>{foundCountry.area} km
                     <sup>2</sup>
                   </td>
                 </tr>
@@ -59,7 +35,10 @@ class CountryDetail extends Component {
                   <td>Borders</td>
                   <td>
                     <ul>
-                      {this.printBorders()}
+                    {foundCountry.borders.map((item, index) => {
+                      return <Link key={index} to={`/${item}`}><li>{this.printBorders(item)}</li></Link>
+                      }
+                    )}
                     </ul>
                   </td>
                 </tr>
