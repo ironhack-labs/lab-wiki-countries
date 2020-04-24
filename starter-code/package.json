@@ -2,7 +2,7 @@
   "name": "wiki-countries",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Angelbaro44/lab-wiki-countries",
+  "homepage": "https://angelbaro44.github.io/lab-wiki-countries/",
   "dependencies": {
     "98.css": "^0.1.5",
     "bootstrap": "^4.4.1",
