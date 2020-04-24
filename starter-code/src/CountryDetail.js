@@ -47,22 +47,14 @@ class CountryDetail extends Component {
               <td>Borders</td>
               <td>
                 <ul>
-                  {country.borders.map((eachBorder) => {
-                    let country = this.props.country.find(
-                      (country) => country.cca3 === eachBorder
-                    );
+                  {country.borders? (country.borders.map(cca3 => {
                     return (
                       <li>
-                        <Link to={"/country/" + country.cca3}>
-                          {country.name.common}
-                        </Link>
+                        <Link to={"/country/" + cca3}>{this.props.countries.find(country => country.cca3=== cca3).name.common}</Link>
                       </li>
                     );
-                    //{/* return (<li key={cca3}>
-                    //    <Link to={"/country/"+cca3}>
-                    //    {this.props.country.find(country=> country.flag === cca3).name.common}</Link>
-                    //  </li>) */}
-                  })}
+
+                  })):("")}
                 </ul>
               </td>
             </tr>
