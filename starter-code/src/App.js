@@ -2,28 +2,25 @@ import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route, Link } from 'react-router-dom';
 // COMPONENTS 
+import Navbar from './Navbar';
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
 
 
 class App extends Component {
-  state = { }
-  componentDidMount(){ // window.onload happens on intial component mounts
-
-  }
-
+ 
   render() {
   return (
     <div>
-        <h1> Hello ? Are you human ? </h1>
+        <h1> Hello ? Are you human ? helllllllooo why arent you showing homie </h1>
          <nav>
-         <Link to='/'> Home </Link> {/* to === attribute has to match the path given*/}
-         <Link to='/About'> About </Link>
-         <Link to ='/Contact'> Contact Us </Link>
+         <Link to='/'>Home</Link> {/* to === attribute has to match the path given*/}
+         <Link to='/About'>About</Link>
+         <Link to ='/Contact'>Contact Us</Link>
          </nav>
          {/* Link to === a href, but with Switc component */}
-
+      <Navbar />
       <Switch>
       <Route exact path='/' component={(props) => <Home{...props} /> }></Route>
       <Route exact path='/About' component={(props) => <About{...props} /> }></Route>
