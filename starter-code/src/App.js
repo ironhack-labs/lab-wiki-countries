@@ -17,19 +17,26 @@ class App extends Component {
   return (
     <div>
         <h1> Hello ? Are you human ? </h1>
-         <nav></nav>
-          <Link></Link>
+         <nav>
+         <Link to='/'> Home </Link> {/* to === attribute has to match the path given*/}
+         <Link to='/About'> About </Link>
+         <Link to ='/Contact'> Contact Us </Link>
+         </nav>
+         {/* Link to === a href, but with Switc component */}
+
       <Switch>
+      <Route exact path='/' component={(props) => <Home{...props} /> }></Route>
+      <Route exact path='/About' component={(props) => <About{...props} /> }></Route>
+      <Route exact path='/Contact' component={(props) => <Contact{...props} /> }></Route>
+      {/* Route is exactly this, path when Route launches, component what will show using this path, 
+        props is everything from react and dom, spread for ops is everything inside */}
       {/* general structure of Route */}
       {/* spread opp for props = shorthand for for anything in props i.e props.name */}
       {/* props passes Home */}
-
-      <Route exact path='/' component={(props) => <Home{...props} /> }></Route>
-      <Route exact path='/about' component={(props) => <About{...props} /> }></Route>
-      <Route exact path='/contact' component={(props) => <Contact{...props} /> }></Route>
-      {/* Route is exactly this, path when Route launches, component what will show using this path, props is everything from react and dom, spread for ops is everything inside */}
-     
       </Switch>
+
+      {/* Switch is going to Route the path until the path in URL matches*/}
+      {/* if path matches, it will render [show] Home, etc*/}
     </div>
   );
 }

@@ -4,7 +4,7 @@ class Contact extends Component {
     render() {
         return (
             <div>
-                
+                <p>Contact is flowin</p>
             </div>
         );
     }
