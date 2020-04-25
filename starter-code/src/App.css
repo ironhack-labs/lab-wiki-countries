@@ -81,3 +81,9 @@ td {
 h1 {
   text-align: left;
 }
+
+.max-vh {
+  max-height: 90vh;
+  overflow: scroll;
+  border-right: solid 1px #e5e5e5;
+}
