@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-class Home extends Component {
+class Contact extends Component {
     render() {
-        console.log(this.props);
         return (
             <div>
                 
@@ -11,4 +10,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default Contact;
