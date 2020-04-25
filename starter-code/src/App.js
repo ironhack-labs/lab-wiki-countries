@@ -16,9 +16,9 @@ class App extends Component {
         <h1> Hello ? Are you human ? helllllllooo why arent you showing homie </h1>
         <Navbar /> {/* Not a switch statement, thus will display */}
       <Switch>
-      <Route exact path='/' component={(props) => <Home{...props} /> }></Route>
-      <Route exact path='/About' component={(props) => <About{...props} /> }></Route>
-      <Route exact path='/Contact' component={(props) => <Contact{...props} /> }></Route>
+      <Route exact path='/' component={(props) => <Home {...props} /> }></Route>
+      <Route exact path='/about' component={(props) => <About {...props} /> }></Route>
+      <Route exact path='/contact' component={(props) => <Contact {...props} /> }></Route>
       {/* Route is exactly this, path when Route launches, component what will show using this path, 
         props is everything from react and dom, spread for ops is everything inside */}
       {/* general structure of Route */}
