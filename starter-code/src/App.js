@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } 'react';
+// import logo from './logo.svg';
+import ReactDOM, { render } from 'react-dom';
+import API from './API';
 import './App.css';
+import {Switch,Route} from 'react-router-dom';
+import Home from './Home';
 
-function App() {
+class App extends Component {
+}
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <h1> Hello ? Are you human ? </h1>
+         <nav></nav>
+      
+      <Switch>
+      {/* general structure of Route */}
+      {/* spread opp for props = shorthand for for anything in props i.e props.name */}
+      {/* props passes Home */}
+
+      <Route exact path='/' component={(props) => <Home{...props} /> }></Route>
+      {/* Route is exactly this, path when Route launches, component what will show using this path, props is everything from react and dom, spread for ops is everything inside */}
+
+      </Switch>
     </div>
   );
 }
+};
 
 export default App;
