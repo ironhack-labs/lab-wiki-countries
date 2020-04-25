@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import ReactDOM, { render } from 'react-dom';
-// import API from './API';
+// import ReactDOM, { render } from 'react-dom';
+
 import './App.css';
 import {Switch,Route} from 'react-router-dom';
 import Home from './Home';
 
 class App extends Component {
   state = { }
-  componentDidMount(){
+  componentDidMount(){ // window.onload happens on intial component mounts
 
   }
 
