@@ -1,13 +1,17 @@
-import React, { Component } 'react';
+import React, { Component } from 'react';
 // import logo from './logo.svg';
 import ReactDOM, { render } from 'react-dom';
-import API from './API';
+// import API from './API';
 import './App.css';
 import {Switch,Route} from 'react-router-dom';
 import Home from './Home';
 
 class App extends Component {
-}
+  state = { }
+  componentDidMount(){
+
+  }
+
   render() {
   return (
     <div>
@@ -26,6 +30,6 @@ class App extends Component {
     </div>
   );
 }
-};
+}
 
 export default App;
