@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import Header from './components/Header'
+import CountryList from './components/CountryList'
+import CountryDetail from './components/CountryDetail'
 import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Link, Switch, withRouter } from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="container">
+        <div className="row">
+          <CountryList />
+          <Router>
+            <Route
+              path="/:parametroDeUrl"
+              children={(props) => <CountryDetail country={props.match.params.parametroDeUrl}/>}
+            />
+          </Router>
+        </div>
+      </div>
     </div>
   );
 }
