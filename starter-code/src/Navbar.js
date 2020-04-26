@@ -16,5 +16,5 @@ class Navbar extends Component {
         );
     }
 }
-
+// inside the link to ='/Contact"> is what will show on the url
 export default Navbar;
