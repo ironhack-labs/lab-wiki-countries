@@ -15,12 +15,9 @@ class App extends Component {
     return (
       Country.map((count) => {
         return (
-          <div>
-          <li>(count.name.common)</li> {/* common is from json file*/}
-          </div>
-        
-        )
-      } )
+          <li>(count.name.common)</li> 
+          // common is from json file 
+      )} ) 
 )}
  
   render() {
@@ -30,7 +27,9 @@ class App extends Component {
         <Navbar /> {/* Not a switch statement, thus will display */}
       
       <div>
-
+        <div>
+           {this.displayedCountry()}
+        </div>
         <Switch>
           <Route exact path='/' component={(props) => <Home {...props} /> }></Route>
           <Route exact path='/about' component={(props) => <About {...props} /> }></Route>
