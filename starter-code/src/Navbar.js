@@ -6,15 +6,18 @@ import { Link } from 'react-router-dom';
 class Navbar extends Component {
     render() {
         return (
-            <nav className="nav-style">
-                <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/About'>About</Link></li>
-                <li><Link to='/Contact'>Contact Us</Link></li>
-                </ul>
+            <nav>
+                
+                <Link to='/'>Home</Link>
+                <br/><hr /> {/*<br /> and <hr /> break and line */}
+                <Link to='/About'>About</Link>
+                <br/><hr />
+                <Link to='/Contact'>Contact Us</Link>
+                <br/><hr />
+                
             </nav>
         );
     }
 }
-// inside the link to ='/Contact"> is what will show on the url
+// inside the link to ='/Contact"> is what will show on the 
 export default Navbar;
