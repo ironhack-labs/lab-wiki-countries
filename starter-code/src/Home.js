@@ -7,7 +7,7 @@ class Home extends Component {
         // console.log(this.props);
         return (
             <div>
-                Home is where my mind is
+                Home Page
             </div>
         );
     }
