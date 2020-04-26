@@ -6,31 +6,60 @@ import Navbar from './Navbar';
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
+import Country from './countries.json';
 
 
 class App extends Component {
+
+  displayedCountry = () => {
+    return (
+      Country.map((count) => {
+        return (
+          <div>
+          <li>(count.name.common)</li> {/* common is from json file*/}
+          </div>
+        
+        )
+      } )
+)}
  
   render() {
   return (
     <div>
         <h1> Home </h1>
         <Navbar /> {/* Not a switch statement, thus will display */}
-      <Switch>
-      <Route exact path='/' component={(props) => <Home {...props} /> }></Route>
-      <Route exact path='/about' component={(props) => <About {...props} /> }></Route>
-      <Route exact path='/contact' component={(props) => <Contact {...props} /> }></Route>
-      {/* Route is exactly this, path when Route launches, component what will show using this path, 
-        props is everything from react and dom, spread for ops is everything inside */}
-      {/* general structure of Route */}
-      {/* spread opp for props = shorthand for for anything in props i.e props.name */}
-      {/* props passes Home */}
-      </Switch>
+      
+      <div>
 
-      {/* Switch is going to Route the path until the path in URL matches*/}
-      {/* if path matches, it will render [show] Home, etc*/}
+        <Switch>
+          <Route exact path='/' component={(props) => <Home {...props} /> }></Route>
+          <Route exact path='/about' component={(props) => <About {...props} /> }></Route>
+          <Route exact path='/contact' component={(props) => <Contact {...props} /> }></Route>
+
+          {/* Route is exactly this, path when Route launches, component what will show using this path, 
+            props is everything from react and dom, spread for ops is everything inside */}
+          {/* general structure of Route */}
+          {/* spread opp for props = shorthand for for anything in props i.e props.name */}
+          {/* props passes Home */}
+        </Switch>
+        
+        {/* Switch is going to Route the path until the path in URL matches*/}
+        {/* if path matches, it will render [show] Home, etc*/}
+      </div>
+
+      
     </div>
   );
 }
 }
 
 export default App;
+// country will be outside of switch, needs to be displayed at all times
+// make a container that holds both list and switch
+// inside the div, list of names
+// inside switch, switched 
+// align later in order pass the statement to div
+
+// anytime display an array, ue .map()
+// to map over the array and return a list item
+// country list should not mutate
