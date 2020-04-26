@@ -15,7 +15,7 @@ class App extends Component {
     return (
       Country.map((count) => {
         return (
-          <li><Link to={`/${count.cca3}`}>{count.name.common}</Link></li> 
+          <li><Link to={`/${count.flag}`}>{count.name.common}</Link></li> 
           // common is from json file 
       )} ) 
 )}
@@ -31,7 +31,7 @@ class App extends Component {
            {this.displayedCountry()} {/* json country list */}
         </div>
         <Switch>
-          <Route exact path='/' component={(props) => <Home {...props} /> }></Route>
+          <Route exact path='/:id' component={(props) => <Home {...props} /> }></Route>
           <Route exact path='/About' component={(props) => <About {...props} /> }></Route>
           <Route exact path='/Contact' component={(props) => <Contact {...props} /> }></Route>
           
@@ -63,3 +63,8 @@ export default App;
 // anytime display an array, ue .map()
 // to map over the array and return a list item
 // country list should not mutate
+
+
+// param chechllist
+// route, declare param
+// is pased to url
