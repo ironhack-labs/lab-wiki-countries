@@ -7,7 +7,7 @@ import Home from './Home';
 import About from './About';
 import Contact from './Contact';
 import Country from './countries.json';
-
+import { Link } from 'react-router-dom';
 
 class App extends Component {
 
@@ -15,7 +15,7 @@ class App extends Component {
     return (
       Country.map((count) => {
         return (
-          <li>(count.name.common)</li> 
+          <li><Link to={`/${count.cca3}`}>{count.name.common}</Link></li> 
           // common is from json file 
       )} ) 
 )}
@@ -32,8 +32,9 @@ class App extends Component {
         </div>
         <Switch>
           <Route exact path='/' component={(props) => <Home {...props} /> }></Route>
-          <Route exact path='/about' component={(props) => <About {...props} /> }></Route>
-          <Route exact path='/contact' component={(props) => <Contact {...props} /> }></Route>
+          <Route exact path='/About' component={(props) => <About {...props} /> }></Route>
+          <Route exact path='/Contact' component={(props) => <Contact {...props} /> }></Route>
+          
 
           {/* Route is exactly this, path when Route launches, component what will show using this path, 
             props is everything from react and dom, spread for ops is everything inside */}

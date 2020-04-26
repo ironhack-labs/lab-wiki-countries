@@ -14,7 +14,7 @@ class Navbar extends Component {
                 <br/><hr />
                 <Link to='/Contact'>Contact Us</Link>
                 <br/><hr />
-                <Link to='/'>Wiki Country</Link>
+                <Link to='/Country'>Wiki Country</Link>
                 <br/><hr />
 
                 
