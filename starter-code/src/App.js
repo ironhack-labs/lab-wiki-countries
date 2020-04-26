@@ -26,9 +26,9 @@ class App extends Component {
         <h1> Home </h1>
         <Navbar /> {/* Not a switch statement, thus will display */}
       
-      <div>
+      <div> {/*  container for holding both switch and list */}
         <div>
-           {this.displayedCountry()}
+           {this.displayedCountry()} {/* json country list */}
         </div>
         <Switch>
           <Route exact path='/' component={(props) => <Home {...props} /> }></Route>
