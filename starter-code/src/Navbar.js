@@ -9,8 +9,8 @@ class Navbar extends Component {
             <nav className="nav-style">
                 <ul>
                 <li><Link to='/'>Home</Link></li>
-                <li><Link to='/src/About.js'>About</Link></li>
-                <li><Link to='/src/Contact.js'>Contact Us</Link></li>
+                <li><Link to='/About'>About</Link></li>
+                <li><Link to='/Contact'>Contact Us</Link></li>
                 </ul>
             </nav>
         );
