@@ -9,13 +9,17 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+.list-group-item-style {
+  max-height: 90vh;
+  overflow: scroll;
 }
 
 .App-link {
