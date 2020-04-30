@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import countries from './countries.json'
 
 
+//UNSPLASH API for searching images
+//Beer Facts in loading screen
+
 //Home is now wrapped in Switch statement so it's props are full of cool stuff that we can use 
 class Home extends Component {
     componentDidMount(){ //window.onload happens once when the components first mounts 
