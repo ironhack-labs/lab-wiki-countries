@@ -12,3 +12,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.wiki-title {
+  margin-top: 20px;
+  text-align: left;
+  margin-left: 30px;
+  padding: 5px 0 5px 10px;
+  width: 55%;
+  color: white;
+  background-color: rgb(57, 154, 245);
+}
+
+.flag-table {
+  border-top: 1px solid rgb(238, 235, 235);
+  border-left: 1px solid rgb(238, 235, 235);
+}
+
+.row-text, .row-text:hover {
+  text-decoration: none;
+  color: rgb(75, 74, 74);
+}
+
+.wiki-container {
+  display: flex;
+  margin-left: 20px;
+}
+
+.border-list {
+  line-height: 8px;
+}
+
+
+
