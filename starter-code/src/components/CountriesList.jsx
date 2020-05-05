@@ -14,17 +14,11 @@ const CountriesList = () => (
             to={`/country/${country.cca3}`}
           >
             <span role="img" aria-label="emoji">
-              {country.flag}
+              {country.flag + ' '}
             </span>
             {country.name.common}
           </Link>
         ))}
-      <Link className="list-group-item list-group-item-action" to="/ABW">
-        <span role="img" aria-label="emoji">
-          🇦🇼
-        </span>
-        Aruba
-      </Link>
     </div>
   </div>
 );
