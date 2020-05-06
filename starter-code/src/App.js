@@ -1,40 +1,14 @@
 import React, { Component } from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
-import Countries from './countries.json'
+import Home from "./pages/home/Home"
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-
-import "./App.css"
-
-import CountryCard from './components/countryCard/countryCard'
-
-class App extends Component {
-
-  constructor(){
-    super()
-    this.state = {
-      countries: [...Countries]
-    }
-  }
-
-  render() {
-    return (
-      <Container>
-        <Row>
-          <Col className="country-list">
-            {this.state.countries.map((elm, idx) => (
-              <CountryCard key={idx} name={elm.name.common} flag={elm.flag}/>
-            ))}
-          </Col>
-          <Col>
-          </Col>
-        </Row>
-      </Container>
-    )
-  }
+function App() {
+  return (
+    <Switch>
+      <Route path="/" exact render={() => <Home/>} />
+    </Switch>
+  )
 }
 
 export default App
