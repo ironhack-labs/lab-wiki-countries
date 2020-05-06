@@ -1,0 +1,13 @@
+nav ul{
+  display: flex;
+
+}
+
+nav li {
+  margin: 0px 50px;
+}
+
+
+li {
+  list-style: none;
+}
