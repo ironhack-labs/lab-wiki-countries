@@ -1,13 +1,26 @@
 import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import Home from "./pages/home/Home"
+import Navbar from './pages/Navbar/Navbar'
+import Details from './pages/Details/Details'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 
 function App() {
   return (
-    <Switch>
-      <Route path="/" exact render={() => <Home/>} />
-    </Switch>
+    <Container>
+      <Row>
+        <Navbar />
+        <Col>
+          <Switch>
+            <Route path="/:id" render={() => <Details />} />
+          </Switch>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
