@@ -3,7 +3,6 @@ import React from 'react'
 import Countries from '../../countries.json'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Col from 'react-bootstrap/Col'
 
 const Details = (props) => {
   const foundCountry = Countries.find(
@@ -21,7 +20,7 @@ const Details = (props) => {
       <p>Area: {foundCountry.area} km<sup>2</sup> </p>
       <p>Borders:</p>
       <ul>
-        {foundCountry.borders.forEach(country => (<li>{country}</li>))}
+        {foundCountry.borders.map((country, idx) => (<li>{country}</li>))}
       </ul>
     </div>
   )
