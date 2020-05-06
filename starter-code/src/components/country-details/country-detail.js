@@ -13,9 +13,9 @@ const myCountries = countries.find(elm => props.match.params.cca3 === elm.cca3)
     console.log(props)
     return (
 
-        <div class="col-7">
+        <div className="col-7">
             <h1>{myCountries.name.common}</h1>
-            <table class="table">
+            <table className="table">
               <thead></thead>
               <tbody>
                 <tr>
