@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Navbar from './pages/Navbar/Navbar'
@@ -16,7 +16,7 @@ function App() {
         <Navbar />
         <Col>
           <Switch>
-            <Route path="/:id" render={() => <Details />} />
+            <Route path="/:id" render={(props) => <Details {...props} />} />
           </Switch>
         </Col>
       </Row>
