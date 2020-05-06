@@ -1,0 +1,7 @@
+{
+    "prettier.printWidth": 200,
+    "jshint.config": "",
+    "jshint.exclude": {
+    
+    }
+}

@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import { Link, Route, Switch } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import countries from './countries.json'
+import CountryDetails from './countrydets/CountryDetail'
+
+class App extends Component {
+	constructor() {
+		super()
+		this.myCountries = [...countries]
+		this.state = { countries: this.myCountries }
+	}
+
+	render() {
+		return (
+			<>
+				<nav className='navbar navbar-dark bg-primary'>
+
+					<a className='navbar-brand' href='/'>
+							WikiCountries
+						</a>
+				</nav>
+
+				<div className='container'>
+					<div className='row'>
+						<div className='col-md-4' style={{ maxHeight: '70vh', overflow: 'scroll' }}>
+							<ul className='list-group'>
+								{this.state.countries.map((elm, idx) => (
+									<Link className='list-group-item list-group-item-action' key={idx} to={elm.cca3}>
+										{elm.flag + ' ' + elm.name.common}
+									</Link>
+								))}
+							</ul>
+						</div>
+
+						<Switch>
+							<Route path='/:cca3' render={(props) => <CountryDetails {...props} />} />
+						</Switch>
+					</div>
+				</div>
+			</>
+		)
+	}
 }
 
-export default App;
+export default App
