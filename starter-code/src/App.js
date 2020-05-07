@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import CountryDetail from './CountryDetail/CountryDetail'
+import countries from './countries.json'
+import { Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  state = {
+    countries: [...countries],
+  }
+  render() {
+    return (
+      <div className="App">
+        <div>
+          <a>WikiCountries</a>
+        </div>
+
+        <div className="container">
+          <div className="row">
+            <div>
+              {this.state.countries.map((country, idx) => (
+                <Link
+                  className=" list-group-item list-group-item-action"
+                  key={idx}
+                  to={country.cca3}
+                >
+                  {country.name.common}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="flex">
+            <Route
+              exact
+              path="/:countryCode"
+              render={(props) => {
+                const countryCode = props.match.params.countryCode
+                const countryIndex = this.state.countries.findIndex(
+                  (country) => country.cca3 === countryCode
+                )
+                // //usar find index El método findIndex() devuelve el índice del primer elemento de un array que cumpla con la función de prueba proporcionada. En caso contrario devuelve -1.
+                return <CountryDetail country={this.state.countries[countryIndex]} />
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
-
-export default App;
