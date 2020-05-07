@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import CountryCard from './components/CountryCard';
+import Navbar from './components/Navbar';
+import { Switch, Route } from 'react-router-dom';
+import CountryDetail from './pages/CountryDetail';
 
+import countries from './countries.json';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+
+      <div className="container">
+        <div className="row">
+          <div className="col-5 text-left" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
+            {countries.map((country, idx) => (
+              <CountryCard
+                key={idx}
+                name={country.name.common}
+                code1={country.cca3}
+                code2={country.cca2}
+              />
+            ))}
+          </div>
+          <Switch>
+            <Route path="/:id" component={CountryDetail} />
+          </Switch>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default App;
+
