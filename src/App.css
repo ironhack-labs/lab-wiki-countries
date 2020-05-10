@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar li {
+
+display: inline;
+margin: 10px;
+
+}
+
+.navbar  {
+
+background-color: cornflowerblue;
+
+
+}
+
+
+.navbar a  {
+
+color: white;
+  
+  
+  }
