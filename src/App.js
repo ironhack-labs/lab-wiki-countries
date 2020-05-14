@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import countries from './countries.json'
+import { Route} from 'react-router-dom'
+import CountriesList from './components/CountriesList';
+import CountryDetail from './components/CountryDetail';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div>
+        <nav className="navbar navbar-dark bg-primary mb-3">
+          <div className="container">
+            <a className="navbar-brand" href="/">WikiCountries</a>
+          </div>
+        </nav>
+        <div className="container">
+          <div className="row">
+            <div className="col-5" style={{maxHeight: "90vh", overflow: "scroll"}}>
+              <div className="list-group">
+                <CountriesList />
+              </div>
+            </div>
+            <div className="col-7">
+              {/* <Route exact path='/:cca3' component={CountryDetail} /> */}
+              <Route exact path="/:cca3">
+                {(props) => <CountryDetail {...props} countries={countries} />}
+              </Route>
+            </div>
+          </div>
+        </div>
+      </div>
+  )
 }
 
 export default App;
