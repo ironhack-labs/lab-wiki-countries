@@ -28,7 +28,9 @@ function App() {
             </div>
             <div className="col-7">
               <Switch>
+                <Route exact path="/"></Route>
                 <Route
+                  exact
                   path="/country-details/:cca3"
                   component={CountryDetailsPage}
                 />

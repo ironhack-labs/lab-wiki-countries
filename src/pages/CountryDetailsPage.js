@@ -16,9 +16,7 @@ function CountryDetailsPage(props) {
     (Country) => countryId === Country.cca3
   );
 
-  const borderCountries = foundCountry.borders.map((borderC) => {
-    return borderC
-  })
+  const borderCountries = foundCountry.borders
 
   const borderCountriesArr = borderCountries.map((bCountry)=>{
       return myCountries.find((country)=>{
@@ -51,7 +49,7 @@ function CountryDetailsPage(props) {
             <td>
               <ul>
                 {borderCountriesArr.map((borderC) => {
-                  return (<li>{borderC.name.common}</li>)
+                  return (<li>{borderC.name.common} {borderC.flag}</li>)
                 })}
               </ul>
             </td>
