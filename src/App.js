@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import CountriesList from './components/CountriesList';
+import CountriesDetails from './components/CountriesDetails';
+import countries from './countries.json';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component() {
+  
+  getName = id => {
+    const name = countries.filter(c => {
+      if (c.cca3 === id) {
+        return c;
+      }
+    });
+    return name.name.common;
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <div className="container">
+          <div className="row">
+            <Route exact path="/">
+              <CountriesList list={countries} />
+            </Route>
+            <Route
+              exact
+              path="/countries/:id"
+              render={props => <CountriesDetails {...props}/>}
+              list={countries}
+              getName={this.getName}
+            ></Route>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
