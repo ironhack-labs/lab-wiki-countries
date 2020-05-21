@@ -1,0 +1,4 @@
+.list-group-item {
+    display: flex !important;
+    align-items: flex-end;
+}
