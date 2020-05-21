@@ -14,7 +14,7 @@ class App extends React.Component {
           <Route
             exact
             path="/country/:id"
-            render={props => <CountryDetail {...props} />}
+            render={props => <CountryDetail countries={countries} {...props} />}
           />
         </Switch>
       </div>
