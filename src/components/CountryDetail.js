@@ -9,10 +9,23 @@ function CountryDetail(props) {
   const { params } = props.match;
   const foundCountry = getCountry(params.cca3);
 
+  const mappedBorders = foundCountry.borders.map((eachBorder) => {
+    const eachFullBorder = getCountry(eachBorder);
+    return (
+      <li key={eachBorder}>
+        <NavLink to={`/countries/${eachBorder}`}>
+          {eachFullBorder.name.common}
+        </NavLink>
+      </li>
+    );
+  });
+
+  
+
   return (
     <div className="col-7">
       <h1>{foundCountry.name.common}</h1>
-      <table class="table">
+      <table className="table">
         <thead></thead>
         <tbody>
           <tr>
@@ -30,16 +43,7 @@ function CountryDetail(props) {
             <td>Borders</td>
             <td>
               <ul>
-                {foundCountry.borders.map((eachBorder) => {
-                  const eachFullBorder = getCountry(eachBorder);
-                  return (
-                    <li>
-                      <NavLink to={`/countries/${eachBorder}`}>
-                        {eachFullBorder.name.common}
-                      </NavLink>
-                    </li>
-                  );
-                })}
+                {foundCountry.borders.length ? (mappedBorders) : <i>None</i>}
               </ul>
             </td>
           </tr>
