@@ -8,7 +8,7 @@ function CountriesList () {
     return (
         <div className="container">
     Hi, I am CountriesList:<br />
-{countries.map(c => <li><Link to={"/country-detail/" + c.cca3}>{c.name.common}</Link></li>)}
+{countries.map(c => <li key={c.cca3}><Link to={"/country-detail/" + c.cca3}>{c.name.common}</Link></li>)}
         </div>
     )
 
