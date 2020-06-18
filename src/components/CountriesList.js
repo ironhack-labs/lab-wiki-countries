@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import countries from '../countries.json'
-import Countrydetail from './CountryDetail'
 
 export default class CountriesList extends React.Component {
     state = {
@@ -56,7 +55,7 @@ export default class CountriesList extends React.Component {
                     this.props.borders.map((country, i) => {
                         return (
                             <p key={i}>
-                                <li><Link to={`/${country}`}>{country}</Link></li>
+                                <Link  to={`/${country}`}>{country} </Link>
                             </p>
                         )
                     })
