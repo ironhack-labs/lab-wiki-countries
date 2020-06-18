@@ -19,6 +19,12 @@ export default class CountriesList extends React.Component {
     activeCountry: 'AFG'
   };
 
+  componentDidMount() {
+    let nodeList = document.querySelectorAll(`[href*="/${this.state.activeCountry}"]`)
+      console.log(nodeList[0])
+      nodeList[0].setAttribute('class', "list-group-item list-group-item-action active")
+  }
+
   handleActive = (e) => {
     e.target.setAttribute('class', "list-group-item list-group-item-action active")
 
