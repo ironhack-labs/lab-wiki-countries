@@ -1,32 +1,26 @@
-import React from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
+import countries from '../countries.json';
+import { Link } from 'react-router-dom';
 
-export default class Users extends React.Component {
+export default class CountriesList extends Component {
   state = {
-    countries: [],
+    countries: countries,
   };
-
-  componentDidMount() {
-    axios
-      .get(
-        'https://raw.githubusercontent.com/mledoze/countries/master/countries.json'
-      )
-      .then((res) => {
-        this.setState({
-          countries: res.data,
-        });
-      });
-  }
-
   render() {
     return (
       <div>
+        <h2>Countries</h2>
         {this.state.countries.map((country, index) => {
           return (
-            <p key={index}>
-              <p>{country.name.official}</p>
-              <img src={country.image} alt="oh oh   "></img>
-            </p>
+            <ul className="list-group" key={index}>
+              <Link
+                className="list-group-item"
+                to={`/countries/${country.cca3}`}
+              >
+                <img src={country.image} alt="not working"></img>
+                {country.flag} {country.name.official}{' '}
+              </Link>
+            </ul>
           );
         })}
       </div>

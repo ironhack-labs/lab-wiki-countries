@@ -1,8 +1,8 @@
-// import React from 'react';
-// import Countries from '../countries.json';
+// import React, { Component } from 'react';
+// import { Link } from 'react-router-dom';
 
-// export default function CountriesDetail() {
-//   return (
-
-//   );
+// export default class CountryDetail extends Component {
+//   render() {
+//     return <div></div>;
+//   }
 // }
