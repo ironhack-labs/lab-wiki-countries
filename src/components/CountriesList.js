@@ -3,13 +3,13 @@ import countries from '../countries.json';
 import { Link } from 'react-router-dom';
 
 export default class CountriesList extends Component {
+  // let lowercca2 = {this.country.cca2}.toLowerCase()
   state = {
     countries: countries,
   };
   render() {
     return (
       <div>
-        <h2>Countries</h2>
         {this.state.countries.map((country, index) => {
           return (
             <ul className="list-group" key={index}>
@@ -17,8 +17,8 @@ export default class CountriesList extends Component {
                 className="list-group-item"
                 to={`/countries/${country.cca3}`}
               >
-                <img src={country.image} alt="not working"></img>
-                {country.flag} {country.name.official}{' '}
+                {/* <img src= `https://www.countryflags.io/${lower}/flat/64.png` alt="not working"></img> */}
+                {country.name.official}
               </Link>
             </ul>
           );
