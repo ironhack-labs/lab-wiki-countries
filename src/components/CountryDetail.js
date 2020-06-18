@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import countries from '../countries.json';
 
 export default class CountryDetail extends Component {
@@ -22,19 +21,26 @@ export default class CountryDetail extends Component {
         <hr />
         <table>
           <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Age</th>
+            <th>Capital</th>
+            <th>{country.capital}[0]</th>
           </tr>
           <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
+            <td>Area</td>
+            <td>{country.area}</td>
           </tr>
           <tr>
-            <td>Eve</td>
-            <td>Jackson</td>
-            <td>94</td>
+            <td>Border</td>
+            <td>
+              <ul>
+                {this.state.countries.map((country, index) => {
+                  return (
+                    <li key={index}>
+                      {this.countryPerCode(country).name.official}
+                    </li>
+                  );
+                })}
+              </ul>
+            </td>
           </tr>
         </table>
       </div>
