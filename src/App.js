@@ -1,26 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css'
+import CountriesList from './components/CountriesList'
+import {Route} from "react-router";
+import CountryDetail from './components/CountryDetail'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>WikiCountries</h1>
+      <Route path='/:cca3' component={CountryDetail}/>
+      <CountriesList/>   
     </div>
   );
 }
 
 export default App;
+
