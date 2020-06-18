@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Switch, Route} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.css'
+import './App.css'
+import Nav from './components/Nav'
+import Country from './components/Country'
+import countries from './countries.json'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+      countries,
+      active: ''
+  }
+  changeActive = (cca3) =>{
+    console.log(cca3)
+    this.setState({
+      active: cca3
+    })
+  }
+  render(){
+    return (
+      <div className="two-columns">
+      <Nav active={this.state.active} countries={this.state.countries}/>
+      <Switch>
+        <Route exact path="/country/:cca3" render={
+          ({match: {params: {cca3}}}) => {
+          return <Country cca3={cca3}/>
+          }
+        }></Route>
+      </Switch>
+      </div>
+    )
+  }
 }
 
 export default App;
