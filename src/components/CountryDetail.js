@@ -9,7 +9,7 @@ export default function CountryDetail(props) {
     return (
         <div className="col-7">
             <h1>{country.name.common}</h1>
-            <table className="table">
+            <table className="table text-left">
                 <thead></thead>
                 <tbody>
                     <tr>
