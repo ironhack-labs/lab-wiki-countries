@@ -1,0 +1,8 @@
+.list-scrole {
+    max-height: 90vh;
+    overflow: scroll;
+}
+
+.flag {
+    max-height: 25px;
+}
