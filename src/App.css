@@ -7,6 +7,15 @@
   pointer-events: none;
 }
 
+.list-container{
+    max-height: 90vh;
+    overflow: scroll;
+}
+
+.list-container img{
+  width:10%;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
