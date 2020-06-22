@@ -36,7 +36,7 @@ function CountryDetail(props) {
             <td>
               <ul>
                 {countryMatch.borders.map((borderCountryCode) => (
-                  <li key={border}>
+                  <li key={borderCountryCode}>
                     <Link to={`/countries/${borderCountryCode}`}> {getCountryNameUsingCode(borderCountryCode)}</Link>
                   </li>
                 ))}
