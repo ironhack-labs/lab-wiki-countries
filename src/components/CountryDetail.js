@@ -4,8 +4,6 @@ import "./CountryDetail.css";
 import {Link} from "react-router-dom";
 
 
-
-
 export default function CountryDetail(props) {
     let country = countries.find((country)=> country.cca3 === props.match.params.cca3);
     return (
@@ -30,8 +28,9 @@ export default function CountryDetail(props) {
                             <ul>
                             {
                                 country.borders.map((border)=>{
+                                    let foundCountry = countries.find((country) => border === country.cca3)
                                     return <li>
-                                        <Link to={`/country/detail/${border}`}>{border}</Link>
+                                        <Link to={`/country/detail/${border}`}>{foundCountry.name.common}</Link>
                                     </li>
                                 })
                             }
