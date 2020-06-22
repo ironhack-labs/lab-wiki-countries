@@ -1,0 +1,9 @@
+.countrieslist{
+    max-height: 90vh;
+    overflow: scroll;
+}
+
+.countrieslist img{
+    width: 20px;
+    margin-right: 5px;
+}
