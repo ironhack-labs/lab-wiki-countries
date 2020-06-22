@@ -1,15 +1,12 @@
 import React from 'react';
 import countries from '../countries.json';
 import { Link } from 'react-router-dom';
-import './CountriesDetail.css'
-
 
 function CountriesDetail(props) {
     let country = countries.find(country => country.cca3 === props.match.params.id)
     return (
       <div className="countriesdetail">
         <h1 >{country.name.common}</h1>
-
         <table className="table">
             <tbody>
                 <tr>
@@ -24,14 +21,13 @@ function CountriesDetail(props) {
                     <td>Borders</td>
                     <td>
                         <ul>
-                        {country.borders.map(border=> {
-                            let borderCountry = countries.find(country => country.cca3 === border);
-                            return(
-                                <li><Link to={`/country/${border}`}>{borderCountry.name.common}</Link></li>
-                            ) 
-                        })}
+                            {country.borders.map(border=> {
+                                let borderCountry = countries.find(country => country.cca3 === border);
+                                return(
+                                    <li><Link to={`/country/${border}`}>{borderCountry.name.common}</Link></li>
+                                ) 
+                            })}
                         </ul>
-                        
                     </td>
                 </tr>
             </tbody>

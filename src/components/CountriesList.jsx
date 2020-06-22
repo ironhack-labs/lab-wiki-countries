@@ -19,30 +19,12 @@ function CountriesList() {
                 )
               }
             </div>
-
-
-
-            {/* <table className="table table-bordered">
-              <tbody>
-                {
-                  countries.map(country => 
-                    <tr>
-                      <td className="country-basic-info">
-                        <img src={`https://www.countryflags.io/${country.cca2}/flat/64.png`} alt={country.name.common}/>
-                        <Link to={`/country/${country.cca3}`}>{country.name.common}</Link>
-                      </td>
-                    </tr> 
-                  )
-                }
-              </tbody>   
-            </table> */}
           </div>
           <div className="col-7">
             <Route path="/country/:id" component={CountriesDetail} />
           </div>        
         </div>
       </div>
-      
     );
 }
   
