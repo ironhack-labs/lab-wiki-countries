@@ -3,14 +3,12 @@ import countries from '../countries.json';
 import { Link } from 'react-router-dom';
 
 function CountryDetail(props) {
-  debugger;
+
   let countryMatch = countries.find(
     (country) => props.match.params.id === country.cca3
   );
 
-  const borders = (border) => {
-    debugger;
-    //find country
+  const getCountryNameUsingCode = (border) => {
     var country = countries.find((country) => border === country.cca3);
     return country.name.common;
   };
@@ -37,9 +35,9 @@ function CountryDetail(props) {
             <td>Borders</td>
             <td>
               <ul>
-                {countryMatch.borders.map((border) => (
+                {countryMatch.borders.map((borderCountryCode) => (
                   <li key={border}>
-                    <Link to={`/countries/${border}`}> {borders(border)}</Link>
+                    <Link to={`/countries/${borderCountryCode}`}> {getCountryNameUsingCode(borderCountryCode)}</Link>
                   </li>
                 ))}
               </ul>
