@@ -36,9 +36,9 @@ export default function CountryDetail(props) {
             <td>Borders</td>
             <td>
               <ul>
-                {findCountry.borders.map((borderCountryCode) => (
-                  <li key={borderCountryCode}>
-                    <Link to={`/countries/${borderCountryCode}`}> {getCode(borderCountryCode)}</Link>
+                {findCountry.borders.map((borderCountry) => (
+                  <li key={borderCountry}>
+                    <Link to={`/countries/${borderCountry}`}> {getCode(borderCountry)}</Link>
                   </li>
                 ))}
               </ul>

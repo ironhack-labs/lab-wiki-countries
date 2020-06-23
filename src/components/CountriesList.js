@@ -9,7 +9,7 @@ export default class CountriesList extends Component {
                 {countries.map((country, index) => (
                     <Link
                     to={`/countries/${country.cca3}`}
-                    className="list-group-item list-group-item-action"
+                    className="list-group-item-action"
                     key={country.cca3}
                     >
                     <img

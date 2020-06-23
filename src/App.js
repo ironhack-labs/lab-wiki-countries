@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-      <div className = 'container class'>
+      <div className = 'container'>
         <div className = 'row text-left'>
           <div class="col-5 overflow">
             <CountriesList/>
