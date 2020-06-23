@@ -1,24 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CountryDetail from './components/CountryDetail'
+import CountriesList from './components/CountriesList'
+import Navbar from './components/Navbar'
+import {Route} from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <div className = 'container class'>
+        <div className = 'row text-left'>
+          <div class="col-5 overflow">
+            <CountriesList/>
+          </div>
+          <div className = "col-7">
+            <Route exact path="/countries/:id" component = {CountryDetail} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
