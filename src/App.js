@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// For images countries[i].tld[0] gives the externson for flag but have to remove '.'
+import React, { Component } from 'react';
+import countries from './countries.json'
+import CountriesList from "./components/CountriesList"
+import CountryDetail from "./components/CountryDetail"
+import 'bootstrap/dist/css/bootstrap.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+console.log(countries[9])
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <nav className="navbar navbar-dark bg-primary mb-3">
+          <div className="container">
+            <a className="navbar-brand" href="/">WikiCountries</a>
+          </div>
+        </nav>
+        <CountriesList/>
+      </div>
+    );
+  }
 }
 
 export default App;
