@@ -1,24 +1,23 @@
-import React from 'react'
+import React from 'react';
 import countries from '../data/countries';
-import {Link, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 
-export default function CountryDetail() {
+export default function CountryDetail(props) {
 
-//   let country = countries.find((country) => country.cca2 == props.match.params.cca2);
+  let country = countries.find((country) => country.cca2 === props.match.params.id)
 
         return (
-            <div class="col-7">
-            <h1>{this.props.name}</h1>
-            <table class="table">
-              <thead></thead>
+            <div>
+            <h2>{country.name.common}</h2>
+            <table>
               <tbody>
                 <tr>
                   <td style={{ width: "30%"}}>Capital</td>
-                  <td>{this.props.capital}</td>
+                  <td>{country.capital}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
-                  <td>{this.props.area} km
+                  <td>{country.area} km
                     <sup>2</sup>
                   </td>
                 </tr>
@@ -27,9 +26,9 @@ export default function CountryDetail() {
                   <td>
                     <ul>
                       {
-                        countries.borders.map(country =>
+                        country.borders.map(border =>
                             <li>
-                                <Link to={`/countries/detail/${country.cca2}`}>{country.name.official}  </Link>    
+                                <Link to={`/countries/detail/${border}`}>{border}</Link>    
                             </li>
                         )
                         }

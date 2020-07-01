@@ -1,28 +1,18 @@
 import React from 'react';
 import './App.css';
+import { Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
-import CountryDetail from './components/CountryDetail';
 
 function App() {
   return (
     <div className="App">
-
-<div id="root">
-    <div>
-      <nav class="navbar navbar-dark bg-primary mb-3">
-        <div class="container">
-          <a class="navbar-brand" href="/">WikiCountries</a>
+      <div id="root">
+        <Navbar />
+        <div className="container">
+          <Route path="/" component={CountriesList}/>
         </div>
-      </nav>
-      <div class="container">
-        <div class="row">
-      <CountriesList />
-      <CountryDetail />
       </div>
-      </div>
-    </div>
-  </div>
-  
     </div>
   );
 }

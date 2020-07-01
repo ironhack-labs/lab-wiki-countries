@@ -1,0 +1,12 @@
+.CountryDetail {
+    position: fixed;
+    z-index: 0;
+    top: 50px;
+    right: 15%;
+    padding: 25px;
+    min-width: 25%;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+}
