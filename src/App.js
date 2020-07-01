@@ -4,15 +4,15 @@ import countries from './countries.json'
 import CountriesList from "./components/CountriesList"
 import CountryDetail from "./components/CountryDetail"
 import 'bootstrap/dist/css/bootstrap.css';
+import { Switch, Route, Link } from 'react-router-dom'
 
-console.log(countries[9])
 class App extends Component {
   render() {
     return (
       <div>
         <nav className="navbar navbar-dark bg-primary mb-3">
           <div className="container">
-            <a className="navbar-brand" href="/">WikiCountries</a>
+            <Link className="navbar-brand" to="/">WikiCountries</Link>
           </div>
         </nav>
         <CountriesList/>
