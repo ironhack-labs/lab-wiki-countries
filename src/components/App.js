@@ -12,8 +12,6 @@ class App extends Component {
     super()
     this.state = {
       countries,
-      selectedCountry: {},
-      selectedCountryBorders: {}
     }
   }
   changeSelectedCountry = newCountryCode => {
