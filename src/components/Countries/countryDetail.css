@@ -1,0 +1,5 @@
+.listaCountries {
+    overflow: scroll;
+    max-height: 90vh;
+    margin-top: 30px;
+}
