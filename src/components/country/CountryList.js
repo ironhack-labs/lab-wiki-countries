@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import ReactCountryFlag from "react-country-flag"
+import { Link } from 'react-router-dom'
 
 import countries from './../../countries.json'
 import './CountryList.css'
+import './CountryDetails'
 
 
 class CountryList extends Component {
@@ -21,10 +23,11 @@ class CountryList extends Component {
                 <section className="col-md-5">
                     <article className="list">
                         <div className="list-group">
-                            {this.state.countries.map((elm, idx) => <span key={idx}>
-                                <a href="/" className="list-group-item list-group-item-action">
+                            {this.state.countries.map((elm, idx) =>
+                                <div className="list-group-item list-group-item-action">
+                                <Link to={elm.name} key={idx}>
                                     <ReactCountryFlag countryCode={elm.cca2} /> &nbsp;
-                                 {elm.name.common}</a></span>)}
+                                 {elm.name.common}</Link></div>)}
                         </div>
                     </article>
                 </section>

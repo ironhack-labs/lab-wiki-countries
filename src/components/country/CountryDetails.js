@@ -1,15 +1,15 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-// const CountryDetails = props => {
-//     const id = props.match.params.id
-//     return (
-//         <>
-//             <script>
-//                 alert("gika")
-//             </script>
-//         </>
-//     )
-// }
+const CountryDetails = props => {
+    const id = props.match.params.id
+    return (
+        <>
+            <script>
+                alert("gika")
+            </script>
+        </>
+    )
+}
 
-// export default CountryDetails
+export default CountryDetails
