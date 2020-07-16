@@ -23,7 +23,7 @@ class CountriesList extends Component {
             <>
                 <div className="col-sm-5">
                     {this.state.countries.map((elm, idx) => <NavLink key={idx} to={`/detail/${elm.cca3}`} className="list-group-item list-group-item-action">
-                        <img alt={elm.name} style={{ width: "25px" }} src={`https://www.countryflags.io/${elm.cca2}/flat/64.png`} />
+                        <img alt={elm.name} style={{ width: "20px" }} src={`https://www.countryflags.io/${elm.cca2}/flat/64.png`} />
                         <small>{elm.cca3} </small>
                         {elm.name.common}
 
