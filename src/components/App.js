@@ -3,7 +3,6 @@ import './App.css';
 import CountriesList from './CountriesList';
 import { Switch, Route} from "react-router-dom";
 import CountryDetail from './CountryDetail';
-import Home from './Home';
 
 function App() {
   return (
@@ -16,11 +15,7 @@ function App() {
             <Switch>
               <Route
                 exact
-                path="/"
-                render={() => {
-                  return <Home name="Rita" />;
-                }}
-              />
+                path="/"/>
 
               <Route exact path="/:code" component={CountryDetail} />
             </Switch>

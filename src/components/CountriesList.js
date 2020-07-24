@@ -2,7 +2,7 @@ import React from "react";
 import countries from "../countries.json";
 import { NavLink } from "react-router-dom";
 
-const CountryList=() =>{
+const CountriesList=() =>{
     return (
       <div className="list-group">
         {countries.map((country, index) => {
@@ -20,4 +20,4 @@ const CountryList=() =>{
     );
 }
 
-export default CountryList;
+export default CountriesList;
