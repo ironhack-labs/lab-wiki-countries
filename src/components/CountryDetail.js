@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class CountryDetail extends Component {
@@ -32,11 +33,37 @@ class CountryDetail extends Component {
   }
 
   render() {
+    const countryData = this.state.country;
+    let countryBorders = '';
+    if (countryData.borders) {
+      countryBorders = countryData.borders.map((border) => (
+        <li key={border}>
+          <Link to={`/${border}`}>{border}</Link>
+        </li>
+      ));
+    }
+
     return (
       <div className="p-2">
-        <h1>Detail</h1>
-        <h2 key={this.state.country.name}>{this.state.country.name}</h2>
-        <div></div>
+        <h1>{countryData.name}</h1>
+        <table className="table">
+          <tbody>
+            <tr>
+              <th style={{ width: '400px' }}>Capital</th>
+              <td>{countryData.capital}</td>
+            </tr>
+            <tr>
+              <th>Area</th>
+              <td>{countryData.area}</td>
+            </tr>
+            <tr>
+              <th>Borders</th>
+              <td>
+                <ul>{countryBorders}</ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     );
   }
