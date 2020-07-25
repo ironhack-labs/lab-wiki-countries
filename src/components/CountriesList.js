@@ -7,7 +7,6 @@ export class CountriesList extends Component {
     super(props);
     this.state = {
       countries: [],
-      countryCode: '',
     };
   }
 
@@ -18,17 +17,11 @@ export class CountriesList extends Component {
     });
   }
 
-  mostrarPais(codigoDelPais) {
-    console.log(codigoDelPais);
-    this.setState({ ...this.state, countryCode: codigoDelPais });
-  }
-
   render() {
     const listado = this.state.countries.map((pais) => (
       <a
         key={pais.alpha3Code}
         className="list-group-item list-group-item-action"
-        onClick={() => this.mostrarPais(pais.alpha3Code)}
         href={`/${pais.alpha3Code}`}
       >
         <img

@@ -11,7 +11,9 @@ export class CountryDetail extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://restcountries.eu/rest/v2/alpha/${this.props.countryCode}`)
+      .get(
+        `https://restcountries.eu/rest/v2/alpha/${this.props.match.params.countrycode}`
+      )
       .then((response) => {
         this.setState({ countryData: response.data });
       });
@@ -19,8 +21,6 @@ export class CountryDetail extends Component {
 
   render() {
     let country = this.state.countryData;
-    console.log('country borders: ', country.borders);
-    console.log('country: ', country);
     let countryBorders = '';
     if (country.borders) {
       countryBorders = country.borders.map((border) => (
@@ -30,45 +30,48 @@ export class CountryDetail extends Component {
       ));
     }
 
-    if(this.state.countryData.name) {
-        return (
-            <div key={country.alpha3Code}>
-              <h1> <img
-          src={country.flag}
-          alt="flag"
-          style={{
-            width: '40px',
-            'margin-right': '10px',
-          }}
-        ></img> {country.name}</h1>
-              <table className="table">
-                <thead></thead>
-                <tbody>
-                  <tr>
-                    <td style={{ width: '30%' }}>Country capital</td>
-                    <td>{country.capital}</td>
-                  </tr>
-                  <tr>
-                    <td>Area</td>
-                    <td>
-                      {country.area} km
-                      <sup>2</sup>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Borders</td>
-                    <td>
-                      <ul>{countryBorders}</ul>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          );
+    if (this.state.countryData.name) {
+      return (
+        <div key={country.alpha3Code}>
+          <h1>
+            {' '}
+            <img
+              src={country.flag}
+              alt="flag"
+              style={{
+                width: '40px',
+                'margin-right': '10px',
+              }}
+            ></img>{' '}
+            {country.name}
+          </h1>
+          <table className="table">
+            <thead></thead>
+            <tbody>
+              <tr>
+                <td style={{ width: '30%' }}>Country capital</td>
+                <td>{country.capital}</td>
+              </tr>
+              <tr>
+                <td>Area</td>
+                <td>
+                  {country.area} km
+                  <sup>2</sup>
+                </td>
+              </tr>
+              <tr>
+                <td>Borders</td>
+                <td>
+                  <ul>{countryBorders}</ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      );
     }
 
-    return(<div></div>)
-    
+    return <div></div>;
   }
 }
 

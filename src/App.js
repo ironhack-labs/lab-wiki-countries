@@ -3,21 +3,36 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './components/Home';
+import CountriesList from './components/CountriesList';
+import CountryDetail from './components/CountryDetail';
 
 function App() {
   return (
     <BrowserRouter>
       <div>
         <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
+        <div className="container">
+          <div className="row">
+            <div
+              className="col-5"
+              style={{ 'max-height': '90vh', overflow: 'scroll' }}
+            >
+              <CountriesList />
+            </div>
+            <div className="col-7">
+              <Switch>
+                <Route exact path="/">
+                  <p>Selecciona un país</p>
+                </Route>
 
-          <Route
-            path="/:countrycode"
-            render={(props) => <Home {...props} />}
-          />
-        </Switch>
+                <Route
+                  path="/:countrycode"
+                  render={(props) => <CountryDetail {...props} />}
+                />
+              </Switch>
+            </div>
+          </div>
+        </div>
       </div>
     </BrowserRouter>
   );
