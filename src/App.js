@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <Countries />
       <Switch>
-        <Route exact path="/country/:countryCode" component={CountryDetails} />
+        <Route path="/country/:countryCode" component={CountryDetails} />
       </Switch>
     </div>
   );
