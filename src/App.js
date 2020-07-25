@@ -1,26 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import axios from 'axios'
+import NavBar from './components/NavBar'
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails'
+import Home from './components/Home'
+import { Switch, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+        countries: []
+    }
 }
 
-export default App;
+  componentDidMount() {
+      axios.get("https://restcountries.eu/rest/v2/all")
+          .then(({data}) => this.setState({countries: data}))
+          .catch(err => console.error("An error has occurred when obtaining the list of countries", err))
+  }
+
+
+  render() {
+    return (
+      <div className="">
+        <NavBar />
+        <main className="row">
+          <CountriesList data={this.state.countries}/>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/details/:id" render={(props) => <CountryDetails data={this.state.countries} {...props}/>} />
+          </Switch>
+        </main>
+      </div>
+    );
+  }
+}
+
+
+
+// function App() {
+//   return (
+//     <div className="">
+//       <NavBar />
+//       <main className="row">
+//         <CountriesList />
+//         <Switch>
+//           <Route exact path="/" component={Home} />
+//           <Route path="/:id" render={(props) => <CountryDetails />} />
+//         </Switch>
+//       </main>
+//     </div>
+//   );
+// }
+
+// export default App;
