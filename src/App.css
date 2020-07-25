@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.flag {
+  width: 15%;
+}
+
+.list {
+  width: 500px;
+  padding-left: 20px;
+}
+
+.details {
+  text-align: right;
+  padding-right: 300px;
+}
