@@ -10,35 +10,27 @@ export class CountryDetail extends Component {
       borders: [],
     };
   }
-  componentDidMount() {
-    console.log(this.props);
-    axios.get('https://restcountries.eu/rest/v2/').then((response) => {
-      this.setState({ countries: response.data });
-      axios
-        .get(
-          'https://restcountries.eu/rest/v2/alpha/' +
-            this.props.match.params.country
-        )
-        .then((response) => {
-          this.setState({ country: response.data });
-          const borders = this.state.country.borders.map((b) => {
-            console.log(b);
-            const border = this.state.countries.find((c) => c.alpha3Code === b);
-            console.log(b);
-            if (border) {
-              return (
-                <li key={border.alpha3Code}>
-                  <a href={'/' + border.alpha3Code}>{border.name}</a>
-                </li>
-              );
-            }
-          });
-          this.setState({ borders: borders });
-        });
+  componentDidMount = async () => {
+    const responseL = await axios.get('https://restcountries.eu/rest/v2/');
+    this.setState({ countries: responseL.data });
+    const responseC = await axios.get(
+      'https://restcountries.eu/rest/v2/alpha/' +
+        this.props.match.params.country
+    );
+    this.setState({ country: responseC.data });
+    const borders = this.state.country.borders.map((b) => {
+      const border = this.state.countries.find((c) => c.alpha3Code === b);
+      if (border) {
+        return (
+          <li key={border.alpha3Code}>
+            <a href={'/' + border.alpha3Code}>{border.name}</a>
+          </li>
+        );
+      }
     });
-  }
+    this.setState({ borders: borders });
+  };
   render() {
-    console.log(this.state);
     return (
       <div className="col-7">
         <h1>{this.state.country.name}</h1>

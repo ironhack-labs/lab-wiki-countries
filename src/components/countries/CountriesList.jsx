@@ -8,13 +8,11 @@ export class CountriesList extends Component {
       countries: [],
     };
   }
-  componentDidMount = () => {
-    axios.get('https://restcountries.eu/rest/v2/').then((response) => {
-      this.setState({ countries: response.data });
-    });
+  componentDidMount = async () => {
+    const returnData = await axios.get('https://restcountries.eu/rest/v2/');
+    this.setState({ countries: returnData.data });
   };
 
-  showCountry = (cc3Code) => {};
   render() {
     const listCountries = this.state.countries.map((c) => (
       <a
