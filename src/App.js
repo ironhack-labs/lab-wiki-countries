@@ -5,32 +5,33 @@ import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails'
 import Home from './components/Home'
 import { Switch, Route } from 'react-router-dom';
+import './App.css'
 
 
 export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-        countries: []
-    }
-}
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//         countries: []
+//     }
+// }
 
-  componentDidMount() {
-      axios.get("https://restcountries.eu/rest/v2/all")
-          .then(({data}) => this.setState({countries: data}))
-          .catch(err => console.error("An error has occurred when obtaining the list of countries", err))
-  }
+//   componentDidMount() {
+//       axios.get("https://restcountries.eu/rest/v2/all")
+//           .then(({data}) => this.setState({countries: data}))
+//           .catch(err => console.error("An error has occurred when obtaining the list of countries", err))
+//   }
 
 
   render() {
     return (
-      <div className="">
+      <div>
         <NavBar />
         <main className="row">
-          <CountriesList data={this.state.countries}/>
+          <CountriesList />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/details/:id" render={(props) => <CountryDetails data={this.state.countries} {...props}/>} />
+            <Route path="/details/:id" render={(props) => <CountryDetails  {...props}/>} />
           </Switch>
         </main>
       </div>
