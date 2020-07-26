@@ -12,28 +12,14 @@ export default class CountryDetails extends Component {
                 area: 0,
                 borders:[]
             },
-            code: this.props.match.params.id
+            code: ''
         }
     }
 
-    componentDidMount() {
-            axios.get(`https://restcountries.eu/rest/v2/alpha/${this.props.match.params.id}`)
+    getData() {
+        axios.get(`https://restcountries.eu/rest/v2/alpha/${this.props.match.params.id}`)
             .then(({data}) => this.setState({
                 ...this.state,
-                country: {
-                    name: data.name,
-                    capital: data.capital,
-                    area: data.area,
-                    borders: data.borders
-                }
-            }))
-    }
-
-    componentDidUpdate() {
-        const isUpdate = this.state.code !== this.props.match.params.id
-        if (isUpdate) {
-            axios.get(`https://restcountries.eu/rest/v2/alpha/${this.props.match.params.id}`)
-            .then(({data}) => this.setState({
                 country: {
                     name: data.name,
                     capital: data.capital,
@@ -42,6 +28,17 @@ export default class CountryDetails extends Component {
                 },
                 code: this.props.match.params.id
             }))
+    }
+
+    componentDidMount() {
+        this.getData()
+    }
+            
+
+    componentDidUpdate() {
+        const isUpdate = this.state.code !== this.props.match.params.id
+        if (isUpdate) {
+            this.getData()
         }
     }
 
@@ -49,29 +46,29 @@ export default class CountryDetails extends Component {
 
         const {name, capital, area, borders} = this.state.country
 
+        const links = borders.map(border => (
+            <li key={border} className="list-group-item">
+                <Link to={`/details/${border}`}
+                >
+                {border}
+                </Link>
+            </li>
+            ))
+
         const renderDetails = (
             <div key={this.state.code}>
                 <h2>{name}</h2>
                 <p><strong>Capital</strong> {capital}</p>
                 <p><strong>Area</strong> {area}</p>
                 <div>
-                    <p>Borders</p>
+                    <p><strong>Borders</strong></p>
                     <ul className="list-group">
-                        {borders.map(
-                            border => 
-                                <Link 
-                                    to={`/details/${border}`}
-                                    key={border}
-                                >
-                                {border}
-                                </Link>
-                        )}
+                        {links}
                     </ul>
                 </div>
             </div>
         )
-        console.log(this.state.country)
-        console.log(this.state.code)
+
         return (
             <div className="col text-center" key={this.state.code} >
                 <h1>Country Details</h1>
