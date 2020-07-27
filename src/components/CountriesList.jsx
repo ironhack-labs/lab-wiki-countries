@@ -19,7 +19,7 @@ export class CountriesList extends Component {
     render() {
         const countryList = this.state.countries.map(country => 
                 <li className='list-group-item' key={country.alpha3Code}>
-                    <Link to={'/' + country.name}>
+                    <Link to={'/' + country.alpha3Code}>
                         <span>
                             <img src={country.flag} alt="country flag"/>
                         </span>
