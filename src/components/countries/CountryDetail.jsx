@@ -14,8 +14,7 @@ export class CountryDetail extends Component {
     const responseL = await axios.get('https://restcountries.eu/rest/v2/');
     this.setState({ countries: responseL.data });
     const responseC = await axios.get(
-      'https://restcountries.eu/rest/v2/alpha/' +
-        this.props.match.params.country
+      `https://restcountries.eu/rest/v2/alpha/${this.props.match.params.country}`
     );
     this.setState({ country: responseC.data });
     const borders = this.state.country.borders.map((b) => {

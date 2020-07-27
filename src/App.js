@@ -5,7 +5,7 @@ import NavBar from './components/navbar/NavBar';
 import CountriesList from './components/countries/CountriesList';
 import CountryDetail from './components/countries/CountryDetail';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
