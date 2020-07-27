@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# other
+src/components/projects/Projects__class.js.backup
+src/components/projects/ProjectsDetail__class.js.backup
