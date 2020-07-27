@@ -13,7 +13,7 @@ const CountriesList = props => {
     })
 
     return (
-        <div style={{height:"500px"}}>
+        <div style={{height:"100vh",overflowY:"scroll"}}>
             <h1>Listado de paises</h1>
             {listCountries}
         </div>
