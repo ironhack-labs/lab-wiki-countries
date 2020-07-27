@@ -35,13 +35,13 @@ const App = () => {
   return (
     <div className="App text-center">
       <NavBar />
-{/* 
+
       <Switch>
         <Route exact path="/" component={Projects} />
         <Route exact path="/project/:id" component={ProjectDetail} />
-      </Switch> */}
+      </Switch>
 
-      <div className="row">
+      {/* <div className="row">
         <CountriesList data={state.countries} />
         <div className="ml-5">
           <Switch>
@@ -49,7 +49,7 @@ const App = () => {
             <Route exact path="/country/:id" render={props => <CountryDetail data={state.countries} {...props} /> } />
           </Switch>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
