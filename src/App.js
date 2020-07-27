@@ -1,24 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom'
+import NavBar from './components/NavBar'
+import Home from './components/countries/Home'
+import CountryDetail from './components/countries/CountryDetail'
+import CountriesList from './components/countries/CountriesList';
+import Projects from './components/projects/Projects';
+import ProjectDetail from './components/projects/ProjectDetail';
+import axios from 'axios'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
-function App() {
+
+const App = () => {
+
+  const initialState = {
+    countries: []
+  }
+
+  const [state, setState] = useState(initialState)
+
+  useEffect(() => {
+    const getCountries = async () => {
+      try {
+          const response = await axios.get("https://restcountries.eu/rest/v2")
+          setState(state => ({
+              countries: response.data
+          }))
+      } catch(err) {
+          console.log("AXIOS ERROR : ", err);
+      }
+    }
+    getCountries()
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+
+      {/* <Switch>
+        <Route exact path="/" component={Projects} />
+        <Route exact path="/project/:id" component={ProjectDetail} />
+      </Switch> */}
+
+      <div className="row">
+        <CountriesList data={state.countries} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/country/:id" render={props => <CountryDetail data={state.countries} {...props} /> } />
+        </Switch>
+      </div>
     </div>
   );
 }
