@@ -14,7 +14,7 @@ const ProjectDetail = props => {
 
     const [state, setState] = useState(initialState)
 
-    useEffect(refreshProject => {
+    useEffect(() => {
         const fetchProject = async () => {
             try {
                 const response = await axios.get(`http://localhost:3001/api/projects/${props.match.params.id}`)

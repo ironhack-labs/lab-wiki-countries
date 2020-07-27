@@ -7,7 +7,6 @@ import CountriesList from './components/countries/CountriesList';
 import Projects from './components/projects/Projects';
 import ProjectDetail from './components/projects/ProjectDetail';
 import axios from 'axios'
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -34,21 +33,21 @@ const App = () => {
   }, [])
 
   return (
-    <div className="App">
+    <div className="App text-center">
       <NavBar />
 
-      {/* <Switch>
+      <Switch>
         <Route exact path="/" component={Projects} />
         <Route exact path="/project/:id" component={ProjectDetail} />
-      </Switch> */}
+      </Switch>
 
-      <div className="row">
+      {/* <div className="row">
         <CountriesList data={state.countries} />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/country/:id" render={props => <CountryDetail data={state.countries} {...props} /> } />
         </Switch>
-      </div>
+      </div> */}
     </div>
   );
 }
