@@ -4,6 +4,8 @@ import CountryDetail from './CountryDetail'
 import { Link } from 'react-router-dom';
 
 
+
+
 export default class CountriesList extends Component {
     constructor(props) {
         super(props)
@@ -23,43 +25,45 @@ export default class CountriesList extends Component {
                     countries: response.data
                 })
             })
+        this.showDetails = this.showDetails.bind(this)
     }
 
     showDetails(codigoDelPais) {
         console.log(codigoDelPais)
-        this.setState({
-            ...this.state,
-            countryCode: codigoDelPais
-        })
+        this.setState(
+            {
+                countryCode: codigoDelPais
+            }
+        )
     }
 
 
     render() {
 
         const allCountries = this.state.countries.map((pais, i) => (
-            <Link to={`/${pais.alpha3Code}`} key={i} style={{ textDecoration: 'none', color: 'black' }} onClick={() => this.showDetails(pais.alpha3Code)}>{pais.name} <img style={{width: 20}} src={pais.flag} alt={pais.name}/></Link>
+            <Link to={`/${pais.alpha3Code}`} key={i} style={{ textDecoration: 'none', color: 'black', margin: 10, }} onClick={() => this.showDetails(pais.alpha3Code)}>{pais.name} <img style={{ width: 20 }} src={pais.flag} alt={pais.name} /></Link>
         ))
 
-        // let details = ''
-        // if (this.state.countryCode !== '') {
-        //     details = <CountryDetail key={this.state.countryCode} countryCode={this.state.countryCode} />
-        // }
+        let details = ''
+        if (this.state.countryCode !== '') {
+            details = <CountryDetail key={this.state.countryCode} showDetails={this.showDetails} countryCode={this.state.countryCode} />
+        }
         return (
 
             <div>
-                <nav className="navbar navbar-dark bg-primary mb-3">
+                <nav className="navbar fixed-top navbar-dark bg-primary mb-3">
                     <div className="container">
                         <a className="navbar-brand" href="/">WikiCountries</a>
                     </div>
                 </nav>
-                <div className="container">
+                <div className="container mainContainer" >
                     <div className="row">
-                        <div className="col-5" >
-                            <div className="list-group">
-                                {allCountries}
+                            <div className="col-5">
+                                <div className="list-group" >
+                                    {allCountries}
+                                </div>
                             </div>
-                        </div>
-<CountryDetail/>
+                        {details}
                     </div>
                 </div>
             </div>
