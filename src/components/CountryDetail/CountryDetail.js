@@ -16,17 +16,6 @@ const CountryDetail = (props) => {
                                 return (<li key={index}><Link to={route}>{border.name.official}</Link></li>)
                             })
 
-    const bordersDataHTML = (bordersDataArr.length !== 0)
-                            ? (<tr>
-                                <td>Borders</td>
-                                <td>
-                                <ul>
-                                {bordersDataArr}
-                                </ul>
-                                </td>
-                            </tr>)
-                            : '';
-
     return (
         <div>
             <h1>{theCountry.name.official}</h1>
@@ -43,7 +32,18 @@ const CountryDetail = (props) => {
                     <sup>2</sup>
                   </td>
                 </tr>
-                {bordersDataHTML}
+                {
+                    (bordersDataArr.length !== 0)
+                        ? (<tr>
+                            <td>Borders</td>
+                            <td>
+                            <ul>
+                                {bordersDataArr}
+                            </ul>
+                            </td>
+                        </tr>)
+                        : ''
+                }
               </tbody>
             </table>
         </div>
