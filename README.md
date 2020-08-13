@@ -82,29 +82,114 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 ## Instructions
 
-### Iteration 1 | Create components
+### Iteration 1.1 | Create components
 
-In this iteration, we will focus on general layout. Before you start, inside `src` folder, create `components` folder. There you will create at least 2 components:
+In this iteration, we will focus on general layout. Before you start, inside `src` folder, create `components` folder. There you will create at least 3 components:
 
-- `CountriesList`: For the general layout
-- `CountryDetail`: This is the component that will receive the country code (`cca3`) in the URL. This is actually the id of the country (example: `/ESP` for Spain, `/FRA` for France).
+- `Navbar`: Displaying the basic navbar with the LAB name
 
-To help you, we gave you an example of a page inside `example.html`.
+- `CountriesList`: Displays the list of links with the country names. Each link should be a  `react-router-dom`  `Link` which we will use to <u>send</u> the country code (`cca3`) via the URL.
+
+- `CountryDetails`: Is the component that we will render via the `react-router-dom`'s `Route` and will be <u>receiving</u> the country code (`cca3`) via the URL. 
+
+  This is actually the id of the country (example: `/ESP` for Spain, `/FRA` for France).
+
+
+
+To help you with the structure of the components, we gave you an example of a page inside `example.html`.
 
 If you want to style it, refresh your memory on Bootstrap in the [docs](https://getbootstrap.com/docs/4.0) or check out how we approached to styling in the `example.html`.
 
-For Windows users, there is no emoji for the `flag`. Instead, you can rely on these links:
+
+
+
+
+
+
+### Iteration 1.2 | Navbar component
+
+The simplest way to define a component in React is to write a JavaScript function aka function component. Navbar should be displaying the title of the LAB - WikiCountries.
+
+
+
+
+
+### Iteration 1.3 | CountriesList component
+
+This component should render a list of links that are used to trigger the browser URL change via the `react-router-dom`  `Link`. Click on a `Link` component will then activate the corresponding  `Route`  showing the country details component.
+
+
+
+
+
+### Iteration 1.4 | CountryDetails component and `Route` setup
+
+Now when our list of countries is ready, we should create the `CountryDetails` component that will be displaying the details of a particular country of a link that we clicked. This component should be dynamicaly displayed/rendered by the `react-router-dom` `Route`.  
+
+In this case, you should use only 1 `<Route />` for `CountryDetails` component.
+
+Components rendered by the `Route`  receive special `props` (`match`, `location` and `history`) passed by the `react-router-dom`. We can use this props to obtain the information comming from the browsers URL bar, for example `cca3` code of the country. For an reminder on how to create a dynamic `Route` that displays a component feel free check [this example](https://reactrouter.com/web/api/Route/route-props).
+
+
+
+**NOTE: **For Windows users, there is no emoji for the `flag`. Instead, you can rely on these links:
 
 - France: https://www.countryflags.io/fr/flat/64.png
 - Germany: https://www.countryflags.io/de/flat/64.png
 - Etc.
 
-### Iteration 2 | Create the entire application
 
-Everything is in the title. Good luck :smile:
 
-In this case, you should use only 1 `<Route />` for `CountryDetail`.
 
-Your `App` component should **always** show the list of countries.
+
+### Iteration 2 | Linking it all together
+
+Once done creating the components the structure of elements that your `App.js` will render should look somewhat like this:
+
+```jsx
+      <div className="App">
+        <Navbar/>
+
+        <div className="container">
+          <div className="row">
+            
+            <CountriesList countries={countries} />
+            {/* React Router Route rendering the CountryDetails should go here */}
+            </div>
+          </div>
+      </div>
+```
+
+
+
+
+
+
+
+### Iteration 3 | Set the state when the component mounts
+
+Our `App.js` application should have it's own state holding one property `countries` holding the data coming from the `countries.json` file. 
+
+The state should be set only once the component is rendered to the DOM, using the lifecycle method `componentDidMount()` .
+
+
+
+
+
+
+
+
+
+### Bonus | Fetch the data from an API
+
+Instead of relying on the static data coming from a `json` file, let's do something more interesting and get our the data from an actual API.
+
+Let's make a `GET` request to the URL https://countries.tech-savvy.tech/countries and use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request.
+
+The request should happen first thing when the application loads, therefore think about when and from where we should make the request to the API.
+
+
+
+
 
 Happy coding! :heart:
