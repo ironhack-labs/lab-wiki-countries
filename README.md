@@ -132,7 +132,7 @@ Components rendered by the `Route`  receive special `props` (`match`, `location`
 
 
 
-**NOTE: **For Windows users, there is no emoji for the `flag`. Instead, you can rely on these links:
+**NOTE:** For Windows users, there is no emoji for the `flag`. Instead, you can rely on these links:
 
 - France: https://www.countryflags.io/fr/flat/64.png
 - Germany: https://www.countryflags.io/de/flat/64.png
