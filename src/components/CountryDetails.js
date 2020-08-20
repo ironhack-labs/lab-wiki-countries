@@ -19,8 +19,6 @@ import {Link} from "react-router-dom"
         })
        
 
-       let matchingCountryName = matchingCountry
-
         return (
             <div>
               <h1>{matchingCountry.name.common}</h1>
