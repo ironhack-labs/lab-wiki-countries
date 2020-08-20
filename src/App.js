@@ -1,26 +1,45 @@
-import React from 'react';
+import React,{Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import countries from './countries.json';
+import NavBar from './components/NavBar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+
+import {Route, Switch} from 'react-router-dom';
+import axios from 'axios';
+
+class App extends Component {
+
+  state = {
+    countriesList: countries
+  }
+
+  componentDidMount(){
+    axios.get('https://countries.tech-savvy.tech/countries')
+      .then((res)=>{
+        this.setState({
+          countriesList: res.data
+        })
+      })
+  }
+  render(){
+    return (
+      <div>
+        <NavBar/>
+        <div style={{display:'flex', justifyContent: 'space-around'}}>
+          <CountriesList countriesList = {this.state.countriesList}/>
+        <Switch>
+          <Route path='/country/:cca3' render= {(routerProps)=>{
+              return <CountryDetails countriesList = {this.state.countriesList} {...routerProps}/>
+          }}/>
+        </Switch>
+        </div>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
