@@ -33,6 +33,9 @@
   justify-content: left;
   width: 150px;
 }
+.flag{
+  width: 20px;
+}
 
 .switch{
   display: flex;
