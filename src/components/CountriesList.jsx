@@ -1,25 +1,48 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
+export default class CountryList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      countries: [],
+    };
+  }
 
-function CountriesList(props) {
+  componentDidMount() {
+    axios
+      .get('https://restcountries.eu/rest/v2')
+      .then((response) => {
+        console.log(response.data);
+        this.setState({ countries: response.data });
+      })
+      .catch((error) => console.log(error));
+  }
 
-    const list = props.countries.map(c => (
-        <div key={c.alpha3Code}>
-            <button
-                className='btn btn-outline-info'
-                onClick={props.showCountry.bind(null, c)}
-            >
-                {c.name}
-            </button>
-        </div>
-    ))
-    return (
+  render() {
+    const countriesList = this.state.countries.map((pais) => {
+      return (
         <div>
-            {list}
+          <Link to={'/' + pais.alpha3Code} className="btn btn-primary">
+            {pais.alpha3Code}
+          </Link>
+          <p>{pais.name}</p>
+          <img style={{ width: '30px' }} src={pais.flag} alt="flag"></img>
+          <hr></hr>
         </div>
-    )
+      );
+    });
+    return (
+      <div
+        style={{
+          width: 440,
+          float: 'left',
+        }}
+        class="col"
+      >
+        {countriesList}
+      </div>
+    );
+  }
 }
-
-export default CountriesList
