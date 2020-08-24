@@ -1,24 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import axios from 'axios'
+
+import { Switch, Route, Link } from 'react-router-dom'
 
 function App() {
+  const [countries, setCountries] = useState({
+    countries: [],
+    chosenCountry: ''
+  })
+  console.log('countrues initial state: ', countries)
+  function componentDidMount() {
+    axios.get('https://restcountries.eu/rest/v2')
+      .then(response => {
+        setCountries({ countries: response.data })
+      })
+  }
+
+
+  function showCountry(country) {
+    console.log('country', country)
+    setCountries({ ...countries, chosenCountry: country })
+    console.log('chosen country: ', countries.chosenCountry)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CountriesList
+        countries={countries.countries}
+        showCountry={showCountry}
+      />
+      <Switch>
+        <Route >
+          <CountryDetails />
+        </Route>
+
+      </Switch>
+
     </div>
   );
 }
