@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+header{
+  background-color: rgb(81, 147, 223);
+  color: white;
+  height: 50px; 
+  text-align: left;
+}
+header p{
+padding: 10px;
+}
+.mainPage{
+  display:flex;
+  flex-direction: row;
+}
+.countryList{
+  width: 40%;
+}
+.countryList ul{
+  list-style-type: none;
+  text-align: left;
+}
+.countryDetails{
+  width:60%
+}
+.borders{
+margin-right:60px;
+list-style: none;
+}
