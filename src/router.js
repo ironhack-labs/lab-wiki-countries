@@ -1,11 +1,11 @@
 import React from 'react'
-import { Router, Route, Switch, Link } from "react-router-dom"
-// import Navbar from './components/Navbar'
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"
+import Navbar from './components/Navbar'
 
 const router = () => {
     return (
         <Router>
-            {/* <Navbar /> */}
+            <Navbar />
         </Router>
     )
 }

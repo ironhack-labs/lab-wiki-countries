@@ -5,13 +5,9 @@ import Router from './router';
 import * as serviceWorker from './serviceWorker';
 import { } from "antd"
 
-import { BrowserRouter } from 'react-router-dom';
-
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <Router />
   </React.StrictMode>,
   document.getElementById('root')
 );
