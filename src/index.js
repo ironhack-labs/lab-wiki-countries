@@ -6,9 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { } from "antd"
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router />
-  </React.StrictMode>,
+  <Router />,
   document.getElementById('root')
 );
 
