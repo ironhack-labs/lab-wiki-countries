@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { List, Divider } from 'antd'
+import { List } from 'antd'
 
 const CountriesList = ({ countries }) => {
     return (
