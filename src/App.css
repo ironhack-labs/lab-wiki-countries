@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+
+.card{
+  width: 300px;
+  margin-left: 10px;
+  text-align:left;
+}
+
+nav {
+  background-color: rgb(54, 157, 241);
+  position: fixed;
+  top:0; 
+  width: 100%;
+  z-index: 10;
+  text-align: left;
+}
+
+nav>a{
+  color:white;
+}
+
+.main{
+  margin-top: 80px;
+  width: 50%;
+}
+
+.container{
+  display: flex;
+}
+
+.detail{
+  width: 50%;
+  margin-top: 80px;
+  text-align: left;
+}
+
+ul{
+  width: 300px;
+  margin-left: 100px;
+  margin-top: -100px;
+}
+
+.pais:hover{
+  border-bottom: 1px solid #333;
+  width: 35px;
+}
+
