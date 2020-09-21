@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import countries from "../countries"
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const Details = styled.div`
 position: fixed;
@@ -38,8 +39,8 @@ function CountryDetails(props) {
             <hr/>
             <p>Borders </p> 
             <ul>
-                {pais.borders.map( (el,index) => 
-                <li key={index}>{el}</li>)}
+                {pais.borders.map( (country,index) => 
+                <Link to={`/${country.cca3}`}><li key={index}>{country}</li></Link>)}
             </ul>      
         </Details>
     )
