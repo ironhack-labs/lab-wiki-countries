@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import Router from './Router'
+
+import 'antd/dist/antd.css';
+
+import { BrowserRouter } from 'react-router-dom';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Router />
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
