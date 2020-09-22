@@ -1,5 +1,5 @@
 import React from 'react';
-import countriesList from './components/CountriesList';
+import CountriesList from './components/CountriesList';
 import CountryDetail from './components/CountryDetail';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         </nav>
         <div class="container">
           <div class="row">
-            <countriesList></countriesList>
+            <CountriesList></CountriesList>
             <CountryDetail></CountryDetail>
           </div>
         </div>

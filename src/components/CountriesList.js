@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function countriesList() {
+function CountriesList() {
   return (
     <div class="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
       <div class="list-group">
         <Link to="/ABW" className="ist-group-item list-group-item-action">
           <span role="img" aria-label="Aruba">
-            🇦🇼
+            🇦🇼{' '}
           </span>
           Aruba
         </Link>
@@ -58,4 +58,4 @@ function countriesList() {
   );
 }
 
-export default countriesList;
+export default CountriesList;
