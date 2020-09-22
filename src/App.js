@@ -14,10 +14,7 @@ function App() {
           </div>
         </nav>
         <div class="container">
-          <div class="row">
-            <CountriesList></CountriesList>
-            <CountryDetail></CountryDetail>
-          </div>
+          <div class="row"></div>
         </div>
       </div>
     </div>
