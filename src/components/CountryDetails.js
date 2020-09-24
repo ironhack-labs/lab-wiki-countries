@@ -1,24 +1,29 @@
 import React from 'react'
 import countries from "../countries.json";
+import {Link} from "react-router-dom";
+
 export default function CountryDetails(props) {
-    console.log("props: ",props)
     // console.log("country id: ",props.match.params.id)
     const countryDetails = countries.find(country => {
         return country.cca3 === props.match.params.id;
     })
+    const borders = countryDetails.borders.map((border) => {
+        return (<li><Link to={`/${border}`}>{border}</Link></li>)
+    })
+    console.log("countryDetails.border: ",countryDetails.borders)
     return (
-<div class="col-7">
+<div className="col-7">
     <h1>{countryDetails.name.official}</h1>
-          <table class="table">
+          <table className="table">
             <thead></thead>
             <tbody>
               <tr>
-                <td style={{width: "30%;"}}>Capital</td>
-                <td>Paris</td>
+                <td style={{width: "30%"}}>Capital</td>
+                <td>{countryDetails.capital}</td>
               </tr>
               <tr>
                 <td>Area</td>
-                <td>551695 km
+                <td>{countryDetails.area} km
                   <sup>2</sup>
                 </td>
               </tr>
@@ -26,8 +31,8 @@ export default function CountryDetails(props) {
                 <td>Borders</td>
                 <td>
                   <ul>
-                    {/* <li><a href="/AND">Andorra</a></li>
-                    <li><a href="/BEL">Belgium</a></li>
+                    {borders}
+                    {/* <li><a href="/BEL">Belgium</a></li>
                     <li><a href="/DEU">Germany</a></li>
                     <li><a href="/ITA">Italy</a></li>
                     <li><a href="/LUX">Luxembourg</a></li>
