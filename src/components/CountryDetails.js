@@ -7,9 +7,9 @@ export default function CountryDetails(props) {
     const countryDetails = countries.find(country => {
         return country.cca3 === props.match.params.id;
     })
-    const borders = countryDetails.borders.map((border) => {
+    const borders = countryDetails.borders.length > 0 ? countryDetails.borders.map((border) => {
         return (<li><Link to={`/${border}`}>{border}</Link></li>)
-    })
+    }) : <p>none</p>
     console.log("countryDetails.border: ",countryDetails.borders)
     return (
 <div className="col-7">
