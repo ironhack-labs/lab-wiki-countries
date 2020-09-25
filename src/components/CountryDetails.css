@@ -1,0 +1,11 @@
+.countryDetails {
+    display: flex;
+    flex-direction: column;
+    height: 60vh
+}
+
+.countryDetails row {
+    height: 30%;
+    width: 100%;
+    margin: 50px
+}
