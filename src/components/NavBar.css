@@ -1,0 +1,8 @@
+.NavBar {
+    color: white;
+    background-color: rgb(14,144,244);
+    padding: 10px 0 10px 200px;
+    text-align: left;
+    margin-bottom: 40px;
+    font-size: 32px;
+}

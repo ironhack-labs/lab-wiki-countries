@@ -1,0 +1,19 @@
+.CountryDetails {
+    margin-left: 40px;
+    width: 380px;
+}
+
+
+.splitted {
+    display: flex;
+    justify-content: space-between;
+}
+
+.decoration {
+    list-style:'- ';
+    text-align: left;
+}
+
+.borderLi {
+    text-decoration: none;
+}
