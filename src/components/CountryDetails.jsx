@@ -29,7 +29,7 @@ export default function CountryDetails(props) {
             <td>Borders</td>
             <td>
               <ul>
-                {countryDetail.borders.length !== 0?countryDetail.borders.map((countryBorders) => {
+                {!countryDetail.borders.length ?countryDetail.borders.map((countryBorders) => {
                   const bordersName = countries.find((country) => {
                     return countryBorders === country.cca3;
                   });
