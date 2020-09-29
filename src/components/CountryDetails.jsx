@@ -6,52 +6,76 @@ import './CountryDetails.css';
 const CountryDetails = (props) => {
     const country = countries.find(country => country.cca3 === props.match.params.id)
     return (
-        <ul class="list-group list-group-flush CountryDetails">
-            <li class="list-group-item">
-                <h3>{country.name.common}</h3>
-            </li>
-            <li class="list-group-item">
-                <div className="splitted">
-                    <div>
-                        Capital:
-                    </div>
-                    <div>
-                        {country.capital[0]}
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div className="splitted">
-                    <div>
-                        Area:
-                </div>
-                    <div>
-                        {country.area} km<sup>2</sup>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div className="splitted">
-                    <div>
-                        Borders:
-                </div>
-                    <div>
-                        <ul>
-                            {country.borders.map(border => {
+        <div class="col-7">
+            <h1>{country.name.common}</h1>
+            <table class="table">
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <td>Capital</td>
+                        <td>{country.capital[0]}</td>
+                    </tr>
+                    <tr>
+                        <td>Area</td>
+                        <td>{country.area} km
+                  <sup>2</sup>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Borders</td>
+                        <td>
+                            <ul>
+                                {country.borders.map(border => {
+                                    const borderLink = countries.find(country => country.cca3 === border)
+                                    return (
+                                        <li key={border}>
+                                            <Link to={`/country/${borderLink.cca3}`}>
+                                                {borderLink.name.common}
+                                            </Link>
+                                        </li>)
+                                })}
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    );
+}
+
+/* <div class="col-7">
+          <h1>{country.name.common}</h1>
+          <table class="table">
+            <thead></thead>
+            <tbody>
+              <tr>
+                <td style="width: 30%;">Capital</td>
+                <td>{country.capital[0]}</td>
+              </tr>
+              <tr>
+                <td>Area</td>
+                <td>{country.name.common} km
+                  <sup>2</sup>
+                </td>
+              </tr>
+              <tr>
+                <td>Borders</td>
+                <td>
+                  <ul>
+                    {country.borders.map(border => {
                                 const borderLink =  countries.find(country => country.cca3 === border)
                                 return (
-                                    <li className="decoration" key={border}>
-                                        <Link to={`/country/${borderLink.cca3}`} className="list-group-item list-group-item-action borderLi">
+                                    <li key={border}>
+                                        <Link to={`/country/${borderLink.cca3}`}>
                                             {borderLink.name.common}
                                         </Link>
                                     </li>)
                             })}
-                        </ul>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    );
-}
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div> */
 
 export default CountryDetails;

@@ -8,12 +8,3 @@
     display: flex;
     justify-content: space-between;
 }
-
-.decoration {
-    list-style:'- ';
-    text-align: left;
-}
-
-.borderLi {
-    text-decoration: none;
-}
