@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
+import CountryDetails from './components/CountryDetails';
+import CountriesList from './components/CountriesList';
+import Navbar from './components/Navbar';
+
+import countries from './countries.json';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    countries: []
+  }
+
+  componentDidMount = () => {
+    this.setState({ countries })
+  }
+
+  render() {
+
+    return (
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="row">
+            <div className="col-4">
+              <ul className="list-group mt-4 ml-5 text-left">
+                <CountriesList data={ countries }/>
+              </ul>
+            </div>
+            <div className="col-7">
+              <Switch>
+                <Route path="/country/:code" component={ CountryDetails }></Route>
+              </Switch>
+            </div>
+          </div>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
