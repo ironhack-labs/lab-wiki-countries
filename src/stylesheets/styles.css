@@ -64,6 +64,7 @@ h6 {
 
 .banner .banner-brand {
   position: relative;
+  text-decoration: none;
 }
 
 .banner .banner-brand h1 {
@@ -107,6 +108,7 @@ figure {
   height: 60vh;
   overflow: scroll;
   padding: 1rem 0;
+  z-index: 1;
 }
 
 .app-block .countries-list .country-list-row {
@@ -132,6 +134,9 @@ figure {
 
 .app-block .countries-detail {
   padding: 3rem;
+  z-index: 0;
+  pointer-events: none;
+  margin-bottom: 10rem;
 }
 
 .app-block .countries-detail h1 {

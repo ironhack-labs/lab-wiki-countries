@@ -3,9 +3,9 @@ import {NavLink} from 'react-router-dom'
 
 const Banner = () => {
     return <div className="container banner">
-        <NavLink className="banner-brand" to="/">
+        <div className="banner-brand">
             <h1>WikiCountries</h1>
-        </NavLink>
+        </div>
     </div>
 }
 
