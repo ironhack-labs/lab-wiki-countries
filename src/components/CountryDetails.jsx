@@ -8,13 +8,11 @@ export default function CountryDetails(props) {
     (country) => country.cca3 === props.match.params.ecc3
   );
 
-  console.log(props.match.params)
 
   return (
-    <div className="col-7">
+    <div className="col-5">
       <h1>{countryDetail.name.common}</h1>
       <table className="table">
-        <thead></thead>
         <tbody>
           <tr>
             <td style={{ width: '30%' }}>Capital</td>
@@ -23,7 +21,7 @@ export default function CountryDetails(props) {
           <tr>
             <td>Area</td>
             <td>
-              {countryDetail.area}
+              {countryDetail.area} km
               <sup>2</sup>
             </td>
           </tr>
@@ -31,7 +29,7 @@ export default function CountryDetails(props) {
             <td>Borders</td>
             <td>
               <ul>
-                {countryDetail.borders.map((countryBorders) => {
+                {countryDetail.borders.length !== 0?countryDetail.borders.map((countryBorders) => {
                   const bordersName = countries.find((country) => {
                     return countryBorders === country.cca3;
                   });
@@ -42,7 +40,7 @@ export default function CountryDetails(props) {
                       </Link>
                     </li>
                   );
-                })}
+                }):<li>With no country</li>}
               </ul>
             </td>
           </tr>

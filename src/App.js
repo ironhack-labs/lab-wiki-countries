@@ -9,14 +9,20 @@ import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
-      <CountriesList countries={countries} />
-      <Switch>
-        <Route exact path="/:ecc3" component={CountryDetails} />
-      </Switch>
-
+      <div className='container'>
+        <div className='row'>
+          <CountriesList countries={countries} />
+          <Switch>
+            <Route exact path="/:ecc3" component={CountryDetails} />
+          </Switch>
+        </div>
+      </div>
     </div>
+
+
+
   );
 }
 
