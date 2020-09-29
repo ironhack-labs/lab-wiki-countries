@@ -1,0 +1,8 @@
+.details {
+    text-align: left;
+}
+
+.props-flex {
+    display: flex;
+    flex-direction: row;
+}
