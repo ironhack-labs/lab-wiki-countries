@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
-import CountryDetails from './components/CountryDetails';
+import CountryData from './components/CountryDetails';
 import { Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <div className="row ">
           <CountriesList />
           <Switch>
-            <Route exact path="/:id/details" component={CountryDetails} />
+            <Route exact path="/:id/details" component={CountryData} />
           </Switch>
         </div>
       </div>
