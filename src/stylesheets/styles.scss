@@ -97,7 +97,8 @@ figure {
   padding: 8rem 0;
 
   .countries-list,
-  .countries-detail {
+  .countries-detail,
+  .search-block {
     border-radius: 4rem;
     box-shadow: 0 0 2rem 0 rgba($text, 0.4);
     //USE SPRING STYLES
@@ -109,8 +110,21 @@ figure {
     ///////////////////
   }
 
+  .search-block {
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    input {
+      border: 0;
+    }
+
+    svg {
+      width: 1rem;
+    }
+  }
+
   .countries-list {
-    height: 60vh;
+    height: 52.5vh;
     overflow: scroll;
     padding: 1rem 0;
     z-index: 1;

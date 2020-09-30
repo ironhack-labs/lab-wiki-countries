@@ -98,14 +98,28 @@ figure {
 }
 
 .app-block .countries-list,
-.app-block .countries-detail {
+.app-block .countries-detail,
+.app-block .search-block {
   border-radius: 4rem;
   -webkit-box-shadow: 0 0 2rem 0 rgba(51, 51, 51, 0.4);
           box-shadow: 0 0 2rem 0 rgba(51, 51, 51, 0.4);
 }
 
+.app-block .search-block {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.app-block .search-block input {
+  border: 0;
+}
+
+.app-block .search-block svg {
+  width: 1rem;
+}
+
 .app-block .countries-list {
-  height: 60vh;
+  height: 52.5vh;
   overflow: scroll;
   padding: 1rem 0;
   z-index: 1;

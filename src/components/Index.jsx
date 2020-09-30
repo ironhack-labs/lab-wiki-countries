@@ -7,7 +7,7 @@ const Index = (props) => {
 
     return (
         <>
-            <div className="col-4 countries-list">
+            <div className="col-4">
                 <CountriesList countries={countries} />
             </div>
             <div className="col-7 countries-detail">
