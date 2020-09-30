@@ -1,0 +1,8 @@
+a {
+    width: 100%;
+}
+
+.scroll {
+    max-height: 90vh;
+    overflow: scroll;
+}

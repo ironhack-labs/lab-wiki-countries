@@ -32,7 +32,16 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+.container {
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+
+}
+
