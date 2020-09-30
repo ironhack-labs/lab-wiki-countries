@@ -13,7 +13,7 @@ function App() {
       <div className="flexDisplayed">
         <CountriesList countries={countries}/>
         <Switch>
-          <Route exact path="/country/:id" component={CountryDetails} />
+          <Route exact path="/country/:cca3" component={CountryDetails} />
         </Switch>
       </div>
     </div>
