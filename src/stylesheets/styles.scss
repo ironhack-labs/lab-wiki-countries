@@ -100,11 +100,13 @@ figure {
   .countries-detail {
     border-radius: 4rem;
     box-shadow: 0 0 2rem 0 rgba($text, 0.4);
+    //USE SPRING STYLES
     // width: 100ch;
     // position: absolute;
     // left: 50%;
     // margin-left: -50ch;
     // will-change: transform, opacity, display;
+    ///////////////////
   }
 
   .countries-list {
@@ -134,16 +136,36 @@ figure {
   .countries-detail {
     padding: 3rem;
     z-index: 0;
-    pointer-events: none;
     margin-bottom: 10rem;
 
     h1 {
       display: flex;
+      font-weight: 800;
+      font-size: 3.2rem;
+      align-items: flex-start;
     }
 
     .row {
       border-bottom: 0.1rem solid $light-gray;
       padding: 2rem;
+    }
+
+    .country-link {
+      display: block;
+      color: $blue;
+
+      svg {
+        width: 1rem;
+        margin-left: 0.5rem;
+        transition: all 200ms ease;
+      }
+
+      &:hover {
+        text-decoration: none;
+        svg {
+          margin-left: 1.5rem;
+        }
+      }
     }
   }
 }

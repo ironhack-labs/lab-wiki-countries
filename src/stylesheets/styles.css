@@ -135,7 +135,6 @@ figure {
 .app-block .countries-detail {
   padding: 3rem;
   z-index: 0;
-  pointer-events: none;
   margin-bottom: 10rem;
 }
 
@@ -143,11 +142,36 @@ figure {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-weight: 800;
+  font-size: 3.2rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .app-block .countries-detail .row {
   border-bottom: 0.1rem solid #ddd;
   padding: 2rem;
+}
+
+.app-block .countries-detail .country-link {
+  display: block;
+  color: #113f75;
+}
+
+.app-block .countries-detail .country-link svg {
+  width: 1rem;
+  margin-left: 0.5rem;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.app-block .countries-detail .country-link:hover {
+  text-decoration: none;
+}
+
+.app-block .countries-detail .country-link:hover svg {
+  margin-left: 1.5rem;
 }
 
 footer {
