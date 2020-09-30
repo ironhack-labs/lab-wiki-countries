@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import countries from '../../countries.json'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 
 class CountriesDetails extends Component {
@@ -8,17 +9,24 @@ class CountriesDetails extends Component {
     constructor() {
         super()
         this.state = {
-            countries: countries,
-
+            countries: countries
         }
     }
 
-
-    searchCountry = (code) => {
-        const newArray = countries.filter(elm => elm.cca3 == code)
-        return newArray
+    componentDidMount() {
+        axios.get('https://countries.tech-savvy.tech/countries')
+            .then((res) => {
+                console.log("---------------------", res)
+                this.setState({
+                    countries: res.data
+                })
+            })
     }
 
+    searchCountry = (code) => {
+        const newArray = this.state.countries.filter(elm => elm.cca3 == code)
+        return newArray
+    }
 
 
     render() {
@@ -30,11 +38,9 @@ class CountriesDetails extends Component {
 
         return (
             <>
-
-
                 <div className="col-7">
                     <h1>{country[0].name.common}</h1>
-                    <table class="table">
+                    <table className="table">
                         <thead></thead>
                         <tbody>
                             <tr>

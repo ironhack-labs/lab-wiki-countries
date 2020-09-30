@@ -13,10 +13,10 @@ function App() {
       <div>
         <Navbar />
         <div className="countriesStyle">
-        <CountriesList />
-        <Switch>
-          <Route path="/:code" render={props => <CountriesDetails {...props} />} />
-        </Switch>
+          <CountriesList />
+          <Switch>
+            <Route path="/:code" render={props => <CountriesDetails {...props} />} />
+          </Switch>
         </div>
       </div >
     </>
