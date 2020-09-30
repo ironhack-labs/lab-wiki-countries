@@ -1,0 +1,10 @@
+.countriesUl {
+    list-style: none;
+    font-size: 1.5em;
+    line-height: 70px;
+}
+
+.countriesUl li {
+    border: 1px solid;
+    padding: 15px;
+}
