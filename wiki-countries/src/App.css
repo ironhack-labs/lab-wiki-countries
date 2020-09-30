@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+}
+
+.list-group {
+  max-height: 90vh; 
+  overflow-y: scroll
+}
