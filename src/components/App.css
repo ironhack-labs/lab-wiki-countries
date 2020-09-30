@@ -1,0 +1,24 @@
+
+.root{
+    display:flex
+}
+
+.container{
+    margin:0px;
+    
+}
+
+.list-group{
+overflow: scroll;
+height: 100vh;
+}
+
+.countriesStyle{
+    display:flex;
+    
+}
+
+.col-5{
+    flex:1;
+    max-width:100%;
+}
