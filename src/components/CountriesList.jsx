@@ -8,10 +8,10 @@ const CountriesList = (props) => {
     <section className="CountriesList">
       {countries.map((country) => {
         return (
-          <Link className="text-dark" to="/details/{country.name.common}">
+          <Link className="text-dark" to={"/details/"+country.cca3}>
             <article className="card p-2 my-2 flex-row">
               <span className="pr-3">{country.flag}</span>
-              {country.name.common}
+              <span>{country.name.common}</span>
             </article>
           </Link>
         );
