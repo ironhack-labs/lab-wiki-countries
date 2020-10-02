@@ -1,10 +1,16 @@
 a {
     text-decoration: none !important;
 }
+
 .CountriesList {
-    width: 20vw;
+    width: 23vw;
+    min-width: 18vw;
     height: 80vh;
     overflow: scroll;
+}
+
+.CountriesList article {
+    width: 83%
 }
 
 .CountriesList article:hover {

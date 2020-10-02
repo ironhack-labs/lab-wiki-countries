@@ -1,0 +1,18 @@
+.CountryDetails {
+    width: 77vw;
+    padding-left: 4rem;
+}
+
+.CountryDetails__info {
+    display: flex;
+    align-items: baseline;
+    border-top: 1px solid lightgrey;
+    padding: 10px 0;
+    height: fit-content;
+}
+
+.CountryDetails__info h3 {
+    font-size: 19px;
+    font-weight: 800;
+    margin-right: 70px;
+}

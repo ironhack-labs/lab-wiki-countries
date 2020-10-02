@@ -10,17 +10,13 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div className="d-flex">
-        <main className="container mt-4">
+      <main className="d-flex justify-content-around container mt-4">
           <CountriesList />
-        </main>
 
-        <section>
           <Switch>
             <Route exact path="/details/:id" component={CountryDetails} />
           </Switch>
-        </section>
-      </div>
+      </main>
     </div>
   );
 }
