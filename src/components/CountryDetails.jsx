@@ -1,5 +1,6 @@
 import React from 'react'
 import countries from '../countries.json'
+import { Link } from 'react-router-dom'
 
 
 export default function CountryDetails(props) {
@@ -21,12 +22,12 @@ export default function CountryDetails(props) {
             <thead></thead>
             <tbody>
               <tr>
-                <td style={{}}>Capital</td>
-                <td>Paris</td>
+                <td style={{width: '30%'}}>Capital</td>
+                <td>{country.capital}</td>
               </tr>
               <tr>
                 <td>Area</td>
-                <td>551695 km
+                <td>{country.area} km
                   <sup>2</sup>
                 </td>
               </tr>
@@ -34,14 +35,17 @@ export default function CountryDetails(props) {
                 <td>Borders</td>
                 <td>
                   <ul>
-                    <li><a href="/AND">Andorra</a></li>
-                    <li><a href="/BEL">Belgium</a></li>
-                    <li><a href="/DEU">Germany</a></li>
-                    <li><a href="/ITA">Italy</a></li>
-                    <li><a href="/LUX">Luxembourg</a></li>
-                    <li><a href="/MCO">Monaco</a></li>
-                    <li><a href="/ESP">Spain</a></li>
-                    <li><a href="/CHE">Switzerland</a></li>
+                    {country.borders.map((borderCountry, index) => {
+                      return (
+                        <li key={index}>
+                          <Link 
+                          to={`/${borderCountry}`}
+                          >
+                          {borderCountry}
+                          </Link>
+                        </li>
+                      )
+                    })}
                   </ul>
                 </td>
               </tr>
