@@ -1,5 +1,5 @@
 import React from 'react'
-import {Redirect, Route, Switch} from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import Index from './components/Index'
 import Banner from './components/Banner'
 
@@ -21,3 +21,4 @@ function App() {
 }
 
 export default App
+

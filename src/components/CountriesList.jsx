@@ -8,6 +8,7 @@ const ContactList = (props) => {
 
     const handleChange = (e) => {
         setSearch(e.target.value)
+        console.log(e.target.value)
     }
 
     const filteredCountries = countriesData.filter(country => {
@@ -21,7 +22,7 @@ const ContactList = (props) => {
             <div className="row">
                 <div className="col-12 search-block">
                     <div className="input-group input-group-lg">
-                        <input type="text" className="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Search by Country" onChange={(e) => handleChange(e)} value={search} />
+                        <input type="text" className="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Search by Country" onChange={handleChange} value={search} />
                     </div>
                 </div>
                 <div className="col-12 countries-list">

@@ -1,8 +1,9 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import countries from '../countries.json'
 
 const CountryDetails = (props) => {
-    const getCountry = props.countries.filter(country => country.cca3 === props.country)
+    const getCountry = countries.filter(country => country.cca3 === props.country)
 
     const getValues = (obj) => {
         return Object.values(obj).map(val => 
@@ -13,7 +14,7 @@ const CountryDetails = (props) => {
     const getBorders = (arr) => {
         const bordersArr = []
         arr.forEach(el => {
-            bordersArr.push(props.countries.filter(country => country.cca3 === el))
+            bordersArr.push(countries.filter(country => country.cca3 === el))
         })
 
         if (!bordersArr.length) {
@@ -28,7 +29,6 @@ const CountryDetails = (props) => {
 
     return (
         <>
-            
             <h1><figure>{getCountry[0].flag}</figure>{getCountry[0].name.common}</h1>
             <div className="row">
                 <div className="col-6"><strong>Official name</strong></div>
