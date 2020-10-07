@@ -13,7 +13,6 @@ class App extends React.Component {
     fetch(`https://countries.tech-savvy.tech/countries`)
     .then(response => response.json())
     .then(async data => {
-      // console.log(data);
       await this.setState(() => ({ countries: data }));
     });    
   }
@@ -26,9 +25,6 @@ class App extends React.Component {
             <div className="row">
               <CountriesList countries={this.state.countries} />  
               <Switch>
-                {/* <Route 
-                  exact path="/:cca3" 
-                  component={CountryDetails}/> */}
                 <Route 
                   exact 
                   path="/:cca3" 
