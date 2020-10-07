@@ -1,15 +1,12 @@
 import React from 'react'
-import countries from '../countries.json'
 import { Link } from 'react-router-dom';
 
-
-export default function CountriesList() {
+export default function CountriesList({ countries }) {
     return (
-        <div class="list-style">
+        <div className="list-style">
             {countries.map(country => {
-                return <li><Link to={country.cca3} activeClassName="selected" >{country.name.common} {country.flag}</Link></li>
+                return <li key={country.name.common}><Link to={`/countries/${country.cca3}`}  >{country.name.common} {country.flag}</Link></li>
             })}
-
         </div>
     )
 }
