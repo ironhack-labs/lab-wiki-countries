@@ -12,35 +12,28 @@ class App extends React.Component {
   componentDidMount = () => {
     fetch(`https://countries.tech-savvy.tech/countries`)
     .then(response => response.json())
-    .then(data => {
+    .then(async data => {
       // console.log(data);
-      this.setState(() => ({ countries: data }));
+      await this.setState(() => ({ countries: data }));
     });    
   }
 
   render() {
-
-    const countryDetailComp = () => {
-      return (
-        <CountryDetails countries={this.state.countries} />
-      )
-    }
-
     return (
-      <div className="App">
-  
-          <Navbar/>
-  
+      <div className="App">  
+          <Navbar/>  
           <div className="container">
-            <div className="row">     
-  
-              <CountriesList countries={this.state.countries} />
-  
+            <div className="row">
+              <CountriesList countries={this.state.countries} />  
               <Switch>
-                <Route exact path="/:cca3" component={CountryDetails}/>
-                {/* <Route exact path="/:cca3" render={countryDetailComp}/> */}
-              </Switch>
-              
+                {/* <Route 
+                  exact path="/:cca3" 
+                  component={CountryDetails}/> */}
+                <Route 
+                  exact 
+                  path="/:cca3" 
+                  render={(props) => <CountryDetails countryCode={props.match.params.cca3} countries={this.state.countries}/>}/>
+              </Switch>              
             </div>
           </div>
       </div>
