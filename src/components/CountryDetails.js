@@ -1,14 +1,13 @@
 import React from 'react'
-import countries from '../countries.json'
-import { Link } from 'react-router-dom';
+// import countries from '../countries.json'
 
 const CountryDetails = (props) => {
   // The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
-  const country = countries.find((country) => country.cca3 === props.match.params.cca3);
+  const country = props.countries.find((country) => country.cca3 === props.match.params.cca3);
 
-  console.log(props.match)
-  console.log(props.match.params)
-  console.log(props.match.params.cca3)
+  // console.log(props.match)
+  // console.log(props.match.params)
+  // console.log(props.match.params.cca3)
 
   if (!country) {
     return null;
@@ -36,9 +35,7 @@ const CountryDetails = (props) => {
               <ul>
                 {country.borders.map((border) => (
                   <li>
-                    <Link to={`/${border}`}>
-                      {countries.find((country) => country.cca3 === border).name.common}
-                    </Link>
+                      {props.countries.find((country) => country.cca3 === border).name.common}
                   </li>
                 ))}
               </ul>
