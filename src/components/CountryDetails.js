@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import countries from '/Users/andreialvarez/Desktop/Ironhack-Andrei/Module-3/lab-wiki-countries/src/countries.json';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export class CountryDetails extends Component {
   constructor() {
     super();
     this.state = {
-      countries: countries,
+      countries: []
     };
   }
 
   componentDidMount() {
-    this.setState({
-      countries: countries,
-    });
-  }
+    axios.get("https://countries.tech-savvy.tech/countries")
+    .then(response => {
+        this.setState({countries: response.data})
+    })
+}
 
   searchCountry = (code) => {
-    const newArray = countries.filter((elem) => elem.cca3 === code);
+    const newArray = this.state.countries.filter((elem) => elem.cca3 === code);
     return newArray;
   };
 

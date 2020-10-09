@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
-import countries from '/Users/andreialvarez/Desktop/Ironhack-Andrei/Module-3/lab-wiki-countries/src/countries.json';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export class CountriesList extends Component {
   constructor() {
     super();
     this.state = {
-      countries: countries,
+      countries: []
     };
   } 
+
+  componentDidMount() {
+    axios.get("https://countries.tech-savvy.tech/countries")
+    .then(response => {
+        this.setState({countries: response.data})
+    })
+}
+
 
   render() {
     return (
@@ -16,7 +24,7 @@ export class CountriesList extends Component {
         <div className="row">
           <div className="col-5">
             <div className="list-group">
-              {countries.map((country) => (
+              {this.state.countries.map((country) => (
                 <Link
                   key={country.cca3}
                   to={'/' + country.cca3}
