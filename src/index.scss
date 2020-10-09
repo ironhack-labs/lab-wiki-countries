@@ -1,0 +1,47 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/scss/font-awesome';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Raleway', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #343a40;
+  ::selection {
+    background: red;
+    color: #f8faff;
+  }
+}
+
+h1 {
+  font-family: 'Roboto Mono', serif;
+  text-align: center;
+  margin: 2rem auto;
+  font-weight: 700;
+}
+
+.table {
+  td,
+  th {
+    text-align: left;
+    vertical-align: middle;
+  }
+}
+.mw-25 {
+  max-width: 25px;
+}
+.list-group {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  height: 90vh;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+.country-details {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #eaeaea;
+}
