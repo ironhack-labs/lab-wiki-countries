@@ -1,0 +1,30 @@
+.info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	justify-items: center;
+	width: 60%;
+}
+
+.borders-country {
+	text-align: initial;
+}
+
+.title {
+	font-size: 36px;
+	font-weight: 700;
+}
+
+.info-country {
+	font-size: 22px;
+	display: grid;
+	grid-template-columns: 1fr 2fr;;
+	grid-column-gap: 50px;
+	text-align: left;
+	border-top: 1px solid grey;
+}
+
+.info-country > div {
+	margin: 15px;
+}

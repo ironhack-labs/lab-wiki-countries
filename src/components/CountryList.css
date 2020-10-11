@@ -1,0 +1,24 @@
+.list {
+	height: 80vh;
+	overflow-y: scroll;
+	width: 30vw;
+}
+
+.country {
+	border: 1px solid grey;
+	color: black;
+	text-align: initial;
+	display: flex;
+	flex-direction: row;
+	min-height: 30px;
+	padding-top: 10px;
+}
+
+.country > p {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.container {
+	margin-top: 30px;
+}
