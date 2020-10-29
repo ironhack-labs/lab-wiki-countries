@@ -1,0 +1,7 @@
+.countryDetail__container{
+    border-bottom:1px solid grey ;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-left: 30px;
+}

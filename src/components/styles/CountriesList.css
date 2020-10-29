@@ -1,0 +1,4 @@
+.countriesList__container{
+    max-height: 100vh;
+    overflow: scroll;
+}
