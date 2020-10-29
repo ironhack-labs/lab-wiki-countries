@@ -102,23 +102,3 @@ function CountryDetails(props) {
 }
 
 export default CountryDetails;
-
-{
-  /* <div>
-<h1>{country.name}</h1>
-<p>Capital: {country.capital}</p>
-<p>Area: {country.area} km²</p>
-<div>
-  Borders:
-  <ul>
-    {country.borders.map((neighbour) => {
-      return (
-        <Link to={`/${neighbour.cca3}`}>
-          <p>{neighbour.name}</p>
-        </Link>
-      );
-    })}
-  </ul>
-</div>
-</div> */
-}
