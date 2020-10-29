@@ -1,24 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import {Route} from 'react-router-dom'
 
-function App() {
+import axios from 'axios'
+
+import 'bootstrap/dist/css/bootstrap.css';
+
+import NavBar from './components/navbar/NavBar'
+import CountryDetails from './components/countrydetails/CountryDetails'
+import CountriesList from './components/countrieslist/CountriesList'
+
+//import countriesFile from './countries.json'
+
+const App = () => {
+
+  const [countriesInfo, setCountriesInfo] = useState([])
+
+  useEffect(() => {
+    axios.get('https://countries.tech-savvy.tech/countries')
+      .then((response) => {
+          setCountriesInfo(response.data)
+      })
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <NavBar />
+
+      <div style={{display: 'flex'}}>
+
+        <div style={{maxHeight: '400px', overflow: 'auto'}}>
+          <CountriesList countries={countriesInfo}/>
+        </div>
+
+        <div>
+          <Route path="/:countryCCA3" component={CountryDetails}/>
+        </div>
+
+      </div>
+
     </div>
   );
 }
