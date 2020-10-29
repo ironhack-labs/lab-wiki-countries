@@ -44,6 +44,9 @@ export default class CountryDetails extends Component {
     return (
       <div>
         <p>{this.state.country.name}</p>
+        <p>{this.state.country.capital}</p>
+        <p>{this.state.country.area}</p>
+        <p>{this.state.country.borders}</p>
       </div>
     );
   }
