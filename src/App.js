@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import countries from './countries.json';
+import Navbar from './components/Navbar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
 
-export default App;
+export default class App extends Component {
+  state = {
+    countries: countries,
+  };
+
+  componentDidMount() {
+    console.log('Component did mount.');
+  }
+
+  render() {
+    return (
+      <div>
+        <div>
+          <h1 className="headline" >
+            <Navbar />
+          </h1>
+        </div>
+        <div className="body">
+          <div>
+            {countries.map((country) => {
+              return <CountriesList country={country} />;
+            })}
+          </div>
+          <div>
+            <Route path="/:cca3" component={CountryDetails} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
