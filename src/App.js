@@ -1,25 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
+import React , {useEffect, useState} from 'react';
 import './App.css';
+import countries from './countries.json'
+import 'bootstrap/dist/css/bootstrap.css'
+import Navbar from './components/Navbar'
+import CountriesList from './components/CountriesList'
+import CountryDetails from './components/CountryDetails'
+import 'bulma/css/bulma.css'
+import {Route} from 'react-router-dom'
+import axios from 'axios'
+
+
 
 function App() {
+
+// const [countries, setCountries] = useState([])
+  
+// let state = {
+//   countries: countries,
+// }
+
+// const componentDidMount=()=>{
+//   setState(state.countries)
+// }
+
+
+// useEffect(()=>{
+
+//     axios.get('https://countries.tech-savvy.tech/countries')
+//       .then((response)=>{
+        
+//           setCountries(response.data.results)
+//       })
+// }, [])
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <Navbar/>
+        <div className="columns">
+          <div className="column" style={{overflow:"scroll", maxHeight:"90vh",}}>
+              <CountriesList countries = {countries}/>
+          </div>
+          <div className="column">
+            <Route path="/:countryId" component={CountryDetails} />
+          </div>
+
+        </div>
+      </div>
+   
   );
 }
 
