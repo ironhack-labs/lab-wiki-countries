@@ -1,0 +1,5 @@
+.myCountryDetails {
+  height: 80vh;
+  width: 24rem;
+  overflow: auto;
+}
