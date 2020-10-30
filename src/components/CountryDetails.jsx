@@ -1,65 +1,63 @@
 import React from 'react'
-import countriesJson from '../countries.json'
-
-
+import { Link } from 'react-router-dom'
 
 
 export default function CountryDetails(props) {
+
+ 
+    const id = props.match.params.id
+    const countriesArr = props.countries
+
     
-    console.log(props)
+    const countryFoundByIdArr = countriesArr.filter(country => country.cca3 === id)
+    const country = countryFoundByIdArr[0]
+
+    const bordersIdArr = country.borders
+    let borderCountriesFoundById = []
+    bordersIdArr.forEach(borderCountry => borderCountriesFoundById.push(...(countriesArr.filter(country => country.cca3 === borderCountry))))
         
-
-    const getProject = (id) => {
-        const theCountry = oneCountry => {
-            return oneCountry.id === id
-        }
-   
-        return countriesJson.find(theCountry)
-    }
-
-    const { params } = props.match
-   
-
-    const foundCountry = getProject(params.id)
-
-
-
     return (
-    
-        <div className="col-7">
-            <h1></h1>
-            <table className="table">
-                <thead></thead>
-                <tbody>
-                    <tr>
-                    <td >Capital</td>
-                    <td>Paris</td>
-                    </tr>
-                    <tr>
-                    <td>Area</td>
-                    <td>551695 km
-                        <sup>2</sup>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>Borders</td>
-                    <td>
-                        <ul>
-                        {/* <li><a href="/AND">Andorra</a></li>
-                        <li><a href="/BEL">Belgium</a></li>
-                        <li><a href="/DEU">Germany</a></li>
-                        <li><a href="/ITA">Italy</a></li>
-                        <li><a href="/LUX">Luxembourg</a></li>
-                        <li><a href="/MCO">Monaco</a></li>
-                        <li><a href="/ESP">Spain</a></li>
-                        <li><a href="/CHE">Switzerland</a></li> */}
-                        </ul>
-                    </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+
         
+            <div className="col-7">
+                <h1>{country.name.common}</h1>
+                <table className="table">
+                    <thead></thead>
+                    <tbody>
+                        <tr>
+                            <td>Country</td>
+                            <td>{country.capital[0]}</td>
+                        </tr>
+                        <tr>
+                            <td>Area</td>
+                            <td>{country.area} km
+                                <sup>2</sup>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>Borders</td>
+                        <td>
+                            <ul>
+                            {
+                                borderCountriesFoundById.map((country, index) => 
+                                <li key={index}>
+                                <Link 
+                                to={country.cca3} 
+                                key={index}
+                                >
+
+                                {country.flag} &emsp;
+                                {country.name.common}
+                                </Link>
+                                </li>
+                                )
+                            }
+                            </ul>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
     )
 }
 
