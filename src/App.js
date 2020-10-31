@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
-import countriesJson from './countries.json'
+// import countriesJson from './countries.json'
 import axios from 'axios'
 import {  Route } from 'react-router-dom'
 

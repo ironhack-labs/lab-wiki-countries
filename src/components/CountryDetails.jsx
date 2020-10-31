@@ -12,7 +12,7 @@ export default function CountryDetails(props) {
         return 'loading'
     }
     
-    let countriesArr = props.countries
+    const countriesArr = props.countries
     
     const countryFoundByIdArr = countriesArr.filter(country => country.cca3 === id)
     const country = countryFoundByIdArr[0]
