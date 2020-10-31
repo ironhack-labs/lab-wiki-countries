@@ -3,6 +3,9 @@ import {  Link } from 'react-router-dom';
 
 
 export default function CountryDetails(props) {
+  if (props.data.length < 1) {
+    return <h3>Loading...</h3>
+  }
  
   const test = props.data.filter(item => {
     return item.cca3 === props.match.params.id
@@ -20,10 +23,6 @@ export default function CountryDetails(props) {
     })
   })
  // console.log(bordersCountries)
-
-  
-
-
   return (
     <div>
       <div className="col-7">
@@ -59,3 +58,5 @@ export default function CountryDetails(props) {
     </div>
   );
 }
+
+
