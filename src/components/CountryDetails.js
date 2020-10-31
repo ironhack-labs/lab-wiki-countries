@@ -1,35 +1,29 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import CountriesList from './CountriesList';
+import {  Link } from 'react-router-dom';
+
 
 export default function CountryDetails(props) {
  
   const test = props.data.filter(item => {
     return item.cca3 === props.match.params.id
   })
-  console.log(test[0].borders)
-
-/*   const borders = props.data.filter(item => {
-
-    item.borders.map(item2 => {
-      return item2 === item.cca3
-    })
-    console.log(item.borders)
-    console.log(item.cca3)
-    
-  }) */
- // console.log(borders)
-
-  const bordersArr = [...test[0].borders]
+  //console.log(test[0].borders)
+  let bordersArr
+  if (test) {
+    bordersArr = [...test[0].borders]
+  }
+ // const bordersArr = [...test[0].borders]
   const bordersCountries = bordersArr.map(countryCode => {
-    console.log(countryCode)
+   // console.log(countryCode)
     return props.data.find(country => {
       return countryCode === country.cca3
     })
   })
-  console.log(bordersCountries)
+ // console.log(bordersCountries)
 
   
+
+
   return (
     <div>
       <div className="col-7">
@@ -52,30 +46,10 @@ export default function CountryDetails(props) {
               <td>Borders</td>
               <td>
                 <ul>
-                  <li>
-                    <a href="/AND">{}</a>
-                  </li>
-                  <li>
-                    <a href="/BEL">Belgium</a>
-                  </li>
-                  <li>
-                    <a href="/DEU">Germany</a>
-                  </li>
-                  <li>
-                    <a href="/ITA">Italy</a>
-                  </li>
-                  <li>
-                    <a href="/LUX">Luxembourg</a>
-                  </li>
-                  <li>
-                    <a href="/MCO">Monaco</a>
-                  </li>
-                  <li>
-                    <a href="/ESP">Spain</a>
-                  </li>
-                  <li>
-                    <a href="/CHE">Switzerland</a>
-                  </li>
+                {bordersCountries.map(bordersData => {
+                  //console.log(bordersData)
+                  return <li><Link to={bordersData.cca3} key={bordersData.name.official}>{bordersData.name.official}</Link></li>
+                })}
                 </ul>
               </td>
             </tr>
