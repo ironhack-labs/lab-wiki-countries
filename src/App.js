@@ -11,12 +11,16 @@ function App() {
     
   return (
     <div className="App">
-    <Link to='/yo'>Link</Link>
       <Navbar />
+      <div style={{display: "flex"}}>
       <CountriesList data={countries} />
-      <Route path='/yo' component={CountryDetails}/>
+      <Route path='/:id' render={(props) => <CountryDetails {...props} data={countries}/>} /> 
+      </div>
+
+      
     </div>
   );
 }
 
 export default App;
+
