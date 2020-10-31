@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+// import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import CountriesList from './components/CountriesList/CountriesList';
+import countries from './countries.json';
+import {Route} from  'react-router-dom'
+import CountryDetails from './components/CountryDetails/CountryDetails'
+import axios from 'axios'
 
-function App() {
+export default class App extends Component {
+ 
+  state = {
+    countries: []
+  }
+
+  componentDidMount() {
+    axios.get('https://countries.tech-savvy.tech/countries')
+    .then((result) => {
+      console.log(result)
+      this.setState({
+        countries: result.data
+      })
+    })
+  }
+
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="root">
+      <div>
+        <Navbar />
+        <Route path='/' />
+      </div>
+    <div className="container">
+      <div className="row">
+        <CountriesList countries={countries} />
+        <Route path="/:cca3" render= {(props) => <CountryDetails countries={countries} {...props} /> } />
+      </div>
     </div>
-  );
-}
+    </div>
+  )
+  }
 
-export default App;
+}
