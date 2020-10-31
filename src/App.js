@@ -3,10 +3,12 @@ import React, {Component} from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import CountriesList from './components/CountriesList/CountriesList';
-import countries from './countries.json';
-import {Route} from  'react-router-dom'
-import CountryDetails from './components/CountryDetails/CountryDetails'
-import axios from 'axios'
+// import countries from './countries.json';
+import {Route} from  'react-router-dom';
+import CountryDetails from './components/CountryDetails/CountryDetails';
+import axios from 'axios';
+
+const API_URL = 'https://countries.tech-savvy.tech/countries';
 
 export default class App extends Component {
  
@@ -15,30 +17,49 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://countries.tech-savvy.tech/countries')
-    .then((result) => {
-      console.log(result)
+    axios.get(API_URL)
+    .then(response => {
+      // console.log(response)
       this.setState({
-        countries: result.data
+        countries: response.data
       })
     })
   }
 
+  // componentDidMount() {
+  //   fetch(API_URL)
+  //   .then(res => {
+  //     return res.json()
+  //   })
+  //   .then(data => {
+  //     console.log(data)
+  //     this.setState({
+  //       countries: data
+  //     })
+  //   })
+  // }
+
   render() {
-  return (
-    <div id="root">
-      <div>
-        <Navbar />
-        <Route path='/' />
+    // console.log('render')
+
+    if(this.state.countries && this.state.countries.length < 1){
+      return <h1>loading</h1>
+    }
+
+    return (
+      <div id="root">
+        <div>
+          <Navbar />
+          <Route path='/' />
+        </div>
+      <div className="container">
+        <div className="row">
+          <CountriesList countries={this.state.countries} />
+          <Route path="/:cca3" render= {(props) => <CountryDetails countries={this.state.countries} {...props} /> } />
+        </div>
       </div>
-    <div className="container">
-      <div className="row">
-        <CountriesList countries={countries} />
-        <Route path="/:cca3" render= {(props) => <CountryDetails countries={countries} {...props} /> } />
       </div>
-    </div>
-    </div>
-  )
+    )
   }
 
 }
