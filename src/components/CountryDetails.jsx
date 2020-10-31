@@ -6,11 +6,18 @@ export default function CountryDetails(props) {
 
  
     const id = props.match.params.id
-    const countriesArr = props.countries
-
+      
+     
+    if(props.countries.length < 1) {
+        return 'loading'
+    }
+    
+    let countriesArr = props.countries
     
     const countryFoundByIdArr = countriesArr.filter(country => country.cca3 === id)
     const country = countryFoundByIdArr[0]
+
+    console.log(props)
 
     const bordersIdArr = country.borders
     let borderCountriesFoundById = []
