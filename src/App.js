@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react'
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import NavBar from './components/NavBar'
 import CountriesList from './components/CountriesList'
+import Countries from "./countries.json"
+import CountryDetails from './components/CountryDetails'
 
 
-function App() {
-  return (
-    <div className="App">
-      <NavBar />
-      <Route path='/'/>
-      
-      <div className='Main-Container'>
-      <CountriesList  />
-      </div>
-    </div>
-  );
+class App extends Component{
+
+  state = {
+    countries: ''
+  }
+
+  componentDidMount() {
+    this.setState({countries: Countries})
+    console.log('Did Mount!')
+  }
+
+  
+  render(){
+      return (
+        <div className="App">
+          <NavBar />
+          <Route path='/'/>
+            <div className='container'>
+              <CountriesList countries={Countries} />
+              <Route path='/country/:countryId' render={(props) => <CountryDetails {...props} countries={this.state.countries}/>}/>
+              </div>
+        </div>
+      )
+  }
 }
 
 export default App;
