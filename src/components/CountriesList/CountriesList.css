@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box !important;
+}
+
+.list-container {
+  height: calc(100vh - 80px);
+  overflow: hidden;
+  overflow-y: scroll;
+  list-style: none;
+}
