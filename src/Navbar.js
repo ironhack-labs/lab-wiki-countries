@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Navbar(props) {
+export default function Navbar() {
     return (
         <nav className="navbar navbar-dark bg-primary">
             <div className="container" style={{paddingLeft:'30px'}}>

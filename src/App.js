@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './App.css';
-import countries from './countries.json'
 import Navbar from './Navbar';
 import CountriesList from './CountriesList'
 import CountryDetails from './CountryDetails'
@@ -27,7 +26,10 @@ class App extends Component {
         <div className="row">
           <CountriesList countries={this.state.countries} />
           <Switch>
-            <Route exact path='/:id' component={CountryDetails}/>
+            {/* <Route exact path='/:id' component={CountryDetails} countries={this.state.countries} key={['HelloKey :D', 'ByeByeKey :(']} /> */}
+
+            <Route exact path='/:id' render={(props) => (<CountryDetails {...props} countries={this.state.countries} />)}/>
+            {/* <Route exact path='/:id' component={() => <CountryDetails countries={this.state.countries} />}/> */}
           </Switch>
         </div>
       </div>
