@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import axios from 'axios';
+import Navbar from './Components/Navbar';
+import CountriesList from './Components/CountriesList';
+import CountryDetails from './Components/CountryDetails'
 
-function App() {
+  class App extends Component {
+  state = {countries:''}
+  
+  componentDidMount = async () => {
+    const countries = await axios.get("https://countries.tech-savvy.tech/countries")
+    this.setState({countries:countries.data})
+  }
+
+  render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Navbar/>
+    <div className="container">
+      <div className="row">
+        <CountriesList countries={this.state.countries} />
+        {/* React Router Route rendering the CountryDetails should go here */}
+        <Switch>
+        <Route exact path='/countries/:cca3' render={(routerProps)=>this.state.countries&&<CountryDetails {...routerProps} countries={this.state.countries} />}/>
+      </Switch>
+        </div>
+      </div>
+  </div>
   );
 }
-
+  }
 export default App;
