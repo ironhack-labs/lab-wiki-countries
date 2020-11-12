@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import Navbar from './components/Navbar'
 import './App.css';
-
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import countries from './countries.json';
+import { Route, Switch } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <div className="container">
+        <div className="row">
+          <CountriesList countries = {countries}/>
+        </div>
+      </div>
+    <Switch>
+      <Route exact path='/:cca3' component = {CountryDetails} />
+    </Switch>
     </div>
   );
 }
-
 export default App;
