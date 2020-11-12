@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-    const countries = await axios.get('https://countries.tech-savvy.tech/countries ')
+    const countries = await axios.get('https://countries.tech-savvy.tech/countries')
     this.setState({countries})
   }
 

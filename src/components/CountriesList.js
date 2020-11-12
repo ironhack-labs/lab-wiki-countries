@@ -4,11 +4,11 @@ import countries from '../countries.json';
 
 const CountriesList = () => {
     return (
-        <div>
+        <div class="col-5" style={{maxHeight: '90vh', overflow: 'scroll'}}>
             {countries.map((eachCountry, index)=> {
                 return (
                     <div key={eachCountry.cca3}>
-                        <img src={eachCountry.flag} alt='flag'/>
+                        <span role='img' aria-label='emoji'>{eachCountry.flag} </span> 
                        <Link to={`/countries/${eachCountry.cca3}`}>{eachCountry.name.common}</Link> 
                     </div>    
                 )
