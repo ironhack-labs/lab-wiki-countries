@@ -9,7 +9,7 @@ import countries from '../countries.json';
 
 const CountriesList = () => {
   return (
-    <div>
+    <div className="col-5">
       {countries.map((country, index) => {
         return (
           <div className="col-5 countries_list" key={country.cca3}>

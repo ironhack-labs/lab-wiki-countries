@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Countries from './CountriesList';
+import '../App.css';
 
 // Import Data Base
 import countries from '../countries.json';
@@ -18,41 +20,44 @@ const CountryDetails = (props) => {
   const foundCountry = getCountry(params.cca3);
 
   return (
-    <div className="col-7">
-      <h1>{foundCountry.name.common}</h1>
-      <table className="table">
-        <thead></thead>
-        <tbody>
-          <tr>
-            <td>Capital</td>
-            <td>{foundCountry.capital}</td>
-          </tr>
-          <tr>
-            <td>Area</td>
-            <td>
-              {foundCountry.area} km
-              <sup>2</sup>
-            </td>
-          </tr>
-          <tr>
-            <td>Borders</td>
-            <td>
-              <ul>
-                {foundCountry.borders &&
-                  foundCountry.borders.map((cca3, index) => {
-                    return (
-                      <li key={cca3}>
-                        <Link to={`/${cca3}`}>
-                          {getCountry(cca3).name.common}
-                        </Link>
-                      </li>
-                    );
-                  })}
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="container_app_list">
+      <Countries />
+      <div className="col-5">
+        <h1>{foundCountry.name.common}</h1>
+        <table className="table">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td>Capital</td>
+              <td>{foundCountry.capital}</td>
+            </tr>
+            <tr>
+              <td>Area</td>
+              <td>
+                {foundCountry.area} km
+                <sup>2</sup>
+              </td>
+            </tr>
+            <tr>
+              <td>Borders</td>
+              <td>
+                <ul>
+                  {foundCountry.borders &&
+                    foundCountry.borders.map((cca3, index) => {
+                      return (
+                        <li key={cca3}>
+                          <Link to={`/${cca3}`}>
+                            {getCountry(cca3).name.common}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
