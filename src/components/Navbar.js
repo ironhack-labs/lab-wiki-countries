@@ -4,10 +4,11 @@ import React from 'react'
 const Navbar = () => {
     return (
         
-        <nav className="nav-style">
-        <h1>LAB - WikiCountries</h1>
-           
-        </nav>
+        <nav class="navbar navbar-dark bg-primary mb-3">
+        <div class="container">
+          <a class="navbar-brand" href="/">Lab-WikiCountries</a>
+        </div>
+      </nav>
     )
 }
 export default  Navbar;

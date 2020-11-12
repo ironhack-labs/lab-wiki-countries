@@ -10,19 +10,23 @@ import axios from 'axios'
 class App extends Component {
   
   
-  state = { countries };
+  state = { countriess: [] };
 
   componentDidMount = async () => {
-      const countries = await axios.get("https://countries.tech-savvy.tech/countries")  
-      this.setState({ countries: countries.data})
+      const countriess = await axios.get("https://countries.tech-savvy.tech/countries")  
+      this.setState({ countriess: countriess.data})
   }
   render() {
     return (
       <div className="App">
         <Navbar />
         <div className="container d-flex mr-5">
+          
+          <div class="col-5" style={{maxHeight: '90vh', overFlow: 'scroll'}}>
           <div className="row">
+          <div class="list-group">
           <CountriesList countries={countries} />
+          </div>
             <Switch>
               <Route
                 exact
@@ -32,10 +36,12 @@ class App extends Component {
                 )}
               />
             </Switch>
+           
             <div>
               {
-                this.state.countries && this.state.countries.map((country, index) => (<h2 key={index}>{country.name.common}<span>{country.flag}</span></h2>) )
+                this.state.countriess && this.state.countriess.map((country, index) => (<h2 key={index}>{country.name.common}<span>{country.flag}</span></h2>) )
               }
+            </div>
             </div>
           </div>
         </div>

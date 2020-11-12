@@ -8,9 +8,9 @@ import Countries from '../countries.json';
           <h2>Countries</h2>
           {Countries.map((eachCountrie, index) => {
             return (
-              <div key={eachCountrie.cca3}>
+              <div class="list-group" key={eachCountrie.cca3}>
               <span>{eachCountrie.flag}</span>
-                <h3><Link to={`/countries/${eachCountrie.cca3}`}>{eachCountrie.cca3}</Link></h3>
+                <p class="h5"><Link to={`/countries/${eachCountrie.cca3}`}>{eachCountrie.cca3}</Link></p>
                 <hr />
               </div>
             );
