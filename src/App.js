@@ -4,18 +4,28 @@ import {  Route } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import CountriesList from './components/CountriesList'
 import CountryDetails from './components/CountryDetails'
-import countries from './countries.json'
+
 
 class App extends Component {
-  state ={
-    countries
+  state = {
+    countries: []
   }
+    componentDidMount = async () => {
+    console.log('SE HA MONTADO EL TEMA')
+    const countries = await fetch("https://countries.tech-savvy.tech/countries")
+    const res = await countries.json()
+    this.setState({ 
+      countries: res
+    })}
   render(){
     return (
       <div >
             <Navbar />
-            <CountriesList countries={countries}/>
-            <Route exact path='/countries/:id' component={CountryDetails}/>
+            <div className="information">
+              <CountriesList countries={this.state.countries}/>
+              <Route exact path='/countries/:id' component={CountryDetails}/>
+            </div>
+            
         </div>
     );
   }

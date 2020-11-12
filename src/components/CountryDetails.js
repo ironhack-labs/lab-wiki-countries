@@ -1,5 +1,6 @@
 import React from 'react'
 import countries from '../countries.json'
+import { Link } from 'react-router-dom';
 
 const CountryDetails = (props) => {
     console.log(props);
@@ -10,13 +11,14 @@ const CountryDetails = (props) => {
     const foundCountry = getCountry(params.id)
 
     return (
-        <div class="col-7">
+        <div className="col-7">
+        <img src={`https://www.countryflags.io/${foundCountry.cca2}/flat/64.png`} alt=""/>
         <h1>{foundCountry.name.common}</h1>
-        <table class="table">
+        <table className="table">
           <thead></thead>
           <tbody>
             <tr>
-              <td style={{width: "30%"}}>Capital</td>
+              <td className={{width: "30%"}}>Capital</td>
               <td>{foundCountry.capital}</td>
             </tr>
             <tr>
@@ -28,7 +30,11 @@ const CountryDetails = (props) => {
             <tr>
               <td>Borders</td>
               <td>
-              <ul> {foundCountry.borders.map(country => <li>{country}</li>)}</ul>
+              <ul> {foundCountry.borders.map((oneCountry, index) =>{
+                const getBorder = countries.find(obj => obj.cca3 === oneCountry)
+                return (
+                  <Link className="list-group-item list-group-item-action" to={`/countries/${getBorder.cca3}`}><img src={`https://www.countryflags.io/${getBorder.cca2}/flat/64.png`} alt=""/> {getBorder.name.common}</Link>
+                )})}</ul>
               </td>
             </tr>
           </tbody>
