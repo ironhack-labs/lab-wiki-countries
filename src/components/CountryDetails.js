@@ -1,5 +1,6 @@
 import React from 'react';
 import countries from '../countries.json';
+import { Link } from 'react-router-dom';
 
 const CountryDetails = (props) => {
     const countryCode = props.match.params.cca3;
@@ -30,7 +31,7 @@ const CountryDetails = (props) => {
                 const getBorder = countries.find(obj => obj.cca3 === oneCountry)
                 return (
                 <ul>
-                <li><a>{getBorder.name.common}</a></li>
+                <li><Link key={getCountry} to={`/$getCountry`}>{getBorder.name.common}</Link></li>
                 </ul>
                 )})}
                 </td>
