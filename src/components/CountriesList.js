@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
       {props.countries.map((eachCountry, index) => {
         return (
 
-            <Link className="list-group-item list-group-item-action" to={`/countries/${eachCountry.cca3}`}><img src={`https://www.countryflags.io/${eachCountry.cca2}/flat/64.png`} alt=""/> {eachCountry.name.common}</Link>
+            <li key={eachCountry.name.common}  className="list-group-item list-group-item-action"><Link to={`/countries/${eachCountry.cca3}`}><img src={`https://www.countryflags.io/${eachCountry.cca2}/flat/64.png`} alt=""/> {eachCountry.name.common}</Link></li>
         );
       })}
       </div>

@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 
 const CountryDetails = (props) => {
     console.log(props);
-    let getCountry = id => countries.find(obj => obj.cca3 === id);
+    let getCountry = id => props.countries.find(obj => obj.cca3 === id);
 
     const { params } = props.match;
 
     const foundCountry = getCountry(params.id)
+    console.log(foundCountry)
 
     return (
         <div className="col-7">
@@ -33,7 +34,7 @@ const CountryDetails = (props) => {
               <ul> {foundCountry.borders.map((oneCountry, index) =>{
                 const getBorder = countries.find(obj => obj.cca3 === oneCountry)
                 return (
-                  <Link className="list-group-item list-group-item-action" to={`/countries/${getBorder.cca3}`}><img src={`https://www.countryflags.io/${getBorder.cca2}/flat/64.png`} alt=""/> {getBorder.name.common}</Link>
+                  <li key= {oneCountry}><Link className="list-group-item list-group-item-action" to={`/countries/${getBorder.cca3}`}><img src={`https://www.countryflags.io/${getBorder.cca2}/flat/64.png`} alt=""/> {getBorder.name.common}</Link></li>
                 )})}</ul>
               </td>
             </tr>
