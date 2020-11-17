@@ -1,0 +1,13 @@
+.countrieslist {
+  max-height: 90vh;
+  overflow: scroll;
+  text-align: left;
+}
+
+.countrieslist li {
+  list-style: none;
+}
+
+.countrieslist li strong {
+  margin: 5px;
+}
