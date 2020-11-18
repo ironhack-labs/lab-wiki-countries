@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import countries from '../../countries.json';
 import './CountriesList.css';
 
-function CountriesList() {
-  // const [state, setState] = useState('');
+function CountriesList(props) {
+  const [state, setState] = useState({ activeItem: -1 });
 
-  const handleClick = (event) => {
-    return event.currentTarget.classList.value + ` active`;
+  const handleClick = (index) => {
+    setState({ activeItem: index });
   };
 
   return (
     <div className="col-4 countrieslist">
       <ul className="list-group">
-        {countries.map((country, i) => (
+        {props.countries.map((country, i) => (
           <li key={i}>
             <Link
-              className={'list-group-item list-group-item-action'}
+              className={
+                state.activeItem === i
+                  ? 'list-group-item list-group-item-action border-primary font-weight-bold active'
+                  : 'list-group-item list-group-item-action border-primary font-weight-bold text-primary'
+              }
               to={`/countries/${country.cca3}`}
-              onClick={handleClick}
+              onClick={handleClick.bind(this, i)}
             >
               <strong>{country.flag}</strong> {country.name.common}
             </Link>

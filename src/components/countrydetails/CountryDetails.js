@@ -32,46 +32,48 @@ function CountryDetails(props) {
 
   return (
     <div className="col-7">
-      <h1>
+      <h1 className="text-primary">
         {state.flag} {state.name.common} - {state.cca2}
       </h1>
       <table className="table">
         <thead></thead>
         <tbody>
           <tr>
-            <td className="tabledata">Capital</td>
+            <td className="tabledata text-primary font-weight-bold">Capital</td>
             <td>{state.capital}</td>
           </tr>
           <tr>
-            <td>Region</td>
+            <td className="text-primary font-weight-bold">Region</td>
             <td>{state.region}</td>
           </tr>
           <tr>
-            <td>Subregion</td>
+            <td className="text-primary font-weight-bold">Subregion</td>
             <td>{state.subregion}</td>
           </tr>
           <tr>
-            <td>Languages</td>
+            <td className="text-primary font-weight-bold">Languages</td>
             <td>
-              {Object.values(state.languages).map((elem) => (
-                <p>{elem}</p>
-              ))}
+              <ul className="list-unstyled">
+                {Object.values(state.languages).map((elem, idx) => (
+                  <li key={-idx}>{elem}</li>
+                ))}
+              </ul>
             </td>
           </tr>
           <tr>
-            <td>Area</td>
+            <td className="text-primary font-weight-bold">Area</td>
             <td>
               {state.area} km
               <sup>2</sup>
             </td>
           </tr>
           <tr>
-            <td>Borders</td>
+            <td className="text-primary font-weight-bold">Borders</td>
             <td>
               <ul>
                 {state.borders.map((country, idx) => (
                   <li key={idx}>
-                    <Link to={`/country/${country}`}>
+                    <Link to={`/countries/${country}`}>
                       {renderName(country)}
                     </Link>
                   </li>
