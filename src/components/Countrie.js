@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Countrie(props) {
   return (
     <div className="list-group">
       <div>
-        <Link
+        <NavLink
           key={props.key}
           className="list-group-item list-group-item-action"
           to={props.to}
         >
           <strong>{props.flag}</strong> {props.name}
-        </Link>
+        </NavLink>
       </div>
     </div>
   );
