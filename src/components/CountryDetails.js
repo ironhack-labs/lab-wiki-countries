@@ -41,9 +41,9 @@ function CountryDetails(props) {
                 <td>Borders</td>
                 <td>
                   <ul>
-                    <li>
-                      <a href="/AND">{state.borders}</a>
-                    </li>
+                    {state.borders.map((countries) => (
+                      <li key={countries}>{countries}</li>
+                    ))}
                   </ul>
                 </td>
               </tr>
