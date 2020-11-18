@@ -13,8 +13,10 @@ function App() {
       <Switch>
         <div className="container">
           <div className="row">
-            <CountriesList countries={countries} />
-            <Route path="/country/:country" component={CountryDetails} />
+            <Route path="/">
+              <CountriesList countries={countries} />
+            </Route>
+            <Route path="/:country" component={CountryDetails} />
           </div>
         </div>
       </Switch>

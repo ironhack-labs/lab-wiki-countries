@@ -1,21 +1,19 @@
-import React, {useState,useEffect} from 'react';
-// eslint-disable-next-line no-unused-vars
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
-import CountriesList from './CountriesList';
+import CountriesList from '../countries.json';
 
 function CountryDetails(props) {
   const [state, setState] = useState({
+    cca3: '',
     name: '',
     capital: '',
     area: '',
-    borders: '',
+    borders: [],
   });
 
   useEffect(() => {
-    console.log(props);
-
     CountriesList.forEach((country) => {
-      if (country.id === props.match.params.country) {
+      if (country.cca3 === props.match.params.cca3) {
         setState(country);
       }
     });
@@ -23,14 +21,14 @@ function CountryDetails(props) {
   return (
     <Route>
       <div>
-        <div class="col-7">
+        <div className="col-7">
           <h1>{state.name}</h1>
-          <table class="table">
+          <table className="table">
             <thead></thead>
             <tbody>
               <tr>
                 <td>Capital</td>
-                <td>{state.capiital}</td>
+                <td>{state.capital}</td>
               </tr>
               <tr>
                 <td>Area</td>
