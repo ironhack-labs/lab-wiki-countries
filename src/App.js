@@ -1,11 +1,49 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Layout } from 'antd';
 
-import NavBar from './components/Navbar';
+const { Header, Footer, Sider, Content } = Layout;
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <>
+        <Layout>
+          <Header>Header</Header>
+          <Content>Content</Content>
+          <Footer>Footer</Footer>
+        </Layout>
+
+        <Layout>
+          <Header>Header</Header>
+          <Layout>
+            <Sider>Sider</Sider>
+            <Content>Content</Content>
+          </Layout>
+          <Footer>Footer</Footer>
+        </Layout>
+
+        <Layout>
+          <Header>Header</Header>
+          <Layout>
+            <Content>Content</Content>
+            <Sider>Sider</Sider>
+          </Layout>
+          <Footer>Footer</Footer>
+        </Layout>
+
+        <Layout>
+          <Sider>Sider</Sider>
+          <Layout>
+            <Header>Header</Header>
+            <Content>Content</Content>
+            <Footer>Footer</Footer>
+          </Layout>
+        </Layout>
+      </>
+    </div>
+  );
 }
 
 export default App;
