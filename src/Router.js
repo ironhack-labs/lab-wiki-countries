@@ -15,9 +15,9 @@ function RouterApp(){
             </div>
             <div>
                 <CountriesList/>
-                <Switch>
+                {/* <Switch> */}
                 <Route component={CountryDetails} exact path='/country/:cca3'/>
-                </Switch>
+                {/* </Switch> */}
             </div>
         </Router>
     )
