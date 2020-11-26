@@ -13,7 +13,10 @@ const RouterApp = () => {
         <Navbar />
       </div>
       <div className="row w-100">
-        <div className="col-4 px-0 overflow-auto h-100">
+        <div
+          className="col-4 px-0"
+          style={{ height: '90vh', overflow: 'scroll' }}
+        >
           <CountriesList />
         </div>
         <div className="col-8 overflow-auto">

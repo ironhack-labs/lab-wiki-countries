@@ -17,23 +17,21 @@ const CountriesList = () => {
   });
 
   return (
-    <div className="">
-      <div className="list-group rounded-0" id="list-tab" role="tablist">
-        {countries.map((country) => (
-          <div key={country.ccn3} className="">
-            <NavLink
-              className="list-group-item list-group-item-action "
-              id={`list-${country.cca3}-list`}
-              data-toggle="list"
-              to={`/country/${country.cca3}`}
-              role="tab"
-              aria-controls={country.cca3}
-            >
-              {country.flag} {country.name.common}
-            </NavLink>
-          </div>
-        ))}
-      </div>
+    <div className="list-group rounded-0" id="list-tab" role="tablist">
+      {countries.map((country) => (
+        <div key={country.ccn3} className="">
+          <NavLink
+            className="list-group-item list-group-item-action "
+            id={`list-${country.cca3}-list`}
+            data-toggle="list"
+            to={`/country/${country.cca3}`}
+            role="tab"
+            aria-controls={country.cca3}
+          >
+            {country.flag} {country.name.common}
+          </NavLink>
+        </div>
+      ))}
     </div>
   );
 };
