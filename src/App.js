@@ -40,24 +40,23 @@ function App() {
                 <Menu.Item key="2">
                   <Link to={`/AFG`}>🇦🇫 Afghanistan</Link>
                 </Menu.Item>
-                <Menu.Item key="3" href="/AGO">
-                  🇦🇴 Angola
+                <Menu.Item key="3">
+                  <Link to={`/AGO`}> 🇦🇴 Angola</Link>
                 </Menu.Item>
-                <Menu.Item key="4" href="/AIA">
-                  🇦🇽 Åland Islands
+                <Menu.Item key="4">
+                  <Link to={`/AIA`}> 🇦🇽 Åland Islands</Link>
                 </Menu.Item>
-                <Menu.Item key="5" href="/ALA">
-                  🇦🇮 Anguilla
+                <Menu.Item key="5">
+                  <Link to={`/ALA`}> 🇦🇮 Anguilla</Link>
                 </Menu.Item>
-                <Menu.Item key="6" href="/ALB">
-                  🇦🇱 Albania
+                <Menu.Item key="6">
+                  <Link to={`/ALB`}> 🇦🇱 Albania</Link>
                 </Menu.Item>
-                <Menu.Item key="7" href="/AND">
-                  {' '}
-                  🇦🇩 Andorra
+                <Menu.Item key="7">
+                  <Link to={`/AND`}> 🇦🇩 Andorra</Link>
                 </Menu.Item>
-                <Menu.Item key="8" href="/ARE">
-                  🇦🇪 United Arab Emirates
+                <Menu.Item key="8">
+                  <Link to={`/ARE`}> 🇦🇪 United Arab Emirates</Link>
                 </Menu.Item>
                 <Menu.Item key="9" href="/ARG">
                   🇦🇷 Argentina
