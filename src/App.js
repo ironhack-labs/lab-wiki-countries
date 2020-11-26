@@ -34,11 +34,11 @@ function App() {
                   borderRight: 0,
                 }}
               >
-                <Menu.Item key="1" href="/ABW">
-                  🇦🇼 Aruba
+                <Menu.Item key="1">
+                  <Link to={`/ABW`}>🇦🇼 Aruba</Link>
                 </Menu.Item>
-                <Menu.Item key="2" href="/AFG">
-                  🇦🇫 Afghanistan
+                <Menu.Item key="2">
+                  <Link to={`/AFG`}>🇦🇫 Afghanistan</Link>
                 </Menu.Item>
                 <Menu.Item key="3" href="/AGO">
                   🇦🇴 Angola
