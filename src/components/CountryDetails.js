@@ -10,6 +10,7 @@ function CountryDetails(props) {
   return (
     <div>
       <h2>Country Name: {country.name.official}</h2>
+      <h2>Area: {country.area}</h2>
       <h2>
         Borders:{' '}
         {country.borders.map((element, i) => {
