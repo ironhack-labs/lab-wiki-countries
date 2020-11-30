@@ -20,9 +20,11 @@ function CountryDetails(props) {
         <li>Area: {foundCountry.area} km2</li>
         <li>
           Borders:
-          {foundCountry.borders.map((item) => (
-            <li>{item}</li>
-          ))}
+          <ul>
+            {foundCountry.borders.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
         </li>
       </ul>
     </div>
