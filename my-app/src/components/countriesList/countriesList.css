@@ -1,0 +1,23 @@
+.list{
+     height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 300px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  margin-top: 50px;
+  padding-left:30px;
+  
+}
+
+.flag{
+  font-size: 20px;
+  
+}
+.card{
+  display:flex;
+  align-items: center;
+  border: 1px solid black;
+  margin-bottom:5px
+}
