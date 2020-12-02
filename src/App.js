@@ -1,27 +1,47 @@
-//1. importaciones
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import './App.css';
-import CountriesList from './components/CountriesList';
-import CountryDetails from './components/CountryDetails';
-import NavBar from './components/NavBar';
+import Navbar from './components/NavBar'
+import CountriesList from './components/CountriesList'
+import CountryDetails from './components/CountryDetails'
 
+import { Switch, Route } from 'react-router-dom'
+import axios from 'axios'
 
-export default class App extends Component {
+class App extends Component {
 
-  state = {}
+  state = {
+    countries: []
+  }
+
+  getAllCountries(){
+    axios.get("https://restcountries.eu/rest/v2/all")
+    .then((response) => {
+      return this.setState({
+        countries: response.data
+      })
+    })
+  }
+
+  componentDidMount(){
+    return this.getAllCountries()
+  }
 
   render(){
     return (
-      <div>
-        <NavBar/>
-        <div class="container">
-          <div class="row">
-            <CountriesList/>
-            <CountryDetails/>
+        <div className="App">
+          <Navbar />
+          <div class="container">
+            <div class="row">
+              <CountriesList allCountries={this.state.countries} />
+              <Switch>
+                <Route path="/:countrycode" component={CountryDetails}/>  
+              </Switch>
+            </div>
           </div>
         </div>
-      </div>
     );
   }
+ 
 }
 
+export default App;

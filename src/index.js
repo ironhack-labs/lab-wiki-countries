@@ -1,20 +1,23 @@
-//NO IMPORTA EL ORDEN DE LA IMPORTACION 
+
+// 1. IMPORTACIONES - No importa el orden
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
+import { BrowserRouter } from 'react-router-dom'
 
-import { BrowserRouter } from 'react-router-dom';
+import * as serviceWorker from './serviceWorker';
 
+
+// 2. FUNCIONES O CLASES
 ReactDOM.render(
-  <BrowserRouter>
-    {/* PARA DETECTAR ERRORES CON HOOKS */}
-    <React.StrictMode> 
-        <App />
+  <BrowserRouter>  
+    <React.StrictMode>
+      <App />
     </React.StrictMode>
-  </BrowserRouter>,
+  </BrowserRouter>
+  ,
   document.getElementById('root')
 );
 
