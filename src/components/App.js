@@ -16,7 +16,7 @@ function App() {
             <CountriesList />
           </div>
           <Switch>
-            <Route path="/countries/:cca3" component={CountryDetails} />
+            <Route path="/:cca3" render={props => <CountryDetails {...props} />} />
           </Switch>
         </div>
       </main>
