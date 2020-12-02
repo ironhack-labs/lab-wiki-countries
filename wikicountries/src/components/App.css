@@ -1,0 +1,13 @@
+main {
+    margin-top: 30px;
+}
+
+.col-5 {
+    max-height: 90vh;
+    overflow: scroll;
+}
+
+.col-7 li {
+    list-style: none;
+
+}
