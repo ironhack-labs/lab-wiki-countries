@@ -1,0 +1,7 @@
+.property{
+    display: flex;
+}
+
+.property-title{
+    flex-basis: 30%
+}

@@ -1,0 +1,18 @@
+nav{
+    background-color: #048ABF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 1px 1px 5px 1px lightgrey 
+}
+
+nav h1{
+    font-size: 1.5em;
+    padding: 15px 20px;
+    color: white
+}
+
+Link{
+    color: black
+}
