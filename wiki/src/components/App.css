@@ -1,0 +1,19 @@
+main {
+  text-align: center;
+}
+
+.nav-style {
+  border-bottom: 1px solid;
+  background-color: blue;
+  color: white;
+}
+
+.nav-style ul {
+  display: flex;
+  justify-content: end;
+  list-style: none;
+}
+
+.nav-style li {
+  margin: 10px
+}
