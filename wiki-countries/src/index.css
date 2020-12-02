@@ -1,0 +1,10 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+}
+.heading {
+    font-weight: 700;
+}
+.subheading {
+    font-weight: 300;
+}

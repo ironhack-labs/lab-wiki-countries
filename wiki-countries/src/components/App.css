@@ -1,0 +1,33 @@
+.navbar {
+  margin-bottom: 40px;
+}
+
+.navbar h3 {
+  margin-left: 20px;
+  font-weight: 100;
+  padding-top: 20px;
+  padding-left:50px;
+  color: white;
+}
+
+.country-box {
+  text-align: center;
+}
+
+.country-name {
+  color: #C36588;
+}
+
+.country-name:hover {
+  color: #3d0319;
+  text-decoration: none;
+}
+
+
+.countries-list {
+  list-style:  none;
+}
+
+.countries-list li {
+  padding: 5px;
+}
