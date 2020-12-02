@@ -1,0 +1,19 @@
+.navbar li{
+    list-style: none;
+    color:white!important;
+}
+
+.navbar a {
+    color:white!important;
+
+}
+
+.navbar{
+    padding: 1rem 2rem 0rem!important;
+   
+}
+
+.list{
+    max-height: "90vh";
+    overflow: "scroll" ;
+}
