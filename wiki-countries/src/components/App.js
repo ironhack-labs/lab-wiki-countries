@@ -11,11 +11,14 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      countries: countries
+      countries: []
     }
   }
 
-  
+  componentDidMount = () => {
+    alert('componentDidMount A TOPE')
+    this.setState({ countries: countries})
+  }
 
   render() {
     return (
