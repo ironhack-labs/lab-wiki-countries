@@ -1,0 +1,19 @@
+main section {
+    width: 30%;
+}
+
+.marginOff {
+    margin: 0;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+.countryListSection, nav span {
+    margin-left: 200px;
+}
+
+.detailsSection {
+    margin-left: 40px;
+}
