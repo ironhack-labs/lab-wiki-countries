@@ -1,0 +1,10 @@
+h1 {
+    color: white;
+    margin: 0;
+}
+
+.navbar {
+    background-color: rgb(45, 197, 250);
+    padding: 20px 30px;
+    margin-bottom: 30px;
+}
