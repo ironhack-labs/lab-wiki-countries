@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import countries from './countries.json'
+import Navbar from './components/Navbar';
+import CountriesList from './components/CountriesList'
+import CountryDetails from './components/CountryDetails'
+import { Route, Switch } from "react-router-dom";
+
+const NotFound = () => {
+  return <h1>404 Not Found 🙃</h1>
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Navbar/>
+        <div className="list-details-container">
+        <CountriesList countries={countries}/>
+        
+        <Switch>
+          <Route exact path="/countries/:cca3" component={CountryDetails}/>
+          <Route component={NotFound}/>
+        </Switch>
+        </div>
     </div>
   );
 }
