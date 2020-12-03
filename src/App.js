@@ -16,10 +16,12 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <CountriesList countries={countries} />
-      <Switch>
-        <Route exact path="/:id" component={CountryDetails} />
-      </Switch>
+      <div className="app-wrapper">
+        <CountriesList countries={countries} />
+        <Switch>
+          <Route exact path="/:id" component={CountryDetails} />
+        </Switch>
+      </div>
     </div>
   );
 }

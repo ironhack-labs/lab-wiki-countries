@@ -14,7 +14,10 @@ const CountryDetails = (props) => {
   console.log(clickedCountry);
 
   return (
-    <div className="col-7">
+    <div
+      className="col-7"
+      style={{ display: clickedCountry ? 'block' : 'none' }}
+    >
       <h1>{clickedCountry.name.common}</h1>
       <table className="table">
         <thead></thead>
@@ -34,11 +37,24 @@ const CountryDetails = (props) => {
             <td>Borders</td>
             <td>
               <ul>
+                {clickedCountry.borders.map((border) => (
+                  <li>
+                    <Link to={`/${border}`}>
+                      {
+                        countries.find((country) => country.cca3 === border)
+                          .name.common
+                      }
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              {/* <ul>
                 {clickedCountry.borders &&
                   clickedCountry.borders.map((border) => {
                     return <li>{border}</li>;
                   })}
-              </ul>
+                  
+              </ul> */}
             </td>
           </tr>
         </tbody>
