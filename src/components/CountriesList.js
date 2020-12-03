@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import countries from "./../countries.json";
-
-console.log(countries);
+import {Link} from 'react-router-dom';
 
 export default class CountriesList extends Component {
     state = {
@@ -12,7 +11,9 @@ export default class CountriesList extends Component {
             <div>
                 {this.state.countries.map((el)=>{
                     return (
-                        <p>{el.name.common}</p>
+                        <div key={el.cca3}>
+                            <Link to ={`/country/${el.cca3}`}>{el.name.common}</Link>
+                        </div>
                         )
                 })}
             </div>
