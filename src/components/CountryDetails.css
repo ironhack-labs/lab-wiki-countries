@@ -1,0 +1,14 @@
+.global-container{
+
+}
+
+.left{
+    background-color: yellow;
+}
+
+.right {
+   position: fixed;
+   top: 100px; 
+   left: 480px;
+   text-align: left;
+}

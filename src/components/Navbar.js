@@ -4,7 +4,7 @@ import "./Navbar.css"
 const Navbar = () => {
     return (
         <div className="Navbar">
-            <h1>WikiCountries</h1>
+            <h3>WikiCountries</h3>
         </div>
     )
 }
