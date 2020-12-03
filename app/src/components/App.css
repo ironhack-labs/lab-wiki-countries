@@ -1,0 +1,13 @@
+.navbar {
+  margin-bottom: 20px;
+}
+
+.countries-list {
+  max-height: 88vh;
+  overflow: scroll
+}
+
+.list-group img {
+  width: 20px;
+  margin: 10px 10px 10px 0;
+}
