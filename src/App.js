@@ -18,7 +18,7 @@ class App extends React.Component {
         <Navbar />
         <div className="container">
           <div className="row">
-            <CountriesList countries={countries} />
+            <CountriesList countries={this.state.countries} />
             {/* React Router Route rendering the CountryDetails should go here */}
             <Switch>
               <Route exact path="/" component={CountriesList} />
