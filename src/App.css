@@ -1,6 +1,48 @@
 .App {
   text-align: center;
 }
+.row {
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+.align {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: left;
+}
+.row h1 {
+  width: 400px;
+}
+
+.row p {
+  width: 200px;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+.list-group-item-action {
+  text-align: left;
+}
+.borders {
+  width: 200px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.details {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.flow {
+  overflow-y: auto;
+  height: 800px;
+  width: 70%;
+}
 
 .App-logo {
   height: 40vmin;
