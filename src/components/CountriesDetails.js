@@ -1,13 +1,8 @@
 import React from 'react';
-import countries from './../countries.json';
 
 class CountriesDetails extends React.Component {
-  state = {
-    lands: countries,
-  };
-
   render() {
-    const { lands } = this.state;
+    console.log(this.props);
     const foundLand = lands.find((countrie) => {
       return countrie.name.common === this.props.match.params.countrieName;
     });
