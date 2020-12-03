@@ -15,10 +15,10 @@ function App() {
 
         <div className="container">
           <div className="row">
-            {/* <CountriesList /> */}
+            <CountriesList />
             <Switch>
-            <Route exact path="/countries" component={CountriesList}/>
-            <Route path="/countries/:cca3" component={CountryDetails}></Route>
+            {/* <Route exact path="/countries" component={CountriesList}/> */}
+            <Route exact path="/countries/:cca3" component={CountryDetails}></Route>
             </Switch>
           </div>
         </div>
