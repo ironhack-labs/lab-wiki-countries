@@ -12,7 +12,7 @@ export default class CountriesList extends Component {
                 {this.state.countries.map((el)=>{
                     return (
                         <div key={el.cca3}>
-                            <Link to ={`/country/${el.cca3}`}>{el.name.common}</Link>
+                            <Link to ={`/country/${el.cca3}`}>{el.flag} {el.name.common}</Link>
                         </div>
                         )
                 })}

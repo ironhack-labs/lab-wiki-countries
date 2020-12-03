@@ -1,0 +1,8 @@
+.Navbar {
+    background-color: blue;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    align-items: center;
+    color: white;
+}
