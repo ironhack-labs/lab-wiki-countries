@@ -9,7 +9,7 @@ import countries from './countries.json';
 
 class App extends React.Component {
   state = {
-    countries: countries,
+    countries: [],
   };
 
   render() {
@@ -31,7 +31,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    
+    this.setState({ countries: countries });
   }
 }
 
