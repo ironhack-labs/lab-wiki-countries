@@ -1,0 +1,5 @@
+.CountrieList {
+  margin-top: 1rem;
+  overflow: scroll;
+  max-height: 80vh;
+}
