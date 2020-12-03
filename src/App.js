@@ -21,7 +21,8 @@ class App extends React.Component {
     axios
       .get('https://countries.tech-savvy.tech/countries')
       .then((response) => {
-        this.setState({ countries: response });
+        console.log(response);
+        this.setState({ countries: response.data });
       });
   };
 
@@ -40,7 +41,6 @@ class App extends React.Component {
                   <CountriesDetails
                     {...props}
                     countries={this.state.countries}
-                    isAuthed={true}
                   />
                 )}
               />

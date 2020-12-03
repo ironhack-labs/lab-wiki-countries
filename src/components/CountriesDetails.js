@@ -2,8 +2,7 @@ import React from 'react';
 
 class CountriesDetails extends React.Component {
   render() {
-    console.log(this.props);
-    const foundLand = lands.find((countrie) => {
+    const foundLand = this.props.countries.find((countrie) => {
       return countrie.name.common === this.props.match.params.countrieName;
     });
     console.log('foundLand', foundLand);
