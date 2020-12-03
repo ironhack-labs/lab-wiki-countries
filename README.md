@@ -184,7 +184,7 @@ The state should be set only once the component is rendered to the DOM, using th
 
 Instead of relying on the static data coming from a `json` file, let's do something more interesting and get our the data from an actual API.
 
-Let's make a `GET` request to the URL https://countries.tech-savvy.tech/countries and use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request.
+Let's make a `GET` request to the URL https://countries.tech-savvy.tech/countries and use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request. You may want to check the lifecycle method [`componentDidMount`](https://reactjs.org/docs/react-component.html#componentdidmount).
 
 The request should happen first thing when the application loads, therefore think about when and from where we should make the request to the API.
 
