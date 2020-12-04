@@ -5,14 +5,14 @@ import CountryDetails from '../src/components/countryDetails/CountryDetails';
 import countries from './countries.json';
 import { Route, Switch } from "react-router-dom";
 
+
 class App extends Component {
  state = {
-   country: {}
+   country: undefined
  }
 
- handleClick = (country) => {
-   this.setState({country:country})
-   console.log(this.state.country)
+ handleClick = (id) => {
+   this.setState({country:countries.filter((country)=>country.cca3=== id)[0]})
  }
 
 
@@ -20,12 +20,12 @@ render() {
   return (
     <div className="App">
     <NavBar countries={countries}  handleClick={this.handleClick}/>
-    <Switch>
+    <Switch>        
     <Route
           exact
           path="/:id"
           render={(reactRouterProps) => (
-            <CountryDetails {...reactRouterProps} country={this.state.country} />
+            <CountryDetails {...reactRouterProps} country={this.state.country} handleClick={this.handleClick}  />
           )}
         />
     </Switch>

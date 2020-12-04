@@ -1,7 +1,15 @@
 import React from "react";
+import { Redirect, Link } from "react-router-dom";
+
+
 
 const CountryDetails= (props) => {
 const country = props.country
+
+if(!country){
+  return <Redirect to="/"/>
+}
+
   return (
     <div className="col-7">
             <h1>{props.match.params.id}</h1>
@@ -22,14 +30,13 @@ const country = props.country
                   <td>Borders</td>
                   <td>
                     <ul>
-                      <li><a href="/AND">Andorra</a></li>
-                      <li><a href="/BEL">Belgium</a></li>
-                      <li><a href="/DEU">Germany</a></li>
-                      <li><a href="/ITA">Italy</a></li>
-                      <li><a href="/LUX">Luxembourg</a></li>
-                      <li><a href="/MCO">Monaco</a></li>
-                      <li><a href="/ESP">Spain</a></li>
-                      <li><a href="/CHE">Switzerland</a></li>
+                    {country.borders.map((el) => {
+                            return (
+                                <li key={el}>
+                                <Link to={`/${el}`} onClick={() => props.handleClick(el)}>
+                                {el}</Link></li>
+                            )
+                        })}
                     </ul>
                   </td>
                 </tr>
