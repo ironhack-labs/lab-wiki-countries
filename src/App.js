@@ -5,25 +5,23 @@ import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 
-import countries from './countries.json';
+// import countries from './countries.json';
 
 import './App.css';
 
 
 class App extends React.Component {
   state = {
-    countries: countries
+    countries: []
   };
-
-
 
     render() {
         return (
           <div className="App">
             <Navbar />
-              <div class="container">
-              <div class="row">
-              <CountriesList />
+              <div className="container">
+              <div className="row">
+              <CountriesList countries={this.state.countries} />
             <Switch>
               <Route exact path="/:countryId"  render={(reactRouterProps) => ( <CountryDetails {...reactRouterProps} countries={this.state.countries} /> )} />
               {/* Composing into a Component*/}
@@ -33,6 +31,15 @@ class App extends React.Component {
               </div>
           </div>
         )
+    }
+
+    componentDidMount() {
+      fetch('https://countries.tech-savvy.tech/countries')
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('data', data);
+          this.setState({ countries: data })
+        })
     }
 }
 
