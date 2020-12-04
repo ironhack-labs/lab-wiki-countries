@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Navbar from './components/Navbar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import { Route } from 'react-router-dom';
+import axios from 'axios';
+import countriesData from './countries.json';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const countryService = axios.create({
+  baseURL: 'https://countries.tech-savvy.tech/countries'
+})
 
-export default App;
+export default class App extends Component {
+  state = {
+    countries: [],
+    loading: true
+  }
+
+  componentDidMount = () => {
+    countryService.get().then(res => {
+      this.setState({
+        countries: res.data,
+        loading: false
+      })
+    })
+    // this.setState({
+    //   countries: countriesData
+    // })
+  }
+  
+  render() {
+    if (this.state.loading) {
+      return <div>Loading...</div>
+    }
+    return (
+      <div className="App">
+        <Navbar />
+
+        <div className='container'>
+          <div className='row'>
+            <CountriesList countries={this.state.countries} />
+            <Route 
+              exact
+              path='/:cca3'
+              render={(reactRouterProps) => {
+                return <CountryDetails {...reactRouterProps} countries={this.state.countries} />
+              }}
+            />
+          </div>
+        </div>
+
+      </div>
+    )
+  }
+}
