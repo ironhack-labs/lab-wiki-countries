@@ -8,22 +8,38 @@ import countries from './countries.json'
 import {Route, Switch} from 'react-router-dom'
 
 class App extends React.Component {
+  state={
+    countries: [],
+  }
+
+  componentDidMount(){
+    this.setState({
+      countries: countries
+    });
+  }
+
+
   render() {
+    if(!this.state.countries){
+      return 
+        <h1>Loading...</h1>
+    
+    } else{
   return (
     <div className="App">
       
         <Navbar/>
-        <CountriesList countries={countries}/>
+        <CountriesList countries={this.state.countries}/>
         <Switch>
           <Route
           exact path="/:cca3"
           render={(routeProps)=>(
-            <CountriesDetails {...routeProps} countries={countries}/>
+            <CountriesDetails {...routeProps} countries={this.state.countries}/>
           )}
             />
         </Switch>
     </div>
-  );
+  );}
 }
 
 }
