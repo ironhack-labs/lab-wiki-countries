@@ -5,12 +5,22 @@ import Navbar from "./components/Navbar";
 import countries from './countries.json';
 import CountriesList from "./components/CountriesList";
 import CountryDetails from "./components/CountryDetails";
+import Axios from 'axios';
 
 
 export default class App extends Component {
 
   state = {
     countries: []
+  }
+
+  getCountriesResponse = async () => {
+    const countryInfo = await Axios.get('https://countries.tech-savvy.tech/countries');
+    this.setState({ countries: countryInfo.data })
+  }
+
+  componentDidMount() {
+    this.getCountriesResponse()
   }
 
   render() {
@@ -21,15 +31,12 @@ export default class App extends Component {
           <div className="row">
             <CountriesList countries={ this.state.countries } />
             <Switch>
-              <Route exact path="/:id" component={ CountryDetails }/>
+              <Route exact path="/:id" countries={ this.state.countries } component={ CountryDetails }/>
             </Switch>
           </div>
         </div>
       </div>
     );
-  }
-  componentDidMount() {
-    this.setState({ countries: countries })
   }
 }
 
