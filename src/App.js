@@ -6,13 +6,11 @@ import CountryDetails from '../src/components/CountryDetails';
 
 import countries from './countries.json';
 
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   // console.log(countries);
-  // const countriesList = countries.map((countries) => {
-  //   console.log('---------', countries);
-  // });
+
   return (
     <div className="App">
       <Navbar />

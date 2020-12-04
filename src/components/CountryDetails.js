@@ -48,13 +48,6 @@ const CountryDetails = (props) => {
                   </li>
                 ))}
               </ul>
-              {/* <ul>
-                {clickedCountry.borders &&
-                  clickedCountry.borders.map((border) => {
-                    return <li>{border}</li>;
-                  })}
-                  
-              </ul> */}
             </td>
           </tr>
         </tbody>
