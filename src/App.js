@@ -19,8 +19,7 @@ return(
    <div className="App">
       <BrowserRouter>
       <Navbar />
-      <CountriesList countries={this.state.countries}/>
-      <CountryDetails countries={this.state.countries}/> 
+      <CountriesList countries={this.state.countries}/> 
       <Switch>
         <Route exact path="/countrydetails/:countryid" component={CountryDetails}/>
       </Switch>

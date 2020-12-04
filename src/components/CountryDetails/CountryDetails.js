@@ -6,9 +6,8 @@ function CountryDetails(props) {
 
     const countryId = props.match.params.countryid;
 
-    console.log(countryId)
 
-    const detailCountry = props.find((country) => {
+    const detailCountry = countries.find((country) => {
         return country.cca3 === countryId
     })
     console.log(detailCountry)
@@ -47,7 +46,7 @@ function CountryDetails(props) {
                         <h3>
                             <ul>
                                 {detailCountry.borders.map((countryBorder, i) => {
-                                    const detailCountryCode = props.countries.find((country)=>{
+                                    const detailCountryCode = countries.find((country)=>{
                                         return countryBorder === country.cca3
                                     })
                                     return (

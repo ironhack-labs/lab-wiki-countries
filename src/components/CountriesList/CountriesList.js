@@ -5,7 +5,7 @@ import countries from './../../countries.json'
  class CountriesList extends React.Component {
 
     state = {
-        countries
+        countries: countries
     }
 
     render() {
