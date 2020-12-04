@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import data from '../countries.json'
+// import data from '../countries.json'
 import CountryDetails from './CountryDetails';
 
 export default function CountriesList(props) {
@@ -8,7 +8,7 @@ export default function CountriesList(props) {
     return (
         <div>
             <h2>Countries</h2>
-            {data.map(country => {
+            {props.countries.map(country => {
                 return (
                      <div key={country.cca3} className="list-group-item list-group-item-action"> 
                     <h3>

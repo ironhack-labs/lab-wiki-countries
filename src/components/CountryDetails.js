@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import data from '../countries.json';
-import Borders from './Borders';
+// import Borders from './Borders';
 
 export default function CountryDetails(props) {
-//   console.log(data);
+  console.log('Countries Details props', props);
   const countryId = props.match.params.cca3;
   const country = data.find((country) => country.cca3 === countryId);
 //   console.log('Country', country);
