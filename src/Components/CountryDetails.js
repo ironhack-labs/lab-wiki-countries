@@ -1,5 +1,6 @@
 import React from 'react';
 import countriesInfo from '../countries.json';
+import { Link } from 'react-router-dom';
 
 function CountryDetails(props) {
   const id = props.match.params.id;
@@ -29,7 +30,11 @@ function CountryDetails(props) {
             <td>
               <ul>
                 {myCountry.borders.map((item) => {
-                  return <li>{item}</li>;
+                  return (
+                    <Link to={`/countrydetails/${item}`}>
+                      <li>{item}</li>
+                    </Link>
+                  );
                 })}
               </ul>
             </td>
