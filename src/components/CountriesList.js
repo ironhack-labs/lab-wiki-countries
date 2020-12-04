@@ -6,8 +6,8 @@ import CountryDetails from './CountryDetails';
 export default function CountriesList(props) {
     // console.log(props.countries);
     return (
-        <div>
-            <h2>Countries</h2>
+        <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
+        <div className='list-group'>
             {props.countries.map(country => {
                 return (
                      <div key={country.cca3} className="list-group-item list-group-item-action"> 
@@ -17,6 +17,7 @@ export default function CountriesList(props) {
                     </div>
                 )
             })}
-        </div>
+            </div>
+    </div>
     )
 }
