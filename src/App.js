@@ -1,26 +1,51 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import CountriesList from './components/CountriesList/CountriesList';
+import countries from './countries.json';
+import CountryDetails from './components/CountryDetails/CountryDetails';
+import { Route, Link, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    country: undefined,
+  };
+
+  changeCountry = (id) => {
+    this.setState({
+      country: countries.filter((country) => country.cca3 === id)[0],
+    });
+  };
+
+  render() {
+    console.log(this.state);
+    return (
+      <div className="App">
+        <Navbar />
+        <div className="container">
+          <div className="row">
+            <CountriesList
+              changeCountry={this.changeCountry}
+              countries={countries}
+            />
+
+            <Route
+              exact
+              path="/:countryId"
+              render={(reactRouterProps) => (
+                <CountryDetails
+                  {...reactRouterProps}
+                  country={this.state.country}
+                  changeCountry={this.changeCountry}
+                />
+              )}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
