@@ -5,6 +5,11 @@ import { Route, Link, Switch } from "react-router-dom";
 
 export default function CountriesList(props) {
 
+    if (!props.isLoading) {
+        console.log("still loading");
+        return (<div>Loading</div>)
+   }
+
     console.log(props.countries)
     return (
         <div className="col-5" styles={"max-height: 90vh; overflow: scroll;"}>
@@ -16,9 +21,8 @@ export default function CountriesList(props) {
                     <Link key={el.name.common} className="list-group-item list-group-item-action" to={`/${el.cca3}`}>{el.cca2} {el.name.common}</Link>
                     
                 ))}
-                <Switch>
-                    <Route exact path="/:cca3" render={(reactRouterProps) => (<CountryDetails {...reactRouterProps} countries={props.Countries}/>)}/>
-                </Switch>
+               
+               
           </div>
         </div>
     )
