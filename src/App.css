@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.country__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+/* .listing {
+  width: 50vw;
+  border: 2px solid black;
+} */

@@ -1,59 +1,59 @@
 import React from 'react';
+import countries from '../../countries.json';
 import { Route, Link } from 'react-router-dom';
 
-const CountryDeatails = () => {
+const CountryDeatails = (props) => {
+  const theCountryName = props.match.params.name;
+  // console.log(theCountryName);
+  const theCountry = props.countryDetails.find((country) => {
+    return country.name.common === theCountryName;
+  });
+
+  // console.log(props.countryDetails);
+  // console.log(theCountry);
+  console.log(theCountry.borders);
+  // console.log('these are the borders', theBorders);
   return (
-    <div>
-      <div class="col-7">
-        <h1>France</h1>
-        <table class="table">
-          <thead />
-          <tbody>
-            <tr>
-              <td style={{ width: '30%' }}>Capital</td>
-              <td>Paris</td>
-            </tr>
-            <tr>
-              <td>Area</td>
-              <td>
-                551695 km
-                <sup>2</sup>
-              </td>
-            </tr>
-            <tr>
-              <td>Borders</td>
-              <td>
-                <ul>
-                  <li>
-                    <a href="/AND">Andorra</a>
-                  </li>
-                  <li>
-                    <a href="/BEL">Belgium</a>
-                  </li>
-                  <li>
-                    <a href="/DEU">Germany</a>
-                  </li>
-                  <li>
-                    <a href="/ITA">Italy</a>
-                  </li>
-                  <li>
-                    <a href="/LUX">Luxembourg</a>
-                  </li>
-                  <li>
-                    <a href="/MCO">Monaco</a>
-                  </li>
-                  <li>
-                    <a href="/ESP">Spain</a>
-                  </li>
-                  <li>
-                    <a href="/CHE">Switzerland</a>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="col-7">
+      <h1>{theCountry.name.common}</h1>
+      <table class="table">
+        <thead />
+        <tbody>
+          <tr>
+            <td style={{ width: '30%' }}>Capital</td>
+            <td>{theCountry.capital}</td>
+          </tr>
+          <tr>
+            <td>Area</td>
+            <td>
+              {theCountry.area} km
+              <sup>2</sup>
+            </td>
+          </tr>
+          <tr>
+            <td>Borders</td>
+            <td>
+              <ul>
+                {theCountry.borders.map((border) => {
+                  const borderCountries = countries.find(
+                    (country) => country.cca3 === border
+                  );
+                  return (
+                    <li>
+                      <Link
+                        to={`/${borderCountries.name.common}`}
+                        key={borderCountries.cca3}
+                      >
+                        {borderCountries.name.common}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
