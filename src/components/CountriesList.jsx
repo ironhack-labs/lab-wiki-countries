@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 const CountriesList = ( props ) => {
     //console.log(props)
     const {countries} = props;
-    console.log(countries)
     return (
             <div className="col-5" style={{maxHeight: "90vh", overflow: "scroll"}}>
                 <div className="list-group">
