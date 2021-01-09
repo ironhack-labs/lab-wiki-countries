@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.countrieslist {
+  list-style-type: none;
+  text-align: left;
+}
+
+.onecountryinlist {
+  border : 1px solid white
 }
 
 .App-logo {
