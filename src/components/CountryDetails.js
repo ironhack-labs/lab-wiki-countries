@@ -43,5 +43,5 @@ export default function CountryDetails(props) {
         </tbody>
       </table>
     </div>
-  )
+  );
 }
