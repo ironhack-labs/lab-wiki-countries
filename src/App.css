@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.scroll {
+  max-height: 90vh;
+  overflow: scroll;
+}
+
+.capital-city {
+  width: 30%;
+} 
