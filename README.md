@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# LAB | React WikiCountries
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+After spending too much time on GitHub, you found a [JSON database of countries](https://raw.githubusercontent.com/mledoze/countries/master/countries.json) and you decide to use it to create your Wikipedia for countries!
 
-### `yarn start`
+![](https://media.giphy.com/media/fdUHHKI36bTVduRDfB/giphy.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Setup
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Fork this repo
+- Clone this repo
 
-### `yarn test`
+```shell
+$ cd lab-wiki-countries
+$ npm install
+$ npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Submission
 
-### `yarn build`
+- Upon completion, run the following commands:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ```
+  git add .
+  git commit -m "done"
+  git push origin master
+  ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Create Pull Request so your TAs can check up on your work.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instructions
 
-### `yarn eject`
+### Iteration 0 | React Router installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Don't forget to install the React Router:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```shell
+$ npm install react-router-dom
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+And setup the router in your `src/index.js` file:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```jsx
+// src/index.js
 
-## Learn More
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+import { BrowserRouter } from 'react-router-dom';
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root')
+);
 
-### Code Splitting
+// comment skipped to stay organized
+reportWebVitals();
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Bootstrap installation
 
-### Analyzing the Bundle Size
+We will use [Bootstrap V4](https://getbootstrap.com/) for the design :+1:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```sh
+$ npm install bootstrap
+```
 
-### Making a Progressive Web App
+```javascript
+// src/index.js
+import 'bootstrap/dist/css/bootstrap.css';
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Instructions
 
-### Advanced Configuration
+### Iteration 1.1 | Create components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+In this iteration, we will focus on the general layout. Before you start, inside the `src` folder, create the `components` folder. There you will create at least 3 components:
 
-### Deployment
+- `Navbar`: Displaying the basic navbar with the LAB name
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- `CountriesList`: Displays the list of links with the country names. Each link should be a `react-router-dom` `Link` which we will use to <u>send</u> the country code (`cca3`) via the URL.
 
-### `yarn build` fails to minify
+- `CountryDetails`: Is the component that we will render via the `react-router-dom`'s `Route` and will be <u>receiving</u> the country code (`cca3`) via the URL.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  This is actually the id of the country (example: `/ESP` for Spain, `/FRA` for France).
+
+To help you with the structure of the components, we gave you an example of a page inside `example.html`.
+
+If you want to style it, refresh your memory on Bootstrap in the [docs](https://getbootstrap.com/docs/4.0) or check out how we approached styling in the `example.html`.
+
+### Iteration 1.2 | Navbar component
+
+The simplest way to define a component in React is to write a JavaScript function aka function component. The navbar should be displaying the title of the LAB - WikiCountries.
+
+### Iteration 1.3 | CountriesList component
+
+This component should render a list of links that are used to trigger the browser URL change via the `react-router-dom` `Link`. Click on a `Link` component will then activate the corresponding `Route` showing the country details component.
+
+### Iteration 1.4 | CountryDetails component and `Route` setup
+
+Now when our list of countries is ready, we should create the `CountryDetails` component that will be displaying the details of a particular country of a link that we clicked. This component should be dynamically displayed/rendered by the `react-router-dom` `Route`.
+
+In this case, you should use only 1 `<Route />` for `CountryDetails` component.
+
+Components rendered by the `Route` receive special `props` (`match`, `location` and `history`) passed by the `react-router-dom`. We can use this props to obtain the information coming from the browser's URL bar, for example, the `cca3` code of the country. For a reminder on how to create a dynamic `Route` that displays a component feel free to check [this example](https://reactrouter.com/web/api/Route/route-props).
+
+**NOTE:** For Windows users, there is no emoji for the `flag`. Instead, you can rely on these links:
+
+- France: https://www.countryflags.io/fr/flat/64.png
+- Germany: https://www.countryflags.io/de/flat/64.png
+- etc.
+
+### Iteration 2 | Linking it all together
+
+Once done creating the components the structure of elements that your `App.js` will render should look somewhat like this:
+
+```jsx
+<div className="App">
+  <Navbar />
+
+  <div className="container">
+    <div className="row">
+      <CountriesList countries={countries} />
+      {/* React Router Route rendering the CountryDetails should go here */}
+    </div>
+  </div>
+</div>
+```
+
+### Iteration 3 | Set the state when the component mounts
+
+Our `App.js` application should have its own state holding one property `countries` holding the data coming from the `countries.json` file.
+
+The state should be set only once the component is rendered to the DOM, using the lifecycle method `componentDidMount()` .
+
+### Bonus | Fetch the data from an API
+
+Instead of relying on the static data coming from a `json` file, let's do something more interesting and get out the data from an actual API.
+
+Let's make a `GET` request to the URL [https://restcountries.eu/#api-endpoints-all](https://restcountries.eu/#api-endpoints-all) and use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request. You may want to check the lifecycle method [`componentDidMount`](https://reactjs.org/docs/react-component.html#componentdidmount).
+
+The request should happen first thing when the application loads, therefore think about when and from where we should make the request to the API.
+
+Happy coding! :heart:
