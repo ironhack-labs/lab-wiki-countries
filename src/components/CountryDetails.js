@@ -12,7 +12,6 @@ export default function CountryDetails(props) {
     const {capital, area, name, borders} = currentCountry
 
     let bordersList = ''
-    
     if(borders.length>0 ){
         bordersList = borders.map(el =>{
             const matchingCountry = getCountryDetails(el)
