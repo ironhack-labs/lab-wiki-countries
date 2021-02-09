@@ -2,33 +2,35 @@ import React from 'react';
 import countries from '../countries.json';
 
 class CountryDetails extends React.Component {
-  state = {
-    name: '',
-    capital: '',
-    area: '',
-    borders: [],
-  };
-
-  componentDidMount() {
-    const country = countries.find(
-      (country) => country.name === this.props.match.params.dogName
-    );
-
-    if (country) {
-      var newCountryList = { ...country };
-      this.setState({
-        name: newCountryList.name.common,
-        capital: newCountryList.capital,
-        area: newCountryList.area,
-        borders: newCountryList.borders,
-      });
+    state = {
+      show: false,
+    };
+  
+    componentDidMount() {
+      const country = countries.find(
+        (country) => country.cca3 === this.props.match.params.countryName
+      );
+  
+      if (country) {
+        this.setState({ ...country, show: true });
+      }
     }
-  }
+  
+    componentDidUpdate(prevProps, prevState) {
+      const country = countries.find(
+        (country) => country.cca3 === this.props.match.params.countryName
+      );
+  
+      if (prevState.cca3 !== country.cca3) {
+        this.setState({ ...country, show: true });
+      }
+    }
 
   render() {
     return (
       <div className="col-7">
-        <h1>{this.state.name}</h1>
+      <p>Hello World</p>
+        {/* <h1>{this.state.name}</h1>
         <hr />
         <p>Capital</p>
         <span>
@@ -43,7 +45,7 @@ class CountryDetails extends React.Component {
         <p>Borders</p>
         <span>
           <p>{this.state.borders}</p>
-        </span>
+        </span> */}
       </div>
     );
   }
