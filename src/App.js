@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div className="row container">
+      <div className="row container flex-nowrap">
         <CountriesList />
 
         <Route exact path="/countries/:countryName" component={CountryDetails} />

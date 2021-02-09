@@ -6,10 +6,10 @@ import countries from '../countries.json';
 
 export default function CountriesList() {
   return (
-    <div class="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
-      <div class="list-group">
+    <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
+      <div className="list-group">
           {countries.map(country => (
-              <div>
+              <div key={country.cca3}>
                   <Link className="list-group-item list-group-item-action" to={`/countries/${country.cca3}`}>
                       <span>{country.name.common}</span>
                   </Link>
@@ -19,11 +19,3 @@ export default function CountriesList() {
     </div>
   );
 }
-
-// {countries.map((country) => (
-//     <div key={country.cca3} className="list-group">
-//         <Link to={`/countries/${country.cca3}`}>
-//             <span>{country.name.common}</span>
-//         </Link>
-//     </div>
-//      ))}

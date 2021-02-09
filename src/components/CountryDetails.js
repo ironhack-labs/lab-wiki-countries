@@ -33,19 +33,39 @@ export default class CountryDetails extends Component {
     console.log(this.state);
 
     return (
-      <div>
+      <div  className="col-7">
         {this.state.show && (
+          
           <div>
-            <h1>{this.state.name.common}</h1>
-            <p>{this.state.capital[0]}</p>
-            <p>{this.state.area}km²</p>
-            {this.state.borders.map((border, i) => (
-              <div key={i}>
-                <Link to={`/countries/${border}`}>
-                  <span>{border}</span>
+            <h1 className="text-center">{this.state.name.common}</h1>
+            <table className="table">
+              <thead></thead>
+              <tbody>
+                <tr>
+                  <td style={{width: "30%"}}>Capital</td>
+                  <td>{this.state.capital[0] ? this.state.capital[0] : "-" }</td>
+                </tr>
+                <tr>
+                  <td>Area</td>
+                  <td>
+                    {this.state.area} km²
+                    <sup>2</sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Borders</td>
+                  <td>
+                    <ul>
+                    {this.state.borders.length ? this.state.borders.map((border, i) => (
+                <Link key={i} to={`/countries/${border}`}>
+                  <li>{border}</li>
                 </Link>
-              </div>
-            ))}
+            )) : "-"}
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         )}
       </div>
