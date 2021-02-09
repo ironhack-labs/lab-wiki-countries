@@ -3,48 +3,50 @@ import countries from '../countries.json';
 
 class CountryDetails extends React.Component {
   state = {
-    country: '',
+    name: '',
     capital: '',
     area: '',
     borders: [],
   };
 
-  addCountry = (props) => {
+  componentDidMount() {
+    const country = countries.find(
+      (country) => country.name === this.props.match.params.dogName
+    );
+
+    if (country) {
+      var newCountryList = { ...country };
       this.setState({
-          country: props.countries.name.common,
-        capital: countries.capital,
-        area: countries.area,
-        borders: [countries.borders]
-      })
+        name: newCountryList.name.common,
+        capital: newCountryList.capital,
+        area: newCountryList.area,
+        borders: newCountryList.borders,
+      });
+    }
   }
 
   render() {
     return (
-      <div>
-        <h1>{this.state.country}</h1>
+      <div className="col-7">
+        <h1>{this.state.name}</h1>
         <hr />
-        <div>
-          <p>Capital</p>
-          <span>
-            <p>{this.addCountry}</p>
-          </span>
-        </div>
+        <p>Capital</p>
+        <span>
+          <p>{this.state.capital}</p>
+        </span>
+        <hr />
+        <p>Area</p>
+        <span>
+          <p>{this.state.area}</p>
+        </span>
+        <hr />
+        <p>Borders</p>
+        <span>
+          <p>{this.state.borders}</p>
+        </span>
       </div>
     );
   }
 }
-
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-
-// function CountryDetails(props) {
-//   return <h1>{props.match.params.username}!</h1>;
-// }
-
-// ReactDOM.render(
-//   <Router>
-//     <Route path="/user/:country" component={CountryDetails} />
-//   </Router>);
 
 export default CountryDetails;
