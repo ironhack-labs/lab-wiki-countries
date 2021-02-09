@@ -33,22 +33,21 @@ export default class CountryDetails extends Component {
     console.log(this.state);
 
     return (
-      <div  className="col-7">
+      <div className="col-7">
         {this.state.show && (
-          
           <div>
             <h1 className="text-center">{this.state.name.common}</h1>
             <table className="table">
               <thead></thead>
               <tbody>
                 <tr>
-                  <td style={{width: "30%"}}>Capital</td>
-                  <td>{this.state.capital[0] ? this.state.capital[0] : "-" }</td>
+                  <td style={{ width: '30%' }}>Capital</td>
+                  <td>{this.state.capital[0] ? this.state.capital[0] : '-'}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
                   <td>
-                    {this.state.area} km²
+                    {this.state.area} km
                     <sup>2</sup>
                   </td>
                 </tr>
@@ -56,11 +55,19 @@ export default class CountryDetails extends Component {
                   <td>Borders</td>
                   <td>
                     <ul>
-                    {this.state.borders.length ? this.state.borders.map((border, i) => (
-                <Link key={i} to={`/countries/${border}`}>
-                  <li>{border}</li>
-                </Link>
-            )) : "-"}
+                      {this.state.borders.length
+                        ? this.state.borders.map((border, i) => {
+                            let country = countries.find(
+                              (item) => item.cca3 === border
+                            );
+                            console.log(country);
+                            return (
+                              <Link key={i} to={`/countries/${border}`}>
+                                <li>{country.name.common}</li>
+                              </Link>
+                            );
+                          })
+                        : '-'}
                     </ul>
                   </td>
                 </tr>
