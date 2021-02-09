@@ -30,7 +30,7 @@ export default class CountryDetails extends Component {
   }
 
   render() {
-    console.log(this.state);
+
 
     return (
       <div className="col-7">
@@ -60,7 +60,6 @@ export default class CountryDetails extends Component {
                             let country = countries.find(
                               (item) => item.cca3 === border
                             );
-                            console.log(country);
                             return (
                               <Link key={i} to={`/countries/${border}`}>
                                 <li>{country.name.common}</li>
