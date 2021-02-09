@@ -1,10 +1,9 @@
 import React from 'react'
 import countries from './countries.json'
-
 import { Link } from "react-router-dom";
 
 function ContriesList (props) {
-    console.log(countries)
+    
     return (
         <div className='col-5'>
             <div className='list-group'>
