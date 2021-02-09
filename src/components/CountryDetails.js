@@ -9,18 +9,19 @@ class CountryDetails extends React.Component {
 
     componentDidMount() {
         const countrie = countries.find(
-          (item) => item.name.cca3 === this.props.match.params.cca3
+          (item) => item.cca3 === this.props.match.params.cca3
         );
     
         if (countrie) {
-          this.setState({ ...countrie });
+          this.setState({ name: countrie.name.commom });
         }
     }
 
     render () {
+        console.log(this.props.match.params);
         return (
             <div className='col-7'>
-                {this.state.name}
+                <strong>Nome do País: </strong> {this.state.name}
             </div>
         )
     }
