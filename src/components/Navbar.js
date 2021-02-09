@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
-        <p className="navbar-brand">Wiki Countries</p>
-      </div>
-    </nav>
+    <nav class="navbar navbar-dark bg-primary mb-3">
+        <div class="container">
+          <a class="navbar-brand" href="/">WikiCountries</a>
+        </div>
+      </nav>
   );
 }
