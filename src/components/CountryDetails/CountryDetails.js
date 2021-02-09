@@ -36,7 +36,9 @@ const CountryDetails = (props) => {
               <ul>
                 {currentCountry.borders.map((country, i) => (
                   <li key={i}>
-                    <Link to={`/${country}`}>{country}</Link>
+                    <Link to={`/${country}`}>
+                      {getCountry(country).name.common}
+                    </Link>
                   </li>
                 ))}
               </ul>
