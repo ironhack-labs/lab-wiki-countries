@@ -1,4 +1,4 @@
-[
+const countries = [
 	{
 		"name": {
 			"common": "Aruba",
@@ -13607,3 +13607,5 @@
 		"flag": "\ud83c\uddff\ud83c\uddfc"
 	}
 ]
+
+export default countries
