@@ -8,11 +8,15 @@ import countries from '../countries.json';
 
 class MainContent extends Component {
   state = {
-    countriesList: countries,
+    countriesList: [],
   };
 
+  componentDidMount() {
+    this.setState({ countriesList: countries });
+  }
+
   render() {
-    return (
+    return this.state.countriesList.length ? (
       <div className="container">
         <div className="row">
           <div className="col-6">
@@ -31,7 +35,7 @@ class MainContent extends Component {
           </div>
         </div>
       </div>
-    );
+    ) : null;
   }
 }
 export default MainContent;
