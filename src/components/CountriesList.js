@@ -5,12 +5,12 @@ function CountriesList(props) {
     return (
         <div className="row">
             <div class="list-group">
-                {props.countries.map((country) => {
+                {props.countries.map((theCountry) => {
                     return (
                         <Link
                             className="list-group-item list-group-item-action"
-                            to={`/country/${country.cca3}`}>
-                            {country.flag} {country.name.common}
+                            to={`/country/${theCountry.cca3}`}>
+                            {theCountry.flag} {theCountry.name.common}
                         </Link>
                     );
                 })}
