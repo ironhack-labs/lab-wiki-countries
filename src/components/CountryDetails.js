@@ -1,15 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import ClickableCountry from './ClickableCountry';
 
-const CountryDetails = ({ countryCca3, countriesList }) => {
-  const getCountry = (cca3) => {
+const CountryDetails = ({ alpha3Code, countriesList }) => {
+  const getCountry = (alpha3Code) => {
     const { name, capital, area, borders } = countriesList.find(
-      (country) => country.cca3 === cca3
+      (country) => country.alpha3Code === alpha3Code
     );
-    return { name: name.official, capital: capital[0], area, borders };
+    return { name, capital, area, borders };
   };
 
-  const country = getCountry(countryCca3);
+  const country = getCountry(alpha3Code);
 
   return (
     <section>
@@ -37,7 +37,7 @@ const CountryDetails = ({ countryCca3, countriesList }) => {
               return (
                 <ClickableCountry
                   key={border}
-                  cca3={border}
+                  alpha3Code={border}
                   name={borderCountry.name}
                 />
               );

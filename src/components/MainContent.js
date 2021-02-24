@@ -4,30 +4,33 @@ import { Route } from 'react-router-dom';
 import CountriesList from './CountriesList';
 import CountryDetails from './CountryDetails';
 
-import countries from '../countries.json';
+import axios from 'axios';
 
 class MainContent extends Component {
   state = {
     countriesList: [],
   };
 
-  componentDidMount() {
-    this.setState({ countriesList: countries });
+  async componentDidMount() {
+    const apiResponseCountries = await axios.get(
+      'https://restcountries.eu/rest/v2/all'
+    );
+    this.setState({ countriesList: apiResponseCountries.data });
   }
 
   render() {
     return this.state.countriesList.length ? (
-      <div className="container">
+      <div className="container mt-4">
         <div className="row">
           <div className="col-6">
             <CountriesList countriesList={this.state.countriesList} />
           </div>
           <div className="col-6">
             <Route
-              path="/:cca3"
+              path="/:alpha3Code"
               render={(props) => (
                 <CountryDetails
-                  countryCca3={props.match.params.cca3}
+                  alpha3Code={props.match.params.alpha3Code}
                   countriesList={this.state.countriesList}
                 />
               )}

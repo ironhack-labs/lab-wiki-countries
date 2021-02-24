@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-const ClickableCountry = ({ cca3, name }) => (
+const ClickableCountry = ({ alpha3Code, name }) => (
   <li>
-    <Link to={`/${cca3}`}>{name}</Link>
+    <Link to={`/${alpha3Code}`}>{name}</Link>
   </li>
 );
 export default ClickableCountry;

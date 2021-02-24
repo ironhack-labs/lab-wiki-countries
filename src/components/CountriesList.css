@@ -1,0 +1,10 @@
+.country-link {
+  display: flex;
+  align-items: center;
+}
+
+.flag-icon {
+  height: 10px;
+  width: 15px;
+  margin-right: 5px;
+}
