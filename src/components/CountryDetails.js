@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
-import countries from '../countries.json';
 import 'bootstrap/dist/css/bootstrap.css';
+import ClickableCountry from './ClickableCountry';
 
-const CountryDetails = ({ countryCca3 }) => {
+const CountryDetails = ({ countryCca3, countriesList }) => {
   const getCountry = (cca3) => {
-    const { name, capital, area, borders } = countries.find(
+    const { name, capital, area, borders } = countriesList.find(
       (country) => country.cca3 === cca3
     );
     return { name: name.official, capital: capital[0], area, borders };
@@ -36,9 +35,11 @@ const CountryDetails = ({ countryCca3 }) => {
             {country.borders.map((border) => {
               const borderCountry = getCountry(border);
               return (
-                <li>
-                  <Link to={`/${border}`}>{borderCountry.name}</Link>
-                </li>
+                <ClickableCountry
+                  key={border}
+                  cca3={border}
+                  name={borderCountry.name}
+                />
               );
             })}
           </ul>

@@ -22,7 +22,10 @@ class MainContent extends Component {
             <Route
               path="/:cca3"
               render={(props) => (
-                <CountryDetails countryCca3={props.match.params.cca3} />
+                <CountryDetails
+                  countryCca3={props.match.params.cca3}
+                  countriesList={this.state.countriesList}
+                />
               )}
             ></Route>
           </div>
