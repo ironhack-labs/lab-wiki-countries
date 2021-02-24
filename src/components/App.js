@@ -1,9 +1,13 @@
 import './App.css';
+import Navbar from './Navbar';
+import MainContent from './MainContent';
+import countries from '../countries.json';
 
 function App() {
   return (
     <>
-      <h1>holi</h1>
+      <Navbar />
+      <MainContent countries={countries} />
     </>
   );
 }

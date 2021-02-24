@@ -1,0 +1,10 @@
+li {
+  list-style: none;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: aliceblue;
+  font-family: sans-serif;
+  font-weight: 600;
+}
