@@ -1,0 +1,12 @@
+.column{
+    max-height: 90vh; 
+    overflow: scroll
+}
+
+.column li{
+    list-style: none;
+}
+
+.red{
+    background-color: red;
+}
