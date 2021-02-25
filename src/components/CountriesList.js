@@ -14,7 +14,7 @@ const CountriesList = (props) => {
             >
               <img
                 className="country-flag"
-                src="https://www.countryflags.io/fr/flat/64.png"
+                src={`https://www.countryflags.io/${country.cca2}/flat/64.png`}
                 alt=""
               />
               {country.name.common}

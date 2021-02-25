@@ -41,14 +41,11 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             <CountriesList countries={countries}/>
-            {/* <CountryDetails country={this.state.country} countryChangeHandler={this.countryChangeHandler}/> */}
             <Switch>
-            {/* <Route exact path="/:code" countryChangeHandler={this.countryChangeHandler} component={CountryDetails}/> */}
               <Route exact path="/:code" render={(props) => (
                 <CountryDetails {...props} country={this.state.country} countryChangeHandler={this.countryChangeHandler}/>
               )} />
             </Switch>
-            {/* <CountryDetails country={CountryFilter("AFG")} countryFilter={CountryFilter}/> */}
           </div>
         </div>
       </div>
