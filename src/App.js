@@ -14,7 +14,7 @@ class App extends Component {
   }
   render() {
     // L18 definimos ruta para cuando se acceda a una ruta determinada se reenderice un countrydetails de esa informacion.
-   // lo ponemos en el state 
+   // lo ponemos en el state .. 
   return (
     <div className="App">
      <Navbar />
