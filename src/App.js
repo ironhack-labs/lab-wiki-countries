@@ -7,13 +7,14 @@ import countries from './countries.json';
 import { Switch, Route } from 'react-router-dom';
 import axios from 'axios'
 class App extends Component {
-  state ={ countries }
+  state = { countries }
   componentDidMount = async () => {
     const countries = await axios.get("https://countries.tech-savvy.tech/countries")
     this.setState({ countries: countries})
   }
   render() {
     // L18 definimos ruta para cuando se acceda a una ruta determinada se reenderice un countrydetails de esa informacion.
+   // lo ponemos en el state 
   return (
     <div className="App">
      <Navbar />
