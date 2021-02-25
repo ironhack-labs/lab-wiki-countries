@@ -6,7 +6,7 @@ const CountryDetails = (props) => {
     const country = props.countryChangeHandler(params.code);
   return (
     <div className="col-7">
-      <h1>{country.name.official}</h1>
+      <h1>{country.name}</h1>
       <table className="table">
         <thead></thead>
         <tbody>
@@ -28,7 +28,7 @@ const CountryDetails = (props) => {
                 {!country.borders.length ? <p>Border with no country</p> : country.borders.map(code => {
                     return(
                         <li key={code}>
-                            <Link to={`/${code}`}>{props.countryChangeHandler(code).name.official}</Link>
+                            <Link to={`/${code}`}>{props.countryChangeHandler(code).name}</Link>
                         </li>
                     )
                 })}

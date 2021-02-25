@@ -9,15 +9,15 @@ const CountriesList = (props) => {
           return (
             <Link
               className="list-group-item list-group-item-action text-left"
-              to={`/${country.cca3}`}
-              key={country.cca3}
+              to={`/${country.alpha3Code}`}
+              key={country.alpha3Code}
             >
               <img
                 className="country-flag"
-                src={`https://www.countryflags.io/${country.cca2}/flat/64.png`}
+                src={`https://www.countryflags.io/${country.alpha2Code}/flat/64.png`}
                 alt=""
               />
-              {country.name.common}
+              {country.name}
             </Link>
           );
         })}
