@@ -1,18 +1,14 @@
 import React from 'react';
-// import countries from '../countries.json';
 
 function CountryDetails(props) {
-  const countryId = props.match.params.countryId;
-  console.log(countryId);
-  const country = countries.find(
-    (countryObj) => countryObj.alpha3Code === countryId
-  );
-
+  const { country } = props.location.state;
   console.log(country);
 
+  // const countryId = props.match.params.countryId;
+  // const country = [].find((countryObj) => countryObj.alpha3Code === countryId);
   return (
     <div className="col-7">
-      <h1>{country.name.official}</h1>
+      <h1>{country.name}</h1>
       <table className="table">
         <thead></thead>
         <tbody>
@@ -23,11 +19,13 @@ function CountryDetails(props) {
 
           <tr>
             <td>Flags</td>
-            <td>{country.flag}</td>
+            <td>
+              <img width="30px" src={country.flag} alt="flag" />
+            </td>
           </tr>
           <tr>
             <td style={{ width: '30%' }}>Currency</td>
-            <td>{country.currency}</td>
+            <td>{country.currencies[0].name}</td>
           </tr>
           <tr>
             <td style={{ width: '30%' }}>Region</td>
