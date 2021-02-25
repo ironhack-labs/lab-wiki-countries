@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import countries from './../countries.json';
-import { BrowserRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 class CountriesList extends Component {

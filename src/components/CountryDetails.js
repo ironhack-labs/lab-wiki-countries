@@ -1,6 +1,7 @@
 import React from 'react'
 import countries from "./../countries.json"
 import { Link } from 'react-router-dom';
+import CountriesList from './CountriesList';
 
 function CountryDetails(props) {
 
@@ -32,7 +33,7 @@ function CountryDetails(props) {
                     const borderId = border;
                     const borderFound = countries.find((countryObj) => countryObj.cca3 === borderId)
 
-                    return <Link key={country.cca3} className="list-group-item list-group-item-action"
+                    return <Link key={borderFound.cca3} className="list-group-item list-group-item-action"
                     to={`/${borderFound.cca3}`}>{borderFound.name.common} {borderFound.flag}
                     </Link>
                     })}
