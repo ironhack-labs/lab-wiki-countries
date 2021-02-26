@@ -19,11 +19,9 @@ export default function CountriesList() {
       <div>
         {countries.map((e, id) => {
           return (
-            <ul>
+            <ul key={id}>
               <li>
-                <Link>
-                  {e.name} to={e.alpha3Code}
-                </Link>
+                <Link to={`/countries/${e.alpha3Code}`}>{e.name}</Link>
               </li>
             </ul>
           );

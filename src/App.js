@@ -12,7 +12,7 @@ function App() {
           <Route exact path="/countries" component={CountriesList} />
         </Switch>
         <Switch>
-          <Route exact path="/countries:details" component={CountryDetails} />
+          <Route exact path="/countries/:details" component={CountryDetails} />
         </Switch>
       </Router>
     </>
