@@ -23,10 +23,10 @@ export default function CountriesList() {
 
     return (
         <>
-        <div className="container">
+        <div className="container col-5">
        
         <div className="row">
-          <div className="col-5" style={{maxHeight: "70vh" , overflow: "scroll"}}>
+          <div  style={{maxHeight: "70vh" , overflow: "scroll"}}>
             <div className="list-group">
                 {
                 countriesList === undefined ? (<p>Cargando</p>) :
@@ -48,7 +48,6 @@ export default function CountriesList() {
               
             </div>
           </div>
-            <CountryDetails/>
         </div>
       </div>
         </>

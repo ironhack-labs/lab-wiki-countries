@@ -25,11 +25,16 @@ export default function CountryDetails() {
 
 
     return (
-        <div>
+        <div className="container">
             {
-                detail === undefined? (<p>Aqui veras los detalles del país seleccionado</p>):
+                detail === undefined? (
+                    <>
+                <p>Aqui veras los detalles del país seleccionado</p>
+                <img src="https://media.giphy.com/media/ohdmJuMIE08Ld7Jj0s/giphy.gif"/>
+                </>
+                ):
                 (
-            <div className="col-10">
+            <div className="col-12">
             <img width="100" src={detail.flag}/>
             <h1>{detail.name}</h1>
             <table className="table">
@@ -52,12 +57,12 @@ export default function CountryDetails() {
                    
                     <ul>
                         {
-                        detail.border === undefined? (
+                        detail.borders.length === 0? (
                             <p>No hay fronteras</p>
                         ):(
-                            detail.border.map((e,id)=>{
+                            detail.borders.map((e,id)=>{
                                 return(
-                                    <li>e</li>
+                                    <li>{e}</li>
                                 )
                             })
                             

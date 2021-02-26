@@ -6,25 +6,23 @@ import {
   Route,
   Switch
 } from "react-router-dom"
+import CountryDetails from './components/CountryDetails';
 
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Navbar />
+    <div className="d-flex justify-content-center">
       <Router>
+      <CountriesList/>
         <Switch>
-          <Route exact path="/" component={CountriesList}/>
+          <Route path="/:pais" component={CountryDetails}/>
         </Switch>
-        <Switch>
-          <Route exact path="/:pais" component={CountriesList}/>
-        </Switch>
-        {/* <Switch>
-        <Route path="*" component={() => <div>404</div> }/>
-        </Switch> */}
       </Router>
       
     </div>
+    </>
   );
 }
 
