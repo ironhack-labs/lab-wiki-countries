@@ -12,8 +12,17 @@ export default function CountryDetails() {
         `https://restcountries.eu/rest/v2/alpha/${codigo}`
       );
       console.log(respuesta);
+      setData(respuesta.data);
     };
     getCountryDetails(details);
   }, []);
-  return <div></div>;
+  return (
+    <div>
+      <ul>
+        <li>Capital: {data.capital}</li>
+        <li>Area: {data.area}</li>
+        <li>Borders: {data.borders}</li>
+      </ul>
+    </div>
+  );
 }
