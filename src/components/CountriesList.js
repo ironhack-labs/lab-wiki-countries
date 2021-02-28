@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.css'
-
+import {
+    Link
+} from 'react-router-dom'
 
 
 export default function CountriesList() {
@@ -12,24 +14,12 @@ export default function CountriesList() {
 
         const getCountries = async () => {
 
-            const respuestaServidor = await axios.get("https://raw.githubusercontent.com/mledoze/countries/master/countries.json")
+            const respuestaServidor = await axios.get("https://restcountries.eu/rest/v2/all")
 
-            const countries = await respuestaServidor.data
+            const countries = await respuestaServidor
 
-            setCountriesList(countries)
+            setCountriesList(countries.data)
 
-            console.log("countries",countries)
-            // console.log("respuestaS.data:", respuestaServidor.data)
-
-            // console.log("Nombre oficial:", respuestaServidor.data[0].name.official)
-
-            // console.log("Capital:",respuestaServidor.data[0].capital )
-
-            // console.log("Área:",respuestaServidor.data[0].area )
-
-            // console.log("Borders:",respuestaServidor.data[0].borders )
-            
-            
 
 
         }
@@ -40,13 +30,18 @@ export default function CountriesList() {
     return (
         <div>
 
-        {/* {countriesList.map((element,id)=>{
+        {countriesList.map((element,id)=>{
 
             return(
-                <p key={id}>{element}</p>
+                <p key={id}>
+                
+                <Link to={`/countries/${element.name}`}><img alt={element.name}width="20px"src={element.flag}/> - {element.name}</Link>
+                
+                
+                </p>
             )
 
-        })} */}
+        })}
             
         </div>
     )

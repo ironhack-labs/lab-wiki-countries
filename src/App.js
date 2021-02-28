@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch 
 } from 'react-router-dom'
 
@@ -18,14 +17,17 @@ function App() {
   return (
     <>
 
+    <Navbar/>
+
     <Router>
+
 
       <Switch>
           <Route exact path="/countries" component={CountriesList}/>
       </Switch>
 
       <Switch>
-          <Route exact path="/:countryDetails" component={CountryDetails}/>
+          <Route exact path="/countries/:countryCode" component={CountryDetails}/>
       </Switch>
 
       <Switch>
