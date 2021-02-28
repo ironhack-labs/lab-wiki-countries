@@ -1,52 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+
+import countriesFile from './countries.json'
+
+import { Route, Switch } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
-import Main from './components/Main';
-import React, { Component } from 'react'
 import CountriesList from './components/CountriesList'
 import CountryDetails from './components/CountryDetails'
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Error from './components/Error'
-import countries from './countries.json'
+
+import './App.css';
 
 class App extends Component {
-  constructor() {
-    super();
+  state = {
+    countriesList: countriesFile,
+  };
 
-    this.state = {
-     countriesList: [],
-    };
-  }
-
-  getCountryData = () => {
-    console.log('hola')
-    this.setState({ countriesList: countries })
-  }
+  // getCountryData = () => {
+  //   console.log('hola')
+  //   this.setState({ countriesList: countries })
+  // }
 
   render() {
+    const { countriesList } = this.state;
+
     return (
       <div className="App">
-      <BrowserRouter>
         <Navbar />
-        <CountriesList countries={this.state.countriesList} />
 
-        <Switch>
-          <Route path="/" component={Main} exact />
-          <Route path="/countries" component={CountriesList} exact />
-          <Route path="/countries/:idOfTheCountry" component={CountryDetails} exact />
+        <div className="container">
+          <div className="row">
 
-          <Route component={Error} />
-        </Switch>
+            <CountriesList countriesData={ countriesList } />
 
-      </BrowserRouter>
-    </div>
+            <Switch>
+            <Route path="/:cca3Code" render={(rrdProps) => {
+                  return (
+                    <CountryDetails {...rrdProps} countriesData={countriesList} />
+                  );
+                }}
+              />
+            </Switch>
+
+          </div>
+        </div>
+
+      </div>
     )
   }
 
-  componentDidMount() {
-    console.log("======== componentDidMount");
-    this.getCountryData();
-  }
+  // componentDidMount() {
+  //   console.log("======== componentDidMount");
+  //   this.getCountryData();
+  // }
 
 }
 
