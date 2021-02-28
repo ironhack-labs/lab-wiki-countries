@@ -33,12 +33,12 @@ export default function CountriesList() {
         {countriesList.map((element,id)=>{
 
             return(
-                <p key={id}>
+                <div key={id}>
                 
                 <Link to={`/${element.alpha3Code}`}><img alt={element.name}width="20px"src={element.flag}/> - {element.name}</Link>
+                <hr/>
                 
-                
-                </p>
+                </div>
             )
 
         })}

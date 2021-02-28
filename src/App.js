@@ -15,27 +15,36 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <>
+  <>
 
     <Navbar/>
 
     <Router>
 
+    <div class="container">
+        <div class="row align-items-start">
+          <div class="col">      
 
-      <Switch>
-          <Route exact path="/" component={CountriesList}/>
-      </Switch>
+          <CountriesList/>
+          </div>
 
-      <Switch>
-          <Route exact path="/:countryCode" component={CountryDetails}/>
-      </Switch>
-
-  
-
-
+          <div class="col">
+          </div>
+          
+          <div class="col">
+            <Switch>
+                <Route exact path="/:countryCode" component={CountryDetails}/>
+            </Switch>
+          </div>
+        </div>
+    </div>
     </Router>
-    </>
-  );
+    
+  </>
+
+)
+    
+    
 }
 
 export default App;

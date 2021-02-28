@@ -47,23 +47,29 @@ export default function CountryDetails() {
             <>  
             { 
                 <div>
-                <p>{countryDetails.name}</p>
-                <p>{countryDetails.capital}</p>
+                <h2>{countryDetails.name}</h2>
+                <hr/>
+                <p>Capital City: {countryDetails.capital}</p>
+                <hr/>
+                <p>Area: {countryDetails.area} km<sup>2</sup></p>
+                <hr/>
+                <p>Borders with: </p>
+
                
-               <p>{countryDetails.borders}</p>
-                <div>{countryDetails.borders.length===0 ? (<p>No hay fronteras</p>) : 
+               
+                {/* <div>{countryDetails.borders.length===0 ? (<li>It's an island</li>) : 
                 
-              countryDetails.borders.map((elem,id)=>{
-                    return(
-                
-                        <ul>
-                            <li key={id}>
-                            <Link to={`/${elem}`}>{elem}</Link>
-                            
-                            </li>
-                        </ul>
-                    )
-                })}</div>
+                countryDetails.borders.map((elem,id)=>{
+                      return(
+                  
+                          <ul>
+                              <li key={id}>
+                              <Link to={`/${elem}`}>{elem}</Link>
+                              
+                              </li>
+                          </ul>
+                      )
+                  })}</div> */}
 
             </div>
             

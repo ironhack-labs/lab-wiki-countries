@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 export default function Navbar() {
     return (
-        <div>
-    <p>WikiCountries</p>
+        <div class="navbar text-title navbar-dark bg-primary">
+    WikiCountries
         </div>
     )
 }
