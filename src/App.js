@@ -11,14 +11,21 @@ import CountryDetails from './components/CountryDetails'
 import './App.css';
 
 class App extends Component {
+  // Iteration 1 & Iteration 2
+  // state = {
+  //   countriesList: countriesFile,
+  // };
+
+  // Iteration 3
   state = {
-    countriesList: countriesFile,
+    countriesList: [],
   };
 
-  // getCountryData = () => {
-  //   console.log('hola')
-  //   this.setState({ countriesList: countries })
-  // }
+  // Iteration 3
+  componentDidMount = () => {
+    console.log('hola')
+    this.setState({ countriesList: countriesFile })
+  }
 
   render() {
     const { countriesList } = this.state;
@@ -47,12 +54,6 @@ class App extends Component {
       </div>
     )
   }
-
-  // componentDidMount() {
-  //   console.log("======== componentDidMount");
-  //   this.getCountryData();
-  // }
-
 }
 
 export default App;
