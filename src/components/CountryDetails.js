@@ -1,8 +1,10 @@
 import React, {useState,useEffect} from 'react'
 import axios from 'axios'
 import {
-    useParams
+    useParams,
+    Link
 } from 'react-router-dom'
+import { getNodeText } from '@testing-library/react'
 
 
 export default function CountryDetails() {
@@ -18,16 +20,18 @@ export default function CountryDetails() {
 
             const consultarApi = async ()=>{
                 
-                const respuestaDelApi = await axios.get(`https://restcountries.eu/rest/v2/name/${countryCode}?fullText=true
+                const respuestaDelApi = await axios.get(`https://restcountries.eu/rest/v2/alpha/${countryCode}
                 `
-                )
+                ).catch((error)=>{
+                    console.log(error)
+                })
 
-            console.log("Lo que estoy recibiendo del API:",respuestaDelApi)
+            console.log("Lo que estoy recibiendo del API:",respuestaDelApi.data)
 
 
 
 
-            setCountryDetails(respuestaDelApi.data[0])
+            setCountryDetails(respuestaDelApi.data)
 
     }
 
@@ -35,25 +39,39 @@ export default function CountryDetails() {
 
     },[countryCode])
 
-console.log(countryDetails.borders)
+// console.log(countryDetails.borders)
     return (
         <div>
         
           {
             <>  
-            <p>{countryDetails.name}</p>
-            <p>{countryDetails.capital}</p>
-            <p>{countryDetails.borders.map((element,id)=>{
-                return (
-                    <ul>
-                    <li key={id}>{element}</li>
-                    </ul>
-                    )
+            { 
+                <div>
+                <p>{countryDetails.name}</p>
+                <p>{countryDetails.capital}</p>
+               
+                <p>{countryDetails.borders.map((elem,id)=>{
+                    return(
 
-            })}</p>
+                        <ul>
+                            <li key={id}>
+                            <Link to={`/countries/${elem}`}>{elem}</Link>
+                            
+                            </li>
+                        </ul>
+                    )
+                })}</p>
+
+            </div>
+            
+            }
+            </>
+           
+
+          
 
             
-            </>
+            
             
 
 
