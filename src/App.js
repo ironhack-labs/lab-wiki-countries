@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import countriesFile from './countries.json'
+//Iteration 1, Iteration 2 & Iteration 3
+// import countriesFile from './countries.json'
 
 import { Route, Switch } from 'react-router-dom';
 
@@ -22,9 +23,19 @@ class App extends Component {
   };
 
   // Iteration 3
-  componentDidMount = () => {
-    console.log('hola')
-    this.setState({ countriesList: countriesFile })
+  // componentDidMount = () => {
+  //   console.log('hola')
+  //   this.setState({ countriesList: countriesFile })
+  // }
+
+  // Iteration 4
+  componentDidMount() {
+    fetch('https://restcountries.eu/rest/v2/all')
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ countriesList: data });
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
