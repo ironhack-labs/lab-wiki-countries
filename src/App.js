@@ -23,15 +23,11 @@ function App() {
 
 
       <Switch>
-          <Route exact path="/countries" component={CountriesList}/>
+          <Route exact path="/" component={CountriesList}/>
       </Switch>
 
       <Switch>
-          <Route exact path="/countries/:countryCode" component={CountryDetails}/>
-      </Switch>
-
-      <Switch>
-          <Route exact path="/" component={Navbar}/>
+          <Route exact path="/:countryCode" component={CountryDetails}/>
       </Switch>
 
   

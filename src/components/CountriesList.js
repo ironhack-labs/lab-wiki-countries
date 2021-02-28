@@ -35,7 +35,7 @@ export default function CountriesList() {
             return(
                 <p key={id}>
                 
-                <Link to={`/countries/${element.alpha3Code}`}><img alt={element.name}width="20px"src={element.flag}/> - {element.name}</Link>
+                <Link to={`/${element.alpha3Code}`}><img alt={element.name}width="20px"src={element.flag}/> - {element.name}</Link>
                 
                 
                 </p>

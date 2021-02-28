@@ -50,17 +50,20 @@ export default function CountryDetails() {
                 <p>{countryDetails.name}</p>
                 <p>{countryDetails.capital}</p>
                
-                <p>{countryDetails.borders.map((elem,id)=>{
+               <p>{countryDetails.borders}</p>
+                <div>{countryDetails.borders.length===0 ? (<p>No hay fronteras</p>) : 
+                
+              countryDetails.borders.map((elem,id)=>{
                     return(
-
+                
                         <ul>
                             <li key={id}>
-                            <Link to={`/countries/${elem}`}>{elem}</Link>
+                            <Link to={`/${elem}`}>{elem}</Link>
                             
                             </li>
                         </ul>
                     )
-                })}</p>
+                })}</div>
 
             </div>
             
