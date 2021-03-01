@@ -9,7 +9,9 @@ import { getNodeText } from '@testing-library/react'
 
 export default function CountryDetails() {
     
-    const [countryDetails, setCountryDetails] = useState([])
+    const [countryDetails, setCountryDetails] = useState({
+         borders:[]
+    })
 
     const {countryCode} = useParams()
     console.log(countryCode)
@@ -57,7 +59,11 @@ export default function CountryDetails() {
 
                
                
-                {/* <div>{countryDetails.borders.length===0 ? (<li>It's an island</li>) : 
+
+                <div>{
+                !countryDetails ? (<p>Loading</p>) :
+                    countryDetails.borders.length ===0 ? 
+                    (<li>It's an island</li>) : 
                 
                 countryDetails.borders.map((elem,id)=>{
                       return(
@@ -69,7 +75,7 @@ export default function CountryDetails() {
                               </li>
                           </ul>
                       )
-                  })}</div> */}
+                  })}</div>
 
             </div>
             
