@@ -1,25 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+//import countries from './countries.json';
+
+
+import { Switch, Route, Link } from 'react-router-dom';
+
+import Navbar from './components/Navbar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <div class="container">
+        <div class="row">
+          {/* <CountriesList listOfCountries={countries} /> */}
+          <CountriesList  />
+        </div>
+      </div>
+
+      <Switch>
+        <Route
+          path="/country/:alpha3Code"
+          //path="/country/:cca3"
+          render={(props) => <CountryDetails {...props} />}
+        />
+      </Switch>
     </div>
   );
 }
 
 export default App;
+
+// https://restcountries.eu/#api-endpoints-all 
+
+// https://restcountries.eu/rest/v2/all
+
+
+
+
