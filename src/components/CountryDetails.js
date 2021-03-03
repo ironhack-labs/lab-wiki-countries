@@ -7,21 +7,10 @@ import axios from 'axios';
 import CountriesList from './CountriesList';
 
 
-// ??? 
-// const allCountries = ()=> {
-//   return  axios.get(`https://restcountries.eu/rest/v2/all`)
-//    .then(res => {
-//      return res.data
-//    })
-  
-//  }
-
-
-
-
 class CountryDetails extends React.Component {
   state = {
     country: {},
+    countries: []
   };
 
   // componentWillReceiveProps(props) {
@@ -48,6 +37,13 @@ class CountryDetails extends React.Component {
       })
   }
 
+  componentDidMount() {
+    axios.get(`https://restcountries.eu/rest/v2/all`)
+      .then(res => {
+        const countries = res.data;
+        this.setState({ countries });
+      })
+  }
 
 
 
@@ -75,19 +71,17 @@ class CountryDetails extends React.Component {
               <td>Borders</td>
               <td>
                 <ul>
-          {/* need original all countries object from axios for .find ??*/}
-                  {this.state.country.borders?.map((eachBorder) => {
-                  {/* let countryName =  countries.find((eachCountry) => 
-                    eachBorder.includes(eachCountry.alpha3Code)); 
-                    
-                    
-                    console.log(countryName); */}
+                {this.state.country.borders?.map((eachBorder) => {
+                    let countryName = this.state.countries.find(
+                      (eachCountry) => eachBorder.includes(eachCountry.alpha3Code)
+                    );
+
+                    console.log('cname: ', countryName);
 
                     return (
                       <li key={eachBorder}>
                         <Link to={`/country/${eachBorder}`}>
-                          {eachBorder}
-                          {/* {countryName.name} */}
+                          {countryName.name}
                         </Link>
                       </li>
                     );
