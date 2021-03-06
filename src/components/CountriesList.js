@@ -1,15 +1,18 @@
-import countries from '../countries.json';
 
-const CountriesList = () => {
+
+const CountriesList = ({changeCountry, countries}) => {
+
+    console.log()
+
     return (
-        <div>
-            <p>Hola</p>
+        <div className="overflow-auto" style={{height:600}}>
             {countries.map(country => {
                 return (
-                    <div className="border border-dark d-flex justify-content-center align-items center">
-                        {/* <img src={`https://www.countryflags.io/${country.cca3}/flat/64.png`} alt="banderita" className="me-2" /> */}
-                        <p>{country.name}</p>
-                    </div>
+                
+                    <button className="btn btn-outline-secondary w-100 d-flex justify-content-around align-items-center" onClick={() => changeCountry(country)} key={country.ccn3} c>
+                        <img src={`https://www.countryflags.io/${country.alpha2Code}/flat/64.png`} alt="banderita"  />
+                        <span className="ms-2">{country.name}</span>
+                    </button>
                 )
             })}
 

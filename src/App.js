@@ -1,17 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+
 import Navbar from './components/Navbar';
-import CountriesList from './components/CountriesList';
+
+import Home from './components/Home';
 
 
 function App() {
     return (
         <div className="App">
             <Navbar />
-            <div className="row mt-5">
-                <div className="col-4">
-                    <CountriesList/>
-                </div>
+            <div className="container">
+               <Home/>
             </div>
         </div>
     );
