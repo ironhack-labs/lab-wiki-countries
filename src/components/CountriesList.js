@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 // class CountriesList extends React.Component {
@@ -10,7 +10,7 @@ import axios from 'axios';
 //         {this.props.listOfCountries.map(eachCountry=> {
 //             return (
 //           <Link className="list-group-item list-group-item-action" to={`/country/${eachCountry.cca3}`}>
-//             {eachCountry.flag} {eachCountry.name.common} 
+//             {eachCountry.flag} {eachCountry.name.common}
 //           </Link>
 
 //             )
@@ -24,29 +24,36 @@ import axios from 'axios';
 
 // export default CountriesList;
 
-
 class CountriesList extends React.Component {
   state = {
-    listOfCountries: []
-  }
-
+    listOfCountries: [],
+  };
 
   componentDidMount() {
-    axios.get(`https://restcountries.eu/rest/v2/all`)
-      .then(res => {
-        const listOfCountries = res.data;
-        this.setState({ listOfCountries });
-      })
+    axios.get(`https://restcountries.eu/rest/v2/all`).then((res) => {
+      const listOfCountries = res.data;
+      this.setState({ listOfCountries });
+    });
   }
 
-
-
+  allCountries = () => {
+    return this.state.listOfCountries.map((eachCountry) => {
+      return (
+        <Link
+          className="list-group-item list-group-item-action"
+          to={`/country/${eachCountry.alpha3Code}`}
+        >
+          <img src={eachCountry.flag} width="20px" alt="" /> {eachCountry.name}
+        </Link>
+      );
+    });
+  };
 
   render() {
     return (
       <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
         <div className="list-group">
-        {/* {this.props.listOfCountries.map(eachCountry=> {
+          {/* {this.props.listOfCountries.map(eachCountry=> {
             return (
           <Link className="list-group-item list-group-item-action" to={`/country/${eachCountry.cca3}`}>
             {eachCountry.flag} {eachCountry.name.common} 
@@ -55,18 +62,17 @@ class CountriesList extends React.Component {
             )
 
         })} */}
-          {this.state.listOfCountries.map(eachCountry=> {
+          {/* {this.state.listOfCountries.map(eachCountry=> {
             return (
           <Link className="list-group-item list-group-item-action" to={`/country/${eachCountry.alpha3Code}`} >
             <img src={eachCountry.flag} width='20px' alt=""/> {eachCountry.name} 
           </Link>
             )
-        })}
+        })} */}
 
+        {/* or */}
 
-
-
-
+          {this.allCountries()}
         </div>
       </div>
     );
