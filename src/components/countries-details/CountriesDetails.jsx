@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
-import countries from '../../countries.json';
-
 
 function CountriesDetails(props) {
+    
     const countryCode = props.match.params.country
-    const country = countries.find(country => country.cca3 === countryCode)
+    const country = props.countries.find(country => country.alpha3Code === countryCode)
     return(
-        <div className="col-7">
-            <h1>{country.name.common}</h1>
+        <div className="col-6">
+          <div className="row">
+            <h1 className="mr-3">{country.name}</h1>
+            <img src={`https://www.countryflags.io/${country.alpha2Code}/flat/64.png`} alt={country.name}/>
+          </div>
             <table className="table">
               <thead></thead>
               <tbody>
                 <tr>
                   <td style={{width: "30%"}}>Capital</td>
-                  <td>{country.capital[0]}</td>
+                  <td>{country.capital}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
@@ -26,10 +28,10 @@ function CountriesDetails(props) {
                   <td>Borders</td>
                   <td>
                     <ul>
-                      {country.borders.map((borders, i) => (
+                      {country.borders.map((cca3, i) => (
                           <li key={i}>
-                              <Link to={`/${borders}`}>{borders}</Link>
-                            </li>
+                              <Link to={`/${cca3}`}>{props.countries.find(country => country.alpha3Code === cca3).name}</Link>
+                          </li>
                       ))}       
                     </ul>
                   </td>
