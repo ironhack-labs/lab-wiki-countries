@@ -1,52 +1,39 @@
+
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import countries from '../countries.json'
 
+function countryDetails(props) {
+
+  const { params } = props.match;
+  const countryCCA3 = params.countryId;
+  const country = countries.find(country => country.cca3 === countryCCA3);
+
+  const [BordersCountry] = countries.filter(country => country.cca3 === countryCCA3)
+  console.log(BordersCountry)
 
 
-class countryDetails extends React.Component {
-  state = {
-    countryId : this.props.match.params.countryId,
-    foundCountry : {}
-    }
-
-
-
-country = () => {
-  
-  this.setState((state) => {
-    return {
-       foundCountry : countries.find(country => country.cca3 === this.state.countryId)
-
-    }  })
-  
-   
-}
-
-
-
-
-render() {
-
-
-  console.log(this.state.foundCountry)
-  console.log(this.state)
   return (
     <div>
-      <h1>Country details</h1>
-      <p>Capital:{this.state.foundCountry.cca3}</p>
-      <p>Area:  km2</p>
-      <p>Borders:</p>
-      <ul>
-       
-      </ul>
-    </div>
-  );
-}
-}
- 
+      <h1> {country.name.official}</h1>
+      <h2>Country details</h2>
+      <p>Capital:{country.capital}</p>
+      <p>Area:{country.area}km2</p>
+      <td>
+        <ul>
+          {country.borders.map((b, k) => {
+            return (
+              <li key={k}>
+                <Link to={country.cca3}>{b}</Link>
+              </li>
+            );
+          })}
+        </ul>
+      </td>
 
- 
- 
-export default countryDetails ;
+    </div>
+  )
+}
+
+export default countryDetails;
 

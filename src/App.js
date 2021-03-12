@@ -1,14 +1,13 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import CountriesList from './components/CountriesList';
 import Navbar from './components/Navbar';
-import countries from './countries.json'
-
-import CountryDetails from './components/CountryDetails';
+import countries from './countries.json';
+import CountryDetails from './components/CountryDetails'
 
 class App extends React.Component {
-  
+
   state = {
     countries: []
   }
@@ -23,23 +22,25 @@ class App extends React.Component {
   render() {
 
     return (
-      <div className="App">
-        <Navbar />
+      <Router>
+        <div className="App">
+          <Navbar />
 
-        <div className=" container">
-          <div className=" row">
-            <CountriesList countries={countries} />
+          <div className=" container">
+            <div className=" row">
+              <CountriesList countries={countries} />
 
-            <Switch>
-              <Route exact path="/countries/:countryId"
-                component={CountryDetails}
-                countries={countries} />
-            </Switch>
+              <Switch>
+                <Route exact path="/countries/:countryId"
+                  component={CountryDetails}
+                  countries={countries} />
+              </Switch>
+
+            </div>
 
           </div>
-
         </div>
-      </div>
+      </Router>
     );
 
   }

@@ -6,9 +6,9 @@ const Navbar = () => {
     return (
 
         <nav className="navbar navbar-light bg-primary">
-       
-                <span className=" mb-0 h1">WikiCountries</span>
-            
+
+            <span className=" mb-0 h1">WikiCountries</span>
+
         </nav>
 
     )
