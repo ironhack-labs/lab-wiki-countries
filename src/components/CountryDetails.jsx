@@ -1,37 +1,52 @@
-import React, {Component} from 'react';
-import countries from '../countries.json';
+import React from 'react';
 import { Link } from "react-router-dom";
+import countries from '../countries.json'
 
 
 
+class countryDetails extends React.Component {
+  state = {
+    countryId : this.props.match.params.countryId,
+    foundCountry : {}
+    }
 
 
-const countryDetails = (props) => {
-   /*const getCountry = (id) => {
-        const theCountry = oneCountry => {
-            return oneCountry.id === id;
-        }
-        return countries.find(theCountry)
- };*/
 
- 
- 
- const params = props.match
- console.log(params)
+country = () => {
+  
+  this.setState((state) => {
+    return {
+       foundCountry : countries.find(country => country.cca3 === this.state.countryId)
 
-return (
-    
-    
-    <div>
-      <h2><span style={{fontSize:"14px"}}></span></h2>
-      <h3></h3>
-      <p></p>
-      
-    </div>
-)
-
-
+    }  })
+  
+   
 }
 
+
+
+
+render() {
+
+
+  console.log(this.state.foundCountry)
+  console.log(this.state)
+  return (
+    <div>
+      <h1>Country details</h1>
+      <p>Capital:{this.state.foundCountry.cca3}</p>
+      <p>Area:  km2</p>
+      <p>Borders:</p>
+      <ul>
+       
+      </ul>
+    </div>
+  );
+}
+}
+ 
+
+ 
+ 
 export default countryDetails ;
 
