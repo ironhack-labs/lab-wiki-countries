@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Navbar extends Component {
-    render() {
-        return (
-            <div>
-                <nav>WIKI COUNTRIES</nav>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <nav class="navbar navbar-dark bg-primary mb-3">
+          <div class="container">
+            <a class="navbar-brand" href="/">
+              WikiCountries
+            </a>
+          </div>
+        </nav>
+      </div>
+    );
+  }
 }
 
-export default Navbar
+export default Navbar;
