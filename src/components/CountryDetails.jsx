@@ -31,7 +31,13 @@ export default function CountryDetails(props) {
               <td>Borders</td>
               <td>
                 <ul>
-                    {country.borders.map(border => <li key={border}><Link to={`/${border}`}>{border}</Link></li> )}
+                    {
+                      country.borders.map(border => {
+                        const countryName= countries.find(country => country.cca3 === border).name.common ;
+                        console.log(countryName)
+                        return <li key={border}><Link to={`/${border}`}>{countryName}</Link></li>
+                      })
+                    }
                 </ul>
               </td>
             </tr>
