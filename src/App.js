@@ -9,7 +9,7 @@ import countriesjson from './countries.json';
 class App extends React.Component {
 
   state = {
-    countries: ''
+    countries: countriesjson
   }
   
 
