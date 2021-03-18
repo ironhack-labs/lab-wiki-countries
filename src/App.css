@@ -1,10 +1,5 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  /* text-align: center; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,26 +8,68 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  position: relative;
+}
+
+nav {
+  background-color:rgb(39, 39, 117);
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  z-index: 2;
+}
+
+h1, h3 {
+  text-align: left;
+  padding-left: 10%;
+}
+
+ul {
+  position: absolute;
+  top: 76px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 25%;
+  padding: 0;
+  background-color: whitesmoke;
 }
 
-.App-link {
-  color: #61dafb;
+li {
+  list-style-type: none;
+  text-align: left;
+  border-top: 0.5px solid lightgray;
+  border-right: 1px solid lightgray;
+  padding: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li:hover {
+  background-color:skyblue;
+}
+
+a p {
+  color: black;
+  margin-bottom: 0;
+}
+
+.countryDiv {
+  position: fixed;
+  padding: 15px;
+  top: 20%;
+  left: 33%;
+  width: 750px;
+  height: 500px;
+}
+
+.countryRow {
+  display: flex;
+  padding-left: 10%;
+}
+
+.countryRow p {
+  width: 40%;
+  margin-bottom: 0;
+  padding: 5px;
 }
