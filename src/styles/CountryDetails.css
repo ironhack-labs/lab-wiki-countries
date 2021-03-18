@@ -1,0 +1,11 @@
+.country-details {
+  margin-left: 30%;
+  padding: 15px;
+  position: absolute;
+  top: 50px;
+}
+
+.list-group-item > span {
+  display: inline-block;
+  margin-left: 30%;
+}
