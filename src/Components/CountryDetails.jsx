@@ -8,6 +8,9 @@ const CountryDetails = (props) => {
     (country) => country.ccn3 === countryID
   );
 
+  const borderCountries = (code) =>
+  CountryList.find((border) => border.cca3 === code);
+
   return (
     <div>
       <div style={{margin: 30}}>
@@ -32,8 +35,8 @@ const CountryDetails = (props) => {
                 <ul>
                   {foundCountry.borders.map((border, index) => {
                     return (
-                      <li key ={index}>
-                        <Link to={`/${foundCountry.ccn3}`}>{border}</Link>
+                      <li key={index}>
+                        <Link to={`/${borderCountries(border).ccn3}`}>{borderCountries(border).name.official}</Link>
                       </li>
                     );
                   })}
