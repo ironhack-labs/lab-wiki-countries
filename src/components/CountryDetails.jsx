@@ -12,7 +12,8 @@ import React from 'react'
          <div>
              <h1>Country Details</h1>
          <h2>{country.name.common}</h2>
-         <h3></h3>
+         <h3>{country.region}</h3>
+         <h3>{country.flag}</h3>
             
        </div>
      )
