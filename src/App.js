@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import NavBar from './Components/NavBar.jsx'
+import CountriesList from './Components/CountriesList.jsx'
+import CountriesDetails from './Components/CountryDetails.jsx'
+import { Switch, Route } from 'react-router-dom'
+// import CountriesJSON from './countries.json'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export class App extends Component {
+  state = {
+    loading: true,
+    countryList: null,
+  }
+
+  async componentDidMount() {
+    const url = "https://restcountries.eu/rest/v2/all";
+    const response = await fetch(url);
+    const data = await response.json()
+    this.setState({countryList: data, loading: false})
+  }
+  
+  
+  
+  render() {
+    
+ 
+    return (
+      <div className="App">
+      <NavBar />
+        <div className="container">
+            { this.state.loading ? <div>loading...</div> :
+          <div className="row">
+
+            <CountriesList countries={this.state.countryList}/>        
+            <Switch>
+              <Route path="/:id" render={(historyProps) => {
+                return < CountriesDetails {...historyProps} countries={this.state.countryList}/>
+
+              }} />
+            </Switch>
+          </div>
+            }
+        
+        </div>
+           
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
+
