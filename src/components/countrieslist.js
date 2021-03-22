@@ -7,7 +7,7 @@ const ContriesList = (props) => {
 
 return (  
 
-<div>  
+<div style={CountryList} >  
 
     <ul className="list-group">  
 
@@ -25,4 +25,9 @@ return (
 
 )}
 
+const CountryList = {  
+maxHeight: "90vh",
+overflow: "scroll"
+
+}
 export default ContriesList;

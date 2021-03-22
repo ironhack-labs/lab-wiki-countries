@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
         <Navbar/> 
-    <div style={{display:'flex'}} >    
+    <div style={{display:'flex', justfyContent: 'space-between' }} >    
         <ContriesList/>
         <Switch> 
             <Route 
