@@ -9,9 +9,10 @@ import CountryDetails from './components/CountryDetails/CountryDetails'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header>
         <Navbar/>
       </header>
+
       <main>
       
       </main>
