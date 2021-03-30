@@ -1,15 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import countries from '../countries.json';
+// import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-function CountriesList(props) {
+const CountriesList = (props) => {
   return (
-    <ul>
-      {countries.map((eachCountry, idx) => (
-        <li>{eachCountry.name.common}</li>
-      ))}
-    </ul>
+    <div
+      className="list-group"
+      style={{ width: '40%', height: '93vh', overflow: 'auto' }}
+    >
+      {props.countries.map((eachCountry) => {
+        return (
+          <NavLink
+            to={`/countries/${eachCountry.cca3}`}
+            className="list-group-item"
+          >
+            <img
+              src={`http://www.countryflags.io/${eachCountry.cca2}`}
+              alt={`${eachCountry.name.common} flag`}
+              style={{ height: '1.5rem' }}
+            />
+            {eachCountry.name.common}
+          </NavLink>
+        );
+      })}
+    </div>
   );
-}
-
+};
 export default CountriesList;
