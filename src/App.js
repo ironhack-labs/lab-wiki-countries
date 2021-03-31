@@ -6,15 +6,23 @@ import CountriesList from './components/CountriesList';
 import CountryDetail from './components/CountryDetail';
 import countries from './countries.json';
 import { Switch, Route } from 'react-router-dom';
+import axios from 'axios';
 
 class App extends React.Component {
 
   state = { countries: [] }
 
   componentDidMount() {
-    this.setState({
-      countries: countries
-    })
+    // this.setState({
+    //   countries: countries
+    // })
+    axios.get("http://restcountries.eu/rest/v2/all")
+      .then(response => {
+          console.log(response.data)
+          this.setState({countries: response.data})
+          console.log('this.state', this.state.countries)
+      })
+      .catch(err => console.log(err))
   }
 
   render() {

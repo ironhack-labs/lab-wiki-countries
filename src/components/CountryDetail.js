@@ -3,12 +3,14 @@ import countries from '../countries.json';
 import { Link } from 'react-router-dom'
 
 const CountryDetail = (props) => {
-
+    console.log(props)
     const getCountry = (id) => countries.find(country => country.cca3 === id);
     const { params } = props.match;
     const foundCountry = getCountry(params.id);
     // const getBordingCountryName = (id) => countries.find(country => country.cca3 === id);
     // const bordingCountryNme = getBordingCountryName(params.id);
+
+
 
     return(
       <div className="col-6 ml-3">
@@ -30,9 +32,13 @@ const CountryDetail = (props) => {
             <tr>
               <td>Borders</td>
               <td>
-                <ul>
+                <ul className='text-left'>
                     {
+                      foundCountry.borders.length > 0
+                      ?
                         foundCountry.borders.map(bordingCountry => <li key={bordingCountry.cca3}><Link style={{listStyle: 'none'}} to={`/countries/${bordingCountry}`}>{bordingCountry}</Link></li>)
+                      :
+                      'This country has no Borders'
                     }
                 </ul>
               </td>
