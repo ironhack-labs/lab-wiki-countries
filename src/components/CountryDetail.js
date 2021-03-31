@@ -3,17 +3,19 @@ import countries from '../countries.json';
 import { Link } from 'react-router-dom'
 
 const CountryDetail = (props) => {
-    console.log('props', props)
 
     const getCountry = (id) => countries.find(country => country.cca3 === id);
     const { params } = props.match;
     const foundCountry = getCountry(params.id);
+    // const getBordingCountryName = (id) => countries.find(country => country.cca3 === id);
+    // const bordingCountryNme = getBordingCountryName(params.id);
 
     console.log('foundCountry', foundCountry)
+    console.log('foundCountry.borders', foundCountry.borders)
 
     return(
-        <div className="col-7">
-        <h1>{ foundCountry.name.common }</h1>
+        <div className="col-6 ml-3">
+        <h1>{ foundCountry.name.common } <span className="ml-2">{ foundCountry.flag }</span></h1>
         <table className="table">
           <thead></thead>
           <tbody>
@@ -33,7 +35,7 @@ const CountryDetail = (props) => {
               <td>
                 <ul>
                     {
-                        foundCountry.borders.map(bordingCountry => <li><Link key={bordingCountry.cca3} style={{listStyle: 'none'}} to={`/countries/${bordingCountry.cca3}`}></Link></li>)
+                        foundCountry.borders.map(bordingCountry => <li key={bordingCountry.cca3}><Link style={{listStyle: 'none'}} to={`/countries/${bordingCountry}`}>{bordingCountry}</Link></li>)
                     }
                   {/* <li><a href="/AND">Andorra</a></li>
                   <li><a href="/BEL">Belgium</a></li>
@@ -46,9 +48,14 @@ const CountryDetail = (props) => {
                 </ul>
               </td>
             </tr>
+            <tr>
+              <td></td>
+              <td>
+                <Link to='/'>Hide</Link>
+              </td>
+            </tr>
           </tbody>
         </table>
-        <Link to='/'>Back</Link>
       </div>
     )
 }

@@ -3,26 +3,20 @@ import { Link } from 'react-router-dom';
 
 const CountriesList = ({countries = [], ...props}) => {
     return (
-    //   <!-- Bootstrap container wrapper div -->
-        <div className="container text-left m-0">
-        {/* <!-- Bootstrap row wrapper div --> */}
-            <div className="row">
-          {/* <!-- Countries List (Bootstrap column) --> */}
-                <div className="col-5" style={{maxHeight: "35rem", overflow: "scroll"}}>
+        <div className="col-5" style={{maxHeight: "40rem", overflow: "scroll", border: "none"}}>
                     <div className="list-group">
                 {
                     countries.map(country => {
+                        console.log('country flag', country.flag)
                         return (
                             <div  key={country.cca3}>
-                                <Link to={`/countries/${country.cca3}`}>{country.name.common}</Link>
+                                <Link className="list-group-item list-group-item-action" to={`/countries/${country.cca3}`}><span className="mr-1">{ country.flag }</span> {country.name.common}</Link>
                             </div>
                             )
                     })
                 }
                     </div>
                 </div>
-            </div>
-        </div>
     )
 }
 

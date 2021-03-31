@@ -12,12 +12,16 @@ function App() {
     <div className="App">
       <Navbar className="App-header"/>
 
-      <CountriesList countries={countries}/>
-    
-      <Switch>
-        <Route exact path='/' component={CountriesList} />
-        <Route exact path='/countries/:id' component={CountryDetail}/>
-      </Switch>
+      <div className="container m-0">
+        <div className="row">
+          <CountriesList countries={countries}/>
+        
+          <Switch>
+            <Route exact path='/' component={CountriesList} />
+            <Route exact path='/countries/:id' component={CountryDetail}/>
+          </Switch>
+        </div>
+      </div>
 
       <footer className="App-footer sticky-bottom mt-3">
         <p>Ironhack Lab developed by <a className="App-link" href='https://github.com/xavirepi' target='_blank'>Javier Repilado</a> using React <img src={logo} className="App-logo" alt="logo" /></p>
