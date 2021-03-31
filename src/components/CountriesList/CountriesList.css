@@ -1,0 +1,11 @@
+.country__list__item{
+    border: solid black 1px;
+    padding: 2px;
+    max-width: 400px;
+    min-width: fit-content;
+}
+
+.country__list__item:hover {
+    background-color: yellow;
+    cursor: pointer
+  }
