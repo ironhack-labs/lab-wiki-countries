@@ -13,7 +13,6 @@
   }
 }
 
-.App-header,
 .App-footer {
   background-color: #282c34;
   min-height: 5rem;
@@ -25,14 +24,12 @@
   color: white;
 }
 
-.App-footer {
-  position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
 .App-link {
   color: #61dafb;
+}
+
+.App-link:hover {
+  color: #fff;
 }
 
 @keyframes App-logo-spin {
