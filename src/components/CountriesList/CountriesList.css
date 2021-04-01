@@ -1,0 +1,29 @@
+.link__style{
+    text-align: left;
+    padding: 10px;
+    border: 1px solid grey;
+    color: black !important;
+    text-decoration: none;
+}
+
+.link__style h6{
+    color: black !important;
+    text-decoration: none;
+}
+
+.link__style h6:hover{
+   
+    text-decoration: none !important;
+    color: white !important;
+}
+
+.link__style a:hover{
+   
+    text-decoration: none !important;
+    
+}
+
+.link__style:hover{
+    background-color: #17a2b8 ;
+    
+}
