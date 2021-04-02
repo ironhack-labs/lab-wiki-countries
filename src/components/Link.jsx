@@ -1,21 +1,14 @@
 import React from 'react';
-import { useHistory, Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const Links = ({ name, cca3, flag }) => {
-  // let history = useHistory();
-  // const goToProfile = () => {
-  //   history.push(`/country/` + cca3);
-  // };
+const Links = (props) => {
+  const { name, alpha3Code, flag } = props
   return (
-    <>    
-        <Link className="list-group-item list-group-item-action"  to={`/profile/${cca3}`}>
-          {flag} {name.common}
-        </Link>
-        {/* <button className="list-group-item list-group-item-action"  onClick={goToProfile}>
-          {flag} {name.common}
-        </button> */}
-    </>    
-
+    <>
+      <Link className="list-group-item list-group-item-action" to={`/${alpha3Code}` }>
+        <img style={{width: '20px'}} alt='flag' src={flag}/> {name}
+      </Link>
+    </>
   );
 };
 

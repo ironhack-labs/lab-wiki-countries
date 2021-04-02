@@ -1,9 +1,10 @@
 import { Route, Switch } from 'react-router-dom';
 import CountryDetails from './CountryDetails'
-export default function Router() {
+
+export default function Routerr({countries}) {
   return (
     <Switch>
-      <Route exact paht="/:id/country" component={CountryDetails} />
+      <Route path="/:id" children={<CountryDetails countries={countries}/>} />
     </Switch>
   );
 }
