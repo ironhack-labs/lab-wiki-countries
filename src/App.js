@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import CountryList from './components/Sidebar/CountryList';
+import Navbar from './components/Navbar/Navbar';
+import Router from './components/Router/Router';
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <CountryList/>
+      </div>
+      <div>
+        <Navbar />
+        <Router />
+      </div>
     </div>
   );
 }
 
 export default App;
+
+// switch renderiza lo primero que matchea
+// Navlink activeClassName="active" clase que le aplica si es la ruta activa.

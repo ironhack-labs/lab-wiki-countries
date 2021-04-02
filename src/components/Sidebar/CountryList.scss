@@ -1,0 +1,16 @@
+.CountryList {
+    margin-left: 30px;
+    margin-right: 10px;
+    margin-top: 20px;
+
+    .countryEach {
+        text-decoration: none;
+        color: rgb(35, 35, 35);
+        margin: 10px;
+        
+        &:hover {
+            color: rgb(67, 152, 67);
+        }
+    }
+
+}
