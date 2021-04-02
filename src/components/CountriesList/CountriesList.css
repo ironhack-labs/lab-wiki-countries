@@ -1,11 +1,23 @@
-.country__list__item{
-    border: solid black 1px;
-    padding: 2px;
-    max-width: 400px;
-    min-width: fit-content;
+.link__style{
+    text-align: left;
+    padding: 10px;
+    border: 1px solid lightgrey;
+    color: black !important;
+    text-decoration: none;
 }
 
-.country__list__item:hover {
-    background-color: yellow;
-    cursor: pointer
-  }
+.link__style h6{
+    color: black !important;
+    text-decoration: none;
+}
+
+.link__style a:hover{
+   
+    text-decoration: none !important;
+    
+}
+
+.link__style:hover{
+    background-color: yellow ;
+    
+}

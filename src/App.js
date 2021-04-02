@@ -1,48 +1,34 @@
-import React, {Component} from 'react'
-
-import data from '../src/data/countries.json'
+import { Route, Switch } from "react-router-dom";
 
 import './App.css';
-
 //components
+
 import Navbar from './components/Navbar/Navbar'
-import CountriesList from './components/CountriesList/CountriesList'
+import CountriesList from './components/CountriesList/CountriesList';
 import CountryDetails from './components/CountryDetails/CountryDetails'
-import Router from './components/Router/Router'
 
-
-
-class App extends Component {
-
-  state ={
-    countries: [...data]
-}
-
-
-  render(){
-    return (
-      <div className="App">
-        <header>
-          <Navbar/>
-        </header>
-
-        <main className="container">
-          <div className="row justify-content-between">
-            <div className="col">
-              <CountriesList data={this.state.countries}/>  
+function App() {
+  return (
+    <div className="App">
+      <header>
+        <Navbar/> 
+      </header>
+      <main>
+        <div className="container">
+          <div className="row">
+            <div className="col-5" style={{maxHeight: 700, overflow: "scroll"}}>
+              <CountriesList/>
             </div>
-            <div className="col">
-              <CountryDetails data={this.state.countries}/> 
+            <div className="col-7" >
+              <Switch>
+                <Route exact path="/:cca3" component={CountryDetails} />
+              </Switch>
             </div>
-              <Router />
           </div>
-        </main>
-        
-        <footer>
-        </footer>
-      </div>
-    )
-  }
+        </div>
+      </main>
+    </div>
+  )
 }
 
 export default App;
