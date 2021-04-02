@@ -2,9 +2,6 @@ import { Route, Switch } from "react-router-dom";
 import {Component} from 'react'
 import Loader from "react-loader-spinner";
 
-//data
-import dataCountries from './countries.json'
-
 //components
 import Navbar from './components/Navbar/Navbar'
 import CountriesList from './components/CountriesList/CountriesList';
@@ -19,19 +16,23 @@ class App extends Component {
     loading: true
   }
 
+  api(){
+    fetch('https://restcountries.eu/rest/v2/all')
+    .then(res => res.json())
+    .then(dataApi =>{
+      this.setState({
+        data: dataApi,
+        loading: false
+      })
+    })
+  }
+
+
   componentDidMount() {  
     console.log('DOM renderizado')
-    
-    this.setState({
-      data: dataCountries,
-      loading: false
-    })
-
+    this.api()
   }
 
-  componentWillUnmount() {  
-
-  }
 
   render(){
     return (
@@ -50,11 +51,11 @@ class App extends Component {
                   <CountriesList data={this.state.data}/>
                 </div>
                 <div className="col-8" >
-                  <Switch>
+                  {<Switch>
                     <Route 
                       path="/:cca3" 
                       render={ props =>  <CountryDetails props={props} data={this.state.data}/> } /> 
-                  </Switch>
+                  </Switch>}
                 </div>
               </div>
             </div>

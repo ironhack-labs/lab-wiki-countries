@@ -4,16 +4,16 @@ import {Link} from "react-router-dom"
 const CountryDetails = ({props, data}) => {
 
     const getCountryName = (country) => {
-        const found = data.find((item) => item.cca3 === country)
-        return found.name.official
+        const found = data.find((item) => item.alpha3Code === country)
+        return found.name
     }
 
     const getCountry = (info) => {
-        const country = data.find((item) => item.cca3 === props.match.params.cca3)
+        const country = data.find((item) => item.alpha3Code === props.match.params.cca3)
 
         switch(info) {
             case 'countryName':
-                return country.name.official
+                return country.name
             case 'capital':
                 return country.capital
             case 'area':
@@ -21,7 +21,7 @@ const CountryDetails = ({props, data}) => {
             case 'borders':
                 return country.borders
             case 'cca3':
-                return country.cca3
+                return country.alpha3Code
             default:
                 return null
           }
