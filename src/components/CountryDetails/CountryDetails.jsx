@@ -1,7 +1,7 @@
-import data from '../../countries.json'
+
 import {Link} from "react-router-dom"
 
-const CountryDetails = (props) => {
+const CountryDetails = ({props, data}) => {
 
     const getCountryName = (country) => {
         const found = data.find((item) => item.cca3 === country)

@@ -1,10 +1,9 @@
 
-import data from '../../countries.json'
 import './CountriesList.css'
 import {Link} from "react-router-dom"
 
 
-const CountriesList = () => {
+const CountriesList = ({data}) => {
     return (
         <div className="list-group">
             {data.map((country) => (
