@@ -16,12 +16,13 @@ function App() {
             <div className="list-group">
               <CountriesList countries={countries} />
               {/* React Router Route rendering the CountryDetails should go here */}
-              <AppRouter />
+            
             </div>
           </div>
+          <AppRouter />
+
         </div>
       </div>
-    
     </div>
 
   );

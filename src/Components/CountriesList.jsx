@@ -8,7 +8,6 @@ const CountriesList = ({ countries }) => {
 
   return (
     <div className='CountriesList'>
-      <Link to={'/enlace'} >Enlace</Link>
       {countries.map((country) => {
         const { name, cca3, flag } = country;
 
