@@ -7,6 +7,7 @@ import NotFound from './components/NotFound'
 import { Route, Switch } from "react-router-dom";
 import {Component} from 'react'
 import CountriesData from  './countries.json'
+import axios from 'axios'
 
 class App extends Component {
 
@@ -16,11 +17,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      data: CountriesData,
-      loading: false
-    } 
-    )
+    axios.get(`https://restcountries.eu/rest/v2/all`)
+    .then(res => {
+      const gottenData = res.data
+      this.setState({
+        data: gottenData,
+        loading: false
+      } 
+      )
+    })
+    
   }
 
   componentWillUnmount() {
@@ -39,11 +45,11 @@ class App extends Component {
             <CountriesList data={this.state.data}/>
           </div>
           <div className="col-7" >
-            <Switch>
+            {<Switch>
               <Route exact path="/:cca3" render={(props) => (
               <CountryDetails props={props} data={this.state.data} />
                 )} />
-            </Switch>
+            </Switch>}
           </div>
         </div>
       </div> 
