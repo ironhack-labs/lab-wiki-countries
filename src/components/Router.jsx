@@ -3,7 +3,7 @@ import CountryDetails from './CountryDetails'
 export default function Router() {
   return (
     <Switch>
-      <Route exact paht="/country/:id" component={CountryDetails} />
+      <Route exact paht="/:id/country" component={CountryDetails} />
     </Switch>
   );
 }
