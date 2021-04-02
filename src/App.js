@@ -1,34 +1,47 @@
 import { Route, Switch } from "react-router-dom";
+import {Component} from 'react'
 
-import './App.css';
+//data
+import dataCountry from './countries.json'
+
 //components
-
 import Navbar from './components/Navbar/Navbar'
 import CountriesList from './components/CountriesList/CountriesList';
 import CountryDetails from './components/CountryDetails/CountryDetails'
 
-function App() {
-  return (
-    <div className="App">
-      <header>
-        <Navbar/> 
-      </header>
-      <main>
-        <div className="container">
-          <div className="row">
-            <div className="col-5" style={{maxHeight: 700, overflow: "scroll"}}>
-              <CountriesList/>
-            </div>
-            <div className="col-7" >
-              <Switch>
-                <Route exact path="/:cca3" component={CountryDetails} />
-              </Switch>
+//style
+import './App.css';
+
+class App extends Component {
+  state = {
+    data: dataCountry
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <header>
+          <Navbar/> 
+        </header>
+        <main>
+          <div className="container">
+            <div className="row">
+              <div className="col-4" style={{maxHeight: 700, overflow: "scroll"}}>
+                <CountriesList data={this.state.data}/>
+              </div>
+              <div className="col-8" >
+                <Switch>
+                  <Route 
+                    path="/:cca3" 
+                    render={ props =>  <CountryDetails props={props} data={this.state.data}/> } /> 
+                </Switch>
+              </div>
             </div>
           </div>
-        </div>
-      </main>
-    </div>
-  )
+        </main>
+      </div>
+    )
+  }
 }
 
 export default App;
