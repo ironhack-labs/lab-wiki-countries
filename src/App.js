@@ -37,7 +37,7 @@ class App extends Component {
     <div className="App">
       <Navbar/>
       {this.state.loading ? (
-      <div className='Container text-center'> <div className='row'><h1>Loading</h1> </div></div>
+      <div className='Container loading__style'> <div className='row'><div class='col'><h1>Loading...</h1> </div></div></div>
       ): (
       <div className="container">
         <div className="row">
