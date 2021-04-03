@@ -16,7 +16,7 @@ const CountryDetails = ({ props, countriesD }) => {
             case 'capital':
                 return country.capital
             case 'area':
-                return `${country.area}Km²`
+                return `${country.area}Km`
             case 'borders':
                 return country.borders
             case 'cca3':
@@ -34,7 +34,15 @@ const CountryDetails = ({ props, countriesD }) => {
                 <tbody>
                     <tr>
                     <td style={{width: '30%'}}>Capital:</td>
-                    <td>{getInfo('capital')}</td>
+                    <td>
+                        {
+                        country.capital == ""
+                            ? <p>No Capital</p>
+                            :(      
+                                getInfo('capital')
+                            )
+                        }
+                    </td>
                     </tr>
                     <tr>
                     <td>Area:</td>
@@ -53,7 +61,7 @@ const CountryDetails = ({ props, countriesD }) => {
                                 :(       
                                     getInfo('borders').map(border => <li key={border}><Link to={`/${border}`}>{border}</Link></li>)
                                 )
-                        }
+                            }
                         </ul>
                     </td>
                     </tr>
