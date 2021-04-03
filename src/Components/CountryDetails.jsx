@@ -1,23 +1,40 @@
 import {Component} from 'react';
 import {Link}    from 'react-router-dom';
+import countries from '../countries.json';
 
 class CountryDetails extends Component {
 
+  getCountry (id) {
+    const country = oneCountry => {
+      return oneCountry.cca3 === id;
+    }
+    return countries.find(country)
+
+  }
+  foundBorderName (id) {
+    return this.getCountry(id).name.common;
+  }
+  
+
     render () {
+        const {params} = this.props.match;
+        const foundCountry = this.getCountry(params.cca3)
+        console.log(params.cca3)
+        console.log(foundCountry)
         return (
           <div className='CountryDetails col-7'>
-            <h1>France</h1>
+            <h1>{foundCountry.name.official}</h1>
             <table className="table">
               <thead></thead>
               <tbody>
                 <tr>
                   <td style={{width: '30%'}}>Capital</td>
-                  <td>Paris</td>
+                  <td>{foundCountry.capital}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
                   <td>
-                    551695 km
+                    {foundCountry.area} km
                     <sup>2</sup>
                   </td>
                 </tr>
@@ -25,14 +42,10 @@ class CountryDetails extends Component {
                   <td>Borders</td>
                   <td>
                     <ul>
-                      <li><Link to="/AND">Andorra</Link></li>
-                      <li><Link to="/BEL">Belgium</Link></li>
-                      <li><Link to="/DEU">Germany</Link></li>
-                      <li><Link to="/ITA">Italy</Link></li>
-                      <li><Link to="/LUX">Luxembourg</Link></li>
-                      <li><Link to="/MCO">Monaco</Link></li>
-                      <li><Link to="/ESP">Spain</Link></li>
-                      <li><Link to="/CHE">Switzerland</Link></li>
+                      {foundCountry.borders.map((border) =>{
+                       return (<li><Link to={`/${border}`} key={border}>{this.foundBorderName(border)}</Link></li>)
+                      })}
+               
                     </ul>
                   </td>
                 </tr>

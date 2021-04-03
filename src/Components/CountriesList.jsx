@@ -7,7 +7,8 @@ const CountriesList = ({ countries }) => {
 
 
   return (
-    <div className='CountriesList'>
+    <div className='CountriesList col-5' style={{ maxHeight: "90vh", overflow: "scroll" }}>
+       <div className="list-group">
       {countries.map((country) => {
         const { name, cca3, flag } = country;
 
@@ -18,6 +19,7 @@ const CountriesList = ({ countries }) => {
       }
       )}
 
+    </div>
     </div>
 
 
