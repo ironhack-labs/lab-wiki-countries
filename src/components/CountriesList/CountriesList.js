@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
+import './CountriesList.css'
 
-const CountriesList = ({cca3, flag, name}) => {
+const CountriesList = ({alpha3Code, flag, name}) => {
     return (
         <div>
-            <Link to={`/${cca3}`} className="list-group-item list-group-item-action">{flag} {name.common}</Link>
+            <Link to={`/${alpha3Code}`} className="list-group-item list-group-item-action"><img src={flag} alt="flag" className="flag"></img> {name}</Link>
         </div>
 
     )    
