@@ -4,26 +4,49 @@ import Navbar from './Components/Navbar';
 import CountriesList from './Components/CountriesList';
 import countries from './countries.json';
 import AppRouter from './Components/AppRouter';
+import SyncLoader from 'react-spinners/SyncLoader';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <Navbar />
+class App extends Component {
+  state = {
+    countries: [],
+    loading: true
+  }
+  componentDidMount() {
+    this.setState({ countries, loading: false })
 
-      <div className="container">
-        <div className="row">
-   
-              <CountriesList countries={countries} />
-              {/* React Router Route rendering the CountryDetails should go here */}
-            
- 
-          <AppRouter />
+  }
+
+  render() {
+    return (
+
+      <div className="App">
+        <Navbar />
+
+        <div className="container">
+
+          {
+            this.state.loading ? (
+              <div className="text-center">
+                <SyncLoader color="blue" />
+              </div>
+            )
+              :
+              (
+                <div className="row">
+                  <CountriesList countries={this.state.countries} />
+                  <AppRouter />
+                </div>
+              )
+          }
 
         </div>
       </div>
-    </div>
 
-  );
+    );
+  }
+
+
 }
 
 export default App;
