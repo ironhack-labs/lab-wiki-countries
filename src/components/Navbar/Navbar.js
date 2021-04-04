@@ -1,0 +1,21 @@
+import React from 'react'
+import '../Navbar/Navbar.css'
+
+
+
+const Navbar = () => {
+
+    return (
+        <nav className="navbar navbar-dark bg-primary mb-3">
+            <div className="container">
+                <a className="navbar-brand" href="/">WikiCountries</a>
+            </div>
+        </nav>
+
+    )
+
+
+}
+
+
+export default Navbar
