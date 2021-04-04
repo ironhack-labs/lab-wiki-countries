@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar.jsx';
-
 import { Component } from 'react';
+
 
 export default class App extends Component {
   render() {
@@ -11,6 +11,7 @@ export default class App extends Component {
         <div class="container">
           <div className="row">
             <div className="col-5 countriesColu">
+           
             </div>
             <div className="col-7 infoCountry">
             </div>

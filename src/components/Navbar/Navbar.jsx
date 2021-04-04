@@ -3,10 +3,10 @@ import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-dark bg-primary mb-3">
+    <nav className="navbar navbar-dark mb-3">
       <div className="container">
-        <a className="navbar-brand" href="/">
-          WikiCountries
+        <a className="navbar-brand font-weight-bold" href="/">
+        🌍 WikiCountries
         </a>
       </div>
     </nav>
