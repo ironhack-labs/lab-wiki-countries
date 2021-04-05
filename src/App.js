@@ -32,7 +32,7 @@ function App() {
             <div className="col-sm-8">
               <Route
                 path="/:code"
-                render={(props) => (
+                component={(props) => (
                   <CountryDetails {...props} countries={countries} />
                 )}
               />
