@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "antd": "^4.15.0",
     "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
     "mapbox-gl": "^2.2.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",

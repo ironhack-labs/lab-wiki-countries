@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ClipLoader from 'react-spinners/ClipLoader'
-import { Pagination } from 'antd';
 import { getAllCountries, getSearch } from '../../services/baseService'
 import './CountryList.scss'
 
@@ -46,21 +45,22 @@ class CountryList extends Component {
                     this.state.loader
                     ? <ClipLoader/>
                     : (
-                        <div>
+                        <div className="col-5" style={{maxHeight: '90vh', width: 350, overflow: 'scroll'}}>
+                        <div className="list-group list-group-flush">
                         {this.state.allCountries.map(c => (
                             <div key={c.name}>
                                 <Link 
                                     to={`/detail/${c.alpha3Code}/country`}
-                                    className="countryEach"
+                                    className="list-group-item list-group-item-action text-left"
                                 >
                                     {c.name}
                                 </Link>
                             </div>
                         ))}
                         </div>
+                        </div>
                     )
                 }
-                <Pagination defaultCurrent={1} total={50} />
             </div>
         )
     }
