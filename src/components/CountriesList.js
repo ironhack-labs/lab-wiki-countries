@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CountriesList = ({countries = [], ...props}) => {
-    //console.log('CountriesList props', props)
     return (
         <div className="col-5" style={{maxHeight: "40rem", overflow: "scroll", border: "none"}}>
                     <div className="list-group">
@@ -21,4 +20,3 @@ const CountriesList = ({countries = [], ...props}) => {
 }
 
 export default CountriesList;
-

@@ -4,23 +4,18 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetail from './components/CountryDetail';
-import countries from './countries.json';
+import { getCountries } from './services/BaseService';
 import { Switch, Route } from 'react-router-dom';
-import axios from 'axios';
+
 
 class App extends React.Component {
 
   state = { countries: [] }
 
   componentDidMount() {
-    // this.setState({
-    //   countries: countries
-    // })
-    axios.get("http://restcountries.eu/rest/v2/all")
-      .then(response => {
-          console.log(response.data)
-          this.setState({countries: response.data})
-          console.log('this.state', this.state.countries)
+    getCountries()
+      .then(allCountries => {
+          this.setState({countries: allCountries})
       })
       .catch(err => console.log(err))
   }
@@ -36,7 +31,8 @@ class App extends React.Component {
           
             <Switch>
               <Route exact path='/' component={CountriesList} />
-              <Route exact path='/countries/:id' component={CountryDetail}/>
+              {/* <Route exact path='/countries/:id' component={CountryDetail}/> */}
+              <Route exact path='/countries/:id' component={(props) => <CountryDetail {...props} countries={this.state.countries}/> } />
             </Switch>
           </div>
         </div>
