@@ -11,11 +11,13 @@ export default class App extends Component {
 
   state = {
     countries: countries,
+    loading: false
   };
 
   componentDidMount() {
     this.setState({
       countries: countries,
+      loading: true
     })
   }
 

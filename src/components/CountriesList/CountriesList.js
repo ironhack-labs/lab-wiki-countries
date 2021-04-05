@@ -11,7 +11,7 @@ const CountriesList = ({countries}) => {
                     {countries.map((country) => {
                         return (
                         <p key={country.cca3}>
-                            <Link exact to={`/${country.cca3}`}>
+                            <Link to={`/${country.cca3}`}>
                                 {country.flag} {country.name.common}
                             </Link>
                         </p>
