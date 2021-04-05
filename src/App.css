@@ -45,3 +45,7 @@
 .CapitalTd {
   width: 30%
 }
+
+.leftText {
+  text-align: left;
+}

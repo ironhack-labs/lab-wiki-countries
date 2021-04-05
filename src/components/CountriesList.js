@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import data from '../countries.json'
 import { NavLink } from 'react-router-dom'
 
 export default class CountriesList extends Component {
 
     state = {
-        countries: [...data]
+        countries: this.props.countries
     }
 
     render() {

@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar'
 import CountriesList from './components/CountriesList'
 import Router from './components/Router'
+import data from './countries.json'
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Navbar />
       <div className="container">
         <div className="row">
-        <CountriesList />
+        <CountriesList countries={data}/>
         <Router />
         </div>
       </div>
