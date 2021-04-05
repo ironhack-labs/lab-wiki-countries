@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { getOneCountry } from '../../services/baseService'
 import { Link } from 'react-router-dom'
+import ClipLoader from 'react-spinners/ClipLoader'
 import Map from '../Map/Map'
 import './Country.scss'
 
@@ -40,7 +41,9 @@ class Country extends Component {
                 <div id="map"></div>
                 {
                     this.state.loader 
-                    ? (<p>Loading...</p>)
+                    ? (<div className="d-flex justify-content-center spin p-5">
+                        <ClipLoader color={"rgb(46, 112, 46)" }/>
+                        </div>)
                     : (
                         <div className="container p-5">
                         <div className="row d-flex align-items-center">
