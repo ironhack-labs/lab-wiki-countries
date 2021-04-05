@@ -40,12 +40,14 @@ class CountryList extends Component {
                     value={this.state.search}
                     onChange={this.onSearch}
                     autoComplete="off"
+                    className="form-control mb-4"
+                    placeholder="Search..."
                 />
                 {
                     this.state.loader
                     ? <ClipLoader/>
                     : (
-                        <div className="col-5" style={{maxHeight: '90vh', width: 350, overflow: 'scroll'}}>
+                        <div className="col-5" style={{maxHeight: '90vh', width: 330, overflow: 'scroll'}}>
                         <div className="list-group list-group-flush">
                         {this.state.allCountries.map(c => (
                             <div key={c.name}>

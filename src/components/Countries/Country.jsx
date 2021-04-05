@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { getOneCountry, getOneBorder } from '../../services/baseService'
+import { getOneCountry } from '../../services/baseService'
 import { Link } from 'react-router-dom'
 import Map from '../Map/Map'
+import './Country.scss'
 
 class Country extends Component {
 
@@ -41,20 +42,33 @@ class Country extends Component {
                     this.state.loader 
                     ? (<p>Loading...</p>)
                     : (
-                        <>
-                            <h2>{country.name}</h2>
-                            <img src={country.flag} alt={`Flag of ${country.name}`} style={{width: 180}}/>
-                            <p>Native name: {country.nativeName}</p>
-                            <p>Capital: {country.capital}</p>
-                            <p>☎️ {country.callingCodes.map((num) => <span key={num}>{num}</span>)}</p>
-                            <p>{country.area}</p>
+                        <div className="container p-5">
+                        <div className="row d-flex align-items-center">
+                        <hr/>
+                            <div className="col">
+                                <h3>{country.name}</h3>
+                                <p><small><i>{country.nativeName}</i></small></p>
+                            </div>
+                            <div className="col d-flex justify-content-end mb-3">
+                                <img src={country.flag} alt={`Flag of ${country.name}`} style={{width: 140}}/>
+                            </div>
+                        <hr/>
+                        </div>
+                            <p><b>Capital: </b>{country.capital}</p>
+                            <p><b>Area: </b>{country.area} km²</p>
+                        <div className="row d-flex align-items-start mb-3">
+                            <div className="col-2">
+                                <p><b>Borders:</b></p>
+                            </div>
                             {country.borders.map((bor) => (
-                                <div key={bor}>
-                                    <Link to={`/detail/${bor}/country`} >{bor}</Link>
+                                <div className="col-1 mb-3" key={bor}>
+                                    <Link to={`/detail/${bor}/country`} className="borderCodes">{bor}</Link>
                                 </div>
                             ))}
-                            <Map lon={country.latlng[0]} lat={country.latlng[1]}/>
-                        </>
+                        </div>
+                        <Map lon={country.latlng[0]} lat={country.latlng[1]}/>
+                        <div/>
+                        </div>
                     )
                 }
             </div>

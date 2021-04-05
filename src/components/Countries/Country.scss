@@ -1,0 +1,18 @@
+.Country {
+    margin-top: 40px;
+    width: 100vh;
+}
+
+.borderCodes {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 5px;
+    background-color: rgb(67, 152, 67);
+    border-radius: 3px;
+    font-size: 0.8rem;
+
+    &:hover {
+        background-color: rgb(46, 112, 46);
+        color: #fff;
+    }
+}

@@ -2,8 +2,10 @@ import React from 'react'
 
 const NotFound = () => {
     return (
-        <div>
-            <h1>400 NOT FOUND</h1>
+        <div className="container justify-content-center text-center">
+        <div className="row">
+            <img src="/images/icono-bola-mundo.jpeg" alt="world" style={{width: "100vh", padding: 100}}/>
+        </div>
         </div>
     )
 }

@@ -7,7 +7,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicGFsbWFzYSIsImEiOiJja2x0OHpvdDYwNmJ5MndvM2NiN
 const Map = ({lon, lat}) => {
   const mapContainerRef = useRef(null);
 
-  // initialize map when component mounts
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
