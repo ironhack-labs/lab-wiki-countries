@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom'
-import countries from '../countries.json'
 
-export default function CountryDetails(props){
-
-    const params = props.match.params.cca3
-    const country = countries.find((c) => c.cca3 === params)
+export default function CountryDetails({countries, match}){
+   
+    const params = match.params.code
+    const country = countries.find((c) => c.alpha3Code === params)
 
     return (
         <div className="CountryDetails">
             
-            <h1>{country.name.official}</h1>
+            <h1>{country.name}</h1>
             <table className="table">
                 <thead></thead>
                 <tbody>
@@ -29,8 +28,8 @@ export default function CountryDetails(props){
                         <td>
                             <ul>
                                 {country.borders.map((b) => {
-                                    const borderName = countries.find((c) => c.cca3 === b)
-                                    return <li><Link to={`/${borderName.cca3}`}>{borderName.name.official}</Link></li>
+                                    const borderName = countries.find((c) => c.alpha3Code === b)
+                                    return <li key={b}><Link to={`/${borderName.alpha3Code}`}>{borderName.name}</Link></li>
                                 })}
                             </ul>
                         </td>
