@@ -83,16 +83,15 @@ import { Link } from 'react-router-dom'
 
 
 const CountryDetail = (props) => {
+  console.log('Country')
 
   const getCountry = (id) => props.countries.find(country => {
-    console.log('getCountry inner log', country.alpha3Code === id)
     return country.alpha3Code === id;
   });
   const { params } = props.match;
   const foundCountry = getCountry(params.id);
-  console.log('props.match.params CountryDetail', props.match.params.id)
-  console.log('countries CountryDetail', props.countries)
-  console.log('foundCountry', foundCountry)
+
+  if (!foundCountry) return <p>Loading</p>
 
   return(
     <div className="col-6 ml-3">
@@ -101,7 +100,6 @@ const CountryDetail = (props) => {
         <tbody>
           <tr>
             <td style={{width: '30%'}}>Capital</td>
-            {/* { foundCountry.capital.map((capital, idx) => <td key={foundCountry.alpha3Code}>{capital}</td>)} */}
             <td>{ foundCountry.capital }</td>
           </tr>
           <tr>

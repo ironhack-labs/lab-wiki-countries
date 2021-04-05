@@ -13,6 +13,7 @@ class App extends React.Component {
   state = { countries: [] }
 
   componentDidMount() {
+    console.log('entra')
     getCountries()
       .then(allCountries => {
           this.setState({countries: allCountries})
@@ -32,7 +33,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path='/' component={CountriesList} />
               {/* <Route exact path='/countries/:id' component={CountryDetail}/> */}
-              <Route exact path='/countries/:id' component={(props) => <CountryDetail {...props} countries={this.state.countries}/> } />
+              <Route exact path='/countries/:id' render={(props) => <CountryDetail {...props} countries={this.state.countries}/> } />
             </Switch>
           </div>
         </div>
