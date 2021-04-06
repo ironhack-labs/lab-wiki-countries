@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ClipLoader from 'react-spinners/ClipLoader'
-import { getAllCountries, getSearch } from '../../services/baseService'
+import { getAllCountries } from '../../services/baseService'
 import './CountryList.scss'
 
 class CountryList extends Component { 
@@ -20,16 +20,7 @@ class CountryList extends Component {
 
     onSearch = (e) => {
         let realSearch = (e.target.value).toLowerCase()
-        this.setState({search: realSearch})
-        // TODO: solucionar 400 from api por velocidad en el input 
-        // -> debaunce
-        getSearch(this.state.search)
-        .then((found) => {
-            return this.setState({ 
-                allCountries: found,
-                loader: false
-            })
-        })
+        this.setState({ search: realSearch })
     }
 
     render() {
@@ -49,7 +40,9 @@ class CountryList extends Component {
                     : (
                         <div className="col-5" style={{maxHeight: '90vh', width: 330, overflow: 'scroll'}}>
                         <div className="list-group list-group-flush">
-                        {this.state.allCountries.map(c => (
+                        {this.state.allCountries
+                            .filter((c) => c.name.toLowerCase().includes(this.state.search))
+                            .map(c => (
                             <div key={c.name}>
                                 <Link 
                                     to={`/detail/${c.alpha3Code}/country`}

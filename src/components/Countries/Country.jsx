@@ -6,7 +6,6 @@ import Map from '../Map/Map'
 import './Country.scss'
 
 class Country extends Component {
-
     state = {
         country: [],
         loader: true
@@ -20,10 +19,9 @@ class Country extends Component {
         if (prevProps.match.params.name !== this.props.match.params.name) {
           this.setState({ loader: true })
         }
-
         if (this.state.loader) {
             this.getCountry()
-          }
+        }
     }
 
     getCountry = () => {
