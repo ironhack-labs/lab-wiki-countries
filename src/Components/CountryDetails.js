@@ -1,50 +1,83 @@
 import React from 'react';
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import countries from '../countries.json';
 
 class CountryDetails extends React.Component {
     state = {
         name: "",
         capital: "",
-        borders: [],
-        area: null
+        area: 0,
+        borders: []
+        
     }
 
-    componentDidMount() {
-        const country = countries.find(
-            (country) => country.cca3 === this.props.match.params.countryCode
-        );
-
-        if (country) {
-            this.setState({
-                name: country.name.official,
-                capital: country.capital,
-                borders: country.borders,
-                area: country.area,
-            });
+    componentDidUpdate = (prevProps) => {
+        const foundCountry = countries.find((country) => {
+          // O país atual do loop tem o seu cca3 igual ao cca3 da URL
+          return country.cca3 === this.props.match.params.cca3;
+        });
+    
+        if (prevProps.match.params.cca3 !== this.props.match.params.cca3) {
+          this.setState({
+            name: foundCountry.name.common,
+            capital: foundCountry.capital,
+            area: foundCountry.area,
+            borders: [...foundCountry.borders],
+          });
         }
-    }
+      };
+    
+      renderBorderName = (cca3) => {
+        const foundCountry = countries.find((country) => {
+          return country.cca3 === cca3;
+        });
+    
+        if (foundCountry) {
+          return foundCountry.name.common;
+        } else {
+          return 'Country Not Found';
+        }
+      };
 
     render() {
-        return <div className="col-8">
-            <h2>{this.state.name}</h2>
-            <ul>
-                <li>Capital: {this.state.capital}</li>
-                <li>Area: {this.state.area} km²</li>
-                <li>Borders:
-                <ul>
-                        {this.state.borders.map((border) => {
-                            return <li>
-                                {border}
-                            </li>
-                        })}
+        return (
+          <div>
+            <h1>{this.state.name}</h1>
+            <table className="table">
+              <thead></thead>
+              <tbody>
+                <tr>
+                  <td style={{ width: '30%' }}>Capital</td>
+                  <td>{this.state.capital}</td>
+                </tr>
+                <tr>
+                  <td>Area</td>
+                  <td>
+                    {this.state.area} km
+                    <sup>2</sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Borders</td>
+                  <td>
+                    <ul>
+                      {this.state.borders.map((border) => {
+                        return (
+                          <li key={border}>
+                            <Link to={`/${border}`}>
+                              {this.renderBorderName(border)}
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
-                </li>
-                
-            </ul>
-        </div>
-    }
-
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        );
+      }
 
 }
 
