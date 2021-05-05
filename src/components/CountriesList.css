@@ -1,0 +1,8 @@
+.countries {
+    width: 50%;
+    padding-top: 20px;
+    border: 1px solid grey;
+    height:700px;
+    overflow:auto;
+    display: inline-block;
+}
