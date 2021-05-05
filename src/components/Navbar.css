@@ -1,0 +1,10 @@
+.navbar li {
+    text-decoration: none;
+    list-style: none;
+
+}
+.navbar {
+    background-color: #394263;
+    text-align: start;
+}
+
