@@ -13,19 +13,28 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  background-color: #13b7bd;
+  min-height: 10vh;
+  padding: 0 0 0 50px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   font-size: calc(10px + 2vmin);
-  color: white;
+  font-weight: bold;
+  color: rgb(75, 72, 72);
 }
 
-.App-link {
-  color: #61dafb;
+.container-fluid > a {
+  color: #404446;
+  text-decoration: none;
+}
+
+
+.concontainer-fluid .country-details {
+  
+  display: flex;
+
 }
 
 @keyframes App-logo-spin {
