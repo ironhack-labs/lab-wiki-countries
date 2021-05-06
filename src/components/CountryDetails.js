@@ -2,10 +2,41 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './CountryDetails.css'
 
-const CountryDetails = (props) => {
-    console.log('Props de RouterDom' ,props)
+import { Component } from 'react';
+import Countries from './countries.json';
 
-    const params = props.match.params;
-    console.log("hola",params)
+class CountryDetails extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      Countries: Countries,
+    };
+  }
 
+  render() {
+    //const params = props.match.params;
+    const countriesCopy = [...this.state.Countries];
+
+    return (
+      
+         
+         countriesCopy.map((elm, idx) => {
+             <section>
+               <h1>Capital</h1>
+               <hr />
+               <h2>{elm.capital}</h2>
+               <hr />
+               <div className="borders">
+                <h1>Borders</h1>
+                    {elm.borders}
+               </div>
+             </section>;
+         })
+        
+     
+    );
+  }
 }
+
+export default CountryDetails; 
+
