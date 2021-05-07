@@ -6,7 +6,7 @@ import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import React from 'react';
 
-import countries_data from './countries.json';
+import axios from 'axios';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -19,9 +19,14 @@ export default class App extends React.Component {
 
   componentDidMount() {
     console.log('componentDidMount');
-    this.setState({
-      countries: countries_data,
-    });
+    axios
+      .get('https://restcountries.eu/rest/v2/all')
+      .then((resp) =>
+        this.setState({
+          countries: resp.data,
+        })
+      )
+      .catch((error) => console.error(error));
   }
 
   render() {

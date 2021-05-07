@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  width: 60px;
+  height: auto;
+}
+.CountriesList img {
+  width: 15px;
+}

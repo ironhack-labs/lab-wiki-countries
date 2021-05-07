@@ -3,19 +3,23 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function CountryDetails(props) {
   let { id: countryId } = useParams();
-  const country = props.countries.find((el) => el.cca3 === countryId);
+  //console.log('CountryDetails', props.countries[10]);
+  //if (true) return <h3>testing CountryDetails</h3>;
+
+  const country = props.countries.find((el) => el.alpha3Code === countryId);
+  //console.log('CountryDetails country', country);
 
   const borders = country.borders.map((border) => {
-    let bordercountry = props.countries.find((el) => el.cca3 === border);
+    let bordercountry = props.countries.find((el) => el.alpha3Code === border);
     return (
       <li key={'sub-' + border}>
-        <Link to={`/countries/${border}`}>{bordercountry.name.official}</Link>
+        <Link to={`/countries/${border}`}>{bordercountry.name}</Link>
       </li>
     );
   });
   return (
     <div>
-      <h1>{country.name.common}</h1>
+      <h1>{country.name}</h1>
       <table className="table">
         <thead></thead>
         <tbody>
@@ -27,6 +31,12 @@ export default function CountryDetails(props) {
             <td>Area</td>
             <td>
               {country.area} km<sup>2</sup>
+            </td>
+          </tr>
+          <tr>
+            <td>Flag</td>
+            <td>
+              <img src={country.flag} alt={country.name} />
             </td>
           </tr>
           <tr>
