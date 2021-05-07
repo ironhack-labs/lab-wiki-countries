@@ -17,9 +17,13 @@ function App() {
             <CountriesList countries={countries} />
           </div>
           <div className="col-7">
-            <Route exact path="/countries/:id">
-              <CountryDetails countries={countries} />
-            </Route>
+            <Route
+              exact
+              path="/countries/:id"
+              render={(props) => (
+                <CountryDetails {...props} countries={countries} />
+              )}
+            />
           </div>
         </div>
       </div>
