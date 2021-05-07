@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export default function CountryDetails(props) {
-  const countryId = props.match.params.id;
+  let { id: countryId } = useParams();
   const country = props.countries.find((el) => el.cca3 === countryId);
 
   const borders = country.borders.map((border) => {
