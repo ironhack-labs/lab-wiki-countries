@@ -37,13 +37,9 @@ export default class App extends React.Component {
               <CountriesList countries={this.state.countries} />
             </div>
             <div className="col-7">
-              <Route
-                exact
-                path="/countries/:id"
-                render={(props) => (
-                  <CountryDetails {...props} countries={this.state.countries} />
-                )}
-              />
+              <Route exact path="/countries/:id">
+                <CountryDetails countries={this.state.countries} />
+              </Route>
             </div>
           </div>
         </div>
