@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Navbar {
+  background-color: rgb(29, 139, 207);
+  height: 50px;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Navbar h1 {
+  margin: 0 50px;
+}
+
+.CountriesList * {
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
+}
+
+.CountriesList ul li {
+  width: 300px;
+  border: 1px black solid;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.CountriesList img {
+  width: 50px;
+  margin: 0 25px;
+}
+
+.columns {
+  display: flex;
+}
