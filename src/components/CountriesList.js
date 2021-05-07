@@ -5,7 +5,7 @@ export default function CountriesList(props) {
         <div className="col-5" style={{maxHeight: '90vh', overflow: 'scroll'}}>
             <div className="list-group">
                 {props.countries.map(country => 
-                    <Link to={`/${country.cca3}`} className="list-group-item list-group-item-action">{country.name.common}</Link>
+                    <Link to={`/${country.cca3}`} className="list-group-item list-group-item-action">{country.flag} {country.name.common}</Link>
                 )}
             </div>
         </div>

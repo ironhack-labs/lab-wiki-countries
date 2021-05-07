@@ -21,8 +21,8 @@ export default class App extends React.Component {
         <Navbar />
         <div className="container">
           <div className="row">
-            <CountriesList countries={countries} />
-            <Route path="/:id" component={CountryDetails} />
+            <CountriesList countries={this.state.countries} />
+            <Route exact path="/:id" component={CountryDetails} />
           </div>
         </div>
       </div>
