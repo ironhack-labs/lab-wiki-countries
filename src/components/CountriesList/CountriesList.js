@@ -15,7 +15,7 @@ class CountriesList extends React.Component {
           <ul>
             {this.props.countries.map((country, index) =>
               <li key={index}>
-                <Link to={country.cca3}>{country.name.common}</Link>
+                <Link to={country.alpha3Code}>{country.name}</Link>
               </li>)}
           </ul>
           </div>
