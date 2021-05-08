@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
 import './App.css';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <div class="container">
+        <div class="row">
+          <div class="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
+            <CountriesList />
+          </div>
+          <div class="col-7">
+            <Route path="/:cca3" component={CountryDetails} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
