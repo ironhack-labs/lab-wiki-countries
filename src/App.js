@@ -4,6 +4,7 @@ import './App.css';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import Navbar from './components/Navbar';
+// import axios from 'axios';
 import countries from './countries'
 
 class App extends Component {
@@ -13,6 +14,15 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // axios({
+    //   method: 'get',
+    //   url: 'https://restcountries.eu/rest/v1/all',
+    // })
+    // .then(
+    //   (response) => {
+    //     this.setState({countries: response.data})
+    //   }
+    // );
     this.setState({countries})
   }
 
