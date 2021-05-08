@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import countryList from '../countries';
+// import countryList from '../countries';
 import { Link } from 'react-router-dom';
 
 class CountryDetails extends Component {
@@ -27,10 +27,13 @@ class CountryDetails extends Component {
   }
 
   render() {
+    if (!this.props.countries) {
+      return null
+    }
     const countryCode = this.props.match.params.cca3;
-    const country = countryList.find((el) => el.cca3 === countryCode);
+    const country = this.props.countries.find((el) => el.cca3 === countryCode);
     const countryBorderElements = this.generateCountryBorderElements(
-      countryList,
+      this.props.countries,
       country.borders
     );
     return (

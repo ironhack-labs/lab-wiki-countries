@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import countryList from '../countries';
+// import countryList from '../countries';
 import {Link} from 'react-router-dom';
 
 class CountriesList extends Component {
@@ -28,7 +28,10 @@ class CountriesList extends Component {
   }
 
   render() {
-    const countryElements = this.generateCountryList(countryList);
+    if (!this.props.countries) {
+      return null
+    }
+    const countryElements = this.generateCountryList(this.props.countries);
     return (
         <div class="list-group">{countryElements}</div>
     );
