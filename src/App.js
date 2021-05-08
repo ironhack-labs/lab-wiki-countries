@@ -5,30 +5,42 @@ import { Redirect, Route, Switch } from 'react-router';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
-import countries from './countries.json';
+import CountriesService from './services/countries.service';
 
 class App extends React.Component {
   state = {
-    countries: null,
+    countries: [],
   };
+  
+  countriesService = new CountriesService();
+  
+  refreshState() {
+    this.countriesService.get()
+    .then(response => {
+      this.setState({ countries: response.data });
+      console.log(this.state)
+    })
+    .catch(err => console.error(err));
+  }
 
   componentDidMount() {
-    this.setState({ countries: countries });
+    this.refreshState();    
   }
 
   render() {
     if (this.state.countries) {
+      const { countries } = this.state
       return (
         <div className="App">
           <Navbar />
           <div className="container">
             <div className="row">
               <div className="col-5">
-                <CountriesList countries={this.state.countries} />
+                <CountriesList refreshState={() => this.refreshState()} countries={this.state.countries} />
               </div>
               <div className="col-7">
                 <Switch>
-                  <Route exact path="/:id" component={CountryDetails} />
+                  <Route exact path="/:id" render={(props) => <CountryDetails refreshState={() => this.refreshState()} countries={this.state.countries} {...props} />}/>
                 </Switch>
               </div>
             </div>

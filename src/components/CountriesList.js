@@ -1,27 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default class CountriesList extends React.Component {
-  state = {
-    countries: this.props.countries,
-  };
-
-  render() {
-    const { countries } = this.state;
+const CountriesList = (props) => {
+  const { countries } = props;
+  if (countries) {
     return (
       <div className="list-group">
         {countries.map((country) => {
           return (
             <Link
               className="list-group-item list-group-item-action"
-              to={`/${country.cca3}`}
-              key={country.cca3}
+              to={`/${country.alpha3Code}`}
+              key={country.alpha3Code}
             >
-              {country.name.common}
+              {country.name}
             </Link>
           );
         })}
       </div>
     );
   }
-}
+};
+
+export default CountriesList;
