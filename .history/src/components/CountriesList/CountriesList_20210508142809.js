@@ -5,11 +5,13 @@ import countriesList from '../../countries.json';
 //class
 class CountriesList extends React.Component {
   state = {
-    countries: countriesList,
+    countries: [],
   };
 
   componentDidMount() {
-    this.setState({countries: countriesList})
+    this.setStatetate = {
+      countries: countriesList;
+    }
   }
 
   displayCountries = () => {

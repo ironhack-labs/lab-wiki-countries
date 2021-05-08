@@ -8,7 +8,11 @@ import CountryDetails from './components/CountryDetails/CountryDetails';
 //funcio
 function App() {
 
-  
+  componentDidMount() {
+    this.setState({
+      countries: CountriesList;
+    })
+  }
   
   return (
     <div>

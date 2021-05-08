@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import countriesList from "./countries.json"
 import CountriesList from './components/CountriesList/CountriesList';
 import CountryDetails from './components/CountryDetails/CountryDetails';
 
@@ -9,7 +8,9 @@ import CountryDetails from './components/CountryDetails/CountryDetails';
 function App() {
 
   
-  
+  componentDidMount() {
+    this.refreshState();
+  }
   return (
     <div>
       <Navbar />

@@ -9,7 +9,7 @@ class CountriesList extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({countries: countriesList})
+    this.refreshState
   }
 
   displayCountries = () => {

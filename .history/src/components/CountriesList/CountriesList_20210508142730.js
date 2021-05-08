@@ -9,7 +9,9 @@ class CountriesList extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({countries: countriesList})
+    state = {
+      countries: countriesList;
+    }
   }
 
   displayCountries = () => {

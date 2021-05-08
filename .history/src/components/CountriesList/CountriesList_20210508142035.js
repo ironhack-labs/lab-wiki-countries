@@ -1,16 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import countriesList from '../../countries.json';
+import './CountriesList.css';
 
 //class
 class CountriesList extends React.Component {
   state = {
     countries: countriesList,
   };
-
-  componentDidMount() {
-    this.setState({countries: countriesList})
-  }
 
   displayCountries = () => {
     return this.state.countries.map((country) => {

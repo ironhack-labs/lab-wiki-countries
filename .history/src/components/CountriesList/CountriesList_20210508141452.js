@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import countriesList from '../../countries.json';
+import CountriesListStyle from
 
 //class
 class CountriesList extends React.Component {
@@ -8,26 +9,22 @@ class CountriesList extends React.Component {
     countries: countriesList,
   };
 
-  componentDidMount() {
-    this.setState({countries: countriesList})
-  }
-
   displayCountries = () => {
-    return this.state.countries.map((country) => {
-      return (
-        <li>
-          <Link to={`/${country.cca3}`} key={country.cca3}>
+      return this.state.countries.map((country) => {
+          return (
+            <Link to={`/${country.cca3}`} key={country.cca3}>
             {country.flag} {country.name.common}
           </Link>
-        </li>
-      );
-    });
-  };
+          )
+      })
+  }
 
   render() {
     return (
       <div>
-        <ul>{this.displayCountries()}</ul>
+        <div class="countries-list">
+          {this.displayCountries()}
+        </div>
       </div>
     );
   }
