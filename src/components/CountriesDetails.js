@@ -4,13 +4,13 @@ class CountriesDetails extends React.Component {
   render() {
     const selectedCountry = this.props.match.params.countryCode;
     const filterCountry = this.props.countries.filter((country) => {
-      return selectedCountry === country.cca3;
+      return selectedCountry === country.alpha3Code;
     })[0];
 
     const borders = filterCountry.borders
       .map((border) => {
         const borderCountry = this.props.countries.filter((country) => {
-          return country.cca3 === border;
+          return country.alpha3Code === border;
         });
 
         return borderCountry;
@@ -18,17 +18,17 @@ class CountriesDetails extends React.Component {
       .flat();
     const countriesNames = borders.map((countryName, index) => {
       return (
-        <Link to={`/country-details/${countryName.cca3}`}>
-          <li key={index}>{countryName.name.common}</li>
+        <Link to={`/country-details/${countryName.alpha3Code}`}>
+          <li key={index}>{countryName.name}</li>
         </Link>
       );
     });
-    console.log(borders);
+
     return (
       <div className="CountriesDetails">
         <h1>Country Details</h1>
-        <h2>{filterCountry.name.common}</h2>
-        <p>Capital: {filterCountry.capital[0]}</p>
+        <h2>{filterCountry.name}</h2>
+        <p>Capital: {filterCountry.capital}</p>
         <p>Area: {filterCountry.area} km2</p>
         <p>Borders:</p>
         <ul>{countriesNames}</ul>
