@@ -4,18 +4,29 @@ import countriesArr from '../countries.json';
 class CountryDetails extends Component {
     constructor(props){
         super(props);
-        const cca3 = props.match.params.cca3;
+
+        this.state = {
+            country: {
+                name: {},
+                capital: [],
+                borders: [],
+            }
+        }
+    }
+
+    componentDidMount() {
+        const cca3 = this.props.match.params.cca3;
         const country = countriesArr.find((item) => {
             if (cca3 === item.cca3){
                 return true;
             } else {
                 return false;
             }
-        })
+        });
 
-        this.state = {
+        this.setState({
             country: country,
-        }
+        });
     }
 
     render(){

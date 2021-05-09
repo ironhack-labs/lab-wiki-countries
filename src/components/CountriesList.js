@@ -5,8 +5,14 @@ class CountriesList extends Component{
     constructor(){
         super();
         this.state = {
-            countries: countriesArr,
+            countries: []
         }
+    }
+
+    componentDidMount() {
+        this.setState({
+            countries: countriesArr,
+        })
     }
 
     render(){
