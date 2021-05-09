@@ -1,22 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-// const CountryDetails = ({ countries, match }) => {
-const CountryDetails = ({ match, countries }) => {
+const CountryDetails = ({ match }) => {
+    const [thisCountry, setThisCountry] = useState({
+        name: '',
+        capital: '',
+        area: 0,
+        borders: []
+    });
 
-    const getCountry = (cca3) => {
-        const country = countries.find(countryItem => countryItem.cca3 === cca3)
-
-        return {
-            name: country.name.common,
-            capital: country.capital,
-            area: country.area,
-            borders: country.borders,
-            flag: country.flag,
-        }
+    const loadCountry = () => {
+        axios.get(`https://restcountries.eu/rest/v2/alpha/${match.params.alpha3Code}?fields=name;capital;area;borders`)
+        .then(jsonResponse => {
+            console.log(jsonResponse.data);
+            setThisCountry(jsonResponse.data)
+        })
+        .catch(err => console.error(err));
     }
 
-    const thisCountry = getCountry(match.params.cca3);
+    // useEffect(() => {
+    //     loadCountry();
+    // }, [])
+
+    useEffect(() => {
+        axios.get(`https://restcountries.eu/rest/v2/alpha/${match.params.alpha3Code}?fields=name;capital;area;borders`)
+        .then(jsonResponse => {
+            console.log(jsonResponse.data);
+            setThisCountry(jsonResponse.data)
+        })
+        .catch(err => console.error(err));
+    }, [match.params.alpha3Code, setThisCountry])
+
+    // const fetchBorderingCountryName = (alpha3Code) => {
+
+    // }
+
+    // const getBorderingCountryName = (alpha3Code) => {
+    //     axios.get(`https://restcountries.eu/rest/v2/alpha/${alpha3Code}?fields=name`)
+    //     .then(({ name }) => {
+    //         return name
+    //     })
+    //     .catch(err => console.error(err));        
+    // }
+
+    // const thisCountry = getCountry(match.params.alpha3Code);
 
     return (
         <div className='w-50'>
@@ -30,7 +58,7 @@ const CountryDetails = ({ match, countries }) => {
                             Capital
                         </th>
                         <td>
-                            {thisCountry.capital[0]}
+                            {thisCountry.capital}
                         </td>
                     </tr>
                     <tr key='area'>
@@ -50,12 +78,11 @@ const CountryDetails = ({ match, countries }) => {
                                 {
                                     thisCountry.borders.length > 0
                                     ? 
-                                        thisCountry.borders.map(cca3 => {
-                                            const borderCountry = getCountry(cca3);
+                                        thisCountry.borders.map(alpha3Code => {
                                             return(
-                                                <li className='list-group-item border-0 px-0 pt-0' key={cca3}>
-                                                    <Link to={'/' + cca3}>
-                                                            {borderCountry.name}
+                                                <li className='list-group-item border-0 px-0 pt-0' key={alpha3Code}>
+                                                    <Link to={'/' + alpha3Code}>
+                                                            {alpha3Code}
                                                     </Link>
                                                 </li>
                                             )
