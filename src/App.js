@@ -1,6 +1,8 @@
 import './App.css';
 import CountriesList from './components/CountriesList';
 import Navbar from './components/Navbar';
+import CountryDetails from './components/CountryDetails';
+import { Route } from "react-router-dom";
 
 function App() {
   return (
@@ -9,7 +11,7 @@ function App() {
       <div className="container">
         <div className="row">
           <CountriesList />
-          {/* React Router Route rendering the CountryDetails should go here */}
+          <Route path="/:cca3" component={CountryDetails} />
         </div>
       </div>
     </div>

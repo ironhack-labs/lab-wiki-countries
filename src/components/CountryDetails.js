@@ -1,38 +1,51 @@
 import React, { Component } from 'react';
+import countriesArr from '../countries.json';
 
 class CountryDetails extends Component {
     constructor(props){
         super(props);
-        console.log(props);
+        const cca3 = props.match.params.cca3;
+        const country = countriesArr.find((item) => {
+            if (cca3 === item.cca3){
+                return true;
+            } else {
+                return false;
+            }
+        })
+
+        this.state = {
+            country: country,
+        }
     }
 
     render(){
         return(
             <div class="col-7">
-                <h1>France</h1>
+                <h1>{this.state.country.name.common}</h1>
                 <table class="table">
                     <thead></thead>
                     <tbody>
                     <tr>
                         <td style={{ width: '30%' }}>Capital</td>
-                        <td>Paris</td>
+                        {this.state.country.capital.map((item) => {
+                            return(
+                                <td>{item}</td>
+                            )   
+                        })}
                     </tr>
                     <tr>
                         <td>Area</td>
-                        <td>551695 km<sup>2</sup></td>
+                        <td>{this.state.country.area} km<sup>2</sup></td>
                     </tr>
                     <tr>
                         <td>Borders</td>
                         <td>
                         <ul>
-                            <li><a href="/AND">Andorra</a></li>
-                            <li><a href="/BEL">Belgium</a></li>
-                            <li><a href="/DEU">Germany</a></li>
-                            <li><a href="/ITA">Italy</a></li>
-                            <li><a href="/LUX">Luxembourg</a></li>
-                            <li><a href="/MCO">Monaco</a></li>
-                            <li><a href="/ESP">Spain</a></li>
-                            <li><a href="/CHE">Switzerland</a></li>
+                        {this.state.country.borders.map((item) => {
+                            return (
+                                <li><a href={`/${item}`}>{countriesArr.find(c => (c.cca3 === item)).name.common}</a></li>
+                            );
+                        })}
                         </ul>
                         </td>
                     </tr>
@@ -42,3 +55,5 @@ class CountryDetails extends Component {
         )
     }
 }
+
+export default CountryDetails;
