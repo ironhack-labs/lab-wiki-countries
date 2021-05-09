@@ -7,12 +7,18 @@ function CountriesListComponent(props) {
         <div className="countries-list">
             <h3>Countries list</h3>
             
-            <ul>
+
             { countries.map((element) => {
-                return (<li><Link to={`/${element.cca3}`}>{element.name.official}</Link></li>)
+                return (
+                    <Link key={element.cca3} 
+                    to={`/${element.cca3}`}>
+                    {element.name.official}
+                    </Link>
+                    
+                    )
             }
             )}
-            </ul>
+
             
         </div>
 

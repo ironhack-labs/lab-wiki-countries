@@ -3,9 +3,9 @@ import './Navbar.component.css';
 
 function NavbarComponent() {
     return (
-        <navbar className="navbarStyle">
+        <nav className="navbarStyle">
             <h1>LAB - WikiCountries</h1>
-        </navbar>
+        </nav>
 
     )
 

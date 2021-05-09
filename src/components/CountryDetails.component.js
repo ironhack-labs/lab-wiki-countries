@@ -6,7 +6,6 @@ import { Route, Switch, useParams } from 'react-router-dom';
 function CountryDetailsComponent(props) {
     let { cca3 } = useParams();
     const country = props.getCountry(cca3);
-    console.log(country)
 
     return (
 

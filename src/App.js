@@ -8,25 +8,31 @@ import './App.css';
 
 class App extends React.Component {
   state = {
-    countries: Countries
+    countries: []
   }
+  
+  componentDidMount() {
+    this.setState(
+      {
+        countries: Countries
+      }
+    )
+  }
+
   render() {
-  console.log(this.state)
-  console.log(this.getCountryByCca3())
     return (
       <div className="main-div">
   
         <NavbarComponent />
 
-  
         <div className="row">
           <div className="col-5">
           <CountriesListComponent countries={this.state.countries} />
           </div>
           <div className="col-7">
-          <Switch>
-          <Route path="/:cca3" children={<CountryDetailsComponent getCountry={this.getCountryByCca3} />} />
-        </Switch>
+            <Switch>
+              <Route path="/:cca3" children={<CountryDetailsComponent getCountry={this.getCountryByCca3} />} />
+            </Switch>
           </div>
         </div>
   
@@ -42,7 +48,6 @@ getCountryByCca3(cca3) {
 }
 
 export default App;
-//..................................................................//
 
 
 
