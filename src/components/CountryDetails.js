@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+// consider using axios instead of passing all countries
+// https://restcountries.eu/rest/v2/alpha/DEU
+// https://restcountries.eu/rest/v2/alpha?codes=FRA;DEU
+
 export default function CountryDetails(props) {
   let { id: countryId } = useParams();
   //console.log('CountryDetails', props.countries[10]);
@@ -13,7 +17,9 @@ export default function CountryDetails(props) {
     let bordercountry = props.countries.find((el) => el.alpha3Code === border);
     return (
       <li key={'sub-' + border}>
-        <Link to={`/countries/${border}`}>{bordercountry.name}</Link>
+        <Link className="text-decoration-none " to={`/countries/${border}`}>
+          {bordercountry.name}
+        </Link>
       </li>
     );
   });

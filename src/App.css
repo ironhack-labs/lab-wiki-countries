@@ -41,6 +41,23 @@ img {
   width: 60px;
   height: auto;
 }
-.CountriesList img {
+.list-group img {
   width: 15px;
+}
+
+.list-group {
+  max-height: 80vh;
+  margin-bottom: 10px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
 }
