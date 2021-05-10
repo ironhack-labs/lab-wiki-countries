@@ -1,10 +1,9 @@
 import { React } from 'react';
 import { Link } from 'react-router-dom';
-import countries from '../../countries.json';
 
 export default function CountryDetails(props) {
-  const { params } = props.match;
-  console.log(params);
+  const { match: { params }, countries } = props
+
 
   return (
     <div>
