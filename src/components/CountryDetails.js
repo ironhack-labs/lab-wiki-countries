@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom'
 
 export default function CountryDetails(props) {
     const country = countries.find(country => country.cca3 === props.match.params.id)
-    const capital = country.capital.map(cap => <p key={cap}>{cap}</p>)
     const area = <td>{country.area} km<sup>2</sup></td>
     const borders = country.borders.map((border, index) => {
         const countryName = countries.find(country => country.cca3 === border).name.official;
-    return <li><Link key={index} to={`/${border}`}>{countryName}</Link></li>
+    return <li key={index}><Link to={`/${border}`}>{countryName}</Link></li>
     })
 
     return (
@@ -19,7 +18,7 @@ export default function CountryDetails(props) {
               <tbody>
                 <tr>
                   <td style={{width: '30%'}}>Capital</td>
-                  <td>{capital}</td>
+                  <td>{country.capital}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
