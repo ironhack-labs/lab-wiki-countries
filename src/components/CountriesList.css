@@ -1,0 +1,24 @@
+.countries-list {
+  margin-left: 60px;
+  margin-top: 20px;
+}
+
+.link {
+  border: 1px solid rgb(189, 189, 189);
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: grey;
+}
+
+.link:hover {
+  background-color: rgba(240, 240, 240, 0.486);
+  color: grey;
+}
+
+.cca2 {
+  display: inline;
+  margin-right: 10px;
+  font-size: 12px;
+}
