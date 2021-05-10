@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      countries: [],
+      countries: json,
     };
   }
   componentDidMount() {
@@ -28,7 +28,9 @@ class App extends Component {
               <Route
                 exact
                 path="/:cca3"
-                component={CountryDetails}                
+                render={(props) => (
+                  <CountryDetails {...props} countries={this.state.countries} />
+                )}
               />
             </Switch>
           </div>

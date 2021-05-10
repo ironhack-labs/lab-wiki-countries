@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import json from '../../countries.json';
 import { Link } from 'react-router-dom';
 
 export default class CountryDetails extends Component {
-  findCountry(cca3) {
-    return json.filter((country) => country.cca3 === cca3);
+  findCountry(cca3) {    
+    return this.props.countries.filter((country) => country.cca3 === cca3);
   }
 
   render() {
