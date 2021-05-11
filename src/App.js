@@ -3,13 +3,16 @@ import Navbar from './components/navbar/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import Countries from './countries.json';
-import { Switch, Route, Link, useParams } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 import './App.css';
 
 class App extends React.Component {
-  state = {
-    countries: [],
-  };
+  constructor(props){
+super(props);
+this.state = {
+  countries: [],
+};
+  }
 
   componentDidMount() {
     this.setState({
@@ -32,14 +35,14 @@ class App extends React.Component {
             <CountriesList countries={this.state.countries} />
           </div>
 
-          <Switch>
-            <div className="col-7">
+          <div className="col-7">
+            <Switch>
               <Route
                 path="/:cca3"
                 children={<CountryDetails getCountry={this.getCountryByCca3} />}
               />
-            </div>
-          </Switch>
+            </Switch>
+          </div>
         </div>
       </div>
     );

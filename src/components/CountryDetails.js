@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
 function CountryDetails(props) {
