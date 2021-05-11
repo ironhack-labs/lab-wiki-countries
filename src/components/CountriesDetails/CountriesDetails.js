@@ -15,8 +15,6 @@ export default function CountriesDetails(props) {
 
     return (
         <div>
-            <h1>Country details</h1>
-
             {foundedCountry ? <div>
             <h2>Country: {foundedCountry.name.common}</h2>
             <p>Capital: {foundedCountry.capital}</p>
