@@ -16,11 +16,12 @@ class App extends Component {
   componentDidMount() {
     // axios({
     //   method: 'get',
-    //   url: 'https://restcountries.eu/rest/v1/all',
+    //   url: 'https://restcountries.eu/rest/v2/all',
     // })
     // .then(
     //   (response) => {
     //     this.setState({countries: response.data})
+    //     console.log(response.data)
     //   }
     // );
     this.setState({countries})
