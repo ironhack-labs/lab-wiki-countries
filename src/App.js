@@ -1,25 +1,51 @@
-import logo from './logo.svg';
+import React from 'react';
+import NavbarComponent from './components/NavbarComponent/Navbar.component';
+import CountriesListComponent from './components/CountriesList.component';
+import CountryDetailsComponent from './components/CountryDetails.component';
+import Countries from './countries.json';
+import { Switch, Route, Link, useParams } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    countries: [],
+  };
+
+  componentDidMount() {
+    this.setState({
+      countries: Countries,
+    });
+  }
+
+  render() {
+    return (
+      <div className="main-div">
+        <NavbarComponent />
+
+        <div className="row">
+          <div className="col-5">
+            <CountriesListComponent countries={this.state.countries} />
+          </div>
+          <div className="col-7">
+            <Switch>
+              <Route
+                path="/:cca3"
+                children={
+                  <CountryDetailsComponent getCountry={this.getCountryByCca3} />
+                }
+              />
+            </Switch>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  getCountryByCca3(cca3) {
+    return Countries.find((country) => {
+      return country.cca3 === cca3;
+    });
+  }
 }
 
 export default App;
