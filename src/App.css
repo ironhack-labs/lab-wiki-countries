@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.CountriesList {
+  max-height: 90vh; 
+  overflow: scroll
+}
+
+.CapitalTd {
+  width: 30%
+}
+
+.leftText {
+  text-align: left;
+}
