@@ -1,0 +1,22 @@
+.row {
+    position: relative;
+}
+
+.scrollable {
+    width: 100%;
+    height: 75vh;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.form-floating {
+    margin-right: 15px;
+}
+
+.list-group {
+    position: relative;
+}
+
+/* #search-bar {
+    display: flex;
+} */
