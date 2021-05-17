@@ -6,12 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Router>
     <App />
-  </BrowserRouter>,
+  </Router>,
   document.getElementById('root')
 );
 

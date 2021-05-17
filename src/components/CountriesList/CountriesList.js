@@ -1,10 +1,10 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import './CountriesList.css';
 
 import countries from '../../countries.json';
-
-import CountryDetails from '../CountryDetails/CountryDetails';
 
 export default class CountriesList extends React.Component {
   state = {
@@ -12,6 +12,18 @@ export default class CountriesList extends React.Component {
   };
 
   render() {
-    return <h1>I am a Countries List</h1>;
+    return (
+      <div className="column">
+        {this.state.countries.map((country) => {
+          return (
+            <Link key={country.cca3} to={`countries/${country.cca3}`}>
+              <h3>
+                {country.flag} {country.name.common}
+              </h3>
+            </Link>
+          );
+        })}
+      </div>
+    );
   }
 }
