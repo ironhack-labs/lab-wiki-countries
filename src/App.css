@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.modal-scrollable-area {
+  height: auto;
+  max-height: 80vh;
+  padding-right: 10px;
+  overflow-y: scroll;
+}
