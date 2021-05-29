@@ -9,8 +9,7 @@ export default function CountriesList(props) {
     const [country, setCountry] = useState()
     
     return (
-        <div className='modal-scrollable-area' style={{width: '30%'}}>
-            countries list
+        <div className='modal-scrollable-area mt-4' style={{width: '30%'}}>
             {
                 countries.map((e, i) => {
                     return(
