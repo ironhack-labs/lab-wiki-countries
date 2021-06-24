@@ -1,17 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import countriesJSON from '../countries.json';
+
 // import CountryDetails from './CountryDetails';
 
 const CountriesList = (props) => {
-  //   console.log('props', props.country.name.common);
+  const countriesArrayList = [...countriesJSON];
+  console.log(props.countriesArrayList);
+
   return (
     <div>
-      <ul>
-        <li>
-          {props.country.flag}
-          <Link to="/details">{props.country.name.official}</Link>
-        </li>
-      </ul>
+      {countriesArrayList.map((item, index) => {
+        return (
+          <div key={index}>
+            <p>
+              {item.flag}
+              <Link to="countryId">{item.name.official}</Link>
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 };

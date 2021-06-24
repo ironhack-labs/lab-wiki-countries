@@ -13,26 +13,20 @@ class App extends Component {
     this.state = { countriesArrayList: [...countriesJSON] };
   } //constructor bracket
   render() {
-    const { countriesArrayList } = this.state;
     return (
       <div>
         <NavBar />
 
-        {countriesArrayList.map((item, index1, index2) => {
-          return (
-            <div>
-              <Route exact path="/">
-                <CountriesList key={index1} country={item}></CountriesList>
-              </Route>
-              <Route path="/details">
-                <CountryDetails key={index2} country={item}></CountryDetails>
-              </Route>
-            </div>
-          );
-        })}
+        <div>
+          <CountriesList></CountriesList>
+
+          <Route path="/countryCode/:id" component={CountryDetails} />
+        </div>
       </div>
     );
   } //render bracket
 } // class bracket
 
 export default App;
+
+/* <CountryDetails key={index2} country={item}></CountryDetails> */
