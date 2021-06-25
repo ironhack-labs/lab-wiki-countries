@@ -10,8 +10,17 @@ import CountryDetails from './components/CountryDetails';
 class App extends Component {
   constructor(props) {
     super();
-    this.state = { countriesArrayList: [...countriesJSON] };
+    this.state = {
+      countriesArrayList: [],
+    };
   } //constructor bracket
+
+  componentDidMount = () => {
+    this.setState({
+      countriesArrayList: [...countriesJSON],
+    });
+  };
+
   render() {
     return (
       <div>
