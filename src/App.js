@@ -18,9 +18,11 @@ class App extends Component {
         <NavBar />
 
         <div>
-          <CountriesList></CountriesList>
+          <Route exact path="/">
+            <CountriesList />
+          </Route>
 
-          <Route path="/countryCode/:id" component={CountryDetails} />
+          <Route path="/:id" component={CountryDetails} />
         </div>
       </div>
     );

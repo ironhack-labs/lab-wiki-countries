@@ -5,8 +5,7 @@ import countriesJSON from '../countries.json';
 // import CountryDetails from './CountryDetails';
 
 const CountriesList = (props) => {
-  const countriesArrayList = [...countriesJSON];
-  console.log(props.countriesArrayList);
+  const countriesArrayList = [...countriesJSON]; //to import data from json
 
   return (
     <div>
@@ -15,7 +14,7 @@ const CountriesList = (props) => {
           <div key={index}>
             <p>
               {item.flag}
-              <Link to="countryId">{item.name.official}</Link>
+              <Link to={item.cca3}>{item.name.official}</Link>
             </p>
           </div>
         );
