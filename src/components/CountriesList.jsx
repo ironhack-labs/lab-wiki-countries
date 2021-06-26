@@ -11,10 +11,9 @@ const CountriesList = (props) => {
     <div>
       {countriesArrayList.map((item, index) => {
         return (
-          <div key={index}>
-            <p>
-              {item.flag}
-              <Link to={item.cca3}>{item.name.official}</Link>
+          <div key={index} className="container border mb-4 py-4 ml-4">
+            <p className="text-xl">
+              {item.flag} <Link to={item.cca3}>{item.name.official}</Link>
             </p>
           </div>
         );

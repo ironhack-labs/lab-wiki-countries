@@ -26,7 +26,7 @@ class App extends Component {
       <div>
         <NavBar />
 
-        <div>
+        <div className="container flex mx-auto my-8 ">
           <Route exact path="/">
             <CountriesList />
           </Route>
@@ -39,5 +39,3 @@ class App extends Component {
 } // class bracket
 
 export default App;
-
-/* <CountryDetails key={index2} country={item}></CountryDetails> */

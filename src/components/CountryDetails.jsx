@@ -18,9 +18,13 @@ const CountryDetails = (props) => {
     // <p>{`id: ${props.match.params.id}`}</p>
     // </div>
     <div>
-      <h1>{Chosencountry.name.common}</h1>
-      <p>Capital: {Chosencountry.capital}</p>
-      <p>
+      <h1 className="text-left text-4xl mb-3 py-2">
+        {Chosencountry.name.common}
+      </h1>
+      <p className="text-left text-l mb-3 py-1">
+        Capital: {Chosencountry.capital}
+      </p>
+      <p className="text-left text-l mb-3 py-1">
         Area: {Chosencountry.area} km<sup>2</sup>
       </p>
       {Chosencountry.borders.map((border, index) => {
@@ -30,7 +34,10 @@ const CountryDetails = (props) => {
           (country) => country.cca3 === border
         );
         return (
-          <li key={matchCountry.cca3}>
+          <li
+            key={matchCountry.cca3}
+            className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+          >
             <Link to={`/${matchCountry.cca3}`}>{matchCountry.name.common}</Link>
           </li>
         );
