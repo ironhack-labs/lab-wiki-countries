@@ -4,10 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
+import { BrowserRouter } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+
+const WithRouter = ( )=> (
+<BrowserRouter>
     <App />
-  </React.StrictMode>,
+  </BrowserRouter>
+)
+
+ReactDOM.render(
+  <WithRouter/>,
   document.getElementById('root')
 );
 
