@@ -1,13 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/Navbar'
-import CountriesList from './components/CountriesList'
-import CountryDetails from './components/CountryDetails'
+import Navbar from './components/Navbar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import countries from './countries.json';
+import { useState, useEffect } from 'react';
+import { Switch, Link, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <div><Navbar/></div>
+      <Navbar />
+      <div className="container">
+        <div className="row">
+          <CountriesList countries={countries} />
+          <Switch>
+            <Route
+              exact
+              path="/countries/:watermelon"
+              render={(props) => <CountryDetails {...props} countries={countries} />}
+            />
+          </Switch>
+        </div>
+      </div>
     </div>
   );
 }
