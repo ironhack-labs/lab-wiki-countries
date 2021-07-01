@@ -9,7 +9,7 @@ const CountriesList = (props) => {
           to={`/countries/${country.cca3}`}
           className="list-group-item list-group-item-action"
         >
-          {country.name.common}
+          {country.flag} {country.name.common}
         </Link>
       );
     });
