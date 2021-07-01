@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CountriesList = (props) => {
+function CountriesList(props) {
   function accessCountries() {
     return props.countries.map((country) => {
       return (
@@ -21,6 +21,6 @@ const CountriesList = (props) => {
       <div className="list-group">{accessCountries()}</div>
     </div>
   );
-};
+}
 
 export default CountriesList;

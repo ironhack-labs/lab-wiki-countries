@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const CountryDetails = (props) => {
-  console.log(props);
+function CountryDetails(props) {
+  //console.log(props);
   const [country, setCountry] = useState({});
 
   useEffect(() => {
@@ -55,6 +55,6 @@ const CountryDetails = (props) => {
       </table>
     </div>
   );
-};
+}
 
 export default CountryDetails;
