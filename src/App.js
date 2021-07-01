@@ -1,11 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import countries from './countries.json';
-import { useState, useEffect } from 'react';
-import { Switch, Link, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -18,7 +16,9 @@ function App() {
             <Route
               exact
               path="/countries/:watermelon"
-              render={(props) => <CountryDetails {...props} countries={countries} />}
+              render={(props) => (
+                <CountryDetails {...props} countries={countries} />
+              )}
             />
           </Switch>
         </div>
