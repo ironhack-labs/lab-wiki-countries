@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import CountriesList from './components/CountriesList';
+import Navbar from './components/Navbar';
+import DataCountries from './countries.json';
+import Routes from './Routes'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class  App extends Component{
+  state = {
+    listC: DataCountries
+  }
+
+   render() {
+    const {listC} = this.state;
+
+    return (
+      <section>
+        <div className="navbar navbar-dark bg-primary mb-3">
+          <Navbar/>
+        </div>
+
+         <div className="container">
+          <div className="row">
+           <div className="col-5 extra">
+            <div className="list-group">
+            <CountriesList countries={listC}/>
+          </div>
+         </div>
+         <Routes/>
+        </div>
+       </div>
+     </section>
+    );
+   };
+  };
+
 
 export default App;
