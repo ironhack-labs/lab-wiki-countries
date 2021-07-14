@@ -2,11 +2,10 @@ import countries from './countries.json'
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap'
 
 const CountryDetails = (props) => {
-    console.log(props.match.params.cca3)
-    console.log(countries[0].cca3)
+    // console.log(props.match.params.cca3)
+    // console.log(countries[0].cca3)
     let country = countries.filter(country => country.cca3 === props.match.params.cca3)[0]
-    console.log(country)
-    const route = "/country/" + country.cca3
+    // console.log(country)
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Body>

@@ -1,6 +1,4 @@
 import countries from './countries.json'
-import { Card } from 'react-bootstrap'
-import CountryDetails from './CountryDetails'
 import { NavLink } from 'react-router-dom'
 
 
