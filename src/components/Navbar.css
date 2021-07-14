@@ -1,0 +1,9 @@
+nav{
+  
+    padding: 20px;
+}
+nav a{
+    margin-left: 50px;
+    text-decoration: none;
+    font-weight: bold;
+}
