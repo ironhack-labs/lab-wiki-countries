@@ -1,0 +1,30 @@
+nav a{
+    margin: 10px;
+    color: white;
+    padding: 5px 20px;
+    background: rgb(80, 78, 78);
+    border-radius: 4px;
+    text-decoration: none;
+   
+}
+
+nav ul{
+    display:flex;
+    justify-content: center;
+}
+
+nav a:hover{
+    color: burlywood;
+    
+}
+
+nav li{
+    list-style-type: none;
+    transition: all 0.5s;
+}
+
+nav li:hover{
+
+    transform: translateY(-5px);
+
+}
