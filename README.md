@@ -123,11 +123,11 @@ Components rendered by the `Route` receive special `props` (`match`, `location` 
 Once done creating the components the structure of elements that your `App.js` will render should look somewhat like this:
 
 ```jsx
-<div className="App">
+<div classNameName="App">
   <Navbar />
 
-  <div className="container">
-    <div className="row">
+  <div classNameName="container">
+    <div classNameName="row">
       <CountriesList countries={countries} />
       {/* React Router Route rendering the CountryDetails should go here */}
     </div>
