@@ -9,6 +9,22 @@ class CountryDetails extends React.Component{
         borders:[],
         name: "",
     }
+    async componentDidUpdate(prevProps){
+        //If you set the state inside component didUpdate you are going
+        //to end up in an infinite loop
+        const countryId = this.props.match.params.id
+        const findCountry = await axios.get(`https://restcountries.eu/rest/v2/alpha/${countryId}`)
+        if (this.props !== prevProps){
+            this.setState({
+                capital: findCountry.data.capital,
+                area: findCountry.data.area,
+                borders: findCountry.data.borders,
+                name: findCountry.data.name
+            })
+            console.log("try")
+        }
+        console.log("component did update")
+    }
 
     async componentDidMount(){
         const countryId = this.props.match.params.id

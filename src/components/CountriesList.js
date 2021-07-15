@@ -22,14 +22,7 @@ class CountriesList extends React.Component{
         })
     }
 
-    componentDidUpdate(prevProps){
-        //If you set the state inside component didUpdate you are going
-        //to end up in an infinite loop
-        if (this.props.countryID !== prevProps){
-            //this.setState()
-        }
-        console.log("component did update")
-    }
+
 /* Criar uma condicional pra passar uma mensagem enquanto a tela carrega */
         render() {
             const { countries } = this.state;
@@ -42,7 +35,7 @@ class CountriesList extends React.Component{
                       return (
                           <>
                           <div key={country.alpha3Code}>
-                          <NavLink activeStyle={{color:"red"}} to={`/countryDetails/${country.alpha3Code}`}>{country.name}</NavLink>
+                          <NavLink activeStyle={{color:"red"}} to={`/countryDetails/${country.alpha3Code}`}><img width="50px" src={country.flag} alt=""/> {country.name}</NavLink>
                           </div>
                           
                           </>
