@@ -5,14 +5,8 @@ import {NavLink} from "react-router-dom"
 
 export default function Navbar() {
     return (
-        <div>
-                    <div>
-            <ul>
-                <li>
-                    <NavLink activeStyle={{color:"red"}} exact to="/">Wiki Countries</NavLink>
-                </li>
-            </ul>
-        </div>
-        </div>
+        <nav class="navbar my-nav">
+        <span class="navbar-brand mb-0 h1">Navbar</span>
+        </nav>
     )
 }

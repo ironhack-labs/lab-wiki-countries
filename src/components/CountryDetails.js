@@ -16,11 +16,18 @@ class CountryDetails extends React.Component{
         //to end up in an infinite loop
         const countryId = this.props.match.params.id
         const findCountry = await axios.get(`https://restcountries.eu/rest/v2/alpha/${countryId}`)
+        let newArray = []
+        if (findCountry.data.borders){
+            for (let i = 0; i<findCountry.data.borders.length;i++){
+                let countryFound = await axios.get(`https://restcountries.eu/rest/v2/alpha/${findCountry.data.borders[i]}`)
+                newArray.push(countryFound.data)
+            }
+        }
         if (this.props !== prevProps){
             this.setState({
                 capital: findCountry.data.capital,
                 area: findCountry.data.area,
-                borders: findCountry.data.borders,
+                borders: newArray,
                 name: findCountry.data.name,
                 alpha3Code: findCountry.data.alpha3Code
             })
@@ -33,27 +40,40 @@ class CountryDetails extends React.Component{
         const countryId = this.props.match.params.id
         const findCountry = await axios.get(`https://restcountries.eu/rest/v2/alpha/${countryId}`)
         console.log(findCountry.data.borders)
+        let newArray = []
+        if (findCountry.data.borders){
+            for (let i = 0; i<findCountry.data.borders.length;i++){
+                let countryFound = await axios.get(`https://restcountries.eu/rest/v2/alpha/${findCountry.data.borders[i]}`)
+                newArray.push(countryFound.data)
+            }
+        }
+        console.log(newArray)
         this.setState({
             capital: findCountry.data.capital,
             area: findCountry.data.area,
-            borders: findCountry.data.borders,
+            borders: newArray,
             name: findCountry.data.name,
             alpha3Code: findCountry.data.alpha3Code
         })
     }
-    render(){
+     render(){
         const {capital, area, borders, name, alpha3Code} = this.state
+        
+        
         return (
             <>
-            <h3>Country Detail</h3>
             <h2>{name}</h2>
+            <hr />
             <h3>Capital: {capital}</h3>
-            <ul>{borders.map((border)=>{
+            <hr />
+            <p>Area: {area} kms</p>
+            <ul> {borders.map((border)=>{
                 return(
-                    <li><NavLink key={border} activeStyle={{color:"red"}} to={`/countryDetails/${border}`}>{border}</NavLink></li>
+                    <li> <NavLink key={border.alpha3Code} activeStyle={{color:"red"}} to={`/countryDetails/${border.alpha3Code}`}>{border.name}</NavLink></li>
                 )
             })}</ul>
-            <p>Area: {area} kms</p>
+            <hr />
+            
             </>
         )
     }
