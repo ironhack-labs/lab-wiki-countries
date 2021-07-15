@@ -47,17 +47,31 @@ class CountryDetails extends Component {
         const {countryDetails} = this.state
 
         return (
-            <div>
-                <h2>{countryDetails.name}</h2>
-                <h3>Capital: {countryDetails.capital}</h3>
-                <h3>Area: {countryDetails.area} km</h3>
-                {/* how could we hide if empty? */}
-                <h3>Borders:</h3>
-                <ul>
-                    {countryDetails.borders.map((border) => {
-                        return <li>{border}</li>
-                    })}
-                </ul>               
+            <div class="col-7">
+                <h1>{countryDetails.name}</h1>
+                <table class="table">
+                    <thead></thead>
+                    <tbody>
+                        <tr>
+                            <td>Capital</td>
+                            <td>{countryDetails.capital}</td>
+                        </tr>
+                        <tr>
+                            <td>Area</td>
+                            <td>{countryDetails.area} km<sup>2</sup></td>
+                        </tr>
+                        <tr>
+                            <td>Borders</td>
+                            <td>
+                                <ul>
+                                    {countryDetails.borders.map((border) => {
+                                        return <li>{border}</li>
+                                    })}
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         )
     }
