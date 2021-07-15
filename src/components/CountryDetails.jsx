@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import countriesJson from '../countries.json';
+
+import axios from 'axios';
 
 class CountryDetails extends Component {
 
@@ -9,22 +10,25 @@ class CountryDetails extends Component {
     }
 
     getData = async () => {
-        let countries = countriesJson
+
+        let response = await axios.get('https://restcountries.eu/rest/v2/all') 
+        let countries = response.data
+
         let countriesFiltered = countries.filter((country) => {
-            return country.cca3 == this.props.match.params.countryCCA3
+            return country.alpha3Code == this.props.match.params.countryCCA3
         })
 
         let countryDetail = countriesFiltered[0]
 
         let borders = []
-        countryDetail.borders.map((cca3) => {
-            let countriesFilteredBorder = countries.find((country) => country.cca3 == cca3);
+        countryDetail.borders.map((alpha3Code) => {
+            let countriesFilteredBorder = countries.find((country) => country.alpha3Code == alpha3Code);
             borders.push(countriesFilteredBorder)
         })
 
         let country = {
             id: this.props.match.params.countryCCA3,
-            name: countryDetail.name.common,
+            name: countryDetail.name,
             capital: countryDetail.capital,
             area: countryDetail.area,
             borders: borders
@@ -67,7 +71,7 @@ class CountryDetails extends Component {
                     <tbody>
                         <tr>
                             <td>Capital:</td>
-                            <td>{countryDetail.capital[0]}</td>
+                            <td>{countryDetail.capital}</td>
                         </tr>
                         <tr>
                             <td>Area:</td>
@@ -80,8 +84,8 @@ class CountryDetails extends Component {
                                 countryDetail.borders.map((border) => {
                                     return <ul>
                                         <li>
-                                            <Link to={`/country/${border.cca3}`} style={{ textDecoration: 'inherit'}}>
-                                                {border.name.common}
+                                            <Link to={`/country/${border.alpha3Code}`} style={{ textDecoration: 'inherit'}}>
+                                                {border.name}
                                             </Link>
                                         </li>
                                     </ul>
@@ -97,3 +101,110 @@ class CountryDetails extends Component {
 }
 
 export default CountryDetails;
+
+
+
+//---------------------------------------------
+//              without api
+//---------------------------------------------
+
+
+// import React, { Component } from 'react'
+// import { Link } from 'react-router-dom';
+// import countriesJson from '../countries.json';
+
+// class CountryDetails extends Component {
+
+//     state = {
+//         countryDetail: null
+//     }
+
+//     getData = async () => {
+//         let countries = countriesJson
+//         let countriesFiltered = countries.filter((country) => {
+//             return country.cca3 == this.props.match.params.countryCCA3
+//         })
+
+//         let countryDetail = countriesFiltered[0]
+
+//         let borders = []
+//         countryDetail.borders.map((cca3) => {
+//             let countriesFilteredBorder = countries.find((country) => country.cca3 == cca3);
+//             borders.push(countriesFilteredBorder)
+//         })
+
+//         let country = {
+//             id: this.props.match.params.countryCCA3,
+//             name: countryDetail.name.common,
+//             capital: countryDetail.capital,
+//             area: countryDetail.area,
+//             borders: borders
+//         }
+
+//         this.setState({
+//             countryDetail: country
+//         })
+//     }
+
+//     componentDidMount(){
+//         console.log("CountryDetails MOUNTED")
+//         this.getData()
+//     }
+
+//     componentDidUpdate() {
+//         console.log("CountryDetails UPDATED")
+//         let newId = this.props.match.params.countryCCA3
+
+//         let stateId = this.state.countryDetail.id 
+
+//         if(newId !== stateId) {
+//             this.getData()
+//         }
+//     }
+
+
+//     render() {
+//         console.log('CountryDetails props', this.props)
+//         console.log('CountryDetails RENDERED')
+//         if (!this.state.countryDetail) {
+//             return <p>Loading Details. . . </p>
+//         }
+//         const {countryDetail} = this.state
+
+//         return (
+//             <div>
+//                 <h1>{countryDetail.name}</h1>
+//                 <table className="table">
+//                     <tbody>
+//                         <tr>
+//                             <td>Capital:</td>
+//                             <td>{countryDetail.capital[0]}</td>
+//                         </tr>
+//                         <tr>
+//                             <td>Area:</td>
+//                             <td>{countryDetail.area} km 2</td>
+//                         </tr>
+//                         <tr>
+//                             <td>Borders:</td>
+//                             <td>
+//                            { 
+//                                 countryDetail.borders.map((border) => {
+//                                     return <ul>
+//                                         <li>
+//                                             <Link to={`/country/${border.cca3}`} style={{ textDecoration: 'inherit'}}>
+//                                                 {border.name.common}
+//                                             </Link>
+//                                         </li>
+//                                     </ul>
+//                                 }) 
+//                             }                      
+//                             </td>
+//                         </tr>
+//                     </tbody>
+//                 </table>
+//             </div>
+//         )
+//     }
+// }
+
+// export default CountryDetails;
