@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.my-nav{
+  background-color: #3b8adc;
+  color: white;
+}
+.navbar{
+  position: fixed !important;
+  width: 1500px;
+}
+
+.new-card{
+  border: 1px solid lightgrey;
+  height: 60px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration:none !important;
+}
