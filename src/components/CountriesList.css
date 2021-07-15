@@ -1,0 +1,31 @@
+.list{
+    border: solid 1px gainsboro;
+}
+
+.list ul{
+    padding: 0;
+}
+
+.list div {
+    border-bottom: solid 1px gainsboro;
+    height: fit-content;
+    padding: 20px;
+    color: black;
+    
+}
+
+.list img{
+    height: 50px;
+    margin: 0 15px;
+}
+
+.list a {
+    text-decoration: none;
+    color:black;
+    font-size: 20px;
+}
+
+.list div:active{
+    background-color: rgb(18 128 222);
+    
+}
