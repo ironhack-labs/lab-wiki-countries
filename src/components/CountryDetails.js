@@ -30,12 +30,23 @@ class CountryDetails extends React.Component {
 
     }
 
-    componentDidUpdate(prevState, prevProps) {
-        //To prevent an infinite loo
-        if (prevProps !== this.props) {
-          //Get details form api (againi)
+    //PURPOSE is to have the link update superfast (reactive!) 🏎 ...without needing to do a refresh page
+    async componentDidUpdate(prevProps){
+        // 🚨 We can do the setState() immediately in componentDidUpdate(), but MUST wrap in IF-statement to prevent infinite loop
+        const alpha3Code = this.props.match.params.id
+        const element = await axios.get(`https://restcountries.eu/rest/v2/alpha/${alpha3Code}`)
+        if (this.props !== prevProps){
+            this.setState({
+                capital: element.data.capital,
+                area: element.data.area,
+                borders: element.data.borders,
+                name: element.data.name,
+                flag: element.data.flag,
+            })
+            console.log("try")
         }
-      }
+        console.log("component did update")
+    }
 
     render() {
         console.log("IN render");
