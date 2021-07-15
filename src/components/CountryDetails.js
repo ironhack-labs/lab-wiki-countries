@@ -1,5 +1,6 @@
 import React from "react"
 import axios from 'axios'
+import { NavLink } from "react-router-dom"
 
 class CountryDetails extends React.Component{
 
@@ -8,6 +9,7 @@ class CountryDetails extends React.Component{
         area:"",
         borders:[],
         name: "",
+        alpha3Code:""
     }
     async componentDidUpdate(prevProps){
         //If you set the state inside component didUpdate you are going
@@ -19,7 +21,8 @@ class CountryDetails extends React.Component{
                 capital: findCountry.data.capital,
                 area: findCountry.data.area,
                 borders: findCountry.data.borders,
-                name: findCountry.data.name
+                name: findCountry.data.name,
+                alpha3Code: findCountry.data.alpha3Code
             })
             console.log("try")
         }
@@ -34,11 +37,12 @@ class CountryDetails extends React.Component{
             capital: findCountry.data.capital,
             area: findCountry.data.area,
             borders: findCountry.data.borders,
-            name: findCountry.data.name
+            name: findCountry.data.name,
+            alpha3Code: findCountry.data.alpha3Code
         })
     }
     render(){
-        const {capital, area, borders, name} = this.state
+        const {capital, area, borders, name, alpha3Code} = this.state
         return (
             <>
             <h3>Country Detail</h3>
@@ -46,7 +50,7 @@ class CountryDetails extends React.Component{
             <h3>Capital: {capital}</h3>
             <ul>{borders.map((border)=>{
                 return(
-                    <li>{border}</li>
+                    <li><NavLink activeStyle={{color:"red"}} to={`/countryDetails/${border}`}>{border}</NavLink></li>
                 )
             })}</ul>
             <p>Area: {area} kms</p>
