@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
 
         <nav class="navbar navbar-light bg-light">
-            <NavLink class="link" to="/" exact >WikiCountries</NavLink>
+            <NavLink class="link" to="/" >WikiCountries</NavLink>
         </nav>
 
     )
