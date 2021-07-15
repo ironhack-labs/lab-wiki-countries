@@ -71,7 +71,7 @@ class CountryDetails extends Component {
                         </tr>
                         <tr>
                             <td>Area:</td>
-                            <td>{countryDetail.area}</td>
+                            <td>{countryDetail.area} km 2</td>
                         </tr>
                         <tr>
                             <td>Borders:</td>
