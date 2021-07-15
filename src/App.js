@@ -14,11 +14,8 @@ function App() {
         <div className="col-5" style={{maxHeight: "90vh", overflow: "scroll"}}>
           <div className="list-group">
             <CountriesList />
-            {/* <a className="list-group-item list-group-item-action" href="/ABW"
-              >🇦🇼 Aruba</a>
-            <a className="list-group-item list-group-item-action" href="/AFG"
-              >🇦🇫 Afghanistan</a> */}
-            </div>
+
+          </div>
         </div>
 
         <div className="col-7">

@@ -5,11 +5,10 @@ import {Link} from 'react-router-dom';
 function CountryDetails(props) {
 
     const [countryDetail, updatedCountryDetail] = useState(null);
-    const [bordersDetail, updatedBordersDetail] = useState(null);
+    const [bordersDetail, updatedBordersDetail] = useState([]);
 
     const getData = async () => {
         let code = props.match.params.code;
-        console.log(code)
         let response = await axios.get(`https://restcountries.eu/rest/v2/alpha/${code}`);
         let country = {
             name: response.data.name,
@@ -19,27 +18,18 @@ function CountryDetails(props) {
             borders: response.data.borders
         }
         // finding bordering countries names
-        let str = "";
-        let len = country.borders.length //3 
-        for (let i = 0; i<len; i++ ) {
-                 
-            if (i === len -1){
-                str += country.borders[i]
-            }else{
-                str = str + country.borders[i] + ";"
+        let joinedCodes = country.borders.join(";");
+
+        let responseList = await axios.get(`https://restcountries.eu/rest/v2/alpha?codes=${joinedCodes}`);
+        let bordersList =  responseList.data.map((elem) => {
+            return {
+                name: elem.name,
+                code: elem.alpha3Code
             }
-        }
-        let responseList = await axios.get(`https://restcountries.eu/rest/v2/alpha?codes=${str}`);
-        let bordersList = [];
-        for (let i=0; i< responseList.data; i++){
+        });
 
-        }
-
-
-
-
-        console.log(responseList.data)
-        updatedCountryDetail(country)
+        updatedCountryDetail(country);
+        updatedBordersDetail(bordersList)
     }
     useEffect(() => {
         let newCode = props.match.params.code;
@@ -49,6 +39,8 @@ function CountryDetails(props) {
             getData()
         }
     })
+
+    
 
     if (!countryDetail){
         return <p>Loading country's details</p>
@@ -61,9 +53,10 @@ function CountryDetails(props) {
             <p>Area: {countryDetail.area} km2</p>
             <div>
             {
-                countryDetail.borders.map((borderCountry, i) => {
+                bordersDetail.map((borderCountry, i) => {
                     return <p key={i}>
-                        <Link to = {`/country/${borderCountry}`}> {borderCountry}</Link>
+                        <Link to = {`/country/${borderCountry.code}`}> {borderCountry.name}
+                        </Link>
                     </p>
                 })
             }
@@ -75,3 +68,12 @@ function CountryDetails(props) {
     )
 }
 export default CountryDetails;
+
+// 0: {name: "Angola", code: "AGO"}
+// 1: {name: "Botswana", code: "BWA"}
+// 2: {name: "Congo (Democratic Republic of the)", code: "COD"}
+// 3: {name: "Malawi", code: "MWI"}
+// 4: {name: "Mozambique", code: "MOZ"}
+// 5: {name: "Namibia", code: "NAM"}
+// 6: {name: "Tanzania, United Republic of", code: "TZA"}
+// 7: {name: "Zimbabwe", code: "ZWE"}
