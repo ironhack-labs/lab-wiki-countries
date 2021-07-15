@@ -50,7 +50,7 @@ class CountryDetails extends React.Component{
             <h3>Capital: {capital}</h3>
             <ul>{borders.map((border)=>{
                 return(
-                    <li><NavLink activeStyle={{color:"red"}} to={`/countryDetails/${border}`}>{border}</NavLink></li>
+                    <li><NavLink key={border} activeStyle={{color:"red"}} to={`/countryDetails/${border}`}>{border}</NavLink></li>
                 )
             })}</ul>
             <p>Area: {area} kms</p>
