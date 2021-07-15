@@ -7,7 +7,7 @@ const CountriesList = () => {
     return (
         countries.map((country, index) => {
             const route = "/country/" + country.cca3
-            return <NavLink key={index} to={route} {...country}>{country.name.official} <br /></NavLink>
+            return <NavLink key={index} to={route} {...country}>{country.flag} {country.name.official} <br /></NavLink>
         }
 
         )

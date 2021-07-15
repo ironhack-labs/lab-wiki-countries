@@ -10,9 +10,10 @@ const CountryDetails = (props) => {
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Body>
-                <Card.Title>{country.name.official}</Card.Title>
+                <Card.Title> {country.name.official}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">Capital: {country.capital}</Card.Subtitle>
                 <Card.Text>Area: {country.area} km2</Card.Text>
+                <Card.Text>Flag: {country.flag}</Card.Text>
                 <ListGroup className="list-group-flush">
                     {
                         country.borders?.length > 0
