@@ -35,8 +35,8 @@ class CountryList extends React.Component {
         const { countries } = this.state
         return (
             <>
-                <h1>Country List</h1>
-                <div>
+                
+                <div className="country-list">
                     {countries && countries.length ? this.state.countries.map((country) => {
                         return (<div>
                             <NavLink key={country.alpha3Code} to={`/countries/${country.alpha3Code}`}><img src={country.flag} width="50px" alt="flag"/>{country.name}</NavLink>

@@ -8,13 +8,17 @@ import CountryDetails from './components/CountryDetails';
 function App() {
   return (
     <>
+      <Navbar/>
+    <div id="body">
     
-    <div>
-        <CountryList />
+        <div style={{float: "left", height: '900px', overflow: 'scroll'}}>
+          <CountryList />
+        </div>
+        <div className="country-detail" style={{float: "right", marginRight: '500px'}}>
+          <Route path="/countries/:id" component={CountryDetails} />
+        </div>
     </div>
-    <div>
-        <Route path="/countries/:id" component={CountryDetails} />
-    </div>  
+    
 
     </>
   );

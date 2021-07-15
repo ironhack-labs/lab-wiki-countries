@@ -22,6 +22,15 @@ class CountryDetails extends React.Component {
         //that comes from the URL
         const response = await axios.get(`https://restcountries.eu/rest/v2/alpha/${countryId}`);
         
+        let borderArray = [];
+        if(response.data.borders){
+            for (let i = 0; i < response.data.borders.length; i++) {
+                let countryFound = await axios.get(`https://restcountries.eu/rest/v2/alpha/${response.data.borders[i]}`);
+                borderArray.push(countryFound.data);
+                console.log('BORDER ARRAY', countryFound.data)
+            }
+        }
+        
 
 
         console.log(response);
@@ -30,7 +39,7 @@ class CountryDetails extends React.Component {
             name: response.data.name,
             capital: response.data.capital,
             area: response.data.area,
-            borders: response.data.borders
+            borders: borderArray
         })
     }
 
@@ -40,6 +49,20 @@ class CountryDetails extends React.Component {
         const countryId = this.props.match.params.id;
         const response = await axios.get(`https://restcountries.eu/rest/v2/alpha/${countryId}`);
 
+
+        let borderArray = [];
+        if (response.data.borders) {
+            for (let i = 0; i < response.data.borders.length; i++) {
+                console.log('DATA BORDERSSSSSSSS',response.data.borders)
+                let countryFound = await axios.get(`https://restcountries.eu/rest/v2/alpha/${response.data.borders[i]}`);
+                console.log('RESPONSE DATA BORDERSSSS', response.data.borders[i])
+                borderArray.push(countryFound.data);
+                console.log('COUNTRY FOUND!!!!!', countryFound.data)
+            }
+        }
+
+
+
         //If you set the state inside component didUpdate you are going
         //to end in an infinite loop
         if (this.props !== prevProps) {
@@ -47,7 +70,7 @@ class CountryDetails extends React.Component {
                 name: response.data.name,
                 capital: response.data.capital,
                 area: response.data.area,
-                borders: response.data.borders
+                borders: borderArray
             })
             
         }
@@ -61,13 +84,13 @@ class CountryDetails extends React.Component {
         const { name, capital, area, borders } = this.state;
         return (
             <>
-                <h3>{name}</h3>
+                <h1>{name}</h1>
                 <h4>{capital}</h4>
                 <p>{area} km</p>
-                <ul>{borders.map((border, index) => {
+                <ul>{borders.map((border) => {
                     return (
                       <li>
-                            <NavLink key={index} to={`/countries/${border}`}>{border}</NavLink>
+                            <NavLink key={border.alpha3Code} to={`/countries/${border.alpha3Code}`}>{border.name}</NavLink>
 
                       </li>   
                    )
