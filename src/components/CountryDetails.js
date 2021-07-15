@@ -1,5 +1,6 @@
 import countries from './countries.json'
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const CountryDetails = (props) => {
     // console.log(props.match.params.cca3)
@@ -13,17 +14,31 @@ const CountryDetails = (props) => {
                 <Card.Subtitle className="mb-2 text-muted">Capital: {country.capital}</Card.Subtitle>
                 <Card.Text>Area: {country.area} km2</Card.Text>
                 <ListGroup className="list-group-flush">
-                    {country.borders?.length > 0 ? country.borders.map((border, index) =>
-                        <div key={index}>
-                            <ListGroupItem>{border}</ListGroupItem>
-                            {/* <ListGroupItem>{border}</ListGroupItem> */}
-                            <br></br>
-                        </div>
-                    ) : null}
+                    {
+                        country.borders?.length > 0
+                            ?
+                            country.borders.map((border, index) =>
+
+                                < div >
+                                    <ListGroupItem>
+                                        <Link to={`/country/${border}`}>{border}</Link>
+                                    </ListGroupItem>
+                                    <br></br>
+                                </div>
+                            )
+                            :
+                            <ListGroupItem>
+                                <h5>Edenic island: no neighbours.</h5>
+                                <Link to={`/country`}>Back to Countries</Link>
+                            </ListGroupItem>
+
+                    }
                 </ListGroup>
             </Card.Body>
-        </Card>
+        </Card >
     )
 }
+
+
 
 export default CountryDetails
