@@ -1,0 +1,12 @@
+nav {
+    background-color: rgb(18 128 222);
+    color: white;
+    position: sticky;
+    top: 0;
+    height: 70px;
+    
+}
+
+nav h1{
+    padding-left: 30px;
+}

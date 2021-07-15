@@ -1,0 +1,19 @@
+.content{
+    position: sticky;
+    top: 70px;
+    margin-top: 15px;
+}
+
+.content h1{
+    font-size: xxx-large;
+    padding-top: 15px;
+}
+
+.content h4{
+    font-weight: 400;
+}
+
+.country{
+    border-bottom: solid 1px gainsboro !important;
+    margin: 15px 0;
+}
