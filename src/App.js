@@ -1,8 +1,9 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom"; 
 import Navbar from './Components/NavBar'; 
-import CountryDetails from './Components/CountryDetails';
+import CountryDetail from './Components/CountryDetails';
 import CountriesList from './Components/CountriesList'; 
+import { route } from 'react-router-dom';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       </div>
       <Switch>
         <div className="Country-detail">
-          <Route path="/country/:id" component={CountryDetails} />
+          <Route path="/country/:id" component={CountryDetail} />
         </div>
       </Switch>
     </div>
