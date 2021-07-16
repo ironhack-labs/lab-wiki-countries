@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+.scrollbar {
+  width: 200px;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.mamaDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.leftDiv {
+  width: 50%;
+  float: left;
+}
+
+.rightDiv {
+  width: 50%;
+  float: right;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
