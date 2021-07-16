@@ -8,15 +8,8 @@ class CountryList extends React.Component {
   };
 
   async componentDidMount() {
-    //you can use fetch or axios
-
-    //Make a call to the API
-    //https://restcountries.eu/rest/v2/all
-    //Wait for the response from the API
-    //Set the state with response
 
     const response = await axios.get('https://restcountries.eu/rest/v2/all');
-    console.log(response.data);
 
     this.setState({
       countries: response.data,
@@ -36,7 +29,7 @@ class CountryList extends React.Component {
                     key={country.alpha3Code}
                     to={`/countries/${country.alpha3Code}`}
                   >
-                    <img src={country.flag} width="50px" alt="flag" />
+                    <img src={country.flag} width="20px" alt="flag" />
                     {country.name}
                   </NavLink>
                 </div>

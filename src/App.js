@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import CountryList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 

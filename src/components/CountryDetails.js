@@ -12,7 +12,6 @@ class CountryDetails extends React.Component {
 
   async componentDidMount() {
     const countryId = this.props.match.params.id;
-    console.log('Project id that comes from the URL', countryId);
 
     //Finding the project on the projectsJSON based on the id
     //that comes from the URL
@@ -27,7 +26,6 @@ class CountryDetails extends React.Component {
           `https://restcountries.eu/rest/v2/alpha/${response.data.borders[i]}`
         );
         borderArray.push(countryFound.data);
-        console.log('BORDER ARRAY', countryFound.data);
       }
     }
 
@@ -50,13 +48,13 @@ class CountryDetails extends React.Component {
     let borderArray = [];
     if (response.data.borders) {
       for (let i = 0; i < response.data.borders.length; i++) {
-        console.log('DATA BORDERSSSSSSSS', response.data.borders);
+        
         let countryFound = await axios.get(
           `https://restcountries.eu/rest/v2/alpha/${response.data.borders[i]}`
         );
-        console.log('RESPONSE DATA BORDERSSSS', response.data.borders[i]);
+        
         borderArray.push(countryFound.data);
-        console.log('COUNTRY FOUND!!!!!', countryFound.data);
+        
       }
     }
 
@@ -70,7 +68,6 @@ class CountryDetails extends React.Component {
         borders: borderArray,
       });
     }
-    console.log('component did update');
   }
 
   render() {
