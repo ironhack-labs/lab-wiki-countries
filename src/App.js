@@ -7,7 +7,7 @@ import CountryDetails from './components/CountryDetails'
 import {Navbar} from './components/Navbar'
 import countries from './countries.json'
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 
@@ -20,14 +20,13 @@ function App() {
 const [countryList, setCountries] = useState(countries)    
 
 
-async componentDidMount(){
-    let response = await axios.get('https://restcountries.eu/rest/v2/all')
-     setCountries([countries])  
-
-
-
-
-}
+//COMPONENTUNMOUNT, -UPDATE, -DIDMOUNT DO NOOOOOOTTT WORK IN FUNC COMPONENTS!!!!
+useEffect(async () => {
+  let countries = await Axios.get('https://restcountries.eu/rest/v2/all')
+  useState({
+    countries: response.data.results
+})
+}, [])
 
 
   return (
