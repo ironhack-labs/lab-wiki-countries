@@ -8,7 +8,10 @@ const Countries = () => {
       {data.map((country) => {
         return (
           <div key={country.id}>
-            <p>{country.name.official}</p>
+            <p>
+              {country.flag}
+              {country.name.official}
+            </p>
           </div>
         );
       })}
