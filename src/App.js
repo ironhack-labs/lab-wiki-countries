@@ -1,25 +1,61 @@
 import logo from './logo.svg';
 import './App.css';
+import {Route, Switch} from 'react-router-dom'  //since routes created here
+//import all components
+import CountriesList from './components/CountriesList'
+import CountryDetails from './components/CountryDetails'
+import {Navbar} from './components/Navbar'
+import countries from './countries.json'
+
+import React, {useState} from 'react';
+
+
+
+
+//define Routes here in root component App.js
 
 function App() {
+
+  
+const [countryList, setCountries] = useState(countries)    
+
+
+async componentDidMount(){
+    let response = await axios.get('https://restcountries.eu/rest/v2/all')
+     setCountries([countries])  
+
+
+
+
+}
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+       
+        <Navbar/>  {/*not in route, common stuff */}
+       
+                <div style = {{diplay: 'flex'}}>     {/* warum 2 curly?*/}
+                                                 
+                 <CountriesList  countries = {countries}/>       {/*not in route, common stuff */}
+                    <Switch>                               
+                  <Route path={'/v2/:countryIndex'}  component={CountryDetails} />   
+        
+    
+
+
+                   </Switch>
+    
+               </div>  {/*inside div: display everything flex*/ }
+    </>   
+   );
+
+
 }
 
 export default App;
+
+
+
+
+
