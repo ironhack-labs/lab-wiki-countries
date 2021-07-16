@@ -1,5 +1,6 @@
 import React from 'react';
 import data from './countries.json';
+import { Link } from 'react-router-dom';
 
 const Countries = () => {
   return (
@@ -8,10 +9,18 @@ const Countries = () => {
       {data.map((country) => {
         return (
           <div key={country.id}>
-            <p>
-              {country.flag}
-              {country.name.official}
-            </p>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <Link to={`/countries/${country.name.official}`}>
+                      {country.name.official}
+                    </Link>
+                    {country.flag}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         );
       })}
