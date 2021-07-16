@@ -1,0 +1,29 @@
+.list{
+  max-height: 90vh;
+  overflow: scroll;
+}
+
+.flag-img{
+  width: 1.5rem;
+  margin-right: 1rem;
+}
+
+.flag-country{
+  
+  border-bottom: 1px solid rgb(202, 199, 199);
+  border-left: 1px solid rgb(202, 199, 199);
+  border-right: 1px solid rgb(202, 199, 199);
+}
+
+.capital {
+  width: 30%;
+}
+
+.main{
+  display: flex;
+ 
+}
+
+.row {
+  justify-content: flex-end;
+}

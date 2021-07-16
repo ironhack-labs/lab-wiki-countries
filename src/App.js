@@ -8,8 +8,11 @@ function App() {
   return (
     <>
     <Navbar/>
-    <CountryList></CountryList>
+    <div className="main">
+    <CountryList />
     <Route path="/:countryId" component={CountryDetails} />
+    </div>
+
     </>
   );
 }
