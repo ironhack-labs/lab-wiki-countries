@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './Navbar.js';
 import Home from './Home.js';
@@ -13,8 +12,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/countries" component={Countries} />
-        <Route exact path="/details" component={Details} />
-        {/* <Route exact path="/projects/:id" component={ProjectDetail} /> */}
+        <Route exact path="/details/:countryName" component={Details} />
       </Switch>
     </div>
   );

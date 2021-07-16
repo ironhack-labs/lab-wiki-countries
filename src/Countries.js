@@ -8,12 +8,12 @@ const Countries = () => {
       <h1>Here is the list of countries</h1>
       {data.map((country) => {
         return (
-          <div key={country.id}>
+          <div key={country.cca2}>
             <table class="table">
               <tbody>
                 <tr>
                   <td>
-                    <Link to={`/countries/${country.name.official}`}>
+                    <Link to={`/details/${country.cca2}`}>
                       {country.name.official}
                     </Link>
                     {country.flag}
