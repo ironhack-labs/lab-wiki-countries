@@ -5,13 +5,16 @@ import { Link } from "react-router-dom";
 function CountryDetails({countries, routeProps: { match: { params: { cca } } }}) {
     const [country, setCountry] = useState(null);
 
+
     useEffect(() => {
         getCountryData();
     }, [])
 
     useEffect(() => {
-        if (cca !== country.alpha3Code) {
-            getCountryData();
+        if (country) {
+            if (cca !== country.alpha3Code) {
+                getCountryData();
+            }
         }
     }, [cca])
 

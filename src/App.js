@@ -35,5 +35,3 @@ function App() {
 
 export default App;
 
-
-//          {/* <Route path={"/country/:cca"} component={CountryDetails} />  */}
