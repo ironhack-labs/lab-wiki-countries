@@ -36,3 +36,59 @@
     transform: rotate(360deg);
   }
 }
+
+.scrollbar {
+  width: 300px;
+  height: 100vh;
+  border: 1px solid gray;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.mamaDiv {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 753px;
+}
+
+.leftDiv {
+  width: 40%;
+  float: left;
+ 
+}
+
+.rightDiv {
+  width: 60%;
+  float: right;
+
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.leftCol{
+  float: top;
+  border: 1px solid black;
+}
+
+.rightCol {
+  text-align: left;
+  border: 1px solid black;
+}
+
+.myTable {
+  border: 1px solid blue;
+}
+
+td {
+  vertical-align: top;
+}
+
+.par {
+  margin: 0;
+  padding: 0;
+}
