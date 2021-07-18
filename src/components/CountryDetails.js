@@ -9,27 +9,23 @@ export default function CountryDetails(props) {
     return (
         <div className="rightSide">
             <h1>{country.name.common}</h1>
-            <table>
+            <table className="myTable">
                 <tr>
-                    <td>Capital(s)</td>
-                    <td>
-                        <ul>
-                            {country.capital.map((cap) => {
-                                return <li>{cap}</li>})}
-                        </ul>
+                    <td className="leftCol">Capital(s)</td>
+                    <td className="rightCol">
+                        {country.capital.map((cap) => {
+                            return <p className = "par">{cap}</p>})}
                     </td>
                 </tr>
                 <tr>
-                    <td>Area</td>
-                    <td>{country.area} sq. km</td>
+                    <td className="leftCol">Area</td>
+                    <td className="rightCol">{country.area} sq. km</td>
                 </tr>
                 <tr>
-                    <td>Borders</td>
-                    <td>
-                        <ul>
+                    <td className="leftCol">Borders</td>
+                    <td className="rightCol">
                         {country.borders.map((neighbor) => {
-                            return <li>{neighbor}</li>})}
-                        </ul>
+                            return <p className = "par">{neighbor}</p>})}
                     </td>
                 </tr>
             </table>
