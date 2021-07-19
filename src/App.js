@@ -2,11 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 
 import countries from './countries.json';
+import { Route } from 'react-router-dom';
 
 import React from "react";
-import Navbar from "./Navbar";
-import CountriesList from "./CountriesList";
-// import CountryDetails from "./CountryDetails";
+import Navbar from "./components/Navbar";
+import CountriesList from "./components/CountriesList";
+import CountryDetails from "./components/CountryDetails";
 
 class App extends React.Component {
   state = {
@@ -20,7 +21,8 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             <CountriesList />
-            {/* <Route exact path="/:id" component={CountryDetails} /> */}
+            <Route exact path="/:id" component={CountryDetails} />
+            {/* Links in CountriesList use this route to show CountriesDetails component. */}
           </div>
         </div>
       </div>
