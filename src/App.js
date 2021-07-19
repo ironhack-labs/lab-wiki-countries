@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
-import React from "react";
-// import Navbar from "./components/CountriesList";
-import Navbar from "./NavBar";
-
 import countries from './countries.json';
+
+import React from "react";
+import Navbar from "./Navbar";
+import CountriesList from "./CountriesList";
+// import CountryDetails from "./CountryDetails";
 
 class App extends React.Component {
   state = {
@@ -18,8 +19,8 @@ class App extends React.Component {
         <Navbar />
         <div className="container">
           <div className="row">
-            {/* <CountryList />
-            <Route exact path="/:id" component={CountryDetail} /> */}
+            <CountriesList />
+            {/* <Route exact path="/:id" component={CountryDetails} /> */}
           </div>
         </div>
       </div>
@@ -27,16 +28,3 @@ class App extends React.Component {
   }
 }
 export default App;
-
-  // componentDidMount() {
-  //   // we make a get request to the server
-  //   axios
-  //     .get('/api/countries')
-  //     .then((response) => {
-  //       // console.log(response);
-  //       this.setState({
-  //         countries: response.data,
-  //       });
-  //     })
-  //     .catch((err) => console.log(err));
-  // }
