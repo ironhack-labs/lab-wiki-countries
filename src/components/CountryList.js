@@ -4,7 +4,7 @@ import countries from '../countries.json';
 
 const CountryList = (props) => {
   return (
-
+      
     <div className="col-5"> 
       <div className='list-group'>
         {countries.map((EachCountry, index) => {
@@ -21,6 +21,7 @@ const CountryList = (props) => {
         })}
       </div>
     </div>
+
   );
 }
 

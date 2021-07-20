@@ -29,7 +29,9 @@
 }
 
 .App{
-  width: 60%;
+  margin-top: 20px;
+  width: 100%;
+  
 }
 
 .link-nav{
@@ -38,13 +40,22 @@
   font-weight: 600;
   font-size: 1.4em;
   margin: auto;
-
 }
 
 .col-5{
+  max-height: 70vh;
   overflow: scroll;
-  max-height: 90vh;
 }
+
+.caja-details ul{
+  list-style: none;
+}
+
+.div-bar{
+  display: flex;
+}
+
+
 
 @keyframes App-logo-spin {
   from {
