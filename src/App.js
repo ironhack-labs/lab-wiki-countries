@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import CountryList from './components/CountryList';
+import CountryDetail from './components/CountryDetail';
+// import countries from './countries.json';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import axios from 'axios';
+
+class App extends React.Component {
+  state = {
+    countries: [],
+  };
+
+  componentDidMount() {
+    // we make a get request to the server
+    axios
+      .get('/api/countries')
+      .then((response) => {
+        // console.log(response);
+        this.setState({
+          countries: response.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Navbar />
+        <div className="container">
+          <div className="row">
+            <CountryList countries={this.state.countries} />
+            <Route exact path="/:id" component={CountryDetail} />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
