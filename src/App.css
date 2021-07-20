@@ -41,6 +41,11 @@
 
 }
 
+.col-5{
+  overflow: scroll;
+  max-height: 90vh;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
