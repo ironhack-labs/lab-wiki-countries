@@ -28,6 +28,19 @@
   color: #61dafb;
 }
 
+.App{
+  width: 60%;
+}
+
+.link-nav{
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.4em;
+  margin: auto;
+
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
