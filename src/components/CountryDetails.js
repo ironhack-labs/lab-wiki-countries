@@ -17,7 +17,7 @@ const countryDetails = (props)  => {
         <p>Area: <span>{findCountry.area}km</span></p>
         <p>Borders:</p>
         <ul className="detail">
-        {findCountry.borders.map((el)=><li key={findCountry.cca2}><Link to={`/${el}`}>{el}</Link></li>)}
+        {findCountry.borders.map((el, i)=><li key={i}><Link to={`/${el}`}>{el}</Link></li>)}
         </ul>  
     </div>
   );
