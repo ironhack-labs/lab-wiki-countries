@@ -1,0 +1,14 @@
+li > a {
+  color: black;
+  text-decoration: none;
+}
+
+#margin {
+  margin-right: 50px;
+}
+
+li {
+  width: 200px;
+}
+
+

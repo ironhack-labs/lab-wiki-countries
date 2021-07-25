@@ -1,0 +1,9 @@
+p {
+  border-top: 1px solid lightgray;
+  padding-top: 10px;
+}
+
+.detail {
+  height: 500px;
+  color: black;
+}
