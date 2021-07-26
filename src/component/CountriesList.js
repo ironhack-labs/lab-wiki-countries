@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Country from './Country.js'
 import CountriesDb from '../countries.json';
-import { Link } from 'react-router-dom';
 
 class CountriesList extends Component {
 
