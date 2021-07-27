@@ -1,0 +1,14 @@
+.list-countrie{
+   margin-top: 2rem;
+   list-style: none;
+   font-size: 1.3rem;
+  
+}
+.list-countrie a {
+
+   text-decoration: none;
+   color: black;
+}
+.list-countrie img{
+   margin-right: 2rem;
+}

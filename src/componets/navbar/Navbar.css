@@ -1,0 +1,12 @@
+.nav-bar{
+    background-color: aqua;
+    height: 5rem;
+   
+}
+.nav-bar h1{
+    display: flex;
+    align-items: center;
+    color: white;
+
+    
+}
