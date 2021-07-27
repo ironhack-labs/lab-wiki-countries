@@ -1,4 +1,4 @@
-import countries from '../countries.json';
+import countriesList from '../countries.json';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import Countrieslist from './Countrieslist';
@@ -14,26 +14,19 @@ class Countrydetails extends Component {
     const currentCountry = this.props.match
     const codeCountry = this.props.match.params.code
     console.log(codeCountry)
-    const selectedCountry = countries.filter((element) => element.cca3 === codeCountry)
+    const selectedCountry = this.props.countries.filter((element) => element.cca3 === codeCountry)
     console.log(selectedCountry[0].borders)
     let countryDetail = selectedCountry[0]
     let borders = []
     countryDetail.borders.map((border) =>{
       // console.log(border)
-      let coutriesFilteredBorder = countries.find((country) =>  country.cca3 === border)
+      let coutriesFilteredBorder = this.props.countries.find((country) =>  country.cca3 === border)
       // console.log(coutriesFilteredBorder)
       borders.push(coutriesFilteredBorder)
     })
     console.log(borders)
     
     
-    // console.log(selectedCountry)
-    // const borders = selectedCountry.map((element) => element.borders).filter((element) =>  element )
-    // const testBorder  = countries.filter((element) => element.cca3)
-    
-    // console.log(testBorder)
-    // let test = countries.map((element) => element.cca3 == borders.toString())
-    // console.log(test)
     
     
     
