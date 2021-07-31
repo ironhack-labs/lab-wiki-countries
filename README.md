@@ -1,6 +1,6 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# LAB | React WikiCountries
+# React | WikiCountries
 
 ## Introduction
 
@@ -8,16 +8,11 @@ After spending too much time on GitHub, you found a [JSON database of countries]
 
 ![](https://media.giphy.com/media/fdUHHKI36bTVduRDfB/giphy.gif)
 
-## Setup
+
+## Requirements
 
 - Fork this repo
 - Clone this repo
-
-```shell
-$ cd lab-wiki-countries
-$ npm install
-$ npm start
-```
 
 ## Submission
 
@@ -29,15 +24,13 @@ $ npm start
   git push origin master
   ```
 
-- Create Pull Request so your TAs can check up on your work.
+- Create Pull Request so your TAs can check up your work.
 
 ## Instructions
 
-### Iteration 0 | React Router installation
-
+### React Router installation
 Don't forget to install the React Router:
-
-```shell
+```sh
 $ npm install react-router-dom
 ```
 
@@ -50,24 +43,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import * as serviceWorker from './serviceWorker';
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById('root')
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>, 
+    document.getElementById('root')
 );
 
-// comment skipped to stay organized
-reportWebVitals();
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();
+
 ```
 
 ### Bootstrap installation
 
-We will use [Bootstrap V4](https://getbootstrap.com/) for the design :+1:
+We will use [Bootstrap V4](https://getbootstrap.com/) for the design :+1: 
 
 ```sh
 $ npm install bootstrap
@@ -78,75 +74,48 @@ $ npm install bootstrap
 import 'bootstrap/dist/css/bootstrap.css';
 ```
 
+
 ## Instructions
 
-### Iteration 1.1 | Create components
+### Iteration 1 | Create the components
 
-In this iteration, we will focus on the general layout. Before you start, inside the `src` folder, create the `components` folder. There you will create at least 3 components:
+In this iteration, we will focus on general layout. You will create at least 2 components:
+- `App`: For the general layout
+- `CountryDetail`: Your only `Route` that will show a component that will receive the country code (`cca3`) in the URL. That is going to represent the id of the country (example: `/ESP` for Spain, `/FRA` for France).
 
-- `Navbar`: Displaying the basic navbar with the LAB name
+To help you, we gave you an example of a page inside [`example.html`](https://github.com/sandrabosk/lab-wiki-countries/blob/master/starter-code/example.html)
 
-- `CountriesList`: Displays the list of links with the country names. Each link should be a `react-router-dom` `Link` which we will use to <u>send</u> the country code (`cca3`) via the URL.
+As a reminder with Bootstrap:
+```html
+<!-- Grid: https://getbootstrap.com/docs/4.0/layout/grid/#setting-one-column-width -->
+<div class="row">
+  <div class="col-5">Column 5/12</div>
+  <div class="col-7">Column 7/12</div>
+</div>
 
-- `CountryDetails`: Is the component that we will render via the `react-router-dom`'s `Route` and will be <u>receiving</u> the country code (`cca3`) via the URL.
-
-  This is actually the id of the country (example: `/ESP` for Spain, `/FRA` for France).
-
-To help you with the structure of the components, we gave you an example of a page inside `example.html`.
-
-If you want to style it, refresh your memory on Bootstrap in the [docs](https://getbootstrap.com/docs/4.0) or check out how we approached styling in the `example.html`.
-
-### Iteration 1.2 | Navbar component
-
-The simplest way to define a component in React is to write a JavaScript function aka function component. The navbar should be displaying the title of the LAB - WikiCountries.
-
-### Iteration 1.3 | CountriesList component
-
-This component should render a list of links that are used to trigger the browser URL change via the `react-router-dom` `Link`. Click on a `Link` component will then activate the corresponding `Route` showing the country details component.
-
-### Iteration 1.4 | CountryDetails component and `Route` setup
-
-Now when our list of countries is ready, we should create the `CountryDetails` component that will be displaying the details of a particular country of a link that we clicked. This component should be dynamically displayed/rendered by the `react-router-dom` `Route`.
-
-In this case, you should use only 1 `<Route />` for `CountryDetails` component.
-
-Components rendered by the `Route` receive special `props` (`match`, `location` and `history`) passed by the `react-router-dom`. We can use this props to obtain the information coming from the browser's URL bar, for example, the `cca3` code of the country. For a reminder on how to create a dynamic `Route` that displays a component feel free to check [this example](https://reactrouter.com/web/api/Route/route-props).
-
-**NOTE:** For Windows users, there is no emoji for the `flag`. Instead, you can rely on these links:
-
-- France: https://www.countryflags.io/fr/flat/64.png
-- Germany: https://www.countryflags.io/de/flat/64.png
-- etc.
-
-### Iteration 2 | Linking it all together
-
-Once done creating the components the structure of elements that your `App.js` will render should look somewhat like this:
-
-```jsx
-<div className="App">
-  <Navbar />
-
-  <div className="container">
-    <div className="row">
-      <CountriesList countries={countries} />
-      {/* React Router Route rendering the CountryDetails should go here */}
-    </div>
-  </div>
+<!-- List group: https://getbootstrap.com/docs/4.0/components/list-group/#links-and-buttons -->
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active">Cras justo odio (active)</a>
+  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+  <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
 </div>
 ```
 
-### Iteration 3 | Set the state when the component mounts
+For Windows users, there is no emoji for the `flag`. Instead, you can rely on these links: 
+- France: https://www.countryflags.io/fr/flat/64.png
+- Germany: https://www.countryflags.io/de/flat/64.png
+- Etc.
 
-Our `App.js` application should have its own state holding one property `countries` holding the data coming from the `countries.json` file.
 
-The state should be set only once the component is rendered to the DOM, using the lifecycle method `componentDidMount()` .
+### Iteration 2 | Create the entire application
 
-### Bonus | Fetch the data from an API
+Everything is in the title. Good luck :smile: 
 
-Instead of relying on the static data coming from a `json` file, let's do something more interesting and get out the data from an actual API.
+In this case, you should use only 1 `<Route />` for `CountryDetail`. 
 
-Let's make a `GET` request to the URL [https://restcountries.eu/#api-endpoints-all](https://restcountries.eu/#api-endpoints-all) and use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request. You may want to check the lifecycle method [`componentDidMount`](https://reactjs.org/docs/react-component.html#componentdidmount).
+Your `App` component should **always** show the list of countries.
 
-The request should happen first thing when the application loads, therefore think about when and from where we should make the request to the API.
 
 Happy coding! :heart:
