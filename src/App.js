@@ -5,7 +5,7 @@ import Home from './Pages/Home'
 import Countries from './Pages/Countries'
 import Country from './Pages/Country'
 import NotFound from './Pages/NotFound'
-import JSONcountries from './countries.json'
+import axios from 'axios'
 
 import React, { Component } from 'react'
 
@@ -14,18 +14,29 @@ export class App extends Component {
     super(props)
 
     this.state = {
-      countries: JSONcountries
+      countries: []
     }
   }
 
+  componentDidMount() {
+    console.log("----------------In component did mount------------------ ");
+    axios
+      .get("https://restcountries.eu/rest/v2/all")
+      .then((response) => {
+        this.setState({
+          countries: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   render() {
     return (
       <div className="App">
         <header>
-  
           <NavBar/>
-  
         </header>
   
         <main>
@@ -39,7 +50,6 @@ export class App extends Component {
             </Route> 
             <Route component={NotFound} />
           </Switch>
-          
         </main>
   
       </div>
