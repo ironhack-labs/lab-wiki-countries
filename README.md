@@ -135,11 +135,11 @@ You should create only 1 `<Route />` for the `CountryDetails` component.
 
 Components rendered by the `Route` receive special `props` (`match`, `location` and `history`) passed by the `react-router-dom`. We can use this props to obtain the information coming from the browser's URL bar, for example, the `alpha3Code` code of the country. For a reminder on how to set up and access the URL parameters with React Router check [this example](https://reactrouter.com/web/api/Route/route-props).
 
-**NOTE:** For the small picture of the flag, you can use the `alpha2Code` and embed it in the URL, as shown in the below examples:
+**NOTE:** For the small picture of the flag, you can use the `alpha2Code` and embed it in the URL as shown below:
 
 - France: https://www.countryflags.io/FR/flat/32.png
 - Germany: https://www.countryflags.io/DE/flat/32.png
-- Brasil: https://www.countryflags.io/BR/flat/32.png
+- Brazil: https://www.countryflags.io/BR/flat/32.png
 - etc.
 
 ### Iteration 2 | Linking it all together
