@@ -6,7 +6,7 @@
 
 After spending too much time on GitHub, you found a [JSON database of countries](https://raw.githubusercontent.com/mledoze/countries/master/countries.json) and you decided to use it to create your Wikipedia of countries!
 
-![](https://media.giphy.com/media/fdUHHKI36bTVduRDfB/giphy.gif)
+![Example - Finished LAB](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-wiki-countries-1.gif)
 
 ## Setup
 
