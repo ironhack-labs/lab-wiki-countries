@@ -4,22 +4,31 @@
 
 ## Introduction
 
-After spending too much time on GitHub, you found a [JSON database of countries](https://raw.githubusercontent.com/mledoze/countries/master/countries.json) and you decided to use it to create your Wikipedia of countries!
+After spending too much time on GitHub, you found a [JSON dataset of countries](https://restcountries.eu/rest/v2/name/all) and you decided to use it to create your Wikipedia of countries!
 
 <p align="center">
   <img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-wiki-countries-1.gif" alt="Example - Finished LAB" />
 </p>
-
 ## Setup
 
 - Fork this repo
+
 - Clone this repo
+
+- Open the LAB and start:
+
+  ```bash
+  $ cd lab-wiki-countries
+  $ npm install
+  $ npm start
+  ```
+
 
 ## Submission
 
-- Upon completion, run the following commands
+- Upon completion, run the following commands:
 
-  ```
+  ```bash
   git add .
   git commit -m "done"
   git push origin master
@@ -27,27 +36,22 @@ After spending too much time on GitHub, you found a [JSON database of countries]
 
 - Create a Pull Request so that your TAs can check your work.
 
+
 ## Getting Started
 
-1. Install the dependencies and run the React app :
+Clean the `App.js` component so that it has the following structure:
 
-   ```bash
-   $ cd lab-wiki-countries
-   $ npm install
-   $ npm start
-   ```
+```jsx
+// src/App.js
+import "./App.css";
 
-2. Clean the `App.js` component so that it has the following structure:
+function App() {
+  return <div className="App"></div>;
+}
+export default App;
+```
 
-   ```jsx
-   // src/App.js
-   import './App.css';
-
-   function App() {
-     return <div className="App"></div>;
-   }
-   export default App;
-   ```
+<br>
 
 ## Instructions
 
