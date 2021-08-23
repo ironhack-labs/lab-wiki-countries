@@ -59,6 +59,8 @@
 
 .countries-container {
   width: 80vw !important;
+  margin: 0px !important;
+  margin-left: 3rem !important;
 }
 
 @keyframes App-logo-spin {
