@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 function CountryDetails(props) {
   return (
-    <div className="country-details">
-      <h1>{props.name.official}</h1>
+    <div key={props.cca3} className="country-details">
+      <h1>{props.name}</h1>
       <table>
         <tbody>
           <tr className="table-row">
