@@ -7,7 +7,7 @@ export default function CountryDetails(props) {
         <>
       <div className="country-info">
         <div>
-          <h2>{props.name.common}</h2>
+          <h2>{props.name}</h2>
         </div>
         <div>
           <h5>Capital: {props.capital}</h5>
@@ -20,7 +20,7 @@ export default function CountryDetails(props) {
           <ul>
             {props.borders.map((border) => {
               return (
-                <li>
+                <li key={border}>
                   <Link to={`/${border}`}>{border}</Link>
                 </li>
               );

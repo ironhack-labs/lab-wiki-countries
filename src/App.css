@@ -1,3 +1,9 @@
+.flag {
+  max-width: 2rem;
+  height:auto;
+}
+
+
 .country-list {
   display: flex;
 }
