@@ -24,8 +24,41 @@
   color: white;
 }
 
+.country-list{
+  max-height: 90vh;
+  overflow: scroll;
+}
+
+.capital {
+  width: 30%;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.countryDetails {
+  margin-left: 5rem !important;
+}
+
+
+.countries-list {
+  width: 35rem !important;
+}
+
+.countries {
+  display: flex; 
+  flex-wrap: nowrap !important;
+  margin-left: 5vw;
+  margin: 0px;
+}
+
+.country-name {
+  text-align: left;
+}
+
+.countries-container {
+  width: 80vw !important;
 }
 
 @keyframes App-logo-spin {
