@@ -13,7 +13,7 @@ export default function CountryDetails(props) {
           <h5>Capital: {props.capital}</h5>
         </div>
         <div>
-          <h5>Area: {props.area}km2</h5>
+          <h5>Area: {props.area} km²</h5>
         </div>
         <div>
           <h5>Borders:</h5>
