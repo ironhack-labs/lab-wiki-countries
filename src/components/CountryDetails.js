@@ -1,5 +1,6 @@
 import React from 'react'
 import '../App.css'
+import { Link } from 'react-router-dom';
 
 export default function CountryDetails(props) {
     return (
@@ -18,7 +19,11 @@ export default function CountryDetails(props) {
           <h5>Borders:</h5>
           <ul>
             {props.borders.map((border) => {
-              return <li>{border}</li>;
+              return (
+                <li>
+                  <Link to={`/${border}`}>{border}</Link>
+                </li>
+              );
             })}
           </ul>
         </div>
