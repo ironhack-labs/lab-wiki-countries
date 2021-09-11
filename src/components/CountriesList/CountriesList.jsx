@@ -1,22 +1,24 @@
-import countries from '../../countries.json';
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './CountriesList.css';
 
-export default class CountriesList extends React.Component {
+export default function CountriesList({countries}){
 
-  render() {
+  
     return(
       <ul>
         {countries.map((country) => (
           <li key={country.name.common}>
             <Link to={`/countries/${country.cca3}`}>
+              {/* <CountryDetails math={} location={} history={}/> */}
               <h4>{country.name.common}</h4>
             </Link>
           </li>
+         
         ))}
       </ul>
     )
-  }
+  
 }
 
