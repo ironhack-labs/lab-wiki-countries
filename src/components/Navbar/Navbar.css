@@ -3,3 +3,13 @@
     color: white;
     padding: 10px;
 }
+
+.Navbar a {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.Navbar h1 {
+    width: fit-content;
+}

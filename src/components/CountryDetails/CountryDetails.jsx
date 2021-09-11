@@ -7,24 +7,33 @@ export default function CountryDetails({ countries, match }) {
 
   const country = countries.find((c) => c.alpha3Code === cca3);
 
+  const borders = (border) => {
+    const countryName = countries.find ((c) => {
+      return c.alpha3Code === border
+    })
+    return countryName.name
+  }
+
   return (
     <div className="CountryDetails">
       <h1>{country.name}</h1>
-      <br />
-      <h2>Capital: {country.capital}</h2>
-      <br />
-      <h3>
-        Area: {country.area} km <sup>2</sup>
-      </h3>
-      <br />
-      <h3>Borders: </h3>
-      <ul>
-        {country.borders.map((border) => (
-          <li>
-            <Link to={border}>{border}</Link>
-          </li>
-        ))}
-      </ul>
+      <hr/>
+      <h4>Capital: <span id="spanCapital"/> {country.capital}</h4>
+      <hr/>
+      <h4>
+        Area: <span id="spanArea"/> {country.area} km <sup>2</sup>
+      </h4>
+      <hr/>
+      <div className="CountryDetails__borders">
+        <h4>Borders: </h4>
+        <ul id="borders">
+          {country.borders.map((border) => (
+            <li>
+              <Link to={border}>{borders(border)}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

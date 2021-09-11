@@ -4,17 +4,15 @@ import { Link } from 'react-router-dom';
 
 export default function CountriesList({ countries }) {
   return (
-    <div className="CountriesList">
-      <ul>
+      <ul className=" CountriesList">
         {countries.map((country) => {
           console.log(country);
           return (
             <li key={country.name}>
-              <Link to={country.alpha3Code}>{country.name}</Link>
+              <Link to={country.alpha3Code}> <img src={`https://www.countryflags.io/${country.alpha2Code}/flat/32.png`}/> {country.name}</Link>
             </li>
           );
         })}
       </ul>
-    </div>
   );
 }

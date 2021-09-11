@@ -4,7 +4,8 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import CountriesList from './components/CountriesList/CountriesList';
 import CountryDetails from './components/CountryDetails/CountryDetails';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import loadingImg from "./Assets/loading.gif"
 
 class App extends React.Component {
   state = {
@@ -25,8 +26,10 @@ class App extends React.Component {
         {this.state.countries.length >= 1 ? (
           <div>
             <Navbar />
-            <div className="App-container">
+            <div className="App-container container">
               <CountriesList countries={this.state.countries} />
+              <Switch>
+              <Route exact path="/" />
               <Route
                 path="/:country"
                 render={(routeProps) => (
@@ -36,10 +39,11 @@ class App extends React.Component {
                   />
                 )}
               />
+              </Switch>
             </div>
           </div>
         ) : (
-          <h1>Loading...</h1>
+          <img src={loadingImg} />
         )}
       </div>
     );
