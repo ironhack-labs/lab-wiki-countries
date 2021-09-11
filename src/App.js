@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route path='/' component={CountriesList} />
-        <Route path="/countries/:cca3" component={CoutriesDetail} />
+        <Route path="/countries/:cca3" component={CountriesDetail} />
       </Switch>
     </div>
   );
