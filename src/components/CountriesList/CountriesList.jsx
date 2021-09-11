@@ -14,7 +14,7 @@ export default class CountriesList extends React.Component{
                 {this.state.countries.map((country) => {
                     return (
                         <ul>
-                            <li><Link>{country.name.official}</Link></li>
+                            <li><Link to={country.cca3}>{country.name.official}</Link></li>
                         </ul>
                     )
                 })}
