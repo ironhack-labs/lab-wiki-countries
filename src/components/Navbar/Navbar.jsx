@@ -3,7 +3,7 @@ import "./Navbar.css"
 
 export default function Navbar() {
     return(
-        <div class="Navbar">
+        <div className="Navbar">
             <nav>
                 <h1>WikiCountries</h1>
             </nav>

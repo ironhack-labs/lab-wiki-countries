@@ -1,24 +1,20 @@
-import React from "react"
-import "./CountriesList.css"
-import Countries from "../../countries.json"
-import { Link } from "react-router-dom"
+import React from 'react';
+import './CountriesList.css';
+import { Link } from 'react-router-dom';
 
-export default class CountriesList extends React.Component{
-    state = {
-        countries: Countries
-    }
-
-    render(){
-        return(
-            <div className="CountriesList">
-                {this.state.countries.map((country) => {
-                    return (
-                        <ul>
-                            <li><Link to={country.cca3}>{country.name.official}</Link></li>
-                        </ul>
-                    )
-                })}
-            </div>
-        )
-    }
+export default function CountriesList({ countries }) {
+  return (
+    <div className="CountriesList">
+      <ul>
+        {countries.map((country) => {
+          console.log(country);
+          return (
+            <li key={country.name}>
+              <Link to={country.alpha3Code}>{country.name}</Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }

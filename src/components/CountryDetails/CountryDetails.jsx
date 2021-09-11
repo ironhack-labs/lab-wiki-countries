@@ -1,35 +1,30 @@
 import React from 'react';
-import Countries from "../../countries.json"
+import { Link } from 'react-router-dom';
+import './CountryDetails.css';
 
+export default function CountryDetails({ countries, match }) {
+  const cca3 = match.params.country;
 
-export default class CountryDetails extends React.Component {
-    state = {
-        countries: Countries,
-        country: ''
-    }
+  const country = countries.find((c) => c.alpha3Code === cca3);
 
-
-    // componentDidUpdate() {
-    //     this.setState({country: this.props.match.params.country})
-    // }
-
-    componentDidMount() {
-        this.getCountry()
-    }
-
-    getCountry = () => {
-        const duplicatedCountries = [...this.state.countries];
-        const country = this.props.match.params.country;
-        const countryFilter = duplicatedCountries.filter(c => c.cca3 === country);
-        this.setState({country: countryFilter})
-    }
-
-    render() {
-        console.log(this.state.country)
-        return(
-            <div className='CountryDetails'>
-                {this.state.country.cca3}
-            </div>
-        )
-    }
+  return (
+    <div className="CountryDetails">
+      <h1>{country.name}</h1>
+      <br />
+      <h2>Capital: {country.capital}</h2>
+      <br />
+      <h3>
+        Area: {country.area} km <sup>2</sup>
+      </h3>
+      <br />
+      <h3>Borders: </h3>
+      <ul>
+        {country.borders.map((border) => (
+          <li>
+            <Link to={border}>{border}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
