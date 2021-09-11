@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import CountriesList from './components/CountriesList/CountriesList';
 import CountryDetails from './components/CountryDetails/CountryDetails';
 import { Route, Switch } from 'react-router-dom';
-import loadingImg from "./Assets/loading.gif"
+import loadingImg from './Assets/loading.gif';
 
 class App extends React.Component {
   state = {
@@ -23,27 +23,37 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Navbar />
         {this.state.countries.length >= 1 ? (
           <div>
-            <Navbar />
             <div className="App-container container">
               <CountriesList countries={this.state.countries} />
               <Switch>
-              <Route exact path="/" />
-              <Route
-                path="/:country"
-                render={(routeProps) => (
-                  <CountryDetails
-                    {...routeProps}
-                    countries={this.state.countries}
-                  />
-                )}
-              />
+                <Route
+                  exact
+                  path="/"
+                  render={() => (
+                    <h3 className="mx-5 mt-3">
+                      <strong>
+                        <u>Please select a country</u>
+                      </strong>
+                    </h3>
+                  )}
+                />
+                <Route
+                  path="/:country"
+                  render={(routeProps) => (
+                    <CountryDetails
+                      {...routeProps}
+                      countries={this.state.countries}
+                    />
+                  )}
+                />
               </Switch>
             </div>
           </div>
         ) : (
-          <img src={loadingImg} />
+          <img src={loadingImg} alt="Loading" />
         )}
       </div>
     );
