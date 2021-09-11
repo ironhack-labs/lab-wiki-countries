@@ -1,4 +1,4 @@
-import countries from '../../countries.json';
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './CountriesList.css';
@@ -14,6 +14,7 @@ export default function CountriesList({ countries })  {
               <p>{country.name.common}</p>
             </Link>
           </li>
+         
         ))}
         </ul>
       </div>

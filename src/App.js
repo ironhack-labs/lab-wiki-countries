@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar'
 import CountriesList from "./components/CountriesList/CountriesList";
 import CountryDetails from "./components/CountryDetails/CountryDetails"
 import './App.css';
+import countries from './countries.json'
 
 
 function App() {
