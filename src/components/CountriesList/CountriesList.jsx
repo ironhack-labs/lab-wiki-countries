@@ -8,17 +8,14 @@ export default class CountriesList extends React.Component {
   render() {
     return(
       <ul>
-        <li>
-          <Link to={`/countries/${countries.cca3}`}>
-            {countries.map((country) => (
-              <div key={country.name.common} {...country}>
-                <h4>{country.name.common}</h4>
-              </div>
-            ))}
-          </Link>
-        </li>
+        {countries.map((country) => (
+          <li key={country.name.common}>
+            <Link to={`/countries/${country.cca3}`}>
+              <h4>{country.name.common}</h4>
+            </Link>
+          </li>
+        ))}
       </ul>
-      
     )
   }
 }
