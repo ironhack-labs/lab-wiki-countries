@@ -1,0 +1,35 @@
+.CountriesList {
+  height: calc(100vh - 200px);
+  overflow-y: scroll;
+  margin-top: 3rem
+}
+
+.CountriesList ul {
+  line-height: 0.8;
+  list-style-type: none;
+}
+
+.list {
+  border: 1px solid black;
+  padding: 5px 10px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list p {
+  padding-top: 15px;
+}
+
+
+.list-list {
+  /* border: 1px solid black;  */
+  text-decoration: none;
+  vertical-align: middle;
+  color: rgb(33, 37, 41);
+}
+
+.CountriesList li:hover {
+  background-color: silver;
+}

@@ -3,20 +3,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './CountriesList.css';
 
-export default class CountriesList extends React.Component {
+export default function CountriesList({ countries })  {
 
-  render() {
     return(
-      <ul>
+      <div className='CountriesList'>
+        <ul>
         {countries.map((country) => (
-          <li key={country.name.common}>
-            <Link to={`/countries/${country.cca3}`}>
-              <h4>{country.name.common}</h4>
+          <li className='list' key={country.name.common}>
+            <Link to={`/countries/${country.cca3}`} className='list-list'>
+              <p>{country.name.common}</p>
             </Link>
           </li>
         ))}
-      </ul>
+        </ul>
+      </div>
+      
     )
-  }
+  
 }
 

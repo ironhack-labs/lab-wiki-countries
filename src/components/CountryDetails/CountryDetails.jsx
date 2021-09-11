@@ -1,21 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default class CountryDetails extends React.Component {
+export default function CountryDetails({ match, countries }) {
     
-  render() {
-    const { match, location, history } = this.props
-    console.log(this.props)
+  const country = countries.find((currentCountry) => currentCountry.cca3 === match.params.cca3);
+  const borders = countries.filter((currentCountry) => currentCountry.borders.includes(country.cca3));
+  
+    console.log(country.borders)
     return (
       <div className="CountryDetails">
         <div>
-          {/* <h1>{country.name}</h1> */}
+          <h1>{country.name.common}</h1>
           <hr />
         </div>
         <div>
           <p>
             <strong>Capital</strong>
           </p>
-          {/* <p>{country.capital}</p> */}
+          <p>{country.capital}</p>
           <hr />
         </div>
         <div>
@@ -23,7 +25,7 @@ export default class CountryDetails extends React.Component {
             <strong>Area</strong>
           </p>
           <p>
-            {/* {country.area}km<sup>2</sup> */}
+            {country.area}km<sup>2</sup>
           </p>
           <hr />
         </div>
@@ -32,17 +34,17 @@ export default class CountryDetails extends React.Component {
             <strong>Borders</strong>
           </p>
           <ul>
-            {/* {countries.map((country) => (
+            {borders.map((country) => (
               <li key={country.name.common}>
                 <Link to={`/countries/${country.cca3}`}>
                   <h4>{country.name.common}</h4>
                 </Link>
-              </li> */}
-            {/* ))} */}
+              </li> 
+            ))}
           </ul>
         </div>
         <hr />
       </div>
     );
-  }
+  
 }
