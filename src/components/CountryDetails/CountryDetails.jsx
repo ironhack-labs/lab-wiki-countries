@@ -1,16 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function CountryDetails({ match, countries }) {
+export default function CountryDetails({ countries, match }) {
     
-  const country = countries.find((currentCountry) => currentCountry.cca3 === match.params.cca3);
-  const borders = countries.filter((currentCountry) => currentCountry.borders.includes(country.cca3));
-  
-    console.log(country.borders)
-    return (
+  const cca3 = match.params.country
+
+  const country = countries.find((c) => c.alpha3Code === cca3);
+
+  const borders = (border) => {
+    const countryName = countries.find ((c) => {
+      return c.alpha3Code === border
+    })
+    return countryName.name
+  }
+  // const country = countries.find(currentCountry => currentCountry.alpha3Code === alpha3Code);
+
+  // const countriesBorders = country.borders
+  // .map(countryBorder => countries.find(c => c.alpha3Code === countryBorder));
+     
+      return (
       <div className="CountryDetails">
         <div>
-          <h1>{country.name.common}</h1>
+          <h1>{country.name}</h1>
           <hr />
         </div>
         <div>
@@ -35,9 +46,9 @@ export default function CountryDetails({ match, countries }) {
           </p>
           <ul>
             {borders.map((country) => (
-              <li key={country.name.common}>
-                <Link to={`/countries/${country.cca3}`}>
-                  <h4>{country.name.common}</h4>
+              <li key={country.name}>
+                <Link to={`/countries/${country.alpha3code}`}>
+                  <h4>{country.name}</h4>
                 </Link>
               </li> 
             ))}
@@ -46,5 +57,4 @@ export default function CountryDetails({ match, countries }) {
         <hr />
       </div>
     );
-  
 }

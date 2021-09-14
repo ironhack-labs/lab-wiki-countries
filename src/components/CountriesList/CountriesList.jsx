@@ -1,25 +1,20 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './CountriesList.css';
 
-export default function CountriesList({ countries })  {
-
-    return(
-      <div className='CountriesList'>
-        <ul>
+export default function CountriesList({ countries }) {
+  return (
+    <div className="CountriesList">
+      <ul>
         {countries.map((country) => (
-          <li className='list' key={country.name.common}>
-            <Link to={`/countries/${country.cca3}`} className='list-list'>
-              <p>{country.name.common}</p>
+          <li className="list" key={country.alpha3code}>
+            <Link to={`/countries/${country.alpha3code}`} className="list-list">
+              <img src={country.flag} height={16} alt={country.name} />{' '}
+              {country.name}
             </Link>
           </li>
-         
         ))}
-        </ul>
-      </div>
-      
-    )
-  
+      </ul>
+    </div>
+  );
 }
-
