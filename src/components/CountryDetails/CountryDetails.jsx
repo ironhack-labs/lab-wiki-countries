@@ -1,22 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function CountryDetails({ countries, match }) {
-    
-  const cca3 = match.params.country
-
-  const country = countries.find((c) => c.alpha3Code === cca3);
-
-  const borders = (border) => {
-    const countryName = countries.find ((c) => {
-      return c.alpha3Code === border
-    })
-    return countryName.name
-  }
-  // const country = countries.find(currentCountry => currentCountry.alpha3Code === alpha3Code);
-
-  // const countriesBorders = country.borders
-  // .map(countryBorder => countries.find(c => c.alpha3Code === countryBorder));
+export default function CountryDetails({
+  match: { params: { alpha3Code } },
+  countries
+}) {
+  
+  
+  const country = countries.find(currentCountry => currentCountry.alpha3Code === alpha3Code);
+  
+  const countriesBorders = country.borders
+  .map(countryBorder => countries.find(c => c.alpha3Code === countryBorder));
      
       return (
       <div className="CountryDetails">
@@ -45,9 +39,9 @@ export default function CountryDetails({ countries, match }) {
             <strong>Borders</strong>
           </p>
           <ul>
-            {borders.map((country) => (
+            {countriesBorders.map((country) => (
               <li key={country.name}>
-                <Link to={`/countries/${country.alpha3code}`}>
+                <Link to={`/countries/${country.alpha3Code}`}>
                   <h4>{country.name}</h4>
                 </Link>
               </li> 

@@ -29,7 +29,7 @@ class App extends Component {
           <CountriesList countries={this.state.countries} />
           <Switch>
             <Route
-              path="/countries/:alpha3code"
+              path="/countries/:alpha3Code"
               exact
               render={(routeProps) => (
                 <CountryDetails {...routeProps} countries={this.state.countries} />
