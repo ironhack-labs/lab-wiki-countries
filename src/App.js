@@ -8,13 +8,13 @@ import CountryDetails from './components/CountryDetails/CountryDetails';
 const App = () => {
   return (
     <div className="App">
+      <Navbar />
       <BrowserRouter>
-        <Navbar />
-        <div class="container">
-          <div class="row">
+        <div className="container">
+          <div className="row">
             <CountriesList />
-            <Route exact path='/countries/:id' component={CountryDetails}/>
-          </div>          
+            <Route exact path="/:id" component={CountryDetails} />
+          </div>
         </div>
       </BrowserRouter>
     </div>
