@@ -1,3 +1,5 @@
+import './CountiresList.css';
+
 import { Link } from 'react-router-dom';
 
 const renderCountries = (countries) => {
@@ -6,9 +8,10 @@ const renderCountries = (countries) => {
         <Link
           key={index}
           className="list-group-item list-group-item-action"
-          to={'/' + country.cca3}
+          to={'/' + country.alpha3Code}
         >
-          {country.flag} {country.name.common}
+          <img className="country-flag" src={country.flag} alt="country flag" />{' '}
+          {country.name}
         </Link>
       ))
     : [];

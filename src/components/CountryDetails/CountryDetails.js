@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const retrieveCountry = (countries, CCA3) => {
-  return countries ? countries.find((country) => country.cca3 === CCA3) : [];
+const retrieveCountry = (countries, alpha3Code) => {
+  return countries
+    ? countries.find((country) => country.alpha3Code === alpha3Code)
+    : [];
 };
 
 const retrieveBorders = (countries, currentCountry) => {
   if (!countries || !currentCountry) {
     return '';
   }
-  return currentCountry.borders.map((borderCountryCCA3, index) => {
-    const country = retrieveCountry(countries, borderCountryCCA3);
+  return currentCountry.borders.map((borderCountryAlpha3Code, index) => {
+    const country = retrieveCountry(countries, borderCountryAlpha3Code);
     return (
       <li key={index}>
-        <Link to={'/' + country.cca3}>{country.name.common}</Link>
+        <Link to={'/' + country.alpha3Code}>{country.name}</Link>
       </li>
     );
   });
@@ -27,25 +29,25 @@ const pageNotFound = () => {
   );
 };
 
-const CountryDetails = ({ countries, CCA3 }) => {
+const CountryDetails = ({ countries, alpha3Code }) => {
   const [currentCountry, setCurrentCountry] = useState(null);
 
   useEffect(() => {
-    setCurrentCountry(retrieveCountry(countries, CCA3));
-  }, [CCA3]);
+    setCurrentCountry(retrieveCountry(countries, alpha3Code));
+  }, [alpha3Code]);
 
   return !currentCountry ? (
     pageNotFound()
   ) : (
     <div className="col-7">
-      <h1>{currentCountry.name.common}</h1>
+      <h1>{currentCountry.name}</h1>
       <table className="table">
         <thead></thead>
         <tbody>
           <tr>
             <td style={{ width: '30%' }}>Capital</td>
             <td>
-              {currentCountry.capital[0] || 'This country don`t have a capital'}
+              {currentCountry.capital || 'This country don`t have a capital'}
             </td>
           </tr>
           <tr>
