@@ -2,3 +2,8 @@
     max-height: 90vh;
     overflow: scroll;
 }
+
+img {
+    width: 30px;
+    height: auto;
+}

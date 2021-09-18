@@ -5,14 +5,23 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import CountriesList from './components/CountriesList/CountriesList';
 import CountryDetails from './components/CountryDetails/CountryDetails';
-import countriesJson from './countries.json';
+import axios from 'axios';
 
 const App = () => {
-  const [countries, setCountries] = useState([...countriesJson]);
+  const [countries, setCountries] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  // Atualiza o state para conter os arquivos do json
   useEffect(() => {
-    setCountries([...countriesJson]);
+    setLoading(true);
+    axios
+      .get('https://restcountries.eu/rest/v2/all')
+      .then(response => {        
+        setCountries([...response.data]);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   return (
@@ -20,13 +29,19 @@ const App = () => {
       <Navbar />
       <div className="container">
         <div className="row">
-          <CountriesList countries={countries} />
+          {loading ? (
+            <div class="spinner-border" role="status">
+              <span class="sr-only"></span>
+            </div>
+          ) : (
+            <CountriesList countries={countries} />
+          )}
           <Route
-              path="/:cca3"
-              render={(routeProps) => (
-                <CountryDetails {...routeProps} countries={countries} />
-              )}
-            ></Route>
+            path="/:alpha3Code"
+            render={(routeProps) => (
+              <CountryDetails {...routeProps} countries={countries} />
+            )}
+          ></Route>
         </div>
       </div>
     </div>

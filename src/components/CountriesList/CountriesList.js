@@ -10,10 +10,10 @@ const CountriesList = ({ countries }) => {
           return (
             <Link
               className="list-group-item list-group-item-action"
-              to={`/${countryObj.cca3}`}
-              key={countryObj.cca3}
+              to={`/${countryObj.alpha3Code}`}
+              key={countryObj.alpha3Code}
             >
-              {countryObj.flag} {countryObj.name.common}
+              <img src={countryObj.flag} /> {countryObj.name}
             </Link>
           );
         })}
