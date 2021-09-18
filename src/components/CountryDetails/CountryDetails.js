@@ -1,32 +1,59 @@
-import React from 'react';
-import countries from '/Users/andrekleine/Documents/ironhack/m2/w4/lab-wiki-countries/src/countries.json';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const CountryDetails = (props) => {
-  const getCountry = (id) => {
-    const theCountry = (country) => {
-      return country.cca3 === id;
-    };
-    return countries.find(theCountry);
-  };
+function CountryDetails(props) {
+  const [country, setCountry] = useState({
+    name: '',
+    capital: [],
+    area: '',
+    borders: [],
+  });
 
-  const { params } = props.match;
-  const foundCountry = getCountry(params.id);
+  useEffect(() => {
+    const foundCountry = props.countries.find(
+      (countryObj) => countryObj.cca3 === props.match.params.cca3
+    );
+
+    if (foundCountry) {
+      const { name, capital, area, borders } = foundCountry;
+
+      setCountry({
+        name: name.common,
+        capital: [...capital],
+        area: area,
+        borders: [...borders],
+      });
+    }
+  }, [props]);
+
+  function getCountryNameByCode(cca3) {
+    const foundCountry = props.countries.find(
+      (countryObj) => countryObj.cca3 === cca3
+    );
+
+    if (foundCountry) {
+      return foundCountry.name.common;
+    }
+
+    return '';
+  }
 
   return (
-    <div className="col-7">
-      <h1>{foundCountry.name.common}</h1>
+    <div className="col-5">
+      <h1>{country.name}</h1>
       <table className="table">
         <thead></thead>
         <tbody>
           <tr>
-            <td className="capital">Capital</td>
-            <td>{foundCountry.capital}</td>
+            <td style={{ width: '30%' }}>Capital</td>
+            {country.capital.map((capitalStr) => (
+              <td key={capitalStr}>{capitalStr}</td>
+            ))}
           </tr>
           <tr>
             <td>Area</td>
             <td>
-              {`${foundCountry.area} km`}
+              {country.area} km
               <sup>2</sup>
             </td>
           </tr>
@@ -34,13 +61,13 @@ const CountryDetails = (props) => {
             <td>Borders</td>
             <td>
               <ul>
-                {foundCountry.borders.map((neighborCode) => {
-                  return (
-                    <li key={neighborCode}>
-                      <Link to={`/${neighborCode}`}>{getCountry(neighborCode).name.common}</Link>
-                    </li>
-                  );
-                })}
+                {country.borders.map((border) => (
+                  <li key={border}>
+                    <Link to={`/${border}`}>
+                      {getCountryNameByCode(border)}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </td>
           </tr>
@@ -48,6 +75,6 @@ const CountryDetails = (props) => {
       </table>
     </div>
   );
-};
+}
 
 export default CountryDetails;

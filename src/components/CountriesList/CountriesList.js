@@ -1,20 +1,19 @@
 import React from 'react';
 import './CountriesList.css';
-import countries from '/Users/andrekleine/Documents/ironhack/m2/w4/lab-wiki-countries/src/countries.json';
 import { Link } from 'react-router-dom';
 
-const CountriesList = () => {
+const CountriesList = ({ countries }) => {
   return (
     <div className="col-5">
       <div className="list-group">
-        {countries.map((country) => {
+        {countries.map((countryObj) => {
           return (
             <Link
               className="list-group-item list-group-item-action"
-              to={`/${country.cca3}`}
-              key={country.cca3}
+              to={`/${countryObj.cca3}`}
+              key={countryObj.cca3}
             >
-              {country.flag} {country.name.common}
+              {countryObj.flag} {countryObj.name.common}
             </Link>
           );
         })}
