@@ -4,21 +4,21 @@ import { Link } from 'react-router-dom';
 const CountryDetails = (props) => {    
     const [country, setCountry] = useState({
         name: '',
-        capital: [],
+        capital: '',
         area: '',
         borders: [],
     });
 
     useEffect(() => {
         const found = props.countries.find(
-        (country) => country.cca3 === props.match.params.cca3
+        (country) => country.alpha3Code === props.match.params.alpha3Code
         );
 
         if (found) {
         const { name, capital, area, borders } = found;
             setCountry({
-                name: name.common,
-                capital: [...capital],
+                name: name,
+                capital: capital,
                 area: area,
                 borders: [...borders],
             });
@@ -26,14 +26,14 @@ const CountryDetails = (props) => {
     }, 
     [props]);
 
-    function getName(cca3) {
-        const found = props.countries.find((country) => country.cca3 === cca3);
-        return found ? (found.name.common) : '';
+    function getName(alpha3Code) {
+        const found = props.countries.find((country) => country.alpha3Code === alpha3Code);
+        return found ? (found.name) : '';
     }
 
     return (        
         <div className="col-6 country-name">
-            <h1>{country.name || country.name.common}</h1>
+            <h1>{country.name}</h1>
             <table className="table">
                 <thead />
                 <tbody>

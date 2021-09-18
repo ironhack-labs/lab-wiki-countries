@@ -4,13 +4,21 @@ import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import { Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import help from './countries.json';
+import axios from 'axios'
 
 function App() {
   const [countries, setCountries] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setCountries([...help]);
+    setLoading(true);
+    axios
+      .get('https://restcountries.eu/rest/v2/all')
+      .then((response) => {
+        setCountries([...response.data]);
+        setLoading(false);
+      })
+      .catch((err) => console.error(err));
   }, []);
 
   return (
@@ -21,12 +29,18 @@ function App() {
             <div
               className="col-5"
               style={{ overflow: 'scroll', maxHeight: '90vh' }}
-            >
+            > 
+            {loading ? (
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            ) : (
               <CountriesList countries={countries} />
+            )}
             </div>
             <Switch>
               <Route
-                path="/:cca3"
+                path="/:alpha3Code"
                 render={(routeProps) => 
                   <CountryDetails {...routeProps} countries={countries} />
                 }

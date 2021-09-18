@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import '../countries.json'
 import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css'
 
@@ -10,15 +9,15 @@ const CountriesList = (props) => {
             <ul>
                 {props.countries.map((country) => {
                    return (
-                        <Link key={country.cca3} 
+                        <Link key={country.alpha3Code} 
                                 className='list-group-item list-group-item-action'
-                                to={'/' + country.cca3}
+                                to={'/' + country.alpha3Code}
                         >
-                            {/* <img className='flags'
-                                src={`https://www.countryflags.io/${country.cca2}/flat/64.png`}
-                                alt={`${country.name.common}`}
-                            /> */}
-                            {country.flag} {country.name.common}
+                            <img className='me-2'
+                                src={`https://www.countryflags.io/${country.alpha2Code}/flat/32.png`}
+                                alt={`${country.name}`}
+                            />
+                            {country.name}
                         </Link>
                    );
                 })}
