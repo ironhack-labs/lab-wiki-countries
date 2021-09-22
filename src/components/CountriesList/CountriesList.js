@@ -1,5 +1,6 @@
 import countriesList from './../../countries.json'
 import './CountriesList.css'
+import { Link } from 'react-router-dom'
 
 export default function CountriesList() {
 
@@ -11,7 +12,7 @@ export default function CountriesList() {
                 return (
 
                     <div key={idx} className="list-group">
-                        <a className="list-group-item list-group-item-action" href={`/${country.cca3}`}>{country.flag} - {country.name.common}</a>
+                        <Link to={`/${country.cca3}`} className="list-group-item list-group-item-action">{country.flag} - {country.name.common}</Link>
                     </div>
                 )
             })
