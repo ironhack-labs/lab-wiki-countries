@@ -8,9 +8,10 @@ export default function CountryDetails(props) {
     const displayBorders = () => {
 
         return (
-            country.borders.map(borderCountry => {
+            country.borders.map((borderCountry, idx) => {
+                const names = countriesList.find(elm => borderCountry === elm.cca3)
                 return (
-                    <li><a href={`/${borderCountry}`}>{borderCountry}</a></li>
+                    <li key={idx} ><a href={`/${borderCountry}`}>{names.name.common}</a></li>
                 )
             })
         )

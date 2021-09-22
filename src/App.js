@@ -8,7 +8,14 @@ import CountryDetails from './components/CountryDetails/CountryDetails';
 class App extends Component {
 
   state = {
-    currentCountry: {}
+    currentCountry: []
+  }
+
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      currentCountry: CountriesList
+    })
   }
 
   render() {
