@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router} from "react-router-dom"
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router>
+    <React.StrictMode>
     <App />
-  </React.StrictMode>,
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"></link>
+  </React.StrictMode>
+  </Router>,
   document.getElementById('root')
 );
 
