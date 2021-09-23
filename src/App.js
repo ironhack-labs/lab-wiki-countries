@@ -4,10 +4,12 @@ import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import { useState } from 'react';
 import countries from './countries.json'
+import { Switch, Route } from 'react-router-dom';
 
 
 function App() {
 
+  // Countries from JSON
 	const [ countryData, setCountryData ] = useState(countries);
 
 	return (
@@ -17,12 +19,22 @@ function App() {
 				<div class="row">
 					<div class="col-5 countriesListDiv">
 						<div class="list-group">
-							{countryData.map((country) => {
-								return <CountriesList countryData={country} key={country.alpha3Code} />;
-							})}
+
+            <CountriesList countryData={countryData} />;
+
 						</div>
 					</div>
-					<CountryDetails countryData={countryData} />
+          <Switch>
+          
+						<Route
+							// exact
+							path="/:alpha3Code"
+							render={(props) => {
+								return <CountryDetails {...props} countryData={countryData} />;
+							}}
+						/>
+					</Switch>
+
 				</div>
 			</div>
 		</div>

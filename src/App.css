@@ -19,7 +19,7 @@
     transform: rotate(360deg);
   }
 }
-/* AL COUNTRY DETAILS COMPONENT CSS */
+
 .countryDetailsImg{
 width: 300px;
 }
@@ -32,7 +32,7 @@ width: 30%;
 max-height: 90vh; 
 overflow: scroll;
 }
-/* AL COUNTRY LIST COMPONENT CSS */
+
 .countriesListImage{
 width:80px;
 }
@@ -44,7 +44,7 @@ background-color: #ccecf5d5 !important;
 }
 
 .countryListA:hover{
-background-color: #a8ebfdd5 !important;
+background-color: #cc6262d5 !important;
 }
 
 .pNoMargin{
