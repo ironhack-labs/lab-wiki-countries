@@ -11,3 +11,61 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+nav a {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 120px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  background-color: rgba(255, 230, 255, 0.6);
+  text-decoration: none;
+}
+nav a:hover {
+  background-color: rgba(255, 230, 255, 0.9);
+}
+
+.country-list li {
+  list-style-type: none;
+  margin: 5px;
+  background-color: rgba(209, 131, 209, 0.432);
+}
+.country-list li a {
+  text-decoration: none;
+  color: black;
+}
+.country-list-div {
+  margin: 20px;
+  width: 30%;
+  border: 1px solid blacK;
+  float: left;
+}
+.country-list {
+  padding: 0;
+  margin: 0;
+}
+
+.country-details {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  flex-direction: column;
+}
+.country-details p,
+h3 {
+  padding: 5px;
+  margin: 5px;
+  background-color: rgba(209, 131, 209, 0.432);
+}

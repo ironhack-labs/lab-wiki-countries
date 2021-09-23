@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import CountryList from './components/CountryList';
+import { Switch, Route } from 'react-router-dom';
+import CountryDetails from './components/CountryDetails';
+import { useState, useEffect } from 'react';
+import countries from './countries.json';
 
 function App() {
+  const [countryDb, setCountryDb] = useState([]);
+  useEffect(() => {
+    setCountryDb(countries);
+    console.log('State is is, compoenent did mount!');
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <CountryList countries={countryDb} />
+      <Switch>
+        <Route path="/country/:id" component={CountryDetails} />
+      </Switch>
     </div>
   );
 }
