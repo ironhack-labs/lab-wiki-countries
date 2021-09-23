@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import { useState } from 'react';
+import countries from './countries.json'
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const [ countryData, setCountryData ] = useState(countries);
+
+	return (
+		<div>
+			<Navbar />
+			<div class="container">
+				<div class="row">
+					<div class="col-5 countriesListDiv">
+						<div class="list-group">
+							{countryData.map((country) => {
+								return <CountriesList countryData={country} key={country.alpha3Code} />;
+							})}
+						</div>
+					</div>
+					<CountryDetails countryData={countryData} />
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default App;
