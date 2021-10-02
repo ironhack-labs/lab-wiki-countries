@@ -1,0 +1,7 @@
+.CountriesList__main {
+  display: flex;
+}
+
+.CountriesList__main--left {
+  width: 300px;
+}
