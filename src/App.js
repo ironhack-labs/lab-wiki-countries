@@ -9,6 +9,17 @@ import { Route } from 'react-router-dom';
 
 class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      countries: countries,
+    };
+  }
+
+  componentDidMount() {
+    console.log('Component DID MOUNT.');
+  }
 
   render() {
     return (
@@ -30,5 +41,7 @@ class App extends React.Component {
     )
   }
 }
+
+
 
 export default App;
