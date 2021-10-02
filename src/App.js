@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import CountriesList from './CountriesList';
 import Nav from './Navbar';
 import countries from './countries.json';
-import CountryDetail from './CountryDetails';
+
 function App() {
+  //const [countries, setCountries] = useState([]);
   return (
     <div>
       <Nav />

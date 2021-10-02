@@ -1,5 +1,6 @@
 import React from 'react';
 import countries from './countries.json';
+import { Link } from 'react-router-dom';
 const CountryDetails = (props) => {
   let currentCountry = countries.find((country) => {
     return country.cca3 === props.match.params.id;
@@ -9,7 +10,7 @@ const CountryDetails = (props) => {
   console.log('these are the borders codes: ' + bordersCodes);
 
   let borderCountries = bordersCodes.map((border) => {
-    return countries.filter((country) => {
+    return countries.find((country) => {
       return country.cca3 === border;
     });
   });
@@ -28,7 +29,13 @@ const CountryDetails = (props) => {
         <h3>Borders</h3>
         <ul>
           {borderCountries.map((country) => {
-            return <li>{country[0].name.official}</li>;
+            return (
+              <li>
+                <Link to={`/country-detail/${country.cca3}`}>
+                  {country.name.official}
+                </Link>
+              </li>
+            );
           })}
         </ul>
       </div>
