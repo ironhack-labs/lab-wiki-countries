@@ -1,7 +1,6 @@
 import './App.css';
 import { CountriesList } from './components/CountriesList';
-import { CountryDetails } from './components/CountryDetails';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import countriesJSON from './countries.json';
 
 function App() {
@@ -11,18 +10,7 @@ function App() {
     <div class="container">
       <div class="row">
         <BrowserRouter>
-          <Switch>
-            {countries.map((country) => {
-              return (
-                <>
-                  <CountriesList />
-                  <Route path={`/${country.cca3}`}>
-                    <CountryDetails country={country} />
-                  </Route>
-                </>
-              );
-            })}
-          </Switch>
+          <CountriesList countries={countries} />
         </BrowserRouter>
       </div>
     </div>

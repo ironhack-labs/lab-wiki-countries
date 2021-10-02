@@ -33,11 +33,13 @@ export const CountryDetails = ({ country }) => {
             <td>
               <ul>
                 {country.borders.map((borderCountry) => {
-                  <li>
-                    <Link to={`/${borderCountry}`}>
-                      {borderCountries(borderCountry)}
-                    </Link>
-                  </li>;
+                  return (
+                    <li>
+                      <Link to={`/${borderCountry}`}>
+                        {borderCountries(borderCountry)}
+                      </Link>
+                    </li>
+                  );
                 })}
               </ul>
             </td>
@@ -47,3 +49,5 @@ export const CountryDetails = ({ country }) => {
     </div>
   );
 };
+
+export default CountryDetails;
