@@ -1,0 +1,14 @@
+.countries-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.country-row {
+    line-height: 2rem;
+
+}
+
+.country-row a {
+    text-decoration: none !important;
+    color: black;
+}

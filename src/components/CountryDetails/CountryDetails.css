@@ -1,0 +1,36 @@
+#country-borders {
+    display: flex;
+    flex-direction: row;
+}
+
+#country-name,
+#country-capital,
+#country-area {
+    padding: .5rem 0;
+    border-bottom: 1px #1D90F4 solid;
+}
+
+.country-details-right {
+    width: 50%;
+    text-align: left;
+    margin-left: 1rem;
+}
+
+#country-borders {
+    padding: .5rem 0;
+}
+
+ul {
+    margin-left: 2rem;
+}
+
+ul li {
+    text-align: left;
+}
+
+.countries-list-left {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+}

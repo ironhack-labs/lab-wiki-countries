@@ -14,14 +14,22 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #1D90F4;
+  min-height: 10vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: start;
   color: white;
+}
+
+.App-header ul {
+  list-style-type: none;
+}
+
+.App-header a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .App-link {
@@ -32,7 +40,14 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
