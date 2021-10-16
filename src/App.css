@@ -15,12 +15,13 @@
 
 .App-header {
   background-color: #1D90F4;
-  min-height: 10vh;
+  min-height: 5vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: start;
   color: white;
+  padding-top: 1rem;
 }
 
 .App-header ul {
