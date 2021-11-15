@@ -114,8 +114,8 @@ Components rendered by the `Route` receive special `props` (`match`, `location` 
 
 **NOTE:** For Windows users, there is no emoji for the `flag`. Instead, you can rely on these links:
 
-- France: https://www.countryflags.io/fr/flat/64.png
-- Germany: https://www.countryflags.io/de/flat/64.png
+- France: https://flagcdn.com/28x21/fr.png
+- Germany: https://flagcdn.com/28x21/de.png
 - etc.
 
 ### Iteration 2 | Linking it all together
@@ -145,7 +145,7 @@ The state should be set only once the component is rendered to the DOM, using th
 
 Instead of relying on the static data coming from a `json` file, let's do something more interesting and get out the data from an actual API.
 
-Let's make a `GET` request to the URL [https://restcountries.eu/#api-endpoints-all](https://restcountries.eu/#api-endpoints-all) and use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request. You may want to check the lifecycle method [`componentDidMount`](https://reactjs.org/docs/react-component.html#componentdidmount).
+Let's make a `GET` request to the URL [https://restcountries.com/#api-endpoints-v2-all](https://restcountries.com/#api-endpoints-v2-all) and use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request. You may want to check the lifecycle method [`componentDidMount`](https://reactjs.org/docs/react-component.html#componentdidmount).
 
 The request should happen first thing when the application loads, therefore think about when and from where we should make the request to the API.
 
