@@ -27,7 +27,14 @@
 .App-link {
   color: #61dafb;
 }
-
+.flag {
+  width: 50px;
+}
+.borderList {
+  list-style: none;
+  display: flex;
+  gap: 0.4rem;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
