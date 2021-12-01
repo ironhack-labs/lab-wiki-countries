@@ -27,6 +27,34 @@
 .App-link {
   color: #61dafb;
 }
+.countriesList {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap:1px;
+  margin: 0 auto;
+}
+.countriesList li {
+  min-width: 375px;
+  padding: 5px 10px;
+  border: 1px solid black;
+  list-style: none;
+  text-align: left;
+}
+.countriesList li:hover {
+  background-color: cadetblue;
+}
+.countriesList li:hover a {
+  color: white;
+}
+.countriesList a {
+  text-align: left;
+  color:black;
+  text-decoration: none;
+
+}
 
 @keyframes App-logo-spin {
   from {
