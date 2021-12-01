@@ -111,6 +111,7 @@ a{
    flex-direction: column;
    align-items: center;
    justify-content: center;
+   color: white;
 
 }
 .detailsDiv li{
@@ -124,7 +125,7 @@ a{
 
 }
 
-.detailsDiv li a{
+.detailsDiv ul li a{
   color: white;
 }
 

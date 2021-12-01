@@ -12,6 +12,11 @@ const nameCountry = copyCountries[0].name.common;
 const areaCountry = copyCountries[0].area;
 const borders =[...copyCountries[0].borders]
 
+const bordersToCountry = (allborders) => {
+    return allborders.map((elem) => countries.find((countryEl) => countryEl.cca3 === elem )
+    );
+  }
+
 console.log(copyCountries[0]);
 
     return (
@@ -22,13 +27,20 @@ console.log(copyCountries[0]);
           <hr></hr>
           <span>Area: {areaCountry}</span>
           <hr></hr>
-          {borders.length > 0 ? <span>Frontera con: </span> : <span>No tiene fronteras </span>}
+          {borders.length > 0 ? (
+            <span>Frontera con: </span>
+          ) : (
+            <span>No tiene fronteras </span>
+          )}
           <ul>
-            {borders.map((border) => (
-              <li className= "listComponent">
-                <Link to={`/country/${border}`}>{border}</Link>
-              </li>
-            ))}
+            {bordersToCountry(borders).map((elm) => {
+              return (
+                <li>
+                  
+                  <Link to={`/country/${elm.cca3}`}>{elm.name.common}</Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </>
