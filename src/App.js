@@ -13,6 +13,7 @@ function App() {
       <div>
         <CountriesList countries={countries} />
       </div>
+      {/* el <Switch> no m funcuionaba en el mac mini de casa y hasta que m dado cuenta que por la version tenia que cambiar por Routes :( */}  
       <Routes>
           <Route path="/country/:cca3" render={(props) => <CountryDetails {...props} />} />
       </Routes>
