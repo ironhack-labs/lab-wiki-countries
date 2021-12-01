@@ -1,8 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-
-
 const CountriesList = (props) =>{
     return (
         <ul className="countriesList">

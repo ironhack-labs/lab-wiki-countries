@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import countries from '../countries.json';
-
+import countries from './../countries.json';
 
 class CountryDetails extends Component {
 
@@ -11,8 +10,7 @@ class CountryDetails extends Component {
              
             }
         }
-         
-
+        
         render() {
 
         return (
@@ -20,7 +18,8 @@ class CountryDetails extends Component {
                 
             </div>
         )
-    
     }
 }
+
+
 export default CountryDetails;
