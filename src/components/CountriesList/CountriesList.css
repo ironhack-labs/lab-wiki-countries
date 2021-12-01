@@ -1,0 +1,22 @@
+.country {
+  display: flex;
+  flex-direction: row;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  margin-bottom: 20px;
+  margin-left: -50px;
+  border-radius: 15px;
+  max-width: 330px;
+  justify-content: space-around;
+  transition: transform 0.2s;
+}
+.country p {
+  text-align: start;
+  margin-left: 5px;
+}
+
+.country:hover {
+  transform: scale(1.1);
+  background-color: rgb(232, 224, 224);
+}
