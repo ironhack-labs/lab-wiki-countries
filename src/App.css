@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+ 
 }
 
 .App-logo {
@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color:white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,109 @@
   to {
     transform: rotate(360deg);
   }
+}
+h2{
+  padding-left:1rem ;
+}
+.navbarDiv{
+  background-color: #4362ec;
+  padding: 5px 0;
+  font-family:  Helvetica, sans-serif;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+.list{
+  font-family:  Helvetica, sans-serif;
+
+  height: 80vh;
+  overflow-y: scroll;
+  border: 1px solid black;
+  width: fit-content;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.card-country:nth-child(odd){
+  background-color: #4362ec;
+ 
+}
+.card-country:nth-child(odd) a{
+ color: white;
+ }
+ .card-country:nth-child(odd):hover{
+   background-color: black;
+   
+ }
+
+
+
+
+
+a{
+  color: black;
+  text-align: center;
+}
+.card-country{
+  border: 1px solid black;
+  width: 200px;
+  padding: 1rem;
+  cursor: pointer;
+ 
+  
+}
+
+
+.container-flex{
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.detailsDiv{
+  width: 400px;
+ 
+  text-align: center;
+  box-shadow: 0 0 5px 0px #4362ec;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  border-radius: 30px;
+  font-family:  Helvetica, sans-serif;
+  
+}
+.detailsDiv ul{
+    padding-inline-start: 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+
+}
+.detailsDiv li{
+  list-style: none;
+  box-shadow: 0 0 5px 0px black;
+  background-color: #4362ec;
+  padding: 5px 5px;
+  border-radius: 15px;
+  margin: 3px ;
+  width: 100px;
+
+}
+
+.detailsDiv li a{
+  color: white;
+}
+
+
+.list::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+.list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+.list::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }
