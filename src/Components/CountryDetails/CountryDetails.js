@@ -8,6 +8,11 @@ function CountryDetails(props) {
   const [messege, setMessege] = useState('')
   const [loaded, setLoaded] = useState(false)
   const [country, setCountry] = useState({})
+  //Some times the API doesnt return Borders in Data , the following is to handle that:
+  const [hasBorders, setHasBorders] = useState(false);
+
+
+
   const params = useParams();
   useEffect(() => {
     setMessege('Loading from API ...')
@@ -22,6 +27,7 @@ function CountryDetails(props) {
       setCountry({ ...data.data })
       setMessege('');
       setLoaded(true)
+      setHasBorders(!!data.data.borders)
     })
       .catch(err => {
         setMessege(`Some thing happend on Calling API Error object : ${err}`)
@@ -51,11 +57,11 @@ function CountryDetails(props) {
             <td>
               <ul className="borderList">
 
-                {loaded && country['borders'].map(neigbore => {
+                {loaded && hasBorders && country?.borders?.map(neigbore => {
                   console.log(neigbore)
                   return <li key={neigbore}><Link to={`/${neigbore}`}>{neigbore}</Link></li>
                 })}
-
+                {!hasBorders && <p>The Api didnt return the borders property in Data. refresh or try other country</p>}
               </ul>
             </td>
           </tr>

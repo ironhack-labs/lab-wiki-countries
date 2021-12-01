@@ -8,6 +8,7 @@ import CountryDetails from '../CountryDetails/CountryDetails'
 
 function CountriesList({ countries }) {
 
+
   return (
     <>
 
