@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+// import CountriesList from './components/CountriesList'
+import Navbar from './components/Navbar'
+// import Home from './components/Home'
+import countrylist from './countries.json'
+import CountryDetails from './components/CountryDetails'
+
+
+
+// import { Switch, Route, Redirect } from 'react-router-dom'
+import './App.css'
+
+
 
 function App() {
+
+  // API call to fetch the user
+  // const loggedUser = undefined
+  // const loggedUser = { username: 'Patito el pato' }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div class="container">
+        <div class="row">
+          <Navbar class="col-4" countries={countrylist} />
+          <CountryDetails class="col-8" countries={countrylist} />
+        </div>
+      </div>
+    </>
+  )
 }
 
-export default App;
+export default App
