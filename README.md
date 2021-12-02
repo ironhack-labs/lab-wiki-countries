@@ -173,6 +173,8 @@ Components rendered by the `Route` receive special `props` (`match`, `location` 
 - Brazil: https://www.countryflags.io/BR/flat/32.png
 - etc.
 
+----
+
 ### Iteration 2 | Linking it all together
 
 Once done creating the components, the structure of elements that your `App.js` will render should look somewhat like this:
@@ -190,11 +192,15 @@ Once done creating the components, the structure of elements that your `App.js` 
 </div>
 ```
 
+----
+
 ### Iteration 3 | Set the state when the component mounts
 
 Our `App.js` application should have its own state with a state variable `countries` holding the data coming from the `src/countries.json` file.
 
 The state should be set only once, after the component is initially rendered to the DOM using the `useEffect()` Hook.
+
+----
 
 ### Iteration 4 | Bonus | Fetch countries data from an API
 
@@ -204,7 +210,7 @@ Let's make a `GET` request to the URL [https://ih-countries-api.herokuapp.com/co
 
 You should use the `useEffect()` Hook to set an effect that runs only once and makes a request to the API.The request should happen first thing when the application loads, therefore think about when and from where we should make the request to the API.
 
-
+----
 
 ### Iteration 5 | Bonus | Fetch one country data from an API
 
