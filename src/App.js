@@ -1,23 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import CountriesData from './countries.json';
+import NavBar from './Components/NavBar/NavBar';
+import CountriesList from './Components/CountriesList/CountriesList';
+import CountryDetails from './Components/CountryDetails/CountryDetails';
+import { Switch, Route } from 'react-router-dom';
 
 function App() {
+  const [countries, setCountires] = useState(CountriesData);
+
+  let CountryInformation = (code) => {
+    let country = countries.filter((elm) => {
+      return elm.cca3 === code;
+    });
+    return country;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar />
+      <div className="App">
+        <div className="List">
+          {countries.map((country) => {
+            return <CountriesList country={country} />;
+          })}
+        </div>
+        <Switch>
+          <Route
+            path="/country/:code"
+            render={(props) => (
+              <CountryDetails
+                {...props}
+                country={CountryInformation(props.match.params.code)}
+                allCountries={countries}
+              />
+            )}
+          />
+        </Switch>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,20 @@
+.CardCountry {
+  padding: 10px 5px;
+  border: 1px solid black;
+  margin: 10px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.2s;
+  color: black;
+}
+
+.CardCountry:hover {
+  transform: scale(0.9);
+  background: rgb(54, 98, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(54, 98, 0, 1) 0%,
+    rgba(92, 205, 114, 1) 100%
+  );
+}
