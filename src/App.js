@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import CountriesList from './components/CountrieList';
+import CountryDetails from './components/CountryDetails';
+import Navbar from './components/Navbar';
+import countries from './countries.json'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <div class="container">
+        <div class="row">
+          <CountriesList countries={countries} />
+    
+        </div>
+      </div>      
+      <div class="col-7">
+      <CountryDetails countries={countries}/>
+      </div>
+     Holi
     </div>
   );
 }
