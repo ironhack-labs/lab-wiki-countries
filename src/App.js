@@ -1,12 +1,18 @@
 import Navbar from './components/Navbar.js'
 import './components/Navbar.css'
+import CountriesList from './components/CountriesList'
 
 
-function App() {
+const App = () => {
   return (
-    <Navbar />
+    <>
+      <Navbar />
+      <div>
+        <CountriesList />
 
-  );
+      </div>
+    </>
+  )
 }
 
 export default App;
