@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 
 export const CountryDetail = (props) => {
+  
   const getCountryByCode = (code) =>
     props.countries.find((c) => c.alpha3Code === code);
 
@@ -14,8 +15,10 @@ export const CountryDetail = (props) => {
   const params = useParams();
   const country = getCountryByCode(params.id);
 
+ 
+  if(!country) return <></>;
   return (
-    <div className="col-7">
+    <>
       <h1 style={{ fontSize: 150 }}>{getFlagEmoji(country.alpha2Code)}</h1>
       <h1>{country.name.common}</h1>
       <table className="table">
@@ -47,6 +50,6 @@ export const CountryDetail = (props) => {
           </tr>
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
