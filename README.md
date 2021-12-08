@@ -166,7 +166,7 @@ Components rendered by the `Route` receive special `props` (`match`, `location` 
 
 
 
-**NOTE:** For the small picture of the flag, you can use the lowercase `alpha2Code` and embed it in the URL as shown below:
+**NOTE:** For the small picture of the flag, you can use the lowercased `alpha2Code` and embed it in the URL as shown below:
 
 <!--
 - France: https://www.countryflags.io/FR/flat/32.png
