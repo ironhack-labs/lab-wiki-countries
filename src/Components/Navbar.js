@@ -1,11 +1,11 @@
-
+import { Link } from "react-router-dom"
 
 export const Navbar = () => {
 
     return (
         <nav className="navbar navbar-dark bg-primary mb-3">
             <div className="container">
-                <a className="navbar-brand" href="/">WikiCountries</a>
+                <Link to={'/'} className="navbar-brand">WikiCountries</Link >
             </div>
         </nav>
     )

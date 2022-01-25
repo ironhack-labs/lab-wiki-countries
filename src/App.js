@@ -1,5 +1,4 @@
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
 import { Navbar } from './Components/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import { CountriesList } from './Components/CountriesList';
@@ -28,14 +27,14 @@ function App() {
     <div className="App">
 
       < Navbar />
-      <div className='container'>
-        {/* <div className='row'> */}
+
+      <div className='container' style={{ gap: 20 }}>
 
         < CountriesList countries={countries} />
+
         <Routes>
           <Route path='/Country/:id' element={< CountriesDetails />} />
         </Routes>
-        {/* </div> */}
       </div>
     </div>
   );
