@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form-inline{
+  display: flex;
+}
+
+.country-2code{
+  margin-right: 0.25rem;
+  padding-top: 0.30rem;
+  font-size: 0.65rem;
+}
+
+.country-name{
+  text-decoration: none;
+  color: rgb(32, 32, 32);
+}
+
+.country-list{
+  height: 1rem;
+}
