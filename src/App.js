@@ -25,7 +25,7 @@ function App() {
   React.useEffect(() => {
     getCountries();
     setLoading(false);
-  }, [countries]);
+  }, []);
 
   return (
     <div className="App">
