@@ -13,7 +13,11 @@ function CountryDetails(props) {
     const newCountry = props.data.filter(
       (country) => country.alpha3Code === alpha3
     )[0];
-    return <div key={alpha3}><Link to={newCountry.alpha3Code}>{newCountry.name.common}</Link>;</div>
+    return (
+      <div key={alpha3}>
+        <Link to={newCountry.alpha3Code}>{newCountry.name.common}</Link>;
+      </div>
+    );
   };
   return (
     <div>
