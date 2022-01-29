@@ -1,13 +1,14 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function NavBar() {
   return (
     <nav className="navbar navbar-dark bg-primary">
       <div className="container-fluid">
         <div className="navbar-header">
-          <a className="navbar-brand" href="#">
+          <Link to="/" className="navbar-brand">
             LAB - WikiCountries
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
