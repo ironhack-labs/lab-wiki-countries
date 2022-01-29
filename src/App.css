@@ -1,38 +1,88 @@
 .App {
   text-align: center;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+.App h1{
+  font-size: 1.2em;
+  padding: .8em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.CountriesList{
+  background-color: rgb(52 58 64);
   color: white;
 }
+.CountriesList h3{
+  margin: auto;
 
-.App-link {
-  color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-link {
+  font-size: 1.5em;
+}
+
+
+
+.country-list li{
+  display: flex;
+  justify-content:space-between;
+  width: 96vw;
+  margin: auto;
+  align-items: center;
+
+}
+.country-list li:hover{
+  background-color: #e2e2e2;
+}
+
+.country-list img{
+  padding-right: 10px;
+  
+
+}
+
+.country-list .link {
+  color: black;
+  font-size: 1.4em;
+
+
+}
+
+.country-list .ctn-country-name{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding-right: 2em;
+
+}
+
+.ctn-country{
+  font-size: 1.3em;
+}
+.ctn-country img {
+  padding: 2em;
+}
+.ctn-country span {
+
+  font-weight: bold;
+}
+
+.country-card {
+  display: flex;
+  justify-content: center;
+  padding-top: .2em;
+
+
+}
+
+.country-card .card-left {
+  text-align: right;
+}
+
+.country-card .card-right {
+  padding-left: 1em;
+  text-align: left;
 }
