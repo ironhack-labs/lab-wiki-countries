@@ -1,9 +1,9 @@
 import React from 'react';
-import countriesJSON from '../countries.json';
 import { Link, Route} from 'react-router-dom';
 import CountryDetails from './CountryDetails';
 
-function CountriesList() {
+function CountriesList({data}) {
+  const countriesJSON = data
   return (
     <div className="container">
       <div className="row">
