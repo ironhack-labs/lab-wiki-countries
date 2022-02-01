@@ -7,9 +7,9 @@ const CountriesList = ({countries}) => {
         <>
         <ul>
             {countries.map((country) => 
-                <li><Link 
+                <li  key={country.alpha3Code} >
+                <Link 
                 to= {`/${country.alpha3Code}`} 
-                key={country.alpha3Code} 
                 className='list-group-item list-group-item-action' 
                 >
                 <img src= {`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
