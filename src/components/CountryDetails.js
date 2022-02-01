@@ -1,13 +1,19 @@
 import React from 'react'; 
 import { useParams } from 'react-router-dom';
 
-const CountryDetails = () => {
+const CountryDetails = ({countries}) => {
 
     const { countryCode } = useParams();
-    console.log(countryCode)
+    
+    const country = countries.find(country => country.alpha3Code === countryCode) || {}
 
     return(
-        <h1>Olá</h1>
+        <>
+        <div className='col-6' style={{float: 'right', marginTop: '-400px'}}>
+            <h1>{country.name.common}</h1>
+            <p>teste</p>
+        </div>
+        </>
     )
 }
 
