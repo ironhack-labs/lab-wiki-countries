@@ -22,15 +22,14 @@ function App() {
       <Navbar />
 
       <div className="container mt-5">
-        <div class="row justify-content-start">
+        <div className="row justify-content-start">
           <div className="col-4">
             <CountriesList countries={countries} />
           </div>
           <div className="col-7">
-          {/* React-Router Route rendering the CountryDetails */}
-            <CountryDetails />
-
-      </div>
+            <CountryDetails countries={countries} />
+          {/* <Route path="/:id" element={ <CountryDetails countries={countries} /> } /> */}
+          </div>
         </div>
       </div>
     </div>
