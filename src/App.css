@@ -13,6 +13,14 @@
   }
 }
 
+.w-capital{
+  width: 30%
+}
+
+.height-div{
+ max-height: 90vh; 
+ overflow: scroll;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
