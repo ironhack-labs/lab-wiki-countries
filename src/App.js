@@ -16,6 +16,7 @@ function App() {
       .then((response) => setCountriesApiData(response.data))
       .catch((error) => console.log(error));
   }, []);
+  
   console.log('API ON APPJS', countriesApiData);
   return (
     <div className="container">
