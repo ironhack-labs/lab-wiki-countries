@@ -29,8 +29,8 @@ function CountriesList() {
                   className="linx stretched-link"
                   to={`/${country.alpha3Code}`}
                 >
-                  <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} />
-                  {country.name.official}
+                  <img alt='flag' src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} />
+                  {country.name.common}
                 </Link>
               </li>
             ))}

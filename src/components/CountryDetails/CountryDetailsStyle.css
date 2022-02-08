@@ -1,0 +1,28 @@
+.CountryDetails p {
+    position: relative;
+}
+
+.CountryDetails span {
+    position: absolute;
+    left: 200px;
+}
+
+.CountryDetails section {
+    width: 100%;
+    display: flex;
+}
+
+.CountryDetails li {
+    margin: 0;
+    padding: 0 !important;
+    color: black;
+}
+
+.CountryDetails ul {
+    margin-left: 100px;
+}
+
+.CountryDetails .linx {
+    text-decoration: none;
+    color: rgb(0, 123, 255) !important;
+}

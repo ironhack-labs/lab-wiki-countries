@@ -1,6 +1,5 @@
 import './ContainerStyle.css'
 import { CountriesList } from '..';
-import CountryDetails from '../CountryDetails';
 import Router from '../../Router';
 
 function Container() {
