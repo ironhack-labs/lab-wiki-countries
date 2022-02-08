@@ -1,14 +1,13 @@
 import {Routes, Route} from 'react-router-dom'
 import {Home} from './views'
-import data from './countries.json'
 
 function Router(){
 
     return (
         <Routes>
-            <Route 
-                path="/:country"
-                element={<Home json={data}/>}
+            <Route
+                path='/:country'
+                element={<Home/>}
             />
 
             <Route
