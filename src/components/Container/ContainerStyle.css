@@ -1,0 +1,13 @@
+.height {
+    padding: 10px 0px;
+    max-height: 90vh;
+    overflow: scroll;
+}
+
+h4 {
+    padding-top: 20px;
+}
+
+.divSec {
+    display: flex;
+}

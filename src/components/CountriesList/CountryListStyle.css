@@ -1,0 +1,23 @@
+.linx {
+    color: black;
+    text-decoration: none;
+    
+}
+
+.linx:hover {
+    color: black;
+}
+
+li {
+    position: relative;
+    padding: 12px 20px 12px 30px !important;
+}
+
+li:hover {
+    background-color: rgb(247, 247, 247);
+}
+
+.CountryList img {
+    width: 15px;
+    margin-right: 10px;
+}
