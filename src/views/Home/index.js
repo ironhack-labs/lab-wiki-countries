@@ -1,21 +1,14 @@
 import {useParams} from 'react-router-dom'
 import {CountriesList, CountryDetails} from '../../components'
-import data from '../../countries.json'
 
-
-function Home(){
+function Home(props){
     const params = useParams()
-
-    const index = data.findIndex(object => object["alpha3Code"]=params)
-
-    const countryData = data[index]
-    console.log(params, countryData)
-
+    let countryData = props.json[props.json.findIndex(object => object["alpha3Code"]===params.country)]
     return (
         <div className="container">
             <div className="row">
                 <CountriesList/>
-                <CountryDetails/>
+                <CountryDetails countryData={countryData}/>
             </div>
         </div>        
     )
