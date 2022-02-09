@@ -6,8 +6,9 @@ function CountryDetails(props) {
   const { alpha3Code } = useParams();  
   const foundCountry = getCountryNameFromCode(alpha3Code);
 
+
   function getCountryNameFromCode(alpha3Code){
-      return props.countries.find(
+      return countries.find(
           (country) => country.alpha3Code === alpha3Code
       );
   }

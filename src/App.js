@@ -3,6 +3,7 @@ import Router from './Router.js';
 import countries from './countries.json';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
 
 
 
@@ -12,9 +13,12 @@ function App() {
       <Navbar/>
       <div className='container'>
         <div className='row'>
-          <CountriesList countries={countries}/>
-          
+          <CountriesList countries={countries}/> 
         </div>
+        <div className='row'>
+        <CountryDetails/>
+        </div>
+
       </div>
       <Router/>
     </div>

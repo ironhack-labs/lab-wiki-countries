@@ -1,14 +1,17 @@
 import { Routes, Route } from 'react-router-dom';
 import CountryDetails from './components/CountryDetails';
-import countries from './countries.json';
+
 import Navbar from './components/Navbar';
 
-function Router(){
+function Router(props){
+
     return(
+
     <Routes>
         <Route
+            
             path="/:alpha3Code"
-            element={<CountryDetails countries={countries}/>}
+            element= {<CountryDetails/>}
             />
         <Route
             path="/" element={<Navbar/>}/>
