@@ -5,8 +5,6 @@ export default function CountriesList( props) {
     if (props.countries)
     return props.countries.map((country) => {
         return (
-
-
 <Link to={`/details/${country.alpha3Code}`}>
             <div className="list-group-item list-group-item-action" href="/ABW" style={{width: 538}}>
                     <div>

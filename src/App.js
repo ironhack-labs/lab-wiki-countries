@@ -12,8 +12,6 @@ function App() {
   const [countries, setCountries] = useState();
 
   useEffect(() => {
-    console.log('ENTERING USEEFFECT');
-
     axios
       .get(`https://ih-countries-api.herokuapp.com/countries`)
       .then((countriesFromApi) => {
@@ -21,7 +19,6 @@ function App() {
       });
   });
 
-  console.log('INCOMING', countries);
   return (
     <div>
       <NavBar />
