@@ -13,7 +13,7 @@ return (
                 <thead></thead>
                 <tbody>
                     <tr>
-                        <td style="width: 30%">Capital</td>
+                        <td style={{width: "30%"}}>Capital</td>
                         <td>{country.capital}</td>
                     </tr>
                     <tr>
@@ -28,7 +28,7 @@ return (
                         <td>
                             <ul>
                                 {country.borders.map(borderCountry => {
-                                    return <li key={borderCountry}>{borderCountry}</li>
+                                    return <li key={borderCountry}>{borderCountry ? borderCountry : "No bordering countries"}</li>
                                 })}
                             </ul>
                         </td>
