@@ -2,7 +2,6 @@ import { useParams, Link } from 'react-router-dom';
 
 function CountryDetails(props) {
   const { countryId } = useParams();
-  console.log(countryId);
   const myCountry = props.countries.find((oneCountry) => {
     return oneCountry.alpha3Code === countryId;
   });
@@ -18,8 +17,6 @@ function CountryDetails(props) {
       </Link>
     );
   });
-
-  console.log(myCountry.name.official);
 
   return (
     <div className="col-7">
