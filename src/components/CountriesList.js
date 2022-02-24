@@ -19,7 +19,6 @@ export default function CountriesList(props) {
               </Link>
 
               <CountryDetails
-                countryId={elm.alpha3Code}
                 capital={elm.capital}
                 area={elm.area}
                 borders={elm.borders}
