@@ -2,3 +2,7 @@
     background-color: #2f5ffb;
     width:100%;
 }
+
+.navbar a {
+    color: white
+}
