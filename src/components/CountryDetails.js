@@ -1,25 +1,22 @@
-import React from 'react'
-import { useParams, Link } from 'react-router-dom'
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
 
 export default function CountryDetails(props) {
+  const { alpha3Code } = useParams();
 
-    const {alpha3Code} = useParams();
-    
-    const foundCountry = props.Country.find((Country)=>{
-        return Country.alpha3Code === alpha3Code
-    }); 
+  const foundCountry = props.Country.find((Country) => {
+    return Country.alpha3Code === alpha3Code;
+  });
 
-    return (
+  return (
     <div>
-        {!foundCountry && <h3>Country not found!</h3>}
-        {foundCountry && (
-            <>
-                <h2>Country = {foundCountry.name.common}</h2>
-                <h2>Capital = {foundCountry.capital}</h2>
-            </>
-        )}
-        
-
+      {!foundCountry && <h3>Country not found!</h3>}
+      {foundCountry && (
+        <>
+          <h2>Country = {foundCountry.name.common}</h2>
+          <h2>Capital = {foundCountry.capital}</h2>
+        </>
+      )}
     </div>
-  )
+  );
 }
