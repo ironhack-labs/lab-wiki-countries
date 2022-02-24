@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 
 function CountryDetails(props) {
   const { countryId } = useParams();
@@ -7,17 +7,17 @@ function CountryDetails(props) {
     return oneCountry.alpha3Code === countryId;
   });
 
-  //   const myBorders = myCountry.borders.map((eachBorder) => {
-  //     let borderCountry = props.countries.find((oneCountry) => {
-  //       return oneCountry.alpha3Code === eachBorder;
-  //     });
+  const myBorders = myCountry.borders.map((eachBorder, index) => {
+    let borderCountry = props.countries.find((oneCountry) => {
+      return oneCountry.alpha3Code === eachBorder;
+    });
 
-  //     return (
-  //       <Link to={eachBorder} key={index}>
-  //         {borderCountry.name.official}
-  //       </Link>
-  //     );
-  //   });
+    return (
+      <Link className="list-group-item " to={`/${eachBorder}`} key={index}>
+        {borderCountry.name.official}
+      </Link>
+    );
+  });
 
   console.log(myCountry.name.official);
 
@@ -42,13 +42,18 @@ function CountryDetails(props) {
             <td>Borders</td>
             <td>
               <ul>
-                {myCountry.borders.map((eachBorder, index) => {
+                {myBorders}
+                {/* {myCountry.borders.map((eachBorder, index) => {
                   return (
-                    <Link to={eachBorder} key={index}>
+                    <Link
+                      className="list-group-item-action"
+                      to={eachBorder}
+                      key={index}
+                    >
                       {eachBorder}
                     </Link>
                   );
-                })}
+                })} */}
               </ul>
             </td>
           </tr>
