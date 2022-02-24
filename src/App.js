@@ -1,12 +1,18 @@
 import './App.css';
+import Navbar from './components/Navbar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>ironwiki</p>
-        
-      </header>
+      <Routes>
+        <Route path="/countries/:countryId" element={<CountryDetails />} />
+      </Routes>
+
+      <Navbar />
+      <CountriesList />
     </div>
   );
 }
