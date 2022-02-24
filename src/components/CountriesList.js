@@ -9,9 +9,9 @@ function CountriesList(props) {
                     props.countries.map((country, index) => {
                         return (
                             <li key={ index } className="list-group-item">
-                                <img src={ "https://flagpedia.net/data/flags/icon/72x54/" + country.alpha2Code.toLowerCase() + ".png" } alt={ country.name.common } ></img>
+                                <img src={ `https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png` } alt={ country.name.common } ></img>
                                 <br/>
-                                <Link to={ "/" + country.alpha3Code }>{ country.name.common }</Link>
+                                <Link to={ `/${country.alpha3Code}` }>{ country.name.common }</Link>
                             </li>
                         )
                     })

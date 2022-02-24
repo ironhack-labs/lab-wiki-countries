@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function CountryDetails(props) {
 
@@ -7,7 +7,10 @@ function CountryDetails(props) {
 
     return (
         <div>
-            <img src="" alt={ `Flag ${country.name.common}` }/>
+            <img 
+                src={ `https://flagpedia.net/data/flags/icon/216x162/${country.alpha2Code.toLowerCase()}.png` } 
+                alt={ `Flag ${country.name.common}` }
+            />
             <h1>{country.name.common}</h1>
             <table className="table">
                 <tbody>
@@ -27,7 +30,17 @@ function CountryDetails(props) {
                         <td>Borders</td>
                         <td>
                             <ul className="list-unstyled">    
-                                { country.borders.map(code => <li> { code } </li>) }
+                                { 
+                                    country.borders.map(code => {
+                                        return (
+                                            <li> 
+                                                <Link to={ `/${code}` }>
+                                                    { props.countries.find(country => country.alpha3Code === code).name.common } 
+                                                </Link>
+                                            </li>
+                                        )
+                                    }) 
+                                }
                             </ul>
                         </td>
                     </tr>
