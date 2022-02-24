@@ -2,7 +2,7 @@ import './App.css';
 import Navbar from "./components/Navbar";
 import CountriesList from './components/CountriesList';
 import CountryDetails from "./components/CountryDetails";
-import jsonCountries from "./countries.json";
+// import jsonCountries from "./countries.json";
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -28,7 +28,7 @@ function App() {
             <CountriesList countries={countries} />
             <Routes>
               {countries.map(country => {
-                return <Route key={`/${country.alpha3Code}`} path="/:countryCode" element={<CountryDetails countries={countries} />} /> 
+                return <Route key={`/${country.alpha3Code}`} path="/:countryCode" element={<CountryDetails />} /> 
               })}
             </Routes>
           </div>
