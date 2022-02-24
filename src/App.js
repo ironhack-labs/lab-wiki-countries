@@ -16,7 +16,6 @@ function App() {
         </div>
       </div>
       <CountriesList />
-
       <Routes>
         {countries.map(country => {
           return <Route key={`/${country.alpha3Code}`} path="/:countryCode" element={<CountryDetails countries={countries} />} /> 
