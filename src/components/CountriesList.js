@@ -1,16 +1,13 @@
-import countriesArr from '../countries.json';
-import { useState } from 'react';
 import CountryDetails from './CountryDetails';
 import { Link } from 'react-router-dom';
 
-export default function CountriesList() {
-  const [countries, setCountries] = useState(countriesArr);
-  
+export default function CountriesList(props) {
+
   return (
     <div className="CountriesList">
       <h2>CountriesList</h2>
       <ul>
-        {countries.map((elm) => {
+        {props.countries.map((elm) => {
           return (
             <li>
               <img
@@ -22,12 +19,10 @@ export default function CountriesList() {
               </Link>
 
               <CountryDetails
-                countryName={elm.name.common}
-                alpha2Code={elm.alpha2Code}
                 countryId={elm.alpha3Code}
                 capital={elm.capital}
                 area={elm.area}
-                borders={elm.borders?.join(", ")}
+                borders={elm.borders}
               />
             </li>
           );
