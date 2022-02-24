@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import countriesArray from "./../countries.json";
 
-function CountriesList() {
+function CountriesList(props) {
     return (    
-        <div className="d-flex flex-column align-items-center mt-5">
-            <ul className="list-group w-50">
+        <div>
+            <ul className="list-group w-75">
                 {
-                    countriesArray.map(country => {
+                    props.countries.map((country, index) => {
                         return (
-                            <li className="list-group-item">
+                            <li key={ index } className="list-group-item">
+                                <img src={ "https://flagpedia.net/data/flags/icon/72x54/" + country.alpha2Code.toLowerCase() + ".png" } alt={ country.name.common } ></img>
+                                <br/>
                                 <Link to={ "/" + country.alpha3Code }>{ country.name.common }</Link>
                             </li>
                         )
