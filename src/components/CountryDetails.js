@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function CountryDetails(props) {
   const { countryId } = useParams();
@@ -41,20 +41,7 @@ function CountryDetails(props) {
           <tr>
             <td>Borders</td>
             <td>
-              <ul>
-                {myBorders}
-                {/* {myCountry.borders.map((eachBorder, index) => {
-                  return (
-                    <Link
-                      className="list-group-item-action"
-                      to={eachBorder}
-                      key={index}
-                    >
-                      {eachBorder}
-                    </Link>
-                  );
-                })} */}
-              </ul>
+              <ul>{myBorders}</ul>
             </td>
           </tr>
         </tbody>
