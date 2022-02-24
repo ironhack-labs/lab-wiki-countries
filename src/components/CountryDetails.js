@@ -6,7 +6,7 @@ function CountryDetails(props) {
     const country = props.countries.find(country => country.alpha3Code === countryCode);
 
     return (
-        <div>
+        <div className="w-75">
             <img 
                 src={ `https://flagpedia.net/data/flags/icon/216x162/${country.alpha2Code.toLowerCase()}.png` } 
                 alt={ `Flag ${country.name.common}` }

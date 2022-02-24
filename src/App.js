@@ -14,9 +14,9 @@ function App() {
     <div className="App">
       <Navbar />
 
-      <div className="d-flex align-items-center m-5">
+      <div className="d-flex justify-content-center m-5">
+        <CountriesList countries={ countries }/>
         <Routes>
-          <Route path="/" element={ <CountriesList countries={ countries }/> } ></Route>
           <Route path="/:countryCode" element={ <CountryDetails countries={ countries }/> }></Route>
         </Routes>
       </div>
