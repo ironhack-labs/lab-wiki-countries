@@ -16,3 +16,14 @@ code {
   max-height: 90vh; 
   overflow: scroll;
 }
+
+.col-5{
+  max-height: 90vh; 
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.flag{
+  width:30px;
+}
+

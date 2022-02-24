@@ -20,10 +20,11 @@ function CountriesList(props) {
               key={i}
             >
               <img
+                className="flag"
                 src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
                 alt={country.alpha2Code}
               ></img>
-              {country.name.official}
+              <p><b>{country.name.official}</b></p>
             </Link>
           );
         })}
