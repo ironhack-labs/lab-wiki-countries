@@ -1,9 +1,12 @@
-import countriesData from '../countries.json';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function CountriesList() {
-  const [countries, setCountries] = useState(countriesData);
+function CountriesList(props) {
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    setCountries(props.countries);
+  }, [props.countries]);
 
   return (
     <div className="col-5 " style={{ maxHeight: '90vh', overflow: 'scroll' }}>
@@ -25,7 +28,7 @@ function CountriesList() {
                   style={{
                     textDecoration: 'none',
                     color: 'black',
-                    fontSize: '1rem',
+                    fontSize: '0.8rem',
                   }}
                 >
                   {country.name.common}
