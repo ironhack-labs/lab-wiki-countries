@@ -1,8 +1,7 @@
-import CountryDetails from './CountryDetails';
 import { Link } from 'react-router-dom';
+import CountryDetails from './CountryDetails';
 
 export default function CountriesList(props) {
-
   return (
     <div className="CountriesList">
       <h2>CountriesList</h2>
@@ -19,6 +18,7 @@ export default function CountriesList(props) {
               </Link>
 
               <CountryDetails
+                countryId={elm.alpha3Code}
                 capital={elm.capital}
                 area={elm.area}
                 borders={elm.borders}
