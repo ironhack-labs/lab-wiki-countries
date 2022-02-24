@@ -8,34 +8,34 @@ function CountryDetails (props) {
 
 return (
     <div class="col-7">
-                <h1>{country.name.common}</h1>
-                <table class="table">
-                <thead></thead>
-                <tbody>
-                    <tr>
-                        <td style={{width: "30%"}}>Capital</td>
-                        <td>{country.capital}</td>
-                    </tr>
-                    <tr>
-                        <td>Area</td>
-                        <td>
-                            {country.area} km
-                            <sup>2</sup>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Borders</td>
-                        <td>
-                            <ul>
-                                {country.borders.map(borderCountry => {
-                                    return <li key={borderCountry}>{borderCountry ? borderCountry : "No bordering countries"}</li>
-                                })}
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <h1>{country.name.common}</h1>
+        <table class="table">
+            <thead></thead>
+            <tbody>
+                <tr>
+                    <td style={{width: "30%"}}>Capital</td>
+                    <td>{country.capital}</td>
+                </tr>
+                <tr>
+                    <td>Area</td>
+                    <td>
+                        {country.area} km
+                        <sup>2</sup>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Borders</td>
+                    <td>
+                        <ul>
+                            {country.borders.map(borderCountry => {
+                                return <li key={borderCountry}>{borderCountry ? borderCountry : "No bordering countries"}</li>
+                            })}
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     )
 }
 
