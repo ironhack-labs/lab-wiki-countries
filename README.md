@@ -114,9 +114,13 @@ In this iteration, we will focus on the general layout. Before you start, inside
 
 - `CountriesList`: Displays the list of links with the country names. Each link should be a `react-router-dom` `Link` which we will use to <u>send</u> the country code (`alpha3Code`) via the URL.
 
+<<<<<<< HEAD
 - `CountryDetails`: Is the component that we will render via the `react-router-dom`'s `Route` and will be <u>receiving</u> the country code (`alpha3Code`) via the URL.
+=======
+- `CountryDetails`: This is the component that we will render via the `react-router-dom`'s `Route`, and it should <u>receive</u> the country code (`alpha3Code`) via the URL.
+>>>>>>> 402bf8eb27199b1d3b7c4d73a3ebac748765c366
 
-  This is actually the id of the country (example: `/ESP` for Spain, `/FRA` for France).
+  This is the id of the country (example: `/ESP` for Spain, `/FRA` for France).
 
 To help you with the structure of the components, we gave you an example of a page inside `example.html`.
 
@@ -124,6 +128,7 @@ If you want to style it, refresh your memory on Bootstrap in the [docs](https://
 
 ### Iteration 1.2 | Navbar component
 
+<<<<<<< HEAD
 The simplest way to define a component in React is to write a JavaScript function aka function component. The navbar should be displaying the title *LAB - WikiCountries*.
 
 ### Iteration 1.3 | CountriesList component
@@ -172,6 +177,36 @@ Components rendered by the `Route` receive special `props` (`match`, `location` 
 - France: https://www.countryflags.io/FR/flat/32.png
 - Germany: https://www.countryflags.io/DE/flat/32.png
 - Brazil: https://www.countryflags.io/BR/flat/32.png
+=======
+Create a navbar component that displays the title *LAB - WikiCountries*.
+
+### Iteration 1.3 | CountriesList component
+
+This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Click on a `Link` should render the country details component.
+
+### Iteration 1.4 | CountryDetails component and `Route` setup
+
+Now that our list of countries is ready, we should create the `CountryDetails` component. This component should receive the array of countries as a prop. Here's a reminder on how to do this:
+
+```jsx
+// Example
+<Route path="/:id" element={ <SomeComponent someData={someData} /> } />
+```
+
+
+
+The `alpha3Code` of the country will be available throught the URL parameters. To access the URL parameters, from the browser's URL bar, use the React Routers hooks `useParams`. For a reminder on setting up and accessing the URL parameters with React Router, check [this example](https://reactrouter.com/docs/en/v6/api#useparams).
+
+
+
+**NOTE:** For the small picture of the flag, you can use the lowercased `alpha2Code` and embed it in the URL as shown below:
+
+
+
+- France: https://flagpedia.net/data/flags/icon/72x54/fr.png
+- Germany: https://flagpedia.net/data/flags/icon/72x54/de.png
+- Brazil: https://flagpedia.net/data/flags/icon/72x54/br.png
+>>>>>>> 402bf8eb27199b1d3b7c4d73a3ebac748765c366
 - etc.
 -->
 - France: https://flagpedia.net/data/flags/icon/72x54/fr.png
@@ -181,11 +216,20 @@ Components rendered by the `Route` receive special `props` (`match`, `location` 
 
 ----
 
+----
+
 ### Iteration 2 | Linking it all together
 
+<<<<<<< HEAD
+=======
+`App` should have a state variable `countries` holding the data coming from the `src/countries.json` file. The data from the state variable `countries` should then be passed to the `CountriesList` component as a prop.
+
+>>>>>>> 402bf8eb27199b1d3b7c4d73a3ebac748765c366
 Once done creating the components, the structure of elements that your `App.js` will render should look somewhat like this:
 
 ```jsx
+// ...
+
 <div className="App">
   <Navbar />
 
@@ -196,10 +240,13 @@ Once done creating the components, the structure of elements that your `App.js` 
     </div>
   </div>
 </div>
+
+// ...
 ```
 
 ----
 
+<<<<<<< HEAD
 ### Iteration 3 | Set the state when the component mounts
 
 Our `App.js` application should have its own state with a state variable `countries` holding the data coming from the `src/countries.json` file.
@@ -209,9 +256,27 @@ The state should be set only once, after the component is initially rendered to 
 ----
 
 ### Iteration 4 | Bonus | Fetch countries data from an API
+=======
+### Iteration 3 | Fetch countries data from an API
 
-Instead of relying on the static data coming from a `json` file, let's do something more interesting and get out the data from an actual API.
+Instead of relying on the static data from a `json` file, let's do something more interesting and get the data from an actual API.
 
+In `App.js`, make a `GET` request to the URL [https://ih-countries-api.herokuapp.com/countries](https://ih-countries-api.herokuapp.com/countries). Use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request. 
+
+You should use the `useEffect()` hook to set an effect that runs only once and makes a request to the API. Once you receive the response data, save it in a state variable. The request should happen first thing when the application loads.
+
+----
+
+### Iteration 4 | Bonus | Fetch one country data from an API
+
+Using the `useEffect` hook set an effect in the `CountriesDetails` component. The effect should make a request to the RestCountries API and fetch the data for the specific country. You can construct the request URL using the country's `alpha3Code`. Example:
+
+- United States: https://ih-countries-api.herokuapp.com/countries/USA
+>>>>>>> 402bf8eb27199b1d3b7c4d73a3ebac748765c366
+
+- Japan: https://ih-countries-api.herokuapp.com/countries/JPN
+
+<<<<<<< HEAD
 Let's make a `GET` request to the URL [https://ih-countries-api.herokuapp.com/countries](https://ih-countries-api.herokuapp.com/countries) and use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request. 
 
 You should use the `useEffect()` Hook to set an effect that runs only once and makes a request to the API.The request should happen first thing when the application loads, therefore think about when and from where we should make the request to the API.
@@ -229,6 +294,11 @@ Using the `useEffect` Hook set an effect in the `CountriesDetails` component. Th
 - India: https://ih-countries-api.herokuapp.com/countries/IND
 
 The effect should run after the initial render and each time the URL parameter with the `alpha3Code` changes.
+=======
+- India: https://ih-countries-api.herokuapp.com/countries/IND
+
+The effect should run after the initial render, and each time the URL parameter with the `alpha3Code` changes.
+>>>>>>> 402bf8eb27199b1d3b7c4d73a3ebac748765c366
 
 Happy coding! :heart:
 
