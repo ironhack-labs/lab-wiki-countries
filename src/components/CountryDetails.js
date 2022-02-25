@@ -31,7 +31,11 @@ function CountryDetails(props) {
                     <p>Area: {foundCountry.area}</p>
                     <ul>{foundCountry.borders.map((e) => {
                         return (
-                            <li>{foundCountry.name.common}</li>
+                            <li>
+                                <Link to={`/${e}`} element={<CountryDetails country={countries} />}>
+                                {e}
+                                </Link>
+                            </li>
                         )
                     })}
                     </ul>
