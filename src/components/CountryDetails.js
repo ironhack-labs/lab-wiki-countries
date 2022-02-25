@@ -6,7 +6,7 @@ function CountryDetails(props) {
     const country = props.countries.find(country => country.alpha3Code === countryCode);
 
     return (
-        <div className="w-75">
+        <div className="w-50 mx-5">
             <img 
                 src={ `https://flagpedia.net/data/flags/icon/216x162/${country.alpha2Code.toLowerCase()}.png` } 
                 alt={ `Flag ${country.name.common}` }
@@ -17,7 +17,7 @@ function CountryDetails(props) {
                     <tr>
                         <td>Capital</td>
                         <td> 
-                            <ul className="list-unstyled">
+                            <ul className="list-unstyled mb-0">
                                 { country.capital.map(city => <li> { city } </li>) }
                             </ul>
                         </td>
@@ -29,7 +29,7 @@ function CountryDetails(props) {
                     <tr>
                         <td>Borders</td>
                         <td>
-                            <ul className="list-unstyled">    
+                            <ul className="list-unstyled mb-0">    
                                 { 
                                     country.borders.map(code => {
                                         return (

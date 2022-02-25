@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CountriesList(props) {
     return (    
         <div>
-            <ul className="list-group w-75">
+            <ul className="list-group">
                 {
                     props.countries.map((country, index) => {
                         return (

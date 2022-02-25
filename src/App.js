@@ -17,6 +17,7 @@ function App() {
       <div className="d-flex justify-content-center m-5">
         <CountriesList countries={ countries }/>
         <Routes>
+          <Route path="/" element={ <div className="w-50 mx-5"></div> }></Route>
           <Route path="/:countryCode" element={ <CountryDetails countries={ countries }/> }></Route>
         </Routes>
       </div>
