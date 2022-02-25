@@ -18,6 +18,9 @@ function CountryDetails(props) {
 
       {foundCountry && (
         <div className="col-7">
+        <img
+                src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`}
+                alt={foundCountry.alpha2Code}></img>
           <h1>{foundCountry.name.official}</h1>
           <table className="table">
             <thead></thead>
