@@ -24,7 +24,7 @@ function CountriesList(props) {
                   style={{ width: '20px' }}
                 />
                 <Link
-                  to={`/countries/${country.alpha3Code}`}
+                  to={`/${country.alpha3Code}`}
                   style={{
                     textDecoration: 'none',
                     color: 'black',

@@ -4,24 +4,24 @@ import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
-import countriesJSON from './countries.json';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 function App() {
-  const [countries, setCountries] = useState(countriesJSON);
+  /* const [countries, setCountries] = useState(countriesJSON); */ //without API
+  //with API
+  const [countries, setCountries] = useState([]);
   const { countryId } = useParams();
+  const apiURL = 'https://ih-countries-api.herokuapp.com/countries';
 
   useEffect(() => {
     //get countries from the api server
-    axios
-      .get('https://ih-countries-api.herokuapp.com/countries')
-      .then((response) => {
-        setCountries(response.data);
-      });
-  }, [countryId]);
+    axios.get(apiURL).then((response) => {
+      setCountries(response.data);
+    });
+  }, []);
 
   return (
     <div className="App">
@@ -31,7 +31,7 @@ function App() {
         <div className="row">
           <CountriesList countries={countries} />
           <Routes>
-            <Route path="/countries/:countryId" element={<CountryDetails />} />
+            <Route path="/:countryId" element={<CountryDetails  countries={countries} />} />
           </Routes>
         </div>
       </div>
