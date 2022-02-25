@@ -3,7 +3,8 @@ import { useParams, Link } from "react-router-dom";
 function CountryDetails(props) {
 
     const { countryCode } = useParams();
-    const country = props.countries.find(country => country.alpha3Code === countryCode);
+    const { countries } = props;
+    const country = countries.find(country => country.alpha3Code === countryCode);
 
     return (
         <div className="w-50 mx-5">
@@ -35,7 +36,7 @@ function CountryDetails(props) {
                                         return (
                                             <li> 
                                                 <Link to={ `/${code}` }>
-                                                    { props.countries.find(country => country.alpha3Code === code).name.common } 
+                                                    { countries.find(country => country.alpha3Code === code).name.common } 
                                                 </Link>
                                             </li>
                                         )
