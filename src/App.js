@@ -4,24 +4,37 @@ import countriesArr from './countries.json';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function App() {
   const [countries, setCountries] = useState(countriesArr);
 
-  return (
-      <div className="App">
-        <Navbar />
+  useEffect(() => {
+    axios
+      .get('https://ih-countries-api.herokuapp.com/countries')
+      .then((result) => {
+        setCountries(result.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
-        <div className="container">
-          <div className="row">
+  return (
+    <div className="App">
+      <Navbar />
+
+      <div className="container">
+        <div className="row">
           <CountriesList countries={countries} />
           <Routes>
-           <Route path="/country/:countryId" element={<CountryDetails countries={countries}/>} />
+            <Route
+              path="/country/:countryId"
+              element={<CountryDetails countries={countries} />}
+            />
           </Routes>
-          </div>
         </div>
-      </div>  
+      </div>
+    </div>
   );
 }
 
