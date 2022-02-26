@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
-        <nav className="Navbar">
-            <h3>LAB - WikiCountries</h3>
-            <Link to={'/'}>Back to List</Link>
+        <nav class="navbar navbar-dark bg-primary mb-3">
+            <div class="container">
+                <h3 class="navbar-brand">LAB - WikiCountries</h3>
+            </div>
         </nav>
     );
 }

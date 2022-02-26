@@ -22,18 +22,19 @@ function CountryDetails(props) {
     }, [countryId]);
 
     return (
-        <div>
-            {!foundCountry && <h3>Project not found!</h3>}
+        <div className='col-7'>
+            {!foundCountry && <h3>Country not found!</h3>}
             {foundCountry && (
                 <>
                     <h1>{foundCountry.name.common}</h1>
-                    <p>Capital: {foundCountry.capital}</p>
-                    <p>Area: {foundCountry.area}</p>
+                    <p><strong>Capital:</strong> {foundCountry.capital}</p>
+                    <p><strong>Area:</strong> {foundCountry.area}</p>
+                    <p><strong>Borders:</strong></p>
                     <ul>{foundCountry.borders.map((e) => {
                         return (
                             <li>
                                 <Link to={`/${e}`} element={<CountryDetails country={countries} />}>
-                                {e}
+                                    {e}
                                 </Link>
                             </li>
                         )
