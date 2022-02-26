@@ -1,30 +1,28 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import countriesDatabase from "../countries.json"
-
-const countries = {};
-
-countriesDatabase.forEach(country => countries[country.alpha3Code] = country);
-
-// countries = {"COL": {}}
+import axios from "axios";
+import { useState, useEffect } from 'react';
 
 function CountryDetails(props) {
-    const { countryId } = useParams()
-    console.log(countryId)
+    const { countryId } = useParams();
+    const [country, setCountry] = useState(undefined);
 
-    // const country = countriesDatabase.find(country => country.alpha3Code === countryId);
-    // const borderCountries = country.borders.map(alpha3Code => countriesDatabase.find(country => country.alpha3Code === alpha3Code));
+    useEffect(() => {
+        axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
+            .then(response => Promise.all([
+                Promise.resolve(response.data),
+                Promise.all(response.data.borders.map(alpha3Code => axios.get(`https://ih-countries-api.herokuapp.com/countries/${alpha3Code}`)))
+            ]))
+            .then(([country, borderCountriesResp]) => {
+                country.borders = borderCountriesResp.map(borderCountryResp => borderCountryResp.data)
 
-    // const prop = ABC
-    // countries = {"ABC": {"name": "abc"}}
-    // Solution 1: countries[prop] <==> {"name": "abc"}
-    // Solution 2: countries.ABC <==> {"name": "abc"}
-
-    const country = countries[countryId];
-    const borderCountries = country.borders.map(alpha3Code => countries[alpha3Code]);
+                setCountry(country)
+            })
+            .catch(err => console.log(err))
+    }, [countryId])
 
     return (
-        <>
+        <>{country &&
             <div className="country-details">
                 <img
                     src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
@@ -37,18 +35,13 @@ function CountryDetails(props) {
                 <h5>Area: {country.area}</h5>
                 <hr />
                 <h5>Borders: </h5>
-                {/* {country.borders.map((border) =>
-                <ul key={`${border}`}>
-                    <Link to={`/countries/${border}`}>{borderCountries}</Link>
-                </ul>
-            )} */}
-                {borderCountries.map((borderCountry) =>
+                {country.borders.map((borderCountry) =>
                     <ul key={`${borderCountry.alpha3Code}`}>
                         <Link to={`/countries/${borderCountry.alpha3Code}`}>{borderCountry.name.common}</Link>
                     </ul>
                 )}
             </div>
-        </>
+        }</>
     )
 }
 
