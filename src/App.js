@@ -1,24 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import countriesArr from './countries.json';
+import NavBar from './components/NavBar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [countries, setCountries] = useState(countriesArr);
+
+  useEffect(() => {
+    axios
+      .get('https://ih-countries-api.herokuapp.com/countries')
+      .then((result) => {
+        setCountries(result.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  return (<>
+<div className="App">
+        <NavBar />
+        
+        <div className="container">
+          <div className="row">
+          <CountriesList countries={countries} />
+          <Routes>
+          <Route path="/country/:countryId" element={<CountryDetails countries={countries}/>} />
+          </Routes>
+          </div>
+        </div>
+      </div>  </>
   );
 }
 
