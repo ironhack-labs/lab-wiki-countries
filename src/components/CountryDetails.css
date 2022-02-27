@@ -1,0 +1,8 @@
+.stickyDetails{
+  position: sticky;
+  top: 0;
+}
+
+.flag{
+    width: 300px;
+}
