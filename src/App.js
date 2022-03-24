@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import countriesData from './countries.json';
+import { useState } from 'react';
+import { Navbar } from './components/Navbar';
+import { CountriesList } from './components/CountriesList';
 import './App.css';
 
 function App() {
+  const [countries] = useState(countriesData);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <div className="grid">
+        <CountriesList props={countries} />
+      </div>
+      <div>somethin here</div>
     </div>
   );
 }
