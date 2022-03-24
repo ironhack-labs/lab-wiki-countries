@@ -1,0 +1,33 @@
+.Countries-shown {
+    display: flex;
+  }
+  
+  .Countries-list {
+    border: grey solid 2px;
+    width: 50%;
+    margin: 20px 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Countries-card {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    border-bottom: grey solid 2px;
+  }
+  
+  .Countries-card a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .Countries-card h3:hover {
+    color: grey;
+  }
