@@ -1,19 +1,34 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export const CountriesList = (props) => {
-  const countries = props.props;
-  //   console.log(props.props);
-  if (!countries) return <p>Loading...</p>;
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    setCountries(props.props);
+  }, [props.props]);
 
   return (
-    <div
-      className="text-start"
-      style={{ paddingLeft: '100px', width: '50%', marginTop: '25px' }}
-    >
-      {countries.map((country) => {
-        return <p key={country.alpha3Code}>{country.name.common}</p>;
-      })}
-    </div>
+    <>
+      {!countries ? (
+        <p>Loading...</p>
+      ) : (
+        countries.map((country) => {
+          return (
+            <>
+              <img
+                src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLocaleLowerCase()}.png`}
+                alt="flag"
+                style={{ width: '15%', paddingTop: '30px' }}
+              />
+              <Link to={`/${country.alpha3Code}`} key={country.alpha3Code}>
+                <p style={{ paddingTop: '10px' }}>{country.name.common}</p>
+              </Link>
+            </>
+          );
+        })
+      )}
+    </>
   );
 };
