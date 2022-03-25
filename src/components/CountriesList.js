@@ -20,7 +20,7 @@ export const CountriesList = (props) => {
               <img
                 src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLocaleLowerCase()}.png`}
                 alt="flag"
-                style={{ width: '15%', paddingTop: '30px' }}
+                style={{ width: '10%', paddingTop: '30px' }}
               />
               <Link to={`/${country.alpha3Code}`} key={country.alpha3Code}>
                 <p style={{ paddingTop: '10px' }}>{country.name.common}</p>
