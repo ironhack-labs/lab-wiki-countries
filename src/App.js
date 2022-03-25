@@ -9,14 +9,13 @@ import axios from 'axios';
 function App() {
   const [countries, setCountries] = useState([]);
 
-  const getCountries = async () => {
-    const countriesFromApi = await axios.get(
-      'https://ih-countries-api.herokuapp.com/countries'
-    );
-    setCountries(countriesFromApi.data);
-  };
-
   useEffect(() => {
+    const getCountries = async () => {
+      const countriesFromApi = await axios.get(
+        'https://ih-countries-api.herokuapp.com/countries'
+      );
+      setCountries(countriesFromApi.data);
+    };
     getCountries();
   }, [countries]);
 
@@ -27,7 +26,7 @@ function App() {
       <div className="container">
         <div className="row text-start">
           <div
-            classeName="col-5"
+            className="col-5"
             style={{
               maxHeight: '90vh',
               overflow: 'scroll',
@@ -44,10 +43,7 @@ function App() {
             }}
           >
             <Routes>
-              <Route
-                path="/:countryId"
-                element={<CountryDetails countries={countries} />}
-              />
+              <Route path="/:countryId" element={<CountryDetails />} />
             </Routes>
           </div>
         </div>

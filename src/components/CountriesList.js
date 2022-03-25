@@ -14,10 +14,11 @@ export const CountriesList = (props) => {
       {!countries ? (
         <p>Loading...</p>
       ) : (
-        countries.map((country) => {
+        countries.map((country, index) => {
           return (
             <>
               <img
+                key={index}
                 src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLocaleLowerCase()}.png`}
                 alt="flag"
                 style={{ width: '10%', paddingTop: '30px' }}

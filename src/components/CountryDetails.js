@@ -3,42 +3,44 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-export const CountryDetails = ({ countries }) => {
+export const CountryDetails = () => {
   const { countryId } = useParams();
 
-  // const [countryFound, setCountry] = useState([]);
+  const [countryFound, setCountry] = useState([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
-  //     .then((country) => {
-  //       const foundCountry = country.data;
-  //       setCountry(foundCountry);
-  //       // console.log(countryFound);
-  //     });
-  // }, []);
+  useEffect(() => {
+    // const getCountry = async () => {
+    const countryFromApi = axios.get(
+      `https://ih-countries-api.herokuapp.com/countries/${countryId}`
+    );
+    console.log(countryFromApi.data);
+    setCountry(countryFromApi.data);
 
-  // console.log(countryFound);
+    // };
+    // getCountry();
+  }, [countryId]);
 
-  const foundCountry = countries.find(
-    (country) => country.alpha3Code === countryId
-  );
+  // const foundCountry = countries.find(
+  //   (country) => country.alpha3Code === countryId
+  // );
 
-  const countryAlpha2Code = foundCountry.alpha2Code.toLocaleLowerCase();
+  // const countryAlpha2Code = countryFound.alpha2Code.toLocaleLowerCase();
 
-  const borders = foundCountry.borders;
+  const borders = countryFound.borders;
+
+  // if (!countryFound) return <p>Loading...</p>;
 
   return (
     <div>
       <img
-        src={`https://flagpedia.net/data/flags/icon/72x54/${countryAlpha2Code}.png`}
+        src={`https://flagpedia.net/data/flags/icon/72x54/${countryFound.alpha2Code.toLocaleLowerCase()}.png`}
         alt="flag"
       />
-      <h2 style={{ marginTop: '20px' }}>{foundCountry.name.common}</h2>
+      <h2 style={{ marginTop: '20px' }}>{countryFound.name.common}</h2>
       <hr />
-      <p>Capital: {foundCountry.capital}</p>
+      <p>Capital: {countryFound.capital}</p>
       <hr />
-      <p>Area: {foundCountry.area} km2</p>
+      <p>Area: {countryFound.area} km2</p>
       <hr />
       {borders.length === 0 ? (
         <p></p>
