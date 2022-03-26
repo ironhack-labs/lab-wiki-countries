@@ -1,24 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import { Navbar } from './components/Navbar';
+import { CountryList } from './components/CountryList';
+import { Route, Routes } from 'react-router-dom';
+import { CountryDetails } from './components/CountryDetails';
+import { useState, useEffect } from 'react'
+import apiCountries from './utils/apiCountries';
 
 function App() {
+
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      const newCountries = await apiCountries.getAllCountries()
+      setCountries(newCountries)
+    }
+
+    fetchData();
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <>
+    <Navbar />
+    <div className='container'>
+        <div className="row">
+          <div className="col-5" style={{maxHeight: '90vh', overflow: 'scroll'}}>
+            <div className="list-group">
+            <CountryList countries={countries} />
+            </div>
+          </div>
+          <Routes>
+            <Route path='/:id' element={<CountryDetails  countries={countries}/>}/>
+          </Routes>
+        </div>
     </div>
+   </>
   );
 }
 
