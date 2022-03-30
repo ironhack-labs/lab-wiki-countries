@@ -92,7 +92,7 @@ reportWebVitals();
 
 ### Bootstrap installation
 
-We will use [Bootstrap V4](https://getbootstrap.com/) for the design :+1:
+We will use [Bootstrap](https://getbootstrap.com/) for the design :+1:
 
 ```sh
 $ npm install bootstrap
