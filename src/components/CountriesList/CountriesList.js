@@ -8,7 +8,7 @@ const CountriesList = () => {
     useEffect(() => {
         countriesList()
             .then(countriesFound => setCountries(countriesFound))
-        }, [])        
+        }, [])
         
     return (
         <div className="container">

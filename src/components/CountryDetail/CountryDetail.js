@@ -1,25 +1,42 @@
 import react, { useEffect, useState  } from "react";
 import { Redirect } from 'react-router'
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { countryDetail } from "../../services/CountriesService/CountriesService";
+import { countryDetail, countryFlag } from "../../services/CountriesService/CountriesService";
 
 const CountryDetail = () => {
     const { name } = useParams()
     const [loading, setLoading] = useState(true)
     const [country, setCountry] = useState({})
+    const [borders, setBorders] = useState([])
 
     useEffect(() => {
         countryDetail(name)
             .then(countryFound => {
                 setCountry(countryFound)
-                setLoading(false)
+                getBorders(countryFound.borders)
             })
     }, [name])
+
+    const getBorders = (borders) => {
+      Promise.all(
+        borders.map(border => {
+          return countryDetail(border)         
+        })
+      )
+      .then(countries => {
+         const newBorders = countries.map(country => {
+          return country
+        })
+        setBorders(newBorders)
+        setLoading(false)
+      })
+    }
 
     return(
         <div className="col-7">
             { loading ? <p>Loading...</p> :
             <>
+            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}></img>
             <h1>{country.name.common}</h1>
             <table className="table">
               <thead></thead>
@@ -39,9 +56,10 @@ const CountryDetail = () => {
                   <td>Borders</td>
                   <td>
                     <ul>
-                        {country.borders.map(country => {
+                      {console.log(borders)}
+                        {borders.map(border => {
                             return(
-                                <Link key={country} to={`/countries/${country}`}><li>{country}</li></Link>
+                                <Link key={border._id} to={`/countries/${border.alpha3Code}`}><li>{border.name?.common}</li></Link>
                             )
                         })}
                     
