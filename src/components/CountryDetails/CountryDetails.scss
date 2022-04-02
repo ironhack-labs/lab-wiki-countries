@@ -1,6 +1,6 @@
 .container-details{
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
     width: 60%;
@@ -41,5 +41,11 @@
         div {
             margin-left: 0.5rem;
         }
+    }
+}
+
+@media (max-width: 630px) {
+    .container-details {
+        flex-direction: column;
     }
 }

@@ -41,15 +41,15 @@ const CountryDetails = () => {
                             <p><strong>Area</strong>: {country.area}km2 </p>
                             {
                                 borders.length > 0 ? 
-                            <p id='wrap-borders'> <strong>Borders:</strong> {
-                                borders.map((borderCountry, index) => {
+                            <div id='wrap-borders'> <strong>Borders:</strong> {
+                                borders.map(borderCountry => {
                                     return (
-                                        <div className='' key={index}>
+                                        <div key={borderCountry._id}>
                                             <Link to={`/${borderCountry.alpha3Code}`}>{borderCountry.name.common}</Link>
                                         </div>
                                     )
                                 })
-                            }</p>
+                            }</div>
                             : 
                             <p> <strong>Borders:</strong> None</p>
                             }
