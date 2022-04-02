@@ -21,11 +21,18 @@ function App() {
   return (
     <div className="App">
      <Navbar />
-     <Routes >
-      <Route path="/" element={ <CountriesList list={list}/>} />
-      <Route path='/:id' element={<CountryItem />} />
-       
-     </Routes>
+     <div className='container row' >
+        <div className='col list'>
+          <CountriesList list={list}/>
+        </div>
+
+        <div className='col'>
+          <Routes >
+            <Route path='/:id' element={<CountryItem />} />
+          </Routes>
+        </div>
+
+      </div>
     </div>
   );
 }

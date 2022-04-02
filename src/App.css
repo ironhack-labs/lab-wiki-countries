@@ -1,0 +1,21 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.countryName{
+    text-align: center;
+    font-size: 22px;
+    color: black;
+    margin-top: 20px;
+}
+
+.list1{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border: 1px solid grey;
+
+}

@@ -26,9 +26,23 @@ export default function CountryItem() {
     }, [country])
 
   return (
-    <div>
-    {country && country.name.common}
-    <p>Border</p>
+    <div className=''>
+    {country && country.name.common && (
+        <div>
+            <div>
+                <h2>{country.name.common}</h2>
+            </div>
+
+            <div>
+                <h4>Capital: {country.capital[0]}</h4>
+                <h5>Area: {country.area}</h5>
+
+            </div>
+            
+            {console.log(country)}
+        </div>
+    )}
+
     {borders.map((border) => {
         return (
             <p key={border._id}> <Link to={`/${border.alpha3Code}`}> {border.name.common} </Link> </p>
