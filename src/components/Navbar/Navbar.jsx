@@ -1,7 +1,9 @@
 import React from 'react'
+import './Navbar.scss'
+
 const Navbar = () => {
     return(
-        <nav>
+        <nav className='customNavbar' style={{backgroundColor:'#065FFB'}}>
             <p>LAB - WikiCountries</p>
         </nav>
     )

@@ -1,0 +1,45 @@
+.container-details{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    scroll-snap-align: center;
+    margin: 0.5rem;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+    text-align: center;
+    padding: 3rem;
+
+    h2 {
+        max-width: 20rem;
+    }
+
+    img {
+        width: 8rem;
+    }
+
+    a:link, a:visited, a:active {
+        text-decoration:none;
+        color: rgb(0, 125, 198);
+    }
+
+    #wrap-borders {
+        display: flex;
+        justify-content: center;
+        align-items: cetner;
+        flex-wrap: wrap;
+        max-width: 20rem;
+        
+        div {
+            margin-left: 0.5rem;
+        }
+    }
+}

@@ -2,6 +2,7 @@ import React, { useEffect,  useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from "react-router-dom"
 import { getCountry } from '../../services/CountriesServices'
+import './CountryDetails.scss'
 
 const CountryDetails = () => {
     const { id } = useParams()
@@ -31,22 +32,27 @@ const CountryDetails = () => {
     return(
         <>
             {loading ? 'Loading...' : (
-                <div>
+                <div className='container-details'>
                 <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt={country.name.common} />
                     <div>
                         <h2>{country.name.common}</h2>
-                        <div>
-                            <p>Capital: {country.capital[0]}</p>
-                            <p>Area: {country.area}km2 </p>
-                            <p>Border: {
-                                borders.map((el, index) => {
+                        <div className='card-body'>
+                            <p><strong>Capital:</strong> {country.capital[0]}</p>
+                            <p><strong>Area</strong>: {country.area}km2 </p>
+                            {
+                                borders.length > 0 ? 
+                            <p id='wrap-borders'> <strong>Borders:</strong> {
+                                borders.map((borderCountry, index) => {
                                     return (
-                                        <div key={index}>
-                                            <Link to={`/${el.alpha3Code}`}>{el.name.common}</Link>
+                                        <div className='' key={index}>
+                                            <Link to={`/${borderCountry.alpha3Code}`}>{borderCountry.name.common}</Link>
                                         </div>
                                     )
                                 })
                             }</p>
+                            : 
+                            <p> <strong>Borders:</strong> None</p>
+                            }
                         </div>
                     </div>
                 </div>

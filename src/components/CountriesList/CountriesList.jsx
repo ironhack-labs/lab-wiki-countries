@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { getCountries } from "../../services/CountriesServices"
 import { Routes, Route } from 'react-router-dom';
 import CountryDetails from '../CountryDetails/CountryDetails';
+import './CountriesList.scss'
 
 const CountriesList = () => {
     const [ countries, setCountries ] = useState([])
@@ -15,24 +16,25 @@ const CountriesList = () => {
     }, [])
 
     return(
-        <div className='container'>
-            <div className='row'>
-                <div className='col-4'>
-                    {countries.map(country => {
-                        return(
-                            <div key={country._id}>
-                                <Link to={`/${country.alpha3Code}`}>{country.name.common}</Link>
+        <>
+            <div className='CountriesList'>
+                {countries.map(country => {
+                    return(
+                        <Link className='list-container' to={`/${country.alpha3Code}`}>
+                            <div className='countries-list' key={country._id}>
+                                <img className='country-flag' src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt={ country.name.common } />
+                                <p>{ country.name.common }</p>
                             </div>
-                        )
-                    })}
-                </div>
-                <div className="col-8">
-                    <Routes>
-                        <Route path="/:id" element={<CountryDetails countries={countries}/>}/>
-                    </Routes>
-                </div>
+                        </Link>
+                    )
+                })}
             </div>
-        </div>
+            <div>
+                <Routes>
+                    <Route path="/:id" element={<CountryDetails countries={countries}/>}/>
+                </Routes>
+            </div>
+        </>
     )
 }
 
