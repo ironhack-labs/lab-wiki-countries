@@ -1,0 +1,18 @@
+.CountryDetails {
+  width: 68%;
+}
+
+.CountryDetails-block_img {
+  width: 150px;
+}
+
+.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.CountryDetails-block_table {
+  margin: 0 15%;
+  border: 1px solid #CCB;
+  border-bottom: 0;
+}

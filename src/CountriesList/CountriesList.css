@@ -1,0 +1,30 @@
+.CountriesList {
+  width: 30%;
+  overflow: scroll;
+  height: 100vh;
+}
+
+.country {
+  padding: 40px 50px;
+  border: 1px solid #ccc;
+  border-bottom: 0;
+}
+
+.country img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transition: .2s ease;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: #000;
+}
+
+a:hover  .country img{
+  transform: scale(1.2);
+}
