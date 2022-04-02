@@ -2,14 +2,18 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useEffect , useState} from 'react';
 import { countryItem } from '../services/CountriesService'
+
 export default function CountryItem() {
+    
     const {id} = useParams();
     const [country, setCountry] = useState(null);
     const [borders, setBorders] = useState([]);
+
     useEffect(() => {
         countryItem(id)
         .then((response) => setCountry(response))
     }, [id])
+
     useEffect(() => {
         if (country) {
             const promises = country.borders.map(border => countryItem(border));
@@ -19,9 +23,10 @@ export default function CountryItem() {
                 .catch(err =>  console.log(err))
         }
     }, [country])
+
   return (
     <div className=''>
-    {country && country.name.common && (
+        {country && country.name.common && (
         <div>
             <div className='country-info'>
                 <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png` }alt="" />
@@ -40,9 +45,10 @@ export default function CountryItem() {
                 </tbody>
             </table>
         </div>
-    )}
-    <div className=''>
-                <table class="table table-hover">
+        )}
+
+        <div className=''>
+            <table class="table table-hover">
                 <tbody>
                     <tr>
                         <th scope="row">Borders</th>
@@ -56,7 +62,7 @@ export default function CountryItem() {
                     </tr>
                 </tbody>
             </table>
-    </div>
+        </div>
     </div>
   )
 }
