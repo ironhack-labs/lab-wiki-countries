@@ -2,6 +2,7 @@ import react, { useEffect, useState  } from "react";
 import { Redirect } from 'react-router'
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { countryDetail, countryFlag } from "../../services/CountriesService/CountriesService";
+import './CountryDetail.css'
 
 const CountryDetail = () => {
     const { name } = useParams()
@@ -33,7 +34,7 @@ const CountryDetail = () => {
     }
 
     return(
-        <div className="col-7">
+        <div className="w-25">
             { loading ? <p>Loading...</p> :
             <>
             <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}></img>
@@ -59,7 +60,7 @@ const CountryDetail = () => {
                       {console.log(borders)}
                         {borders.map(border => {
                             return(
-                                <Link key={border._id} to={`/countries/${border.alpha3Code}`}><li>{border.name?.common}</li></Link>
+                                <Link className="li" key={border._id} to={`/countries/${border.alpha3Code}`}><li>{border.name?.common}</li></Link>
                             )
                         })}
                     
