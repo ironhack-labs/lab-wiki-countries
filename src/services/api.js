@@ -22,7 +22,6 @@ export const getCountry = async ({ queryKey }) => {
 
 export const getBorders = async ({ queryKey }) => {
   const [_, borders] = queryKey;
-  console.log(borders);
   let data = Promise.all(
     borders.map(
        (alpha3Code) =>  axios.get(`${API_URL}/${alpha3Code}`)

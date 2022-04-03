@@ -62,7 +62,7 @@ export const CountryDetails = () => {
                   <ul>
                     {
                       borderCountries.map(
-                        (country, index) =>
+                        country =>
                           <li key={country.data._id}>
                             <Link to={`/countries/${country.data.alpha3Code}`} >{country.data.name.common}</Link>
                           </li>
