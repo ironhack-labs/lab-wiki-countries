@@ -1,0 +1,8 @@
+.card {
+  width: 50px;
+}
+
+.card-body > img {
+  object-fit: contain;
+  max-width: 50% !;
+}

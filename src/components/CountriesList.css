@@ -1,0 +1,13 @@
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.overflow-auto {
+  height: 90vh;
+}
