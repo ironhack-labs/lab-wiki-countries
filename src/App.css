@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.country{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 40px;
+}
