@@ -32,7 +32,17 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  width: 30%;
 }
