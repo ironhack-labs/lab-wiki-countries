@@ -29,8 +29,7 @@ function CountryDetails({ countriesData }) {
       <h1>Detalles of {country.name.common}</h1>
 
       <h3>capital:{country.capital} </h3>
-          <p>{country.area}</p>
-          
+      <p>{country.area}</p>
     </div>
   );
 }

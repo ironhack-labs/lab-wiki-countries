@@ -14,7 +14,6 @@ function CountriesList({ countriesData }) {
       {countries.map((country) => {
         return (
           <div key={country.alpha3Code} className="project">
-            
             <p>{country.alpha3Code}</p>
 
             <Link to={`/${country.alpha3Code}`}>Ver detalles</Link>
