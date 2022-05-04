@@ -1,0 +1,7 @@
+.countryCard {
+    border: 1px solid gray;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
