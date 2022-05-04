@@ -1,22 +1,22 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from "react-router-dom"
 
 function CountryDetails({ countries }) {
 
-    let { id } = useParams()
+    const { id } = useParams()
 
-    useEffect(() => {
-        filterCountries()
-    }, [id])
-    // un if dentro de un map, o sea un map y luego un if 
-    countries.filter(id => {
+    const countryDetails = countries.find((country) => {
+        return country.alpha3Code == id;
+    });
 
-        return (
-            <h1>{id.name}</h1>
-        )
-    }
-    )
+    return (
+        <div>
+            <h2>Name: {countryDetails.name.common}</h2>
+            <h3>Capital: {countryDetails.capital}</h3>
+            <p>Area: {countryDetails.area} </p>
+            <p>Borders: {countryDetails.borders} </p>
+            <Link to="/projects">Volver a proyectos</Link>
+        </div>
+    );
 }
+
 export default CountryDetails;
-
-
-
