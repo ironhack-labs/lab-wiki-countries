@@ -1,0 +1,13 @@
+.countryButton{
+    display: flex;
+    flex-direction: column;
+}
+
+.countryButton img {
+    width: 35px;
+    padding: 5px;
+}
+
+.countryButton h3 {
+    font-size: 1em;
+}
