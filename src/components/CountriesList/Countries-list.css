@@ -1,0 +1,27 @@
+.country-list {
+    height: 70vh;
+    overflow: auto;
+    width: 45%;
+}
+
+
+
+
+.country-list button {
+    margin: auto;
+    display: block;
+    width: 200px;
+    height: 150px;
+
+}
+
+.country-list p {
+    color: black;
+
+}
+
+.country-list img {
+    margin: auto;
+    display: block;
+    margin-bottom: 20px;
+}

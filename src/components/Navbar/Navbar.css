@@ -1,0 +1,11 @@
+.navbar-style {
+    background-color: blue;
+    height: 50px;
+    margin: auto;
+    color: white;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    padding-left: 200px;
+
+}
