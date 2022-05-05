@@ -32,7 +32,31 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.App {
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav {
+
+  width: 100%;
+  background-color: blue;
+  border: 1px solid;
+  color: white;
+
+}
+
+.cols {
+
+  width: 30%;
+  padding: 50px;
+  border: 1px solid;
 }
