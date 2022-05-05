@@ -1,38 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Navbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    background-color:rgb(43, 43, 218)
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.countryDetailsContainer {
+    display: flex;
+    padding: 60px 60px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.CountriesList {
+    height: 76vh;
+    overflow-y: scroll;
 }
 
-.App-link {
-  color: #61dafb;
+.CountriesList li {
+    color: #000;
+    text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.CountryDetails {
+    padding: 0 60px;
+    overflow: hidden;
 }
+
+.CountryDetails h1 {
+    font-size: 24px;
+}
+
