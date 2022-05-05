@@ -1,0 +1,4 @@
+.borders{
+    display: flex;
+    flex-direction: column;
+}
