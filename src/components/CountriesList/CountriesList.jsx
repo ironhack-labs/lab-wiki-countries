@@ -7,7 +7,7 @@ const CountriesList = ({countriesData}) => {
 
     useEffect(() => {
         setCountries(countriesData)
-    }, [])
+    })
 
     return (
         <div>

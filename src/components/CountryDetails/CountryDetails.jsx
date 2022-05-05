@@ -1,27 +1,42 @@
 import { Link, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
+const axios = require('axios').default
+
 
 const CountryDetails = ({ countries }) => {
 
-    const [selectedCountry, setSelectedCountry] = useState(countries)
+    const [selectedCountry, setSelectedCountry] = useState([])
     const { id } = useParams()
 
+    let oneCountry = []
+
     useEffect(() => {
-        const filteredCountries = countries.filter(elm => elm.alpha3Code === id)
-        setSelectedCountry(filteredCountries)
+
+        axios
+            .get(` https://ih-countries-api.herokuapp.com/countries/${id}`)
+            .then((response) => {
+                oneCountry.push(response.data)
+                setSelectedCountry([...oneCountry])
+            })
+            .catch(err => console.log(err))
 
     }, [id])
 
+
     const findCountry = (id) => {
         const foundCountry = countries.find(elm => elm.alpha3Code === id)
-        console.log(foundCountry.name.common)
         return foundCountry.name.common
     }
 
+
     return (
         <div>
-            {selectedCountry.map((elem) => {
+            <div id="contenido"></div>
+
+
+            {selectedCountry.map(elem => {
                 return (
+
                     <div>
                         <img src={`https://flagpedia.net/data/flags/icon/72x54/${elem.alpha2Code.toLowerCase()}.png`} alt="" />
                         <h2>{elem.name.common}</h2>
@@ -38,9 +53,7 @@ const CountryDetails = ({ countries }) => {
                         <div>
                             <h6>Borders</h6>
                             <ul>
-                                {console.log('---------' + elem.borders)}
                                 {elem.borders.map(e => {
-
                                     return (
                                         <div>
                                             <Link to={`/${e}`}>
@@ -57,7 +70,6 @@ const CountryDetails = ({ countries }) => {
             })}
         </div>
     )
-
 }
 
 export default CountryDetails
