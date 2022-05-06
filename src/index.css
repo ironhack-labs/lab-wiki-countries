@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.list-flag {
+  width: 35px;
+}
+
+.info-label {
+  width: 30%;
+}
+
+.info-list {
+  list-style-type: disc;
+}
+
+.info-list a {
+  text-decoration: none;
+}
+
+.info-list a:hover {
+  text-decoration: underline;
+}
+
+.list-group-item{
+  padding: 0.75rem;
+}
+
