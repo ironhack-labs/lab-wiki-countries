@@ -9,7 +9,8 @@ function CountriesList(props) {
         <ul>
           {countriesArray.map((element, index) => {
             return (
-              <div className="list-group-item list-group-item-action" key={element.alpha3Code}>
+              <div className={`list-group-item list-group-item-action`} key={element.alpha3Code}>
+                <img src={`https://flagcdn.com/${element.alpha2Code.toLowerCase()}.svg`} width="20" alt={element.name.common} />
                 <Link to={`/${element.alpha3Code}`}>{element.name.common}</Link>
               </div>
             )

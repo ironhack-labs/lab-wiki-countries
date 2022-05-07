@@ -12,8 +12,6 @@ function CountryDetails (props) {
 
   useEffect(() => {
 
-    console.log(countriesArray)
-
     const myCountry = countriesArray.find((countryElement) => {
       return countryElement.alpha3Code === countryCode;
     });
@@ -27,6 +25,7 @@ function CountryDetails (props) {
     <>
       {foundCountry && (
         <>
+          <img src={`https://flagcdn.com/${foundCountry.alpha2Code.toLowerCase()}.svg`} width="250" alt={foundCountry.name.common} />
           <h1>{foundCountry.name.common}</h1>
           <table className="table">
             <thead></thead>

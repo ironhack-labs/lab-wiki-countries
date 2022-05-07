@@ -40,3 +40,9 @@
 .row {
   display: flex;
 }
+
+.list-group-item {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}

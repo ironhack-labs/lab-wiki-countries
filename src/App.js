@@ -24,10 +24,10 @@ function App() {
       <Navbar />
       <div className="container">
         <div className="row">
-          <div className="col-5" style={{maxHeight: '90vh', overflow: 'scroll'}}>
+          <div className="col-6" style={{maxHeight: '90vh', overflow: 'scroll'}}>
             <CountriesList countriesArray={countriesArray} />
           </div>
-          <div className="col-7">
+          <div className="col-6">
             <CountryDetails countriesArray={countriesArray}/>
             <div>
               <Routes>
