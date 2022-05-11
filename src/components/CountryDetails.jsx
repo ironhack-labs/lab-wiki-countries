@@ -21,9 +21,11 @@ const {countriesArray} = props;
 
   return (
     <>
-    
-     {foundCountry && 
+ 
+     {foundCountry && (
      <>
+    
+       <img style={{marginLeft: '1rem'}} src={`https://flagcdn.com/w320/${foundCountry.alpha2Code.toLowerCase()}.png`} alt="country" style={{ border: '1px solid black'}}/>
      <h1>{foundCountry.name.common}</h1>
       <table className="table">
               <thead></thead>
@@ -45,12 +47,10 @@ const {countriesArray} = props;
                     <ul>
                       {!Boolean(foundCountry.borders.length) && <span>No shared borders!</span>}
                       {foundCountry.borders.map(countryBorder=>{
-
-                        return (
-                        <li key={countryBorder}>
-                          <Link to={countryBorder}>
-                            {countryBorder}</Link>
-                          </li>
+                      return (
+                        <li key={countryBorder}>{countryBorder}<Link to={countryBorder}></Link></li>
+                      
+                            
                         );
                       })}
                    
@@ -60,6 +60,7 @@ const {countriesArray} = props;
               </tbody>
             </table>
             </>
+     )
      }
 
      

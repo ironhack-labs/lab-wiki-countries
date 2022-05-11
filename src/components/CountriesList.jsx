@@ -18,7 +18,7 @@ const {countriesArray} = props;
               key={country.alpha3Code}>
               {country.name.common}
 
-              <img src={`https://flagcdn.com/16x12/${country.alpha2Code.toLowerCase()}.png`} alt="country" />
+              <img style={{marginLeft: '1rem'}} src={`https://flagcdn.com/16x12/${country.alpha2Code.toLowerCase()}.png`} alt="country" />
               
             </Link>
           
