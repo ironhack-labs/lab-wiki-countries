@@ -9,7 +9,7 @@ function CountriesList(props) {
 
     return (
         <div>
-            <a href="/{alpha3Code}">{commonName}</a>
+            <a href={alpha3Code}>{commonName}</a>
             <h1></h1>
             
                 
