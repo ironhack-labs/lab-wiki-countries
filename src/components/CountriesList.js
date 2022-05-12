@@ -4,11 +4,11 @@ import { NavLink } from "react-router-dom";
 
 const CountriesList = ({ countries }) => {
   return (
-    <>
+    <div style={{maxHeight: '90vh', overflow: 'scroll'}}>
       <br/>
       {countries.map(country => {
         return (
-          <div class="container CountriesList">
+          <div class="container CountriesList" >
           <div class="row ">
             <div class="col-3">
               <div class="card" >
@@ -22,7 +22,7 @@ const CountriesList = ({ countries }) => {
           </div>
         )
       })}
-    </>
+    </div>
   )
 }
 

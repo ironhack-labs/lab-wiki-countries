@@ -23,7 +23,7 @@ useEffect(()=>{
     <div className="App">
     <Navbar />
     <Routes>
-      <Route path='/'  element={<CountriesList countries={countries} />} />
+      <Route path='/'  element={<CountriesList countries={countries}  />} />
       <Route path='/:countryId'  element={<CountryDetails countries={countries} />} />
     </Routes>
     
