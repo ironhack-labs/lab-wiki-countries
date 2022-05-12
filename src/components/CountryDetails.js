@@ -1,19 +1,20 @@
 
-import { NavLink,useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 
-const CountryDetails=({countries})=>{
-  const {countryId} = useParams()
-  const countryDetail = countries.find(country=> country.alpha3Code == countryId )
+const CountryDetails = ({ countries }) => {
+  const { countryId } = useParams()
+  const countryDetail = countries.find(country => country.alpha3Code == countryId)
 
 
-  return(
+  return (
     <>
+      <img src={`https://flagpedia.net/data/flags/icon/72x54/${countryDetail.alpha2Code.toLowerCase()}.png`} />
       <h2>{countryDetail.name.common}</h2>
       <h6>Capital : {countryDetail.capital[0]}</h6>
       <p>Area : {countryDetail.area} km<sup>2</sup> </p>
-      <ul>Border : {countryDetail.borders.length>0 ? 
-        countryDetail.borders.map(bord=><li><NavLink to={`/${bord}`}>{bord}</NavLink></li>) :
+      <ul>Border : {countryDetail.borders.length > 0 ?
+        countryDetail.borders.map(bord => <p><NavLink to={`/${bord}`}>{bord}</NavLink></p>) :
         ''
       } </ul>
 
