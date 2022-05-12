@@ -8,7 +8,8 @@ const CountryDetails = ({ countries }) => {
 
 
   return (
-    <>
+    <div className="CountryDetails">
+    <br/>
       <img src={`https://flagpedia.net/data/flags/icon/72x54/${countryDetail.alpha2Code.toLowerCase()}.png`} />
       <h2>{countryDetail.name.common}</h2>
       <h6>Capital : {countryDetail.capital[0]}</h6>
@@ -19,7 +20,7 @@ const CountryDetails = ({ countries }) => {
       } </ul>
 
 
-    </>
+    </div>
   )
 }
 
