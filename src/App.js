@@ -1,25 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import Navbar from './components/Navbar';
+
+import { Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function App() {
+
+  const [countries, setCountries] = useState([])
+  const [fetching, setFetching] = useState(true)
+
+  useEffect(() => {
+    fecthCountries()
+  }, [])
+
+  const fecthCountries = () => {
+    axios
+      .get('https://ih-countries-api.herokuapp.com/countries')
+      .then(({ data }) => {
+        setCountries(data)
+        setFetching(false)
+      })
+      .catch(err => console.log(err))
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <div className="container">
+        <div className="row">
+          <Routes>
+            <Route path='/' element={<CountriesList countries={countries} fetching={fetching} />} />
+            <Route path='/:country_code' element={<CountryDetails countries={countries} fetchingCList={fetching} />} />
+          </Routes>
+        </div>
+      </div>
+      
     </div>
-  );
+  )
 }
 
 export default App;
