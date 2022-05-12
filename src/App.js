@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
 import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import { Route, Routes } from 'react-router-dom';
 // import CountryDetails from './components/CountryDetails';
 // import axios from 'axios';
 // import { useEffect, useState } from 'react';
@@ -13,7 +15,10 @@ function App() {
       
       <NavBar />
 
-      <CountriesList />
+      <Routes>
+        <Route path="/" element={<CountriesList />}/>
+        <Route path="/:countryId" element={<CountryDetails />}/>
+      </Routes>
 
       {/* <CountryDetails /> */}
       
