@@ -4,8 +4,16 @@ import { NavLink } from 'react-router-dom';
 const CountryDetails = (props) => {
   const { countryCode } = useParams();
   const countryDetails = props.countries.find((country) => {
-    return country.alpha3Code == countryCode;
+    return country.alpha3Code === countryCode;
   });
+
+  const findCountryNameBorder = (countryCode) => {
+    const countryBorder = props.countries.find(
+      (country) => country.alpha3Code === countryCode
+    );
+    const countryNameOfBorder = countryBorder.name.common;
+    return countryNameOfBorder;
+  };
 
   return (
     <div>
@@ -17,7 +25,9 @@ const CountryDetails = (props) => {
         {countryDetails.borders.map((eachBorder) => {
           return (
             <li>
-              <NavLink to={`/${eachBorder}`}>{eachBorder}</NavLink>
+              <NavLink to={`/${eachBorder}`}>
+                {findCountryNameBorder(eachBorder)}
+              </NavLink>
             </li>
           );
         })}
