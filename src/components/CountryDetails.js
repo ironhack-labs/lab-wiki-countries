@@ -1,18 +1,23 @@
 import { Link, useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 
+import axios from "axios";
+
 
 function CountryDetails({ countries }) {
     const { id } = useParams();
-    const [countryDetails, setCountryDetails] = useState(countries)
+    const [countryDetails, setCountryDetails] = useState([])
 
+    let selectedCountry = []
 
     useEffect(() => {
-        const filteredCountries = countries.filter(elm => {
-            return elm.alpha3Code === id
+        axios.get(`https://ih-countries-api.herokuapp.com/countries/${id}`)
+        .then(response => {
+            selectedCountry.push(response.data)
+            setCountryDetails([...selectedCountry])
+  
         })
-        console.log(filteredCountries)
-        setCountryDetails(filteredCountries)
+        .catch(e => console.log("error getting data from API"))
     }, [id])
 
     const findCountry = (id) => {
