@@ -7,8 +7,9 @@ function CountriesList({ countries }) {
     const [countriesList, setCountriesList] = useState([])
 
     useEffect(() => {
+        console.log(countries)
         setCountriesList(countries)
-    }, [])
+    }, [countries])
 
     return (
         <div className="list-group">
@@ -18,7 +19,6 @@ function CountriesList({ countries }) {
                     <div key={country.alpha3Code} className="list-group-item list-group-item-action">
                         <img style={{ maxHeight: "5vh", objectFit: 'contain' }} src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt={country.name.official} />
                         <br></br>
-                        <p>{country.name.official}</p>
                         <Link to={`/${country.alpha3Code}`}>{country.name.official}</Link>
                     </div>
                 )
