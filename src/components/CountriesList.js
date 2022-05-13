@@ -23,13 +23,14 @@ function CountriesList(props) {
           return (
             <div
               key={country._id}
-              className="list-group-item list-group-item-action"
+              className="list-group-item list-group-item-action mb-2"
             >
               <img
                 src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
                 alt={country.name.official}
               />
-              <NavLink to={`/countryDetails/${country.alpha3Code}`}>
+              <br />
+              <NavLink to={`/${country.alpha3Code}`}>
                 {country.name.official}
               </NavLink>
             </div>

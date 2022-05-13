@@ -8,7 +8,9 @@ function CountryDetails(props) {
 
   useEffect(() => {
     axios
-      .get(`https://ih-countries-api.herokuapp.com/${alpha3Code}`)
+      .get(
+        `https://ih-countries-api.herokuapp.com/contries/${alpha3Code.toLowerCase()}`
+      )
       .then((response) => {
         setDetails(response.data);
       })
