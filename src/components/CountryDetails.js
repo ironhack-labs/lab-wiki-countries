@@ -4,35 +4,31 @@ import { useState,useEffect } from 'react';
 
 
 const CountryDetails = ({ countries }) => {
-  const [countrydet, setCountrydet] = useState(null)
+
   const { countryId } = useParams()
-useEffect(() => {
+
+
+
   const countryDetail = countries.find(country => country.alpha3Code == countryId)
-  countryDetail && setCountrydet(countryDetail);
-}, [countryId])
 
-
-  
 
 
   return (
+    
     <div className="CountryDetails">
-    {countrydet && 
+    {countryDetail && 
     <>
       <br/>
-      <img src={`https://flagpedia.net/data/flags/icon/72x54/${countrydet.alpha2Code.toLowerCase()}.png`} />
-      <h2>{countrydet.name.common}</h2>
-      <h6>Capital : {countrydet.capital[0]}</h6>
-      <p>Area : {countrydet.area} km<sup>2</sup> </p>
-      <ul>Border : {countrydet.borders.length > 0 ?
-        countrydet.borders.map(bord => <p><NavLink to={`/${bord}`}>{bord}</NavLink></p>) :
+      <img src={`https://flagpedia.net/data/flags/icon/72x54/${countryDetail.alpha2Code.toLowerCase()}.png`} />
+      <h2>{countryDetail.name.common}</h2>
+      <h6>Capital : {countryDetail.capital[0]}</h6>
+      <p>Area : {countryDetail.area} km<sup>2</sup> </p>
+      <ul>Border : {countryDetail.borders.length > 0 ?
+        countryDetail.borders.map(bord => <p><NavLink to={`/${bord}`}>{bord}</NavLink></p>) :
         ''
       } </ul>
       </>
     }
-    
-
-
     </div>
   )
 }
