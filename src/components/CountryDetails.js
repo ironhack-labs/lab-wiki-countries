@@ -22,7 +22,6 @@ function CountryDetails({ countries }) {
 
     const findCountry = (id) => {
         const countryAtBorders = countries.find(country => country.alpha3Code === id)
-        console.log(countryAtBorders.name.common)
         return countryAtBorders.name.common
     }
 
