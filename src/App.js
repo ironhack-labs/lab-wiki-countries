@@ -23,13 +23,16 @@ function App() {
 
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<CountriesList countries={countries} />} />
-        <Route
-          path="/:countryCode"
-          element={<CountryDetails countries={countries} />}
-        />
-      </Routes>
+      <NavBar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<CountriesList countries={countries} />} />
+          <Route
+            path="/:countryCode"
+            element={<CountryDetails countries={countries} />}
+          />
+        </Routes>
+      </div>
     </div>
   );
 }

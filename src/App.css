@@ -1,9 +1,14 @@
 .App {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .App li {
   text-decoration: none;
   list-style: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
 }
