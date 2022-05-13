@@ -13,27 +13,36 @@ function CountryDetails(props) {
     setDetailsCountry(selectedCountry);
   }, [countryCode, props.countries]);
 
+  const checkBordered = () => {
+    if (detailsCountry.borders.length !== undefined) {
+      detailsCountry.borders.map((x) => {
+        console.log(x);
+        return <li>{x}</li>;
+      });
+    }
+  };
   return (
     <>
       {detailsCountry ? (
-        <div>
+        <div key={detailsCountry._id}>
           <h2>{detailsCountry.name.common}</h2>
           <h4>Capital: {detailsCountry.capital[0]}</h4>
           <hr />
           <p>Area: {detailsCountry.area}</p>
           <hr />
           <p>Bordered:</p>
-
-          {detailsCountry.borders.length !== undefined ? (
-            <ul>
-              {detailsCountry.borders.forEach((x) => {
-                console.log(x);
-                return <li>{x}</li>;
-              })}
-            </ul>
-          ) : (
-            'No Bordered countries'
-          )}
+          <ul>
+            {detailsCountry.borders.length
+              ? detailsCountry.borders.map((x) => {
+                  return (
+                    <li key={x}>
+                      {' '}
+                      <Link to={`/${x}`}>{x}</Link>
+                    </li>
+                  );
+                })
+              : 'No Bordered countries'}
+          </ul>
         </div>
       ) : (
         <div>....Loading</div>
