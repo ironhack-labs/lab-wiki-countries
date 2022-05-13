@@ -7,8 +7,7 @@ function CountriesList({ countries }) {
     const [countriesList, setCountriesList] = useState([])
 
     useEffect(() => {
-        console.log(countries)
-        setCountriesList(countries)
+        setCountriesList(countries.reverse())
     }, [countries])
 
     return (
