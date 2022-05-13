@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 function CountryDetails(props) {
   const { countryCode } = useParams();
