@@ -7,12 +7,13 @@ function CountryDetails(props) {
 
   const { countryId } = useParams();
   
-  const [details, setDetails] = useState([])
-  //console.log(details);
+  console.log("this is country id ", {countryId})
 
-  // even tried ${details.alpha3Code}, wont pass the axios get request at all
+  const [details, setDetails] = useState({})
+
+
   useEffect(() => {
-      axios.get(`https://ih-countries-api.herokuapp.com/${countryId}`)
+      axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
         .then((response) => {
             setDetails(response.data)
             console.log(response.data)
@@ -25,10 +26,22 @@ function CountryDetails(props) {
   return (
     
         <div>
-            <p>Test for details</p>
-            {/* <h2>{details.name}</h2> breaks app if .common is added */}
-            {/* <h2>{props.details.name}</h2> is confused bEYOND LIFE when this line applies */}
             
+            {details ? <p>Printing country details....</p> : <p>Loading details...</p>}
+
+            <p>Country: {details.name}</p>
+            <p>Country code: {details.alpha3Code}</p>
+            
+            {/* <p>Borders:
+            {details.borders.map((item) => {
+              return(
+                <>
+                  {item}
+                </>
+              )
+            })}</p> 
+             */}
+      
         </div>
     
   );

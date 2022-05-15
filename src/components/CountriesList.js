@@ -21,7 +21,7 @@ function CountriesList(props) {
         {countries.map((country) => {
               return (
                 <div key={country.id} className="box">
-                <NavLink to={`/${country.alpha3Code}`}> {country.name.common} </NavLink>
+                <NavLink to={country.alpha3Code}> {country.name.common} </NavLink>
                 {/* <h3><a href={country.alpha3Code}>{country.name.common}</a></h3> */}
                 </div>
               )
