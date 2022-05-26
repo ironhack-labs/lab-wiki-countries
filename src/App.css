@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.myNav{
+  width: 100vw;
+  height: auto;
+  color: white;
+  background-color: blue;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -12,6 +19,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 
 .App-header {
   background-color: #282c34;
@@ -35,4 +43,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.countriesList{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
 }
