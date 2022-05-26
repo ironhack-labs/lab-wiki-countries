@@ -10,10 +10,16 @@ import axios from 'axios';
 function App() {
   const [countries, setCountries] = useState([]);
 
-  axios.get('https://ih-countries-api.herokuapp.com/countries')
-  .then((response) => {
-    setCountries(response.data);
-  }, [])
+
+  useEffect(() => {
+    axios.get('https://ih-countries-api.herokuapp.com/countries')
+      .then((response) => {
+        console.log(response.data[0])
+        response.data.sort((a, b) => a.name.common.localeCompare(b.name.common))
+        setCountries(response.data);
+      })
+  },
+    [])
 
   return (
     <div className="App">

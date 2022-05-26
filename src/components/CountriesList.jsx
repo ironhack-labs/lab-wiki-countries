@@ -5,15 +5,6 @@ import { Link } from 'react-router-dom';
 function CountriesList(props) {
   const { countries } = props;
   
-  // const [sortedData, setSortedData] = useState([]);
-  // useEffect(() => {
-  //   const sorted = [...countries].sort((a, b) => a.name.official - b.name.official);
-  //   console.log(sorted)
-  //   setSortedData(sorted);
-  // }, [countries]); 
- 
-
-  
   return (
     <div className="container">
       <div className="row">
