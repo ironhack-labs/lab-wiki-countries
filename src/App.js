@@ -8,23 +8,18 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div className='container'>
-        <div className='row'>
+      <div className='wrapper'>
+        <div className='box a'>
           <CountriesList />
-          <Routes>
+        </div>
+          <div className='box b'>
+            <Routes>
 
             <Route path='/:country' element = {<CountryDetails/>} />
 
-          </Routes>
+            </Routes>
+          </div>
         </div>
-          
-
-        
-        
-
-      </div>
-      
-
     </div>
   );
 }

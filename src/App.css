@@ -1,18 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -36,13 +21,6 @@
     transform: rotate(360deg);
   }
 }
-
-.container{
-  display: flex;
-  flex-direction: row;
-  justify-content:left;
-}
-
 
 .CountryDetails {
   width: 68%;
@@ -99,4 +77,24 @@ a:hover  .country img{
   padding-top: 15px;
   padding-bottom: 15px;
   color: #fff;
+}
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;	
+}
+
+.box {
+		background-color: rgb(145, 143, 143);
+		color: #fff;
+		padding: 1em;
+}
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 2em;
+	background-color: light-grey;
 }
