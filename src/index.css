@@ -11,3 +11,93 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  background-color: coral;
+  padding: 2rem;
+}
+
+.nav-bar h1 {
+  margin: 1rem 36rem;
+  text-align: center;
+  color: white;
+  letter-spacing: 0.5rem;
+  border: 0.1rem solid white;
+  width: 30vw;
+}
+
+.countries-list {
+  margin: 1rem 25rem;
+  background-color: white;
+  border: 0.1rem solid chocolate;
+  max-width: 50vw;
+  max-height: 83vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+  overflow-y: scroll;
+}
+
+.each-country {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  margin: 1rem;
+}
+
+.each-country img {
+  width: 40px;
+}
+
+.a-link {
+  text-decoration: none;
+  color: chocolate;
+  text-align: center;
+}
+
+.a-link:hover {
+  color: coral;
+}
+
+/* .details-section {
+  height: 85vh;
+} */
+
+.found-country-details {
+  margin: 1rem 25rem;
+  background-color: white;
+  border: 0.1rem solid chocolate;
+  max-width: 50vw;
+  max-height: 83vh;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.found-country-details h3 {
+  color: chocolate;
+}
+
+.details-flag {
+  height: 10vh;
+  width: 10vw;
+}
+
+.font-color {
+  color: chocolate;
+}
+
+.back-to-list-link {
+  border: 0.02rem solid coral;
+  background-color: rgb(245, 219, 209);
+  border-radius: 20px;
+  min-width: 5vw;
+}
