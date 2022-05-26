@@ -31,8 +31,8 @@ const [foundCountries, setFoundCountries] = useState([]);
 
     {foundCountries && (
         <>
-           <h2>{foundCountries.name.official}</h2> 
-           <p>{foundCountries.capital}</p>
+           {/*    <h2>{foundCountries.altSpellings[1]}</h2>  */}
+             <h3>{foundCountries.capital}</h3> 
            <p>{foundCountries.capital}</p>
           <Link to="/countrylist">Back</Link> 
         </>
