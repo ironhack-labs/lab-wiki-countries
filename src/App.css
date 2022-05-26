@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+.nav{
+  background-color:#282c34 ;
+  color:white;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.correctWidth{
+width: 50%;
+}
+div.col-5{
+  max-height: 90vh; overflow: scroll
+}
