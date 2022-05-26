@@ -42,10 +42,13 @@ axios
     <h1>{country.name.common}</h1>
     <p>Capital: {country.capital}</p>
     <p>Area: {country.area}</p>
-    <ul>
     <p>Borders</p>
+    <ul>
     
-        <li>{country.borders}</li>
+    {country.borders.map((element)=>{
+        return   <li>{element}</li>
+    })}
+      
     </ul>
 
     </>)
