@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav{
+  width: 100vw;
+  height: 50px;
+  background-color: blue;
+}
+
+nav h3{
+  color: white;
+  text-decoration: none;
+}
+
+.appBody{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100vw;
+}
+
+.countryList{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.countryDetails{
+  display: flex;
+  flex-direction: column;
+}
