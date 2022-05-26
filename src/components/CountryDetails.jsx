@@ -25,7 +25,7 @@ function CountryDetails() {
         <>
           <h2>{filteredCountry.name.common}</h2>
           <p>{`Capital: ${filteredCountry.capital}`}</p>
-          <p>{`Area: ${filteredCountry.area}`}</p>
+          <p>{`Area: ${filteredCountry.area} km2`}</p>
           <ul>
             <li>
               Borders:
