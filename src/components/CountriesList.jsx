@@ -1,29 +1,23 @@
 
-import { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
-const CountriesList = () => {
-const [countrylist, setCountrylist] = useState([]);
-
-useEffect(() => {
-    axios.get("https://ih-countries-api.herokuapp.com/countries")
-      .then((response) => {
-        setCountrylist(response.data)
-      })
-      .catch(e => console.log("error getting countries list", e));
-  }, [])
+const CountriesList = (props) => {
 
   return (
     <div>
     <h1>Country List</h1>
-        {countrylist.map((element) => {
-            return (
-              <div className="box" key={element.id}>
-              <h3><a href={element.alpha3Code}>{element.name.common}</a></h3>
-              {/* <Link to={`/${element.alpha3Code}`}>{element.name.common}</Link> */}
-              </div>
-          )})}
+        <ul>
+            {props.countries.map((country) => 
+            <li key={country.alpha3Code}>
+            <Link to={`/${country.alpha3Code}`}>
+            
+            <span>{country.name.common}</span>
+           
+            </Link>
+            </li>
+            )}
+        </ul>
     </div>
 )
 }
