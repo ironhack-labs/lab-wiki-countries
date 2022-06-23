@@ -1,23 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Axios from 'axios'
+
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import countriesJson from './countries.json';
+import Navbar from './components/Navbar';
 
 function App() {
+  const [countries, setCountries] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(()=>{
+    setIsLoading(true)
+    Axios.get('https://ih-countries-api.herokuapp.com/countries')
+      .then(res=>{
+        console.log(res)
+        setIsLoading(false)
+        console.log(res.data)
+        setCountries(res.data.sort((a,b)=>a.name.common.localeCompare(b.name.common)))
+      })
+      .catch(err=>console.log(err))
+  },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <div className="container">
+        <div className="row">
+          <div className="col-5">
+            {isLoading && <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+              </div>}
+            <CountriesList countries={countries} />
+          </div>
+          <Routes>
+            <Route
+              path="/country/:id"
+              element={<CountryDetails countries={countries} />}
+            />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
