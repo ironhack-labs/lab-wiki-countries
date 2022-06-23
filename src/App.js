@@ -7,6 +7,7 @@ import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import countriesJson from './countries.json';
 import Navbar from './components/Navbar';
+import Welcome from './components/Welcome'
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -40,6 +41,7 @@ function App() {
               path="/country/:id"
               element={<CountryDetails countries={countries} />}
             />
+            <Route path="/" element={<Welcome/>}/>
           </Routes>
         </div>
       </div>
