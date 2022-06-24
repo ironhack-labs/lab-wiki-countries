@@ -10,17 +10,22 @@ import "./App.css";
 
 function App() {
   const [countries, setCountries] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(async () => {
+  useEffect(() => {
     document.title = `WikiCountries`;
-    
-    const { data } = await axios({
+
+    axios({
       method: 'get',
       url: 'https://ih-countries-api.herokuapp.com/countries',
       responseType: 'json'
-    });
+    })
+      .then(({ data }) => {
+        setCountries(data);
+        setIsLoading(false);
+      })
+      .catch(err => console.error(err));
 
-    setCountries(data);
   }, [])
 
 
@@ -30,13 +35,13 @@ function App() {
     <div className="container">
       <div className="row">
         <div className="col-5" style={{ maxHeight: `90vh`, overflow: `scroll` }}>
-          <CountriesList countries={countries} />
+          {isLoading ? <p>Loading...</p> : <CountriesList countries={countries} />}
         </div>
 
         <Routes>
           <Route path="/" element={<></>} />
 
-          <Route path="/:alpha3Code" element={countries.length ? <CountryDetails {...{ countries }} /> : <p>Loading...</p>} />
+          <Route path="/:alpha3Code" element={isLoading ? <p>Loading...</p> : <CountryDetails {...{ countries }} />} />
         </Routes>
       </div>
 

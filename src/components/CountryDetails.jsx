@@ -29,7 +29,7 @@ const CountryDetails = ({ countries }) => {
   });
 
   if (!country.name) {
-    return `Loading...`;
+    return null;
   }
 
   return (
