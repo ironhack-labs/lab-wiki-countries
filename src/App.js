@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+// src/App.js
+import { Route, Routes } from 'react-router-dom';
+
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import Navbar from './components/Navbar';
+
+import countries from './countries.json';
+
 import './App.css';
+
+const imgUrl = `https://flagpedia.net/data/flags/icon/72x54/`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <div className="main-container">
+        {<CountriesList imgUrl={imgUrl} />}
+
+        <Routes>
+          <Route
+            path="/:alpha3Code"
+            element={<CountryDetails countries={countries} imgUrl={imgUrl} />}
+          />
+        </Routes>
+      </div>
+    </>
   );
 }
-
 export default App;
