@@ -32,7 +32,47 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #352275;
+  padding: 5px 20px;
+}
+
+.Navbar li,
+.Navbar a {
+  list-style: none;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 20px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.countryList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5px;
+}
+
+.eachCountry {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.flagIcon {
+  width: 20px;
+  justify-self: center;
+}
+
+.detailsCard {
+  margin: 20px;
 }
