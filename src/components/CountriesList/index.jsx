@@ -1,18 +1,25 @@
 import './CountriesList.css'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import ListGroup from 'react-bootstrap/ListGroup'
 
-import data from './../../countries.json'
-
 
 const CountriesList = () => {
-    const [countryData, setCountryData] = useState(data)
+
+    useEffect(() => {
+        fetch(`https://ih-countries-api.herokuapp.com/countries`)
+            .then(response => response.json())
+            .then(data => {
+                setCountryData(data)
+            })
+    }, [])
+
+    const [countryData, setCountryData] = useState()
 
 
-    const countriesListNamesTags = countryData.map(country =>
+    const countriesListNamesTags = countryData?.map(country =>
         <ListGroup.Item key={country.alpha3Code} action >
             <Link to={`/${country.alpha3Code}`}>
                 <div className="ListItem">
