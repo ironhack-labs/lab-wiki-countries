@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import 'bootstrap/dist/css/bootstrap.css'
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 ReactDOM.render(
   <Router>
@@ -14,4 +14,4 @@ ReactDOM.render(
 );
 
 // comment skipped to stay organized
-reportWebVitals();
+reportWebVitals()
