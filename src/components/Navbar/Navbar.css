@@ -1,0 +1,11 @@
+nav {
+    background-color: blue;
+    color: white;
+    margin-top: 0;
+}
+
+nav a {
+    margin-left: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
