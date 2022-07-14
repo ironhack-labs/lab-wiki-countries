@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.Navbar {
+    background: #352275;
+    padding: 5px 20px;
+  }
+
+.Navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.CountryCard {
+  border: solid gray;
+  width: 20%;
+  padding: 50px;
+}
+
+.CountryCard a {
+  text-decoration: none;
+  color: black;
+
+}
