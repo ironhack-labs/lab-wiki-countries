@@ -9,7 +9,7 @@ function Countries({ countries }) {
                 {countries.map(country => {
                     return (<div className="col-5"  >
                         <div className="list-group" key={country.name.common}>
-                            <Link to={`/countries-list/${country.alpha3Code}`}>Ir al país </Link>
+                            <Link to={`/countries-list/${country.alpha3Code}`}>Countries</Link>
                             <p>{country.name.common}</p>
 
                         </div>
