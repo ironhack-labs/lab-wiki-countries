@@ -37,7 +37,7 @@ function CountryDetails() {
   return (
     <div className="col-7">
       {fetching ? (<h1>Loading ... </h1>) : 
-          (<div>
+          (<div className="details">
             <img src={`https://flagpedia.net/data/flags/icon/72x54/${alpha2Code.toLowerCase()}.png`} alt=""/>
             <h1>{name.common}</h1>
             <table className="table">
