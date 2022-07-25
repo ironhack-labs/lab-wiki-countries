@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,46 @@
   to {
     transform: rotate(360deg);
   }
+}
+ */
+
+ .navbar-brand{
+  color: white;
+ }
+
+ .layout{
+  display: flex;
+  max-width: 60em;
+}
+
+.list-group-item{
+  display: flex;
+  padding: 1em;
+  margin-bottom: 0.0;
+  justify-content: center;
+}
+
+.list-group img{
+  max-width: 2.5em;
+  align-self: center;
+}
+
+.col-7{
+  width: 100%;
+}
+.col-7 img{
+  min-width: 20em;
+}
+em{
+  font-size: 0.7em;
+}
+a {
+  text-decoration: none;
+}
+ul{
+  list-style: none;
+}
+.details {
+  max-width: 40em;
+  text-align: center;
 }
