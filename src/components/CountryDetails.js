@@ -28,7 +28,7 @@ const CountryDetails = ({ countriesData }) => {
   return (
     <div className="col-7">
       <h1>{official}</h1>
-      <table className="table">
+      <table className="table text-center">
         <thead></thead>
         <tbody>
           <tr>
@@ -36,14 +36,14 @@ const CountryDetails = ({ countriesData }) => {
             <td>{capital}</td>
           </tr>
           <tr>
-            <td>area</td>
+            <td>Area</td>
             <td>
               {area}
               <sup>2</sup>
             </td>
           </tr>
           <tr>
-            <td>borders</td>
+            <td>Borders</td>
             <td>
               <ul>
               {listBorder}
