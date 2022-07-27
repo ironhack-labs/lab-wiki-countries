@@ -72,23 +72,26 @@ And setup the router in your `src/index.js` file:
 // src/index.js
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 
-ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
-  document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+    <Router>
+      <App />
+    </Router>
 );
 
-// comment skipped to stay organized
+// comment omitted for readability
 reportWebVitals();
 ```
+
+<br>
 
 ### Bootstrap installation
 
@@ -104,6 +107,8 @@ To make the Bootstrap styles available in the entire app, import the stylesheet 
 // src/index.js
 import 'bootstrap/dist/css/bootstrap.css';
 ```
+
+
 
 ## Instructions
 
@@ -123,13 +128,19 @@ To help you with the structure of the components, we gave you an example of a pa
 
 If you want to style it, refresh your memory on Bootstrap in the [docs](https://getbootstrap.com/docs/4.0) or check out how we approached styling in the `example.html`.
 
+
+
 ### Iteration 1.2 | Navbar component
 
 Create a navbar component that displays the title *LAB - WikiCountries*.
 
+
+
 ### Iteration 1.3 | CountriesList component
 
 This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Click on a `Link` should render the country details component.
+
+
 
 ### Iteration 1.4 | CountryDetails component and `Route` setup
 
@@ -203,5 +214,7 @@ Using the `useEffect` hook set an effect in the `CountriesDetails` component. Th
 - India: https://ih-countries-api.herokuapp.com/countries/IND
 
 The effect should run after the initial render, and each time the URL parameter with the `alpha3Code` changes.
+
+
 
 Happy coding! :heart:
