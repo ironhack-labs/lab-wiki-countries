@@ -22,9 +22,6 @@ function CountryDetails(props) {
 
   console.log(foundCountry);
 
-  let twoDigitCode = foundCountry.alpha2Code.toLowerCase();
-  console.log(twoDigitCode)
-
   return (
 
     <>
@@ -35,7 +32,7 @@ function CountryDetails(props) {
 
           {/* below is for flag image-- worked once on refresh and then the details crashed repeatedly */}
 
-          <img src={`https://flagpedia.net/data/flags/icon/72x54/${twoDigitCode}.png`} alt="" />
+          <img src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`} alt="" />
 
 
           <h1>{foundCountry.name.common}</h1>
