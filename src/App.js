@@ -7,16 +7,23 @@ import Navbar from './components/Navbar';
 import countriesArr from './countries.json';
 
 function App() {
-  const [countries, setCountryList] = useState(countriesArr);
+  const [countries, setCountries] = useState(countriesArr);
   const baseAPI = 'https://ih-countries-api.herokuapp.com/countries.';
 
   useEffect(() => {
-    axios.get(baseAPI).then((response) => {
-      setCountryList(response).catch((error) => {
-        return error;
-      });
-    });
+    fetchCountries();
   }, []);
+
+  const fetchCountries = () => {
+    axios
+      .get(baseAPI)
+      .then((response) => {
+        setCountries(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   return (
     <div>
@@ -35,9 +42,7 @@ function App() {
             style={{ maxHeight: 90 + 'vh', overflow: 'scroll' }}
           >
             <div className="list-group">
-              {countries.map((country) => {
-                return <CountryList alpha3Code={country.alpha3Code} />;
-              })}
+              <CountryList countries={countries} />;
               <CountryDetails />
             </div>
           </div>
