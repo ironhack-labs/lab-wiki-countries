@@ -21,6 +21,11 @@ function App() {
       <h1>-i am App.js-</h1>
       <CountryDetails countries={countries}/>
       <CountriesList  countries={countries}/>
+
+      <Routes>
+        <Route path='/' element={<CountriesList countries={countries} />}></Route>
+        <Route path='/:countryId' element={<CountryDetails countries={countries} />}></Route>
+      </Routes>
       {/* React-Router Route rendering the CountryDetails should go here */}
     </div>
   </div>
