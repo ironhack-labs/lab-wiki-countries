@@ -9,7 +9,10 @@ const CountriesList = ({ countries }) => {
         {countries.map((country) => (
           <TheLink to={`/${country.alpha3Code}`} key={country.alpha3Code}>
             <ListContainer>
-              <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="" />
+              <img
+                src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                alt={country.name.common}
+              />
               <p>{country.name.common}</p>
             </ListContainer>
           </TheLink>
