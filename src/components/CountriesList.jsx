@@ -1,24 +1,31 @@
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import ReactLoading from 'react-loading'
 
-const CountriesList = ({ countries }) => {
+const CountriesList = ({ countries, isLoading }) => {
   return (
-    <Wrapper>
-      <ListGroup>
-        {countries.map((country) => (
-          <TheLink to={`/${country.alpha3Code}`} key={country.alpha3Code}>
-            <ListContainer>
-              <img
-                src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
-                alt={country.name.common}
-              />
-              <p>{country.name.common}</p>
-            </ListContainer>
-          </TheLink>
-        ))}
-      </ListGroup>
-    </Wrapper>
+    <>
+      {isLoading ? (
+        <ReactLoading width="20%" type="spin" color="blue" />
+      ) : (
+        <Wrapper>
+          <ListGroup>
+            {countries.map((country) => (
+              <TheLink to={`/${country.alpha3Code}`} key={country.alpha3Code}>
+                <ListContainer>
+                  <img
+                    src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                    alt={country.name.common}
+                  />
+                  <p>{country.name.common}</p>
+                </ListContainer>
+              </TheLink>
+            ))}
+          </ListGroup>
+        </Wrapper>
+      )}
+    </>
   )
 }
 
