@@ -46,7 +46,7 @@ function App() {
           <Routes>
             <Route
               path="/:countryId"
-              element={<countryDetails details={countries} />}
+              element={<CountryDetails details={countries} />}
             ></Route>
           </Routes>
         </div>

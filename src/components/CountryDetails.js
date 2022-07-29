@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-function CountryDetails({ props }) {
+function CountryDetails(props) {
   const { countryId } = useParams();
 
   const [details, setDetails] = useState([]);
@@ -22,22 +22,22 @@ function CountryDetails({ props }) {
     <div className="col-7">
       <h1>
         <img
-          src={`https://flagpedia.net/data/flags/icon/72x54/${props.details.alpha2Code.toLowerCase()}.png`}
+          src={`https://flagpedia.net/data/flags/icon/72x54/${details.alpha2Code.toLowerCase()}.png`}
           alt="flag"
         />
-        {props.details.name.common}
+        {details.name.common}
       </h1>
       <table className="table">
         <thead></thead>
         <tbody>
           <tr>
             <td style={{ width: '30%' }}>Capital</td>
-            <td>{props.details.capital}</td>
+            <td>{details.capital}</td>
           </tr>
           <tr>
             <td>Area</td>
             <td>
-              {props.details.translations.area}
+              {details.translations.area}
               <sup>2</sup>
             </td>
           </tr>
