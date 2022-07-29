@@ -135,11 +135,11 @@ In this iteration, we will focus on the general layout. Before you start, inside
 
 To help you with the structure of the components, we gave you an example of a page inside `example.html`.
 
-If you want to style it, refresh your memory on Bootstrap in the [docs](https://getbootstrap.com/docs/4.0) or check out how we approached styling in the `example.html`.
+If you want to style it, refresh your memory on Bootstrap in the [docs](https://getbootstrap.com) or check out how we approached styling in the `example.html`.
 
-Note, if you follow or reuse code from `example.html`, keep in mind the following:
-- In React, the class html attribute is defined using `className`
-- For inline css, you will need a JavaScript object with camelCased properties (more details [here](https://reactjs.org/docs/dom-elements.html#style)).
+**NOTE:** If you decide to copy the code provided in the `example.html`, keep the following in mind:
+- In React, the `class` html attribute is defined using `className`
+- For inline CSS, use a JavaScript object and name each CSS property in camelCase (more details [here](https://reactjs.org/docs/dom-elements.html#style)).
 
 <br>
 
@@ -153,9 +153,7 @@ Create a navbar component that displays the title *LAB - WikiCountries*.
 
 ### Iteration 1.3 | CountriesList component
 
-This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. 
-
-Click on a `Link` should render the country details component (note: if you haven't added css, the country details will be displayed at the very bottom of the page, after the list of countries).
+This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Click on a `Link` should render the country details component.
 
 <br>
 
@@ -173,10 +171,11 @@ Now that our list of countries is ready, we should create the `CountryDetails` c
 
 The `alpha3Code` of the country will be available throught the URL parameters. To access the URL parameters, from the browser's URL bar, use the React Routers hooks `useParams`. For a reminder on setting up and accessing the URL parameters with React Router, check [this example](https://reactrouter.com/docs/en/v6/api#useparams).
 
+**NOTE:** If you haven't added CSS, the country details may be displayed at the very bottom of the page.
 
+<br>
 
-**NOTE:** For the small picture of the flag, you can use the lowercased `alpha2Code` and embed it in the URL as shown below:
-
+For the small picture of the flag, you can use the lowercased `alpha2Code` and embed it in the URL as shown below:
 
 
 - France: https://flagpedia.net/data/flags/icon/72x54/fr.png
