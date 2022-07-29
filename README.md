@@ -128,6 +128,10 @@ To help you with the structure of the components, we gave you an example of a pa
 
 If you want to style it, refresh your memory on Bootstrap in the [docs](https://getbootstrap.com/docs/4.0) or check out how we approached styling in the `example.html`.
 
+Note, if you follow or reuse code from `example.html`, keep in mind the following:
+- In React, the class html attribute is defined using `className`
+- For inline css, you will need a JavaScript object with camelCased properties (more details [here](https://reactjs.org/docs/dom-elements.html#style)).
+
 
 
 ### Iteration 1.2 | Navbar component
@@ -138,7 +142,8 @@ Create a navbar component that displays the title *LAB - WikiCountries*.
 
 ### Iteration 1.3 | CountriesList component
 
-This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Click on a `Link` should render the country details component.
+This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. 
+Click on a `Link` should render the country details component (note: if you haven't added css, the country details will be displayed at the very bottom of the page, after the list of countries).
 
 
 
