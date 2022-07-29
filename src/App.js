@@ -1,16 +1,26 @@
-// src/App.js
 import './App.css';
-import CountryDetails from './components/CountryDetails';
-import CountriesList from './components/CountriesList';
 import Navbar from './components/Navbar';
-import countriesArray from './countries.json';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import { Routes, Route } from 'react-router-dom';
+
+import countriesList from './countries.json';
 
 function App() {
   return (
     <div className="App">
-      <Navbar></Navbar>
-      <CountriesList />
+      <Navbar />
+      <div className="d-flex justify-content">
+        <CountriesList countries={countriesList} />
+        <Routes>
+          <Route
+            path="/:id"
+            element={<CountryDetails countries={countriesList} />}
+          />
+        </Routes>
+      </div>
     </div>
   );
 }
+
 export default App;
