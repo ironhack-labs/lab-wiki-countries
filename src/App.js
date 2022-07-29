@@ -3,15 +3,25 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import CountriesList from "./components/CountriesList";
 import CountryDetails from "./components/CountryDetails";
-import countries from './countries.json'
-import { useState } from "react";
+// import countries from './countries.json'
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 function App() {
 
-  // console.log(countries);
+  const [allCountries, setAllCountries] = useState([]);
 
-  const [allCountries, setAllCountries] = useState(countries);
+  useEffect(() => {
+    axios
+      .get('https://ih-countries-api.herokuapp.com/countries')
+      .then((response) => {
+        setAllCountries(response.data)
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  })
 
   return (
     <div className="App">
@@ -28,7 +38,6 @@ function App() {
 
           </div>
       </div>
-
   </div>
 )
 }

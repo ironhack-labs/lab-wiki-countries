@@ -3,15 +3,11 @@ import { Link, useParams } from "react-router-dom";
 function CountryDetails (props) {
 
     const {id} = useParams();
-    // console.log(id);
-    // console.log(props.data);
 
     const details = props.data.find(element => {
         return element.alpha3Code === id
     })
 
-    // console.log(details)
-    // console.log(details.name.official)
 
     const tdStyle = {"width": "30%"}
 
