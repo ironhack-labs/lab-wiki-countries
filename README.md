@@ -10,6 +10,7 @@ After spending too much time on GitHub, you found a [JSON dataset of countries](
   <img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-wiki-countries-1.gif" alt="Example - Finished LAB" />
 </p>
 
+<br>
 
 
 ## Setup
@@ -26,6 +27,8 @@ After spending too much time on GitHub, you found a [JSON dataset of countries](
   $ npm start
   ```
 
+<br>
+
 
 ## Submission
 
@@ -38,6 +41,8 @@ After spending too much time on GitHub, you found a [JSON dataset of countries](
   ```
 
 - Create a Pull Request so that your TAs can check your work.
+
+<br>
 
 
 ## Getting Started
@@ -56,7 +61,9 @@ export default App;
 
 <br>
 
-## Instructions
+
+## Instructions 
+
 
 ### Iteration 0 | React Router installation
 
@@ -93,6 +100,7 @@ reportWebVitals();
 
 <br>
 
+
 ### Bootstrap installation
 
 We will use [Bootstrap](https://getbootstrap.com/) for the design :+1:
@@ -108,6 +116,7 @@ To make the Bootstrap styles available in the entire app, import the stylesheet 
 import 'bootstrap/dist/css/bootstrap.css';
 ```
 
+<br>
 
 
 ## Instructions
@@ -128,18 +137,27 @@ To help you with the structure of the components, we gave you an example of a pa
 
 If you want to style it, refresh your memory on Bootstrap in the [docs](https://getbootstrap.com/docs/4.0) or check out how we approached styling in the `example.html`.
 
+Note, if you follow or reuse code from `example.html`, keep in mind the following:
+- In React, the class html attribute is defined using `className`
+- For inline css, you will need a JavaScript object with camelCased properties (more details [here](https://reactjs.org/docs/dom-elements.html#style)).
+
+<br>
 
 
 ### Iteration 1.2 | Navbar component
 
 Create a navbar component that displays the title *LAB - WikiCountries*.
 
+<br>
 
 
 ### Iteration 1.3 | CountriesList component
 
-This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Click on a `Link` should render the country details component.
+This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. 
 
+Click on a `Link` should render the country details component (note: if you haven't added css, the country details will be displayed at the very bottom of the page, after the list of countries).
+
+<br>
 
 
 ### Iteration 1.4 | CountryDetails component and `Route` setup
@@ -165,6 +183,9 @@ The `alpha3Code` of the country will be available throught the URL parameters. T
 - Germany: https://flagpedia.net/data/flags/icon/72x54/de.png
 - Brazil: https://flagpedia.net/data/flags/icon/72x54/br.png
 - etc.
+
+<br>
+
 
 ----
 
