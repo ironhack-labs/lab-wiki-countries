@@ -17,7 +17,6 @@ function App() {
     axios.get('https://ih-countries-api.herokuapp.com/countries')
       .then(response => {
         setCountries(response.data)
-
       })
       .catch(e => {
         console.log(e)

@@ -9,7 +9,7 @@ function CountryDetails(props) {
     })
 
     const borders = matchingCountry[0].borders;
-
+    console.log(borders)
     const bordersNames = (e) => {
         const filtered = props.data.filter(el => {
             return el.alpha3Code === e
@@ -50,7 +50,8 @@ function CountryDetails(props) {
                                     {borders.map(e => {
                                         return (
                                             <li>
-                                                <Link to={e}>{bordersNames(e)}</Link>
+                                                <Link to={"/" + e}>{bordersNames(e)}</Link>
+                                                {console.log(e)}
                                                 <img src={`https://flagpedia.net/data/flags/icon/72x54/${bordersFlags(e).toLowerCase()}.png`} alt="flag" style={{ width: '8%' }} />
                                             </li>
                                         )
