@@ -3,9 +3,8 @@ import { useParams } from "react-router-dom";
 
 function CountryDetails(props) {
 
-const {alpha3Code} = useParams();
-const [country, setCountry] = useState(null);
-
+let {alpha3Code} = useParams();
+const [country, setCountry] = useState();
 
     setCountry(() => {
         const result = props.countries.filter((element) => {
@@ -15,10 +14,10 @@ const [country, setCountry] = useState(null);
     });
 
     return (
-       
-            <h1>country.name.official</h1>
-
-    );
+        <>
+            <h1>{country.name.official}</h1>
+        </>
+    )   
 }
 
 export default CountryDetails;

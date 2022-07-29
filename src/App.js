@@ -36,9 +36,11 @@ function App() {
       <div className="container">
         <div className="row">
           <CountriesList countries={countries} />
-          <Routes>
-            <Route path="/:alpha3Code" element={<CountryDetails countries={countries} />}></Route>
-          </Routes>
+            <Routes>
+              <Route path="/">
+                <Route path=":alpha3Code" element={<CountryDetails countries={countries} />}></Route>
+              </Route>
+            </Routes>
         </div>
       </div>
     </div>
