@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import CountryList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
@@ -8,7 +9,6 @@ import countriesArr from './countries.json';
 
 function App() {
   const [countries, setCountries] = useState(countriesArr);
-  const baseAPI = 'https://ih-countries-api.herokuapp.com/countries.';
 
   useEffect(() => {
     fetchCountries();
@@ -16,7 +16,7 @@ function App() {
 
   const fetchCountries = () => {
     axios
-      .get(baseAPI)
+      .get(process.env.REACT_APP_BASEAPI)
       .then((response) => {
         setCountries(response.data);
       })
@@ -29,9 +29,7 @@ function App() {
     <div>
       <nav className="navbar navbar-dark bg-primary mb-3">
         <div className="container">
-          <a className="navbar-brand" href="/">
-            WikiCountries
-          </a>
+          <Navbar />
         </div>
       </nav>
 
@@ -43,9 +41,14 @@ function App() {
           >
             <div className="list-group">
               <CountryList countries={countries} />;
-              <CountryDetails />
             </div>
           </div>
+          <Routes>
+            <Route
+              path="/:countryId"
+              element={<countryDetails details={countries} />}
+            ></Route>
+          </Routes>
         </div>
       </div>
     </div>

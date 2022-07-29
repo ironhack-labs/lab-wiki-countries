@@ -1,5 +1,9 @@
 function Navbar() {
-  return <h1>This is the navbar</h1>;
+  return (
+    <a className="navbar-brand" href="/">
+      WikiCountries
+    </a>
+  );
 }
 
 export default Navbar;
