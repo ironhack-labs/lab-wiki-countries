@@ -5,23 +5,39 @@ import { Link, useParams } from 'react-router-dom';
 function CountryDetails(props) {
   const { countryId } = useParams();
 
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState(null);
+
+  //Option 2: send request to the API
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BASEAPI + countryId)
+      .get(process.env.REACT_APP_BASEAPI + '/' + countryId)
       .then((response) => {
         setDetails(response.data);
       })
       .catch((e) => {
         console.log(e);
       });
-  }, []);
+  }, [countryId]);
+
+  if (details === null) {
+    return <>loading...</>;
+  }
+
+  //Option 1: we receive all countries from props + find the details of the country we use:
+
+  // useEffect(() => {
+  //   const details = props.countries.find(
+  //     (country) => country.alpha3Code === countryId
+  //   );
+  //   setDetails(details);
+  // }, [countryId, props.countries]);
 
   return (
     <div className="col-7">
       <h1>
         <img
+          className="big-image"
           src={`https://flagpedia.net/data/flags/icon/72x54/${details.alpha2Code.toLowerCase()}.png`}
           alt="flag"
         />
