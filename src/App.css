@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+.testDiv{
+  border: 1px solid black;
+  width: 500px;
+  height: 500px;
+}
+.testList{
+  width: 500px;
+  height: 500px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.testContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
