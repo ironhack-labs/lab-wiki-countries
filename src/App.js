@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import { NavbarWiki } from './components';
+import { useState, useEffect } from 'react';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavbarWiki>
+        {/* country list */}
+        <div class="container">
+          <div class="row">{/* here will go country list */}</div>
+        </div>
+
+        <div class="col-7">
+          <h1>France</h1>
+          <table class="table">
+            <thead></thead>
+            <tbody>{/* here will go country details */}</tbody>
+          </table>
+        </div>
+      </NavbarWiki>
     </div>
   );
 }
