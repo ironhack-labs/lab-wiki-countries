@@ -36,3 +36,47 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.list-group {
+  max-height: 90vh;
+  overflow: scroll;
+  width: 40vw;
+}
+
+.list-group img {
+  height: 30px;
+}
+
+.details,
+.details table,
+.details h1 {
+  margin: 0 2vw;
+  width: 40vw;
+  padding: 8px;
+}
+
+.details ul {
+  padding-left: 20px;
+}
+
+.loading {
+  text-align: center;
+  font-weight: 900;
+  margin: 50px;
+}
+
+.borderList {
+  list-style: none;
+}
+
+.details img {
+  align-self: center;
+}
