@@ -46,8 +46,32 @@ return (
     </form>
     {country && (
       <>
-        <p>{country.name.common}</p>
-      </>
+
+        <h2>Country Details</h2>
+              <div className="container">
+                <div className="row">
+                  <div className="col-3 max-height: 90vh; overflow: scroll">
+                    <div className="list-group">
+                      <img src={country.flags.png} alt="" />
+
+                        <h3 className="list-group-item list-group-item-action">
+                          {country.name.common}
+                        </h3>
+                        <h3 className="list-group-item list-group-item-action">
+                          Official Denomination: {country.name.official}
+                        </h3>
+                        <h3 className="list-group-item list-group-item-action">
+                          Capital: {country.capital}
+                        </h3>
+                        <h3 className="list-group-item list-group-item-action">
+                          CCA3: {country.cca3}
+                        </h3>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
     )}
 
     {!country && <p>Country not found</p>}
