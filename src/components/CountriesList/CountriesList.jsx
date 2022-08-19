@@ -1,47 +1,33 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function CountriesList() {
-    const [country, setCountry] = useState([]);
+    const [countries, setCountries] = useState([]);
 
-    const [input, setInput] = useState('');
-
-    const [countryName, setCountryName] = useState([]);
-
-    const handleInput = (e) => setInput(e.target.value);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setCountryName(input);
-    };
-
-    const getCountry = async () => {
+    const getCountries = async () => {
         try {
-            let response = await axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryName}`);
-            setCountry(response.data);
+            let response = await axios.get(`https://ih-countries-api.herokuapp.com/countries`);
+            setCountries(response.data.reverse());
         } catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-      getCountry();
-    }, [countryName]);
+      getCountries();
+    }, []);
 
   return (
     <div>
-    <h3>Countries List</h3>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={input} onChange={handleInput} />
-        <button type="submit">Search Country</button>
-      </form>
-
-    {country.map((countries) => {
+     {countries.map((country) => {
     return (
-        <div key={countries._id}>
-        <h3>{countries.name.common}</h3>
-        </div>
+      <Link key={country._id} to={`/${country.alpha3Code}`}> 
+      <div className="bg-light">
+      <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="" />
+        <p>{country.name.common}</p>
+      </div>
+      </Link>
     )
 })}
     </div>

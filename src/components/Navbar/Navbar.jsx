@@ -1,10 +1,10 @@
-import { Link, NavLink } from 'react-router-dom';
+import React from 'react';
 
 function Navbar() {
   return (
-    <div>
-        <NavLink to="/lab-wikicountries">LAB - WikiCountries</NavLink>
-    </div>
+    <nav className='bg-primary'>
+        <h2 className='text-light'>LAB - WikiCountries</h2>
+    </nav>
   )
 }
 

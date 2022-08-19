@@ -1,19 +1,36 @@
-import React from 'react';
-import countries from '../countries.json';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-function CountryDetails(props) {
-    const { countriesId } = useParams();
+function CountryDetails() {
+  const [country, setCountry] = useState(null);
 
-    const foundCountries = countries.find((countries) => countries._id === countriesId);
+  const {code} = useParams();
+
+  const getCountry = async () => {
+    try {
+      let response = await axios.get(`https://ih-countries-api.herokuapp.com/countries/${code}`);
+  
+      setCountry(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getCountry();
+  }, [code]);
 
   return (
     <div>
-    
-    <h3>Country Details</h3>
-
-    {foundCountries && (
-        <h3>{foundCountries.name.common}</h3>
+    {country &&(
+    <div>
+    <h3>{country.name.common}</h3>
+    <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="" />
+    <p>Capital: {country.capital[0]}</p>
+    <hr />
+    <p>Area: {country.area}</p>
+    </div>
     )}
     </div>
   )
