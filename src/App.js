@@ -6,7 +6,7 @@ import CountryDetails from './components/CountryDetails/CountryDetails';
 import {Routes, Route} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 function App() {
@@ -16,7 +16,8 @@ function App() {
     try {
       let response = await axios.get('https://ih-countries-api.herokuapp.com/countries');
       console.log(response.data);
-      setCountry(response.data);
+      //Setting the response to be presented in the reverse order - using 'reverse()'- of the array because it naturally brings the countries from Z to A.
+      setCountry(response.data.reverse());
      }
     catch (err) {
       console.log(err)  
@@ -33,14 +34,20 @@ function App() {
       
       <Navbar />  
 
-     <Routes>
-      <Route path='/countries-list' element={<CountriesList data={country} /> } />
-      <Route path='/countries-list/:countryAlpha' element={<CountryDetails data={country} />} />
-      
-     </Routes>
- 
-
-    </div>
+      <div className="container">
+         <div className="row">
+           <div className="col vh-100 overflow-scroll">
+            <CountriesList data={country} />
+            </div>
+            <div className="col">
+            <Routes>
+            <Route path='/:countryAlpha' element={<CountryDetails data={country} />} />
+            </Routes>
+            <CountryDetails data={country} />  
+            </div>
+           </div>
+         </div>
+        </div>
   );
  }
 

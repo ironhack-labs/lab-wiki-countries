@@ -14,7 +14,9 @@ function CountriesList(props) {
               {data.map((el) => {
                  return (
                 <div key={el.alpha3Code}>
-                   <h4><Link className="list-group-item list-group-item-action" to={`/countries-list/${el.alpha3Code}`}>{el.name.common}</Link></h4>
+                  <img src={`https://flagpedia.net/data/flags/icon/72x54/${el.alpha2Code.toLowerCase()}.png`} />
+                   <h4><Link className="list-group-item list-group-item-action" to={`/${el.alpha3Code}`}>{el.name.common}</Link></h4>
+                   
                 </div>   
                 )
                })}  

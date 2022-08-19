@@ -1,4 +1,4 @@
-import {useParams, Link} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
 
 function CountryDetails(props) {
@@ -10,7 +10,9 @@ function CountryDetails(props) {
 
   return (
     <div>
+       {foundCountry && (
       <div class="col-7">
+           <img src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`} />
             <h1>{foundCountry.name.common}</h1>
              
             <table class="table">
@@ -23,9 +25,9 @@ function CountryDetails(props) {
                 <tr>
                   <td>Area</td>
                   <td>
-                    {foundCountry.area} km2
+                    {foundCountry.area} km
                     <sup>2</sup>
-                  </td>
+                  </td> 
                 </tr>
                 <tr>
                   <td>Borders</td>
@@ -41,8 +43,9 @@ function CountryDetails(props) {
                   </td> 
                 </tr>
               </tbody>
-            </table>
+            </table>    
       </div>
+       )}
     </div>
   )
 }
