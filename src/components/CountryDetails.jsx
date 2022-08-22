@@ -1,36 +1,45 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
 function CountryDetails() {
   const [country, setCountry] = useState(null);
-  const { countryId } = useParams();
+
+  const { code } = useParams();
+
+  const getCountry = async () => {
+    try {
+      let response = await axios.get(
+        `https://ih-countries-api.herokuapp.com/countries/${code}`
+      );
+      setCountry(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    axios
-      .get(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
-      .then((response) => {
-        setCountry(response.data);
-      })
-      .catch((err) => console.log(err));
-  }, [countryId]);
+    getCountry();
+  }, [code]);
+
   return (
     <div>
       {country && (
-        <>
+        <div>
+          <h2>{country.name.common}</h2>
           <img
-            src={` https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+            src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
             alt=""
           />
-          <h1>{country.name.common}</h1>
-          <h3>Capital: {country.capital}</h3>
-          <h3>Area: {country.area}km2</h3>
-          <ul>Border: </ul>
-          {country.borders.map((element) => {
-            return <li>{element}</li>;
-          })}
-        </>
+          <hr />
+          <p>Capital: {country.capital[0]}</p>
+          <hr />
+          <p>Area: {country.area}</p>
+          <hr />
+        </div>
       )}
     </div>
   );
 }
-export default CountryDetails
+
+export default CountryDetails;

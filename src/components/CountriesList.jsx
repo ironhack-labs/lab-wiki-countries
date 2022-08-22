@@ -1,40 +1,42 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function CountriesList() {
   const [countries, setCountries] = useState([]);
 
+  const getCountries = async () => {
+    try {
+      let response = await axios.get(
+        'https://ih-countries-api.herokuapp.com/countries'
+      );
+      console.log(response.data);
+
+      setCountries(response.data.reverse());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    axios
-      .get('https://ih-countries-api.herokuapp.com/countries')
-      .then((response) => {
-        setCountries(response.data);
-      })
-      .catch((err) => console.log(err));
+    getCountries();
   }, []);
 
   return (
-    <div className="row">
-      <div className="list-group">
-        {countries.map((element) => {
-          return (
-            <div
-              key={element.alpha3Code}
-              style={{ width: '500px' }}
-              className="list-group-item list-group-item-action"
-            >
-              <Link to={`/${element.alpha3Code}`}>
-                <img
-                  src={`https://flagpedia.net/data/flags/icon/72x54/${element.alpha2Code.toLowerCase()}.png`}
-                  alt=""
-                />
-                <h2>{element.name.common}</h2>
-              </Link>
+    <div>
+      {countries.map((country) => {
+        return (
+          <Link key={country._id} to={`/${country.alpha3Code}`}>
+            <div className="bg-light">
+              <img
+                src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                alt=""
+              />
+              <p>{country.name.common}</p>
             </div>
-          );
-        })}
-      </div>
+          </Link>
+        );
+      })}
     </div>
   );
 }
