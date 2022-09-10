@@ -11,7 +11,7 @@ const CountriesList = (props) => {
       <ul>
         {countries.map((country) => {
           return (
-            <Link to={`/${country.alpha3Code}`}>{country.name.common}</Link>
+            <Link key={country.alpha3Code} to={`/${country.alpha3Code}`}>{country.name.common}</Link>
           );
         })}
       </ul>
