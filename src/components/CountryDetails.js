@@ -19,6 +19,7 @@ const CountryDetails = () => {
 
   return !loading ? (
     <div className="col-7">
+      <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}></img>
       <h1>{country.name.official}</h1>
       <table className="table">
         <thead></thead>
