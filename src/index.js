@@ -6,8 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { BrowserRouter as Router } from 'react-router-dom';
+import CountriesList from './components/CountriesList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 
 root.render(
   <Router>
