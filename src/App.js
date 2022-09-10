@@ -9,15 +9,12 @@ import CountryDetails from './components/CountryDetails';
 
 
 function App() {
-  const {param}=useParams();
+  //const {param}=useParams();
   
   return (
     <div className="App">
     <NavBar/>
     <CountriesList/>
-    <Routes>
-    <Route path="/:id" element={ <CountryDetails CountryDetails={param} /> } />
-    </Routes>
     </div>
   );
 }
