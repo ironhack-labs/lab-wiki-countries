@@ -1,0 +1,21 @@
+.country-details {
+    display:            flex;
+    flex-direction:     column;
+    justify-content:    center;
+    align-items:        center;
+    gap:                5px;
+}
+
+img {
+    height:             20vh;
+    width:              auto;
+}
+
+table {
+    width:              60vw;
+}
+
+td {
+    height:             5vh;
+    border-bottom:      1px solid gray;
+}

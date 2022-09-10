@@ -1,0 +1,27 @@
+.countries-list {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    overflow:scroll;
+}
+
+li {
+    list-style-type:    none;
+}
+
+.country-button {
+    display:            flex;
+    flex-direction:     column;
+    justify-content:    center;
+    align-items:        center;
+    height:             15vh;
+    width:              300px;
+    border:             1px solid gray;
+    text-decoration:    none;
+    color:              black;
+    gap:                10px;
+}
+
+.country-button:hover {
+    background-color:   lightgray;
+}
