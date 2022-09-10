@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import countriesData from '../countries.json';
 
-const CountryDetails = () => {
+const CountryDetails = ({countries}) => {
   const { id } = useParams();
 
-  const [countries, setCountries] = useState(countriesData);
   const [country, setCountry] = useState({});
   const [loading, setLoading] = useState(true);
 
