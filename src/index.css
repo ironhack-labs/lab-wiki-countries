@@ -11,3 +11,76 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    margin-bottom: 20px;
+    padding-left: 100px;
+    padding-top: 15px;
+    color: white;
+    background-color: blue;
+    text-align: left;
+}
+
+.navbar h1 {
+    font-size: 25px;
+}
+
+.countries-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.countries-list-entry {
+    width: 400px;
+    height: 6em;
+    border: 2px solid lightgrey;
+    border-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.countries-list-entry img {
+    height: 2em;
+    width: 3em;
+}
+
+.countries-list-entry a {
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.countries-list :hover {
+    background-color: #F5F5F5;
+}
+
+.country {
+    position: fixed;
+    width: 30%;
+    margin: 2em 30em;
+}
+
+.country img {
+    height: 75px;
+}
+
+.country table {
+    width: 100%;
+}
+
+.country tr {
+    border-bottom: 2px solid lightgray;
+}
+
+.country th {
+    height: 3em;
+    font-weight: 700;
+}
