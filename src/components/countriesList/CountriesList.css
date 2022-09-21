@@ -1,0 +1,29 @@
+.flag {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 10%;
+}
+
+.flag img {
+    width: 150px;
+    height: 100px;
+}
+
+.flag a {
+    text-decoration: none;
+    background-color: rgb(89, 90, 90);
+    color: #fff;
+    padding: 8px;
+    margin: 10px 0px;
+    border-radius: 5px;
+}
+
+.flag a:hover {
+    text-decoration: none;
+    background-color: rgb(89, 90, 90);
+    color: rgb(10, 10, 10);
+    padding: 8px;
+    border-radius: 5px;
+}

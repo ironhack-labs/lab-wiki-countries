@@ -2,6 +2,23 @@
   text-align: center;
 }
 
+.general {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+}
+
+.list {
+  overflow: scroll;
+  height: 80vh;
+}
+
+.oneCountry {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -32,6 +49,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
