@@ -32,7 +32,53 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.listCountries {
+  overflow: scroll;
+  border: 1px solid black;
+  width: 400px;
+  height: 780px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.country {
+  border: 1px solid black;
+}
+
+.layout {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.AllflexDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.flexImgAndCapital {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexDetails {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.flexFront {
+  display: flex;
+  flex-direction: column;
 }
