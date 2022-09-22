@@ -1,0 +1,9 @@
+.Container {
+    border: 2px solid black;
+    width: 200px
+}
+
+.Container img {
+    width: 100px;
+    margin-top: 10px;
+}
