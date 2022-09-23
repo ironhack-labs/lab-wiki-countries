@@ -18,7 +18,7 @@ function CountriesList ({countries}) {
                             
                             
                             <Link to={`/${country.alpha3Code}`} className="list-group-item list-group-item-action">
-                            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png` }  alt= 'sth' /> 
+                            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png` } style={{'height': '30px'}} alt= 'sth' /> 
 
                             <br/> 
                             {country.name.common}
