@@ -4,3 +4,51 @@
   text-align: center;
   
 }
+
+.main-container {
+  display:flex;
+  margin-top:20px;
+}
+.main-list {
+  width: 340px;
+  margin:0;
+  padding: 0 10px;
+  border-right: 1px solid gray;
+}
+.main-list li {
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  align-items: center;
+  list-style: none;
+  margin: 20px 0;
+  padding: 10px 0;
+  border:1px solid gray;
+  box-shadow: 1px 1px 3px gray;
+}
+.main-list li:hover{
+  cursor: pointer;
+  background-color: rgba(121, 60, 226, 0.401);
+}
+
+.main-list li img {
+  width: 50px;
+}
+
+
+.links {
+  text-decoration: none;
+  color:rgb(9, 9, 167);
+}
+.links:visited {
+  color:rgb(9, 9, 167);
+}
+
+.country-details {
+  padding: 0 0 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+.country-details img {
+  width: 100px;
+}
