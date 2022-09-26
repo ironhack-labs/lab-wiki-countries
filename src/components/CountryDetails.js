@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useState } from 'react';
 
 
@@ -49,9 +49,10 @@ const CountryDetails = (props) => {
                   <td>Borders</td>
                   <td>
                     <ul>
-                      <li><a href="/AND">{borders}</a></li>
                       {
-                        
+                        borders.map((code) => {
+                          return <li><Link to={`/${code}`}>{code}</Link></li>
+                        })
                       }
                     </ul>
                   </td>

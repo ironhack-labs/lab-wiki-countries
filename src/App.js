@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-    const [countries, setCountries] = useState()
+    const [countries, setCountries] = useState([])
 
     useEffect(() => {
       fetch(`https://ih-countries-api.herokuapp.com/countries`)
@@ -20,8 +20,8 @@ function App() {
         .catch(err => console.log(err))
     }, [])
     
-    // Cadenero que espera ls respuesta del servidor
-    if (countries) {
+    // Cadenero que espera la respuesta del servidor
+    
       
   return (
     <BrowserRouter>
@@ -41,7 +41,7 @@ function App() {
     </BrowserRouter>
   );
     
-    }
+    
 }
 
 export default App;
