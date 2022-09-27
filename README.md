@@ -12,7 +12,6 @@ After spending too much time on GitHub, you found a [JSON dataset of countries](
 
 <br>
 
-
 ## Setup
 
 - Fork this repo
@@ -29,7 +28,6 @@ After spending too much time on GitHub, you found a [JSON dataset of countries](
 
 <br>
 
-
 ## Submission
 
 - Upon completion, run the following commands:
@@ -44,26 +42,23 @@ After spending too much time on GitHub, you found a [JSON dataset of countries](
 
 <br>
 
-
 ## Getting Started
 
 Clean the `App.js` component so that it has the following structure:
 
 ```jsx
 // src/App.js
-import "./App.css";
+import './App.css';
 
 function App() {
-  return <div className="App"></div>;
+  return <div classNameName="App"></div>;
 }
 export default App;
 ```
 
 <br>
 
-
-## Instructions 
-
+## Instructions
 
 ### Iteration 0 | React Router installation
 
@@ -89,9 +84,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    <Router>
-      <App />
-    </Router>
+  <Router>
+    <App />
+  </Router>
 );
 
 // comment omitted for readability
@@ -99,7 +94,6 @@ reportWebVitals();
 ```
 
 <br>
-
 
 ### Bootstrap installation
 
@@ -117,7 +111,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 ```
 
 <br>
-
 
 ## Instructions
 
@@ -142,18 +135,17 @@ If you want to style it, refresh your memory on Bootstrap in the [docs](https://
 <br>
 
 **NOTE:** If you decide to copy the code provided in the `example.html`, keep the following in mind:
-- In React, the `class` html attribute is defined using `className`
+
+- In React, the `className` html attribute is defined using `classNameName`
 - For inline CSS, use a JavaScript object and name each CSS property in camelCase (more details [here](https://reactjs.org/docs/dom-elements.html#style)).
 
 <br>
 
-
 ### Iteration 1.2 | Navbar component
 
-Create a navbar component that displays the title *LAB - WikiCountries*.
+Create a navbar component that displays the title _LAB - WikiCountries_.
 
 <br>
-
 
 ### Iteration 1.3 | CountriesList component
 
@@ -161,17 +153,14 @@ This component should render a list of `Link`s, each having the country's `alpha
 
 <br>
 
-
 ### Iteration 1.4 | CountryDetails component and `Route` setup
 
 Now that our list of countries is ready, we should create the `CountryDetails` component. This component should receive the array of countries as a prop. Here's a reminder on how to do this:
 
 ```jsx
 // Example
-<Route path="/:id" element={ <SomeComponent someData={someData} /> } />
+<Route path="/:id" element={<SomeComponent someData={someData} />} />
 ```
-
-
 
 The `alpha3Code` of the country will be available throught the URL parameters. To access the URL parameters, from the browser's URL bar, use the React Routers hooks `useParams`. For a reminder on setting up and accessing the URL parameters with React Router, check [this example](https://reactrouter.com/docs/en/v6/api#useparams).
 
@@ -183,7 +172,6 @@ The `alpha3Code` of the country will be available throught the URL parameters. T
 
 For the small picture of the flag, you can use the lowercased `alpha2Code` and embed it in the URL as shown below:
 
-
 - France: https://flagpedia.net/data/flags/icon/72x54/fr.png
 - Germany: https://flagpedia.net/data/flags/icon/72x54/de.png
 - Brazil: https://flagpedia.net/data/flags/icon/72x54/br.png
@@ -191,8 +179,7 @@ For the small picture of the flag, you can use the lowercased `alpha2Code` and e
 
 <br>
 
-
-----
+---
 
 ### Iteration 2 | Linking it all together
 
@@ -203,11 +190,11 @@ Once done creating the components, the structure of elements that your `App.js` 
 ```jsx
 // ...
 
-<div className="App">
+<div classNameName="App">
   <Navbar />
 
-  <div className="container">
-    <div className="row">
+  <div classNameName="container">
+    <div classNameName="row">
       <CountriesList countries={countries} />
       {/* React-Router Route rendering the CountryDetails should go here */}
     </div>
@@ -217,17 +204,17 @@ Once done creating the components, the structure of elements that your `App.js` 
 // ...
 ```
 
-----
+---
 
 ### Iteration 3 | Fetch countries data from an API
 
 Instead of relying on the static data from a `json` file, let's do something more interesting and get the data from an actual API.
 
-In `App.js`, make a `GET` request to the URL [https://ih-countries-api.herokuapp.com/countries](https://ih-countries-api.herokuapp.com/countries). Use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request. 
+In `App.js`, make a `GET` request to the URL [https://ih-countries-api.herokuapp.com/countries](https://ih-countries-api.herokuapp.com/countries). Use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request.
 
 You should use the `useEffect()` hook to set an effect that runs only once and makes a request to the API. Once you receive the response data, save it in a state variable. The request should happen first thing when the application loads.
 
-----
+---
 
 ### Iteration 4 | Bonus | Fetch one country data from an API
 
@@ -240,7 +227,5 @@ Using the `useEffect` hook set an effect in the `CountriesDetails` component. Th
 - India: https://ih-countries-api.herokuapp.com/countries/IND
 
 The effect should run after the initial render, and each time the URL parameter with the `alpha3Code` changes.
-
-
 
 Happy coding! :heart:
