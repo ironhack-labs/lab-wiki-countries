@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.country-name {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.main-image {
+  width: 50%;
+}
