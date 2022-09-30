@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-export default function CountryDetails({ countries }) {
+export default function CountryDetails({ countries = [{}] }) {
   const { id } = useParams();
   const {
     name: { official: name },
@@ -17,6 +17,7 @@ export default function CountryDetails({ countries }) {
     <div className="col-7">
       <img
         style={{ height: '1em' }}
+        alt={name}
         src={`https://flagpedia.net/data/flags/icon/72x54/${alpha2Code.toLowerCase()}.png`}
       />
       <h1>{name}</h1>

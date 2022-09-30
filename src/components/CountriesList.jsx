@@ -14,6 +14,7 @@ export default function CountriesList({ countries }) {
             >
               <img
                 style={{ height: '1em' }}
+                alt={country.name}
                 src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
               />
               {` ${country.name.official}`}
