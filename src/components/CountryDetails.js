@@ -30,8 +30,9 @@ function CountryDetails(props) {
   // console.log('useParams: ', useParams());
 
   return (
-    <div className="col-7">
+    <div className="col-7 container-fluid w-auto p-3">
       <img
+        className="img-fluid"
         src={`https://flagpedia.net/data/flags/icon/72x54/${clickedCountry[0].alpha2Code.toLowerCase()}.png`}
         alt="some dumb rag"
       ></img>
@@ -53,7 +54,7 @@ function CountryDetails(props) {
           <tr>
             <td>Borders</td>
             <td>
-              <ul>
+              <ul style={{ listStyleType: 'none' }}>
                 {/* {console.log(clickedCountry[0].borders)} */}
                 {clickedCountry[0].borders
                   .map((border) => {
