@@ -1,10 +1,30 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+// import CountryArray from '../countries.json';
 
-function CountryList() {
+function CountryList(props) {
+  const { countries } = props;
+  const [countryList, setCountryList] = useState();
+  console.log(countryList);
   return (
     <div className="col-5" style={{ maxheight: '90vh', overflow: 'scroll' }}>
       <div className="list-group">
-        <Link className="list-group-item list-group-item-action" to="/ABW">
+        {props.countries.map((country) => {
+          const imageLink =
+            'https://flagpedia.net/data/flags/icon/72x54/' +
+            country.alpha2Code.toString().toLowerCase() +
+            '.png';
+          return (
+            <Link
+              className="list-group-item list-group-item-action"
+              to={`/${country.alpha3Code}`}
+            >
+              <img src={imageLink} alt="Flag"></img>
+              <h2>{country.name.common}</h2>
+            </Link>
+          );
+        })}
+        {/* <Link className="list-group-item list-group-item-action" to="/ABW">
           🇦🇼 Aruba
         </Link>
 
@@ -52,7 +72,7 @@ function CountryList() {
         </Link>
         <Link className="list-group-item list-group-item-action" to="/ZWE">
           🇿🇼 Zimbabwe
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

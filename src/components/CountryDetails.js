@@ -1,5 +1,6 @@
 import CountryArray from '../countries.json';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function CountryDetails() {
   const countryparams = useParams();
@@ -11,18 +12,20 @@ function CountryDetails() {
 
   return (
     <div className="col-7">
-      <h1>France</h1>
+      {}
+
+      <h1>{foundCountry.name.common}</h1>
       <table className="table">
         <thead></thead>
         <tbody>
           <tr>
             <td style={{ width: '30%' }}>Capital</td>
-            <td>Paris</td>
+            <td>{foundCountry.capital[0]}</td>
           </tr>
           <tr>
             <td>Area</td>
             <td>
-              551695 km
+              {foundCountry.area} km
               <sup>2</sup>
             </td>
           </tr>
@@ -30,7 +33,17 @@ function CountryDetails() {
             <td>Borders</td>
             <td>
               <ul>
-                <li>
+                {foundCountry.borders.map((border) => {
+                  const borderCountry = CountryArray.find((country) => {
+                    return country.alpha3Code === border;
+                  });
+                  return (
+                    <li>
+                      <Link to={`/${border}`}>{borderCountry.name.common}</Link>
+                    </li>
+                  );
+                })}
+                {/* <li>
                   <a to="/AND">Andorra</a>
                 </li>
                 <li>
@@ -53,7 +66,7 @@ function CountryDetails() {
                 </li>
                 <li>
                   <a to="/CHE">Switzerland</a>
-                </li>
+                </li> */}
               </ul>
             </td>
           </tr>
