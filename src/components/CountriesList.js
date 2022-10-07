@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import countries from '../countries.json';
+// import countries from '../countries.json';
 
-function CountriesList() {
+function CountriesList({ countriesData }) {
+  console.log({ countriesData });
   return (
     <div className="container">
       {/* <!-- Bootstrap row wrapper div --> */}
@@ -10,11 +11,18 @@ function CountriesList() {
         {/* <!-- Countries List (Bootstrap column) --> */}
         <div className="col-5">
           <div className="list-group">
-            {countries.map((country) => (
+            {countriesData.map((country) => (
               <div key={country.name.common}>
-                <img src=" https://flagpedia.net/data/flags/icon/72x54/{{country.alpha2Code}}.png" />
-                {/* {country.alpha2Code} */}
-                <Link to={`/${country.alpha3Code}`}>{country.name.common}</Link>
+                <Link to={`/${country.alpha3Code}`}>
+                  <div>
+                    <img
+                      style={{ width: 25 }}
+                      src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                      alt={country.name.common}
+                    />
+                    <p>{country.name.common}</p>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
