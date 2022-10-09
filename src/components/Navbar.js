@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom';
+
 function Navbar() {
   return (
     <nav className="navbar navbar-dark bg-primary mb-3">
       <div className="container">
-        <a className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/">
           WikiCountries
-        </a>
+        </Link>
       </div>
     </nav>
   );

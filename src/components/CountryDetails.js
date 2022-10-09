@@ -1,19 +1,40 @@
 import CountryArray from '../countries.json';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function CountryDetails() {
   const countryparams = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  console.log(countryparams);
+  const countryDetail =
+    'https://ih-countries-api.herokuapp.com/countries/' + countryparams.id;
+  console.log(countryDetail);
+  const [foundCountry, setFoundCountry] = useState({});
+  useEffect(() => {
+    axios
+      .get('https://ih-countries-api.herokuapp.com/countries/DEU')
+      .then((res) => {
+        setFoundCountry(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
 
-  const foundCountry = CountryArray.find(
-    (element) => element.alpha3Code === countryparams.id
-  );
+  // const foundCountry = CountryArray.find(
+  //   (element) => element.alpha3Code === countryparams.id
+  // );
   console.log(foundCountry);
 
+  if (isLoading) {
+    return <h1>Is Loading</h1>;
+  }
   return (
     <div className="col-7">
-      {}
-
       <h1>{foundCountry.name.common}</h1>
       <table className="table">
         <thead></thead>
@@ -38,35 +59,11 @@ function CountryDetails() {
                     return country.alpha3Code === border;
                   });
                   return (
-                    <li>
+                    <li key={border}>
                       <Link to={`/${border}`}>{borderCountry.name.common}</Link>
                     </li>
                   );
                 })}
-                {/* <li>
-                  <a to="/AND">Andorra</a>
-                </li>
-                <li>
-                  <a to="/BEL">Belgium</a>
-                </li>
-                <li>
-                  <a to="/DEU">Germany</a>
-                </li>
-                <li>
-                  <a to="/ITA">Italy</a>
-                </li>
-                <li>
-                  <a to="/LUX">Luxembourg</a>
-                </li>
-                <li>
-                  <a to="/MCO">Monaco</a>
-                </li>
-                <li>
-                  <a to="/ESP">Spain</a>
-                </li>
-                <li>
-                  <a to="/CHE">Switzerland</a>
-                </li> */}
               </ul>
             </td>
           </tr>
