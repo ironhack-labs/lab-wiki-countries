@@ -5,7 +5,8 @@ import './components.js/CountryDetails';
 import './components.js/Navbar';
 import { useEffect, useState } from 'react';
 import CountriesList from './components.js/CountriesList';
-import { Route, Router } from 'react-router-dom';
+import { Route, Router, Routes } from 'react-router-dom';
+import CountryDetails from './components.js/CountryDetails';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -31,7 +32,14 @@ function App() {
 
   return (
     <div className="App">
-      <CountriesList countries={countries} />
+      <div className="container">
+        <div className="row">
+          <CountriesList countries={countries} />
+          <Routes>
+            <Route path="/:id" element={<CountryDetails />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
