@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import {Routes, Route, Link} from "react-router-dom";
 import './App.css';
 import CountriesList from './components/CountriesList';
+import CountryDetails from "./components/CountryDetails";
 import Navbar from './components/Navbar';
 
 function App() {
@@ -12,11 +13,9 @@ function App() {
     axios.get("https://ih-countries-api.herokuapp.com/countries")
     
     .then(response => {
-      console.clear()
-      console.log("response.data", response.data)
       setCountriesArr(response.data)
     })
-    .catch.catch(e => console.log("error getting countries", e));
+    .catch(e => console.log("error getting countries", e));
   }, []);
 
   return (
@@ -24,7 +23,7 @@ function App() {
     <Navbar/>
     <CountriesList countries={countriesArr}/>
     <Routes>
-      <Route path="/"element={<CountriesList characters={countriesArr} />} />
+      <Route path="/:countryId" element={<CountryDetails countries={countriesArr} />} />
      </Routes>
     </div>
   );

@@ -4,14 +4,14 @@ function CountriesList (props) {
     console.log("countries error", props)
     return(
         <div>
-            <h2>List of countries:</h2>
+            <h2>List of countries from API:</h2>
             
             {props.countries.map((country)=>{
                 
                 return (
-                    <div className="country">
-                        <h2>{country.name.official}</h2>
-                        <Link to={`/countries/${country.id}`}>Country details</Link>
+                    <div className="country-box">
+                        <h2>{country.name.common}</h2>
+                        <Link to={`/${country.id}`}>Country details</Link>
                         </div>
                 )
             })}
