@@ -25,15 +25,18 @@ function App() {
     <div className="App">
       <Navbar />
       <div className="container">
-        <div className="">
+        <div className="row">
+          <div class="col-6 ">
           <CountriesList propCountries={countriesArr} />
-
+          </div>
+          <div class="col-6 ">
           <Routes>
             <Route
               path="/:alpha3Code"
               element={<CountriesDetails propCountries={countriesArr} />}
             />
           </Routes>
+          </div>
         </div>
       </div>
     </div>

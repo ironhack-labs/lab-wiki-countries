@@ -4,7 +4,7 @@ function CountriesList({ propCountries }) {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-5" style={{maxHeight: "90vh", overflow: "scroll"}}>
+        <div className="col" style={{maxHeight: "90vh", overflow: "scroll"}}>
           <div className="list-group">
             {propCountries.map((element) => {
               return (
