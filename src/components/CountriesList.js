@@ -1,4 +1,5 @@
-import {Routes, Route, Link} from "react-router-dom";
+import { Routes, Route, Link } from 'react-router-dom';
+
 
 function CountriesList (props) {
     console.log("countries error", props)
@@ -15,9 +16,8 @@ function CountriesList (props) {
                         </div>
                 )
             })}
-
-        </div>
-    )
+    </div>
+  );
 }
 
 export default CountriesList;
