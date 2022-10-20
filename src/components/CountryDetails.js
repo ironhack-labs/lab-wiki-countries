@@ -1,26 +1,34 @@
-import { useState } from "react";
-import { Routes, Route, Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 
-function CountryDetails({ country }) {
+function CountryDetails(country) {
     let { countryCode } = useParams();
     
+    //const [countryByAlpha, setCountryByAlpha] = useState(country[0])
+    //useEffect(() => {
+    //    const oneContry = country.filter(oneCountr => {
+    //        return  oneCountr.alpha3Code === countryCode;
+    //    })
+    //    setCountryByAlpha(oneContry);
+    //    console.log(oneContry);
+    //  }, []);
 
 
     return (
         <div className="col-7">
-            <h1>{country.name.official}</h1>
+            <h1>{ countryCode }</h1>
             <table className="table">
                 <thead></thead>
                 <tbody>
                     <tr>
                         {/* <td style="width: 30%">Capital</td> */}
                         <td>Capital</td>
-                        <td>Paris</td>
+                        <td>Capital</td>
                     </tr>
                     <tr>
                         <td>Area</td>
                         <td>
-                            551695 km
+                        0 km
                             <sup>2</sup>
                         </td>
                     </tr>
