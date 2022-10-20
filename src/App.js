@@ -25,8 +25,8 @@ function App() {
       <Navbar />
       <div className="container">
         <div className="row">
+          <CountriesList countries={countries} />
           <Routes>
-            <Route path="/" element={<CountriesList countries={countries} />} />
             <Route
               path="/:alpha3Code"
               element={<CountryDetails countries={countries} />}
