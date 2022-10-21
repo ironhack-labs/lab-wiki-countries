@@ -1,43 +1,49 @@
+import axios from 'axios';
+import { useEffect, useStat } from 'react';
+import { Routes, Route, Link, useParams } from "react-router-dom";
 
-export default function CountryDetails() {
-    return (
 
-        <div className="col-7">
-            <h1>France</h1>
-            <table className="table">
-                <thead></thead>
-                <tbody>
-                    <tr>
-                        <td >Capital</td>
-                        <td>Paris</td>
-                    </tr>
-                    <tr>
-                        <td>Area</td>
-                        <td>
-                            551695 km
-                            <sup>2</sup>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Borders</td>
-                        <td>
-                            <ul>
-                                <li><a href="/AND">Andorra</a></li>
-                                <li><a href="/BEL">Belgium</a></li>
-                                <li><a href="/DEU">Germany</a></li>
-                                <li><a href="/ITA">Italy</a></li>
-                                <li><a href="/LUX">Luxembourg</a></li>
-                                <li><a href="/MCO">Monaco</a></li>
-                                <li><a href="/ESP">Spain</a></li>
-                                <li><a href="/CHE">Switzerland</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+function CountryDetails(props) {
+    /*   const { characterId } = useParams();
+     */
 
-    )
-}
+    props.countries.map((countries) => {
+        return (
+            <div class="col-7">
+                <h1>{{ countries.name }}</h1>
+                <table class="table">
+                    <thead></thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 30%">Capital</td>
+                            <td>Paris</td>
+                        </tr>
+                        <tr>
+                            <td>Area</td>
+                            <td>
+                                551695 km
+                                <sup>2</sup>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Borders</td>
+                            <td>
+                                <ul>
+                                    <li><a href="/AND">{{ countries.name }}</a></li>
+                                    <li><a href="/BEL">{{ countries.name }}</a></li>
+                                    <li><a href="/DEU">{{ countries.name }}</a></li>
+                                    <li><a href="/ITA">{{ countries.name }}</a></li>
+                                    <li><a href="/LUX">{{ countries.name }}</a></li>
+                                    <li><a href="/MCO">{{ countries.name }}</a></li>
+                                    <li><a href="/ESP">{{ countries.name }}</a></li>
+                                    <li><a href="/CHE">{{ countries.name }}</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        );
+    })
 
-//style="width: 30%"
+    export default CountryDetails;

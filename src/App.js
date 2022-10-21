@@ -21,7 +21,7 @@ function App() {
         <Navbar >Wiki Countries</Navbar>
         <Routes>
           <Route path="/" element={<CountriesList countries={countries} />} />$
-          <Route path="/:id/alpha3Code" element={countries.alpha3Code} />
+          <Route path="/:id/alpha3Code" element={countries} />
 
           <Route path="/:id" element={<CountryDetails />} />
 
