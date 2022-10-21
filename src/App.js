@@ -2,12 +2,14 @@ import './App.css';
 import CountriesList from './components/CountriesList';
 import Navbar from './components/Navbar';
 import axios from 'axios';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import CountryDetails from './components/CountryDetails';
 import { useEffect, useState } from 'react';
 
 function App() {
   const [countries, setCountries] = useState([]);
+
+  
 
   useEffect(() => {
     axios
@@ -23,12 +25,12 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
+      <CountriesList countries={countries} />
       <div className="container">
         <div className="row">
           <Routes>
-            <Route path="/" element={<CountriesList countries={countries} />} />
-            <Route path="/countries/:id" element={<CountryDetails />} />
+            
+            <Route path="/:alpha3Code" element={<CountryDetails />} />
           </Routes>
         </div>
       </div>

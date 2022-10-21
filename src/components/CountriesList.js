@@ -1,7 +1,7 @@
-import { useState } from 'react';
 
-import {Routes, Route, Link} from "react-router-dom";
-import CountryDetails from './CountryDetails';
+
+import { Link} from "react-router-dom";
+
 
 function CountriesList({countries}) {
   
@@ -14,7 +14,7 @@ function CountriesList({countries}) {
 
             {countries.map((country) => {
                 return(
-                    <Link className="list-group-item list-group-item-action" to={`/countries/${country.alpha3Code}`}>
+                    <Link className="list-group-item list-group-item-action" key={country.alpha3Code} to={`/${country.alpha3Code}`}>
                     <img src={ `//flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt=""/>{country.name.official}
                     
                     
