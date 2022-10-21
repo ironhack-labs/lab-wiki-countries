@@ -6,7 +6,8 @@ function CountriesList({countriesList}) {
   
 
   return (
-    <div>
+          <div className="col-5" >
+            <div className="list-group">
       {countriesList.map((country, index) => {
         return (
           <div key= {index}>
@@ -15,6 +16,7 @@ function CountriesList({countriesList}) {
           </div>
         );
       })}
+    </div>
     </div>
   );
 }

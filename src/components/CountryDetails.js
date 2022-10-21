@@ -1,27 +1,61 @@
-import {useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function CountryDetails({countriesList}){
-    const [country, setCountry] = useState({})
+function CountryDetails() {
+  const [country, setCountry] = useState({});
+  console.log(country);
 
-const {id} = useParams()
+  const { id } = useParams();
+  console.log(id);
 
-useEffect(() => {
-    axios.get(`https://ih-countries-api.herokuapp.com/countries/` + id)
-      .then( response => {
-        console.log(response)
-        setCountry(response);
+  useEffect(() => {
+    axios
+      .get(`https://ih-countries-api.herokuapp.com/countries/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        setCountry(response.data)
       })
-      .catch(e => console.log("error getting characters from API", e));
-  }, []);
+      .catch((e) => console.log('error getting data from API', e));
+  }, [id]);
 
-    return(
-<div>
-    <h1>{country.name.common}</h1>
-    <h1>{country.capital[0]}</h1>
-    <h1>{country.area}</h1>
-</div>
-    )
+  return (
+    
+   <div className="col-6">
+    { country.name ?  
+     <div> 
+     <img src= {`http://flagpedia.net/data/flags/icon/72x54/`+country.alpha2Code+`.png`} alt={country.name.common}/>
+            <h1>{country.name.official}</h1>
+            <table className="table">
+              <thead></thead>
+              <tbody>
+                <tr>
+                  <td>Capital</td>
+                  <td>{country.capital[0]}</td>
+                </tr>
+                <tr>
+                  <td>Area</td>
+                  <td>
+                  {country.area} km
+                    <sup>2</sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Borders</td>
+                  <td>
+                {country.borders.map((border, index)=>{
+                    return (
+                        <span key= {index}>{border}, </span>
+                    )
+                })}
+                </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    : 
+    <p> waiting...</p>}
+    </div> 
+  );
 }
-export default CountryDetails
+export default CountryDetails;

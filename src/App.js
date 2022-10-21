@@ -21,11 +21,15 @@ function App() {
 
   return (
     <div className="App">
+    <div className="container">             
       <Navbar />
+      <div className="row">
       <CountriesList countriesList={countriesList}/>
       <Routes>
-      <Route path={`/:id`} element={ <CountryDetails countriesList={countriesList}/> } />
+      <Route path={`/:id`} element={ <CountryDetails /> } />
       </Routes>
+      </div>
+    </div>
     </div>
   );
 }
