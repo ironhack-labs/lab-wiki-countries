@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function CountryDetails() {
   const { alpha3Code } = useParams();
@@ -35,6 +35,18 @@ function CountryDetails() {
               <sup>2</sup>
             </td>
           </tr>
+          <tr>
+                  <td>Borders</td>
+                  <td>
+                  {details.borders && details.borders.map((border) => {
+                    return(
+                      <ul>
+                      <li key={border}><Link to={`/${border}`}>{border}</Link></li>
+                      </ul>
+                    )
+                  }) }
+                  </td>
+                </tr>
         </tbody>
       </table>
 
