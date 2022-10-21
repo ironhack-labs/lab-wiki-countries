@@ -40,7 +40,7 @@ function CountryDetails (){
                   <td>Borders</td>
                   <td>
                     <ul>
-                      <li><a href="/BEL"></a></li>
+                      <li><a href={details.alpha3Code}>{details.border && details.border }</a></li>
                       <li><a href="/BEL">Belgium</a></li>
                       <li><a href="/DEU">Germany</a></li>
                       <li><a href="/ITA">Italy</a></li>
