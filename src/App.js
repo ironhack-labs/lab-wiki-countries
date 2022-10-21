@@ -1,14 +1,23 @@
 // src/App.js
 import "./App.css";
-//import axios from "axios";
+import axios from "axios";
 import {Routes, Route} from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CountryDetails from "./components/CountryDetails";
 import CountriesList from "./components/CountriesList";
 import Navbar from "./components/Navbar";
 
 function App() {
   const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    axios
+    .get('https://ih-countries-api.herokuapp.com/countries')
+    .then( response => {
+      setCountries(response.data);
+    })
+    .catch(e => console.log('error getting countries from API', e));
+  }, []);
 
   return (
   <div className="App">
@@ -22,4 +31,5 @@ function App() {
   </div>
   )
 }
+
 export default App;

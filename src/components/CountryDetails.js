@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import React from 'react';
 
 function CountryDetails() {
     const { countryId } = useParams();
@@ -17,11 +19,33 @@ function CountryDetails() {
     }, [countryId]);
 
     return (
-        <div>
-            <h3>Country Name: {details.name.official}</h3>
-            <p>Area: {details.area}</p>
-            <p>Borders: {details.borders}</p>
-        </div>
+<div class="col-7">
+<h1>{details.name.official}</h1>
+<table class="table">
+  <thead></thead>
+  <tbody>
+    <tr>
+      <td>Capital</td>
+      <td>{details.capital}</td>
+    </tr>
+    <tr>
+      <td>Area</td>
+      <td>
+        {details.area} km
+        <sup>2</sup>
+      </td>
+    </tr>
+    <tr>
+      <td>Borders</td>
+      <td>
+        <ul>
+          <li><Link to="/AND">{details.borders}</Link></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
     );
 }
 
