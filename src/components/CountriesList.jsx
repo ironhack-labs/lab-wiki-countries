@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function CountriesList() {
   const [listCountry, setListCountry] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
 
+  const {alpha3Code} = useParams
+  
   useEffect(() => {
     axios
       .get('https://ih-countries-api.herokuapp.com/countries')
@@ -16,8 +18,7 @@ function CountriesList() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-  // console.log(listCountry);
+  }, [alpha3Code]);
 
   if (isFetching === true) {
     return <h3>...loading</h3>;
@@ -25,6 +26,7 @@ function CountriesList() {
 
   return (
     <div className="container">
+    
       <div className="row">
         <div
           className="col-5"
@@ -34,7 +36,10 @@ function CountriesList() {
             {listCountry.map((eachCountry) => {
               return (
                 <div key={eachCountry._id}>
-                  <Link className="list-group-item list-group-item-action">
+                  <Link
+                  to={`/${eachCountry.alpha3Code.toLowerCase()}`} 
+                  className="list-group-item list-group-item-action">
+
                     <img
                       src={`https://flagpedia.net/data/flags/icon/72x54/${eachCountry.alpha2Code.toLowerCase()}.png`}
                       alt="img"
@@ -44,7 +49,6 @@ function CountriesList() {
                 </div>
               );
             })}
-            <h3>Hola</h3>
           </div>
         </div>
       </div>

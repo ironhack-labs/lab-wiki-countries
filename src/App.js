@@ -1,15 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
 import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <CountriesList />
+      <div className="d-flex">
+        <CountriesList />
 
-      <Routes>{/* <Route path='' element={CountriesList}/> */}</Routes>
+        <Routes>
+          <Route path="/countries/:alpha3Code" element={<CountryDetails />} />
+        </Routes>
+      </div>
     </div>
   );
 }
