@@ -1,21 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import CountriesList from './components/CountriesList';
 import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div className="App">
-    <Navbar/>
+      <Navbar />
+      <CountriesList />
 
-    <Routes>
-      {/* <Route path='' element={}/> */}
-      {/* <Route path='' element={}/> */}
-    </Routes>
-
-    
-
-    
-     
+      <Routes>{/* <Route path='' element={CountriesList}/> */}</Routes>
     </div>
   );
 }
