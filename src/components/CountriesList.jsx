@@ -30,14 +30,14 @@ function CountriesList() {
       <div className="row">
         <div
           className="col-5"
-          style={{ maxHeight: '90vh', overflow: 'scroll' }}
+          style={{ maxHeight: '100vh', minWidth:'350px', padding:'20px', overflow: 'scroll' }}
         >
-          <div className="list-group">
+          <div className="list-group" >
             {listCountry.map((eachCountry) => {
               return (
                 <div key={eachCountry._id}>
                   <Link
-                  to={`/${eachCountry.alpha3Code.toLowerCase()}`} 
+                  to={`/countries/${eachCountry.alpha3Code}`} 
                   className="list-group-item list-group-item-action">
 
                     <img
