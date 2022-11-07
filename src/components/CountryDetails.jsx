@@ -48,7 +48,7 @@ function CountryDetails() {
                 {detailCountry.borders.map((eachCountry,index) => {
                   return (
                     <li key={index}>
-                      {/* <Link to={`${eachCountry}`}>{detailCountry.alpha3Code === {eachCountry} && detailCountry.name.common}</Link> */}
+                      <Link to={`${eachCountry}`}>{detailCountry.alpha3Code === {eachCountry} && detailCountry.name.common}</Link>
                     </li>
                   );
                 })}
