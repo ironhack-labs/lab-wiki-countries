@@ -5,7 +5,7 @@ function CountriesList({ countries }) {
     <ul>
       {countries.map((elem) => {
         return (
-          <div className='countryInList' key={elem.alpha3Code}>
+          <div className="countryInList" key={elem.alpha3Code}>
             <img
               src={`https://flagpedia.net/data/flags/icon/64x48/${elem.alpha2Code.toLowerCase()}.png`}
               alt={elem.name.common}
