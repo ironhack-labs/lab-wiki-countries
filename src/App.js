@@ -1,6 +1,6 @@
 import './App.css';
 import CountriesList from './components/CountriesList';
-import { Route, Routes, useParams } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import CountryDetails from './components/CountryDetails';
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
