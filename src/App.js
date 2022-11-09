@@ -1,18 +1,27 @@
 import './App.css';
 import CountriesList from './components/CountriesList';
-import { Route, Routes } from "react-router-dom";
-import PageLayout from './components/PageLayout';
+import { Route, Routes } from 'react-router-dom';
 import CountryDetails from './components/CountryDetails';
-import countries from "./countries.json"
+import countryData from './countries.json';
+import { useState } from 'react';
+import Navbar from './components/Navbar';
 
 function App() {
+  const [countries, setCountries] = useState(countryData);
+
   return (
-    <Routes>
-      <Route element={<PageLayout />}>
-        <Route path="/" element={<CountriesList countries={countries} />} />
-        <Route path=":id" element={<CountryDetails countries={countries} />} />
-      </Route>
-    </Routes>    
+    <div className="App">
+      <Navbar />
+      <div className="mainPage">
+        <CountriesList countries={countries} />
+        <Routes>
+          <Route
+            path="/:id"
+            element={<CountryDetails countries={countries} />}
+          />
+        </Routes>
+      </div>
+    </div>
   );
 }
 export default App;

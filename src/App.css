@@ -1,6 +1,42 @@
 .App {
-  text-align: left;
+  text-align: left;  
 }
 a {
   margin: 5px;
+}
+
+.mainPage {
+  display: flex;
+}
+
+.countryInList {
+  width: 200px;
+  height: 70px;
+  border: solid thin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countryInList img {
+  width: 64px;
+  height: 48px;
+  margin-right: 10px;
+}
+
+.countryDetails {
+  margin: 30px;
+}
+
+.category {
+  font-weight: bolder;
+  border-bottom: solid thin;
+}
+
+.category span {
+  font-weight: normal;
+}
+
+.borderList {
+  list-style-type: none;
 }
