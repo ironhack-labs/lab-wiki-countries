@@ -37,14 +37,17 @@ axios.get("https://ih-countries-api.herokuapp.com/countries")
     <p></p>
    
     <Routes>
-    <Route path="/countriesList" element={<CountriesList apiCountries={theCountries}/>}/>
+   
 
     <Route 
-            path="/countriesList/:alpha3Code"
+            path="/:alpha3Code"
             element={<CountryDetails />} />
     </Routes>
   
-
+    <div className="flexBoks">
+  <CountriesList apiCountries={theCountries}/> 
+  
+  </div>
 
     </div>
   );

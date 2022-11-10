@@ -30,3 +30,29 @@ code {
   color: rgb(0, 0, 0);
 
 }
+
+.countriesList {
+
+  text-align: left;
+  width: 500px;
+  background-color: rgb(175, 174, 174);
+}
+/* 
+.countryDetailsPage {
+  position: fixed;
+  background-color: grey;
+  left: 700px;
+  top: 150px;
+} */
+
+.flexBoks {
+  display: flex;
+}
+
+.countryDetailsPage {
+
+  position: fixed;
+  background-color: grey;
+  left: 700px;
+  top: 150px;
+}

@@ -37,11 +37,14 @@ useEffect(() => {
   
 }, [alpha3Code]);
 
+
+
 //END - AXIOS VERSION 
   return (
     <div className="countryDetailsPage">
 
        <h1 className="countDetsTitle">COUNTRY DETAILS</h1>
+
      {!foundCountry && <h3>Country not found</h3>}
 
 
@@ -49,8 +52,18 @@ useEffect(() => {
 
 
   <div className="countryDetailsBox">
-   <p>{alpha3Code}</p>
-   <p>{foundCountry.name.common}</p>
+  
+    <img src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`}/>
+   <p>COUNTRY CODE: {foundCountry.alpha2Code}</p>
+   <p>NAME: {foundCountry.name.common}</p>
+   <p>CAPITAL: {foundCountry.capital}</p>
+   <p>Area: {foundCountry.area}</p>
+   Borders: {foundCountry.borders.map((border)=> {
+    return(
+      <p>{border}</p>
+    )
+   })}
+
    {console.log(foundCountry.name)}
   </div>
 

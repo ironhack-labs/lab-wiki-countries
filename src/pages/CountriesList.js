@@ -13,10 +13,13 @@ export default function CountriesList(props) {
  
 console.log({REGCOUNTRIES: countries[0]})
   return (
-    <div>
-      
+    <div >
+       <h1 className="countListTitle">COUNTRIES LIST</h1>
+       
+      <div className="countriesList">
+
       { console.log({TRUE: props.theCountries})}
-      <h1 className="countListTitle">COUNTRIES LIST</h1>
+     
      
        <div className="routeLinkToCountry">
         {/* API GET USE EFFECT GET VERSION */}
@@ -31,7 +34,7 @@ console.log({REGCOUNTRIES: countries[0]})
 
 
  
-          <Link to ={`/countriesList/${country.alpha3Code}`}>
+          <Link to ={`/${country.alpha3Code}`}>
           {country.name.common}
             </Link>
 
@@ -43,7 +46,7 @@ console.log({REGCOUNTRIES: countries[0]})
 
        })}
 {/* STATIC VERSION */}
-<h1>static data version</h1>
+{/* <h1>static data version</h1>
        {countries.map((country, index) => {
         // console.log(country.alpha3Code)
         
@@ -52,21 +55,21 @@ console.log({REGCOUNTRIES: countries[0]})
        
 
 
+     
 
  
           <Link to ={`/countriesList/${country.alpha3Code}`}>
           {country.name.common}
             </Link>
 
-       
 
        
        </div>
        )
 
-       })}
+       })} */}
        </div>
-       
+       </div>
 
     </div>
   )

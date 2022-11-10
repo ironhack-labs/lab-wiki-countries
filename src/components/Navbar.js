@@ -7,9 +7,7 @@ export default function Navbar() {
      <nav class="navbar navbar-dark bg-primary mb-3">
         <div class="container">
           <a class="navbar-brand" href="/">WikiCountries</a>
-          <Link className="countriesListLink"to ={`/countriesList`}>
-        Countries List
-            </Link>
+
 
 
         </div>
