@@ -1,17 +1,17 @@
-import countriesList from '../countries.json';
+import { Link } from 'react-router-dom';
 
-// let countriesAlpha3Code = countriesList.filter((country) => country.alpha3Code);
-
-export function CountriesList(props) {
+export function CountriesList({ countries }) {
   return (
-    <div>
-      {countriesList.map((code) => {
-        return (
-          <div>
-            <a href={code.alpha3Code}>{code.name.common}</a>
-          </div>
-        );
-      })}
+    <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
+      <div className="list-group">
+        {countries.map((country) => {
+          return (
+            <div>
+              <Link to={`/${country.alpha3Code}`}>{country.name}</Link>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
