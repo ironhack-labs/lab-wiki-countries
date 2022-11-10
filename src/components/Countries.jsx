@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import CountriesList from './CountriesList';
 import CountryDetails from './CountryDetails';
 
-function Countries() {
+function Countries(searchInput) {
+  // For CountryList
   const [countries, setCountries] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -20,7 +21,7 @@ function Countries() {
   return (
     <>
       <div className="d-flex">
-        <CountriesList {...{ loading, countries }} />
+        <CountriesList {...{ loading, countries, searchInput }} />
         {!loading && <CountryDetails {...{ countries }} />}
       </div>
     </>

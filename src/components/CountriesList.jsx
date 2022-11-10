@@ -1,10 +1,20 @@
 // import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { CSSProperties } from 'react';
+import DotLoader from 'react-spinners/DotLoader';
 
-function CountriesList({ loading, countries }) {
+const override: CSSProperties = {
+  display: 'block',
+  margin: '100px auto',
+};
+
+function CountriesList({ loading, countries, searchInput }) {
+  console.log(searchInput.searchInput);
   return (
     <>
-      {loading && <h1>... ... ...</h1>}
+      {loading && (
+        <DotLoader color="#36d7ff" cssOverride={override} size={150} />
+      )}
       {!loading && (
         <div
           className="col-5"
@@ -12,6 +22,17 @@ function CountriesList({ loading, countries }) {
         >
           <div className="list-group countries-list">
             {countries
+              .filter((country) => {
+                if (searchInput.searchInput === '') {
+                  return country;
+                } else if (
+                  country.name.common
+                    .toLowerCase()
+                    .includes(searchInput.searchInput.trim().toLowerCase())
+                ) {
+                  return country;
+                }
+              })
               .sort((a, b) => a.alpha2Code.localeCompare(b.alpha2Code))
               .map((country) => {
                 return (
