@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.countListTitle {
+
+  background-color: rgba(217, 101, 101, 0.865);
+  box-shadow: 5px 5px rgba(181, 151, 203, 0.865) ;
+}
+
+.countDetsTitle {
+
+  background-color: rgba(217, 101, 101, 0.865);
+  box-shadow: 5px 5px rgba(181, 151, 203, 0.865) ;
+
+}
+
+.countriesListLink {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+
+}
