@@ -61,7 +61,7 @@ useEffect(() => {
    Borders: {foundCountry.borders.map((border)=> {
     return(
       <Link to ={`/${border}`}>
-      <p>{border}</p>
+      <p className="bordersStyling">{border}</p>
       </Link>
     )
    })}
