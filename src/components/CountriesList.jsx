@@ -1,27 +1,10 @@
 // import { useState, useEffect } from 'react';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function CountriesList() {
-  const [countries, setCountries] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function fetchSomething() {
-      const apiURL = 'https://ih-countries-api.herokuapp.com/countries';
-      const response = await fetch(apiURL);
-      const data = await response.json();
-      console.log(data);
-      setCountries(data);
-      setLoading(false);
-    }
-    fetchSomething();
-  }, []);
-
+function CountriesList({ loading, countries }) {
   return (
     <>
-      {loading && <h1>We´re loading!</h1>}
+      {loading && <h1>... ... ...</h1>}
       {!loading && (
         <div
           className="col-5"
@@ -37,6 +20,11 @@ function CountriesList() {
                       className="list-group-item list-group-item-action "
                       to={country.alpha3Code}
                     >
+                      <img
+                        src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                        alt={country.name.official}
+                        style={{ width: '25px', marginRight: '15px' }}
+                      />
                       {country.alpha2Code} {country.name.official}
                     </Link>
                   </li>
