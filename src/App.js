@@ -21,7 +21,7 @@ function App() {
           <CountriesList countries={countriesListData} />
           <Routes>
             <Route
-              path={':id'}
+              path={'/:id'}
               element={<CountryDetails countries={countries} />}
             />
           </Routes>
