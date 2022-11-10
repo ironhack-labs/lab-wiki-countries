@@ -60,7 +60,9 @@ useEffect(() => {
    <p>Area: {foundCountry.area}</p>
    Borders: {foundCountry.borders.map((border)=> {
     return(
+      <Link to ={`/${border}`}>
       <p>{border}</p>
+      </Link>
     )
    })}
 
@@ -69,13 +71,6 @@ useEffect(() => {
 
 )}
 
-     
-
-
-
-        
-
-       <Link to="/countriesList">Back</Link>
 
 
 
