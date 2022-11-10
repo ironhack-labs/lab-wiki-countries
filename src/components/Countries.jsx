@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
 import CountriesList from './CountriesList';
 import CountryDetails from './CountryDetails';
 
 function Countries() {
   const [countries, setCountries] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
-  // const { countryCode } = useParams();
 
   useEffect(() => {
     async function fetchSomething() {
