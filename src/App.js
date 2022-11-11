@@ -25,15 +25,7 @@ function App() {
     getCountries();
   }, []);
 
-  // let countriesListData = countries.map((country) => {
-  //   return {
-  //     alpha2Code: country.alpha2Code,
-  //     alpha3Code: country.alpha3Code,
-  //     name: country.name.common,
-  //   };
-  // });
-
-  let countriesListData2 = countryData
+  let sortedCountryNamesAndCodes = countryData
     .sort((a, b) => {
       if (a.name.common < b.name.common) {
         return -1;
@@ -51,17 +43,12 @@ function App() {
       };
     });
 
-  // let sortedCountries = countriesListData2.sort((a, b) => b.name - a.name);
-  // console.log(sortedCountries);
-
-  console.log(countriesListData2);
-
   return (
     <div className="App">
       <Navbar />
       <div className="container">
         <div className="row">
-          <CountriesList countries={countriesListData2} />
+          <CountriesList countries={sortedCountryNamesAndCodes} />
           <Routes>
             <Route
               path={'/:id'}
