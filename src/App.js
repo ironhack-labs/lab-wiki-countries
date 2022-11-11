@@ -7,6 +7,7 @@ import countries from './countries.json';
 
 let countriesListData = countries.map((country) => {
   return {
+    alpha2Code: country.alpha2Code,
     alpha3Code: country.alpha3Code,
     name: country.name.common,
   };

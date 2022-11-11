@@ -5,8 +5,21 @@ export function CountriesList({ countries }) {
     <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
       <div className="list-group">
         {countries.map((country) => {
+          console.log(country.alpha2Code);
           return (
-            <div>
+            <div
+              style={{
+                border: 'grey 1px dotted',
+                marginBottom: '4px',
+                borderRadius: '16px',
+              }}
+            >
+              <img
+                style={{ width: '30px' }}
+                src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                alt={`${country.name} flag`}
+              />
+              <br />
               <Link to={`/${country.alpha3Code}`}>{country.name}</Link>
             </div>
           );
