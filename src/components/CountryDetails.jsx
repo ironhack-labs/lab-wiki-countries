@@ -7,7 +7,6 @@ export function CountryDetails({ countries }) {
   const [clickedCountry] = countries.filter((country) =>
     country.alpha3Code === id ? country : null
   );
-  //   console.log(clickedCountry);
 
   return (
     <div className="col-7">

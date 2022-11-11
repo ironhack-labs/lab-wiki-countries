@@ -5,7 +5,6 @@ export function CountriesList({ countries }) {
     <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
       <div className="list-group">
         {countries.map((country) => {
-          console.log(country.alpha2Code);
           return (
             <div
               style={{
