@@ -25,7 +25,8 @@ function CountryDetails({ countries }) {
     }).name.common;
   };
 
-  // Just for fun here
+  // Just for fun here // Comparing the area to that of Germany
+  // if the result is 0.00009564079 it returns 0.000095
   const customRoundedNumber = (num) => {
     const result = (num / 357588).toString();
     const index = result.lastIndexOf('000');
@@ -58,10 +59,10 @@ function CountryDetails({ countries }) {
             </h2>
             <p className="card-text text-muted">{country.region}</p>
             <hr />
-            {country.capital && (
+            {country.capital[0] && (
               <>
                 <p>
-                  Capital{' '}
+                  Capital:{' '}
                   <a
                     target="blank"
                     href={`https://www.google.com/maps/search/?api=1&query=${country.capital[0]}`}
@@ -73,12 +74,12 @@ function CountryDetails({ countries }) {
               </>
             )}
 
-            <p>Area {country.area} km²</p>
+            <p>Area: {country.area} km²</p>
             <p>{customRoundedNumber(country.area)} times the size of Germany</p>
             {country.borders.length !== 0 && (
               <>
                 <hr />
-                <p>Borders</p>
+                <p>Borders:</p>
                 <ul>
                   {country.borders.map((border) => (
                     <li key={border}>
@@ -86,9 +87,9 @@ function CountryDetails({ countries }) {
                     </li>
                   ))}
                 </ul>
-                <hr />
               </>
             )}
+            <hr />
             <a
               target="blank"
               href={`https://www.google.com/maps/search/?api=1&query=${country.name.official}`}
