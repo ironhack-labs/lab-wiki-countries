@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import CountriesList from './CountriesList';
 import CountryDetails from './CountryDetails';
 
-function Countries(searchInput) {
-  // For CountryList
+function Countries({ searchInput }) {
+  // For CountriesList
   const [countries, setCountries] = useState(null);
   const [loading, setLoading] = useState(true);
 

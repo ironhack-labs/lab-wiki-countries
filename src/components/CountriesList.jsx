@@ -1,11 +1,13 @@
 // import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { CSSProperties } from 'react';
 import DotLoader from 'react-spinners/DotLoader';
 
-const override: CSSProperties = {
-  display: 'block',
-  margin: '100px auto',
+const spinnerWrapperStyle = {
+  width: '100vw',
+  height: '80vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 };
 
 function CountriesList({ loading, countries, searchInput }) {
@@ -13,7 +15,9 @@ function CountriesList({ loading, countries, searchInput }) {
   return (
     <>
       {loading && (
-        <DotLoader color="#36d7ff" cssOverride={override} size={150} />
+        <div style={spinnerWrapperStyle}>
+          <DotLoader color="#36d7ff" size={150} />
+        </div>
       )}
       {!loading && (
         <div
@@ -22,17 +26,11 @@ function CountriesList({ loading, countries, searchInput }) {
         >
           <div className="list-group countries-list">
             {countries
-              .filter((country) => {
-                if (searchInput.searchInput === '') {
-                  return country;
-                } else if (
-                  country.name.common
-                    .toLowerCase()
-                    .includes(searchInput.searchInput.trim().toLowerCase())
-                ) {
-                  return country;
-                }
-              })
+              .filter((country) =>
+                country.name.common
+                  .toLowerCase()
+                  .includes(searchInput.trim().toLowerCase())
+              )
               .sort((a, b) => a.alpha2Code.localeCompare(b.alpha2Code))
               .map((country) => {
                 return (

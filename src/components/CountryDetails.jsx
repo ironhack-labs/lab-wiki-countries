@@ -7,16 +7,14 @@ function CountryDetails({ countries }) {
   const { countryCode } = useParams();
 
   useEffect(() => {
-    if (countryCode) {
-      async function fetchCountry() {
-        const apiURL = `https://ih-countries-api.herokuapp.com/countries/${countryCode}`;
-        const response = await fetch(apiURL);
-        const data = await response.json();
-        setCountry(data);
-        setLoading(false);
-      }
-      fetchCountry();
+    async function fetchCountry() {
+      const apiURL = `https://ih-countries-api.herokuapp.com/countries/${countryCode}`;
+      const response = await fetch(apiURL);
+      const data = await response.json();
+      setCountry(data);
+      setLoading(false);
     }
+    fetchCountry();
   }, [countryCode]);
 
   const giveBackCountryName = (alpha3) => {
