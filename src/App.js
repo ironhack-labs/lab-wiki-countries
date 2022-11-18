@@ -6,7 +6,6 @@ import CountryDetails from './components/CountryDetails';
 import { Outlet, Route, Routes } from "react-router-dom";
 
 
-
 function PageLayout() {
   return (
     <div>
@@ -22,6 +21,7 @@ function PageLayout() {
 
 
 function App() {
+
   return (
     <Routes>
       <Route path={"/"} element={<PageLayout />}>

@@ -1,18 +1,24 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-// import { useState, useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+const apiURL = "https://ih-countries-api.herokuapp.com/countries";
+function CountriesList() {
 
-function CountriesList({ countryItems }) {
-
-    // const [countries, setCountries] = useState([]);
-
-    // useEffect(() => {
-    //     setCountries(countryItems.countries);
-    // }, [countryItems.countries]);
+    const [fetching, setFetching] = useState(true);
+    const [countries, setCountries] = useState([]);
+  
+    useEffect(() => {
+      axios.get(apiURL).then((response) => {
+        setCountries(response.data);
+        setFetching(false);
+      });
+    }, []);
 
     return (
         <div className="col-5 countries-column">
-            {countryItems.map((country) => (
+            {fetching && <p>Loading ...</p>}
+            {countries.map((country) => (
                 <div className="list-group" key={country.alpha3Code}>
                     <div className="list-group-item list-group-item-action">
                         <Link to={`/${country.alpha3Code}`} >
