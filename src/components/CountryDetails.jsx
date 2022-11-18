@@ -5,9 +5,19 @@ function CountryDetails({ countries }) {
 
     const { countryId } = useParams();
 
-    const foundCountry = countries.find((oneCountry) => {
-        return oneCountry.alpha3Code === countryId;
+    const getCountryByAlpha3 = countryCode => countries.find(country => country.alpha3Code === countryCode)
+    const borderLinks = borders => borders.map((borderItem) => {
+        const borderCountry = getCountryByAlpha3(borderItem);
+
+        return (
+            <li><Link to={`/${borderCountry.alpha3Code}`} >
+                {borderCountry.name.common}
+            </Link></li>
+
+        )
     });
+
+    const foundCountry = getCountryByAlpha3(countryId);
 
     return (
         <div className="col-7 country-detail-box">
@@ -28,18 +38,13 @@ function CountryDetails({ countries }) {
                                     <sup>2</sup></td>
                             </tr>
                             <tr>
-                                <td><b>Borders:</b></td>
-                                {/* <td>
-                                    {countryItems.map((countryItem) => (
-                                        <div key={countryItem.alpha3Code}>
-                                            {countryItem.borders.map((border) => (
-                                                <Link to={`/${border.alpha3Code}`} >
-                                                    {border.name.common}
-                                                </Link>))}
-
-                                        </div>
-                                    ))}
-                                </td> */}
+                                <td className="name-top"><b>Borders:</b></td>
+                                <td>
+                                    <ul>
+                                        {borderLinks(foundCountry.borders)}
+                                    </ul>
+                                    
+                                </td>
                             </tr>
                         </tbody>
                     </table>

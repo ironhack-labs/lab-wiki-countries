@@ -1,5 +1,4 @@
 import "./App.css";
-import countriesInfo from "./countries.json";
 import NavbarComponent from './components/NavbarComponent';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
@@ -15,7 +14,7 @@ function PageLayout() {
       <div className="container">
         <div className="row">
           <Outlet />
-        </div>
+        </div> 
       </div>
     </div>
   );

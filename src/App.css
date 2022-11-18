@@ -1,3 +1,7 @@
+html {
+  font-size: 18px;
+}
+
 .App {
   text-align: center;
 }
@@ -5,6 +9,14 @@
 .row {
   margin-top: 40px !important;
 }
+
+ul,li {  
+  list-style: none;  
+  font-weight: bold;  
+  font-size: 20px;
+  margin-left: -12px;
+  padding: 0;
+  }  
 
 .country-detail-box {
   display: flex;
@@ -34,4 +46,8 @@
 .list-group-item a {
   text-decoration: inherit;
   color: inherit
+}
+
+.name-top {
+  vertical-align: text-top;
 }
