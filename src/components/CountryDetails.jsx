@@ -1,12 +1,11 @@
 import React from 'react'
 import { useParams, Link } from "react-router-dom";
-// import { useState, useEffect } from 'react'; 
 
-function CountryDetails({ countryItems }) {
+function CountryDetails({ countries }) {
 
     const { countryId } = useParams();
 
-    const foundCountry = countryItems.find((oneCountry) => {
+    const foundCountry = countries.find((oneCountry) => {
         return oneCountry.alpha3Code === countryId;
     });
 
