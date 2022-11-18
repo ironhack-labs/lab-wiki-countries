@@ -26,7 +26,7 @@ function App() {
     <Routes>
       <Route path={"/"} element={<PageLayout />}>
         <Route index element={<CountriesList countryItems={countriesInfo} />} />
-        <Route path={"/:countryId"} element={[<CountriesList countryItems={countriesInfo} />,<CountryDetails />]} />
+        <Route path={"/:countryId"} element={[<CountriesList countryItems={countriesInfo} />,<CountryDetails countryItems={countriesInfo} />]} />
       </Route>
     </Routes>
   );

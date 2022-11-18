@@ -1,15 +1,12 @@
 import React from 'react'
-import countriesInfo from "../countries.json";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 // import { useState, useEffect } from 'react'; 
 
-function CountryDetails() {
+function CountryDetails({ countryItems }) {
 
     const { countryId } = useParams();
 
-    console.log('countryId -->', countryId);
-
-    const foundCountry = countriesInfo.find((oneCountry) => {
+    const foundCountry = countryItems.find((oneCountry) => {
         return oneCountry.alpha3Code === countryId;
     });
 
@@ -33,20 +30,23 @@ function CountryDetails() {
                             </tr>
                             <tr>
                                 <td><b>Borders:</b></td>
-                                <td>
-                                {foundCountry.borders.map((countryBorder, index) => {
-                                    return (
-                                        <p key={index}>{countryBorder}</p>
-                                    )
-                                }
-                                )}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                {/* <td>
+                                    {countryItems.map((countryItem) => (
+                                        <div key={countryItem.alpha3Code}>
+                                            {countryItem.borders.map((border) => (
+                                                <Link to={`/${border.alpha3Code}`} >
+                                                    {border.name.common}
+                                                </Link>))}
+
+                                        </div>
+                                    ))}
+                                </td> */}
+                            </tr>
+                        </tbody>
+                    </table>
                 </>
-    )
-}
+            )
+            }
         </div >
     );
 }
