@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+
 function CountriesList({ countries }) {
     return (
         <div className="col-5 countries-column" style={{maxHeight: 94 + 'vh', overflow: 'scroll'}}>
