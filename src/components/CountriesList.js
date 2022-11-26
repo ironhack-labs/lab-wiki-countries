@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 function CountriesList({ countries }) {
     return (
-        <div className="col-5 countries-column">
+        <div className="col-5 countries-column" style={{maxHeight: 90 + 'vh', overflow: 'scroll'}}>
             {countries.map((country) => (
                 <div className="list-group" key={country.alpha3Code}>
                     <div className="list-group-item list-group-item-action">
