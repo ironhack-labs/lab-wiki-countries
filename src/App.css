@@ -40,3 +40,7 @@
 .country-detail ul li {
   list-style: none;
 }
+
+.country-detail ul {
+  padding: 0
+}
