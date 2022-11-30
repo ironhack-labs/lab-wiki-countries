@@ -1,9 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
+/* import axios from 'axios';
+import { useEffect } from 'react';
+ */
 import './CountriesDetails.css';
-/* import { useEffect } from 'react'; */
 
-function CountriesDetails({ countries }) {
-  /* useEffect(() => {
+function CountriesDetails({ countries, countryCode }) {
+  /*   const countryAlpha3Code = countryCode;
+  const countryApi = `https://ih-countries-api.herokuapp.com/countries/${countryAlpha3Code}`; */
+
+  /* const [countryInfo, setCountryInfo] = useEffect([]);
+
+  useEffect(() => {
     axios
       .get(countryApi)
       .then((response) => {
@@ -14,9 +21,6 @@ function CountriesDetails({ countries }) {
       });
   }, [countryApi]); */
 
-  /* const countryAlpha3Code = countryCode;
-  const countryApi = `https://ih-countries-api.herokuapp.com/countries/${countryAlpha3Code}`; */
-
   const { countryId } = useParams();
 
   const getCountryByAlpha3 = (code) =>
@@ -26,8 +30,8 @@ function CountriesDetails({ countries }) {
     borders.map((border, idx) => {
       const borderedCountry = getCountryByAlpha3(border);
       return (
-        <li>
-          <Link to={`/${borderedCountry.alpha3Code}`} key={idx}>
+        <li key={idx}>
+          <Link to={`/${borderedCountry.alpha3Code}`}>
             {borderedCountry.name.common}
           </Link>
         </li>
@@ -38,34 +42,40 @@ function CountriesDetails({ countries }) {
 
   return (
     <div className="countriesDetails col-6 align-self-center">
-      <div className="text-center" id={findCountry._id}>
-        <img
-          src={`https://flagpedia.net/data/flags/icon/72x54/${findCountry.alpha2Code.toLowerCase()}.png`}
-          alt={findCountry.name.official}
-        />
-        <h3 className="mt-5">{findCountry.name.official}</h3>
-      </div>
-      <div className="countryInfo mt-5">
-        <div>
-          <p>Capital</p>
-          <p>{findCountry.capital}</p>
-        </div>
-        <hr />
-        <div>
-          <p>Area</p>
-          <p>
-            {findCountry.area} km<sup>2</sup>
-          </p>
-        </div>
-        <hr />
-        <div>
-          <p>Borders</p>
-          <div className="borders">
-            <ul>{findBorderCountries(findCountry.borders)}</ul>
+      {findCountry ? (
+        <>
+          <div className="text-center" id={findCountry._id}>
+            <img
+              src={`https://flagpedia.net/data/flags/icon/72x54/${findCountry.alpha2Code.toLowerCase()}.png`}
+              alt={findCountry.name.official}
+            />
+            <h3 className="mt-5">{findCountry.name.official}</h3>
           </div>
-        </div>
-        <hr />
-      </div>
+          <div className="countryInfo mt-5">
+            <div>
+              <p>Capital</p>
+              <p>{findCountry.capital}</p>
+            </div>
+            <hr />
+            <div>
+              <p>Area</p>
+              <p>
+                {findCountry.area} km<sup>2</sup>
+              </p>
+            </div>
+            <hr />
+            <div>
+              <p>Borders</p>
+              <div className="borders">
+                <ul>{findBorderCountries(findCountry.borders)}</ul>
+              </div>
+            </div>
+            <hr />
+          </div>
+        </>
+      ) : (
+        <h1>Country information not available ATM</h1>
+      )}
     </div>
   );
 }

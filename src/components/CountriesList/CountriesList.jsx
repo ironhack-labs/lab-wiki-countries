@@ -11,6 +11,7 @@ function CountriesList({ countries, setCountryCode }) {
       {countries.map((country) => {
         return (
           <Link
+            key={country._id}
             to={`/${country.alpha3Code}`}
             onClick={() => countryHandler(country.alpha3Code)}
           >
