@@ -28,10 +28,46 @@
   color: #61dafb;
 }
 
+.Navbar a {
+  display: flex;
+  justify-content: space-between;
+  background: #346aff;
+  padding: 15px 180px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: larger;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 15px 80px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+.borders {
+  text-decoration: none;
+  font-weight: 800;
+  padding: 50px;
+  font-size: larger;
+}
+
+.flag {
+  padding: 30px
+}
+
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
