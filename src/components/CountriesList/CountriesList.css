@@ -1,0 +1,6 @@
+.scrollSection{
+    max-height: 70vh;
+    margin-bottom: 10px;
+    overflow:scroll !important;
+    -webkit-overflow-scrolling: touch;
+}
