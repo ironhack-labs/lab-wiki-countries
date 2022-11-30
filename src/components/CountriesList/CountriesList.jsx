@@ -4,16 +4,19 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 
 
-const CountriesList = ({ Countries }) => {
+const CountriesList = () => {
 
+    const countriesApi = 'https://ih-countries-api.herokuapp.com/countries'
 
     const [countryApi, setCountryApi] = useState([])
 
     useEffect(() => {
-        fetch('https://ih-countries-api.herokuapp.com/countries')
+        fetch(countriesApi)
             .then(res => res.json())
             .then(data => { setCountryApi(data) })
     }, [])
+
+
 
 
     return (
@@ -22,7 +25,7 @@ const CountriesList = ({ Countries }) => {
             <div className="row">
                 <ul className='col-md-6 list-group'>
                     {countryApi.map(({ name, alpha2Code, alpha3Code }, i) => {
-                        return < li key={i} > <Link to={`/${alpha3Code}`} className='list-group-item'>{`${alpha2Code} ${name.common}`}</Link> </li>
+                        return < li className='borderList' key={i} > <Link to={`/${alpha3Code}`} className='list-group-item'>{`${alpha2Code} ${name.common}`}</Link> </li>
                     })}
                 </ul>
             </div>
