@@ -32,7 +32,32 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.Navbar {
+  display: flex;
+  justify-content: flex-start;
+  background: #7a7392;
+  padding: 8px;
+}
+
+.selected {
+  text-shadow: 1px 0px 3px white;
+  color: #fff;
+  border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
+  padding-bottom: 5px;
+}
+
+.listbox {
+  border: 1px solid black;
+}
+
+
+
+.details img {
+  width: 100px;
 }
