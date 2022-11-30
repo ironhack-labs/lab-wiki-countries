@@ -1,0 +1,15 @@
+.countriesList {
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.countryCard {
+  border: 1px solid black;
+  text-align: center;
+  padding: 40px 10px;
+}
+
+.countryCard img {
+  width: 50px;
+  margin-bottom: 10px;
+}

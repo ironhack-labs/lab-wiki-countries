@@ -1,0 +1,14 @@
+.countriesDetails img {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.countryInfo > * {
+  display: flex;
+  justify-content: space-between;
+}
+
+.borders {
+  display: flex;
+  flex-direction: column;
+}
