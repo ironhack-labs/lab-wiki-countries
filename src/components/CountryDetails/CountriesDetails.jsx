@@ -1,14 +1,14 @@
 import { useParams, Link } from 'react-router-dom';
-/* import axios from 'axios';
-import { useEffect } from 'react';
- */
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
 import './CountriesDetails.css';
 
-function CountriesDetails({ countries, countryCode }) {
-  /*   const countryAlpha3Code = countryCode;
-  const countryApi = `https://ih-countries-api.herokuapp.com/countries/${countryAlpha3Code}`; */
+function CountriesDetails({ countries }) {
+  const { countryId } = useParams();
+  const countryApi = `https://ih-countries-api.herokuapp.com/countries/${countryId}`;
 
-  /* const [countryInfo, setCountryInfo] = useEffect([]);
+  const [countryInfo, setCountryInfo] = useState();
 
   useEffect(() => {
     axios
@@ -19,9 +19,7 @@ function CountriesDetails({ countries, countryCode }) {
       .catch((err) => {
         console.error(err.message);
       });
-  }, [countryApi]); */
-
-  const { countryId } = useParams();
+  }, [countryApi]);
 
   const getCountryByAlpha3 = (code) =>
     countries.find((elm) => elm.alpha3Code === code);
@@ -38,36 +36,34 @@ function CountriesDetails({ countries, countryCode }) {
       );
     });
 
-  const findCountry = getCountryByAlpha3(countryId);
-
   return (
     <div className="countriesDetails col-6 align-self-center">
-      {findCountry ? (
+      {countryInfo ? (
         <>
-          <div className="text-center" id={findCountry._id}>
+          <div className="text-center" id={countryInfo._id}>
             <img
-              src={`https://flagpedia.net/data/flags/icon/72x54/${findCountry.alpha2Code.toLowerCase()}.png`}
-              alt={findCountry.name.official}
+              src={`https://flagpedia.net/data/flags/icon/72x54/${countryInfo.alpha2Code.toLowerCase()}.png`}
+              alt={countryInfo.name.official}
             />
-            <h3 className="mt-5">{findCountry.name.official}</h3>
+            <h3 className="mt-5">{countryInfo.name.official}</h3>
           </div>
           <div className="countryInfo mt-5">
             <div>
               <p>Capital</p>
-              <p>{findCountry.capital}</p>
+              <p>{countryInfo.capital}</p>
             </div>
             <hr />
             <div>
               <p>Area</p>
               <p>
-                {findCountry.area} km<sup>2</sup>
+                {countryInfo.area} km<sup>2</sup>
               </p>
             </div>
             <hr />
             <div>
               <p>Borders</p>
               <div className="borders">
-                <ul>{findBorderCountries(findCountry.borders)}</ul>
+                <ul>{findBorderCountries(countryInfo.borders)}</ul>
               </div>
             </div>
             <hr />
