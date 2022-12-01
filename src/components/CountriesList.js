@@ -8,7 +8,7 @@ const CountriesList = ({ countries }) => {
         <div className="list-group">
           {countries.map((elm, i) => {
             return (
-              <Link
+              <Link key={i}
                 className="list-group-item list-group-item-action"
                 to={`/${elm.alpha3Code}`}
               >
@@ -17,7 +17,7 @@ const CountriesList = ({ countries }) => {
                   alt="img"
                   style={{ height: '30px', width: '50px' }}
                 />
-                {elm.name.common}
+                 {`   ${elm.name.common}`}
               </Link>
             );
           })}
