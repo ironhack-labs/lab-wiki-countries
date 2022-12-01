@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
+import { Route, Routes } from "react-router-dom";
+
+import countries from './countries.json';
+import Navbar from './components/Navbar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
 
 function App() {
+  const [countriesList, setCountriesList] = useState([]);
+
+  useEffect(() => {
+    setCountriesList(countries)
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <Navbar/>
+
+     <div className="mainPage">
+       <div className="noScroll">
+         <CountriesList className="overflow-auto" countries={countries}/>
+       </div>
+       <Routes>
+          <Route
+              path="/:countryId"
+              element={<CountryDetails countriesList={countriesList}/>}
+          />
+       </Routes>
+       
+     </div>
+  
+     </div>
   );
 }
 

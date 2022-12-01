@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.mainPage {
+  display:flex;
+}
+
+.noScroll {
+  overflow-y: scroll;
+  height: 100vh;
+}
