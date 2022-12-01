@@ -1,17 +1,24 @@
 import React from 'react';
 // import { Link } from "react-router-dom";
 import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const CountryDetails = ({ countries }) => {
   const { id } = useParams();
+  const [countryDetail, setCountryDetail] = useState();
   console.log('projectId -->here ', id);
+  console.log('countryDetail:', countryDetail);
+  console.log(`https://ih-countries-api.herokuapp.com/countries/${id}`);
 
-  const foundCountry = countries.find((oneCountry) => {
-    //  <== ADD
-    return oneCountry.alpha3Code === id;
-  });
-
-  console.log('foundCountry ->countries', { foundCountry });
+  useEffect(() => {
+    axios
+      .get(`https://ih-countries-api.herokuapp.com/countries/${id}`)
+      .then((response) => {
+        console.log('response.data:', response.data);
+        setCountryDetail(response.data);
+      });
+  }, [id]);
 
   function handleBorder(elm) {
     const borderCountry = countries.find((borderCountry) => {
@@ -23,26 +30,28 @@ const CountryDetails = ({ countries }) => {
 
   return (
     <>
-      {' '}
-      {foundCountry && (
+      {countryDetail && (
         <div className="col-7">
-          <h1>{foundCountry.name.common}</h1>
+          <h1>{countryDetail.name.common}</h1>
           <table className="table">
-            <thead>
-               
-            </thead>
+            <thead></thead>
             <tbody>
-            <tr>
-                    <td><img src={`https://flagpedia.net/data/flags/icon/72x54/${(foundCountry.alpha2Code).toLowerCase()}.png`} alt="img" /></td>
-                </tr>
+              <tr>
+                <td>
+                  <img
+                    src={`https://flagpedia.net/data/flags/icon/72x54/${countryDetail.alpha2Code.toLowerCase()}.png`}
+                    alt="img"
+                  />
+                </td>
+              </tr>
               <tr>
                 <td style={{ width: '30%' }}>Capital</td>
-                <td>{foundCountry.capital[0]}</td>
+                <td>{countryDetail.capital[0]}</td>
               </tr>
               <tr>
                 <td>Area</td>
                 <td>
-                  {foundCountry.area} km
+                  {countryDetail.area} km
                   <sup>2</sup>
                 </td>
               </tr>
@@ -50,7 +59,7 @@ const CountryDetails = ({ countries }) => {
                 <td>Borders</td>
                 <td>
                   <ul>
-                    {foundCountry.borders.map((elm, i) => {
+                    {countryDetail.borders.map((elm, i) => {
                       return (
                         <li key={i}>
                           <Link to={`/${elm}`}>{handleBorder(elm)}</Link>
