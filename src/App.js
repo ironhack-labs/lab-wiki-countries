@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import countries from "./countries.json";
+//import countries from "./countries.json";
 import CountriesList from "./components/CountriesList";
 import CountriesDetails from "./components/CountryDetails";
 import axios from 'axios';
@@ -30,7 +30,6 @@ function App() {
 
   return <div className="App">
     <Navbar />
-
     <Routes>
       <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
       <Route

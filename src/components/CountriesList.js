@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-//import { useState, useEffect } from "react";
 
 function CountriesList({countries}) {
 
@@ -14,8 +13,7 @@ function CountriesList({countries}) {
           );
         })}
       </div>
-    )
-    
+    )  
 }
 
 export default CountriesList;
