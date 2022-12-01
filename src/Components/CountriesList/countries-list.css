@@ -1,0 +1,4 @@
+.row .list-column {
+    max-height: 90vh;
+    overFlow: scroll
+}
