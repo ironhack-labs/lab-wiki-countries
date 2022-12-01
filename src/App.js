@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import { getCountries } from './utils/api';
 
-function App() {
+export default function App() {
+  const [loading, setLoading] = useState(false);
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+
+    (async () => {
+      setCountries(await getCountries());
+      setLoading(false);
+    })();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+
+      {loading && (
+        <div className="text-center">
+          <h1>Loading data...</h1>
+        </div>
+      )}
+
+      <Routes>
+        <Route path="/" element={<CountriesList countries={countries} />}>
+          <Route path="/:code" element={<CountryDetails countries={countries} />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
-
-export default App;
