@@ -13,7 +13,7 @@ function App() {
       <Navbar />
       <div className="container">
         <div className="row">
-          <CountriesList />
+        <CountriesList countries={countries} />
           <Routes>
             <Route
               path="/:id"
