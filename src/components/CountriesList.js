@@ -1,22 +1,25 @@
-import { useState } from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
-import countriesData from "../countries.json"
 
-function CountriesList() {
-    const [countries, setCountries] = useState(countriesData)
-
-    return (
-        <section>
-            {countries.map((country) => {
-                return (
-                    <div>
-                        <p></p>
-                        <Link to={`/${country.alpha3Code}`} key={country.alpha3Code}>{country.name.official}</Link>
-                    </div>
-                )
-            })}
-        </section>
-    )
-}
-
+const CountriesList = ({ countriesList }) => {
+  return (
+    <div>
+      <h1>Countries</h1>
+      {countriesList.map((countrie) => {
+        return (
+          <div key={countrie.alpha3Code} className="countrie">
+            <Link to={`/countries/${countrie.alpha3Code}`}>{countrie.name.official}</Link>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 export default CountriesList;
+
+
+
+
+
+
+
