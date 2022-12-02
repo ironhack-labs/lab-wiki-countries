@@ -5,6 +5,7 @@ function CountriesDetails({ countries }) {
     const searchCountry = countries.find(country => country.alpha3Code === id);
     const none = "Sorry, no data..."
     const borderLength = searchCountry.borders.length;
+    console.log(borderLength)
     return (<div>
         <h2>{searchCountry.name.common}</h2>
         <img
@@ -14,11 +15,16 @@ function CountriesDetails({ countries }) {
           />
         <p>Capital: {searchCountry.capital}</p>
         <p>Has borders with folloving countries: </p>
-        <p>{borderLength === 0 ? none : searchCountry.borders.map(element => {
+        <p>{borderLength === 0 ? none : searchCountry.borders.map((element, i) => {
             //console.log(element)
             const c = countries.find(country => country.alpha3Code === element);
-            return (
-            <span> {c.name.common} </span>)
+            return ( 
+                borderLength === 1
+                ? <span key={c.alpha3Code}>{c.name.common}</span>
+                : i === borderLength - 1 
+                ? <span key={c.alpha3Code}> and {c.name.common}. </span> 
+                : <span key={c.alpha3Code}>{c.name.common}, </span>
+            )
         })}
         </p>
     </div>
