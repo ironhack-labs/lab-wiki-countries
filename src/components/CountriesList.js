@@ -1,16 +1,22 @@
 import React from 'react'
 
-function CountriesList(props) {
+function CountriesList({countries}) {
 
     return (
         <>
 
-        {props.countries.map((country) =>  { 
+        {countries.map((country) =>  { 
             return (
-            <div className="col-5" style={{maxHeight: "90vh", overflow: "scroll"}}>
+
+            <div key={country.alpha3Code} className="col-5" style={{maxHeight: "90vh", overflow: "scroll"}}>
                 <div className="list-group">
                     <a className="list-group-item list-group-item-action" href={country.alpha3Code} >
-                      {/* {country.alpha3Code} */} {country.name.common}
+                    <img
+                            className="img-card-top"
+                            src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                            alt={country.alpha2Code}
+                        />
+                      {country.name.common}
                     </a>
 
                 </div>
