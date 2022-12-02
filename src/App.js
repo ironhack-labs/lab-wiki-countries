@@ -1,23 +1,31 @@
-import './App.css';
-import Navbar from './components/Navbar';
-import CountriesList from './components/CountriesList';
-import CountryDetails from './components/CountryDetails';
-import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
-import countries from "./countries.json"
+import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CountriesList from "./components/CountriesList";
+import CountryDetails from "./components/CountryDetails";
+import Navbar from "./components/Navbar";
+// import countries from './countries.json';
 
 function App() {
-  const [countriesList, setCountriesList] = useState(countries);
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    fetch("https://ih-countries-api.herokuapp.com/countries")
+      .then((result) => {
+        return result.json();
+      })
+      .then((countries) => {
+        setCountries(countries);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <Navbar />
-      <div className="container">
-      <CountriesList countriesList={countriesList} />
+    <BrowserRouter>
       <Routes>
-        <Route path="/countries/:alpha3Code" element={<CountryDetails />} />
+        <Route path="/" element={<CountriesList countries={countries} />} />
+        <Route path="/:id" element={<CountriesList countries={countries} />} />
       </Routes>
-      </div>
-    </div>
+    </BrowserRouter>
   );
 }
+
 export default App;

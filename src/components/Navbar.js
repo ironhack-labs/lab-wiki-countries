@@ -1,12 +1,7 @@
-import { NavLink } from "react-router-dom";
-// import './Navbar.css'
+import React from "react";
 
 const Navbar = () => {
-    return (
-        <nav>
-            <NavLink to={`/countries`}><h1>LAB - WikiCountries</h1></NavLink>
-        </nav>
-    )
-}
+  return <nav className="navbar bg-success">WIKI COUNTRIES</nav>;
+};
 
 export default Navbar;
