@@ -1,0 +1,23 @@
+.capital {
+    width: 30%;
+}
+
+.flag {
+    height: 20vh;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+}
+
+.table {
+    margin-top: 5vh;
+    height: 30vh;
+}
+
+.table ul {
+    list-style-type: none;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}

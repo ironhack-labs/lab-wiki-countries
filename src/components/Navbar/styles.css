@@ -1,0 +1,9 @@
+.navbar {
+    background-color: blue;
+    color: white;
+    height: 13vh;
+}
+
+.navbarTitle {
+    margin-left: 10vw;
+}

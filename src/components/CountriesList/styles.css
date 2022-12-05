@@ -1,0 +1,12 @@
+.list {
+    height: 80vh;
+    margin-top: 5vh;
+}
+
+.countries {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1vh;
+}
