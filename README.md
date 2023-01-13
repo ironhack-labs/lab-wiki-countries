@@ -244,3 +244,266 @@ The effect should run after the initial render, and each time the URL parameter 
 
 
 Happy coding! :heart:
+
+
+
+## FAQs
+
+
+<details>
+  <summary>I am stuck and don't know how to solve the problem or where to start. What should I do?</summary>
+
+
+  If you are stuck in your code and don't know how to solve the problem or where to start, you should take a step back and try to form a clear question about the specific issue you are facing. This will help you narrow down the problem and come up with potential solutions.
+
+
+For example, is it a concept that you don't understand, or are you receiving an error message that you don't know how to fix? It is usually helpful to try to state the problem as clearly as possible, including any error messages you are receiving. This can help you communicate the issue to others and potentially get help from classmates or online resources. 
+
+
+Once you have a clear understanding of the problem, you will be able to start working towards the solution.
+
+  <br>
+
+  [Back to top](#faqs)
+
+</details>
+
+<details>
+  <summary>How do I update a state variable in my React component?
+    How do I use the <code>useState</code> hook in my React component?</summary>
+
+
+  To update a state variable in a React component, you should use the `useState` hook. This hook returns an array with two elements: the **current value** of the state variable and a **function to update it**. Here is an example of how to use `useState` to update the `count` state variable:
+
+```jsx
+import { useState } from 'react';
+
+function MyComponent() {
+  const [count, setCount] = useState(0
+
+  const handleClick = () => {
+    setCount(count + 1
+  }
+
+  return (
+    <div>
+      <button onClick={handleClick}>Increment</button>
+      <p>Count: {count}</p>
+    </div>
+  
+}
+```
+
+In the above example, the `handleClick` function is called when the button is clicked, and it updates the `count` state variable by calling the `setCount` function with the new value: `setCount(count + 1)`. 
+The component will re-render every time a state variable gets updated.
+
+
+
+
+
+
+  <br>
+
+  [Back to top](#faqs)
+
+</details>
+
+<details>
+  <summary>How do I use the <code>useEffect</code> hook in my React component?</summary>
+
+
+  The `useEffect` hook (also called the *Effect Hook*) allows you to run your side effects. Data fetching, setting up a subscription, starting a timer, and manually changing the DOM in React components are all examples of common actions (aka *side effects*) that you may want to set up in your components.
+
+
+
+The `useEffect` hook allows you to run side effects during all three lifecycle phases:
+
+- **Mounting phase**
+- **Update phase**
+- **Unmounting phase**
+
+<br>
+
+##### Syntax
+
+The syntax of the `useEffect` is the following:
+
+```jsx
+// Actual syntax
+useEffect(() => {}, [])
+```
+
+As you can see `useEffect` takes two arguments:
+
+```jsx
+// Pseudo code:
+useEffect(didUpdate, dependencyArray)
+```
+
+- `didUpdate` - a function containing the code (side effect) we want to run.
+- `dependencyArray` - the array of values that the effect depends on. React watches this array for any change and when a value in this array changes, the effect will run.
+
+<br>
+
+
+
+##### `useEffect` - Mounting phase
+
+We can set the `useEffect` to **run code in the mounting phase**, **only once** right after the component is rendered for the first time. 
+
+To do so, we use the `useEffect` Hook with the following syntax:
+
+```jsx
+// Run the effect only once 
+// during the mounting phase
+ 
+useEffect(() => {
+  // Do something ...
+}, [])
+```
+
+The empty array `[]` means that “this effect doesn’t depend on anything”, and will therefore run only once, after the initial render.
+
+<br>
+
+##### `useEffect` - Unmounting phase
+
+Often, *effects* create resources that need to be cleaned up before the component leaves the screen, such as a subscription or a timer, like in the previous example. Before the component *unmounts*, we should cancel all remaining processes to prevent memory leaks.
+
+To do this, the function passed to **`useEffect` may return a cleanup function**. Example:
+
+```jsx
+useEffect(() => {
+  // Do something ...
+
+  // Returned function is known as a "cleanup function",
+  // which React will automatically run
+  // right before the component is removed from the DOM
+  return () => {
+    // Perform clean up actions here
+  };
+  
+}, [])
+```
+
+
+
+<br>
+
+##### `useEffect` - Conditional updates (Update phase)
+
+The `useEffect` Hook can also be used to run code during the *Update* phase, whenever there is an update of state or props.
+
+As you may have noticed, `useEffect` takes a second argument `[]` the *dependency array*. A dependency array is used to specify the values that the effect depends on. Additionally, React keeps track of this array to know if it should re-run the effect. Example:
+
+```jsx
+useEffect(() => {
+  // Do something ...
+  
+  // Effect will run again if either `a` or `b` change or are updated
+}, [a, b]
+```
+
+<br>
+
+**Important**: Whenever a value specified in the dependency array updates, React re-runs the effect.
+
+<br>
+
+For detailed explanation, check the following documentation pages:
+
+- [React Docs: Synchronizing with Effects](https://beta.reactjs.org/learn/synchronizing-with-effects)
+- [React Docs: `useEffect`](https://beta.reactjs.org/reference/react/useEffect)
+
+<br>
+
+  <br>
+
+  [Back to top](#faqs)
+
+</details>
+
+
+<details>
+  <summary>I am getting an error: "not defined". How do I fix it?</summary>
+
+
+  The "ReferenceError: variable is not defined" error in JavaScript occurs when you try to access a variable or a function that has not been defined yet, or is out of scope. 
+
+
+
+To fix the issue, check that you have defined the variable or function that you are trying to use and double-check the spelling to make sure you are using the correct name.
+
+
+
+In case that the variable or a function is defined in another file, make sure that the file has been imported or loaded correctly.
+<br>
+
+  <br>
+
+  [Back to top](#faqs)
+
+</details>
+
+
+<details>
+  <summary>I am unable to push changes to the repository. What should I do?</summary>
+
+
+  There are a couple of possible reasons why you may be unable to *push* changes to a Git repository:
+
+1. **You have not committed your changes:** Before you can push your changes to the repository, you need to commit them using the `git commit` command. Make sure you have committed your changes and try pushing again. To do this, run the following terminal commands from the project folder:
+
+   ```bash
+   git add .
+   git commit -m "Your commit message"
+   git push
+   ```
+
+
+2. **You do not have permission to push to the repository:** If you have cloned the repository directly from the main Ironhack repository without making a *Fork* first, you do not have write access to the repository.
+   To check which remote repository you have cloned, run the following terminal command from the project folder:
+
+   ```bash
+   git remote -v
+   ```
+
+If the link shown is the same as the main Ironhack repository, you will need to fork the repository to your Github account first, and then clone your fork to your local machine to be able to push the changes.
+
+Note: You may want to make a copy of the code your have locally, to avoid losing it in the process.
+
+
+  <br>
+
+  [Back to top](#faqs)
+
+</details>
+
+ you have committed your changes and try pushing again. To do this, run the following terminal commands from the project folder:
+
+   ```bash
+git add .
+git commit -m "Your commit message"
+git push
+   ```
+
+
+2. **You do not have permission to push to the repository:** If you have cloned the repository directly from the main Ironhack repository without making a *Fork* first, you do not have write access to the repository.
+   To check which remote repository you have cloned, run the following terminal command from the project folder:
+
+   ```bash
+   git remote -v
+   ```
+
+If the link shown is the same as the main Ironhack repository, you will need to fork the repository to your Github account first, and then clone your fork to your local machine to be able to push the changes.
+
+Note: You may want to make a copy of the code your have locally, to avoid losing it in the process.
+
+
+  <br>
+
+  [Back to top](#faqs)
+
+</details>
+
+
