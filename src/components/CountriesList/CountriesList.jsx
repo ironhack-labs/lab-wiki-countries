@@ -48,7 +48,7 @@ const CountriesList = () => {
     useEffect(() => {
         fetch(' https://ih-countries-api.herokuapp.com/countries')
             .then(res => res.json())
-            .then(countriesData => setCountries(countriesData))
+            .then(countries => setCountries(countries))
 
     }, [])
 
