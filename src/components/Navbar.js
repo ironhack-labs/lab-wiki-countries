@@ -10,9 +10,6 @@ function Navbar() {
                     <NavLink to="/" className="navbar-brand" >WikiCountries</NavLink>
                 </div>
             </nav>
-
-
-       
         </div>
 
     )

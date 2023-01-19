@@ -1,19 +1,29 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 
 
-function CountryDetails(props) {
-    const {countriesArray} = props;
+function CountryDetails() {
+    const baseURL = " https://ih-countries-api.herokuapp.com/countries/"
+    //const {countriesArr} = props;
     const [details, setDetails] = useState("");
 
-    const { alphaCode } = useParams();
-    useEffect(()=>{
-        setDetails(countriesArray.find((elm) => elm.alpha3Code === alphaCode))
+    const { countryCode } = useParams();
+    // useEffect(()=>{
+    //     setDetails(countriesArr.find((elm) => elm.alpha3Code === alphaCode))
         
+    // })
+   
+    useEffect(() => {
+        axios.get(`${baseURL}${countryCode}`)
+            .then((res) => {
+                setDetails(res.data)
+            })
+            .catch((err)=> console.log(err))
     })
     
-
+   
     return (
         <div>          
             <h1>Name: {details.name.common}</h1>
@@ -29,21 +39,6 @@ function CountryDetails(props) {
                         <td>
                             {details.area} km
                             <sup>2</sup>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Borders</td>
-                        <td>
-                            <ul>
-                                <li><a href="/AND">Andorra</a></li>
-                                <li><a href="/BEL">Belgium</a></li>
-                                <li><a href="/DEU">Germany</a></li>
-                                <li><a href="/ITA">Italy</a></li>
-                                <li><a href="/LUX">Luxembourg</a></li>
-                                <li><a href="/MCO">Monaco</a></li>
-                                <li><a href="/ESP">Spain</a></li>
-                                <li><a href="/CHE">Switzerland</a></li>
-                            </ul>
                         </td>
                     </tr>
                 </tbody>
