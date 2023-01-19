@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 export default function CountryDetails({countriesList}){
     
@@ -11,23 +10,21 @@ export default function CountryDetails({countriesList}){
    
 
     return (
-      <div className="col-7">
-        <h2>{selectedCountry.name.official}</h2>
+      <div className="col-6">
         <div className="card">
 
-            <p>Capital: {selectedCountry.capital}</p>
-            <p>Region: {selectedCountry.region}</p>
-            <p>Area: {selectedCountry.area}</p>
-            <p>Borders:
-              {selectedCountry.borders.map((e) => {
+            <h2>{selectedCountry.name.common}</h2>
+            <p><b>Capital:</b> {selectedCountry.capital}</p> <hr />
+            <p><b>Area:</b> {selectedCountry.area}</p> <hr />
+            <p><b>Borders:</b>
+              {selectedCountry.borders.map((borderWith) => {
                 return (
                     <p key={selectedCountry.alpha3Code}>
-                        {e}
+                       <NavLink to={`/countries/${borderWith}`} >{borderWith}</NavLink>
                     </p>
                 )
               })}
             </p>
-            <p>Status: {selectedCountry.status}</p>
 
         </div>
       </div>

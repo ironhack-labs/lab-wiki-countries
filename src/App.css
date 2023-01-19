@@ -2,11 +2,7 @@
   text-align: center;
 }
 
-.routes {
-  display: flex;
-}
-
-.routes-row {
-  display: flex;
-  flex-direction: column;
+.countries-container {
+  margin: auto;
+  
 }
