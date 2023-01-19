@@ -61,3 +61,11 @@
 .details img {
   width: 100px;
 }
+
+* {
+  font-size: small;
+}
+
+img {
+  width: 50px;
+}
