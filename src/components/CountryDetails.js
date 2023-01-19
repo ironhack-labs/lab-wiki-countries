@@ -25,6 +25,9 @@ function CountryDetails(props) {
 
       {foundCountry && (
     <div className="col-7">
+      <section className='countryHeader'>
+       <img src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`} alt='flag' />
+       </section>
     <h2 className='countryName'>{foundCountry.name.official}</h2>
     <table className="table">
     <tr className='capital'>

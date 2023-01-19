@@ -50,3 +50,16 @@
 .bordersTitle{
   font-weight: bold;
 }
+
+.countryListHead{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 450px;
+}
+
+.countryHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

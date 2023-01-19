@@ -18,12 +18,14 @@ function CountriesList (props) {
       {countries.map((country) => {
         return (
           <div key={country.alpha3Code} className="country">
-            
+            <section className='countryListHead'>
+            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt='flag' />
             <h3>
               <Link to={`/${country.alpha3Code}`} className="list-group-item list-group-item-action"> 
                 {country.name.common} 
               </Link>
             </h3>
+            </section>
           </div>
         );
       })}
