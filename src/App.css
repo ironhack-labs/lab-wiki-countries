@@ -28,11 +28,25 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.capital{
+  width: 10%
+}
+
+.countryName{
+  margin-top: 50px;
+}
+
+.capitalTitle{
+  margin-right: 0px;
+  font-weight: bold;
+}
+.capitalName{
+  margin-right: 0px;
+}
+
+.areaTitle{
+  font-weight: bold;
+}
+.bordersTitle{
+  font-weight: bold;
 }
