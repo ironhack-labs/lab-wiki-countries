@@ -1,3 +1,12 @@
 .App {
   text-align: center;
 }
+
+.routes {
+  display: flex;
+}
+
+.routes-row {
+  display: flex;
+  flex-direction: column;
+}

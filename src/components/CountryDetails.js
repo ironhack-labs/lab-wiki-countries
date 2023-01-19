@@ -10,14 +10,26 @@ export default function CountryDetails({countriesList}){
     })
    
 
-    
-
     return (
-        <div className="container">
-            <h2>Country Detail</h2>
-            <div className="card">
-                <h2>{selectedCountry.name.official}</h2>
-            </div>
+      <div className="col-7">
+        <h2>{selectedCountry.name.official}</h2>
+        <div className="card">
+
+            <p>Capital: {selectedCountry.capital}</p>
+            <p>Region: {selectedCountry.region}</p>
+            <p>Area: {selectedCountry.area}</p>
+            <p>Borders:
+              {selectedCountry.borders.map((e) => {
+                return (
+                    <p key={selectedCountry.alpha3Code}>
+                        {e}
+                    </p>
+                )
+              })}
+            </p>
+            <p>Status: {selectedCountry.status}</p>
+
         </div>
-    )
+      </div>
+    );
 }
