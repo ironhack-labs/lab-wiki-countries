@@ -21,13 +21,22 @@ console.log("the url is ......",url);
         console.log(e);
       });
   }, [url]);
+
+
+const urlFlag = details.alpha2Code.toLowerCase();
+const imgUrl = "https://flagpedia.net/data/flags/icon/72x54/"+urlFlag+".png"
+
   const renderDetails = () => {
     return (
       <div className="box">
       <div className="card">
+      <div>
+      <img src ={imgUrl} alt =""/>
+      </div>
         <h1>{details.name.common} </h1>
-        <p>{details.status}</p>
-       
+        <p> Status: {details.status}</p>
+        <p>Capital:{details.capital}</p>
+        
       </div>
       </div>
     );
