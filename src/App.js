@@ -8,13 +8,14 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div style={{"display":"flex"}}>
-      <CountriesList />
-    <Routes>
- 
-      <Route path='country/:countryId' element={<CountryDetails />} />
-    </Routes>
-    </div>
+      <div className="container">
+        <div className="row">
+        <CountriesList />
+        <Routes>
+          <Route path="country/:countryId" element={<CountryDetails />} />
+        </Routes>
+        </div>
+      </div>
     </div>
   );
 }

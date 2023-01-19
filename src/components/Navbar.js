@@ -5,8 +5,8 @@ const Navbar = () => {
   return (
     <nav>
         LAB - WikiCountries
-<NavLink to="/" >Go to List</NavLink>
-
+        &nbsp;&nbsp;
+        <NavLink to="/" >Go to List</NavLink>
     </nav>
   )
 }
