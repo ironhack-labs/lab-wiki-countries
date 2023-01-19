@@ -1,0 +1,15 @@
+.country{
+    border: 1px solid black;
+    width: 400px;
+    margin: auto;
+    padding: 50px;
+    border-radius: 5px;
+}
+.country a{
+    color: black;
+    margin: 0.3rem;
+}
+.borders{
+    margin: 2rem;
+}
+

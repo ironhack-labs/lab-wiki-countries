@@ -1,0 +1,13 @@
+nav{
+    background-color: rgb(61, 61, 126);
+    padding: 2rem;
+    
+}
+nav a{
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: rgb(170, 166, 166);
+}

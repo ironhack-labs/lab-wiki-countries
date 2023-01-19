@@ -1,0 +1,52 @@
+/* *{
+    border: 1px solid black;
+} */
+
+
+/***** list of countries******/
+
+.countries-list{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 80vh;
+    overflow-y: scroll;
+}
+.countries-list::-webkit-scrollbar {
+    width: 15px;
+  }
+.countries-list::-webkit-scrollbar-track {
+    background-color:  rgba(0,0,0,0.3); 
+    border-radius: 5px;
+  }
+.countries-list::-webkit-scrollbar-thumb{
+    background-color: rgb(61, 61, 126);
+    border-radius: 5px;
+}
+.countries-list::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(91, 91, 185);
+    
+}
+
+
+/******* countries in the list *******/
+
+.country-in-list{
+    border: 1px solid rgba(0, 0, 0, 0.356);
+}
+.country-in-list:hover{
+    background-color: rgba(128, 128, 128, 0.527);
+}
+.country-in-list *{
+    margin: 0;
+}
+.country-in-list a{
+    
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    
+}
+.flag-container{
+    margin: 1rem;
+}
