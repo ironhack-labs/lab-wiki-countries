@@ -29,7 +29,7 @@ function CountryDetails(props) {
     <table className="table">
     <tr className='capital'>
                   <td className='capitalTitle'>Capital</td>
-                  <td className='capitalName'>{foundCountry.capital}</td>
+                  <td className="list-group-item list-group-item-action">{foundCountry.capital}</td>
                 </tr>
                 <tr>
                   <td className='areaTitle'>Area</td>
