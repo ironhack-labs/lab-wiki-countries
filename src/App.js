@@ -28,8 +28,9 @@ function App() {
     <Navbar />
     <Routes>
       <Route path='/countries' element={<CountriesList countriesList={countriesList} />}></Route>
-      <Route path={baseURL + '/countries'} element={<CountriesList countriesFromAPI={countriesFromAPI} />}></Route>
       <Route path='/countries/:countryId' element={<CountryDetails countriesList={countriesList} />}></Route>
+      <Route path={baseURL + '/countries'} element={<CountriesList countriesFromAPI={countriesFromAPI} />}></Route>
+      <Route path={baseURL + '/countries/:countryId'} element={<CountriesList countriesFromAPI={countriesFromAPI} />}></Route>
     </Routes>
   </div>
   )
