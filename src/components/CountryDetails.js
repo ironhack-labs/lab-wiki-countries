@@ -1,25 +1,23 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import countriesFromJson from "../countries.json"
 
 
-function CountryDetails() {
+
+function CountryDetails(props) {
+    const {countriesArray} = props;
     const [details, setDetails] = useState("");
 
-    const { alpha3Code } = useParams();
+    const { alphaCode } = useParams();
     useEffect(()=>{
-        setDetails(countriesFromJson.find((elm) => elm.alpha3Code === alpha3Code))
+        setDetails(countriesArray.find((elm) => elm.alpha3Code === alphaCode))
         
     })
     
-    
-    console.log("2", details.name.official);
-    
 
     return (
-        <div class="col-7">
-            {/* <h1>{details.name.common}</h1> */}
-            <table class="table">
+        <div>          
+            <h1>Name: {details.name.common}</h1>
+            <table className="table">
                 <thead></thead>
                 <tbody>
                     <tr>

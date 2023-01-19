@@ -6,7 +6,7 @@ function Navbar() {
     return (
         <div>
             <nav className="navbar navbar-dark bg-primary mb-3">
-                <div className="container d-flex justify-content-between">
+                <div className="container">
                     <NavLink to="/" className="navbar-brand" >WikiCountries</NavLink>
                 </div>
             </nav>
