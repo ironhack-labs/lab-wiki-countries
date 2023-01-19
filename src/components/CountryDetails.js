@@ -1,32 +1,42 @@
-import { NavLink, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+function CountryDetails() {
+  const baseURL = " https://ih-countries-api.herokuapp.com/countries";
 
-export default function CountryDetails({countriesList}){
+  const [details, setDetails] = useState(null);
+
+  const { alpha3Code } = useParams();
+  console.log("alphacode is........",alpha3Code);
+const url = baseURL+ "/" + alpha3Code;
+console.log("the url is ......",url);
+  useEffect(() => {
     
-    const {alpha3code} = useParams();
-
-    const selectedCountry = countriesList.find((choosenCountry) => {
-        return choosenCountry.alpha3Code === alpha3code;
-    })
-   
-
+    axios
+      .get(url)
+      .then((response) => {
+        setDetails(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, [url]);
+  const renderDetails = () => {
     return (
-      <div className="col-6">
-        <div className="card">
-
-            <h2>{selectedCountry.name.common}</h2>
-            <p><b>Capital:</b> {selectedCountry.capital}</p> <hr />
-            <p><b>Area:</b> {selectedCountry.area}</p> <hr />
-            <p><b>Borders:</b>
-              {selectedCountry.borders.map((borderWith) => {
-                return (
-                    <p key={selectedCountry.alpha3Code}>
-                       <NavLink to={`/countries/${borderWith}`} >{borderWith}</NavLink>
-                    </p>
-                )
-              })}
-            </p>
-
-        </div>
+      <div className="box">
+      <div className="card">
+        <h1>{details.name.common} </h1>
+        <p>{details.status}</p>
+       
+      </div>
       </div>
     );
+  };
+
+  return <>
+  {details === null ? "loading...." : renderDetails()}
+  <Link to="/">Back</Link>
+  </>;
 }
+
+export default CountryDetails;

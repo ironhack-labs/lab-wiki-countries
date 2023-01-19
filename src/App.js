@@ -28,7 +28,7 @@ function App() {
         <div className="row">
           <Routes>
             <Route className="route" path ="/" element ={<CountriesList countriesList={countriesList}/>} />
-            <Route path ="/countries/:alpha3code" element ={<CountryDetails countriesList={countriesList} />} />
+            <Route path ="/countries/:alpha3Code" element ={<CountryDetails/>} />
 
             <Route path="*" element={ <h2>404: sorry, this route does not exist</h2>} />
           </Routes>
