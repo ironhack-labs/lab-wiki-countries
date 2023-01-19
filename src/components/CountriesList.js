@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 
 function CountriesList (props) {
   const [countries, setCountries] = useState([]);
-
-  // This effect depends on `props.projects`.
-  // It will run on initial render and every time
-  // when the `props.projects` gets updated.
+  
   useEffect(() => {
     setCountries(props.countries);
   }, [props.countries]);
