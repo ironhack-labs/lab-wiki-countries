@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import { Routes, Route } from 'react-router-dom';
+import Data from './countries.json';
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       {/* <!-- Bootstrap container wrapper div --> */}
       <div className="container"></div>
       {/* <!-- Bootstrap row wrapper div --> */}
-      <div class="row">
-        <CountriesList />
+      <div className="row">
+        <CountriesList data={Data} />
         <CountryDetails />
       </div>
     </div>
