@@ -10,11 +10,18 @@ function App() {
     <div className="App">
       <Navbar />
       {/* <!-- Bootstrap container wrapper div --> */}
-      <div className="container"></div>
-      {/* <!-- Bootstrap row wrapper div --> */}
-      <div className="row">
-        <CountriesList data={Data} />
-        <CountryDetails />
+      <div className="container">
+        {/* <!-- Bootstrap row wrapper div --> */}
+
+        <div className="row">
+          <CountriesList data={Data} />
+          <Routes>
+            <Route
+              path=":alpha3Code"
+              element={<CountryDetails data={Data} />}
+            />
+          </Routes>
+        </div>
       </div>
     </div>
   );

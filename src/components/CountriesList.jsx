@@ -10,6 +10,7 @@ export default function CountriesList({ data }) {
               key={country.alpha3Code}
               className="list-group-item list-group-item-action"
               href="/ABW"
+              to={`${country.alpha3Code}`}
             >
               <div
                 style={{

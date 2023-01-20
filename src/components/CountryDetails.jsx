@@ -1,19 +1,25 @@
-export default function CountryDetails() {
+import { useParams, Link } from 'react-router-dom';
+export default function CountryDetails({ data }) {
+  const { alpha3Code } = useParams();
+
+  const foundCountry = data.find((country) => {
+    return country.alpha3Code === alpha3Code;
+  });
+
   return (
-    // <!-- Country Details (Bootstrap column) -->
     <div className="col-7">
-      <h1>France</h1>
+      <h1>{foundCountry.name.common}</h1>
       <table className="table">
         <thead></thead>
         <tbody>
           <tr>
             <td style={{ width: '30%' }}>Capital</td>
-            <td>Paris</td>
+            <td>{foundCountry.capital}</td>
           </tr>
           <tr>
             <td>Area</td>
             <td>
-              551695 km
+              {foundCountry.area} km
               <sup>2</sup>
             </td>
           </tr>
@@ -21,30 +27,13 @@ export default function CountryDetails() {
             <td>Borders</td>
             <td>
               <ul>
-                <li>
-                  <a href="/AND">Andorra</a>
-                </li>
-                <li>
-                  <a href="/BEL">Belgium</a>
-                </li>
-                <li>
-                  <a href="/DEU">Germany</a>
-                </li>
-                <li>
-                  <a href="/ITA">Italy</a>
-                </li>
-                <li>
-                  <a href="/LUX">Luxembourg</a>
-                </li>
-                <li>
-                  <a href="/MCO">Monaco</a>
-                </li>
-                <li>
-                  <a href="/ESP">Spain</a>
-                </li>
-                <li>
-                  <a href="/CHE">Switzerland</a>
-                </li>
+                {foundCountry.borders.map((border) => {
+                  return (
+                    <li key={border}>
+                      {<Link to={`/${border}`}>{border}</Link>}
+                    </li>
+                  );
+                })}
               </ul>
             </td>
           </tr>
