@@ -10,8 +10,11 @@ function App() {
   return <div className="App">
          <Navbar />
          <Routes>
-        <Route path="/list" element={<CountriesList countries={countries}/>} />
-        <Route path="/alpha3Code" element={<CountryDetails />} />
+        <Route path="/" element={<CountriesList countries={countries}/>} />
+        <Route 
+          path="/countries/:id" 
+          element={ <CountryDetails countries={countries}/> } 
+        /> 
       </Routes>
 
   </div>;
