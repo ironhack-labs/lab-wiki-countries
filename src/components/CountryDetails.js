@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import countriesFromJson from '../countries.json';
 import { Link } from 'react-router-dom';
 
 function CountryDetails() {
@@ -9,13 +8,21 @@ function CountryDetails() {
 
   const params = useParams();
   const countryId = params.id;
-
+/*
   const filteredCountry = countriesFromJson.filter((country) => {
     return country.alpha3Code === countryId;
   });
 
   const result = filteredCountry;
   setDetails(result);
+*/
+  useEffect(() => {
+    axios.get("https://ih-countries-api.herokuapp.com/countries" + countryId)
+      .then((allCountries) => {
+        setDetails(allCountries.data)
+      })
+      .catch((err)=>console.log(err))
+  }, [])
 
   return (
     <div className="col-7">
