@@ -1,8 +1,8 @@
 import { useParams, Link } from 'react-router-dom';
-export default function CountryDetails({ data }) {
+export default function CountryDetails({ countries }) {
   const { alpha3Code } = useParams();
 
-  const foundCountry = data.find((country) => {
+  const foundCountry = countries.find((country) => {
     return country.alpha3Code === alpha3Code;
   });
 
