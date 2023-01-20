@@ -16,7 +16,7 @@ const filteredCountry = props.countries.filter((country)=>{
 
 useEffect (() => {
 setSelectedCountry(filteredCountry)
-},[])
+},[id])
 
 
 
@@ -24,19 +24,21 @@ setSelectedCountry(filteredCountry)
 
 <div className="col-7">
 {selectedCountry ? ( <div>
+    <img src={`https://flagpedia.net/data/flags/icon/72x54/${selectedCountry[0].alpha2Code.toLowerCase()}.png`}/>
 {console.log("the selected country", selectedCountry)}
+
  <h1>{selectedCountry[0].name.common}</h1>
             <table className="table">
               <thead></thead>
               <tbody>
                 <tr>
-                  <td style={{width: "30%"}}>Capital</td>
+                  <td style={{width: "30%"}}>Capital:</td>
                   <td>{selectedCountry[0].capital[0]}</td>
                 </tr>
                 <tr>
-                  <td>{selectedCountry[0].area}</td>
+                  <td>Area:</td>
                   <td>
-                    551695 km
+                  {selectedCountry[0].area} km
                     <sup>2</sup>
                   </td>
                 </tr>
@@ -46,7 +48,8 @@ setSelectedCountry(filteredCountry)
                     <ul>
                      {selectedCountry[0].borders.map(border=>{
                         return (
-                            <li> {border} </li>
+                            <li><Link to={`/countries/${border}`} 
+                            key={border.index}> {border} </Link></li>
                         )
                      })}
                    
