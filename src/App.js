@@ -13,7 +13,6 @@ function App() {
   useEffect(()=>{
     axios.get("https://ih-countries-api.herokuapp.com/countries")
       .then((resp)=>{
-        console.log(resp.data[0])
         setCountries(resp.data)
       })
   }, [])
@@ -22,7 +21,7 @@ function App() {
     <div className="App">
     <NavBar></NavBar>
       <Routes>
-      <Route path='/' element={<CountriesList countries={countries} setCountries={setCountries}/>}/>
+      <Route path='/' element={<div className='centered'><CountriesList countries={countries} setCountries={setCountries}/></div>}/>
       <Route path='/:countryId' element={<div className='flex' > <CountriesList countries={countries} setCountries={setCountries}/>
         <CountryDetails countries={countries} setCountries={setCountries}/>
       </div>}/>
