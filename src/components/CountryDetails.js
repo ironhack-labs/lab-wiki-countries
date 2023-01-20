@@ -17,7 +17,7 @@ const CountryDetails = () => {
        .catch((e) => {
         console.log(e);
       });
-    }, [alpha3Code])
+    }, [alpha3Code]) 
     console.log(countryDetails)
     const renderDetails=() => {
       return(
@@ -33,7 +33,7 @@ const CountryDetails = () => {
   return (
     <div>
     <h1>This is the country</h1>
-    {CountryDetails === null
+    {countryDetails === null
         ? "loading...."
         : renderDetails()
     }
