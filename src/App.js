@@ -4,8 +4,11 @@ import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import { Routes, Route } from 'react-router-dom';
 import Data from './countries.json';
+import { useState } from 'react';
 
 function App() {
+  const [countries, setCountries] = useState(Data);
+
   return (
     <div className="App">
       <Navbar />
@@ -14,7 +17,7 @@ function App() {
         {/* <!-- Bootstrap row wrapper div --> */}
 
         <div className="row">
-          <CountriesList data={Data} />
+          <CountriesList countries={countries} />
           <Routes>
             <Route
               path=":alpha3Code"

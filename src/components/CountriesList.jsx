@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 
-export default function CountriesList({ data }) {
+export default function CountriesList({ countries }) {
   return (
     <div className="col-5" style={{ maxheight: '90vh', overflow: 'scroll' }}>
       <div className="list-group">
-        {data.map((country) => {
+        {countries.map((country) => {
           return (
             <Link
               key={country.alpha3Code}
