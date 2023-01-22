@@ -133,9 +133,9 @@ In this iteration, we will focus on the general layout. Before you start, inside
 
 - `CountriesList`: This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Click on a `Link` should render the country details component.
 
-- `CountryDetails`: 
+- `CountryDetails`: This component should render the details of the clicked country, via the `alpha3Code` throught the URL parameters. 
 
-  This is the id of the country (example: `/ESP` for Spain, `/FRA` for France).
+  The `alpha3Code`, is the id of the country (example: `/ESP` for Spain, `/FRA` for France).
 
 <br>
 
