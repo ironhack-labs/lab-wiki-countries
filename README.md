@@ -121,15 +121,19 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 ## Instructions
 
+### Iteration 1.0 | Import JSON file
+
+We will be working with data form the `src/countries.json` file. Import the file in `App.js` and store it in a state variable `countries`.
+
 ### Iteration 1.1 | Create components
 
 In this iteration, we will focus on the general layout. Before you start, inside the `src` folder, create the `components` folder. There you will create at least 3 components:
 
 - `Navbar`: Displaying the basic navbar with the LAB name
 
-- `CountriesList`: Displays the list of links with the country names. Each link should be a `react-router-dom` `Link` which we will use to <u>send</u> the country code (`alpha3Code`) via the URL.
+- `CountriesList`: This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Click on a `Link` should render the country details component.
 
-- `CountryDetails`: This is the component that we will render via the `react-router-dom`'s `Route`, and it should <u>receive</u> the country code (`alpha3Code`) via the URL.
+- `CountryDetails`: 
 
   This is the id of the country (example: `/ESP` for Spain, `/FRA` for France).
 
@@ -157,27 +161,8 @@ Create a navbar component that displays the title *LAB - WikiCountries*.
 
 ### Iteration 1.3 | CountriesList component
 
-This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Click on a `Link` should render the country details component.
-
-<br>
-
-
-### Iteration 1.4 | CountryDetails component and `Route` setup
-
-Now that our list of countries is ready, we should create the `CountryDetails` component. This component should receive the array of countries as a prop. Here's a reminder on how to do this:
-
-```jsx
-// Example
-<Route path="/:id" element={ <SomeComponent someData={someData} /> } />
-```
-
-
-
-The `alpha3Code` of the country will be available throught the URL parameters. To access the URL parameters, from the browser's URL bar, use the React Routers hooks `useParams`. For a reminder on setting up and accessing the URL parameters with React Router, check [this example](https://reactrouter.com/docs/en/v6/api#useparams).
-
-<br>
-
-**NOTE:** If you haven't added CSS, the country details may be displayed at the very bottom of the page.
+The data from the state variable `countries` should be passed to the `CountriesList` component as a prop.
+Then display the list of links with the country names. Each link should be a `react-router-dom` `Link` which we will use to <u>send</u> the country code (`alpha3Code`) via the URL. (Check the `counties.json` stucture )
 
 <br>
 
@@ -191,12 +176,31 @@ For the small picture of the flag, you can use the lowercased `alpha2Code` and e
 
 <br>
 
+<br>
+
+
+### Iteration 1.4 | CountryDetails component and `Route` setup
+
+Now that our list of countries is ready, we should create the `CountryDetails` component. This is the component that we will render via the `react-router-dom`'s `Route`, and it should <u>receive</u> the country code (`alpha3Code`) via the URL. This component should also receive the array of countries as a prop. Here's a reminder on how to do this:
+
+```jsx
+// Example
+<Route path="/:id" element={ <SomeComponent someData={someData} /> } />
+```
+
+The `alpha3Code` of the country will be available throught the URL parameters. To access the URL parameters, from the browser's URL bar, use the React Routers hooks `useParams`. For a reminder on setting up and accessing the URL parameters with React Router, check [this example](https://reactrouter.com/docs/en/v6/api#useparams).
+
+The `CountryDetails` component should display information of the clicked country as shown in the demo at the top.
+
+<br>
+
+**NOTE:** If you haven't added CSS, the country details may be displayed at the very bottom of the page.
+
+<br>
 
 ----
 
 ### Iteration 2 | Linking it all together
-
-`App` should have a state variable `countries` holding the data coming from the `src/countries.json` file. The data from the state variable `countries` should then be passed to the `CountriesList` component as a prop.
 
 Once done creating the components, the structure of elements that your `App.js` will render should look somewhat like this:
 
