@@ -63,7 +63,7 @@ export default App;
 ## Instructions 
 
 
-### Iteration 0 | React Router installation
+### Iteration 0 | React Router Installation
 
 Remember to install the React Router:
 
@@ -146,7 +146,7 @@ Before you start, inside the `src` folder, create the `components` folder. There
 
 To help you with the structure of the components, we included for you an example of the page structure in `example.html`.
 
-For CSS styling should be done using Bootstrap. Check how the *Bootstrap CSS class names* are applied for styling in the `example.html` and refer to the Bootstrap [docs](https://getbootstrap.com) for additional details.
+The CSS styling should be done using Bootstrap. Check how the *Bootstrap CSS class names* are applied for styling in the `example.html` and refer to Bootstrap [docs](https://getbootstrap.com) for additional details.
 
 <br>
 
@@ -167,13 +167,13 @@ Create a navbar component that displays the title *LAB - WikiCountries*.
 ### Iteration 2.3 | `CountriesList` component
 This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Clicking on any of the `Link`s should render the country details component.
 
-The array with countries details should be passed to the `CountriesList` component as a prop, coming from the `App.js` component's state variable `countries`.
+The array with country details should be passed to the `CountriesList` component as a prop, coming from the `App.js` component's state variable `countries`.
 
-You may also want to check the `counties.json` to get familiar with stucture of the objects.
+You may also want to check the `counties.json` file to get familiar with the stucture of the objects.
 
 <br>
 
-For the small picture of the flag, you can use the lowercased `alpha2Code` and embed it in the URL as shown below:
+For the small picture of the flag, you can use the lowercase `alpha2Code` and embed it in the URL as shown below:
 
 
 - France: https://flagpedia.net/data/flags/icon/72x54/fr.png
@@ -189,7 +189,7 @@ For the small picture of the flag, you can use the lowercased `alpha2Code` and e
 
 Now that our list of countries is ready, we should create the `CountryDetails` component.
 
-The `CountryDetails` component should display information of the clicked country as shown in the example at the begining of the lab ([see example](#Introduction)).
+The `CountryDetails` component should display information about the clicked country as shown in the example at the beginning of the lab ([see example](#Introduction)).
 
 <br>
 
@@ -221,7 +221,7 @@ For a reminder on how the `useParams` hook works and how to use it to access the
 
 ### Iteration 3 | Linking it all together
 
-Once done creating the components, the structure of elements that your `App.js` will render should look somewhat like this:
+Once you're done creating the components, the structure of elements that your `App.js` will render should look somewhat like this:
 
 ```jsx
 // ...
@@ -252,7 +252,7 @@ The data from the `App.js` state variable `countries` is passed to the `Countrie
 
 Instead of relying on the static data from a `json` file, let's do something more interesting and get the data from an actual API.
 
-In `App.js`, make a `GET` request to the URL [https://ih-countries-api.herokuapp.com/countries](https://ih-countries-api.herokuapp.com/countries). Use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request. 
+In `App.js`, make a `GET` request to the URL [https://ih-countries-api.herokuapp.com/countries](https://ih-countries-api.herokuapp.com/countries). Use the data returned from the response as the list of countries. You can use either `fetch` or `axios` to make the request. 
 
 You should use the `useEffect()` hook to set an effect that runs only once and makes a request to the API. Once you receive the response data, save it in a state variable. The request should happen first thing when the application loads.
 
@@ -260,7 +260,7 @@ You should use the `useEffect()` hook to set an effect that runs only once and m
 
 ### Iteration 5 | Bonus | Fetch one country data from an API
 
-Using the `useEffect` hook set an effect in the `CountriesDetails` component. The effect should make a request to the RestCountries API and fetch the data for the specific country. You can construct the request URL using the country's `alpha3Code`. Example:
+Using the `useEffect` hook, set an effect in the `CountriesDetails` component. The effect should make a request to the RestCountries API and fetch the data for the specific country. You can construct the request URL using the country's `alpha3Code`. Example:
 
 - United States: https://ih-countries-api.herokuapp.com/countries/USA
 - Japan: https://ih-countries-api.herokuapp.com/countries/JPN
