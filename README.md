@@ -19,11 +19,11 @@ After spending too much time on GitHub, you found a [JSON dataset of countries](
 - Clone this repo
 - Open the LAB and start:
 
-  ```bash
-  cd lab-wiki-countries
-  npm install
-  npm start
-  ```
+```bash
+cd lab-wiki-countries
+npm install
+npm start
+```
 
 <br>
 
@@ -122,7 +122,6 @@ import "bootstrap/dist/css/bootstrap.css";
 ### Iteration 1 | Import JSON data
 
 We will be working with data coming from the `src/countries.json` file. 
-
 Import the file in `App.js` and store it in a state variable named `countries`.
 
 
@@ -137,9 +136,7 @@ In this iteration, we will focus on the general layout.
 Before you start, inside the `src` folder, create the `components` folder. There you will create at least 3 components:
 
 - `Navbar`: Displaying the basic navbar with the LAB name
-
 - `CountriesList`: This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Clicking on any of the `Link`s should render the country details component.
-
 - `CountryDetails`: This component should render the details of the clicked country, and it should <u>receive</u> the country code (`alpha3Code`) through the URL parameters. The `alpha3Code` is the id of the country (e.g., `/ESP` - Spain, `/FRA` - France).
 
 <br>
@@ -165,11 +162,12 @@ Create a navbar component that displays the title *LAB - WikiCountries*.
 
 
 ### Iteration 2.3 | `CountriesList` component
+
 This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Clicking on any of the `Link`s should render the country details component.
 
 The array with country details should be passed to the `CountriesList` component as a prop, coming from the `App.js` component's state variable `countries`.
 
-You may also want to check the `counties.json` file to get familiar with the stucture of the objects.
+You may also want to check the `counties.json` file to get familiar with the structure of the objects.
 
 <br>
 
@@ -182,8 +180,6 @@ For the small picture of the flag, you can use the lowercase `alpha2Code` and em
 - etc.
 
 <br>
-
-
 
 ### Iteration 2.4 | `CountryDetails` component and `Route` setup
 
@@ -201,8 +197,6 @@ The `CountryDetails` component should also receive the array of countries as a p
 // Example
 <Route path="/:id" element={ <SomeComponent someData={someData} /> } />
 ```
-
-
 
 The `CountriesList` component renders a list of links where each `Link` has a unique `alpha3Code`. Once a `Link` is clicked, the `alpha3Code` shown in the URL can be accessed through the URL parameters. 
 
@@ -256,6 +250,8 @@ In `App.js`, make a `GET` request to the URL [https://ih-countries-api.herokuapp
 
 You should use the `useEffect()` hook to set an effect that runs only once and makes a request to the API. Once you receive the response data, save it in a state variable. The request should happen first thing when the application loads.
 
+<br>
+
 ----
 
 ### Iteration 5 | Bonus | Fetch one country data from an API
@@ -268,7 +264,7 @@ Using the `useEffect` hook, set an effect in the `CountriesDetails` component. T
 
 The effect should run after the initial render, and each time the URL parameter with the `alpha3Code` changes.
 
-Happy coding! :heart:
+**Happy coding!** :heart:
 
 <br>
 
@@ -348,14 +344,14 @@ Happy coding! :heart:
 
   ```jsx
   // Actual syntax
-  useEffect(() => {}, [])
+  useEffect(() => {}, []);
   ```
 
   As you can see `useEffect` takes two arguments:
 
   ```jsx
   // Pseudo code:
-  useEffect(didUpdate, dependencyArray)
+  useEffect(didUpdate, dependencyArray);
   ```
 
   - `didUpdate` - a function containing the code (side effect) we want to run.
@@ -415,7 +411,7 @@ Happy coding! :heart:
     // Do something ...
     
     // Effect will run again if either `a` or `b` change or are updated
-  }, [a, b]
+  }, [a, b])
   ```
 
   <br>
