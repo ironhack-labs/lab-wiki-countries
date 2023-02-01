@@ -19,11 +19,11 @@ After spending too much time on GitHub, you found a [JSON dataset of countries](
 - Clone this repo
 - Open the LAB and start:
 
-  ```bash
-  cd lab-wiki-countries
-  npm install
-  npm start
-  ```
+```bash
+cd lab-wiki-countries
+npm install
+npm start
+```
 
 <br>
 
@@ -63,12 +63,12 @@ export default App;
 ## Instructions 
 
 
-### Iteration 0 | React Router installation
+### Iteration 0 | React Router Installation
 
 Remember to install the React Router:
 
 ```shell
-$ npm install react-router-dom
+npm install react-router-dom
 ```
 
 And setup the router in your `src/index.js` file:
@@ -92,14 +92,14 @@ root.render(
   </Router>
 );
 
-// comment omitted for readability
+
 reportWebVitals();
 ```
 
 <br>
 
 
-### Bootstrap installation
+### Bootstrap Installation
 
 We will use [Bootstrap](https://getbootstrap.com/) for the design :+1:
 
@@ -119,23 +119,31 @@ import "bootstrap/dist/css/bootstrap.css";
 
 ## Instructions
 
-### Iteration 1.1 | Create components
+### Iteration 1 | Import JSON data
 
-In this iteration, we will focus on the general layout. Before you start, inside the `src` folder, create the `components` folder. There you will create at least 3 components:
+We will be working with data coming from the `src/countries.json` file. 
+Import the file in `App.js` and store it in a state variable named `countries`.
 
-- `Navbar`: Displaying the basic navbar with the LAB name
-
-- `CountriesList`: Displays the list of links with the country names. Each link should be a `react-router-dom` `Link` which we will use to <u>send</u> the country code (`alpha3Code`) via the URL.
-
-- `CountryDetails`: This is the component that we will render via the `react-router-dom`'s `Route`, and it should <u>receive</u> the country code (`alpha3Code`) via the URL.
-
-  This is the id of the country (for example: `/ESP` for Spain, `/FRA` for France).
 
 <br>
 
-To help you with the structure of the components, we gave you an example of a page inside `example.html`.
+----
 
-If you want to style it, refresh your memory on Bootstrap in the [docs](https://getbootstrap.com) or check out how we approached styling in the `example.html`.
+### Iteration 2.1 | Create components
+
+In this iteration, we will focus on the general layout.
+
+Before you start, inside the `src` folder, create the `components` folder. There you will create at least 3 components:
+
+- `Navbar`: Displaying the basic navbar with the LAB name
+- `CountriesList`: This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Clicking on any of the `Link`s should render the country details component.
+- `CountryDetails`: This component should render the details of the clicked country, and it should <u>receive</u> the country code (`alpha3Code`) through the URL parameters. The `alpha3Code` is the id of the country (e.g., `/ESP` - Spain, `/FRA` - France).
+
+<br>
+
+To help you with the structure of the components, we included for you an example of the page structure in `example.html`.
+
+The CSS styling should be done using Bootstrap. Check how the *Bootstrap CSS class names* are applied for styling in the `example.html` and refer to Bootstrap [docs](https://getbootstrap.com) for additional details.
 
 <br>
 
@@ -146,40 +154,24 @@ If you want to style it, refresh your memory on Bootstrap in the [docs](https://
 <br>
 
 
-### Iteration 1.2 | Navbar component
+### Iteration 2.2 | `Navbar` component
 
 Create a navbar component that displays the title *LAB - WikiCountries*.
 
 <br>
 
 
-### Iteration 1.3 | CountriesList component
+### Iteration 2.3 | `CountriesList` component
 
-This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Click on a `Link` should render the country details component.
+This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Clicking on any of the `Link`s should render the country details component.
 
-<br>
+The array with country details should be passed to the `CountriesList` component as a prop, coming from the `App.js` component's state variable `countries`.
 
-
-### Iteration 1.4 | CountryDetails component and `Route` setup
-
-Now that our list of countries is ready, we should create the `CountryDetails` component. This component should receive the array of countries as a prop. Here's a reminder on how to do this:
-
-```jsx
-// Example
-<Route path="/:id" element={ <SomeComponent someData={someData} /> } />
-```
-
-
-
-The `alpha3Code` of the country will be available through the URL parameters. To access the URL parameters, from the browser's URL bar, use the React Routers hooks `useParams`. For a reminder on setting up and accessing the URL parameters with React Router, check [this example](https://reactrouter.com/docs/en/v6/api#useparams).
+You may also want to check the `counties.json` file to get familiar with the structure of the objects.
 
 <br>
 
-**NOTE:** If you haven't added CSS, the country details may be displayed at the very bottom of the page.
-
-<br>
-
-For the small picture of the flag, you can use the lowercased `alpha2Code` and embed it in the URL as shown below:
+For the small picture of the flag, you can use the lowercase `alpha2Code` and embed it in the URL as shown below:
 
 
 - France: https://flagpedia.net/data/flags/icon/72x54/fr.png
@@ -189,14 +181,41 @@ For the small picture of the flag, you can use the lowercased `alpha2Code` and e
 
 <br>
 
+### Iteration 2.4 | `CountryDetails` component and `Route` setup
+
+Now that our list of countries is ready, we should create the `CountryDetails` component.
+
+The `CountryDetails` component should display information about the clicked country as shown in the example at the beginning of the lab ([see example](#Introduction)).
+
+<br>
+
+This component should be rendered using the `react-router-dom` `Route` with the `path` set to be a *URL parameter*, allowing us to capture the country code (`alpha3Code`) passed via the URL.
+
+The `CountryDetails` component should also receive the array of countries as a prop. Here's a reminder on how to do this:
+
+```jsx
+// Example
+<Route path="/:id" element={ <SomeComponent someData={someData} /> } />
+```
+
+The `CountriesList` component renders a list of links where each `Link` has a unique `alpha3Code`. Once a `Link` is clicked, the `alpha3Code` shown in the URL can be accessed through the URL parameters. 
+
+To access the `alpha3Code` shown in the URL (in the browser's page address bar), you should use the React Routers hook `useParams`. 
+
+For a reminder on how the `useParams` hook works and how to use it to access the URL parameters, check [this example](https://reactrouter.com/docs/en/v6/api#useparams).
+
+<br>
+
+**NOTE:** If you haven't added CSS, the country details may be displayed at the very bottom of the page.
+
+<br>
+
 
 ----
 
-### Iteration 2 | Linking it all together
+### Iteration 3 | Linking it all together
 
-`App` should have a state variable `countries` holding the data coming from the `src/countries.json` file. The data from the state variable `countries` should then be passed to the `CountriesList` component as a prop.
-
-Once done creating the components, the structure of elements that your `App.js` will render should look somewhat like this:
+Once you're done creating the components, the structure of elements that your `App.js` will render should look somewhat like this:
 
 ```jsx
 // ...
@@ -215,21 +234,29 @@ Once done creating the components, the structure of elements that your `App.js` 
 // ...
 ```
 
+<br>
+
+The data from the `App.js` state variable `countries` is passed to the `CountriesList` component as a prop.
+
+<br>
+
 ----
 
-### Iteration 3 | Fetch countries data from an API
+### Iteration 4 | Fetch countries data from an API
 
 Instead of relying on the static data from a `json` file, let's do something more interesting and get the data from an actual API.
 
-In `App.js`, make a `GET` request to the URL [https://ih-countries-api.herokuapp.com/countries](https://ih-countries-api.herokuapp.com/countries). Use the data returned from the response as the list of the countries. You can use either `fetch` or `axios` to make the request. 
+In `App.js`, make a `GET` request to the URL [https://ih-countries-api.herokuapp.com/countries](https://ih-countries-api.herokuapp.com/countries). Use the data returned from the response as the list of countries. You can use either `fetch` or `axios` to make the request. 
 
 You should use the `useEffect()` hook to set an effect that runs only once and makes a request to the API. Once you receive the response data, save it in a state variable. The request should happen first thing when the application loads.
 
+<br>
+
 ----
 
-### Iteration 4 | Bonus | Fetch one country data from an API
+### Iteration 5 | Bonus | Fetch one country data from an API
 
-Using the `useEffect` hook set an effect in the `CountriesDetails` component. The effect should make a request to the RestCountries API and fetch the data for the specific country. You can construct the request URL using the country's `alpha3Code`. Example:
+Using the `useEffect` hook, set an effect in the `CountriesDetails` component. The effect should make a request to the RestCountries API and fetch the data for the specific country. You can construct the request URL using the country's `alpha3Code`. Example:
 
 - United States: https://ih-countries-api.herokuapp.com/countries/USA
 - Japan: https://ih-countries-api.herokuapp.com/countries/JPN
@@ -237,7 +264,7 @@ Using the `useEffect` hook set an effect in the `CountriesDetails` component. Th
 
 The effect should run after the initial render, and each time the URL parameter with the `alpha3Code` changes.
 
-Happy coding! :heart:
+**Happy coding!** :heart:
 
 <br>
 
@@ -317,14 +344,14 @@ Happy coding! :heart:
 
   ```jsx
   // Actual syntax
-  useEffect(() => {}, [])
+  useEffect(() => {}, []);
   ```
 
   As you can see `useEffect` takes two arguments:
 
   ```jsx
   // Pseudo code:
-  useEffect(didUpdate, dependencyArray)
+  useEffect(didUpdate, dependencyArray);
   ```
 
   - `didUpdate` - a function containing the code (side effect) we want to run.
@@ -384,7 +411,7 @@ Happy coding! :heart:
     // Do something ...
     
     // Effect will run again if either `a` or `b` change or are updated
-  }, [a, b]
+  }, [a, b])
   ```
 
   <br>
