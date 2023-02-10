@@ -28,6 +28,12 @@
   color: #61dafb;
 }
 
+.global-card {
+  height: 700px;
+	width: 510px;
+  overflow-y: scroll;
+}  
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
