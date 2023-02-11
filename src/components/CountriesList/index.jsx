@@ -6,24 +6,20 @@ function CountryList({items}){
     
     return (
         <div>
-            <ul>
             <div className='country-list'>
                 {items.map((item, index)=>(
-                     <Link to={`/${item.alpha3code}`}>
+                     <Link key={index} to={`/${item.alpha3Code}`}>
                         <img 
-                        src={`https://flagpedia.net/data/flags/icon/72x54/${item.alpha2code}.png`} 
+                        width={20}
+                        src={`https://flagpedia.net/data/flags/icon/72x54/${item.alpha2Code.toLowerCase()}.png`} 
                         alt={item.name.official} /> {item.name.official}
                          
                      </Link>
              ))}
             </div>
-            </ul>
         </div>
     )
 }
 
 export default CountryList;
-
-
-
 

@@ -6,12 +6,22 @@ import CountryList from './components/CountriesList';
 import { useState } from 'react';
 
 function App() {
-  const items = countries;
+  const [countries, setCountries] = useState(countries)
+  
   return (
     <div className="App">
        <Navbar/>
-       <CountryList items = {items}/>
-        
+       <div className="container">
+          <div className="row">
+         
+            <CountryList items = {countries}/>
+            <Routes>
+                 <Route path='/:idCountry' element={ <CountryDetails countries={countries}/>}/>
+
+            </Routes>
+
+          </div>
+        </div>
     </div>
   );
 }
