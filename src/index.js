@@ -4,11 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// IMPORT ROUTER FROM reate-router-dom
+import { BrowserRouter as Router } from "react-router-dom";
+
+// IMPORT BOOTSTRAP
+import "bootstrap/dist/css/bootstrap.css";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>
 );
 
