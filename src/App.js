@@ -1,4 +1,5 @@
 import './App.css';
+import countries from './countries.json'
 
 function App() {
   return (
