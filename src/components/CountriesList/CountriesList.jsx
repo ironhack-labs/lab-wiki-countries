@@ -1,9 +1,9 @@
 import './CountriesList.css'
 import { Link } from 'react-router-dom'
 
-const CountriesList = ({name,alpha2Code,...restProps}) => {
+const CountriesList = ({name,alpha2Code,alpha3Code,...restProps}) => {
     return(
-        <Link to='/' className='link-card'>
+        <Link to={`/countryDetails/${alpha3Code}`} className='link-card'>
         <div className='container-card'>
             <div id="scrollspyHeading1" className="card text-center mb-3">
                 <div className="card-body">

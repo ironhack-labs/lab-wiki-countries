@@ -30,9 +30,19 @@
 
 .global-card {
   height: 700px;
-	width: 510px;
+	width: 420px;
   overflow-y: scroll;
 }  
+
+.row-countries {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.country-details {
+  margin-top: 50px;
+}
 
 @keyframes App-logo-spin {
   from {
