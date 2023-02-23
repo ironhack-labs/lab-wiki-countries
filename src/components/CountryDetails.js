@@ -1,11 +1,13 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 function CountryDetails(props) {
-  const { code } = useParams();
+  const { code } = useParams()
 
-  const oneCountry = props.countries.find((country) => {
-    return code === country.alpha3Code;
-  });
+  const oneCountry = props.countries.find(country => {
+    return code === country.alpha3Code
+  })
 
   return (
     <div className="col-7">
@@ -14,7 +16,7 @@ function CountryDetails(props) {
         <thead></thead>
         <tbody>
           <tr>
-            <td style={{ width: '30%' }}>Capital</td>
+            <td style={{width: "30%"}}>Capital</td>
             <td>{oneCountry.capital[0]}</td>
           </tr>
           <tr>
@@ -29,7 +31,7 @@ function CountryDetails(props) {
             <td>
               <ul>
                 {oneCountry.borders.map(border => {
-                  return <li key={border} ><Link to={`/countryDetails/${border}`}>{ props.countries.find(country => country.alpha3Code === border).name.common}</Link></li>;
+                  return <li key={border} ><Link to={`/countryDetails/${border}`}>{props.countries.find(country => country.alpha3Code === border).name.common}</Link></li>
                 })}
               </ul>
             </td>
@@ -37,7 +39,7 @@ function CountryDetails(props) {
         </tbody>
       </table>
     </div>
-  );
+  );       
 }
 
 export default CountryDetails;
