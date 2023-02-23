@@ -3,8 +3,7 @@ import { Link } from "react-router-dom"
 
 function CountriesList({countries}) {
     return ( 
-        <div className="container">
-        <div className="row">
+        
           <div className="col-5" style={{maxHeight: "90vh", overflow: "scroll"}}>
             <div className="list-group">
               {countries.map(country => {
@@ -19,8 +18,6 @@ function CountriesList({countries}) {
               })}
             </div>
           </div>
-        </div>
-    </div>
      );
 }
 

@@ -1,14 +1,26 @@
-import { useParams, Link } from 'react-router-dom';
-import { useState } from 'react';
-
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 function CountryDetails(props) {
   const { code } = useParams();
+  const [oneCountry, setOneCountry] = useState(null);
 
-  const oneCountry = props.countries.find((country) => {
-    return code === country.alpha3Code;
-  });
+  useEffect(() => {
+    axios
+      .get(`https://ih-countries-api.herokuapp.com/countries/${code}`)
+      .then((response) => {
+        setOneCountry(response.data);
+      });
+  }, [code]);
 
+  //   const oneCountry = props.countries.find((country) => {
+  //     return code === country.alpha3Code;
+  //   });
+
+  if (!oneCountry) {
+    return <div><p>Loading</p></div>
+  } else {
   return (
     <div className="col-7">
       <h1>{oneCountry.name.common}</h1>
@@ -22,7 +34,7 @@ function CountryDetails(props) {
           <tr>
             <td>Area</td>
             <td>
-                {oneCountry.area} km
+              {oneCountry.area} km
               <sup>2</sup>
             </td>
           </tr>
@@ -30,14 +42,19 @@ function CountryDetails(props) {
             <td>Borders</td>
             <td>
               <ul>
-                {oneCountry.borders.map(border => {
-                    return (
-                    <li>
-                    <Link to={`countryDetais/${border}`}>{props.countries.find(country => country.alpha3Code === border).name.common}</Link>
+                {oneCountry.borders.map((border) => {
+                  return (
+                    <li key={border}>
+                      <Link to={`/countryDetails/${border}`}>
+                        {
+                          props.countries.find(
+                            (country) => country.alpha3Code === border
+                          ).name.common
+                        }
+                      </Link>
                     </li>
-                    )
+                  );
                 })}
-             
               </ul>
             </td>
           </tr>
@@ -45,6 +62,7 @@ function CountryDetails(props) {
       </table>
     </div>
   );
+}
 }
 
 export default CountryDetails;
