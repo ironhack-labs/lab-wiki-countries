@@ -30,7 +30,7 @@ function CountryDetails(props) {
             <td>
               <ul>
                 {oneCountry.borders.map(border => {
-                  return <li><Link to={`/countryDetails/${border}`}>{props.countries.find(country => country.alpha3Code === border).name.common}</Link></li>
+                  return <li key={border}><Link to={`/countryDetails/${border}`}>{props.countries.find(country => country.alpha3Code === border).name.common}</Link></li>
                 })}
               </ul>
             </td>
