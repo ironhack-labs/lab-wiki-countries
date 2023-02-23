@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const CountriesList = ({ countries }) => {
   return (
@@ -10,19 +11,19 @@ const CountriesList = ({ countries }) => {
           <div className="list-group">
             {countries.map((country) => {
               return (
-                <a
+                <Link
                   key={country.alpha3Code}
+                  to={`/${country.alpha3Code}`}
                   className="list-group-item list-group-item-action"
-                  href={country.alpha3Code}
                 >
                   <img
-                    className="mb-3 mt-3"
+                    style={{ width: '5%' }}
                     src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
                     alt=""
                     width={40}
                   />
-                    {country.name.common}
-                </a>
+                  {country.name.common}
+                </Link>
               );
             })}
           </div>
@@ -33,3 +34,4 @@ const CountriesList = ({ countries }) => {
 };
 
 export default CountriesList;
+
