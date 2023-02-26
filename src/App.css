@@ -28,6 +28,32 @@
   color: #61dafb;
 }
 
+.display-flexbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.list-box{
+  width: 30%;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.details-box{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  padding: 0;
+}
+
+.details-box img{
+  margin-top: 50px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
