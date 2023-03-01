@@ -1,0 +1,15 @@
+.countryList {
+    margin: 30px;
+    max-height: 90vh;
+    overflow: scroll;
+}
+
+.countryLink {
+    display: flex;
+    text-align: start;
+    margin: 20px;
+}
+
+.countryLink img {
+    width: 20px;
+}
