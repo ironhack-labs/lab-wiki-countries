@@ -1,0 +1,27 @@
+.details {
+    text-align: center;
+    border: 1px solid;
+    padding-top: 20px;
+    height: 400px;
+}
+
+.detailslink {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    color: black;
+
+}
+
+.listlink {
+    text-decoration: none;
+    color: black;
+
+}
+
+.cardCountries {
+    text-align: center;
+    border: 1px solid;
+    padding-top: 20px;
+
+}
