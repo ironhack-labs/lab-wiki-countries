@@ -1,0 +1,10 @@
+.Navbar ul {
+    list-style: none;
+    color: black;
+    padding: 10px;
+}
+
+.Navbar {
+    background-color: black;
+    /* position: fixed; */
+}
