@@ -1,0 +1,13 @@
+.CountriesArt {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid black;
+    margin: 3px;
+}
+
+.CountriesArt img {
+    width: 30px;
+    height: 20px;
+    margin-left: 5px;
+}

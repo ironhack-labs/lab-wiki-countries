@@ -1,5 +1,11 @@
 .App {
+  font-family: sans-serif;
   text-align: center;
+}
+
+.App Nav {
+  position: fixed;
+  width: 100%;
 }
 
 .App-logo {
@@ -32,7 +38,21 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.Body {
+  display: flex;
+  padding-top: 60px;
+}
+
+.List {
+  width: 50%;
+}
+
+.Details {
+  width: 50%;
 }

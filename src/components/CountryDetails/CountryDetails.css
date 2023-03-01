@@ -1,0 +1,27 @@
+.CountryDetails {
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    width: 50%;
+}
+
+.CountryCard {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.CountryDetails img {
+    width: 300px;
+    height: 200px;
+}
+
+.borders {
+    display: flex;
+    justify-content: center;
+}
+
+.bordersList {
+    margin-left: 5px;
+}
