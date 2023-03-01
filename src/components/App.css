@@ -1,0 +1,38 @@
+.img {
+  width: 100%;
+}
+
+.nav-style {
+  background-color: lightblue;
+  height: 60px;
+}
+
+.nav-style h5 {
+  margin-left: 20px;
+}
+
+.App {
+  text-align: center;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.countries-List {
+  display: flex;
+  flex-direction: column;
+}
+
+.each-country {
+  width: 40%;
+}
+
+.country-details {
+  width: 40%;
+  background-color: red;
+  height: 500px;
+}
