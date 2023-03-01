@@ -1,0 +1,16 @@
+.flag {
+    display: flex;
+
+
+}
+
+.flag a {
+    display: flex;
+    padding: 20%;
+
+}
+
+.flag li {
+    text-decoration: none;
+    list-style: none;
+}
