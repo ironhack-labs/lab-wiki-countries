@@ -1,0 +1,14 @@
+.CountriesList {
+    text-align: start;
+}
+
+.CountriesList img {
+    width: 20px;
+    height: auto;
+
+}
+
+.SectionCountries {
+    max-height: 90vh;
+    overflow: scroll;
+}

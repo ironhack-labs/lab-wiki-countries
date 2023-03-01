@@ -1,0 +1,17 @@
+.NavBar {
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    background-color: rgb(93, 134, 222);
+    display: flex;
+    justify-content: start;
+    text-align: center;
+    align-items: center;
+}
+
+.WikiCountries {
+    color: white;
+    margin: 0px 15px;
+    font-family: sans-serif;
+
+}
