@@ -1,0 +1,31 @@
+.Navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #120834;
+  padding: 0;
+}
+
+.Navbar li,
+.Navbar a {
+  list-style: none;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.List {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.Details {
+  margin-top: 60px;
+  text-align: center;
+}
