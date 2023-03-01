@@ -1,0 +1,23 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #352275;
+  padding: 5px 20px;
+}
+
+.Navbar li,
+.Navbar a {
+  list-style: none;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 20px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.selected {
+  text-shadow: 1px 0px 3px white;
+  color: #fff;
+  border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
+  padding-bottom: 5px;
+}
