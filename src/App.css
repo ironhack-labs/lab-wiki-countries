@@ -36,3 +36,52 @@
     transform: rotate(360deg);
   }
 }
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+.Navbar {
+  display: flex;
+  background: black;
+  margin-bottom: 20px;
+}
+
+.Navbar li,
+.Navbar a {
+  list-style: none;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #f2f2f2;
+  font-size: 16px;
+}
+
+table li, 
+table a {
+  text-decoration: none;
+  list-style: none;
+  color: black;
+}
+
+.border-flag {
+  width: 30px;
+  align-items: end;
+}
