@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       <Navbar></Navbar>
-      {/* <Routes> */}
-      <CountriesList></CountriesList>
-      {/* </Routes> */}
+      <Routes>
+        <Route path='/countriesList' element={<CountriesList></CountriesList>} />
+      </Routes>
     </div>
   );
 }
