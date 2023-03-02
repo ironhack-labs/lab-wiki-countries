@@ -35,8 +35,95 @@
 // export default CountriesList;
 
 
-
 // with pagenation
+
+// import React, { useEffect, useState } from "react"
+// import { Link } from "react-router-dom";
+
+// const CountriesList = () => {
+
+
+//     const [countries, setCountries] = useState([])
+//     useEffect(() => {
+//         fetch(' https://ih-countries-api.herokuapp.com/countries')
+//             .then(res => res.json())
+//             .then(countries => setCountries(countries))
+
+//     }, [])
+
+//     const [currentPage, setCurrentPage] = useState(1)
+//     const itemsPerPage = 10
+//     const pageNumbers = []
+
+//     const lastIndex = currentPage * itemsPerPage
+//     const firstIndex = lastIndex - itemsPerPage
+//     const currentCountries = countries.slice(firstIndex, lastIndex)
+
+//     const handlePageChange = (page) => {
+//         setCurrentPage(page)
+//     }
+
+//     const handleNextPage = () => {
+//         setCurrentPage(currentPage + 1)
+//     }
+
+//     const handlePrevPage = () => {
+//         setCurrentPage(currentPage - 1)
+//     }
+
+//     for (let i = 1; i <= Math.ceil(countries.length / itemsPerPage); i++) {
+//         pageNumbers.push(i);
+//     }
+
+
+//     return (
+//         <div>
+//             <div className="listbox">
+//                 <h2>Countries List</h2>
+//                 {countries.length > 0 && (
+//                     <>
+
+//                         {currentCountries.map((country) => {
+
+//                             return (
+//                                 <div key={country.alpha3Code} className="country">
+//                                     <h5>{country.name.official}</h5>
+//                                     <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt='' />
+//                                     <br></br>
+//                                     <Link to={`/${country.alpha3Code}`}>Ver detalles</Link>
+//                                 </div>
+//                             );
+//                         })}
+//                     </>
+//                 )}
+//             </div>
+//             <div>
+//                 <button onClick={handlePrevPage} disabled={currentPage === 1}>
+//                     Previous
+//                 </button>
+//                 <button onClick={handleNextPage} disabled={lastIndex >= countries.length}>
+//                     Next
+//                 </button>
+//             </div>
+//             <div>
+//                 {pageNumbers.map(number => (
+//                     <button key={number} onClick={() => handlePageChange(number)} disabled={number === currentPage}>
+//                         {number}
+//                     </button>
+//                 ))}
+//             </div>
+//         </div>
+//     )
+// }
+
+// export default CountriesList
+
+
+
+
+
+
+
 
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
@@ -45,6 +132,8 @@ const CountriesList = () => {
 
 
     const [countries, setCountries] = useState([])
+
+    const [searchTerm, setSearchTerm] = useState("");
     useEffect(() => {
         fetch(' https://ih-countries-api.herokuapp.com/countries')
             .then(res => res.json())
@@ -52,38 +141,37 @@ const CountriesList = () => {
 
     }, [])
 
-    const [currentPage, setCurrentPage] = useState(1)
-    const itemsPerPage = 10
-    const pageNumbers = []
 
-    const lastIndex = currentPage * itemsPerPage
-    const firstIndex = lastIndex - itemsPerPage
-    const currentCountries = countries.slice(firstIndex, lastIndex)
-
-    const handlePageChange = (page) => {
-        setCurrentPage(page)
-    }
-
-    const handleNextPage = () => {
-        setCurrentPage(currentPage + 1)
-    }
-
-    const handlePrevPage = () => {
-        setCurrentPage(currentPage - 1)
-    }
-
-    for (let i = 1; i <= Math.ceil(countries.length / itemsPerPage); i++) {
-        pageNumbers.push(i);
-    }
+    const handleSearchTerm = (e) => {
+        setSearchTerm("");
+        let value = e.target.value;
+        value.length > 2 && setSearchTerm(e.target.value);
+      };
+   
 
     return (
+        <>
+        <div className="searchBar">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Rechercher"
+          onChange={handleSearchTerm}
+        />
+      </div>
         <div>
             <div className="listbox">
                 <h2>Countries List</h2>
                 {countries.length > 0 && (
                     <>
 
-                        {currentCountries.map((country) => {
+                        {countries
+                        .filter((country) => {
+
+                            return country.name.official.toLowerCase().includes(searchTerm.toLowerCase());
+                        })
+                        .map((country) => {
 
                             return (
                                 <div key={country.alpha3Code} className="country">
@@ -97,24 +185,9 @@ const CountriesList = () => {
                     </>
                 )}
             </div>
-            <div>
-                <button onClick={handlePrevPage} disabled={currentPage === 1}>
-                    Previous
-                </button>
-                <button onClick={handleNextPage} disabled={lastIndex >= countries.length}>
-                    Next
-                </button>
-            </div>
-            <div>
-                {pageNumbers.map(number => (
-                    <button key={number} onClick={() => handlePageChange(number)} disabled={number === currentPage}>
-                        {number}
-                    </button>
-                ))}
-            </div>
         </div>
+        </>
     )
 }
 
 export default CountriesList
-
