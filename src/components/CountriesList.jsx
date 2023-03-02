@@ -4,8 +4,8 @@ function CountriesList(props) {
   //This component should render a list of Links, each having the country's alpha3Code embedded in the URL. Clicking on any of the Links should render the country details component.
   const { allCountries } = props;
   return (
-    <div class="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
-      <div class="list-group">
+    <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
+      <div className="list-group">
         {allCountries.map((eachCountry) => {
           return (
             <Link

@@ -30,8 +30,8 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div class="container">
-        <div class="row">
+      <div className="container">
+        <div className="row">
           <CountriesList allCountries={allCountries} />
 
           <Routes>
