@@ -1,10 +1,13 @@
+import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import axios from 'axios';
+
+import CountryDetails from './components/CountryDetails';
+import CountriesList from './components/CountriesList';
+import Navbar from './components/Navbar';
+
 import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import Navbar from './components/Navbar';
-import CountriesList from './components/CountriesList';
 
 function App() {
   const [allCountries, setAllContries] = useState([]);
@@ -27,7 +30,18 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <CountriesList allCountries={allCountries} />
+      <div class="container">
+        <div class="row">
+          <CountriesList allCountries={allCountries} />
+
+          <Routes>
+            <Route
+              path="/country-details/:alpha3Code"
+              element={<CountryDetails allCountries={allCountries} />}
+            />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
