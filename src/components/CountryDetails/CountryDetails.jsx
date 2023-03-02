@@ -11,16 +11,17 @@ const CountryDetails = () => {
         axios
             .get(`https://ih-countries-api.herokuapp.com/countries/${countrycode}`)
             .then(({ data }) => setCountry([data]))
-    }, [countrycode])
+            .catch(err => console.log(err))
+    }, [country])
 
     return (
         <>
             {
-                country.map((info, i) => {
+                country.map((info) => {
                     const flag = info.alpha2Code.toLowerCase()
 
                     return (
-                        < div key={i + 'A'} className="country-details" >
+                        < div key={info._id} className="country-details" >
                             <img src={`https://flagpedia.net/data/flags/icon/72x54/${flag}.png`} alt="flag" />
                             <h4>{info.name.official}</h4>
                             <p>Capital: {info.capital}</p>

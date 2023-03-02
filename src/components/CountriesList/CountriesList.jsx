@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 const Countries = ({ countriesList }) => {
 
-    const [list, setList] = useState([])
+    const [list, setList] = useState(countriesList)
 
     useEffect(() => {
         setList(countriesList)
-    }, [])
+    }, [countriesList])
 
     return (
         <div className="countries-List">
-            {list.map((country, i) => {
+            {list.map((country) => {
                 const flag = country.alpha2Code.toLowerCase()
 
                 return (

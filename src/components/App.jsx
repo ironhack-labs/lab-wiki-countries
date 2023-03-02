@@ -15,6 +15,7 @@ function App() {
     axios
       .get('https://ih-countries-api.herokuapp.com/countries')
       .then(({ data }) => setCountriesList(data))
+      .catch(err => console.log(err))
   }, [])
 
   return (
@@ -23,7 +24,7 @@ function App() {
       <Navbar />
 
       <div className='body' >
-        <Countries {...{ countriesList }} />
+        <Countries countriesList={countriesList} />
 
         <Routes>
           <Route path='/:countrycode' element={<CountryDetails />} />
