@@ -4,6 +4,9 @@
 
 ## Introduction
 
+important!!!!!!
+with pagination!!! and Search Bar with filter
+
 After spending too much time on GitHub, you found a [JSON dataset of countries](https://ih-countries-api.herokuapp.com/countries), and you decided to use it to create your Wikipedia of countries!
 
 <p align="center">

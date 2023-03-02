@@ -21,11 +21,14 @@ const CountryDetails = () => {
     return (
 
         <section className="details">
-            <h1> {foundCountry?.name.official}</h1>
+            <h1> {foundCountry?.name.official} </h1>
+            <br />
             <img src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry?.alpha2Code.toLowerCase()}.png`} alt='' />
             <hr />
             <div >
-                <h1>  Fronteras</h1>
+                <h1>  
+🅵🆁🅾🅽🆃🅴🆁🅰🆂
+</h1>
                 {foundCountry?.borders.map((nercountry, index) => {
                     return (
                         <h5 key={index} >
@@ -34,6 +37,8 @@ const CountryDetails = () => {
                         </h5>
                     )
                 })}
+                    <hr />
+                    <Link to={`/`}>Back to homepage </Link>
             </div>
         </section>
     )

@@ -156,13 +156,14 @@ const CountriesList = () => {
           type="text"
           name="search"
           id="search"
-          placeholder="Rechercher"
+          placeholder=" try a country name"
           onChange={handleSearchTerm}
         />
       </div>
         <div>
             <div className="listbox">
                 <h2>Countries List</h2>
+                <br />
                 {countries.length > 0 && (
                     <>
 

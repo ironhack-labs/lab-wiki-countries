@@ -1,3 +1,6 @@
+*{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .App {
   text-align: center;
 }
@@ -52,11 +55,10 @@
   padding-bottom: 5px;
 }
 
-.listbox {
-  border: 1px solid black;
+
+.listbox,.details{
+  margin-top: 50px;
 }
-
-
 
 .details img {
   width: 100px;
@@ -68,4 +70,17 @@
 
 img {
   width: 50px;
+}
+
+.searchBar{
+width: 300px;
+margin-top: 100px;
+}
+
+.searchBar input{
+  height: 50px;
+}
+
+a{
+  text-decoration: none;
 }
