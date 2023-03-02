@@ -1,0 +1,12 @@
+.CountriesList {
+    display: flex;
+}
+
+.CountriesList img {
+    margin: 20px;
+}
+
+.CountriesList p {
+    margin-left: 20px;
+    margin-top: 40px;
+}
