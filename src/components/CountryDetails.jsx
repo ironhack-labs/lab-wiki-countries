@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const apiURL = ' https://ih-countries-api.herokuapp.com/countries';
@@ -36,10 +36,20 @@ function CountryDetails({ countries }) {
           <td>{selectedCountry.capital}</td>
           <td>{selectedCountry.area}</td>
           <td>
-            {selectedCountry.borders &&
-              selectedCountry.borders.map((border) => (
-                <span key={border}>{border} </span>
-              ))}
+            <ul>
+              {selectedCountry.borders.map((border) => {
+                const borderCountry = countries.find(
+                  (country) => country.alpha3Code === border
+                );
+                return (
+                  <li key={border}>
+                    <Link to={`/country/${borderCountry.alpha3Code}`}>
+                      {borderCountry.name.common}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </td>
         </tr>
       </table>
