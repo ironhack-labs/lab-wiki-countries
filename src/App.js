@@ -25,14 +25,12 @@ function App() {
   useEffect(() => {
     getCountries();
   }, []);
-console.log(countries)
 
   return (
     <div className="App">
       {loading && <h2>loading</h2>}
       <div>
         <Header />
-
         <CountriesList countries={countries} />
       </div>
       <div>
