@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     getCountries();
   }, []);
-
+console.log(countries)
 
   return (
     <div className="App">

@@ -7,7 +7,17 @@ function CountriesList({ countries }) {
       {countries.map((country) => {
         return (
           <div>
-            <Link to={`/country/${country.alpha3Code}`}>{country.name.common}</Link>
+            <div>
+              <img
+                src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                alt=""
+              />
+            </div>
+            <div>
+              <Link to={`/country/${country.alpha3Code}`}>
+                {country.name.common}
+              </Link>
+            </div>
           </div>
         );
       })}
