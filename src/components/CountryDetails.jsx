@@ -32,9 +32,10 @@ function CountryDetails({ countries }) {
         <td>{selectedCountry.name.official}</td>
         <td>{selectedCountry.capital}</td>
         <td>{selectedCountry.area}</td>
-        <td>{selectedCountry.borders.find((border) => (
-           <span key={border}>{border} </span>
-        ))}</td>
+        <td>{selectedCountry.borders && selectedCountry.borders.map((border) => (
+    <span key={border}>{border} </span>
+  ))}
+</td>
       </tr>
       </table>
     </div>
