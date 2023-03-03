@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await fetch('apiURL');
+        const response = await fetch(apiURL);
         const data = await response.json();
         setAllCountries(data);
       } catch (error) {
@@ -30,10 +30,13 @@ function App() {
       <div className="container">
         <div className="row">
           <Routes>
-            <Route path="/" element={<CountriesList></CountriesList>} />
+            <Route
+              path="/"
+              element={<CountriesList countries={allCountries} />}
+            />
             <Route
               path="/country/:countryId"
-              element={<CountryDetails countries={countries} />}
+              element={<CountryDetails countries={allCountries} />}
             />
           </Routes>
         </div>
