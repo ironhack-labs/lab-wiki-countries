@@ -1,0 +1,29 @@
+.img-ctry-datails {
+    width: 144px;
+}
+
+.name-ctry-details {
+    margin-top: 20px;
+}
+
+.tabla-cntry-detail {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.tabla-detail {
+  table-layout: fixed;
+  text-align: center;
+  width: 450px;
+  border-collapse: collapse;
+}
+
+.tabla-detail li {
+    list-style: none;
+}
+
+.tabla-detail th, td {
+    padding: 10px;
+    border-bottom: solid 2px rgb(159, 159, 159);
+}

@@ -1,0 +1,30 @@
+.link-card {
+    color: black;
+    text-decoration: none;
+}
+.link-card:hover {
+    color: black;
+    font-family: arial;
+    text-decoration: none;
+}
+
+.container-card {
+    margin: 20px 0 0 0px;
+}
+
+.card-img-top {
+    width: 72px;
+    height: 54px;
+    margin-bottom: 20px;
+}
+
+.card {
+    width: 400px;
+    margin: 0 20px 0 0;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
