@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import countries from '../countries.json';
 const apiURL = ' https://ih-countries-api.herokuapp.com/countries';
 
 function CountriesList(props) {
   const [countryList, setCountryList] = useState([]);
+
   useEffect(() => {
     const fetchCountries = async () => {
       try {
@@ -18,20 +18,29 @@ function CountriesList(props) {
     fetchCountries();
   }, []);
 
-  // console.log('COUNTRIES', countries);
   return (
-    <div>
-      {countryList.map((country) => {
-        return (
-          <Link key={country.alpha3Code} to={`/country/${country.alpha3Code}`}>
-            <p>{country.name.official}</p>
-            <img
-              src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
-              alt={country.name.official}
-            />
-          </Link>
-        );
-      })}
+    <div class="container">
+      <div class="row">
+        <div class="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
+          <div class="list-group">
+            {countryList.map((country) => {
+              return (
+                <Link
+                  key={country.alpha3Code}
+                  to={`/country/${country.alpha3Code}`}
+                  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                >
+                  <img
+                    src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                    alt={country.name.official}
+                  />
+                  <p class="mb-0">{country.name.official}</p>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
