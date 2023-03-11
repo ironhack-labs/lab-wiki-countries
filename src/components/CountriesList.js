@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 
-function CountriesList(props) {
+function CountriesList({ countries }) {
   return (
     <div>
-      <h2 style={{textAlign:'center', padding: '2rem 0'}}>List of Countries</h2>
-      {props.countries &&
-        props.countries.length &&
-        props.countries.map((country, index) => {
+      <h2 style={{ textAlign: 'center', padding: '2rem 0' }}>
+        List of Countries
+      </h2>
+      {countries && countries.length ? (
+        countries.map((country, index) => {
           return (
             <Link
               key={country.alpha3Code}
@@ -23,7 +24,10 @@ function CountriesList(props) {
               <div>{country.name.official}</div>
             </Link>
           );
-        })}
+        })
+      ) : (
+        <div>No Countries Found</div>
+      )}
     </div>
   );
 }

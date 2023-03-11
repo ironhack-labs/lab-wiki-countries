@@ -16,25 +16,19 @@ const fetchApi = async (countryCode = '') => {
 
   try {
     const response = await fetch(ApiUrl);
-    if (response.status !== 200) return false;
+    if (response.status !== 200) return '';
     let data = await response.json();
     if (data && (!countryCode || countryCode === ''))
       data = data.sort((a, b) =>
         a.name.official.localeCompare(b.name.official)
       );
-    else if (!data) return false;
+    else if (!data) return '';
 
     return data;
   } catch (err) {
     console.log('ERROR FETCHING COUNTRIES FROM API', err);
     return '';
   }
-};
-
-const getCountryData = async (countryCode) => {
-  let theCountry = await fetchApi(countryCode);
-  if (!theCountry) return false;
-  else return theCountry;
 };
 
 function App() {
@@ -46,9 +40,9 @@ function App() {
         (country) =>
           country.alpha3Code.toLowerCase() === countryCode.toLowerCase()
       );
-      console.log({ data });
       return data.name.official;
     }
+    return '';
   };
 
   useEffect(() => {
@@ -69,11 +63,7 @@ function App() {
             style={{ maxHeight: '90vh', overflow: 'scroll' }}
           >
             <div className="list-group">
-              {countries && countries.length ? (
-                <CountriesList countries={countries} />
-              ) : (
-                <div>No Countries Found</div>
-              )}
+              <CountriesList countries={countries} />
             </div>
           </div>
           <div className="col-7 d-flex align-items-center justify-content-center">
@@ -83,7 +73,7 @@ function App() {
                 path="/country/:countryCode"
                 element={
                   <CountryDetails
-                    countryData={getCountryData}
+                    countryInfo={fetchApi}
                     countryName={getCountryName}
                   />
                 }
