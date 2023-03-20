@@ -28,11 +28,18 @@ const Home = () => {
     return <CountriesList countries={countries} />
   }
 
+  const renderDetails = () => {
+    if (loading) {
+      return <p></p>
+    } 
+    return <CountryDetails  countries={countries} />
+  }
+
   return (
     <div className="row">
      {renderCities()}
       <Routes>
-        <Route path="/:id" element={<CountryDetails  countries={countries} />} />
+        <Route path="/:id" element={renderDetails()} />
       </Routes>
     </div>
   );
