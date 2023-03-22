@@ -1,5 +1,7 @@
  import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import CountryBox from '../CountryBox/CountryBox';
+
 import { listCountries } from '../services/CountryService';
 
 
@@ -20,19 +22,24 @@ import { listCountries } from '../services/CountryService';
     },[])
 
     return (
-      <div className="col-5" style={{ overflow: 'scroll', maxHeight: '90'}}>
+      <div className="col-5" style={{ overflow: 'scroll', maxHeight:"50%"}}>
         <div className='list-group'>
           {loading
             ? "Loading..."
             : countries.map((country) => {
                   return (
-                   <CountryBox key={country.name.common} name={country.name.common} 
-                   twoDigits={country.alpha2Code} threeDigits={country.alpha3Code}/>
+                    <Link to={`/${country.alpha3Code}`} key={country.alpha3Code} style={{ textDecoration: 'none' }}>
+                    <div>
+                    <CountryBox country={country}/>
+                    </div>
+                    </Link>
+                  
                   )
                 })
  
           }
         </div>
+    
         </div>
       );
       

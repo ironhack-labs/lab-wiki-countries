@@ -1,0 +1,9 @@
+.TableClass {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 50px 0px 50px;
+}
+
+.TableClass li {
+    list-style: none;
+}
