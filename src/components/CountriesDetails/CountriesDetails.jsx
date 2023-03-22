@@ -8,7 +8,7 @@ export default function CountriesDetails({ list }){
    useEffect(() => {
         const filteredCountry = list.filter(x => x.alpha3Code === code);
         setCountry(filteredCountry[0])
-   }, [])
+   }, [ code, list ])
 
     return(
         <div className="CountriesDetails">

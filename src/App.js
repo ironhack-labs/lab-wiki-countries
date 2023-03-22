@@ -16,10 +16,12 @@ function App() {
   return (
       <div className="App">
         <Navbar/>
-        <Routes>
-          <Route path="/" element={<CountriesList list={ countries } />} />
-          <Route path="/detail/:code" element={ <CountriesDetails list={ countries } /> } />
-        </Routes>
+        <div className="countries-list">
+          <CountriesList list={ countries } />
+          <Routes>
+            <Route path="/detail/:code" element={ <CountriesDetails list={ countries } /> } />
+          </Routes>
+        </div>
       </div>
   );
 }
