@@ -1,71 +1,30 @@
-import { useState, useEffect } from "react";
-
+import { NavLink } from 'react-router-dom';
 
 function CountriesList(props) {
-    const [countries, setCountries] = useState([]);
-  
-    useEffect(() => {
-        setCountries(props.projectsData);
-      }, [props.projectsData]);
-
-return(
-<div className="container">
-  <div className="row">
-    <div className="col-5" style={{maxHeight: '90vh', overflow: 'scroll'}}>
+  console.log(props)
+  return (
+    <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
       <div className="list-group">
-        <a className="list-group-item list-group-item-action" href="/ABW">
-          🇦🇼 Aruba
-        </a>
-        <a className="list-group-item list-group-item-action" href="/AFG">
-          🇦🇫 Afghanistan
-        </a>
-        <a className="list-group-item list-group-item-action" href="/AGO">
-          🇦🇴 Angola
-        </a>
-        <a className="list-group-item list-group-item-action" href="/AIA">
-          🇦🇮 Anguilla
-        </a>
-        <a class="list-group-item list-group-item-action" href="/ALA">
-          🇦🇽 Åland Islands
-        </a>
-        <a className="list-group-item list-group-item-action" href="/ALB">
-          🇦🇱 Albania
-        </a>
-        <a className="list-group-item list-group-item-action" href="/AND">
-          🇦🇩 Andorra
-        </a>
-        <a className="list-group-item list-group-item-action" href="/ARE">
-          🇦🇪 United Arab Emirates
-        </a>
-        <a className="list-group-item list-group-item-action" href="/ARG">
-          🇦🇷 Argentina
-        </a>
-        <a className="list-group-item list-group-item-action" href="/ARM">
-          🇦🇲 Armenia
-        </a>
-        <a className="list-group-item list-group-item-action" href="/ASM">
-          🇦🇸 American Samoa
-        </a>
-        <a className="list-group-item list-group-item-action" href="/ATA">
-          🇦🇶 Antarctica
-        </a>
-        <a className="list-group-item list-group-item-action" href="/FLK">
-          🇫🇰 Falkland Islands
-        </a>
-        <a
-          className="list-group-item list-group-item-action active"
-          href="/FRA"
-        >
-          🇫🇷 France
-        </a>
-        <a className="list-group-item list-group-item-action" href="/ZWE">
-          🇿🇼 Zimbabwe
-        </a>
+        {props.countries.map((currentCountry) => {
+          return (
+            <NavLink key={currentCountry.name.common}
+              className="list-group-item list-group-item-action"
+              to={`/${currentCountry.alpha3Code}`}
+            >
+              <img
+                src={`https://flagpedia.net/data/flags/icon/72x54/${currentCountry.alpha2Code.toLowerCase()}.png`}
+                alt="countryFlag"
+              />
+              <p>
+              {currentCountry.name.common}
+              </p>
+              
+            </NavLink>
+          );
+        })}
       </div>
     </div>
-  </div>
-</div>
-)
+  );
 }
 
 export default CountriesList;

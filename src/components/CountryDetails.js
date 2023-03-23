@@ -1,54 +1,59 @@
-import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import countries from '../countries.json';
-
+import { useParams } from 'react-router-dom';
 
 function CountryDetails(props) {
-  const [country, setCountry] = useState([]);
+  const { alpha3Code } = useParams();
 
-  useEffect(() => {
-    setCountry(props.countries);
-  }, [props.countries]);
+  function selectCountry(alpha3Code) {
+    return props.countries.find((currentCountry) => {
+      return currentCountry.alpha3Code === alpha3Code;
+    });
+  }
+  let foundCountry = selectCountry(alpha3Code);
 
   return (
-    <div>
-      <h2>Countries</h2>
-      {countries.map((country) => {
-        return (
-          <div key={country.name} className="country">
-            <h1>
-              <Link to={`/countries/${country.alpha3Code}`}>{country.name.common}</Link>
-            </h1>
-            <table class="table">
+    <div className="col-7">
+      <img
+        src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`}
+        alt="countryFlag"
+      />
+      <h1>{foundCountry.name.common}</h1>
+      <table className="table">
         <thead></thead>
-         <tbody>
-         <tr>
-      <td style={{ width: '30%' }}>Capital</td>
-      <td>{country.capital}</td>
-      </tr>
-     <tr>
-      <td>Area</td>
-      <td>
-        {country.area}m
-        <sup>2</sup>
-      </td>
-      </tr>
-      <tr>
-      <td>Borders</td>
-      <td>
-        <ul>
-        <Link to={`/countries/${country.borders.map}`}>{country.borders.map}</Link>
-        <li>{country.borders.map}</li> 
-        </ul>
-      </td>
-      </tr>
-      </tbody>
+        <tbody>
+          <tr>
+            <td style={{ width: '30%' }}>Capital</td>
+            {foundCountry.capital.map((currentCapital) => {
+              return <td key={currentCapital}>{currentCapital}</td>;
+            })}
+          </tr>
+          <tr>
+            <td>Area</td>
+            <td>
+              {foundCountry.area} km
+              <sup>2</sup>
+            </td>
+          </tr>
+          <tr>
+            <td>Borders</td>
+            <td>
+              <ul style={{listStyle:"none"}}>
+                {foundCountry.borders.map((currentBorders) => {
+                  return (
+                    <li key={currentBorders}>
+                      <Link to={`/${currentBorders}`}>
+                        {selectCountry(currentBorders).name.common}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </td>
+          </tr>
+        </tbody>
       </table>
-    
-     </div>
-      );
-    })}
-      </div>
- );
+    </div>
+  );
 }
 export default CountryDetails;
