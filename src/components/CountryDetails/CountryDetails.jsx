@@ -7,10 +7,12 @@ const CountryDetails = () => {
   const { countryId } = useParams();
 
   const [country, setCountry] = useState(null);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getCountryById(countryId)
       .then((countryAPI) => {
+        setLoading(false)
         setCountry(countryAPI);
       })
 
@@ -20,7 +22,9 @@ const CountryDetails = () => {
 
   return (
     <div className="col-7">
-
+    {loading
+      ? "loading..."
+      : <div>
       <img
         src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
         style={{ marginTop: '50px' }}
@@ -53,7 +57,8 @@ const CountryDetails = () => {
           })}
         </ul>
       </div>
-      
+      </div>
+    }
     </div>
   );
 };
