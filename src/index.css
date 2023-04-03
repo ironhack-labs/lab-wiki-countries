@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.CountriesList {
+  padding: 20px;
+  margin-left: 100px;
+  border: 1px solid gray;
+  width: 300px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.CountriesList:hover {
+  background-color: ghostwhite;
+}
