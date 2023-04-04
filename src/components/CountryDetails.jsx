@@ -7,7 +7,7 @@ function CountryDetails({ countries }) {
   const { alpha3Code } = useParams();
 
   return (
-    <div className="w-full flex justify-center pt-14">
+    <div className="w-1/2 flex justify-center pt-14">
       {countries.filter(country => country.alpha3Code === alpha3Code).map(filteredCountry => (
 
         <div className="w-1/2 flex flex-col items-center text-center">
