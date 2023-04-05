@@ -1,53 +1,56 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { getOneCountryByAPI } from '../services/countries';
 
-const CountryDetails = ({ countries, alphas }) => {
+const CountryDetails = ({ alphas }) => {
   const [country, setCountry] = useState([]);
   const [border, setBorder] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
   const { code } = useParams();
 
   useEffect(() => {
-    setCountry(countries.filter((country) => country.alpha3Code === code));
-  }, [code, countries]);
+    getOneCountryByAPI(code).then((res) => {
+      setCountry(res);
 
-  useEffect(() => {
-    const borders = [];
+      const borders = [];
 
-    alphas.forEach((alpha) => {
-      country[0]?.borders.forEach((country) => {
-        if (alpha.alpha3Code === country)
-          borders.push({
-            name: alpha.name,
-            alpha3: alpha.alpha3Code,
-            alpha2: alpha.alpha2Code,
-          });
+      alphas.forEach((alpha) => {
+        res.borders.forEach((country) => {
+          if (alpha.alpha3Code === country)
+            borders.push({
+              name: alpha.name,
+              alpha3: alpha.alpha3Code,
+              alpha2: alpha.alpha2Code,
+            });
+        });
       });
-    });
+      setBorder(borders);
 
-    setBorder(borders);
-  }, [alphas, country]);
+      setLoaded(true);
+    });
+  }, [alphas, code]);
 
   return (
-    <>
-      {country.length && (
-        <div className="col-7">
+    <div className="col-7">
+      {loaded && (
+        <>
           <img
-            src={`https://flagpedia.net/data/flags/w580/${country[0].alpha2Code.toLowerCase()}.webp`}
-            alt={country[0].name.common}
+            src={`https://flagpedia.net/data/flags/w580/${country.alpha2Code.toLowerCase()}.webp`}
+            alt={country.name.common}
           />
-          <h1>{country[0].name.common}</h1>
+          <h1>{country.name.common}</h1>
           <table className="table">
             <thead></thead>
             <tbody>
               <tr>
                 <td style={{ width: '30%' }}>Capital</td>
-                <td>{country[0].capital}</td>
+                <td>{country.capital}</td>
               </tr>
               <tr>
                 <td>Area</td>
                 <td>
-                  {country[0].area} km
+                  {country.area} km
                   <sup>2</sup>
                 </td>
               </tr>
@@ -55,7 +58,7 @@ const CountryDetails = ({ countries, alphas }) => {
                 <td>Borders</td>
                 <td>
                   <ul>
-                    {border?.map((border, i) => (
+                    {border.map((border, i) => (
                       <li
                         key={i}
                         className="mb-3 d-flex align-items-center g-1"
@@ -73,9 +76,9 @@ const CountryDetails = ({ countries, alphas }) => {
               </tr>
             </tbody>
           </table>
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 };
 
