@@ -1,19 +1,33 @@
 import './App.css';
-import data from './countries.json'
+import countriesJSON from './countries.json'
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
+import { Routes, Route } from 'react-router-dom';
+import CountryDetail from './components/CountryDetail';
+
 
  
 
 function App() {
 
-  const [countries, setCountries] = useState(data);
+  const [countries, setCountries] = useState(countriesJSON);
   
   return (
     <div className="App">
       <Navbar />
-      <CountriesList data= {countries}/>
+
+      <div className='row'>
+        <div className='col-4'>
+          <CountriesList countries={countries}/>
+        </div>
+
+        <div className='col-6'>
+          <Routes>
+            <Route path='/:alpha3Code' element={<CountryDetail countries={countries}/>} />
+          </Routes>
+        </div>
+      </div>      
     </div>
   );
 }
