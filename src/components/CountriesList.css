@@ -1,0 +1,22 @@
+.list-group {
+    margin-top: 20px;
+  }
+  
+  .list-group-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .list-group-item img {
+    margin-right: 10px;
+  }
+  
+  .list-group-item:focus,
+  .list-group-item:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .col-5 {
+    border-right: 1px solid #ddd;
+  }
+  

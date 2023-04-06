@@ -1,22 +1,31 @@
 import {Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function CountryDetails(props){
   const {countryId} = useParams();
   const [countryDetail, setCountryDetail] = useState(null);
 
+
   useEffect(() => {
-    const result = props.detail.find(element =>
-      element.alpha3Code === countryId
-    );
-    setCountryDetail(result);
+
+    //Main iteration 
+    // const result = props.detail.find(element =>
+    //   element.alpha3Code === countryId
+    // );
+
+
+    //Bonus Iteration 5
+    axios.get("https://ih-countries-api.herokuapp.com/countries/" + countryId )
+    .then(responseForCountry =>{
+      setCountryDetail(responseForCountry.data);
+    })
+    
   }, [countryId, props.detail]);
 
   if (!countryDetail) {
     return <div>Loading...</div>;
   }
-
-console.log(countryDetail.borders)
 
 return (
 <div className="col-7">
@@ -39,8 +48,8 @@ return (
                   <td>Borders</td>
                   <td>
                     <ul>
-                 {countryDetail.borders.map((border) =>{
-                  return <li><Link to={'/' + border}>{border}</Link></li>
+                 {countryDetail.borders.map((border, index) =>{
+                  return <li><Link key={index} to={'/' + border}>{border}</Link></li>
                  })}
                       
                     </ul>
