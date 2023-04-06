@@ -9,15 +9,22 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   const [countries, setCountries] = useState(countriesFromJSON);
 
-  console.log(countries);
+  // console.log(countries);
 
   return (
     <div className="App">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<CountriesList countries={countries} />} />
-        <Route path="/countries/:alpha3Code" element={<CountryDetails />} />
-      </Routes>
+      <div className="container">
+        <div className="row">
+          <Routes>
+            <Route path="/" element={<CountriesList countries={countries} />} />
+            <Route
+              path="/:alpha3Code"
+              element={<CountryDetails countries={countries} />}
+            />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
