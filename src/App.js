@@ -1,21 +1,25 @@
 import "./App.css";
 import { useState, useEffect } from 'react';
 
-import countries from "./countries.json";
+import countriesData from "./countries.json";
+import Navbar from "./components/Navbar"
+import CountryList from "./components/CountryList"
 
 
 function App() {
-  const [countries, setCountries] = useState(countries)
+  const [countries, setCountries] = useState(countriesData)
 
 
-  return( <div className="App">
+  return( 
+    <div className="App">
 
-
+      <Navbar />
+      <CountryList countries={countries} />
 
   
-  </div>
+    </div>
     
   
-  );
+  )
 }
 export default App;
