@@ -1,17 +1,13 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <div>
-      <nav className="navbar navbar-dark bg-primary mb-3">
-        <div className="container">
-          <a className="navbar-brand" href="/">
-            WikiCountries
-          </a>
-        </div>
-      </nav>
-    </div>
+    <nav className="navbar bg-primary">
+      <Link className="navbar-brand ms-5 ps-5 text-white fs-3" to="/">
+        WikiCountries{' '}
+      </Link>
+    </nav>
   );
 }
 
-export default Navbar
+export default Navbar;

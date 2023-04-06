@@ -14,12 +14,15 @@ function App() {
       <Navbar />
       <div className="container">
         <div className="row">
-          <div class="col-3">
+          <div class="col-4">
             <CountriesList countries={countries} />
           </div>
-          <div class="col-4">
+          <div class="col-6">
             <Routes>
-              <Route path="/:id" element={<CountryDetails />} />
+              <Route
+                path="/:alpha3Code"
+                element={<CountryDetails countries={countries} />}
+              />
             </Routes>
           </div>
         </div>
