@@ -12,11 +12,9 @@ function App() {
 
   return (
     <div className="App">
-    <Navbar/> 
-   <CountriesList countriesArr={countriesArr}/>
-
+      <Navbar />
+      <CountriesList countriesArr={countriesArr} />
     </div>
-    
   );
 }
 
