@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function CountryDetails() {
   const baseURL = ' https://ih-countries-api.herokuapp.com/countries/';
@@ -20,6 +20,14 @@ function CountryDetails() {
   const renderedCountry = () => {
     return (
       <div className="col-7">
+        <img
+          src={
+            'https://flagpedia.net/data/flags/icon/72x54/' +
+            country.alpha2Code.toLowerCase() +
+            '.png'
+          }
+          alt="flag"
+        />
         <h1>{country.name.common}</h1>
         <table className="table">
           <thead></thead>
@@ -33,6 +41,20 @@ function CountryDetails() {
               <td>
                 {country.area} km
                 <sup>2</sup>
+              </td>
+            </tr>
+            <tr>
+              <td>Borders</td>
+              <td>
+                <ul>
+                  {country.borders.map((border) => {
+                    return (
+                      <li>
+                        <Link to={`/${border}`}>{border}</Link>
+                      </li>
+                    );
+                  })}
+                </ul>
               </td>
             </tr>
           </tbody>
