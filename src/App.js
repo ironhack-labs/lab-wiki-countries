@@ -8,6 +8,8 @@ import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 
+import { Route, Routes } from 'react-router-dom';
+
 function App() {
 
 const [countriesArr, setCountiesArr] = useState(countries)
@@ -19,7 +21,12 @@ const [countriesArr, setCountiesArr] = useState(countries)
     <div className="container">
       <div className="row">
         <CountriesList  countriesArr={countriesArr}/>
-        <CountryDetails />
+        <Routes>
+          <Route path='/:countryId' element={<CountryDetails detail={countriesArr} />} />
+        </Routes>
+
+
+
       </div>
     </div>
     

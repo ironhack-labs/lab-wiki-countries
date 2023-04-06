@@ -1,22 +1,35 @@
-import {Link} from 'react-router-dom';
+import {Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-function CountryDetails(){
+function CountryDetails(props){
+
+    const {countryId} = useParams();
+    console.log("countryId.....", countryId);
+console.log("props.detail.......", props.detail);
+    const result = props.detail.find(element =>
+        element.alpha3Code === countryId
+    );
+
+console.log("result......",result);
+    
+    const [countryDetail, setCountryDetail] = useState({});
+    setCountryDetail(result);
+    
+
 return (
-
-
 <div className="col-7">
-            <h1>France</h1>
+            <h1>{countryDetail.name.official}</h1>
             <table className="table">
               <thead></thead>
               <tbody>
                 <tr>
                   <td style={{width: '30%'}}>Capital</td>
-                  <td>Paris</td>
+                  <td>{countryDetail.capital}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
                   <td>
-                    551695 km
+                    {countryDetail.area} km
                     <sup>2</sup>
                   </td>
                 </tr>
