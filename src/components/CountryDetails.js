@@ -2,19 +2,21 @@ import {Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 function CountryDetails(props){
+  const {countryId} = useParams();
+  const [countryDetail, setCountryDetail] = useState(null);
 
-    const {countryId} = useParams();
-    console.log("countryId.....", countryId);
-console.log("props.detail.......", props.detail);
+  useEffect(() => {
     const result = props.detail.find(element =>
-        element.alpha3Code === countryId
+      element.alpha3Code === countryId
     );
-
-console.log("result......",result);
-    
-    const [countryDetail, setCountryDetail] = useState({});
     setCountryDetail(result);
-    
+  }, [countryId, props.detail]);
+
+  if (!countryDetail) {
+    return <div>Loading...</div>;
+  }
+
+console.log(countryDetail.borders)
 
 return (
 <div className="col-7">
@@ -37,14 +39,10 @@ return (
                   <td>Borders</td>
                   <td>
                     <ul>
-                      <li><a href="/AND">Andorra</a></li>
-                      <li><a href="/BEL">Belgium</a></li>
-                      <li><a href="/DEU">Germany</a></li>
-                      <li><a href="/ITA">Italy</a></li>
-                      <li><a href="/LUX">Luxembourg</a></li>
-                      <li><a href="/MCO">Monaco</a></li>
-                      <li><a href="/ESP">Spain</a></li>
-                      <li><a href="/CHE">Switzerland</a></li>
+                 {countryDetail.borders.map((border) =>{
+                  return <li><Link to={'/' + border}>{border}</Link></li>
+                 })}
+                      
                     </ul>
                   </td>
                 </tr>
