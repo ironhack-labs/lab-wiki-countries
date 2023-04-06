@@ -15,8 +15,19 @@ function App() {
       .catch(error => console.error(error));
   }, [])
 
+  if (countriesList.length === 0) {
+    return (
+      <>
+        <Navbar />
+        <div className='d-flex align-content-center justify-content-center mt-5'>
+          <h2><i className="fa-solid fa-spinner fa-spin-pulse" style={{marginRight: '15px'}}></i>Loading countries...</h2>
+        </div>
+      </>
+    )
+  }
+
   return (
-    <div className="App">
+    <>
       <Navbar />
 
       <div className="container">
@@ -33,8 +44,7 @@ function App() {
             </div>
         </div>
       </div>
-
-    </div>
+    </>
   );
 }
 
