@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 
@@ -7,18 +7,17 @@ import { Link } from "react-router-dom";
 function CountryList(props) {
 
     // console.log(countries)
-    return(
-        <div classname="CountriesContainer" >
-            {props.countries.map( country => {
-              return  <Link to= { "/" + country.alpha3Code}> {country.name.common}</Link>
-
-                
-            })
-            }
+    return (
+        <div className="CountriesContainer">
+          {props.countries.map((country) => {
+            return (
+              <NavLink key={country.alpha3Code} to={"/" + country.alpha3Code}>
+                {country.name.common}
+              </NavLink>
+            );
+          })}
         </div>
-
-
-    )
-};
+      );
+    }
 
 export default CountryList;
