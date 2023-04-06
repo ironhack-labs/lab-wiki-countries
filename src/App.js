@@ -1,7 +1,7 @@
 import './App.css';
 import axios from 'axios';
 import { useEffect,useState } from 'react';
-import countries from './countries.json'
+// import countries from './countries.json'
 import CountriesList from "./components/CountriesList";
 import CountryDetails from './components/CountryDetails'
 import Navbar from './components/Navbar'
@@ -29,13 +29,10 @@ useEffect(() => {
       <Navbar />
       <div className="container">
         <div className="row">
+        <CountriesList countriesArr={countriesArr} />
           <Routes>
             <Route
-              path="/"
-              element={<CountriesList countriesArr={countriesArr} />}
-            />
-            <Route
-              path="/countries/:alpha3Code"
+              path="/:alpha3Code"
               element={<CountryDetails countriesArr={countriesArr} />}
             />
           </Routes>

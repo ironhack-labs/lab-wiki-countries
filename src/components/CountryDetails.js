@@ -2,41 +2,48 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-function CountryDetails(props) {
+function CountryDetails() {
   const baseURL = ' https://ih-countries-api.herokuapp.com/countries/';
-  const [details, setDetails] = useState('');
+  const [country, setCountry] = useState(null);
 
   const { alpha3Code } = useParams();
+  console.log(alpha3Code);
 
   useEffect(() => {
     axios
       .get(`${baseURL}${alpha3Code}`)
       .then((res) => {
-        setDetails(res.data);
+        setCountry(res.data);
       })
       .catch((err) => console.log(err));
-  });
-
+  }, [alpha3Code]);
+  const renderedCountry = () => {
+    return (
+      <div className="col-7">
+        <h1>{country.name.common}</h1>
+        <table className="table">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td style={{ width: 30 + '%' }}>Capital</td>
+              <td>{country.capital}</td>
+            </tr>
+            <tr>
+              <td>Area</td>
+              <td>
+                {country.area} km
+                <sup>2</sup>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  };
   return (
-    <div>
-      <h1>Name: {details.name.common}</h1>
-      <table className="table">
-        <thead></thead>
-        <tbody>
-          <tr>
-            <td style={{ width: 30 + '%' }}>Capital</td>
-            <td>{details.capital}</td>
-          </tr>
-          <tr>
-            <td>Area</td>
-            <td>
-              {details.area} km
-              <sup>2</sup>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <> {country ? renderedCountry() : <p>Loading...</p>}
+
+    </>
   );
 }
 
