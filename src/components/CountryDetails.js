@@ -1,9 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import countries from '../countries.json';
 
-
-
-
 function CountryDetails(props) {
 
   const {alpha3Code} = useParams();
@@ -11,12 +8,6 @@ function CountryDetails(props) {
   const country = countries.find((country) => {
     return country.alpha3Code === alpha3Code;
   })
-
-  function countryBorders(border) {
-    const theCountry = countries.find((country) => {
-      return country.alpha3Code === border;
-    })
-  }
 
   return (
     <div className="col-7">
@@ -42,9 +33,9 @@ function CountryDetails(props) {
                   <ul>
                   {country.borders.map((border) => {
                     const theCountry = countries.find((country) => country.alpha3Code === border);
-                    return (
+                    return (                  
                       <li key={border}>
-                        {theCountry.name.common}
+                        <Link to={`/${theCountry.alpha3Code}`}>{theCountry.name.common}</Link>
                       </li>
                     );
                   })}
@@ -57,6 +48,6 @@ function CountryDetails(props) {
       )}
     </div>
   );
-                }
-                
+}
+
 export default CountryDetails;
