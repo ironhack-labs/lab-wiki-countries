@@ -4,22 +4,9 @@ import { useState, useEffect } from 'react';
 const CountryDetails = (props) => {
   const { alpha3Code } = useParams();
 
-  //   const [details, setDetails] = useState(null);
-
   const details = props.countries.find((country) => {
     return country.alpha3Code === alpha3Code;
   });
-
-  //   console.log(details);
-
-  //   useEffect(() => {
-  //     const newCountry = props.countries.find((country) => {
-  //       return country.alpha3Code === alpha3Code;
-  //     });
-
-  //     console.log(newCountry);
-  //     setDetails(newCountry);
-  //   }, []);
 
   const renderBorder = () => {
     return (
