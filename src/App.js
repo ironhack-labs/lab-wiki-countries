@@ -5,6 +5,8 @@ import countriesData from './countries.json';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar.js';
 import './App.css';
+import Greeting from './components/Greeting.js';
+import About from './components/About.js';
 
 function App() {
   const [countries, setCountries] = useState(countriesData);
@@ -14,23 +16,21 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App bg-gray-200 h-screen">
       <Navbar />
       <Router>
-        <div className="container">
-          <div className="row">
-            <Routes>
-              <Route
-                path="/"
-                element={<CountriesList countries={countries} />}
-              />
-              <Route
-                path="/country-details/:alpha3Code"
-                element={<CountryDetails countries={countries} />}
-              />
-            </Routes>
-          </div>
-        </div>
+        <Routes>
+          <Route path="/" element={<Greeting />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/countries"
+            element={<CountriesList countries={countries} />}
+          />
+          <Route
+            path="/country-details/:alpha3Code"
+            element={<CountryDetails countries={countries} />}
+          />
+        </Routes>
       </Router>
     </div>
   );

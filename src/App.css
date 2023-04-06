@@ -1,38 +1,27 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-y: scroll;
+}
+/* Hide the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4; /* Replace with the desired color */
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Set the width of the scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Set the height of the scrollbar on hover */
+::-webkit-scrollbar-thumb:hover {
+  height: 100px;
 }
