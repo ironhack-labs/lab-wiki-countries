@@ -11,13 +11,14 @@ import axios from 'axios';
 
 function App() {
 
-  const[countries, setCountries] = useState(countriesFromJson);
-  const apiURL = "https://ih-countries-api.herokuapp.com/countries"
+  const[countries, setCountries] = useState([]);
+  const apiURL = "https://ih-countries-api.herokuapp.com"
 
 
   useEffect(() => {
-    axios.get(apiURL + "/countries")
+    axios.get(`${apiURL}/countries`)
       .then(response => {
+        console.log(response)
         setCountries(response.data);
       })
       .catch(e => {
@@ -29,9 +30,9 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <CountriesList countries={countries}/>
       <Routes>
-        <Route path="/" element={<CountriesList countries={countries} />} />
-        <Route path="/countries/:alpha3Code" element={<CountryDetails countries={countries} />} />
+        <Route path={"/:countryId"} element={<CountryDetails countries={countries} />} />
       </Routes>
     </div>
   );
