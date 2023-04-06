@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import slugify from 'react-slugify';
 function CountriesList({ countries }) {
   return (
     <>

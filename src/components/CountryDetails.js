@@ -17,7 +17,8 @@ function CountryDetails({ countries }) {
     if (countryIndex >= 0) {
       setCountry(countries[countryIndex]);
     }
-  }, []);
+    //eslint-disable-next-line
+  }, [countryId, countries]);
   const displayCountry = () => {
     return (
       <>
@@ -39,19 +40,23 @@ function CountryDetails({ countries }) {
             <tr>
               <td>Borders</td>
               <td>
-                <ul>
-                  {country.borders.map((neighbor) => {
-                    const countryIndex = findCountry(neighbor);
-                    const neighborObj = countries[countryIndex];
-                    return (
-                      <li>
-                        <Link to={'/countries/'}>
-                          {neighborObj.name.common}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
+                {country.borders.length > 0 ? (
+                  <ul>
+                    {country.borders.map((neighbor) => {
+                      const countryIndex = findCountry(neighbor);
+                      const neighborObj = countries[countryIndex];
+                      return (
+                        <li>
+                          <Link to={'/countries/'}>
+                            {neighborObj.name.common}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : (
+                  <p>None</p>
+                )}
               </td>
             </tr>
           </tbody>
