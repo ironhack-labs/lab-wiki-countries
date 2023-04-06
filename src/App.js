@@ -1,23 +1,51 @@
-import logo from './logo.svg';
+
+import React from 'react';
+import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+// import Countries from "./countries.json";
+import Navbar from './components/Navbar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from "./components/CountryDetails";
 import './App.css';
+import axios from 'axios';
+
 
 function App() {
+
+  const [countriesArr, setCountriesArr] = useState([]);
+
+  const baseURL = "https://ih-countries-api.herokuapp.com/countries"
+
+  // axios
+  //   .get('https://ih-countries-api.herokuapp.com/countries/')
+  //   .then((response) => {
+  //     console.log(response.data);
+  //     setCountriesArr(response.data);
+  //   })
+  //   .catch((error) => console.error(error));
+
+  useEffect(() => {
+    axios
+      .get('https://ih-countries-api.herokuapp.com/countries/')
+      .then((response) => {
+        console.log(response.data);
+        setCountriesArr(response.data);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <div className="container">
+        <div className="row">
+          <CountriesList countries={countriesArr} />
+          <Routes>
+            <Route path="/:countryId" element={<CountryDetails countries={countriesArr} />}></Route>
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
