@@ -1,25 +1,22 @@
-import { Link, Routes, Route} from 'react-router-dom';
+import { Link} from 'react-router-dom';
+
+
 
 function CountriesList(props) {
   
-    //const {alpha3Code} : useParams();
-
   return (
-    <div>
-      {props.countriesArr.map((countryDetails) => {
+    <div className='countriesList'>
+      {props.countries.map((countryDetails) => {
         return (
-          <ul>
-            <li> Country name: {countryDetails.name.common}</li>
-            <img src={`https://flagpedia.net/data/flags/icon/72x54/${countryDetails.alpha2Code.toLowerCase()}.png`}/>
-            <Link to={`/CountryDetails/${countryDetails.alpha3Code}`}>
-              Press for details
-            </Link>
+          <div>
+          <Link to={'/' + countryDetails.alpha3Code} > {countryDetails.name.common} <img src={`https://flagpedia.net/data/flags/icon/72x54/${countryDetails.alpha2Code.toLowerCase()}.png`}/></Link>
+    
+          </div>
+        
+           
             
-                    <Routes>
-                    <Route path="/CountryDetails/:id" element={ <CountryDetails /> } />
-                 
-                </Routes>
-          </ul>
+            
+         
         );
       })}
     </div>
