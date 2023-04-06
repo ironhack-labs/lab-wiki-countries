@@ -1,56 +1,71 @@
-import {Link, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-function CountryDetails(props){
+function CountryDetails(props) {
+  const { countryId } = useParams();
+  const [countryDetail, setCountryDetail] = useState(null);
 
-    const {countryId} = useParams();
-    console.log("countryId.....", countryId);
-console.log("props.detail.......", props.detail);
-    const result = props.detail.find(element =>
-        element.alpha3Code === countryId
+  useEffect(() => {
+    const result = props.detail.find(
+      (element) => element.alpha3Code === countryId
     );
-
-console.log("result......",result);
-    
-    const [countryDetail, setCountryDetail] = useState({});
     setCountryDetail(result);
-    
+  }, [countryId]);
 
-return (
-<div className="col-7">
-            <h1>{countryDetail.name.official}</h1>
-            <table className="table">
-              <thead></thead>
-              <tbody>
-                <tr>
-                  <td style={{width: '30%'}}>Capital</td>
-                  <td>{countryDetail.capital}</td>
-                </tr>
-                <tr>
-                  <td>Area</td>
-                  <td>
-                    {countryDetail.area} km
-                    <sup>2</sup>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Borders</td>
-                  <td>
-                    <ul>
-                      <li><a href="/AND">Andorra</a></li>
-                      <li><a href="/BEL">Belgium</a></li>
-                      <li><a href="/DEU">Germany</a></li>
-                      <li><a href="/ITA">Italy</a></li>
-                      <li><a href="/LUX">Luxembourg</a></li>
-                      <li><a href="/MCO">Monaco</a></li>
-                      <li><a href="/ESP">Spain</a></li>
-                      <li><a href="/CHE">Switzerland</a></li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+  const displayBorders = () => {
+    if (countryDetail.borders.length > 0) {
+      return (
+        <ul>
+          {countryDetail.borders.map((element, index) => {
+            return (
+              <li key={index}>
+                <Link to={'/' + element}>{displaycoutryName(element)}</Link>
+              </li>
+            );
+          })}
+        </ul>
+      );
+    } else {
+      return;
+    }
+  };
+
+  const displaycoutryName = (CountryCode) => {
+    const result = props.detail.find(
+      (element) => element.alpha3Code === CountryCode
     );
+    return result.name.official
+  };
+
+  const displayDetails = () => {
+    console.log('countryDetail 2.......', countryDetail);
+    return (
+      <div className="col-7">
+        <h1>{countryDetail.name.official}</h1>
+        <table className="table">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td style={{ width: '30%' }}>Capital</td>
+              <td>{countryDetail.capital}</td>
+            </tr>
+            <tr>
+              <td>Area</td>
+              <td>
+                {countryDetail.area} km
+                <sup>2</sup>
+              </td>
+            </tr>
+            <tr>
+              <td>Borders</td>
+              <td>{displayBorders()}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  };
+
+  return <>{countryDetail ? displayDetails() : <p>loading....</p>}</>;
 }
 export default CountryDetails;

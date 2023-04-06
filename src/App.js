@@ -12,7 +12,8 @@ import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
-const [countriesArr, setCountiesArr] = useState(countries)
+const [countriesArr, setCountriesArr] = useState(countries)
+
 
 
 
