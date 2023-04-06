@@ -1,55 +1,59 @@
+import React from 'react';
 
-
-
-
-<div class="col-5" style="max-height: 90vh; overflow: scroll">
-            <div class="list-group">
-              <a class="list-group-item list-group-item-action" href="/ABW"
+const CountriesList = () => {
+    return (
+        <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
+            <div className="list-group">
+              <a className="list-group-item list-group-item-action" href="/ABW"
                 >🇦🇼 Aruba</a
               >
-              <a class="list-group-item list-group-item-action" href="/AFG"
+              <a className="list-group-item list-group-item-action" href="/AFG"
                 >🇦🇫 Afghanistan</a
               >
-              <a class="list-group-item list-group-item-action" href="/AGO"
+              <a className="list-group-item list-group-item-action" href="/AGO"
                 >🇦🇴 Angola</a
               >
-              <a class="list-group-item list-group-item-action" href="/AIA"
+              <a className="list-group-item list-group-item-action" href="/AIA"
                 >🇦🇮 Anguilla</a
               >
-              <a class="list-group-item list-group-item-action" href="/ALA"
+              <a className="list-group-item list-group-item-action" href="/ALA"
                 >🇦🇽 Åland Islands</a
               >
-              <a class="list-group-item list-group-item-action" href="/ALB"
+              <a className="list-group-item list-group-item-action" href="/ALB"
                 >🇦🇱 Albania</a
               >
-              <a class="list-group-item list-group-item-action" href="/AND"
+              <a className="list-group-item list-group-item-action" href="/AND"
                 >🇦🇩 Andorra</a
               >
-              <a class="list-group-item list-group-item-action" href="/ARE"
+              <a className="list-group-item list-group-item-action" href="/ARE"
                 >🇦🇪 United Arab Emirates</a
               >
-              <a class="list-group-item list-group-item-action" href="/ARG"
+              <a className="list-group-item list-group-item-action" href="/ARG"
                 >🇦🇷 Argentina</a
               >
-              <a class="list-group-item list-group-item-action" href="/ARM"
+              <a className="list-group-item list-group-item-action" href="/ARM"
                 >🇦🇲 Armenia</a
               >
-              <a class="list-group-item list-group-item-action" href="/ASM"
+              <a className="list-group-item list-group-item-action" href="/ASM"
                 >🇦🇸 American Samoa</a
               >
-              <a class="list-group-item list-group-item-action" href="/ATA"
+              <a className="list-group-item list-group-item-action" href="/ATA"
                 >🇦🇶 Antarctica</a
               >
-              <a class="list-group-item list-group-item-action" href="/FLK"
+              <a className="list-group-item list-group-item-action" href="/FLK"
                 >🇫🇰 Falkland Islands</a
               >
               <a
-                class="list-group-item list-group-item-action active"
+                className="list-group-item list-group-item-action active"
                 href="/FRA"
                 >🇫🇷 France</a
               >
-              <a class="list-group-item list-group-item-action" href="/ZWE"
+              <a className="list-group-item list-group-item-action" href="/ZWE"
                 >🇿🇼 Zimbabwe</a
               >
             </div>
           </div>
+    )
+};
+
+export default CountriesList;

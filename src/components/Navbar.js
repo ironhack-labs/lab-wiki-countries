@@ -7,7 +7,9 @@ const Navbar = () => {
     <nav class="navbar navbar-dark bg-primary mb-3">
     <div class="container">
       <a class="navbar-brand" href="/">WikiCountries</a>
-      <NavLink to="/">Home</NavLink>
+      <NavLink class="navlink" to="/">Home</NavLink>
+      <NavLink class="navlink" to="./countriesList">Countries List</NavLink>
+      <NavLink class="navlink" to="./countriesDetails">Countries Details</NavLink>
       </div>
     </nav>
   );
