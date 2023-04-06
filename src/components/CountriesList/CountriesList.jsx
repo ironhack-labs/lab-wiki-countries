@@ -6,7 +6,7 @@ function CountriesList({ countries }) {
     <div className='mt-3 d-flex flex-row ms-3'>
       <div>
         {countries.map(country => (
-          <Link to={`/${country.alpha3Code}`} key={country.alpha3Code}>
+          <Link className='text-decoration-none text-dark' to={`/${country.alpha3Code}`} key={country.alpha3Code}>
             <div className="card">
               <div className='mt-3'>
                 <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} className="card-img-top" alt="countyImage" style={{ width: 100 }} />

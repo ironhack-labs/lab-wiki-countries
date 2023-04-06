@@ -11,8 +11,8 @@ function CountryDetails({ countries }) {
       {countries
         .filter(country => country.alpha3Code.includes(alpha3Code))
         .map(country =>
-          <div className="card m-3" key={country.alpha3Code}>
-            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} className="card-img-top p-3" alt="countryPicture" />
+          <div className="card m-3 w-100 d-flex justify-content-center" key={country.alpha3Code}>
+            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} className="card-img-top m-5 ps-5" alt="countryPicture" style={{ width: 350}}/>
               <h5 className="card-title">{country.name.common}</h5>
               <div className='d-flex flex-row border-bottom'>
                 <p className='m-2'>Capital</p>
