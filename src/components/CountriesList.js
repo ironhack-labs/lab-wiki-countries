@@ -13,6 +13,7 @@ const CountriesList = (props) => {
               >
                 {country.name.common}
                 <img
+                  alt={`Flag of ${country.name.common}`}
                   className=" w-auto h-50 ms-3"
                   src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
                 />

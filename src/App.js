@@ -1,5 +1,5 @@
 import './App.css';
-import countriesFromJSON from './countries.json';
+// import countriesFromJSON from './countries.json';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
@@ -20,8 +20,6 @@ function App() {
       .catch((error) => console.error(error));
   }, []);
 
-  console.log(countries);
-
   return (
     <div className="App">
       <Navbar />
@@ -29,10 +27,7 @@ function App() {
         <div className="row">
           <Routes>
             <Route path="/" element={<CountriesList countries={countries} />} />
-            <Route
-              path="/:alpha3Code"
-              element={<CountryDetails countries={countries} />}
-            />
+            <Route path="/:alpha3Code" element={<CountryDetails />} />
           </Routes>
         </div>
       </div>
