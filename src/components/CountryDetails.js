@@ -2,62 +2,53 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 
+export default function CountryDetails ( props ) {
 
+    const apiURL = "https://ih-countries-api.herokuapp.com";
 
-export default function CountryDetails () {
+    const { countryId } = useParams();
 
-    const apiURL = "https://ih-countries-api.herokuapp.com/countries"
-
- const { alpha3Code } = useParams();
-
-    const [countryDetails, setCountryDetails] = useState(null);
+    const [countries, setCountries] = useState([]);
 
     useEffect(() => {
-        axios.get(`${apiURL}/countries/${alpha3Code}`)
-            .then( response => {
-                setCountryDetails(response.data)
+        axios.get(`${apiURL}/countries/${countryId}`)
+            .then(response => {
+                setCountries(response.data)
             })
             .catch(e => {
                 console.log("error getting character details from API...", e);
             })
-    }, [alpha3Code]);
+    }, [countryId]);
 
+    const renderBorderList = () => {
+        if (!props.countries.borders) {
+            return <p>No borders</p>;
+        }
+        return props.countries.borders.map(borderCountry => (
+            <section key={borderCountry} className="box">
+                <Link to={`/${borderCountry}`}>{borderCountry}</Link>
+            </section>
+        ));
+    }
 
-    
-  const renderBorderList = () => {
-    return countryDetails.map( (countries, index) => {
-
-      return(
-        <section key={index} className="box">
-          <Link to={`/countries/${countries.alpha3Code}`}>{countries.borders}</Link>
-        </section>
-      ) 
-    });
-  }
-
-
-    // const renderDetails = () => {
-    //     return (
-    //         <div className="box">
-    //             <h1>{countryDetails.name.common} </h1>
-    //             Capital: {countryDetails.capital} <br />
-    //             Area: {countryDetails.area} km <br />
-    //             Borders: {<Link to="/.."> </Link>} <br />
-    //         </div>
-    //     );
-    // }
-
+    const renderDetails = () => {
+        return (
+            <div className="box">
+                <h1>{props.countries.name.common}</h1>
+                <p>Capital: {props.countries.capital}</p>
+                <p>Area: {props.countries.area} km</p>
+                <p>Borders:</p>
+                {renderBorderList()}
+            </div>
+        );
+    }
 
     return(
         <>
-            {countryDetails
-                ? renderBorderList()
+            {props.countries.name
+                ? renderDetails()
                 : <p>loading....</p>
             }
         </>
     )
-
-
-
-
 }

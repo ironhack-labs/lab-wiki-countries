@@ -31,7 +31,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<CountriesList countries={countries} />} />
-        <Route path="/countries/:alpha3Code" element={<CountryDetails />} />
+        <Route path="/countries/:alpha3Code" element={<CountryDetails countries={countries} />} />
       </Routes>
     </div>
   );
