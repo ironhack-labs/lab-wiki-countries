@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, Routes, Route} from 'react-router-dom';
 
 function CountriesList(props) {
   
+    //const {alpha3Code} : useParams();
 
   return (
     <div>
@@ -13,6 +14,11 @@ function CountriesList(props) {
             <Link to={`/CountryDetails/${countryDetails.alpha3Code}`}>
               Press for details
             </Link>
+            
+                    <Routes>
+                    <Route path="/CountryDetails/:id" element={ <CountryDetails /> } />
+                 
+                </Routes>
           </ul>
         );
       })}
