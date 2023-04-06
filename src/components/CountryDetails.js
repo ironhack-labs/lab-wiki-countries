@@ -1,59 +1,64 @@
-import React from 'react';
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import axios from "axios";
 
-const CountryDetails = () => {
-return (
+function CountryDetails(props) {
 
-  <div className="col-7">
-    <h1>France</h1>
-    <table className="table">
-      <thead></thead>
-      <tbody>
-        <tr>
-          <td style="width: 30%">Capital</td>
-          <td>Paris</td>
-        </tr>
-        <tr>
-          <td>Area</td>
-          <td>
-            551695 km
-            <sup>2</sup>
-          </td>
-        </tr>
-        <tr>
-          <td>Borders</td>
-          <td>
-            <ul>
-              <li>
-                <a href="/AND">Andorra</a>
-              </li>
-              <li>
-                <a href="/BEL">Belgium</a>
-              </li>
-              <li>
-                <a href="/DEU">Germany</a>
-              </li>
-              <li>
-                <a href="/ITA">Italy</a>
-              </li>
-              <li>
-                <a href="/LUX">Luxembourg</a>
-              </li>
-              <li>
-                <a href="/MCO">Monaco</a>
-              </li>
-              <li>
-                <a href="/ESP">Spain</a>
-              </li>
-              <li>
-                <a href="/CHE">Switzerland</a>
-              </li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-)
-};
+    const {countryCode} = useParams();
+
+    const [country, setCountry] = useState(null);
+
+    useEffect(() => {
+        axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryCode}`)
+            .then((response) => {
+                setCountry(response.data);
+            }).catch((err) => {
+                console.log(err);
+            });
+    }, [countryCode]);
+
+    const renderCountryDetails = () => {
+        return (
+            <div className="col-7">
+                <h1>{country.name.common}</h1>
+                <table className="table">
+                    <tbody>
+                        <tr>
+                            <td style={{width: "30%"}}>Capital</td>
+                            <td>{country.capital[0]}</td>
+                        </tr>
+                        <tr>
+                            <td>Area</td>
+                            <td>
+                                {country.area}km
+                                <sup>2</sup>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Borders</td>
+                            <td>
+                                <ul>
+                                    {country.borders.map((border) => {
+                                        return (
+                                            <li key={border}>
+                                                <Link to={`/${border}`}>{border}</Link>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        );
+    };
+
+    return (
+        <>
+            {country ? renderCountryDetails() : <h2>Loading...</h2>}
+        </>
+    );
+}
 
 export default CountryDetails;
