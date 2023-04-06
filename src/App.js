@@ -4,10 +4,15 @@ import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import countriesData from './countries.json';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getCountries } from './services/countriesServices'
 
 function App() {
   const [countries, setCountries] = useState(countriesData);
+
+  useEffect(() => {
+    getCountries().then((countries) => setCountries(countries));
+  });
 
   return (
     <div>
