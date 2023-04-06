@@ -1,23 +1,48 @@
-import logo from './logo.svg';
+import countries from "./countries.json";
 import './App.css';
+import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import CountriesList from "./components/CountriesList";
+import CountryDetails from "./components/CountryDetails";
+import { Routes, Route } from "react-router-dom"
+import axios from "axios";
 
 function App() {
+
+  const [countriesArr, setCountriesArr] = useState(null);
+
+
+  useEffect(() => {
+    axios.get("https://ih-countries-api.herokuapp.com/countries")
+      .then((response) => {
+        setCountriesArr(response.data);
+      }).catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const renderCountries = () => {
+    return (
+      <div className="container">
+        <div className="row">
+          <CountriesList countriesToRender={countriesArr}/>
+
+          <Routes>
+            <Route path="/:countryCode" element={ <CountryDetails countriesToSelectFrom={countriesArr} /> } />
+          </Routes>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <Navbar />
       </header>
+
+      {countriesArr ? renderCountries() : <h1>Loading...</h1>}
+      
     </div>
   );
 }
