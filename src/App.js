@@ -7,8 +7,22 @@ import Navbar from "./components/Navbar";
 import CountryList from "./components/CountryList";
 import CountryDetails from "./components/CountryDetails";
 
+import axios from "axios";
+
 function App() {
-  const [countries, setCountries] = useState(countriesData);
+  const [countries, setCountries] = useState([]);
+
+
+  useEffect(() => {
+    axios.get("https://ih-countries-api.herokuapp.com/countries")
+        .then((response) => {
+            setCountries(response.data);
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+}, []);
+
 
   return (
     <div className="App">
