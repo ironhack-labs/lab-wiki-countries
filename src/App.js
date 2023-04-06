@@ -7,7 +7,7 @@ import Navbar from './components/Navbar.js';
 import './App.css';
 
 function App() {
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState(countriesData);
 
   useEffect(() => {
     setCountries(countriesData);
@@ -25,7 +25,7 @@ function App() {
                 element={<CountriesList countries={countries} />}
               />
               <Route
-                path="/country/:alpha3Code"
+                path="/country-details/:alpha3Code"
                 element={<CountryDetails countries={countries} />}
               />
             </Routes>
