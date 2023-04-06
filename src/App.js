@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './App.css';
 import countries from "./countries.json"
@@ -9,24 +9,36 @@ import CountryDetails from './components/CountryDetails'
 
 function App() {
 
+  const [countries, setCountries] = useState(null);
+
+  const apiURL="https://ih-crud-api.herokuapp.com"
+
  
 
   useEffect(() => {
-    console.log(countries)
+   axios.get(apiURL+"/countries")
+   .then((response) => {
+    setCountries(response.data);
+   })
+   .catch(e => {
+    console.log("error getting countries from API...", e);
+  })
   }, [])
 
+  const renderCountriesList = () => {
+    return (
+      <div className="App">
+      <Navbar />
+      <CountriesList renderCountriesList={countries}/>
+      <Routes>
+        <Route path='/:alpha3Code' element={<CountryDetails countries={countries} />} />
+    
+      </Routes>
+      </div>
+    );
  
 
-  return (
-    <div className="App">
-    <Navbar />
-    <CountriesList />
-    <Routes>
-      <Route path='/countries/:alpha3Code' element={<CountryDetails />} />
   
-    </Routes>
-    </div>
-  );
 }
-
+}
 export default App;

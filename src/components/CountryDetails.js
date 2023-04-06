@@ -5,11 +5,6 @@ import axios from "axios";
 
 export default function CountryDetails() {
 
-
-
-    return (
-
-    )
 }
 
 
