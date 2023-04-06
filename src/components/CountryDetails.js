@@ -1,62 +1,62 @@
-import { useParams } from "react-router-dom";
-import { useState } from 'react';
+import { useParams, Link } from "react-router-dom";
 import countries from '../countries.json';
-import axios from "axios";
-
-export default function CountryDetails() {
-
-}
 
 
-// {
-//   <div class="col-7">
-//     <h1>France</h1>
-//     <table class="table">
-//       <thead></thead>
-//       <tbody>
-//         <tr>
-//           <td style="width: 30%">Capital</td>
-//           <td>Paris</td>
-//         </tr>
-//         <tr>
-//           <td>Area</td>
-//           <td>
-//             551695 km
-//             <sup>2</sup>
-//           </td>
-//         </tr>
-//         <tr>
-//           <td>Borders</td>
-//           <td>
-//             <ul>
-//               <li>
-//                 <a href="/AND">Andorra</a>
-//               </li>
-//               <li>
-//                 <a href="/BEL">Belgium</a>
-//               </li>
-//               <li>
-//                 <a href="/DEU">Germany</a>
-//               </li>
-//               <li>
-//                 <a href="/ITA">Italy</a>
-//               </li>
-//               <li>
-//                 <a href="/LUX">Luxembourg</a>
-//               </li>
-//               <li>
-//                 <a href="/MCO">Monaco</a>
-//               </li>
-//               <li>
-//                 <a href="/ESP">Spain</a>
-//               </li>
-//               <li>
-//                 <a href="/CHE">Switzerland</a>
-//               </li>
-//             </ul>
-//           </td>
-//         </tr>
-//       </tbody>
-//     </table>
-//   </div>;
-// }
+
+
+function CountryDetails(props) {
+
+  const {alpha3Code} = useParams();
+
+  const country = countries.find((country) => {
+    return country.alpha3Code === alpha3Code;
+  })
+
+  function countryBorders(border) {
+    const theCountry = countries.find((country) => {
+      return country.alpha3Code === border;
+    })
+  }
+
+  return (
+    <div className="col-7">
+      {country && country.name && (
+        <div>
+          <h1>{country.name.official}</h1>
+          <table className="table">
+            <thead></thead>
+            <tbody>
+              <tr>
+                <td style={{width: "30%"}}>Capital</td>
+                <td>{country.capital}</td>
+              </tr>
+              <tr>
+                <td>Area</td>
+                <td>{country.area}
+                <sup>2</sup>
+                </td>
+              </tr>
+              <tr>
+                <td>Borders</td>
+                <td>
+                  <ul>
+                  {country.borders.map((border) => {
+                    const theCountry = countries.find((country) => country.alpha3Code === border);
+                    return (
+                      <li key={border}>
+                        {theCountry.name.common}
+                      </li>
+                    );
+                  })}
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+                }
+                
+export default CountryDetails;
