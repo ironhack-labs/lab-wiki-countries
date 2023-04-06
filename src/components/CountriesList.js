@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -16,12 +15,9 @@ function CountriesList({ countries }) {
               return (
                 <div>
                   <Link className='list-group-item list-group-item-action' to={`/${country.alpha3Code}`} key={country.alpha3Code}>{country.name.official}
-                  <div>
-                        <img 
-                        src={`https://flagpedia.net/data/flags/icon/72x54/${ country.alpha2Code.toLowerCase() }.png`}
-                        alt={ country.name.common } 
-                        />
-                        <h1>{ country.name.common }</h1>
+                    <div>
+                      <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt={country.name.common} />
+                      <h1>{country.name.common}</h1>
                     </div></Link>
                 </div>
               )
@@ -30,7 +26,6 @@ function CountriesList({ countries }) {
         </div>
       </div>
     </div>
-
   )
 }
 

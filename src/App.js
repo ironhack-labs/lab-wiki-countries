@@ -10,15 +10,12 @@ import CountryDetail from './components/CountryDetail';
 function App() {
   const [countries, setCountries] = useState(countriesData);
 
-
-
   return (
     <div className="App">
       <Navbar />
       <div className='container'>
         <div className='row'>
-          <div className='col-5
-          '>
+          <div className='col-5'>
             <CountriesList countries={countries} />
           </div>
           <div className='col-7'>
