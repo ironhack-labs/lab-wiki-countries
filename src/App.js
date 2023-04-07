@@ -1,18 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import CountriesList from './components/CountriesList.js';
 import CountryDetails from './components/CountryDetails.js';
-import countriesData from './countries.json';
+// import countriesData from './countries.json';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar.js';
 import './App.css';
 import Greeting from './components/Greeting.js';
 import About from './components/About.js';
+import axios from 'axios';
 
 function App() {
-  const [countries, setCountries] = useState(countriesData);
+  const [countries, setCountries] = useState([]);
+
+  /* useEffect(() => {
+    setCountries(countriesData);
+  }, []); */
 
   useEffect(() => {
-    setCountries(countriesData);
+    axios
+      .get('https://ih-countries-api.herokuapp.com/countries')
+      .then((response) => {
+        setCountries(response.data);
+      })
+      .catch((e) => {
+        console.log('error getting countries details from API...', e);
+      });
   }, []);
 
   return (
