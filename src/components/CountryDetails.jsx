@@ -2,17 +2,18 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getOneCountryByAPI } from '../services/countries';
 
-const CountryDetails = ({ alphas }) => {
-  const [country, setCountry] = useState([]);
-  const [border, setBorder] = useState([]);
-  const [loaded, setLoaded] = useState(false);
+const initialStates = {
+  country: {},
+  borders: [],
+  loaded: false,
+};
 
+const CountryDetails = ({ alphas }) => {
+  const [country, setCountry] = useState(initialStates);
   const { code } = useParams();
 
   useEffect(() => {
     getOneCountryByAPI(code).then((res) => {
-      setCountry(res);
-
       const borders = [];
 
       alphas.forEach((alpha) => {
@@ -25,32 +26,36 @@ const CountryDetails = ({ alphas }) => {
             });
         });
       });
-      setBorder(borders);
 
-      setLoaded(true);
+      setCountry((prev) => ({
+        ...prev,
+        country: res,
+        borders: borders,
+        loaded: true,
+      }));
     });
   }, [alphas, code]);
 
   return (
     <div className="col-7">
-      {loaded && (
+      {country.loaded ? (
         <>
           <img
-            src={`https://flagpedia.net/data/flags/w580/${country.alpha2Code.toLowerCase()}.webp`}
-            alt={country.name.common}
+            src={`https://flagpedia.net/data/flags/w580/${country.country.alpha2Code.toLowerCase()}.webp`}
+            alt={country.country.name.common}
           />
-          <h1>{country.name.common}</h1>
+          <h1>{country.country.name.common}</h1>
           <table className="table">
             <thead></thead>
             <tbody>
               <tr>
                 <td style={{ width: '30%' }}>Capital</td>
-                <td>{country.capital}</td>
+                <td>{country.country.capital}</td>
               </tr>
               <tr>
                 <td>Area</td>
                 <td>
-                  {country.area} km
+                  {country.country.area} km
                   <sup>2</sup>
                 </td>
               </tr>
@@ -58,7 +63,7 @@ const CountryDetails = ({ alphas }) => {
                 <td>Borders</td>
                 <td>
                   <ul>
-                    {border.map((border, i) => (
+                    {country.borders.map((border, i) => (
                       <li
                         key={i}
                         className="mb-3 d-flex align-items-center g-1"
@@ -77,6 +82,8 @@ const CountryDetails = ({ alphas }) => {
             </tbody>
           </table>
         </>
+      ) : (
+        <h1>Loading Country</h1>
       )}
     </div>
   );

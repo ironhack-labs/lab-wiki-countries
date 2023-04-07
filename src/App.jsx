@@ -8,15 +8,18 @@ import CountryDetails from './components/CountryDetails';
 
 import './App.css';
 
+const initialStates = {
+  countries: [],
+  alphas: [],
+  loaded: false,
+};
+
 const App = () => {
-  const [countries, setCountries] = useState([]);
-  const [alphas, setAlphas] = useState([]);
+  const [countries, setCountries] = useState(initialStates);
 
   useEffect(() => {
     getCountriesByAPI()
       .then((res) => {
-        setCountries(res);
-
         const alphas = res.reduce((countries, country) => {
           countries.push({
             alpha3Code: country.alpha3Code,
@@ -27,7 +30,12 @@ const App = () => {
           return countries;
         }, []);
 
-        setAlphas(alphas);
+        setCountries((prev) => ({
+          ...prev,
+          countries: res,
+          alphas: alphas,
+          loaded: true,
+        }));
       })
       .catch((error) => console.error(error));
   }, []);
@@ -36,7 +44,7 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="row">
-          <CountriesList countries={countries} alphas={alphas} />
+          <CountriesList {...countries} />
 
           <Routes>
             <Route
@@ -47,7 +55,10 @@ const App = () => {
                 </div>
               }
             />
-            <Route path="/:code" element={<CountryDetails alphas={alphas} />} />
+            <Route
+              path="/:code"
+              element={<CountryDetails alphas={countries.alphas} />}
+            />
           </Routes>
         </div>
       </div>
