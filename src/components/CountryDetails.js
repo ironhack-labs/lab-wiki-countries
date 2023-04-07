@@ -1,15 +1,22 @@
-import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
-function CountryDetails(props) {
+function CountryDetails() {
   const { countryId } = useParams();
+  console.log("countryId.....", countryId)
   const [countryDetail, setCountryDetail] = useState(null);
 
   useEffect(() => {
-    const result = props.detail.find(
-      (element) => element.alpha3Code === countryId
-    );
-    setCountryDetail(result);
+    axios
+      .get(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
+      .then((response) => {
+        console.log("response.......", response.data)
+        setCountryDetail(response.data);
+      })
+      .catch((e) => {
+        console.log('error getting country from API...', e);
+      });
   }, [countryId]);
 
   const displayBorders = () => {
@@ -30,11 +37,16 @@ function CountryDetails(props) {
     }
   };
 
-  const displaycoutryName = (CountryCode) => {
-    const result = props.detail.find(
-      (element) => element.alpha3Code === CountryCode
-    );
-    return result.name.official
+  const displaycoutryName = (CountryCodeBorder) => {
+    console.log("CountryCodeBorder.........", CountryCodeBorder)
+    axios
+      .get(`https://ih-countries-api.herokuapp.com/countries/${CountryCodeBorder}`)
+      .then((response) => {
+        return response.data.name.official;
+      })
+      .catch((e) => {
+        console.log('error getting country for borders from API...', e);
+      });
   };
 
   const displayDetails = () => {

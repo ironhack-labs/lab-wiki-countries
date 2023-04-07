@@ -1,8 +1,9 @@
 // src/App.js
-import { useState } from "react";
-import "./App.css";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import './App.css';
 
-import countries from './countries.json';
+//import countries from './countries.json';
 
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
@@ -11,27 +12,40 @@ import CountryDetails from './components/CountryDetails';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
+  const [countriesArr, setCountriesArr] = useState(null);
 
-const [countriesArr, setCountriesArr] = useState(countries)
+  useEffect(() => {
+    axios
+      .get('https://ih-countries-api.herokuapp.com/countries')
+      .then((response) => {
+        setCountriesArr(response);
+      })
+      .catch((e) => {
+        console.log('error getting countries from API...', e);
+      });
+  }, []);
 
-
-
-
-  return <div className="App">
-    <Navbar />
-    <div className="container">
+  const displayCountriesList = () => {
+    return (
       <div className="row">
-        <CountriesList  countriesArr={countriesArr}/>
+        <CountriesList countriesArr={countriesArr.data} />
         <Routes>
-          <Route path='/:countryId' element={<CountryDetails detail={countriesArr} />} />
+          <Route
+            path="/:countryId"
+            element={<CountryDetails />}
+          />
         </Routes>
-
-
-
+      </div>
+    );
+  };
+  console.log(countriesArr);
+  return (
+    <div className="App">
+      <Navbar />
+      <div className="container">
+        {countriesArr ? displayCountriesList() : <p>loading....</p>}
       </div>
     </div>
-    
-
-  </div>;
+  );
 }
 export default App;
