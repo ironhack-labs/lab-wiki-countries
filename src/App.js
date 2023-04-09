@@ -12,6 +12,7 @@ function App() {
   useEffect(() => {
     countriesService.list()
     .then((countries) => {
+      console.log(countries)
       setCountries((prevCountries) => {
         return countries
       })
