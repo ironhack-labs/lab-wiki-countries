@@ -12,7 +12,8 @@ function App() {
     countriesService.list()
       .then((countries) => {
         countries.sort((a, b) => a.name.common.localeCompare(b.name.common))
-        setCountries(countries)})
+        setCountries(countries)
+      })
       .catch(console.error)
   }, [])
 
@@ -25,7 +26,7 @@ function App() {
         <div className="row">
           <CountriesList countries={countries} />
           <Routes>
-            <Route path="/:id" element={<CountriesDetails countries={countries} />} />
+            <Route path="/countries/:id" element={<CountriesDetails countries={countries} />} />
           </Routes>
         </div>
       </div>
