@@ -1,8 +1,20 @@
-import React from 'react';
+import { getCountryData } from '../services/data-service';
 import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function CountryDetail({ countries }) {
   const { alpha3Code } = useParams();
+  const [country, setCountry] = useState(null);
+
+  useEffect(() => {
+    getCountryData(alpha3Code)
+      .then((foundCountry) => {
+        setCountry(foundCountry);
+      })
+      .catch(console.error);
+  }, [alpha3Code]);
+
+  if (!country) return null;
 
   return (
     <div className="w-1/2 flex justify-center pt-14">
@@ -38,7 +50,7 @@ function CountryDetail({ countries }) {
                       key={border}
                       className="font-semibold text-blue-500 hover:scale-105"
                     >
-                      <Link key={border} to={`/${border}`}>
+                      <Link key={border} to={`/countries/${border}`}>
                         {countryNames.join(',')}
                       </Link>
                     </li>

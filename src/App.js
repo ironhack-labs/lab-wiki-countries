@@ -28,7 +28,7 @@ function App() {
         <div className="col-6">
           <Routes>
             <Route
-              path="/:alpha3Code"
+              path="/countries/:alpha3Code"
               element={<CountryDetail countries={countries} />}
             />
           </Routes>
