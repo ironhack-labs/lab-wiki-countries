@@ -1,6 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function CountryDetail({ countries }) {
   const { alpha3Code } = useParams();
