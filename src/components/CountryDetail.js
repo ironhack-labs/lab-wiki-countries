@@ -1,17 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import countriesService from '../services/countries'
 
 function CountryDetail({ countries }) {
   const params = useParams()
+  const [country, setCountry] = useState({})
+  useEffect(() => {
+    countriesService.country(params.id)
+      .then((country) => {
+        setCountry((prevCountry) => { 
+          return country
+        })
+      })
+      .catch(console.error)
+  }, [params.id])
+
   if (!countries) {
     return <></>
   }
-  const country = countries
-    .filter(country => country.alpha3Code === params.id)
-    .shift()
+
+  // const country_v2 = countries
+  //   .filter(country => country.alpha3Code === params.id)
+  //   .shift()  
 
   const showBorders = () => {
-    if (country.borders.length) {
+    if (country.borders?.length) {
       return (
         <tr>
           <td>Borders</td>
@@ -19,7 +32,7 @@ function CountryDetail({ countries }) {
             <ul>
               {country.borders.map((border) => (
                 <li key={border}>
-                  <Link key={border} to={`/${border}`}>{countries.find((country) => country.alpha3Code === border).name.official}</Link>
+                  <Link key={border} to={`/${border}`}>{countries.find((country) => country.alpha3Code === border).name?.official}</Link>
                 </li>
               ))}
             </ul>
@@ -32,8 +45,8 @@ function CountryDetail({ countries }) {
   return (
     <div className="col-7">
       <h1 className='d-flex justify-content-center align-items-center flex-column' style={{ textAlign: 'center' }}>
-        <img key={country.alpha2Code} src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt='' style={{ width: '200px' }} />
-        {country.name.official}
+        <img key={country.alpha2Code} src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code?.toLowerCase()}.png`} alt='' style={{ width: '200px' }} />
+        {country.name?.official}
       </h1>
       <table className="table">
         <thead></thead>

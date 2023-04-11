@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import countriesDB from './countries.json'
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
@@ -12,7 +12,6 @@ function App() {
   useEffect(() => {
     countriesService.list()
     .then((countries) => {
-      console.log(countries)
       setCountries((prevCountries) => {
         return countries
       })
