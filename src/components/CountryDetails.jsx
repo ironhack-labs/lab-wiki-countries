@@ -8,8 +8,10 @@ const CountryDetails = ({ countries }) => {
     (country) => country.alpha3Code === alpha3Code
   );
 
+  if (!country) return null;
+
   return (
-    <div className="col-7">
+    <div className="col-7" key={country.alpha3Code}>
       <img
         className=""
         src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
@@ -36,7 +38,7 @@ const CountryDetails = ({ countries }) => {
               <ul>
                 {country.borders.map((border) => {
                   return (
-                    <li>
+                    <li key={border.alpha3Code}>
                       <Link to={`/${border}`}>{border}</Link>
                     </li>
                   );
