@@ -1,12 +1,28 @@
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const CountryDetails = ({ countries }) => {
   const { alpha3Code } = useParams();
 
-  const country = countries.find(
-    (country) => country.alpha3Code === alpha3Code
-  );
+  const [country, setCountry] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`https://ih-countries-api.herokuapp.com/countries/${alpha3Code}`)
+      .then((res) => {
+        console.log('API CALL');
+        setCountry(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [alpha3Code]);
+
+  //   const country = countries.find(
+  //     (country) => country.alpha3Code === alpha3Code
+  //   );
 
   if (!country) return null;
 
