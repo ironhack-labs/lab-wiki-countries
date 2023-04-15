@@ -1,30 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 
 const CountryDetails = ({countries}) => {
 
-  const {id} = useParams()
-  const [country, setCountry] = useState({})
+  const {alpha3Code} = useParams()
 
-  useEffect(()=> {
-    setCountry(countries.find(country => id == country.alpha3Code))
-  }, [])
+  const country = countries.find(country => alpha3Code === country.alpha3Code)
+
+  const { name, capital, area, borders } = country
 
   return (
     <div className="col-7">
-      <h1>{country.name.common}</h1>
+        
+      <h1>{name.common}</h1>
+        
       <table className="table">
         <thead></thead>
 
         <tbody>
           <tr>
-            <td className="w-30">Capital</td>
-            <td>{[country.capital]}</td>
+            <td style={{width: "30%"}}>Capital</td>
+            <td>{capital}</td>
           </tr>
           <tr>
             <td>Area</td>
             <td>
-              {country.area} km
+              {area} km
               <sup>2</sup>
             </td>
           </tr>
@@ -33,12 +34,12 @@ const CountryDetails = ({countries}) => {
             <td>
               <ul>
                 {
-                  country.borders.length > 0?
-                  country.borders.map(border => {
+                  borders.length > 0?
+                  borders.map(border => {
                     return (
-                      <li>
+                      <li key={border}>
                         <Link to={`/:${border}`}>
-                          {countries.find(country => border == country.alpha3Code) return country.name.common}
+                          {countries.find(country => border === country.alpha3Code).name.common}
                         </Link>
                       </li>
                     )
@@ -50,9 +51,7 @@ const CountryDetails = ({countries}) => {
           </tr>
         </tbody>
       </table>
-
     </div>
-
   )
 }
 
