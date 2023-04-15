@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import countriesData from './countries.json';
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [countries, setCountries] = useState([]);
-
-  useEffect(() => {
-    setCountries(countriesData)
-  })
+  
   return (
     <div className="App">
-      
+      <Navbar />
     </div>
   );
 }
