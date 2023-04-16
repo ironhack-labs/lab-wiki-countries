@@ -6,7 +6,10 @@ function MyNavBar() {
     <Navbar expand="lg" variant="light" bg="success">
       <Container>
         <Navbar.Brand href="#" color="white">
-          <h3 className="text-light ">WikiCountry Lab</h3>
+          <h1 className="text-light  ">
+            {' '}
+            <b>WikiCountry Lab</b>
+          </h1>
         </Navbar.Brand>
       </Container>
     </Navbar>

@@ -1,24 +1,39 @@
 import { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import COUNTRIES_API from './countries.json';
 import MyNavBar from './components/MyNavBar';
-import CountiesList from './components/CountiesList';
+import CountiesList from './components/CountriesList';
+import { Col, Container, Row } from 'react-bootstrap';
 import CountryDetails from './components/CountryDetails';
-import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    setCountries(COUNTRIES_API);
+    fetch('https://ih-countries-api.herokuapp.com/countries')
+      .then((res) => res.json())
+      .then((list) => setCountries(list));
   }, []);
 
   return (
     <div className="App">
       <MyNavBar />
-      <Routes>
-        <Route path="/" element={<CountiesList allCounties={countries} />} />
-      </Routes>
+      <Container>
+        <Row>
+          <Col>
+            <CountiesList countries={countries} />
+          </Col>
+          <Col>
+            <Routes>
+              <Route
+                path="/:alpha3Code"
+                element={<CountryDetails countries={countries} />}
+              />
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
