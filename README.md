@@ -2,6 +2,28 @@
 
 # LAB | React WikiCountries
 
+<details>
+  <summary>
+    <h2>Learning Goals</h2>
+  </summary>
+
+  This exercise allows you to practice and apply the concepts and techniques taught in class.
+
+  Upon completion of this exercise, you will be able to:
+
+  - Create a React application that contains multiple pages using React Router.
+  - Use React Router's `useParams` hook to access URL parameters.
+  - Create a page component that dynamically renders content based on URL parameter values.
+  - Perform side effects in a component with the `useEffect` hook.
+  - Use the `useEffect` hook to fetch data from an API and save it in the component's state.
+  - Use a CSS framework to style a React application.
+
+  <br>
+  <hr>
+
+</details>
+
+
 ## Introduction
 
 After spending too much time on GitHub, you found a [JSON dataset of countries](https://ih-countries-api.herokuapp.com/countries), and you decided to use it to create your Wikipedia of countries!
