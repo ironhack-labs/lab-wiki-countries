@@ -5,3 +5,11 @@
 .flagIcon {
   height: 10px;
 }
+
+td {
+  text-align: start;
+}
+
+li > a {
+  text-decoration: none;
+}
