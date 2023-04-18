@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const CountryDetails = ({ countries }) => {
   const [foundCountry, setFoundCountry] = useState(null);
@@ -23,7 +23,6 @@ useEffect(() => {
   .then(alpha3Code => setFoundCountry(alpha3Code))
 })
 
-console.log('foundCountry', foundCountry)
 
   return <div className="col-7">
       {foundCountry && <div>
@@ -45,12 +44,12 @@ console.log('foundCountry', foundCountry)
         <tr>
           <td>Borders</td>
           <td>
+          <ul className="list-unstyled">
             {foundCountry.borders.length === 0 ? <p>None</p> :
               foundCountry.borders.map(border => {
-              return <ul className="list-unstyled">
-                <li>{border}</li>
-              </ul>
+              return <li key={border}> <Link to={`/${border}`}>{border}</Link></li>
             })}
+              </ul>
           </td>
         </tr> 
         </tbody>

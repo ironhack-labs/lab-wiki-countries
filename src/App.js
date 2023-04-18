@@ -22,6 +22,7 @@ function App() {
     .then(json => setCountries(json))
   }, [])
 
+
   return (
     <div className="App">
       <Navbar />
