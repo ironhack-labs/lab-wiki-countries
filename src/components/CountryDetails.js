@@ -13,9 +13,15 @@ const CountryDetails = ({ countries }) => {
     console.log('foundCountry', foundCountry)
   }, [alpha3Code]) */
 
-  useEffect(() => {
+  /* useEffect(() => {
   setFoundCountry(countries.find(country => country.alpha3Code === alpha3Code))
-}, [alpha3Code])
+}, [alpha3Code]) */
+
+useEffect(() => {
+  fetch(`https://ih-countries-api.herokuapp.com/countries/${alpha3Code}`)
+  .then(res => res.json())
+  .then(alpha3Code => setFoundCountry(alpha3Code))
+})
 
 console.log('foundCountry', foundCountry)
 
