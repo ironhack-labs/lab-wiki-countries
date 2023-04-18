@@ -21,7 +21,7 @@ useEffect(() => {
   fetch(`https://ih-countries-api.herokuapp.com/countries/${alpha3Code}`)
   .then(res => res.json())
   .then(alpha3Code => setFoundCountry(alpha3Code))
-})
+}, [alpha3Code])
 
 
   return <div className="col-7">
@@ -39,7 +39,7 @@ useEffect(() => {
         </tr> 
         <tr>
           <td>Area</td>
-          <td>{foundCountry.area} km2</td>
+          <td>{foundCountry.area} km<sup>2</sup></td>
         </tr> 
         <tr>
           <td>Borders</td>

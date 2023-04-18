@@ -9,13 +9,13 @@ const CountriesList = ({ countries }) => {
         {countries.map((country) => {
           return (
             <div className="border" key={country.alpha2Code}>
-              <Link className="country-list" to={`/${country.alpha3Code}`}>
+              <Link style={{textDecoration: "none"}} to={`/${country.alpha3Code}`}>
               <img
                 style={{ width: 50 }}
                 src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
                 alt="country-flag"
               />
-                <h4 className="countries-name text-dark text-uppercase font-italic text-decoration-none">{country.name.common}</h4>
+                <h4 className="text-dark text-uppercase">{country.name.common}</h4>
               </Link>
             </div>
           );
