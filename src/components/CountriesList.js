@@ -7,7 +7,7 @@ function CountriesList({data}) {
             <div className="list-group">
                 {data.map(country => {
                     return (
-                        <Link className="list-group-item list-group-item-action d-flex justify-content-start" to={`/${country.alpha3Code}`}><p><img className="flagIcon" src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="" /> {country.name.common}</p></Link>
+                        <Link key={country._id} className="list-group-item list-group-item-action d-flex justify-content-start" to={`/${country.alpha3Code}`}><p><img className="flagIcon" src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="" /> {country.name.common}</p></Link>
                     )
                 })}
             </div>

@@ -1,50 +1,69 @@
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 function CountryDetails({data}) {
 
+    const [displayCountry, setDisplayCountry] = useState(null)
+    const [borderCountries, setBorderCountries] = useState([])
     const { id } = useParams();
+    
+    useEffect(() => {
+        fetch("https://ih-countries-api.herokuapp.com/countries/" + id)
+        .then(response => response.json())
+        .then(data => setDisplayCountry(data))
+        .catch(error => console.log(error))
+    }, [id])
 
-    const country = data.find(e => {
-        return e.alpha3Code === id
-    })
-
-    const borderCountries = country.borders.map(borderCode => {
-        const borderCountry = data.find(country => country.alpha3Code === borderCode)
-        return borderCountry
-    })
+    useEffect(() => {
+        if(displayCountry) {
+            const countries = displayCountry.borders.map(borderCode => {
+                const borderCountry = data.find(country => country.alpha3Code === borderCode)
+                return borderCountry
+            })
+            setBorderCountries(countries)
+        }
+    }, [displayCountry, data])
 
     return (
         <div className="col-7">
-            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="" />
-            <h1>{country.name.common}</h1>
-            <table className="table">
-              <thead></thead>
-              <tbody>
-                <tr>
-                  <td style={{width: "30%"}}>Capital</td>
-                  <td>{country.capital}</td>
-                </tr>
-                <tr>
-                  <td>Area</td>
-                  <td>
-                    {country.area} km
-                    <sup>2</sup>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Borders</td>
-                  <td>
-                    <ul>
-                      {borderCountries.map(country => {
-                        return(
-                            <li className="borderList" key={country.alpha3Code}><a href={country.alpha3Code}>{country.name.common}</a></li>
-                        )
-                      })}
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            {displayCountry && (
+                <>
+                    <img src={`https://flagpedia.net/data/flags/icon/72x54/${displayCountry.alpha2Code.toLowerCase()}.png`} alt="" />
+                    <h1>{displayCountry.name.common}</h1>
+                    <table className="table">
+                    <thead></thead>
+                    <tbody>
+                        <tr>
+                        <td style={{width: "30%"}}>Capital</td>
+                        <td>{displayCountry.capital}</td>
+                        </tr>
+                        <tr>
+                        <td>Area</td>
+                        <td>
+                            {displayCountry.area} km
+                            <sup>2</sup>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>Borders</td>
+                            <td>
+                                {borderCountries.length > 0 ?
+                                    <ul>
+                                        {borderCountries.map((country) => {
+                                            return (
+                                                <li key={country._id}>
+                                                    <Link to={`/${country.alpha3Code}`}>{country.name.common}</Link>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+                                     : <p>No bordering countries found.</p>}
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </>
+            )}
         </div>
     )
 }
