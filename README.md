@@ -12,10 +12,10 @@
   Upon completion of this exercise, you will be able to:
 
   - Create a React application that contains multiple pages using React Router.
-  - Use React Router's `useParams` hook to access URL parameters.
-  - Create a page component that dynamically renders content based on URL parameter values.
   - Perform side effects in a component with the `useEffect` hook.
   - Use the `useEffect` hook to fetch data from an API and save it in the component's state.
+  - Use React Router's `useParams` hook to access URL parameters.
+  - Create a page component that dynamically renders content based on URL parameter values.
   - Use a CSS framework to style a React application.
 
   <br>
@@ -65,35 +65,76 @@ npm start
 <br>
 
 
-## Getting Started
+## Instructions 
 
-Clean the `App.js` component so that it has the following structure:
 
-```jsx
-// src/App.js
-import "./App.css";
+### Iteration 0 | Install Dependencies
 
-function App() {
-  return <div className="App"></div>;
-}
-export default App;
+The application you will create in this exercise will use [Bootstrap](https://getbootstrap.com/) for styling and React Router for managing multiple pages and navigation. To begin, install the Bootstrap and React Router packages:
+
+```shell
+npm install react-router-dom bootstrap
+```
+
+<br>
+
+To make the Bootstrap styles available in the entire app, import the Bootstrap stylesheet at the top of the `src/index.js` file:
+
+```javascript
+// src/index.js
+import "bootstrap/dist/css/bootstrap.css";
 ```
 
 <br>
 
 
-## Instructions 
+
+### Iteration 1 | Create Basic components
+
+In this iteration, we will focus on the general layout by creating components and organizing them into appropriate folders.
+
+1. Inside the `src` folder, create two folders named: `components` and `pages`. 
+
+   
+
+2. Next, create the following components in their respective folders:
+
+​	**Components Folder:**
+
+- `src/components/Navbar.js`: The `Navbar` component should display the basic navbar with the LAB name "React | WikiCountries".
 
 
-### Iteration 0 | React Router Installation
 
-Remember to install the React Router:
+​	**Pages Folder:**
 
-```shell
-npm install react-router-dom
-```
+- `src/pages/HomePage.js`: The `HomePage` component should initially display a headline with the text "WikiCountries: Your Guide to the World".
+- `src/pages/CountryDetailsPage.js`: The `CountryDetailsPage` component should initially display a headline with the text "Country Details".
 
-And setup the router in your `src/index.js` file:
+<br>
+
+
+
+3. To help you structure and style the components, we provided examples inside the `example` folder. The example code is using Bootstrap classes that will provide you with basic layout and styling.
+
+   
+
+   If you decide to copy the code provided in the `example` folder, keep the following in mind:
+
+   - In React, the `class` html attribute is defined using `className`
+
+   - For inline CSS, use a JavaScript object and name each CSS property in camelCase (more details [here](https://react.dev/reference/react-dom/components/common#applying-css-styles)).
+
+<br>
+
+
+
+### Iteration 2 | Setup React Router and Create Routes
+
+Building upon the basic components created in the previous iteration, it is time to take the next step and set up React Router to handle navigation and create multiple pages in your app.
+
+
+
+1. Set up React Router in your `src/index.js` file:
 
 ```jsx
 // src/index.js
@@ -120,80 +161,93 @@ reportWebVitals();
 
 <br>
 
+2. In your `App.js` set up two routes that render the following pages:
 
-### Bootstrap Installation
-
-We will use [Bootstrap](https://getbootstrap.com/) for the design :+1:
-
-```sh
-npm install bootstrap
-```
-
-To make the Bootstrap styles available in the entire app, import the stylesheet in `index.js`:
-
-```javascript
-// src/index.js
-import "bootstrap/dist/css/bootstrap.css";
-```
-
-<br>
+- Route `/`, which renders the `HomePage` component
+- Route `/:countryId`, which renders the `CountryDetailsPage` component
 
 
-## Instructions
 
-### Iteration 1 | Import JSON data
-
-We will be working with data coming from the `src/countries.json` file. 
-Import the file in `App.js` and store it in a state variable named `countries`.
+Once you are done setting up the routes, your app should render two pages as shown in the expected result below.
 
 
-<br>
 
-----
+<details>
 
-### Iteration 2.1 | Create components
 
-In this iteration, we will focus on the general layout.
 
-Before you start, inside the `src` folder, create the `components` folder. There you will create at least 3 components:
+  <summary>See Expected Result</summary>
 
-- `Navbar`: Displaying the basic navbar with the LAB name
-- `CountriesList`: This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Clicking on any of the `Link`s should render the country details component.
-- `CountryDetails`: This component should render the details of the clicked country, and it should <u>receive</u> the country code (`alpha3Code`) through the URL parameters. The `alpha3Code` is the id of the country (e.g., `/ESP` - Spain, `/FRA` - France).
+  
 
-<br>
+![visiting home page and country details pagea]()
 
-To help you with the structure of the components, we included for you an example of the page structure in `example.html`.
 
-The CSS styling should be done using Bootstrap. Check how the *Bootstrap CSS class names* are applied for styling in the `example.html` and refer to Bootstrap [docs](https://getbootstrap.com) for additional details.
 
-<br>
 
-**NOTE:** If you decide to copy the code provided in the `example.html`, keep the following in mind:
-- In React, the `class` HTML attribute is defined using `className`
-- For inline CSS, use a JavaScript object and name each CSS property in camelCase (more details [here](https://reactjs.org/docs/dom-elements.html#style)).
+
+  <br>
+
+</details>
+
+
 
 <br>
 
 
-### Iteration 2.2 | `Navbar` component
 
-Create a navbar component that displays the title *LAB - WikiCountries*.
+### Iteration 3 | Fetch Countries Data and Display as a List
+
+In this iteration, you will work on the `HomePage` component to retrieve the countries data from the API and render it as a list. 
+
+To do this, you must use React hooks, specifically:
+
+- `useState` to create a state variable to store the countries data retrieved from the API
+
+- `useEffect` to set an effect that will make a request to the API for the countries data
+
+The endpoint returns a JSON response in the form of an *array*, containing the data of all the countries in the world. Save the response data in a state and then render it as a list. 
+
+
+
+**Tip:** You may want to `console.log` the response data to help you visualize the structure of the country objects and how the data is structured.
+
+
+
+The rendered list of countries should show the country name.
+
+
+
+<details>
+
+
+
+
+  <summary>See Expected Result</summary>
+
+  
+
+![visiting home page and country details page]()
+
+
+
+
+
+  <br>
+
+</details>
+
+
 
 <br>
 
+### Iteration 4 | Country List with Links
 
-### Iteration 2.3 | `CountriesList` component
+In this iteration, you will make the list of countries you rendered in the previous iteration dynamic by adding clickable `Link`s for each country. Clicking on a `Link` should navigate the user to the country details page.
 
-This component should render a list of `Link`s, each having the country's `alpha3Code` embedded in the URL. Clicking on any of the `Link`s should render the country details component.
 
-The array with country details should be passed to the `CountriesList` component as a prop, coming from the `App.js` component's state variable `countries`.
 
-You may also want to check the `counties.json` file to get familiar with the structure of the objects.
-
-<br>
-
-For the small picture of the flag, you can use the lowercase `alpha2Code` and embed it in the URL as shown below:
+To do this, update the list of countries and make each list item a React Router `Link`. Each list item should show the country name and the flag. For the small picture of the flag, you can use the lowercase `alpha2Code` and embed it in the URL as shown below:
 
 
 - France: https://flagpedia.net/data/flags/icon/72x54/fr.png
@@ -203,88 +257,95 @@ For the small picture of the flag, you can use the lowercase `alpha2Code` and em
 
 <br>
 
-### Iteration 2.4 | `CountryDetails` component and `Route` setup
-
-Now that our list of countries is ready, we should create the `CountryDetails` component.
-
-The `CountryDetails` component should display information about the clicked country as shown in the example at the beginning of the lab ([see example](#Introduction)).
-
-<br>
-
-This component should be rendered using the `react-router-dom` `Route` with the `path` set to be a *URL parameter*, allowing us to capture the country code (`alpha3Code`) passed via the URL.
-
-The `CountryDetails` component should also receive the array of countries as a prop. Here's a reminder on how to do this:
-
-```jsx
-// Example
-<Route path="/:id" element={ <SomeComponent someData={someData} /> } />
-```
-
-The `CountriesList` component renders a list of links where each `Link` has a unique `alpha3Code`. Once a `Link` is clicked, the `alpha3Code` shown in the URL can be accessed through the URL parameters. 
-
-To access the `alpha3Code` shown in the URL (in the browser's page address bar), you should use the React Routers hook `useParams`. 
-
-For a reminder on how the `useParams` hook works and how to use it to access the URL parameters, check [this example](https://reactrouter.com/docs/en/v6/api#useparams).
-
-<br>
-
-**NOTE:** If you haven't added CSS, the country details may be displayed at the very bottom of the page.
-
-<br>
 
 
-----
+To allow users to navigate to a specific country's details page, embed the country's `alpha3Code` in the URL for each `Link`. When any of the country links on the `HomePage` is clicked, the `alpha3Code` should show in the URL and the user should be navigated to the country details page (`CountryDetailsPage`). 
 
-### Iteration 3 | Linking it all together
 
-Once you're done creating the components, the structure of elements that your `App.js` will render should look somewhat like this:
 
-```jsx
-// ...
 
-<div className="App">
-  <Navbar />
 
-  <div className="container">
-    <div className="row">
-      <CountriesList countries={countries} />
-      {/* React-Router Route rendering the CountryDetails should go here */}
-    </div>
-  </div>
-</div>
+<details>
 
-// ...
-```
+
+
+
+  <summary>See Expected Result</summary>
+
+  
+
+![visiting home page and country details page]()
+
+
+
+
+
+  <br>
+
+</details>
+
+
 
 <br>
 
-The data from the `App.js` state variable `countries` is passed to the `CountriesList` component as a prop.
 
-<br>
 
-----
+### Iteration 5 | Show Country Details
 
-### Iteration 4 | Fetch countries data from an API
+In this iteration, you will work on the `CountryDetailsPage` component to display the information of a specific country. To get the country information, you will need to make a request to the Countries API using the `alpha3Code` of the selected country.
 
-Instead of relying on the static data from a `json` file, let's do something more interesting and get the data from an actual API.
 
-In `App.js`, make a `GET` request to the URL [https://ih-countries-api.herokuapp.com/countries](https://ih-countries-api.herokuapp.com/countries). Use the data returned from the response as the list of countries. You can use either `fetch` or `axios` to make the request. 
 
-You should use the `useEffect()` hook to set an effect that runs only once and makes a request to the API. Once you receive the response data, save it in a state variable. The request should happen first thing when the application loads.
+The Countries API provides access to country-specific data via a the endpoint `/countries/:alpha3Code`. The endpoint takes the country's `alpha3Code` and returns a JSON response containing the country info. 
 
-<br>
-
-----
-
-### Iteration 5 | Bonus | Fetch one country data from an API
-
-Using the `useEffect` hook, set an effect in the `CountriesDetails` component. The effect should make a request to the RestCountries API and fetch the data for the specific country. You can construct the request URL using the country's `alpha3Code`. Example:
+Here are a few examples how to construct the request URL using the country's `alpha3Code`:
 
 - United States: https://ih-countries-api.herokuapp.com/countries/USA
 - Japan: https://ih-countries-api.herokuapp.com/countries/JPN
 - India: https://ih-countries-api.herokuapp.com/countries/IND
 
-The effect should run after the initial render, and each time the URL parameter with the `alpha3Code` changes.
+
+
+
+
+When any of the country links on the `HomePage` is clicked, the user should be navigated to the `CountryDetailsPage`. The `alpha3Code` of the country will be available through the URL parameters. To retrieve the data for a specific country from the API, you should make a `GET` request to the API using the `alpha3Code`, as explained above.
+
+
+
+To access the URL parameters, from the browser's URL bar, use the React Router hook `useParams`. For a reminder on how to set up the `useParams` hook and access the URL parameters, check [this example](https://reactrouter.com/en/6.10.0/hooks/use-params).
+
+
+
+In the `CountryDetailsPage` component, set up an effect using the `useEffect` hook. The effect should make a `GET` request to the API and fetch the data for the specific country. Once you receive the response, you should save the data in a state variable.
+
+The effect should run after the initial render, and each time that the URL parameter with the `alpha3Code` changes.
+
+
+
+<details>
+
+
+
+
+  <summary>See Expected Result</summary>
+
+  
+
+![visiting home page and country details page]()
+
+
+
+
+
+  <br>
+
+</details>
+
+
+
+<br>
+
+
 
 **Happy coding!** :heart:
 
@@ -484,7 +545,7 @@ The effect should run after the initial render, and each time the URL parameter 
    ```
 
    2. **You do not have permission to push to the repository:** If you have cloned the repository directly from the main Ironhack repository without making a *Fork* first, you do not have write access to the repository.
-   To check which remote repository you have cloned, run the following terminal command from the project folder:
+      To check which remote repository you have cloned, run the following terminal command from the project folder:
 
    ```bash
    git remote -v
