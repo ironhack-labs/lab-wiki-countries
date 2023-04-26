@@ -49,24 +49,25 @@ const CountryDetails = (props) => {
                 </tr>
                 <tr>
                   <td>Borders</td>
-                  {filteredCountry.borders.length === 0 ? (
-                    <p>None</p>
-                  ) : (
-                    countriesData.map((count) => {
-                      for (let item of filteredCountry.borders) {
-                        if (count.alpha3Code === item) {
-                          return (
-                            <Link
-                              key={count.name.common}
-                              to={`/${count.alpha3Code}`}
-                            >
-                              <li>{count.name.common}</li>
-                            </Link>
-                          );
+                  <td>
+                    {filteredCountry.borders.length === 0 ? (
+                      <p>None</p>
+                    ) : (
+                      countriesData.map((count) => {
+                        for (let item of filteredCountry.borders) {
+                          if (count.alpha3Code === item) {
+                            return (
+                              <li key={count.name.common}>
+                                <Link to={`/${count.alpha3Code}`}>
+                                  {count.name.common}
+                                </Link>
+                              </li>
+                            );
+                          }
                         }
-                      }
-                    })
-                  )}
+                      })
+                    )}
+                  </td>
                 </tr>
               </tbody>
             </table>
