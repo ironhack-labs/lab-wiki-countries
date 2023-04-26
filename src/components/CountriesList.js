@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const CountriesList = ({ countries }) => {
@@ -10,9 +11,9 @@ const CountriesList = ({ countries }) => {
         >
           {countries.map((country) => (
             <div key={country.alpha3Code} className="list-group">
-              <a
+              <Link
                 className="list-group-item list-group-item-action"
-                href={country.alpha3Code}
+                to={`/${country.alpha3Code}`}
               >
                 <img
                   src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
@@ -21,7 +22,7 @@ const CountriesList = ({ countries }) => {
                 />
                 <br />
                 {country.name.common}
-              </a>
+              </Link>
             </div>
           ))}
         </div>

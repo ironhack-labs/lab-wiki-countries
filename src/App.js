@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<CountriesList countries={countries} />} />
         <Route
-          path="/:id"
+          path="/:countryId"
           element={<CountryDetails countries={countries} />}
         />
       </Routes>
