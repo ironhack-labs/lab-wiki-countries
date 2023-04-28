@@ -1,23 +1,53 @@
-import logo from './logo.svg';
 import './App.css';
+import countries from "./countries.json"
+import NavBar from './components/NavBar';
+import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
+import axios from "axios";
+
+
+import { Routes, Route } from 'react-router-dom'
+
+import { useState, useEffect } from 'react';
+
+const apiUrl = "https://ih-countries-api.herokuapp.com/countries"
 
 function App() {
+
+  const [fetching, setFetching] = useState(true)
+  const [apiCountry, setApiCountry ] = useState([])
+  const [countrie, setCountries] = useState(countries)
+
+  
+  useEffect(() => {
+    console.log('UseEffect is effect')
+    axios.get(apiUrl).then((response) => {
+      console.log("the response is ",response)
+      setApiCountry(response.data)
+      setFetching(false)
+    })
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <NavBar />
+      {/*  <Routes>
+          <Route path="/" element={<CountriesList country={countrie} />} />
+          <Route path="/country/:countryId" element={<CountryDetails />} />
+        </Routes> */}
+
+        {fetching && <p>Loading...</p>}
+
+        {apiCountry.map((country) => {
+          return (
+        <div key={country._id}> 
+        <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} />
+            <h2>{country.name.common}</h2>
+            {console.log("the data is ", country)}
+        </div>
+    )
+        })}
+     
     </div>
   );
 }
