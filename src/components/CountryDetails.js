@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import axios from 'axios';
 
 const CountryDetails = (props) => {
   const [filteredCountry, setFilteredCountry] = useState(null);
@@ -11,6 +12,8 @@ const CountryDetails = (props) => {
 
   console.log('3digit country ---->', countryId);
 
+  // useEffect to get the countries from the props
+  /*
   useEffect(() => {
     const foundCountry = countries.find((obj) => {
       return obj.alpha3Code === countryId;
@@ -20,6 +23,16 @@ const CountryDetails = (props) => {
       setFilteredCountry(foundCountry);
     }
   }, [countryId, countries]);
+  */
+
+  // useEffect to get the countries from the API directly using the countryID and the useParams()
+  useEffect(() => {
+    axios
+      .get(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
+      .then((res) => {
+        setFilteredCountry(res.data);
+      });
+  }, [countries, countryId]);
 
   console.log('Country details ---->', filteredCountry);
 
