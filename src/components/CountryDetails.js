@@ -45,6 +45,11 @@ const CountryDetails = (props) => {
           </div>
         ) : (
           <>
+            <img
+              src={`https://flagpedia.net/data/flags/icon/72x54/${filteredCountry.alpha2Code.toLowerCase()}.png`}
+              alt={filteredCountry.name.common}
+              width={'25px'}
+            />
             <h1>{filteredCountry.name.common}</h1>
             <table className="table">
               <thead></thead>
