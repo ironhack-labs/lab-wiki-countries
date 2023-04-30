@@ -1,36 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import countriesData from './../countries.json';
 
 const CountryDetails = (props) => {
   const [filteredCountry, setFilteredCountry] = useState(null);
 
+  //console.log('this is info from the props --->', props.countries);
+
+  const { countries } = props;
   const { countryId } = useParams();
 
   console.log('3digit country ---->', countryId);
 
   useEffect(() => {
-    const foundCountry = countriesData.find((obj) => {
+    const foundCountry = countries.find((obj) => {
       return obj.alpha3Code === countryId;
     });
 
     if (foundCountry) {
       setFilteredCountry(foundCountry);
     }
-  }, [countryId]);
+  }, [countryId, countries]);
 
   console.log('Country details ---->', filteredCountry);
 
   return (
     <div>
       <div className="col-7">
-        {!filteredCountry && (
+        {!filteredCountry ? (
           <div>
             <h2>Country Not Found</h2>
           </div>
-        )}
-
-        {filteredCountry && (
+        ) : (
           <>
             <h1>{filteredCountry.name.common}</h1>
             <table className="table">
@@ -53,7 +53,7 @@ const CountryDetails = (props) => {
                     {filteredCountry.borders.length === 0 ? (
                       <p>None</p>
                     ) : (
-                      countriesData.map((count) => {
+                      countries.map((count) => {
                         for (let item of filteredCountry.borders) {
                           if (count.alpha3Code === item) {
                             return (
