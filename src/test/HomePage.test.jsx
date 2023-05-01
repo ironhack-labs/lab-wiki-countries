@@ -4,29 +4,25 @@ import { countries } from "./data";
 import axios from "axios";
 import { MemoryRouter } from "react-router-dom";
 import App from "../App";
+import HomePage from "../pages/HomePage";
 
-global.fetch = vi.fn();
 vi.mock("axios");
 
 describe("HomePage component", async () => {
-  const countriesMock = countries.slice(0, 3);
+  const countriesMock = countries.slice(0, 5);
 
   afterEach(() => {
     axios.get.mockReset();
-    global.fetch.mockReset();
   });
 
   beforeEach(() => {
     axios.get.mockResolvedValue({ data: countriesMock });
-    fetch.mockResolvedValue({
-      json: () => Promise.resolve(countriesMock),
-    });
   });
 
   test("renders a headline 'WikiCountries: Your Guide to the World'", async () => {
     render(
-      <MemoryRouter initialEntries={["/"]}>
-        <App />
+      <MemoryRouter>
+        <HomePage />
       </MemoryRouter>
     );
 
@@ -36,9 +32,8 @@ describe("HomePage component", async () => {
     );
   });
 
-  test("makes a request to Countries API using either axios or fetch", async () => {
+  test("makes a request to Countries API using axios", async () => {
     const API_URL = "https://ih-countries-api.herokuapp.com/countries";
-    const spyFetch = vi.spyOn(global, "fetch");
     const spyAxios = vi.spyOn(axios, "get");
 
     render(
@@ -47,23 +42,29 @@ describe("HomePage component", async () => {
       </MemoryRouter>
     );
 
-    const networkRequestMade =
-      spyFetch.mock.calls.length > 2 || spyAxios.mock.calls.length > 0;
+    const networkRequestMade = spyAxios.mock.calls.length > 0;
     expect(networkRequestMade).toBeTruthy();
 
-    if (spyFetch.mock.calls.length > 0) {
-      await waitFor(() => {
-        expect(spyFetch).toHaveBeenCalledWith(API_URL);
-      });
-    }
-    if (spyAxios.mock.calls.length > 0) {
-      await waitFor(() => {
-        expect(spyAxios).toHaveBeenCalledWith(API_URL);
-      });
+    await waitFor(() => expect(spyAxios).toHaveBeenCalledWith(API_URL));
+  });
+
+  test("renders the list of country names retrieved from the Countries API", async () => {
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <App />
+      </MemoryRouter>
+    );
+
+    for (const country of countriesMock) {
+      const countryNameRegex = new RegExp(country.name.common, "i");
+      const countryLink = await waitFor(() =>
+        screen.getByText(countryNameRegex)
+      );
+      expect(countryLink).toBeInTheDocument();
     }
   });
 
-  test("renders the list of countries as links using the mocked values", async () => {
+  test("renders the list of countries retrieved from the Countries API as links", async () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
         <App />

@@ -4,16 +4,13 @@ import App from "./../App";
 import { MemoryRouter } from "react-router-dom";
 
 describe("App component", () => {
-  // test("renders without errors", () => {
-  //   expect(() => render(<App />)).not.toThrow();
-  // });
-
   test("renders HomePage component for the `/` route", () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
         <App />
       </MemoryRouter>
     );
+
     const homePageText = screen.getByText(
       /WikiCountries: Your Guide to the World/i
     );
@@ -26,6 +23,7 @@ describe("App component", () => {
         <App />
       </MemoryRouter>
     );
+
     const countryDetailsPageText = screen.getByText(/Country Details/i);
     expect(countryDetailsPageText).toBeInTheDocument();
   });

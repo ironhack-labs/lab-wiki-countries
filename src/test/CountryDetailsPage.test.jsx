@@ -4,8 +4,8 @@ import { MemoryRouter } from "react-router-dom";
 import { routes } from "./data";
 import axios from "axios";
 import App from "../App";
+import CountryDetailsPage from "../pages/CountryDetailsPage";
 
-global.fetch = vi.fn();
 vi.mock("axios");
 
 describe("CountryDetailsPage component", async () => {
@@ -24,29 +24,25 @@ describe("CountryDetailsPage component", async () => {
 
   afterEach(() => {
     axios.get.mockReset();
-    global.fetch.mockReset();
   });
 
   test("renders a headline 'Country Details'", async () => {
     axios.get.mockResolvedValue({ data: countryMock });
-    fetch.mockResolvedValue({
-      json: () => Promise.resolve(countryMock),
-    });
 
     render(
       <MemoryRouter initialEntries={["/USA"]}>
-        <App />
+        <CountryDetailsPage />
       </MemoryRouter>
     );
-    const headlineText = screen.getByText(/Country Details/i);
-    expect(headlineText).toBeInTheDocument();
+
+    await waitFor(() => {
+      const headlineText = screen.getByText(/Country Details/i);
+      expect(headlineText).toBeInTheDocument();
+    });
   });
 
   test("renders a country name", async () => {
     axios.get.mockResolvedValue({ data: countryMock });
-    fetch.mockResolvedValue({
-      json: () => Promise.resolve(countryMock),
-    });
 
     render(
       <MemoryRouter initialEntries={["/USA"]}>
@@ -61,9 +57,6 @@ describe("CountryDetailsPage component", async () => {
 
   test("renders a name of the country's capital", async () => {
     axios.get.mockResolvedValue({ data: countryMock });
-    fetch.mockResolvedValue({
-      json: () => Promise.resolve(countryMock),
-    });
 
     render(
       <MemoryRouter initialEntries={["/USA"]}>
@@ -78,9 +71,6 @@ describe("CountryDetailsPage component", async () => {
 
   test("renders country area info in the format 'AREA km'", async () => {
     axios.get.mockResolvedValue({ data: countryMock });
-    fetch.mockResolvedValue({
-      json: () => Promise.resolve(countryMock),
-    });
 
     render(
       <MemoryRouter initialEntries={["/USA"]}>
@@ -97,9 +87,6 @@ describe("CountryDetailsPage component", async () => {
     const randomIndex = Math.floor(Math.random() * routes.length);
     const randomCountry = routes[randomIndex];
     axios.get.mockResolvedValue({ data: randomCountry });
-    fetch.mockResolvedValue({
-      json: () => Promise.resolve(randomCountry),
-    });
 
     render(
       <MemoryRouter initialEntries={[`/${randomCountry.route}`]}>
@@ -107,8 +94,8 @@ describe("CountryDetailsPage component", async () => {
       </MemoryRouter>
     );
 
-    const border1Text = randomCountry.borders[0];
-    const border2Text = randomCountry.borders[1];
+    const border1Text = randomCountry.bordersRegex[0];
+    const border2Text = randomCountry.bordersRegex[1];
     const border1Code = border1Text.split("|")[1];
     const border2Code = border2Text.split("|")[1];
     const border1Regex = new RegExp(border1Text, "i");
@@ -128,13 +115,13 @@ describe("CountryDetailsPage component", async () => {
 
     await waitFor(() =>
       expect(
-        screen.queryByText(new RegExp(randomCountry.notBorders[0], "i"))
+        screen.queryByText(new RegExp(randomCountry.notBordersRegex[0], "i"))
       ).not.toBeInTheDocument()
     );
 
     await waitFor(() =>
       expect(
-        screen.queryByText(new RegExp(randomCountry.notBorders[1], "i"))
+        screen.queryByText(new RegExp(randomCountry.notBordersRegex[1], "i"))
       ).not.toBeInTheDocument()
     );
   });
