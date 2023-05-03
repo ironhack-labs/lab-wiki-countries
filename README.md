@@ -58,7 +58,32 @@ npm run dev
   git push origin master
   ```
 
-- Create a Pull Request so that your TAs can check your work.
+- Create a Pull Request and submit your assignment.
+
+<br>
+
+##  Test Your Code
+
+This lab is equipped with unit tests to provide automated feedback on your progress and help you understand whether your code is working as expected. If you want to check the tests, they are located in the `src/test` folder.
+
+
+### Iterations and Test Results
+
+During an iteration, if your code seems to work as expected but some tests don't pass, feel free to move on to the next iteration. Once you've completed all the mandatory iterations, you can go back and resolve any remaining failed test
+
+<br>
+
+### Run the Tests
+
+1. To execute the tests, run the following command in the terminal:
+
+   ```shell
+   npm run test
+   ```
+
+2. The above command will execute the tests and open the `@vitest/ui` Test Reporter in the browser. 
+
+3. To see the test results, **open** [http://127.0.0.1:51204/\_\_vitest\_\_](http://127.0.0.1:51204/__vitest__) in your browser.
 
 <br>
 
@@ -123,9 +148,11 @@ Create the following components in their respective folders:
 
 <br>
 
-3. We have included examples of each page in the `example` folder to help you structure and style your component. The example code uses Bootstrap classes for layout and styling.
+**Layout and Styling**
 
-   If you decide to copy the code provided in the `example` folder, keep the following in mind:
+We have included examples of each page in the `examples`. The example code uses Bootstrap classes for layout and styling.
+
+   If you decide to copy the code provided in the `examples` folder, keep the following in mind:
 
    - In React, the HTML attribute `class` is written as `className`
 
@@ -149,7 +176,8 @@ Create the following components in their respective folders:
 
 <br>
 
-**`HomePage`**: (Structure and content copied from the `examples` folder)
+
+**`HomePage`**:
 
 ![styled homepage component](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/lab-wikicountries/lab-react-wiki-countries-home-page-static.png)
 
@@ -158,7 +186,7 @@ Create the following components in their respective folders:
 **`CountryDetailsPage`**: (Structure and content copied from the `examples` folder)
 
 ![styled country details page component](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/lab-wikicountries/lab-react-wiki-countries-country-details-page-static.png)
-
+  <sub> **Note:** Structure and content copied from the `examples` folder</sub>
   <br>
 
 </details>
@@ -329,6 +357,8 @@ If the state variable is `null` or `undefined` the component should display a me
   <br>
 
 </details>
+
+<br>
 
 #### 5.4 | Display Country Details and Borders
 
