@@ -77,9 +77,9 @@ During an iteration, if your code seems to work as expected but some tests don't
 
 1. To execute the tests, run the following command in the terminal:
 
-   ```shell
-   npm run test
-   ```
+  ```shell
+  npm run test
+  ```
 
 2. The above command will execute the tests and open the `@vitest/ui` Test Reporter in the browser. 
 
@@ -152,21 +152,21 @@ Create the following components in their respective folders:
 
 We have included examples of each page in the `examples`. The example code uses Bootstrap classes for layout and styling.
 
-   If you decide to copy the code provided in the `examples` folder, keep the following in mind:
+If you decide to copy the code provided in the `examples` folder, keep the following in mind:
 
-   - In React, the HTML attribute `class` is written as `className`
+  - In React, the HTML attribute `class` is written as `className`
 
-   - For inline CSS, use a JavaScript object and name each CSS property in camelCase (more details [here](https://react.dev/reference/react-dom/components/common#applying-css-styles)). For example, if you have a `p` element with the `style` attribute:
+  - For inline CSS, use a JavaScript object and name each CSS property in camelCase (more details [here](https://react.dev/reference/react-dom/components/common#applying-css-styles)). For example, if you have a `p` element with the `style` attribute:
 
-     ```html
-     <p style="font-size: 20px; font-weight: bold">Example</p>
-     ```
+    ```html
+    <p style="font-size: 20px; font-weight: bold">Example</p>
+    ```
 
-     In React and JSX, you would write it as:
+    In React and JSX, you would write it as:
 
-     ```jsx
-     <p style={{ fontSize: "20px", fontWeight: "bold" }}>Example</p>
-     ```
+    ```jsx
+    <p style={{ fontSize: "20px", fontWeight: "bold" }}>Example</p>
+    ```
 
 <br>
 
@@ -186,7 +186,7 @@ We have included examples of each page in the `examples`. The example code uses 
 **`CountryDetailsPage`**: (Structure and content copied from the `examples` folder)
 
 ![styled country details page component](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/lab-wikicountries/lab-react-wiki-countries-country-details-page-static.png)
-  <sub> **Note:** Structure and content copied from the `examples` folder</sub>
+  <sub> Note: Structure and content copied from the "examples" folder</sub>
   <br>
 
 </details>
@@ -401,6 +401,8 @@ Once you have a clear understanding of the problem, you will be able to start wo
 
 </details>
 
+<br>
+
 <details>
   <summary>How do I update a state variable in my React component? How do I use the useState hook in my React component?</summary>
 
@@ -435,6 +437,8 @@ The component will re-render every time a state variable gets updated.
 [Back to top](#faqs)
 
 </details>
+
+<br>
 
 <details>
   <summary>How do I use the <code>useEffect</code> hook in my React component?</summary>
@@ -540,6 +544,8 @@ For a detailed explanation, check the following documentation pages:
 
 </details>
 
+<br>
+
 <details>
   <summary>I am getting an error: "not defined". How do I fix it?</summary>
 
@@ -556,6 +562,8 @@ In case the variable or a function is defined in another file, make sure that th
 [Back to top](#faqs)
 
 </details>
+
+<br>
 
 <details>
   <summary>I am unable to push changes to the repository. What should I do?</summary>
