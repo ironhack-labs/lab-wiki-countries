@@ -18,13 +18,13 @@ function CountryDetails ({countries}){
     if (country) {
         return (
     <div className="col-7">
-    <h1>France</h1>
+    <h1>{country.name.common}</h1>
     <table className="table">
       <thead></thead>
       <tbody>
         <tr>
-          <td style={{width: '30%'}}>Capital</td>
-          <td>Paris</td>
+          <td style={{width: '30%'}}></td>
+          <td>{country.capital[0]}</td>
         </tr>
         <tr>
           <td>Area</td>
