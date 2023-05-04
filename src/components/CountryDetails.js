@@ -1,8 +1,7 @@
-import countriesArr from '../countries.json'
 import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 
-function CountryDetails(){
+function CountryDetails({countriesArr}){
   const countryId = useParams().id
   const [selectedCountry, setSelectedCountry] = useState(countriesArr.find(country => country.alpha3Code === countryId ))
 

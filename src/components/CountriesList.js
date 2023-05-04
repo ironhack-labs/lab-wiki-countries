@@ -24,7 +24,7 @@ function CountriesList(props){
           </div>  
         </div>
         <Routes>
-          <Route path="/details/:id" element={<CountryDetails />}></Route>
+          <Route path="/details/:id" element={<CountryDetails countriesArr={props.countries}/>}></Route>
         </Routes>
       </div>
     </div>
