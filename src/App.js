@@ -13,7 +13,7 @@ function App() {
 
   const apiURL = 'https://ih-countries-api.herokuapp.com/countries';
 
-  useEffect(() => {
+  /*   useEffect(() => {
     axios.get(apiURL).then((response) => {
       response.data.sort(function (a, b) {
         if (a.name.common < b.name.common) {
@@ -28,23 +28,26 @@ function App() {
       setCountries(response.data);
       setFetching(false);
     });
-  }, []);
+  }, []); */
 
-  /*   useEffect(() => {
+  useEffect(() => {
     setCountries(countriesJSON);
-  }, [countries]); */
+  }, [countries]);
 
   return (
     <div className="App">
       <Navbar />
       <div className="container">
-        <CountriesList countries={countries} />
-        <Routes>
-          <Route
-            path="/countries/:alpha3code"
-            element={<CountryDetails countries={countries} />}
-          />
-        </Routes>
+        <div className="row">
+          <CountriesList countries={countries} />
+          <Routes>
+            {/* <Route path="/CountriesList" element={<CountriesList countries={countries} />} /> */}
+            <Route
+              path="/countries/:alpha3code"
+              element={<CountryDetails countries={countries} />}
+            />
+          </Routes>
+        </div>
       </div>
     </div>
   );
