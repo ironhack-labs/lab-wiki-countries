@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
-import countriesFromDB from '../countries.json'
 
 function CountryDetails(props) {
     const [foundCountry, setFoundCountry] = useState(null)
@@ -45,7 +44,7 @@ function CountryDetails(props) {
                     <td>
                         <ul className="list-group">
                         {foundCountry.borders.map(borderingCountryCode => {
-                            const borderingCountry = countriesFromDB.find(country => {
+                            const borderingCountry = props.countries.find(country => {
                                 return (
                                     country.alpha3Code === borderingCountryCode 
                                 )
