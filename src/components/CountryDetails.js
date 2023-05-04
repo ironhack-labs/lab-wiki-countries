@@ -13,7 +13,6 @@ function CountryDetails(props) {
     axios
       .get(`https://ih-countries-api.herokuapp.com/countries/${alpha3code}`)
       .then((res) => {
-        console.log('API CALL');
         setSelectedCountry(res.data);
       })
       .catch((err) => {
