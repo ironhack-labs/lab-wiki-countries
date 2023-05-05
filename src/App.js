@@ -11,9 +11,9 @@ function App() {
 			<Navbar />
 			<div className="container">
 				<div className="row">
+					<CountriesList countries={countries} />
 					<Routes>
-						<Route path="/CountriesList" element={ <CountriesList countries={countries} /> } />
-						<Route path="/CountriesList/:countryAlpha3" element={ <CountryDetails countries={countries} /> } />
+						<Route path="/:countryAlpha3" element={ <CountryDetails countries={countries} /> } />
 					</Routes>
 				</div>
 			</div>

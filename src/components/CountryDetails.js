@@ -10,11 +10,19 @@ function CountryDetails( { countries } ) {
 		const result = countries.find( ( country ) => countryAlpha3 === country.alpha3Code );
 		if ( result ) updateRenderedDetails( result );
 	}, [countryAlpha3] );
+
+	// FIXME: unfinished
+	function getCountryName( alpha3 ) {
+		countries.forEach( ( country ) => {
+			if ( country.alpha3Code === alpha3 ) return country.name.common;
+		} );
+	}
+
 	return (
-		<div className="col-7">
+		<div className="col-7" style={{ textAlign: 'left' }}>
 			{ renderedDetails &&
 			<>
-				<h1>{renderedDetails.name.offical}</h1>
+				<h1>{renderedDetails.name.common}</h1>
 				<table className="table">
 					<thead></thead>
 					<tbody>
@@ -30,10 +38,12 @@ function CountryDetails( { countries } ) {
 							<td>Borders</td>
 							<td>
 								<ul>
-									{renderedDetails.border && renderedDetails.border.map( ( item ) => {
+									{renderedDetails.borders && renderedDetails.borders.map( ( item ) => {
 										return (
 											<li key={item}>
-												<Link to={item}>{item}</Link>
+												<Link to={'/' + item}>{ item }</Link>
+												{/* FIXME: unfinished */}
+												{/* <Link to={'/' + item}>{getCountryName( item )}</Link> */}
 											</li>
 										);
 									} )}
