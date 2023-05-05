@@ -31,6 +31,10 @@ function CountryDetails(props) {
 
   //   console.log('esto es el selectedcountry de verdad:', selectedCountry);
 
+  if (!selectedCountry) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <div className="col-7">
       {/* {!selectedCountry && <h3>Country not found!</h3>} */}
@@ -57,17 +61,14 @@ function CountryDetails(props) {
                   <td>Borders</td>
                   <td>
                     <ul>
-                      {selectedCountry.borders.map((borderingCountryCode) => {
-                        const borderingCountry = props.countries.find(
-                          (country) =>
-                            country.alpha3Code === borderingCountryCode
+                      {selectedCountry.borders.map((borderCountryCode) => {
+                        const borderCountry = props.countries.find(
+                          (country) => country.alpha3Code === borderCountryCode
                         );
                         return (
                           <li>
-                            <Link
-                              to={`/details/${borderingCountry.alpha3Code}`}
-                            >
-                              {borderingCountry.name.common}
+                            <Link to={`/details/${borderCountry.alpha3Code}`}>
+                              {borderCountry.name.common}
                             </Link>
                           </li>
                         );

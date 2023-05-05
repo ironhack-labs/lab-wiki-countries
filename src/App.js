@@ -13,7 +13,7 @@ function App() {
 
   const apiURL = 'https://ih-countries-api.herokuapp.com/countries';
 
-  /*   useEffect(() => {
+  useEffect(() => {
     axios.get(apiURL).then((response) => {
       response.data.sort(function (a, b) {
         if (a.name.common < b.name.common) {
@@ -28,11 +28,11 @@ function App() {
       setCountries(response.data);
       setFetching(false);
     });
-  }, []); */
+  }, []);
 
-  useEffect(() => {
+  /* useEffect(() => {
     setCountries(countriesJSON);
-  }, [countries]);
+  }, [countries]); */
 
   return (
     <div className="App">
