@@ -32,7 +32,43 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #352275;
+  padding: 5px 20px;
+}
+
+.Navbar li,
+.Navbar a {
+  list-style: none;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 20px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.countryList {
+  max-height: 90vh;
+
+}
+
+.countryList a {
+  margin-bottom: 20px;
+}
+
+.countryDetails {
+  width: 30%;
+}
+
+.countryDetails li {
+  list-style: none;
+  text-decoration: none;
 }
