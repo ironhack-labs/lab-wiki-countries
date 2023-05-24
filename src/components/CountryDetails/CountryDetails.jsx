@@ -11,14 +11,16 @@ const CountryDetails = ({ countries }) => {
     console.log(countryDetails)
 
     const borderCountries = countries.filter(country => countryDetails.borders.includes(country.alpha3Code))
+    const imgFromApi = `https://flagpedia.net/data/flags/icon/72x54/${countryDetails.alpha2Code.toLowerCase()}.png`;
 
-
-    console.log({ borderCountries })
+    //console.log({ borderCountries })
 
     return (
 
 
         <div className="col-7">
+
+            <img className='details-flag' src={imgFromApi} alt='' />
 
             <h1>{countryDetails.name.common}</h1>
             <hr />

@@ -7,14 +7,7 @@ import CountriesList from './CountriesList/CountriesList';
 import CountryDetails from './CountryDetails/CountryDetails';
 import { useEffect, useState } from 'react';
 
-/* axios.get(' https://ih-countries-api.herokuapp.com/countries')
-  .then(response => {
-    data = response.text;
-    console.log(data);
-  })
-  .catch(error => {
-    console.log(error.message);
-  }) */
+
 
 function App() {
 
