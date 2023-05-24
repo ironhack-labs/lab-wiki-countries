@@ -1,0 +1,10 @@
+#navBar__container {
+    margin-left: 3%;
+}
+
+#navBar__link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: 600;
+}
