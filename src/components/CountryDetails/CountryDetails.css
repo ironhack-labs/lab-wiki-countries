@@ -1,0 +1,55 @@
+.countryNameMain {
+    margin-bottom: 35px;
+}
+
+.table {
+    display: flex;
+    justify-content: center
+}
+
+.tableLabels {
+    text-align: right;
+    /* padding-left: 250px !important; */
+}
+
+.tableData {
+    text-align: left;
+    padding-left: 30px;
+}
+
+ul {
+    list-style: none;
+}
+
+.flag2 {
+    width: 30px;
+}
+
+.flagBox {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+    margin-right: 10px !important;
+}
+
+.borderCountry a {
+    color: inherit;
+    text-decoration: none;
+
+}
+
+.borderCountry a:hover {
+    color: #ff6347;
+}
+
+.country {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+}
+
+.countryName {
+    text-align: left;
+}
