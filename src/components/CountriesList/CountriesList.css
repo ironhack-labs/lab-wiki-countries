@@ -1,0 +1,14 @@
+.CounterList-style {
+    max-height: 85vh;
+    overflow: scroll
+}
+
+.card {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.codeImg {
+    width: 20%;
+}
