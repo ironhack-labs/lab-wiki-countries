@@ -55,7 +55,7 @@ const CountryDetails = ({ countries }) => {
                         <td>
                             <ul>
                                 {
-                                    country.borders.map(border => {
+                                    country.borders.length !== 0 ? country.borders.map(border => {
                                         const borderCountry = countries.find(c => c.alpha3Code === border)
                                         return (
                                             <li class="borderCountry" key={border}>
@@ -65,13 +65,15 @@ const CountryDetails = ({ countries }) => {
                                                             <img className="flag2" src={`https://flagpedia.net/data/flags/icon/72x54/${borderCountry?.alpha2Code.toLowerCase()}.png`} alt={borderCountry?.name.common} />
                                                         </div>
                                                         <div className="countryName">
-                                                            {borderCountry?.name?.common ? borderCountry.name.common : 'none'}
+                                                            {borderCountry?.name?.common}
                                                         </div>
                                                     </div>
                                                 </Link>
                                             </li>
                                         )
                                     })
+                                        :
+                                        'none'
                                 }
                             </ul>
                         </td>
