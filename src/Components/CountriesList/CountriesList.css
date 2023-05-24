@@ -1,0 +1,11 @@
+#countriesList__body--countryCard {
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 30vh;
+    width: 30vh;
+    margin: 1%;
+}
+
+Link {
+    background-color: blue;
+}
