@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
 function CountriesList( {oneCountry} ) {
-    // let smallFlag = oneCountry.alpha2code.toLowerCase()
-    let smallFlag = oneCountry.alpha2code;
+    // let smallFlag = oneCountry.alpha2code
+    let smallFlag = oneCountry.alpha2Code.toLowerCase();
     
-    // console.log("aplha 2 code", smallFlag);
-    // console.log("aplha 3  code", oneCountry.alpha3Code);
+    console.log("aplha 2 code", smallFlag);
+    console.log("aplha 3  code", oneCountry.alpha3Code);
 
    
   return (
