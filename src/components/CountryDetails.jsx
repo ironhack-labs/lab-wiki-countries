@@ -14,23 +14,22 @@ function CountryDetails() {
   }
 
   useEffect(() => {
-
     setCountry(getCountry(id))
-
 }, [id, theseCountries])
 
 return (
-  <div>
-
-  {
-      country ? 
-      <>
+  <>
+   
+  { country &&
+     
+      <div className="col-7">
           <img src={getImage(country.alpha2Code)} alt='country' />
           <h1>{country.name.common}</h1>
           <table className="table">
+          <thead></thead>
           <tbody>
               <tr>
-              <td style={{width: "50%"}}>Capital of the Country</td>
+              <td style={{width: "30%"}}>Capital of the Country</td>
               <td>{country.capital[0]}</td>
               </tr>
               <tr>
@@ -61,14 +60,15 @@ return (
               </tr>
           </tbody>
           </table>
+          </div>
 
-      </>
-
-      : (<p>Checking...</p>)
   }
 
+  
+  
+  {console.log(country)}
 
-</div>
+</>
 )
 }
 

@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div>
-      <NavLink to="/" className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "active" : ""}> Wiki Countries </NavLink>
-    </div>
+    <nav className="navbar navbar-dark bg-primary mb-3">
+            <div className="container">
+          <a className="navbar-brand" href="/">WikiCountries</a>
+        </div>
+    </nav>
   )
 }
 
