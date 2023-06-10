@@ -3,6 +3,7 @@ import './App.css';
 import { useState } from 'react';
 import NavBar from './components/NavBar';
 import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<CountriesList countries={countries} />} />
+        <Route path="/:id" element={<CountryDetails countries={countries} />} />
       </Routes>
     </div>
   );
