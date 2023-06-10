@@ -4,20 +4,11 @@ import axios from 'axios';
 
 function CountryDetails() {
   const { id } = useParams();
-    const [country, setCountry] = useState(null);
-    
-    function Unicorn({ id, name, age, handleDelete, handleEdit }) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [data, setData] = useState({
-    name, 
-    age
-  });
+  const [country, setCountry] = useState(null);
 
   useEffect(() => {
-      const API_URL = 'http://localhost:3000/countries';
-      
     axios
-      .get(API_URL)
+      .get(`https://ih-countries-api.herokuapp.com/countries/${id}`)
       .then((response) => {
         setCountry(response.data);
       })
@@ -31,7 +22,22 @@ function CountryDetails() {
       <h1>{country.name}</h1>
       <table className="table">
         <tbody>
-          Image
+          <tr>
+            <td>Capital</td>
+            <td>{country.capital}</td>
+          </tr>
+          <tr>
+            <td>Area</td>
+            <td>{country.area}</td>
+          </tr>
+          <tr>
+            <td>Population</td>
+            <td>{country.population}</td>
+          </tr>
+          <tr>
+            <td>Currencies</td>
+            <td>{country.currencies.map((currency) => currency.name)}</td>
+          </tr>
           <tr>
             <td>Languages</td>
             <td>{country.languages.map((language) => language.name)}</td>
