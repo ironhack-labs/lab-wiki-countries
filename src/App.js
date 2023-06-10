@@ -3,7 +3,9 @@ import './App.css';
 import countries from "./countries.json";
 import Navbar from "./components/Navbar.jsx"
 import CountriesList from './components/CountriesList';
+import CountryDetails from './components/CountryDetails';
 import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   const [countriesAll, setCountriesAll] = useState(countries);
@@ -18,9 +20,10 @@ function App() {
           />
         );
     })}
+    <Routes>
+      <Route path="/details/:countryCode" element={<CountryDetails countries= {countriesAll}/>} />
+    </Routes>
 
-      
-     
     </div>
   );
 }
