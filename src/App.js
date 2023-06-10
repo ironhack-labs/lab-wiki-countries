@@ -13,7 +13,9 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <CountriesList countries={countries} />
+      <Routes>
+        <Route path="/" element={<CountriesList countries={countries} />} />
+      </Routes>
     </div>
   );
 }
