@@ -16,8 +16,7 @@ function CountryDetails({countries}) {
     <div>
     <h1>{country.name.common}</h1>
     <p>{country.name.official}</p>
-    
-  </div>
+    </div>
   ) 
 }
 
