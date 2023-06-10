@@ -1,14 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
-import countries from './countries.json';
 import Navbar from './components/Navbar.jsx';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import axios from 'axios';
 
 function App() {
-  const [countriesAll, setCountriesAll] = useState(countries);
+  const [countriesAll, setCountriesAll] = useState([]);
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
+
+  const fetchCountries = async () => {
+    const { data } = await axios("https://ih-countries-api.herokuapp.com/countries");
+    setCountriesAll(data);
+    console.log("DATA AXIOS", data);
+  }
 
   return (
     <div className="App">
