@@ -5,6 +5,8 @@ function CountryDetails({ countries }) {
   const { countryCode } = useParams();
   const [countryDetail, setCountryDetail] = useState(null);
 
+  const selectedCountry = countries.find(country => country.alpha3Code === countryCode);
+
   // const getCountryDetails = (countryCode) => {
   //     let countriesCopy = [...countries];
   //     const filteredCountries = countriesCopy.find((oneCountry) => {
@@ -16,23 +18,22 @@ function CountryDetails({ countries }) {
   // }
   // getCountryDetails();
 
-  countries.filter((oneFilteredCountry) => {
-    if (oneFilteredCountry.alpha3Code === countryCode) {
-      return true;
-    }
-    setCountryDetail(oneFilteredCountry);
-  });
-
-  
+//   const oneCountry = countries.filter((oneFilteredCountry) => {
+//     if (oneFilteredCountry.alpha3Code === countryCode) {
+//       return true;
+//     }
+//     // setCountryDetail(oneCountry);
+//   });
+//   console.log("THIS COUNTRY",oneCountry);
 
   return (
     <div class="col-7">
-      <h1>{oneCountry.name}</h1>
+      <h1>{selectedCountry.name.official}</h1>
       <table class="table">
         <thead></thead>
         <tbody>
           <tr>
-            <td style="width: 30%">Capital</td>
+            <td style={{width: "30%"}}>Capital</td>
             <td>Paris</td>
           </tr>
           <tr>
