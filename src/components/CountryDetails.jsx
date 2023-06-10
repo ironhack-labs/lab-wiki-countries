@@ -28,6 +28,10 @@ function CountryDetails({countries}) {
   //console.log(country);
   return (
     <div>
+       <img
+              src={`https://flagpedia.net/data/flags/icon/72x54/${oneCountry.alpha2Code.toLowerCase()}.png`}
+              alt="flag"
+            />
     <h1>{oneCountry.name.common}</h1>
     <p>{oneCountry.name.official}</p>
    <p>Region: {oneCountry.region}</p>
