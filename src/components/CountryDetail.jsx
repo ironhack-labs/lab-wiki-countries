@@ -11,9 +11,28 @@ function CountryDetail() {
     (country) => country.alpha3Code === selectedCountryAlpha
   );
 
+  // const borders = countries.filter(
+  //   (borderCountry) => borderCountry.alpha3Code === selectedCountry[0].borders
+  // );
+
+  if (selectedCountry.length < 1) {
+    return <div>no country found</div>;
+  }
+
   return (
     <div>
-      <h1>{selectedCountry[0].name.common}</h1>
+      <h1>
+        {selectedCountry[0].name.common}
+        &nbsp;
+        <img
+          src={
+            'https://flagpedia.net/data/flags/icon/72x54/' +
+            selectedCountry[0].alpha2Code.toLowerCase() +
+            '.png'
+          }
+          alt={'flag of ' + selectedCountry[0].name.common}
+        />
+      </h1>
       <table className="table">
         <thead></thead>
 
