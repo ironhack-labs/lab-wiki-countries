@@ -6,13 +6,14 @@ function CountryDetail() {
   const [currentCountries, setCountries] = useState(countries);
   let params = useParams();
   let selectedCountryAlpha = params.alpha;
+
   const selectedCountry = countries.filter(
     (country) => country.alpha3Code === selectedCountryAlpha
   );
 
   return (
     <div>
-      <h1>Country Details</h1>
+      <h1>{selectedCountry[0].name.common}</h1>
       <table className="table">
         <thead></thead>
 
@@ -31,7 +32,6 @@ function CountryDetail() {
           <tr>
             <td>Borders</td>
             <td>
-              {/* {selectedCountry[0].borders} */}
               <ul>
                 {selectedCountry[0].borders.map((borderCountry) => (
                   <li key={borderCountry}>

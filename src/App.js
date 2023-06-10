@@ -23,7 +23,6 @@ function App() {
         <Route element={<PageLayout />}>
           <Route path="/" element={<CountriesList />} />
           <Route path="/country">
-            {/* <Route index element={<PokemonOverview />} /> */}
             <Route path=":alpha" element={<CountryDetail />} />
           </Route>
           <Route path="*" element={<h1>404 - There's nothing here!</h1>} />
