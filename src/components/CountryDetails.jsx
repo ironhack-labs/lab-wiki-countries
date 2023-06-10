@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 
+
 function CountryDetails({countries}) {
   const {id} = useParams()
   console.log("country id", id)
@@ -13,8 +14,8 @@ function CountryDetails({countries}) {
   console.log(country);
   return (
     <div>
-    <h1>{country.name}</h1>
-    <p>{country.capital}</p>
+    <h1>{country.name.common}</h1>
+    <p>{country.name.official}</p>
     
   </div>
   ) 
