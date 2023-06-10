@@ -36,7 +36,17 @@ function CountriesList({ countries }) {
             <p>Area: {each.area} km2</p>
             <ul>
               {each.borders.map((border) => {
-                return <li>{border}</li>;
+                return (
+                  <li>
+                    <Link to={`/${border}`}>
+                      {
+                        countries.find((eachCountry) => {
+                          return eachCountry.alpha3Code === border;
+                        }).name.common
+                      }
+                    </Link>
+                  </li>
+                );
               })}
             </ul>
           </div>
