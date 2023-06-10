@@ -1,12 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import CountriesList from './components/CountriesList';
-import countriesJson from './countries.json';
+// import countriesJson from './countries.json';
 import CountryDetails from './components/CountryDetails';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [countries, setCountries] = useState(countriesJson);
+  const [countries, setCountries] = useState([]);
+  useEffect(() => {
+    async function fetchCountries() {
+      const response = await fetch(
+        'https://ih-countries-api.herokuapp.com/countries'
+      );
+      const countryData = await response.json();
+      console.log(countryData);
+      setCountries([...countryData]);
+    }
+    fetchCountries();
+  }, []);
 
   return (
     <div
