@@ -1,6 +1,5 @@
 // src/App.js
 import './App.css';
-import countries from './countries.json';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import Navbar from './components/Navbar';
@@ -11,7 +10,15 @@ import axios from 'axios';
 const API_URL = 'https://ih-countries-api.herokuapp.com/countries';
 
 function App() {
-  const [countries2, setCountries] = useState(null);
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await axios.get(API_URL);
+      setCountries(res.data);
+    };
+    getData();
+  }, []);
 
   return (
     <div>
