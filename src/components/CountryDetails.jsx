@@ -1,51 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { Link, useParams } from 'react-router-dom';
 
-function CountryDetails() {
-  const { id } = useParams();
-  const [country, setCountry] = useState(null);
+function CountriesDetails({countries}) {
 
-  useEffect(() => {
-    axios
-      .get(`https://ih-countries-api.herokuapp.com/countries/${id}`)
-      .then((response) => {
-        setCountry(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [id]);
+    const { id } = useParams()
 
-  return (
-    <div>
-      <h1>{country.name}</h1>
-      <table className="table">
-        <tbody>
-          <tr>
-            <td>Capital</td>
-            <td>{country.capital}</td>
-          </tr>
-          <tr>
-            <td>Area</td>
-            <td>{country.area}</td>
-          </tr>
-          <tr>
-            <td>Population</td>
-            <td>{country.population}</td>
-          </tr>
-          <tr>
-            <td>Currencies</td>
-            <td>{country.currencies.map((currency) => currency.name)}</td>
-          </tr>
-          <tr>
-            <td>Languages</td>
-            <td>{country.languages.map((language) => language.name)}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
+    const selectedCountry = countries.find(country => country.alpha3Code === id)
+
+    return (
+
+        <div className="details">
+
+            <img src={`https://flagpedia.net/data/flags/icon/72x54/${selectedCountry.alpha2Code.toLowerCase()}.png`} alt="flag" />
+
+            <h1>{selectedCountry.name.official}</h1>
+
+            <hr />
+
+            <h3>Capital: {selectedCountry.capital}</h3>
+
+            <hr />
+
+            <h3>Area: {selectedCountry.area} km<sup>2</sup></h3>
+
+            <hr />
+
+            <h3>Borders:</h3>
+
+            <ul>
+                {
+                    selectedCountry.borders.map((country, i) => {
+                        return (
+
+                        <div key={i}>
+                            <Link to={`/${country}`}>
+                                <p>{country}</p>
+                            </Link>
+                        </div>
+                        )
+                    })
+                }
+            </ul>
+
+            <hr />
+
+        </div>
+
+    )
 }
 
-export default CountryDetails;
+export default CountriesDetails;

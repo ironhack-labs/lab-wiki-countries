@@ -8,8 +8,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 
-
-
 function App() {
   useState([]);
   const [countries2, setCountries] = useState([]);
