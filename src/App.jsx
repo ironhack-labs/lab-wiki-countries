@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import data from './countries.json';
+// import data from './countries.json';
 import Navbar from './components/NavBar';
 import CountriesList from './components/CountriesList';
 import { Route, Routes } from 'react-router-dom';
@@ -21,13 +21,17 @@ function App() {
     getData();
   }, []);
 
+  const sortedCountries = countries.sort((a, b) => {
+    return a.name.common > b.name.common ? 1 : -1;
+  });
+
   return (
     <div className="App">
       <Navbar />
 
       <div className="container">
         <div className="row">
-          <CountriesList countries={countries} />
+          <CountriesList countries={sortedCountries} />
           <Routes>
             <Route
               path="/:id"
