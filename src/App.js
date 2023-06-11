@@ -7,19 +7,35 @@ import Navbar from './components/Navbar';
 import { Flex } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Route, Routes } from 'react-router-dom';
 
-const API_URL = 'https://ih-countries-api.herokuapp.com/countries';
+
 
 function App() {
-  const [countries2, setCountries] = useState(null);
+  useState([]);
+  const [countries2, setCountries] = useState([]);
+  useEffect(() => {
+    Axios.get('https://ih-countries-api.herokuapp.com/countries')
+      .then((response) => {
+        setCountries(response.data);
+      })
+      .catch((error) => {
+        console.log('Error getting countries', error);
+      });
+  }, [setCountries]);
 
   return (
-    <div>
+    <div className="App">
       <Navbar />
 
       <Flex>
         <CountriesList countries={countries} />
-        <CountryDetails />
+        <Routes>
+          <Route
+            path="/:id"
+            element={<CountriesDetails countries={countries} />}
+          />
+        </Routes>
       </Flex>
     </div>
   );
