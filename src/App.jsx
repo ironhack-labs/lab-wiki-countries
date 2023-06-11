@@ -1,8 +1,10 @@
 import './App.css';
 import { useState } from 'react';
 import data from './countries.json';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar';
 import CountriesList from './components/CountriesList';
+import { Route, Routes } from 'react-router-dom';
+import CountryDetails from './components/CountryDetails';
 
 function App() {
   const [countries, setCountries] = useState(data);
@@ -10,7 +12,18 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <CountriesList countries={countries} />
+
+      <div className="container">
+        <div className="row">
+          <CountriesList countries={countries} />
+          <Routes>
+            <Route
+              path="/:id"
+              element={<CountryDetails countries={countries} />}
+            />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
