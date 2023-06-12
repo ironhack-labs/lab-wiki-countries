@@ -21,7 +21,6 @@ function CountriesList({ countries }) {
   };
   return (
     <div>
-      <h1>hello</h1>
       {renderCountries()}
     </div>
   );
