@@ -2,19 +2,6 @@ import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 function CountriesList({ countries }) {
-  // let params = useParams();
-  // const [countryFiltered, setCountryFiltered] = useState('');
-  // useEffect(() => {
-  //   const countryCopy = [...countryFiltered];
-  //   setCountryFiltered(
-  //     countryCopy.filter((country) => country.alpha3Code === params.alpha3Code)
-  //   );
-  //   console.log(countryFiltered);
-  //   console.log(params.alpha3Code);
-  //   return () => {
-  //     console.log('Cleanup - Component Unmounting');
-  //   };
-  // }, []);
   let params = useParams();
   console.log(params.alpha3Code);
   return (
