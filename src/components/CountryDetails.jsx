@@ -1,32 +1,30 @@
-import {
-  Box,
-  Container,
-  Grid,
-  List,
-  ListItem,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
-  Typography,
-} from '@mui/material';
+import { Box, Container, Grid, List, ListItem, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
+import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import countries from '../countries.json';
 import CountriesList from './CountriesList';
+// import countries from '../countries.json'
 
 const CountryDetails = () => {
   const { countryId } = useParams();
+  const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState(null);
   const [countryBorders, setCountryBorders] = useState([]);
 
   useEffect(() => {
-    const usedCountry = countries.find(
-      (country) => country.alpha3Code === countryId.toUpperCase()
-    );
-    setCountry(usedCountry);
-    setCountryBorders(usedCountry?.borders || []);
+    const fetchCountry = async () => {
+      try {
+        const unique_response = await axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryId.toUpperCase()}`);
+        setCountry(unique_response.data);
+        setCountryBorders(unique_response.data.borders || []);
+        const whole_response = await axios.get('https://ih-countries-api.herokuapp.com/countries');
+        setCountries(whole_response.data);
+      } catch (error) {
+        console.error('Error fetching countries:', error);
+      }
+    };
+
+    fetchCountry();
   }, [countryId]);
 
   return (
@@ -44,14 +42,14 @@ const CountryDetails = () => {
               <Table>
                 <TableBody>
                   <TableRow>
-                      <TableCell>
-                        <img
-                          src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
-                          alt="flag"
-                          className="main-flag"
-                        />
-                        <Typography>{country.name.common}</Typography>
-                      </TableCell>
+                    <TableCell>
+                      <img
+                        src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                        alt="flag"
+                        className="main-flag"
+                      />
+                      <Typography>{country.name.common}</Typography>
+                    </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
@@ -81,11 +79,8 @@ const CountryDetails = () => {
                               (country) => country.alpha3Code === borderCountry
                             );
                             return (
-                              <ListItem>
-                                <Link
-                                  key={borderCountry}
-                                  to={`/country/${nearCountry.alpha3Code}`}
-                                >
+                              <ListItem key={borderCountry}>
+                                <Link to={`/country/${nearCountry.alpha3Code}`}>
                                   {nearCountry.name.common}
                                 </Link>
                               </ListItem>
