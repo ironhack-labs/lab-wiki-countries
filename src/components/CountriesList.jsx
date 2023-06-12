@@ -5,7 +5,6 @@ function CountriesList({ countries }) {
 
   const renderCountries = () => {
     return countries.map((country) => {
-      console.log(country)
       return (
         <div key={`${country.alpha3Code}`} className="country-list">
           <img
@@ -13,7 +12,7 @@ function CountriesList({ countries }) {
             `}
             alt="Flag"
           />
-          <Link to={`/countries/${country.alpha3Code}`}>
+          <Link to={`/${country.alpha3Code}`}>
             {country.name.common}
           </Link>
         </div>
