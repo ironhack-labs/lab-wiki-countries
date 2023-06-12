@@ -23,7 +23,7 @@ const CountryDetails = ({countries}) => {
             alt="Flag" />
       <h1>{country.name.common}</h1>
       <p>Capital: {country.capital}</p>
-      <p>Area: {country.area}</p>
+      <p>Area: {country.area} km2</p>
       <ul>Borders: 
         {country.borders.map(border => 
         <li key={border}> <Link to={`/${country.alpha3Code}`}>{border}</Link> </li>)}

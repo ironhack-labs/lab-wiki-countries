@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 
+
 function CountriesList({ countries }) {
-  
+
 
   const renderCountries = () => {
     return countries.map((country) => {
