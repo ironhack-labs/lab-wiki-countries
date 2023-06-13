@@ -1,8 +1,8 @@
-.App {
-  text-align: center;
-}
-
 .countries-list {
   max-height: 90vh;
-  overflow: scroll
+  overflow: scroll;
+}
+
+ul {
+  margin-bottom: 0;
 }

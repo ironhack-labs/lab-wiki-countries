@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import countries from './countries.json';
 import { Outlet, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import CountryDetail from './components/CountryDetail';
@@ -9,6 +9,7 @@ function PageLayout() {
   return (
     <div className="layout">
       <Navbar />
+      <CountriesList countries={countries} />
       <main>
         <Outlet />
       </main>
@@ -20,11 +21,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route element={<PageLayout />}>
-          <Route path="/" element={<CountriesList />} />
-          <Route path="/country">
-            <Route path=":alpha" element={<CountryDetail />} />
-          </Route>
+        <Route path="/" element={<PageLayout />}>
+          <Route path="/" element={<h1>My cool countries app</h1>} />
+          <Route
+            path=":alpha"
+            element={<CountryDetail countries={countries} />}
+          />
           <Route path="*" element={<h1>404 - There's nothing here!</h1>} />
         </Route>
       </Routes>

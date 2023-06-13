@@ -2,7 +2,7 @@ import { useState } from 'react';
 import countries from './../countries.json';
 import { useParams, Link } from 'react-router-dom';
 
-function CountryDetail() {
+export function CountryDetail() {
   const [currentCountries, setCountries] = useState(countries);
   let params = useParams();
   let selectedCountryAlpha = params.alpha;
@@ -22,8 +22,6 @@ function CountryDetail() {
   return (
     <div>
       <h1>
-        {selectedCountry[0].name.common}
-        &nbsp;
         <img
           src={
             'https://flagpedia.net/data/flags/icon/72x54/' +
@@ -31,7 +29,10 @@ function CountryDetail() {
             '.png'
           }
           alt={'flag of ' + selectedCountry[0].name.common}
+          width={40}
         />
+        &nbsp;
+        {selectedCountry[0].name.common}
       </h1>
       <table className="table">
         <thead></thead>
@@ -52,13 +53,19 @@ function CountryDetail() {
             <td>Borders</td>
             <td>
               <ul>
-                {selectedCountry[0].borders.map((borderCountry) => (
-                  <li key={borderCountry}>
-                    <Link to={'/country/' + borderCountry}>
-                      {borderCountry}
-                    </Link>
-                  </li>
-                ))}
+                {selectedCountry[0].borders.map((borderCountryAlpha3) => {
+                  const foundBorderCountry = countries.find(
+                    (country) => country.alpha3code === borderCountryAlpha3
+                  );
+                  console.log('FOUND', foundBorderCountry);
+                  return (
+                    <li key={borderCountryAlpha3}>
+                      <Link to={borderCountryAlpha3}>
+                        {foundBorderCountry.name.common}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </td>
           </tr>

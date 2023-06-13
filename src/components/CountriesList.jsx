@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import countries from './../countries.json';
 import { NavLink } from 'react-router-dom';
 import CountryDetail from './CountryDetail';
 
-function CountriesList() {
+export function CountriesList({ countries }) {
   const [currentCountries, setCountries] = useState(countries);
   return (
     <div className="container">
@@ -14,7 +13,7 @@ function CountriesList() {
               <NavLink
                 key={country.alpha3Code}
                 className="list-group-item list-group-item-action"
-                to={'/country/' + country.alpha3Code}
+                to={country.alpha3Code}
               >
                 <img
                   src={
@@ -22,7 +21,11 @@ function CountriesList() {
                     country.alpha2Code.toLowerCase() +
                     '.png'
                   }
+                  width={16}
+                  alt={'flag of' + country.name.common}
+                  aria-hidden={true}
                 />
+                &nbsp;
                 {country.name.common}
               </NavLink>
             ))}
