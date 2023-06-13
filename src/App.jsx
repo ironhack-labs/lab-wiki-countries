@@ -7,8 +7,9 @@ import { Route, Routes } from 'react-router-dom';
 import CountryDetails from './components/CountryDetails';
 import axios from 'axios';
 import { useEffect } from 'react';
+// import CountryDetailsAPI from './components/CountryDetailsAPI';
 
-const API_URL = "https://ih-countries-api.herokuapp.com/countries";
+const API_URL = 'https://ih-countries-api.herokuapp.com/countries';
 
 function App() {
   const [countries, setCountries] = useState([]);
