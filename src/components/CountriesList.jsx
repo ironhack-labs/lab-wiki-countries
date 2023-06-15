@@ -2,24 +2,8 @@ import * as React from 'react';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Card, CardActions, CardContent, CardMedia, Stack } from '@mui/material';
-import axios from 'axios';
-import { useEffect, useState } from "react";
-const API_URL = "https://ih-countries-api.herokuapp.com/countries";
 
-
-const CountriesList = () => {
-
-const [countries, setCountries] = useState([]);
-
-useEffect(() => {
-  const getData = async () => {
-    const res = await axios.get(API_URL);
-    setCountries(res.data);
-  }
-  getData();
-}, [])
-
-
+const CountriesList = ({ countries }) => {
   return (
     <div>
       {countries.map((country) => {

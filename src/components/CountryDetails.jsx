@@ -3,29 +3,34 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import CountriesList from './CountriesList';
-// import countries from '../countries.json'
 
-const CountryDetails = () => {
+const CountryDetails = ({countries}) => {
   const { countryId } = useParams();
-  const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState(null);
   const [countryBorders, setCountryBorders] = useState([]);
 
   useEffect(() => {
     const fetchCountry = async () => {
       try {
-        const unique_response = await axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryId.toUpperCase()}`);
-        setCountry(unique_response.data);
-        setCountryBorders(unique_response.data.borders || []);
-        const whole_response = await axios.get('https://ih-countries-api.herokuapp.com/countries');
-        setCountries(whole_response.data);
+        const response = await axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryId.toUpperCase()}`);
+        setCountry(response.data);
+        setCountryBorders(response.data.borders || []);
       } catch (error) {
-        console.error('Error fetching countries:', error);
+        console.error('Error fetching country:', error);
       }
     };
 
     fetchCountry();
   }, [countryId]);
+
+  if (!country) {
+    return (
+      <Container maxWidth="md">
+        <Typography variant="h4">Country not found</Typography>
+      </Container>
+    );
+  }
+
 
   return (
     <Container maxWidth="md">
