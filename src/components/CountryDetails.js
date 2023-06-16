@@ -30,6 +30,7 @@ export function CountryDetails({countries, apiUrl}){
           <p>Borders:</p>
           <div className="d-flex flex-column gap-2">
           { country !== null && country.borders.map((item) => {
+            console.log(country)
             return(
              <Link key={nanoid()} to={`/${item}`}>{item}</Link>
             );
