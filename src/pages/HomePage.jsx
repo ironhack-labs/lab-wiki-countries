@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const [countries, setCountries] = useState(null);
@@ -16,20 +16,27 @@ function HomePage() {
 
   return (
     <>
-      <Navbar />
-      <div className="container" style={{ maxHeight: "90vh", overflow: "scroll" }}>
-        <h1 style={{ fontSize: "24px" }}>WikiCountries: Your Guide to the World</h1>
+      <div
+        className="container"
+        style={{ maxHeight: "90vh", overflow: "scroll" }}
+      >
+        <h1 style={{ fontSize: "24px" }}>
+          WikiCountries: Your Guide to the World
+        </h1>
         {countries && (
           <div className="list-group">
             {countries.map((country) => {
               return (
-                <a
+                <Link
                   key={country._id}
                   className="list-group-item list-group-item-action"
-                  href={`/${country.alpha3code}`}
+                  to={`/${country.alpha3Code}`}
                 >
-                  {country.name.common}
-                </a>
+                  <img
+                    src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                  />
+                  <p>{country.name.common}</p>
+                </Link>
               );
             })}
           </div>
