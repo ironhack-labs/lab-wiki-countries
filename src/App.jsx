@@ -7,7 +7,11 @@ import CountryDetailsPage from "./pages/CountryDetailsPage";
 import { Routes, Route } from "react-router-dom";
 
 
+
 function App() {
+  
+
+
   return (
     <div className="App">
       <Navbar />
