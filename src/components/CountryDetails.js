@@ -1,17 +1,26 @@
-export default function CountriesDetails() {
+import { useParams } from 'react-router-dom';
+
+export default function CountriesDetails({countries}) {
+
+    const {countryCode} = useParams();
+
+    const selectedCountry = countries.filter(c => c.alpha3Code === countryCode)[0]
+
+    console.log("selectedCountry.borders", selectedCountry.borders);
+
     return (<div className="col-7">
-        <h1>France</h1>
+        <h1>{selectedCountry.name.common}</h1>
         <table className="table">
         <thead />
         <tbody>
             <tr>
             <td style={{ width: "30%" }}>Capital</td>
-            <td>Paris</td>
+            <td>{selectedCountry.capital.join(",")}</td>
             </tr>
             <tr>
             <td>Area</td>
             <td>
-                551695 km
+            {selectedCountry.area} km
                 <sup>2</sup>
             </td>
             </tr>
@@ -19,30 +28,10 @@ export default function CountriesDetails() {
             <td>Borders</td>
             <td>
                 <ul>
-                <li>
-                    <a href="/AND">Andorra</a>
-                </li>
-                <li>
-                    <a href="/BEL">Belgium</a>
-                </li>
-                <li>
-                    <a href="/DEU">Germany</a>
-                </li>
-                <li>
-                    <a href="/ITA">Italy</a>
-                </li>
-                <li>
-                    <a href="/LUX">Luxembourg</a>
-                </li>
-                <li>
-                    <a href="/MCO">Monaco</a>
-                </li>
-                <li>
-                    <a href="/ESP">Spain</a>
-                </li>
-                <li>
-                    <a href="/CHE">Switzerland</a>
-                </li>
+                {countries.filter(c => selectedCountry.borders.includes(c.alpha3Code)).map(b => <li>
+                    <a href={`/${b.alpha3Code}`}>{b.name.common}</a>
+                </li>)}
+
                 </ul>
             </td>
             </tr>

@@ -4,6 +4,7 @@ import allCountries from './countries.json'
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import CountriesDetails from './components/CountryDetails';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -17,7 +18,9 @@ function App() {
           <div className="container">
             <div className="row">
               <CountriesList countries={countries} />
-              <CountriesDetails />
+              <Routes>
+                <Route path="/:countryCode" element={ <CountriesDetails countries={countries} /> } />
+              </Routes>
             </div>
           </div>
 
