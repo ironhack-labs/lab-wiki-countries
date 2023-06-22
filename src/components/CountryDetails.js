@@ -40,13 +40,14 @@ const CountryDetails = (props) => {
               <td>Borders</td>
               <td>
                 <ul>
-                  {props.countriesArr.length > 0 && country.borders.map((border) => {
-                    const countryFromBorder = props.callbackToGetCountry(border)
-                    return <li key={border}>
-                      <Link to={`/${border}`}>{countryFromBorder.name.common}</Link>
-                    </li>;
-                  })}
-                  {props.countriesArr.length === 0 && <p key="loading-p">Loading...</p>}
+                  {props.countriesArr.length > 0
+                    ? country.borders.map((border) => {
+                      const countryFromBorder = props.callbackToGetCountry(border)
+                      return <li key={border}>
+                        <Link to={`/${border}`}>{countryFromBorder.name.common}</Link>
+                      </li>;
+                    })
+                    : <p key="loading-p">Loading borders...</p>}
                 </ul>
               </td>
             </tr>
