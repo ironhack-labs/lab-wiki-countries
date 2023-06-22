@@ -8,6 +8,7 @@ import CountriesDetails from './components/CountryDetails';
 function App() {
 
   const [countries, setCountries] = useState(allCountries);
+  // console.log("countries", countries);
 
   return (
     <div className="App">
@@ -15,7 +16,7 @@ function App() {
           <Navbar />
           <div className="container">
             <div className="row">
-              <CountriesList />
+              <CountriesList countries={countries} />
               <CountriesDetails />
             </div>
           </div>
