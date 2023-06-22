@@ -2,35 +2,36 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 
-function CountryDetails(props) {
- const [countryDetails, setCountryDetails] = useState([]);
- const id = useParams
+function CountryDetails() {
+  const { alpha3Code } = useParams();
+ const [details, setDetails] = useState(null);
  const baseUrl = 'https://ih-countries-api.herokuapp.com/countries'
   
 useEffect(()=> {
   axios
-  .get(`${baseUrl}/countries/${id}`)
+  .get(`${baseUrl}/${alpha3Code}`)
   .then((response) => {
-    setCountryDetails(response.data)
+    setDetails(response.data)
+    console.log(response.data)
   })
   .catch((e) => console.log(e))
-}, [])
+}, [alpha3Code])
 
-console.log(props)
+if(details){
     return (
-        <div className="col-7">
-        <h1>{props.name}</h1>
+        <div key={alpha3Code} className="col-7">
+        <h1>{details.name.common}</h1>
         <table className="table">
           <thead></thead>
           <tbody>
             <tr>
               <td style={{width: "30%"}}>Capital</td>
-              <td>{props.capital}</td>
+              <td>{details.capital[0]}</td>
             </tr>
             <tr>
               <td>Area</td>
               <td>
-               {props.area}
+               {details.area}
                 <sup></sup>
               </td>
             </tr>
@@ -55,6 +56,7 @@ console.log(props)
       </div>
 
     )
+}
 }
 
 export default CountryDetails

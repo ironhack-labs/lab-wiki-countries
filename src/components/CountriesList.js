@@ -9,10 +9,9 @@ function CountriesList(props) {
           style={{ maxHeight: '90vh', overflow: 'scroll' }}
         >
           {props.countries.map(function (country) {
+        
             return (
-              <div className="list-group">
-                <Link key={country.alpha3Code}
-                  className="list-group-item list-group-item-action"
+                <Link  key={country.alpha3Code} className="list-group-item list-group-item-action"
                   to={`/${country.alpha3Code}`}
                 >
                   <div><img
@@ -20,13 +19,13 @@ function CountriesList(props) {
                   /></div>
                   {country.name.common}
                 </Link>
-              </div>
             );
           })}
         </div>
       </div>
     </div>
   );
+ 
 }
 
 export default CountriesList;

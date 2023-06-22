@@ -20,6 +20,7 @@ useEffect(()=> {
   .catch((e) => console.log(e))
 }, [])
 
+
   return (
     <div className="App">
       <Navbar />
@@ -27,7 +28,7 @@ useEffect(()=> {
       <div className="row">
         <CountriesList countries={countries}/>
         <Routes>
-        <Route path="/:id" element={ <CountryDetails countries={countries} /> } />
+        <Route path="/:alpha3Code" element={ <CountryDetails countries={countries} /> } />
         </Routes>  
       </div>
       </div>
