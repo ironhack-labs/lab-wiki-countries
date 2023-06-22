@@ -32,7 +32,7 @@ export const CountryDetails = (props) => {
         <tbody>
           <tr>
             <td style={{ width: '30%' }}>Capital</td>
-            <td>countryDetails.capital</td>
+            <td>{countryDetails.capital}</td>
           </tr>
           <tr>
             <td>Area</td>
@@ -47,7 +47,7 @@ export const CountryDetails = (props) => {
               <ul>
                 {borderCountriesAlpha3CodeArr.map((alpha3Code, index) => {
                   return (
-                    <li>
+                    <li className="list-item">
                       <Link to={`/${alpha3Code}`}>
                         {borderCountriesName[index]}
                       </Link>

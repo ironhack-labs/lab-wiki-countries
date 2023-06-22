@@ -12,15 +12,17 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
-      <Routes>
-        <Route
-          path="/:countryAlpha3Code"
-          element={<CountryDetails countriesArr={countries} />}
-        />
-      </Routes>
-
-      <CountriesList countriesArr={countries} />
+      <div className="container">
+        <div className="row ">
+          <CountriesList className="border rounded" countriesArr={countries} />
+          <Routes>
+            <Route
+              path="/:countryAlpha3Code"
+              element={<CountryDetails countriesArr={countries} />}
+            />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
