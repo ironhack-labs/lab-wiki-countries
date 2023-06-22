@@ -11,16 +11,17 @@ import { Route } from 'react-router-dom';
 import axios from 'axios'
 
 function App() {
-  const [countryArr, setCountryArr] = useState(country);
+  const [countryArr, setCountryArr] = useState([]);
   const countryUrl = "https://ih-countries-api.herokuapp.com/countries"
 
   useEffect(() => {
     axios.get(countryUrl)
     .then((res) => {
-   
+      //console.log(res.data);
       setCountryArr(res.data)
     })
-  })
+    .catch(e => console.log(e))
+  }, [])
 
   return (
     <div className="App">

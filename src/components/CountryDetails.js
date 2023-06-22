@@ -4,43 +4,45 @@ import axios from "axios"
 
 function CountryDetails(props) {
 
-    const {id} = useParams()
-    const[countryDetails, setCountryDetails] = useState(null)
+    const[countryDetail, setCountryDetail] = useState(undefined)
     
-    const countryUrl = "https://ih-countries-api.herokuapp.com/countries"
+    const {id} = useParams()
+    const countryUrl = "https://ih-countries-api.herokuapp.com/countries/"
  
 
  //   console.log(id);
 
     useEffect(() =>{
-        axios.get(`${countryUrl}/${id}`)
+        axios.get(`${countryUrl}${id}`)
         .then(response => {
    //         console.log(response.data);
-            setCountryDetails(response.data) 
+   setCountryDetail(response.data) 
 
         })
-        .catch( e => console.log(e))
-
+        .catch(e => console.log(e))
     },[id]);
 
-    console.log(countryDetails.name.common);
-    
+    console.log(countryDetail.name.common);
+    //console.log(props);
 
+    if(countryDetail === undefined){
+        return <p>Loading...</p>
+    }
 
     return(
         <div className="col-7">
-        <h1>{countryDetails.name.common}</h1>
+        <h1>{countryDetail.name.common}</h1>
         <table className="table">
           <thead></thead>
           <tbody>
             <tr>
               <td style={{width: 30 + "%" }}>Capital :</td>
-              <td>{countryDetails.capital}</td>
+              <td>{countryDetail.capital}</td>
             </tr>
             <tr>
               <td>Area</td>
               <td>
-                {countryDetails.area} Km
+                {countryDetail.area} Km
                 <sup>2</sup>
               </td>
             </tr>
@@ -48,6 +50,9 @@ function CountryDetails(props) {
               <td>Borders</td>
               <td>
                 <ul>
+
+                <li><a href="/CHE">Switzerland</a></li>
+
                 </ul>
               </td>
             </tr>
