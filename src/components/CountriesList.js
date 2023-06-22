@@ -16,15 +16,18 @@ function CountriesList(props) {
             {props.countryArr.map((country) => {
               console.log(country.name.common);
               console.log(country.alpha2Code.toLowerCase());
-              <Link
-                className="list-group-item list-group-item-action"
-                to={'/' + country.alpha3Code}
-              >
-                <img
-                  src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
-                />{' '}
-                <p>{country.name.common}</p>
-              </Link>;
+
+              return (
+                <Link
+                  className="list-group-item list-group-item-action"
+                  to={'/' + country.alpha3Code}
+                >
+                  <img
+                    src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                  />{' '}
+                  <p>{country.name.common}</p>
+                </Link>
+              );
             })}
 
             {/*  <Link className="list-group-item list-group-item-action" to="/AFG">
