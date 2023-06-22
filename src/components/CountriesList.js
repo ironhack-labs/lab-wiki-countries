@@ -1,14 +1,12 @@
 import {Link} from "react-router-dom"
+import CountryDetails from './CountryDetails'
 
 function CountriesList(props) {
     console.log(props.listOfCountries[0].alpha3Code);
     return(
         <div>
-        <div className="container">
-        <div className="row">
             <div className="col-5" 
-            style = {{maxHeight: '90vh', overflow: 'scroll'}} 
-            >
+            style = {{maxHeight: '90vh', overflow: 'scroll'}} >
             {props.listOfCountries.map(
                 
             function(country, index) {
@@ -20,6 +18,9 @@ function CountriesList(props) {
                         <Link 
                         className="list-group-item list-group-item-action" 
                         href={country.alpha3Code}
+                        onClick={CountryDetails
+                            // countryDetails={country}
+                        }
                         >{country.name.official}</Link>
         
             
@@ -27,8 +28,6 @@ function CountriesList(props) {
                 )
             })}
             </div>
-        </div>
-        </div>
         </div>
     )
 }
