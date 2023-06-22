@@ -16,7 +16,8 @@ const filteredCountries = props.countries.filter((countryObj) => {
 
 
     return(
-        <div className="col-7">
+        <div className="col-7" >
+        <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="flag" />
   <h1>{country.name.official}</h1>
   <table className="table">
     <thead />

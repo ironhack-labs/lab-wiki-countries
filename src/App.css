@@ -6,6 +6,9 @@
     left: 45%;
     width: 500px;
     border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
  img {
@@ -13,4 +16,10 @@
   flex-direction:column;
   justify-content: center;
   
+}
+
+.list-group-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
