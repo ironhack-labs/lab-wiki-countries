@@ -1,12 +1,24 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from "axios";
 
 export default function CountriesDetails({countries}) {
 
+    const [selectedCountry, setSelectedCountry] = useState(null);
     const {countryCode} = useParams();
 
-    const selectedCountry = countries.filter(c => c.alpha3Code === countryCode)[0]
+    const baseUrl = "https://ih-countries-api.herokuapp.com/countries/"
+    useEffect(() => {
+        axios.get(baseUrl + countryCode)
+            .then(response => setSelectedCountry(response.data))
+    }, [countryCode]);
 
-    console.log("selectedCountry.borders", selectedCountry.borders);
+    // console.log("selectedCountry.borders", selectedCountry.borders);
+
+    if (!selectedCountry) {
+        return <p>No country selected</p>;
+    }
+
 
     return (<div className="col-7">
         <h1>{selectedCountry.name.common}</h1>
