@@ -33,7 +33,8 @@ function App() {
             <Route path="/:alpha3Code" element={
               <>
                 <CountriesList countriesArr={countries}></CountriesList>
-                <CountryDetails callbackToGetCountry={getCountry} countriesArr={countries}></CountryDetails>
+                {/* see comments in the component about the callback */}
+                <CountryDetails callbackGetCountry={getCountry} countriesArr={countries}></CountryDetails>
               </>
             } />
           </Routes>

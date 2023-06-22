@@ -42,7 +42,12 @@ const CountryDetails = (props) => {
                 <ul>
                   {props.countriesArr.length > 0
                     ? country.borders.map((border) => {
-                      const countryFromBorder = props.callbackToGetCountry(border)
+                      const countryFromBorder = props.callbackGetCountry(border) 
+                      // we over-complicated things a bit in the end 
+                      // because in the first iterations of the lab we used and needed only this callback
+                      // but in the end, to control the flow and lifecycle of the component we had to also pass the entire countries array
+                      // which makes the callback pointless because we could directly get the country in this componenet now
+                      // but we kept just to practice :)
                       return <li key={border}>
                         <Link to={`/${border}`}>{countryFromBorder.name.common}</Link>
                       </li>;
