@@ -27,10 +27,15 @@ function App() {
       <Navbar />
       <div className="container">
         <div className="row">
-          <CountriesList countriesArr={countries}></CountriesList>
-
-          <Routes>
-            <Route path="/:alpha3Code" element={ <CountryDetails callbackToGetCountry={getCountry}></CountryDetails> } />
+          
+         <Routes>
+            <Route path="/" element={ <CountriesList countriesArr={countries}></CountriesList> } />
+            <Route path="/:alpha3Code" element={
+              <>
+                <CountriesList countriesArr={countries}></CountriesList>
+                <CountryDetails callbackToGetCountry={getCountry} countriesArr={countries}></CountryDetails>
+              </>
+            } />
           </Routes>
 
         </div>
