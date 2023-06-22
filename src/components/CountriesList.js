@@ -1,14 +1,18 @@
-import { Route, Routes, NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function CountriesList(props) {
   return (
-    <>
+    <div className="row">
       {props.listOfCountries.map((element, index) => (
-        <Link key={"country links" + index} to={`/${element.alpha3Code}`}>
-          {element.name}
-        </Link>
+        <div
+          key={'country links' + index}
+          class="col-3"
+          style={{ maxHeight: '90vh', overflow: 'scroll', margin: '1rem' }}
+        >
+          <Link to={`/${element.alpha3Code}`}> {element.name.common}</Link>
+        </div>
       ))}
-    </>
+    </div>
   );
 }
 
