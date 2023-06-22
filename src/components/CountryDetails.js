@@ -4,8 +4,7 @@ const CountryDetails = (props) => {
   const { alpha3Code } = useParams();
 
   const countryObj = props.callbackToGetCountry(alpha3Code);
-
-  return (
+  if (countryObj) return (
     <div className="col-7">
       <h1>{countryObj.name.common}</h1>
       <table className="table">
