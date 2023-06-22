@@ -29,7 +29,7 @@ const CountryDetails = (props) => {
                 {countryObj.borders.map((border) => {
                     const countryFromBorder = props.callbackToGetCountry(border)
                   return <li key={border}>
-                    <Link href={`/${border}`}>{countryFromBorder.name.common}</Link>
+                    <Link to={`/${border}`}>{countryFromBorder.name.common}</Link>
                   </li>;
                 })}
               </ul>

@@ -3,6 +3,7 @@ import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import Navbar from './components/Navbar';
 import countries from'./countries.json';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -17,7 +18,9 @@ function App() {
         <div className="row">
           <CountriesList countriesArr={countries}></CountriesList>
 
-          {/* <CountryDetails callbackToGetCountry={getCountry}></CountryDetails> */}
+          <Routes>
+            <Route path="/:alpha3Code" element={ <CountryDetails callbackToGetCountry={getCountry}></CountryDetails> } />
+          </Routes>
 
         </div>
       </div>   
