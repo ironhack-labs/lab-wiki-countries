@@ -21,7 +21,14 @@ function CountryDetails() {
   return(
     <div>
       <h1>Details</h1>
-      <h3>Capital :{country.capital}</h3>
+      <div>
+            <img
+              src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code?.toLowerCase()}.png`}
+              alt="flag"
+              className="mr-3"
+            />
+            </div>
+      <h3>Capital : {country.capital}</h3>
       <h4>Area: {country.area}</h4>
       <h4>Region: {country.region}</h4>
       <h4>Status: {country.status}</h4>

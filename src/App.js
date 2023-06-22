@@ -13,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <marquee>Keep going, Iron-Hacker. You can do it!</marquee>
       <Routes>
         <Route path='/countrylist' element={<CountriesList countries={countries}/>}/>
         <Route path='/countrydetails/:alpha3Code' element={<CountryDetails />}/>

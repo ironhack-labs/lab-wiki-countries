@@ -8,7 +8,7 @@ function Navbar() {
         <Link className="navbar-brand" to="/">
           WikiCountries
         </Link>
-        <Link to="/countrylist" className="nav-link">Country List</Link>
+        <Link to="/countrylist" className="navbar-brand">Country List</Link>
       </div>
     </nav>
   );
