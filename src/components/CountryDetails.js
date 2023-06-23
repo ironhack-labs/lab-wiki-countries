@@ -22,7 +22,6 @@ function CountryDetails(props) {
         .catch(e => console.log(e))
     },[id]);
 
-    console.log(countryDetail.name.common);
     //console.log(props);
 
     if(countryDetail === undefined){
