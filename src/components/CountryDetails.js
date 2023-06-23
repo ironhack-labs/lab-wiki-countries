@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from "axios";
 
 export default function CountriesDetails({countries}) {
@@ -41,7 +41,7 @@ export default function CountriesDetails({countries}) {
             <td>
                 <ul>
                 {countries.filter(c => selectedCountry.borders.includes(c.alpha3Code)).map(b => <li>
-                    <a href={`/${b.alpha3Code}`}>{b.name.common}</a>
+                    <Link to={`/${b.alpha3Code}`}>{b.name.common}</Link>
                 </li>)}
 
                 </ul>
