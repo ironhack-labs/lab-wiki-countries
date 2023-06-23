@@ -9,7 +9,7 @@ console.log(details)
     axios
       .get(`http://localhost:3000/${id}`)
       .then((response) => {
-        setDetails(response.data);
+        console.log(response)
       })
       .catch((e) => {
         console.log(e);

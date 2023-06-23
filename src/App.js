@@ -14,7 +14,7 @@ function App() {
       <CountriesList list={countries} />
       <Routes>
         <Route
-          path="/:id"
+          path="http://localhost:3000/:id"
           element={<CountryDetails />}
           
         />

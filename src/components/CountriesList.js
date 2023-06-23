@@ -13,10 +13,10 @@ export const CountriesList = (props) => {
               return (
                 <div key={index}>
                   <Link
-                    className="list-group-item list-group-item-action"
+                    className="list-group-item list-group-item-action d-flex flex-column align-items-center"
                     to={`/${country.alpha3Code}`}
                   >
-                    <img
+                    <img className='img-thumbnail w-25'
                       src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
                       alt=""
                     />
