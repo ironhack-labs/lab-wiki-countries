@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function CountryDetails(props) {
   const { alphaCode } = useParams();
@@ -13,21 +13,59 @@ function CountryDetails(props) {
   console.log(filteredCountry[0]);
   const flagURL = filteredCountry[0].alpha2Code.toLowerCase();
 
+  const borderingCountries = props.listOfCountries.filter((element, index) => {
+    return filteredCountry[0].borders.some((bordering) =>
+      element.alpha3Code.includes(bordering)
+    );
+  });
+
+  console.log(borderingCountries);
+
   return (
-    <div className="card" style={{ width: '18rem' }}>
-      <div className="card-body">
-        <h5 className="card-title">
-          <img
-            src={`https://flagpedia.net/data/flags/icon/72x54/${flagURL}.png`}
-            alt="flag"
-          ></img>{' '}
-          {filteredCountry[0].name.common}
-        </h5>
-        <p className="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-      </div>
+    <div className="col-7">
+      <h1>
+        <img
+          src={`https://flagpedia.net/data/flags/icon/72x54/${flagURL}.png`}
+          alt="flag"
+        ></img>
+        {filteredCountry[0].name.common}
+      </h1>
+      <table className="table">
+        <thead />
+        <tbody>
+          <tr>
+            <td style={{ width: '30%' }}>Capital</td>
+            <td>{filteredCountry[0].capital[0]}</td>
+          </tr>
+          <tr>
+            <td>Area</td>
+            <td>
+              {filteredCountry[0].area} km
+              <sup>2</sup>
+            </td>
+          </tr>
+          <tr>
+            <td>Borders</td>
+            <td>
+              <ul>
+                {borderingCountries.length > 0 ? (
+                  borderingCountries.map((element, index) => {
+                    return (
+                      <li key={`bordering country ${index}`}>
+                        <Link to={`/${element.alpha3Code}`}>
+                          {element.name.official}
+                        </Link>
+                      </li>
+                    );
+                  })
+                ) : (
+                  <li>No bordering countries</li>
+                )}
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
