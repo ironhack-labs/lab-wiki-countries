@@ -2,3 +2,13 @@
   margin: 0 auto;
   text-align: center;
 }
+.countryDetails {
+  display: flex;
+}
+
+table{
+  width : 80vw;
+  text-align: left;
+  margin : auto;
+  border: 1px solid black;
+}
