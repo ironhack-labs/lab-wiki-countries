@@ -4,6 +4,8 @@ import { Routes, Route, Link } from "react-router-dom";
 
 import axios from "axios";
 
+import Navbar from "../components/Navbar";
+
 function HomePage() {
   const [countries, setCountries] = useState(null);
 
@@ -23,19 +25,27 @@ function HomePage() {
 
   return (
     <>
-      <h1>WikiCountries: Your Guide to the World</h1>
-      {countries.map(function (country) {
-        return (
-          <div key={country.alpha3Code}>
-            <Link to={`/${country.alpha3Code}`}>
-              <img
-                src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
-              ></img>
-              {country.name.common}
-            </Link>
-          </div>
-        );
-      })}
+      <Navbar />
+      <div
+        className="container"
+        style={{ maxHeight: "90vh", overflow: "scroll" }}
+      >
+        {countries.map(function (country) {
+          return (
+            <div key={country.alpha3Code} className="list-group">
+              <Link
+                to={`/${country.alpha3Code}`}
+                className="list-group-item list-group-item-action"
+              >
+                <img
+                  src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                ></img>
+                {country.name.common}
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }
