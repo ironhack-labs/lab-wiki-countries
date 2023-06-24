@@ -22,6 +22,7 @@ function CountryDetails() {
         <p style={{ fontSize: "24px", fontWeight: "bold" }}>Country Details</p>
         {country && (
           <>
+           <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt={`${country.name.common} flag`} style={{ display: 'block', margin: 'auto'}}/>
             <h1>{country.name.common}</h1>
 
             <table className="table">
