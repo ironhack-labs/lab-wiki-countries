@@ -8,10 +8,10 @@ export default function CountriesList({ countries }) {
   
   const renderCountries = () => {
     return countries.map((country, i) => (
-      <div className='row'>
+      <div key={i} className='row'>
         <div className="col-5" style={{maxHeight: "90vh", overFlow: 'scroll'}}>
           <div className="list-group">
-            <Link className="list-group-item list-group-item-action" to={`/${country.alpha2Code}`} key={i}>{country.name.common}</Link>
+            <Link className="list-group-item list-group-item-action" to={`/${country.alpha2Code}`} >{country.name.common}</Link>
           </div>
         </div>
       </div>

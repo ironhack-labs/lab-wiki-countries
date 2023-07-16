@@ -6,7 +6,7 @@ export default function CountryDetails() {
 
   const { countryCode } = useParams();
 
-  console.log(countryCode);
+
 
     // Method .find() returns the first found matching element,
   // or `null` if no matching element is found.
@@ -14,22 +14,38 @@ export default function CountryDetails() {
     return country.alpha2Code === countryCode;
   });
 
+  const foundCountryBordersArr = foundCountry.borders;
+
+  const displayBorders = () => {
+    return foundCountryBordersArr.map((border, i) => {
+      const twoCharAlpha = border.slice(0, 2); // Get the first two characters
+      return (
+        <li key={i}>
+          <Link to={`/${twoCharAlpha}`}>{border}</Link>
+        </li>
+      );
+    });
+  };
+  
+
+  console.log(foundCountry);
+
   return (
       <div className="col-7">
-        <h1>France</h1>
+        <h1>{foundCountry.name.common}</h1>
 
         
-        {/* <table className="table">
+        <table className="table">
           <thead></thead>
           <tbody>
             <tr>
               <td style={{width: "30%"}}>Capital</td>
-              <td>Paris</td>
+              <td>{foundCountry.capital[0]}</td>
             </tr>
             <tr>
               <td>Area</td>
               <td>
-                551695 km
+              {foundCountry.area} km
                 <sup>2</sup>
               </td>
             </tr>
@@ -37,19 +53,12 @@ export default function CountryDetails() {
               <td>Borders</td>
               <td>
                 <ul>
-                  <li><a href="/AND">Andorra</a></li>
-                  <li><a href="/BEL">Belgium</a></li>
-                  <li><a href="/DEU">Germany</a></li>
-                  <li><a href="/ITA">Italy</a></li>
-                  <li><a href="/LUX">Luxembourg</a></li>
-                  <li><a href="/MCO">Monaco</a></li>
-                  <li><a href="/ESP">Spain</a></li>
-                  <li><a href="/CHE">Switzerland</a></li>
+                  {displayBorders()}
                 </ul>
               </td>
             </tr>
           </tbody>
-        </table> */}
+        </table>
       </div>
   )
 }
