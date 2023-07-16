@@ -11,17 +11,16 @@ export default function CountryDetails() {
     // Method .find() returns the first found matching element,
   // or `null` if no matching element is found.
   const foundCountry = Countries.find((country) => {   //  <== ADD
-    return country.alpha2Code === countryCode;
+    return country.alpha3Code === countryCode;
   });
 
   const foundCountryBordersArr = foundCountry.borders;
 
   const displayBorders = () => {
     return foundCountryBordersArr.map((border, i) => {
-      const twoCharAlpha = border.slice(0, 2); // Get the first two characters
       return (
         <li key={i}>
-          <Link to={`/${twoCharAlpha}`}>{border}</Link>
+          <Link to={`/${border}`}>{border}</Link>
         </li>
       );
     });
