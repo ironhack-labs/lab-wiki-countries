@@ -1,3 +1,11 @@
-function Navbar() {}
+import { Link } from "react-router-dom"
 
-export default Navbar;
+function Navbar() {
+    return (
+        <nav>
+            <Link id="nav-link" to="/">WikiCountries</Link>
+        </nav>
+    )
+}
+
+export default Navbar
