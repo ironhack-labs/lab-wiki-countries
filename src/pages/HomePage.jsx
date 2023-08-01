@@ -6,16 +6,30 @@ function HomePage() {
     const [countries, setCountries] = useState({})
     const [loading, setLoading] = useState(true)
 
+    // Alternative async await solution:
+    // async function fetchCountries() {
+    //     try {
+    //         const result = await axios.get("https://ih-countries-api.herokuapp.com/countries")
+    //         setCountries(result.data)
+    //         setLoading(false)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     fetchCountries()
+    // }, [])
+
     useEffect(() => {
         axios
             .get("https://ih-countries-api.herokuapp.com/countries")
             .then(response => {
-                console.log(response.data)
                 const countriesSorted = response.data.slice().sort((a, b) => a.name.common.localeCompare(b.name.common))
                 setCountries(countriesSorted)
                 setLoading(false)
             })
-            .catch(error => console.error(error))
+            .catch(error => console.log(error))
     }, [])
 
     return loading ? (
