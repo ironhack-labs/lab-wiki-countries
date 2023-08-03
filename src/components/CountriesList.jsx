@@ -10,8 +10,7 @@ function CountriesList(props) {
 
   return (
     <>
-      <div
-        className="CountriesList col-5"
+      <div className="CountriesList col-5"
         style={{ maxHeight: '90vh', overflow: 'scroll' }}
       >
         <div className="list-group">
@@ -39,6 +38,7 @@ function CountriesList(props) {
         </div>
       </div>
       <Routes>
+        <Route path='/' element={<></>}/>
         <Route path="/:countryId" element={<CountryDetails countriesData={countries} />} />
       </Routes>
     </>
