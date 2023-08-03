@@ -4,7 +4,6 @@ import Navbar from './components/Navbar'
 import CountriesList from './components/CountriesList'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
 
 function App() {
   const [countries, setCountries] = useState([])

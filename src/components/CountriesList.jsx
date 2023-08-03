@@ -10,7 +10,7 @@ function CountriesList(props) {
 
   return (
     <>
-      <div className="CountriesList col-5"
+      <div className="CountriesList col-5 mt-3"
         style={{ maxHeight: '90vh', overflow: 'scroll' }}
       >
         <div className="list-group">
@@ -23,17 +23,17 @@ function CountriesList(props) {
               <Link
                 to={`/${country.alpha3Code}`}
                 className="card"
-                style={{ width: '18rem' }}
+                style={{ width: '18rem', textDecoration: 'none', padding: 8}}
                 key={country.alpha3Code}
               >
-                <div className="card-body">
+                <div className="card-body" style={{border: 'none'}}>
                   <img src={imgUrl} alt="country-flag" className="" />
-                  <div className="list-group-item card-text">
+                  <div className="card-text">
                     {country.name.common}
                   </div>
                 </div>
               </Link>
-            );
+            )
           })}
         </div>
       </div>

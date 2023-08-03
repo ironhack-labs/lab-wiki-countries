@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card:hover {
+  background-color:  rgb(216, 216, 216);
+}
+
+.loading-gif {
+  position: fixed;
+  right: 45vw;
+  top: 45%;
+  bottom: 50%;
+}
