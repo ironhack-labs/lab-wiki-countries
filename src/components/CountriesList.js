@@ -1,8 +1,15 @@
+ import { Link } from "react-router-dom";
+
 function CountriesList({ countries }) {
 
     const divStyle = {
         maxHeight: "90vh",
         overflow: "scroll"
+    };
+
+    const image = {
+        display: "block", 
+        margin: "0 auto"
     };
 
     return (
@@ -11,9 +18,9 @@ function CountriesList({ countries }) {
             {countries.map((country) => {
 
                   return  ( 
-                        <>
-                            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} width="50px" />
-                            <a className="list-group-item list-group-item-action" href={`/${country.alpha3Code}`}>{country.name.common}</a>
+                        <>  
+                            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} style={image} st />
+                            <Link className="list-group-item list-group-item-action" to={`/${country.alpha3Code}`}>{country.name.common}</Link>
                         </>
            ) })}
             </div>
