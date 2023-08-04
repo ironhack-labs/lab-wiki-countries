@@ -20,9 +20,7 @@ const CountryDetails= ({countries}) => {
           setFoundCountry(country);
         }
       }, [id]);
-
-      console.log(foundCountry)
-
+      
     return (
         <>
    

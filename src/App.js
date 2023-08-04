@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 import data from './countries.json'
@@ -8,10 +8,29 @@ import CountryDetails from './components/CountryDetails';
 
 function App() {
 
-  const [countries, setCountries] = useState(data)
+  const [countries, setCountries] = useState(null)
+  const url =  "https://ih-countries-api.herokuapp.com/countries"
+
+
+  useEffect(() => {
+    fetch(url)
+    .then(response => {
+      return response.json()
+    })
+    .then(resposta => {
+      setCountries(resposta)
+    })
+    }, []);
+  
+
+  console.log(countries)
 
   return (
-    <div className="App">
+ <>
+   
+     {!countries && <h3>Country not found!</h3>}
+     {countries && (
+      <div className="App">
       <Navbar />
       <div class="container">
         <div class="row">
@@ -22,6 +41,8 @@ function App() {
       </div>
       </div>
     </div>
+     )}
+    </>
   );
 }
 
