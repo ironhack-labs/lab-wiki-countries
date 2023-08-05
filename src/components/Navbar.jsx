@@ -1,8 +1,10 @@
+import { NavLink } from "react-router-dom";
+
 const Navbar = () => {
     return (
-    <nav class="navbar navbar-dark bg-primary mb-3">
-        <div class="container">
-          <a class="navbar-brand" href="/">WikiCountries</a>
+    <nav className="navbar navbar-dark bg-primary mb-3">
+        <div className="container">
+          <NavLink className="navbar-brand" to="/">WikiCountries</NavLink>
         </div>
     </nav>
     )
