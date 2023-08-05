@@ -14,6 +14,7 @@ const CountriesList = (props) => {
             <img
               src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
               alt={country.name.common}
+              width={'30px'}
             />
             {country.name.common}
           </Link>
