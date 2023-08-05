@@ -5,15 +5,15 @@ function CountriesList({ countries }) {
   return (
     <div>
       {countries.map((country) => (
-        <div key={country.alpha3Code}>
-          <Link 
-            className="country-link d-flex align-items-center" 
+        <div key={country.alpha3Code} className="country-container">
+          <Link
             to={`/${country.alpha3Code}`}
+            className="country-link d-flex align-items-center"
           >
-            <img 
-              src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} 
+            <img
+              src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
               alt={`${country.name.common} Flag`}
-              className="mr-2" // margin-right for spacing between the image and the text
+              className="mr-2"
             />
             {country.name.common}
           </Link>
