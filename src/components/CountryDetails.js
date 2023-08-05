@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from "react";
 
-const CountryDetails= () => {
+const CountryDetails= ({countries}) => {
 
     const { id } = useParams();
 
@@ -49,8 +49,13 @@ const CountryDetails= () => {
                       <td>Borders</td>
                       <td>
                         <ul>
-                          {foundCountry.borders.map(country => {
-                              return <li><Link to={`/${country}`}>{country}</Link></li>
+                          {foundCountry.borders.map(border => {
+                            const borderCountry = countries.find( country => country.alpha3Code === border)
+                            return (
+                                    <li key={border}>
+                                      <Link to={`/${border}`}>{borderCountry.name.common}</Link>
+                                    </li>
+                                  )
                           })}
                         </ul>
                       </td>

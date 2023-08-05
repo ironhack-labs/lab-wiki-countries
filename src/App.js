@@ -32,7 +32,7 @@ function App() {
                       <div class="row">
                         <CountriesList countries={countries} />
                           <Routes>
-                            <Route path="/:id" element={ <CountryDetails /> } />
+                            <Route path="/:id" element={ <CountryDetails countries={countries} /> } />
                           </Routes>
                       </div>
                     </div>
