@@ -1,16 +1,31 @@
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const CountryDetails = (props) => {
 
     const { countries } = props
     const { countryId } = useParams();
+    const [ clickedCountry, setClickedCountry ] = useState(null);
+
+    useEffect(() => {
+        const fetchOneCountry = async() => {
+            const url = `https://ih-countries-api.herokuapp.com/countries/${countryId}`
+            const country = await axios.get(url)
+            setClickedCountry(country.data)
+        }
+        fetchOneCountry();
+    }, [countryId])
+        
+    if(!clickedCountry){
+        return (<p className="col-7">Loading...</p>)
+    }
 
     function getCountryName (code) {
         const country = countries.find(c => c.alpha3Code === code)
         return country.name.common
     }
 
-    const clickedCountry = countries.find(country => country.alpha3Code === countryId)
 
     return (
         <>

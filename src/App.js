@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
-/* import countries from './countries.json' */
+import countries from './countries.json'
 import CountryDetails from './components/CountryDetails';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
