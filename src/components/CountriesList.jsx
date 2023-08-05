@@ -5,11 +5,10 @@ function CountriesList({ countries }) {
   return (
     <div>
       {countries.map((country) => (
-        <div key={country.alpha3Code} className="country-container">
+        <div key={country.alpha3Code} className="list-group">
           <Link
             to={`/${country.alpha3Code}`}
-            className="country-link d-flex align-items-center"
-          >
+            className="list-group-item list-group-item-action d-flex align-items-center"          >
             <img
               src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
               alt={`${country.name.common} Flag`}
