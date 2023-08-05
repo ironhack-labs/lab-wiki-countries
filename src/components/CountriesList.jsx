@@ -18,8 +18,9 @@ const CountriesList = (props) => {
                 <Link
                 key={country.alpha3Code}
                   className="list-group-item list-group-action"
-                  href="/ABW">
-                    {countryFlag}
+                  to={`/${country.alpha3Code}`}
+                  >
+                    {countryFlag} {' '}
                     {country.name.common}
                 </Link>
               )
