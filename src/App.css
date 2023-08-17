@@ -2,3 +2,38 @@
   text-align: center;
 }
 
+.list-group-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: transparent;
+  text-decoration: none;
+  color: black;
+}
+
+.list-group-item:hover {
+  background-color: #f0f0f0;
+  text-decoration: none;
+}
+
+.list-group-item:visited {
+  color: black;
+}
+
+.navbar-brand {
+  text-decoration: none;
+  color: white;
+  font-size: 3em;
+  background-color: rgb(48, 36, 223);
+  width: 100vh;
+}
+
+.navbar-brand:hover {
+  background-color: #f0f0f0;
+  text-decoration: none;
+}
+
+.navbar-brand:visited {
+  color: white;
+}
