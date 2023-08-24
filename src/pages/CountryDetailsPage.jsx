@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useParams , Link } from "react-router-dom";
+import "./MyStyles.css";
 
 
 function CountryDetails() {
@@ -23,27 +24,43 @@ function CountryDetails() {
 
 
     return(
-        <div>
-            <h2>Country Details</h2>
+        <div className="container mt-5">
+    <div className="card border-0 shadow">
+        <div className="card-body">
+            <h2 className="card-title mb-4">Country Details</h2>
+            {!foundCountry && <h3>Country not found!</h3>}
+            {foundCountry && (
                 <div>
-                    {!foundCountry && <h3>Country not found!</h3>}
-                    {foundCountry && (
-                        <div>
-                            <h2>{foundCountry.name.common}</h2>
-                            <p>Capital: {foundCountry.capital}</p>
-                            <p>Area: {foundCountry.area} km²</p>
-                            <div>
-                                {foundCountry.borders.map((bordering) => {
-                                    return(
-                                        <Link to={`/${bordering}`}>{bordering}</Link>
-                                    )
-                                })}
-                            </div>
-                        </div>
-                        )}
-                    
+                    <h2 className="mb-3">{foundCountry.name.common}</h2>
+                    <p><span style={{ fontWeight: "bold" }}>Capital:</span> {foundCountry.capital}</p>
+                    <p><span style={{ fontWeight: "bold" }}>Area:</span> {foundCountry.area} km²</p>
+                    <p><span style={{ fontWeight: "bold" }}>Location:</span> {foundCountry.region}, {foundCountry.subregion}</p>
+                    <div className="mt-4">
+                        <p className="mb-2" style={{ fontWeight: "bold" }}>Borders:</p>
+                        <ul className="list-unstyled d-flex justify-content-center">
+                            {foundCountry.borders.map((bordering) => (
+                                <li key={bordering} className="mx-3" style={{ fontWeight: "bold" }}>
+                                    <Link
+                                        to={`/${bordering}`}
+                                        className="text-decoration-none text-success"
+                                    >
+                                        {bordering}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
+            )}
         </div>
+    </div>
+</div>
+
+
+
+
+
+
         )
 }
         

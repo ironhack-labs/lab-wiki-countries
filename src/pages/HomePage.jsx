@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import "./MyStyles.css";
+
 
 function HomePage() {
 
@@ -16,23 +18,23 @@ function HomePage() {
         })
     }, [])
 
-
     return(
-        <div>
-            <h2>WikiCountries: Your Guide to the World</h2>
-            {fetching && <p>Loading...</p>}
-            {countries.map((country)=>{
-                return(
-                    
-                    <div key = {country._id}>
-                    {console.log(country.alpha2Code.toLowerCase())}
-                        <Link to={`/${country.alpha3Code}`}>
-                            <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="flag" />
-                            <h5>{country.name.common}</h5>
-                        </Link>  
-                    </div>
-                )
-            })}
+        <div className="row" style={{paddingLeft:'7.5%', paddingRight: '7.5%'}}>
+            <h2 className="mb-4 mt-4">WikiCountries: Your Guide to the World</h2>
+            {countries.map((country) => (
+                <div key={country._id} className="col-md-2 mb-4">
+                    <Link to={`/${country.alpha3Code}`} className="text-dark text-decoration-none">
+                        <div className="country-card">
+                            <img
+                                src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                                alt="flag"
+                                className="img-fluid"
+                            />
+                            <h5 className="mt-2">{country.name.common}</h5>
+                        </div>
+                    </Link>
+                </div>
+            ))}
         </div>
     )
 }
