@@ -1,11 +1,17 @@
-import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage"; 
+import CountryDetails from "./pages/CountryDetailsPage"; 
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>LAB | React WikiCountries</h1>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/:countryId" element={<CountryDetails/>}/>
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
