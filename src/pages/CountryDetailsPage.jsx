@@ -4,7 +4,6 @@ import axios from "axios";
 
 function CountryDetails() {
   // State declarations
-  const [countries, setCountries] = useState([]);
   const [foundCountry, setFoundCountry] = useState(null);
   const { countryId } = useParams();
   // Fetching
@@ -12,16 +11,10 @@ function CountryDetails() {
 
   useEffect(() => {
     axios
-      .get(" https://ih-countries-api.herokuapp.com/countries")
+      .get(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
       .then((response) => {
-        setCountries(response.data);
+        setFoundCountry(response.data);
         setFetching(false);
-        const country = countries.find((oneCountry) => {
-          return oneCountry._id === countryId;
-        });
-        if (country) {
-          setFoundCountry(country);
-        }
       });
   }, [countryId]);
 
@@ -29,12 +22,29 @@ function CountryDetails() {
 
   return (
     <div>
-      <h1>"Country Details"</h1>
+      <h1 className="mb-5">"Country Details"</h1>
       {fetching && <img src="https://i.gifer.com/Z0Bj.gif"></img>}
       {foundCountry && (
         <div>
-          {" "}
+          <img
+            src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`}
+            width={100}
+            height={80}
+          />{" "}
           <h2>{foundCountry.name.official}</h2>
+          <p>
+            <b>Capital: </b>
+            {foundCountry.capital}
+          </p>
+          <p>
+            <b>Area: </b>
+            {foundCountry.area}km²
+          </p>
+          <div>
+            {foundCountry.borders.map((border) => {
+              return <Link to={`/${border}`}>{border}</Link>;
+            })}
+          </div>
           <Link to="/">Back</Link>
         </div>
       )}

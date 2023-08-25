@@ -34,7 +34,9 @@ function HomePage() {
                   />
                 </div>
                 <div className="col-4 d-flex">
-                  <Link to={`/${country._id}`}>{country.name.official}</Link>
+                  <Link to={`/${country.alpha3Code}`}>
+                    {country.name.official}
+                  </Link>
                 </div>
               </div>
             </div>
