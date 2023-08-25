@@ -1,11 +1,8 @@
-import React from 'react';
-
 function Navbar() {
-  return (
-    <nav>
-      <span>WikiCountries</span>
-    </nav>
-  );
-}
-
-export default Navbar;
+    return (
+      <nav className='Navbar'>
+          <h2>WikiCountries</h2>
+      </nav>
+    )
+  }
+  export default Navbar;
