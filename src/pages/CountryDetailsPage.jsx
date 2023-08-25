@@ -1,3 +1,11 @@
-function CountryDetails() {}
+import React from 'react';
 
-export default CountryDetails;
+function CountryDetailsPage() {
+  return (
+    <div>
+      <h1>Country Details</h1>
+    </div>
+  );
+}
+
+export default CountryDetailsPage;
