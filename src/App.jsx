@@ -10,7 +10,6 @@ function App() {
       <NavBar/>
 
       <div className="container">
-      <h1 className="mt-3">LAB | React WikiCountries</h1>
         <Routes>
           <Route path="/" element={<HomePage/>}/>
           <Route path="/country/:alpha3Code" element={<CountryDetails/>}/>
