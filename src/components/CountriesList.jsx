@@ -3,7 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 function CountriesList({ countries }) {
   return (
-    <ul className="list-group">
+    <ul
+      className="list-group"
+      style={{ maxHeight: '90vh', overflowY: 'scroll' }}
+    >
       {countries.map((country) => {
         return (
           <li className="list-group-item" key={country.alpha3Code}>

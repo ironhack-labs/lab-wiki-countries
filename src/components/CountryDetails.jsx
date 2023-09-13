@@ -1,13 +1,20 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-function CountryDetails({ countries }) {
+function CountryDetails() {
   const { id } = useParams();
-  const [country, setCountry] = useState('');
+  const [country, setCountry] = useState();
 
   useEffect(() => {
-    const countryFound = countries.find((country) => country.alpha3Code === id);
-    setCountry(countryFound);
+    axios
+      .get(`https://ih-countries-api.herokuapp.com/countries/${id}`)
+      .then((result) => {
+        setCountry(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [id]);
 
   if (country) {
@@ -19,7 +26,7 @@ function CountryDetails({ countries }) {
           alt=""
         />
         <h1>{country.name.common}</h1>
-        <table class="table">
+        <table className="table">
           <tbody>
             <tr>
               <td>Capital</td>
@@ -34,12 +41,18 @@ function CountryDetails({ countries }) {
             <tr>
               <td>Borders</td>
               <td>
-                {country.borders.map((border) => (
-                  <Link to={`/${border}`} className="text-primary">
-                    {border ? border : null}
-                    <br />
-                  </Link>
-                ))}
+                {country.borders.length
+                  ? country.borders.map((border) => (
+                      <Link
+                        to={`/${border}`}
+                        className="text-primary"
+                        key={border}
+                      >
+                        {border ? border : null}
+                        <br />
+                      </Link>
+                    ))
+                  : 'No border'}
               </td>
             </tr>
           </tbody>
@@ -47,7 +60,11 @@ function CountryDetails({ countries }) {
       </div>
     );
   } else {
-    return <p>No country</p>;
+    return (
+      <div className="d-flex flex-column align-items-center justify-content-center p-4">
+        <p>No country found.</p>
+      </div>
+    );
   }
 }
 
