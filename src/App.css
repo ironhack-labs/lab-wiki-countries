@@ -1,4 +1,19 @@
 #root {
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 2rem;
   text-align: center;
+}
+
+nav a {
+  margin: 1rem;
+}
+nav a.active {
+  color: orange;
+}
+
+.card {
+  border: 1px solid #eee;
+  padding: 1rem;
+  margin: 2rem auto;
 }
