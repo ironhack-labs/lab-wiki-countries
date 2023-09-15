@@ -1,22 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import HomePage from '/';
-import CountryDetailsPage from '/:countryId';
+// src/App.jsx
+
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
+import CountryDetailsPage from "./pages/CountryDetailsPage";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/:countryId" component={CountryDetailsPage} />
-        </Switch>
-      </div>
-    </Router>
+    <div className="App">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/:countryId" element={<CountryDetailsPage />} />
+      </Routes>
+    </div>
   );
 }
 
 export default App;
-
+CountryDetailsPage.jsx

@@ -1,43 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// src/pages/HomePage.jsx
+
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
+const API_URL = "https://ih-countries-api.herokuapp.com";
 
 function HomePage() {
-  // Create a state variable to store the list of countries
-  //const [countries, setCountries] = useState([]);
-
-  return (
-    <div className="container">
-      <h1 className="mt-5">WikiCountries: Your Guide to the World</h1>
-    </div>
-  );
+  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    // Define the API endpoint URL
-    const apiUrl = 'https://ih-countries-api.herokuapp.com/countries';
-
-    // Make a GET request to the API
     axios
-      .get(apiUrl)
+      .get(`${API_URL}/countries`)
       .then((response) => {
-        // Set the list of countries in the state
         setCountries(response.data);
       })
       .catch((error) => {
-        console.error('Error fetching data:', error);
+        console.log("error", error);
       });
-  }, []); // The empty dependency array means this effect runs once on component mount
+  }, []);
 
   return (
     <div>
-      <h1>WikiCountries: Your Guide to the World</h1>
-      <h2>List of Countries</h2>
-      <ul>
-        {countries.map((country) => (
-          <li key={country.alpha3Code}>
-            {country.name}
-          </li>
-        ))}
-      </ul>
+      <div
+        className="container"
+        style={{ maxHeight: "90vh", overflow: "scroll" }}
+      >
+        <h1 style={{ fontSize: "24px" }}>
+          WikiCountries: Your Guide to the World
+        </h1>
+
+        <div className="list-group">
+          {countries &&
+            countries.map((country) => {
+              return (
+                <Link
+                  key={country.alpha3Code}
+                  className="list-group-item list-group-item-action"
+                  to={`/${country.alpha3Code}`}
+                >
+                  <img
+                    width="50"
+                    src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                    alt={`flag-of-${country.name.common}`}
+                  />
+                  <p>{country.name.common}</p>
+                </Link>
+              );
+            })}
+        </div>
+      </div>
     </div>
   );
 }
