@@ -1,31 +1,77 @@
+import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import {useParams,  Link} from "react-router-dom";
 
-function CountryDetails() {
+const API_URL = "https://ih-countries-api.herokuapp.com";
 
-    const { alpha3Code  } = useParams();
+function CountryDetailsPage() {
+  const { countryId } = useParams();
 
-    const [countryDetails, setCountryDetails] = useState({});
+  const [foundCountry, setFoundCountry] = useState(null);
 
-    useEffect(() => {
-        axios.get("https://ih-countries-api.herokuapp.com" + alpha3Code)
-            .then(response => {
-                setCountryDetails(response.data)
-            })
-            .catch(e => {
-                console.log("error getting country details from API", e)
-            })
-    }, [])
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(`${API_URL}/countries/${countryId}`);
 
+      setFoundCountry(response.data);
+    };
 
+    fetchData();
+  }, [countryId]);
 
+  if (!foundCountry) {
     return (
-        <section>
-            <h1>Country Details</h1>
-            <h2>{countryDetails.name}</h2>
-        </section>
-    )
+      <div className="container text-center">
+        <p style={{ fontSize: "24px", fontWeight: "bold" }}>Country Details</p>
+        <br />
+        <p style={{ fontSize: "18px" }}> Loading... </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="container">
+      <p style={{ fontSize: "24px", fontWeight: "bold" }}>Country Details</p>
+      <br />
+      <img
+        src={`https://flagpedia.net/data/flags/icon/72x54/${foundCountry.alpha2Code.toLowerCase()}.png`}
+        alt={`flag-of-${foundCountry.name.common}`}
+        style={{ width: "100px" }}
+      />
+
+      <h1>{foundCountry.name.common}</h1>
+
+      <table className="table">
+        <thead></thead>
+        <tbody>
+          <tr>
+            <td style={{ width: "30%" }}>Capital</td>
+            <td>{foundCountry.capital[0]}</td>
+          </tr>
+          <tr>
+            <td>Area</td>
+            <td>
+              {foundCountry.area} km <sup>2</sup>
+            </td>
+          </tr>
+          <tr>
+            <td>Borders</td>
+            <td>
+              <ul>
+                {foundCountry.borders.map((alpha3, i) => {
+                  return (
+                    <div key={i}>
+                      <Link to={"/" + alpha3}>{alpha3}</Link>
+                    </div>
+                  );
+                })}
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
-export default CountryDetails;
+export default CountryDetailsPage;
