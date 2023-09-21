@@ -34,7 +34,7 @@ function HomePage() {
       <div className="list-group">
         {countries.map(({ name, countryCode, flagCode }) => (
           <Link
-            to={countryCode}
+            to={`/${countryCode}`}
             className="list-group-item list-group-item-action"
           >
             <img
