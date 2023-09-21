@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CountryList({ countries }) {
   return (
     <div
-      className="col-6 align-items-center"
+      className="col-12 d-flex justify-content-center"
       style={{ maxHeight: "90vh", overflow: "scroll" }}
     >
       <div className="list-group">
@@ -21,9 +21,10 @@ function CountryList({ countries }) {
                 <img
                   src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
                   alt={country.alpha3Code}
+                  className="img-thumbnail thumbnail-padding"
                 />
 
-                <h3>{country.name.common}</h3>
+                <h5>{country.name.common}</h5>
               </Link>
             </div>
           );

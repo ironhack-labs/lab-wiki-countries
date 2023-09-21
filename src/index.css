@@ -1,6 +1,14 @@
 .selected {
-    text-shadow: 1px 0px 3px rgb(246, 157, 157);
-    color: #0b89ff;
-    border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
-    padding-bottom: 5px;
-  }
+  text-shadow: 1px 0px 3px rgb(246, 157, 157);
+  color: #0b89ff;
+  border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
+  padding-bottom: 5px;
+}
+
+.thumbnail-padding {
+  margin-right: 1rem; /* Adjust the padding value as needed */
+}
+
+.text-margin-country {
+  margin-bottom: 1rem;
+}

@@ -18,24 +18,27 @@ function CountryDetails({ countries }) {
         setSelectedCountry(response.data);
       })
       .catch((err) => console.error(err));
-
-    if (!selectedCountry) {
-      <h1>still loading... 🐌</h1>;
-    }
   }, [alpha3code]);
 
-  console.log("SELECT", selectedCountry);
+  // if (!selectedCountry) {
+  //   <h1>still loading... 🐌</h1>;
+  // }
+
+  // console.log("SELECT", selectedCountry);
 
   return (
-    <div className="col-7">
+    <div className="col-12">
+     {!selectedCountry && <p>Still loading... 🐌</p>}
+      <h1 className="text-margin-country">Country Details</h1>
+
       {selectedCountry && (
         // While the data is being fetched, selectedCountry remains null.
         // If you tried to render content that depends on selectedCountry directly,
         // you might run into errors because selectedCountry doesn't have the expected data structure.
         // It is to avoid rendering content with potentially missing or invalid data.
         <div>
-          <div className="col-7">
-            <h1>{selectedCountry.name.common}</h1>
+          <div className="col-55">
+            <h3>{selectedCountry.name.common}</h3>
             <table className="table">
               <thead></thead>
               <tbody>
@@ -59,6 +62,13 @@ function CountryDetails({ countries }) {
                           (country) => country.alpha3Code === borderCode
                           //selected Country's Bcode === country of countries array 중 코드랑 맞으면 가져오기 (find!)
                         );
+
+                     // Check if borderCountry is undefined before rendering
+                       // Skip rendering for this border
+                        // if (!borderCountry) {
+                        //   return null; 
+                        // }
+
                         console.log("BorderC", borderCountry);
                         return (
                           <li>
