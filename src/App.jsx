@@ -38,7 +38,7 @@ function App() {
     <div className="App">
       {fetching && <p>Loading ...</p>}
       <Navbar />
-      <CountryList countries={countries} />
+      
       <Routes>
       <Route path="/" element={<CountryList countries={countries} />} /> 
       <Route
