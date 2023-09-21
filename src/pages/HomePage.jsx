@@ -31,9 +31,12 @@ function HomePage() {
         WikiCountries: Your Guide to the World
       </h1>
 
+      {!countries.length && <p>Loading...</p>}
+
       <div className="list-group">
         {countries.map(({ name, countryCode, flagCode }) => (
           <Link
+            key={countryCode}
             to={`/${countryCode}`}
             className="list-group-item list-group-item-action"
           >

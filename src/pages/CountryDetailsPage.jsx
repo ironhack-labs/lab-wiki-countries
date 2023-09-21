@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 function CountryDetails() {
-  const [countryDetails, setCountryDetails] = useState({});
+  const [countryDetails, setCountryDetails] = useState(null);
 
   const { countryId } = useParams();
 
@@ -29,38 +29,44 @@ function CountryDetails() {
     <div className="container">
       <p style={{ fontSize: "24px", fontWeight: "bold" }}>Country Details</p>
 
-      <h1>{countryDetails.name}</h1>
+      {!countryDetails && <p>Loading...</p>}
 
-      <table className="table">
-        <thead></thead>
-        <tbody>
-          <tr>
-            <td style={{ width: "30%" }}>Capital</td>
-            {countryDetails.capital?.map((capital) => (
-              <td key={capital}>{capital}</td>
-            ))}
-          </tr>
-          <tr>
-            <td>Area</td>
-            <td>
-              {countryDetails.area} km
-              <sup>2</sup>
-            </td>
-          </tr>
-          <tr>
-            <td>Borders</td>
-            <td>
-              <ul>
-                {countryDetails.borders?.map((border) => (
-                  <li key={border}>
-                    <Link to={`/${border}`}>{border}</Link>
-                  </li>
+      {countryDetails && (
+        <>
+          <h1>{countryDetails.name}</h1>
+
+          <table className="table">
+            <thead></thead>
+            <tbody>
+              <tr>
+                <td style={{ width: "30%" }}>Capital</td>
+                {countryDetails.capital?.map((capital) => (
+                  <td key={capital}>{capital}</td>
                 ))}
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              </tr>
+              <tr>
+                <td>Area</td>
+                <td>
+                  {countryDetails.area} km
+                  <sup>2</sup>
+                </td>
+              </tr>
+              <tr>
+                <td>Borders</td>
+                <td>
+                  <ul>
+                    {countryDetails.borders?.map((border) => (
+                      <li key={border}>
+                        <Link to={`/${border}`}>{border}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      )}
     </div>
   );
 }
