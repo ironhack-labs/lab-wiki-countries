@@ -55,10 +55,7 @@ function App() {
       </Button> */}
 
       {location.pathname !== "/countries" && (
-        <Button
-          type="link"
-          onClick={
-            () => navigate("/countries")}>  
+        <Button type="link" onClick={() => navigate("/countries")}>
           Go to Countries
         </Button>
       )}
@@ -78,9 +75,8 @@ function App() {
           element={<CountryDetails countries={countries} />}
         />
 
-        <Route path="*" element={<ErrorPage />} /> 
-        <Route path="/countries/*" element={<ErrorPage />} />
-
+        <Route path="*" element={<ErrorPage />} />
+        {/* <Route path="/countries/*" element={<ErrorPage />} /> */}
       </Routes>
     </div>
   );

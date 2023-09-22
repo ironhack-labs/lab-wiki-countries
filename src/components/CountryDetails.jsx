@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 function CountryDetails({ countries }) {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const { alpha3code } = useParams();
+  const [error, setError] = useState(null);
+  //const alpha3code=userParams().alpha3code
 
   // console.log("PARAMS", useParams(),alpha3code);
 
@@ -12,13 +14,20 @@ function CountryDetails({ countries }) {
 
   useEffect(() => {
     // console.log(alpha3code, "checking")
+    const fetchData = async () => {
+      const response = await axios.get(
+        `${apiDetailUrl}/countries/${alpha3code}`
+      );
+    };
+
     axios
       .get(apiDetailUrl)
       .then((response) => {
         setSelectedCountry(response.data);
       })
-      .catch((err) => console.error(err));
+      .catch((error) => setError(error));
   }, [alpha3code]);
+  //alpha3code is changing -> re-render
 
   // if (!selectedCountry) {
   //   <h1>still loading... 🐌</h1>;
@@ -26,9 +35,10 @@ function CountryDetails({ countries }) {
 
   // console.log("SELECT", selectedCountry);
 
+  if (!countries || !selectedCountry) return <div>loading...</div>;
   return (
     <div className="col-12">
-     {!selectedCountry && <p>Still loading... 🐌</p>}
+      {!selectedCountry && <p>Still loading... 🐌</p>}
       <h1 className="text-margin-country">Country Details</h1>
 
       {selectedCountry && (
@@ -57,27 +67,30 @@ function CountryDetails({ countries }) {
                   <td>Borders</td>
                   <td>
                     <ul>
-                      {selectedCountry.borders.map((borderCode) => {
-                        const borderCountry = countries.find(
-                          (country) => country.alpha3Code === borderCode
-                          //selected Country's Bcode === country of countries array 중 코드랑 맞으면 가져오기 (find!)
-                        );
+                      {selectedCountry.borders.borderCode &&
+                        selectedCountry.borders.map((borderCode) => {
+                          const borderCountry = countries.find(
+                            (country) => country.alpha3Code === borderCode
+                            //selected Country's Bcode === country of countries array 중 코드랑 맞으면 가져오기 (find!)
+                          );
 
-                     // Check if borderCountry is undefined before rendering
-                       // Skip rendering for this border
-                        // if (!borderCountry) {
-                        //   return null; 
-                        // }
+                          // Check if borderCountry is undefined before rendering
+                          // Skip rendering for this border
+                          // if (!borderCountry) {
+                          //   return null;
+                          // }
 
-                        console.log("BorderC", borderCountry);
-                        return (
-                          <li>
-                            <Link to={`/countries/${borderCountry.alpha3Code}`}>
-                              {borderCountry.name.common}
-                            </Link>
-                          </li>
-                        );
-                      })}
+                          console.log("BorderC", borderCountry);
+                          return (
+                            <li>
+                              <Link
+                                to={`/countries/${borderCountry.alpha3Code}`}
+                              >
+                                {borderCountry.name.common}
+                              </Link>
+                            </li>
+                          );
+                        })}
                     </ul>
                   </td>
                 </tr>
