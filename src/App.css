@@ -2,3 +2,16 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.Navbar {
+  margin: 0 auto;
+  padding: 1rem 3rem;
+  text-align: left;
+  font-size: xx-large;
+  background-color: blue;
+}
+
+.Link {
+  color: white;
+  text-decoration: none;
+}
