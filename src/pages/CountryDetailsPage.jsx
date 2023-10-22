@@ -1,43 +1,41 @@
-function CountryDetails() {
-    return (
-        <div className="container">
-        <p style={{fontSize: "24px", fontWeight: "bold"}}>Country Details</p>
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
 
-        <h1>France</h1>
 
-        <table className="table">
-          <thead></thead>
-          <tbody>
-            <tr>
-              <td style={{width: "30%"}}>Capital</td>
-              <td>Paris</td>
-            </tr>
-            <tr>
-              <td>Area</td>
-              <td>
-                551695 km
-                <sup>2</sup>
-              </td>
-            </tr>
-            <tr>
-              <td>Borders</td>
-              <td>
-                <ul>
-                  <li><a href="/AND">Andorra</a></li>
-                  <li><a href="/BEL">Belgium</a></li>
-                  <li><a href="/DEU">Germany</a></li>
-                  <li><a href="/ITA">Italy</a></li>
-                  <li><a href="/LUX">Luxembourg</a></li>
-                  <li><a href="/MCO">Monaco</a></li>
-                  <li><a href="/ESP">Spain</a></li>
-                  <li><a href="/CHE">Switzerland</a></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    );
+function CountryDetailsPage() {
+  const { alpha3Code } = useParams();
+  const [countryData, setCountryData] = useState(null);
+
+  useEffect(() => {
+    axios.get(`https://ih-countries-api.herokuapp.com/countries/${alpha3Code}`)
+      .then(response => {
+        setCountryData(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, [alpha3Code]);
+
+  if (countryData === null) {
+    return <p>Cargando...</p>;
+  }
+  return (
+    <div>
+      <h2>{countryData.name}</h2>
+      <p>Capital: {countryData.capital}</p>
+      <p>Área: {countryData.area} km²</p>
+      <p>Fronteras:</p>
+      <ul>
+        {countryData.borders.map(border => (
+          <li key={border}>
+            <Link to={`/countries/${border}`}>{border}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-export default CountryDetails;
+
+export default CountryDetailsPage;
