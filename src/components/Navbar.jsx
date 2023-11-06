@@ -1,11 +1,12 @@
 import {Link} from "react-router-dom"
+import { Card} from "antd";
+import "../App.css";
+
 function Navbar() {
     return(
-        <nav>
-            <h1>WikiCountrie</h1>
-            <Link to="/">Home</Link>
-            <Link to="/:countryId">Country</Link>
-        </nav>
+        <Card id="navbar">
+            <Link id="option-navbar" to="/">WikiCountries</Link>
+        </Card>
     )
 }
 
