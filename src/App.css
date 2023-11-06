@@ -6,3 +6,32 @@
 * ul{
   list-style: none;
 }
+
+* a{
+  text-decoration: 0;
+}
+
+.card{
+  border: 1px solid grey;
+  width:90%;
+  margin: 0 auto;
+}
+
+.card img{
+  width: 75px;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+* span{
+  font-weight: bold;
+}
+
+.border{
+  margin : 0 auto;
+  width: 33%;
+  justify-content: space-around;
+  display:flex;
+  border: none;
+  
+}

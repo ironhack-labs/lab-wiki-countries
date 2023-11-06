@@ -33,9 +33,10 @@ function CountryDetailsPage() {
         {!fetching && <div>
             <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} />
             {country.name.common}
-            <p>Capital: {country.capital}</p>
-            <p>Area: {country.area} Km²</p>
-            <p>Borders:</p>
+            <p><span>Capital:</span> {country.capital}</p>
+            <p><span>Area:</span> {country.area} Km²</p>
+            <div className="border">
+            <p><span>Borders:</span></p>
             <ul>
                 {country.borders.map((border,index)=>{
                     return(
@@ -43,6 +44,7 @@ function CountryDetailsPage() {
                     )
                 })}
             </ul>
+            </div>
             </div>}
         </div>
     )

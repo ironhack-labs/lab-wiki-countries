@@ -24,9 +24,9 @@ function HomePage() {
         countryList.map((country) =>{
         return(
             <Link to={`/${country.alpha3Code}`} key={countryList.indexOf(country)}>
-            <div >
+            <div className="card" >
                 <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}/>
-                <h3>{country.name.common}</h3>
+                <p style={{ fontSize: "20px", fontWeight: "bold"}}>{country.name.common}</p>
             </div>
             </Link>
         )}
