@@ -1,0 +1,46 @@
+nav {
+    background: #436EFE;
+    height: 80px;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    padding-top: 18px;
+    padding-left: 20px;
+
+}
+.main-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.container {
+    
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.list-group:hover {
+    background: #436EFE;
+}
+.list-group {
+    border: 1px solid rgba(0, 0, 0, 0.074);
+    display: flex;
+    width: 800px;
+    align-items: center;
+
+}
+
+.country-details-main {
+
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.no-link-effect {
+    text-decoration: none;
+    color: inherit;
+  }
