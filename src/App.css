@@ -2,3 +2,20 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.nav {
+  background-color: blue;
+  text-align: left;
+  
+
+}
+
+
+.flag-Name {
+
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+
+}
