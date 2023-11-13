@@ -1,54 +1,41 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 function CountryDetails() {
+  const { countryId } = useParams();
+  const [countryDetails, setCountryDetails] = useState(null);
+
+  useEffect(() => {
+    axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
+      .then((response) => {
+        setCountryDetails(response.data)
+        console.log(response.data)
+        // const selectedCountry = response.data.find((country) => country.alpha3Code === countryId);
+      })
+      .catch(error => {
+        console.log('Error getting details from API...')
+        console.log(error)
+      });
+  }, [countryId]);
+
   return (
     <>
-      <div>
-        <nav className="navbar navbar-dark bg-primary mb-3">
-          <div className="container">
-            <a className="navbar-brand" href="/">
-              WikiCountries
-            </a>
-          </div>
-        </nav>
-
-        <div className="container">
-          <p style={{ fontSize: '24px', fontWeight: 'bold' }}>Country Details</p>
-
-          <h1>France</h1>
-
-          <table className="table">
-            <thead></thead>
-            <tbody>
-              <tr>
-                <td style={{ width: '30%' }}>Capital</td>
-                <td>Paris</td>
-              </tr>
-              <tr>
-                <td>Area</td>
-                <td>
-                  551695 km<sup>2</sup>
-                </td>
-              </tr>
-              <tr>
-                <td>Borders</td>
-                <td>
-                  <ul>
-                    <li><Link to="/AND">Andorra</Link></li>
-                    <li><Link to="/BEL">Belgium</Link></li>
-                    <li><Link to="/DEU">Germany</Link></li>
-                    <li><Link to="/ITA">Italy</Link></li>
-                    <li><Link to="/LUX">Luxembourg</Link></li>
-                    <li><Link to="/MCO">Monaco</Link></li>
-                    <li><Link to="/ESP">Spain</Link></li>
-                    <li><Link to="/CHE">Switzerland</Link></li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      {!countryDetails ? (
+        <p>loading...</p>
+      ) : (
+        <>
+          <p>{countryId }</p>
+          <h2>Country Details</h2>
+         
+            <div>
+              <h1>{countryDetails.name.common}</h1>
+              <p>Capital: {countryDetails.capital}</p>
+              <p>Area: {countryDetails.area} km<sup>2</sup></p>
+            </div>
+        
+        </>
+      )}
     </>
   );
 }
