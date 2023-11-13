@@ -32,13 +32,13 @@ function CountryDetails() {
                         <h1>{countryDetails.name.common}</h1>
                         <h3>Capital: {countryDetails.capital}</h3>
                         <h3>Area: {countryDetails.area} sqm</h3>
-                        {countryDetails.borders.map((border) => {
-                            return (
-                                <ul>
-                                    <Link to={`/${border}`}>{border}</Link>
-                                </ul>
-                            )
-                        })}
+                        <ul>
+                            {countryDetails.borders.map((border) => {
+                                return (
+                                    <li key={border}><Link to={`/${border}`}>{border}</Link></li>
+                                )
+                            })}
+                        </ul>
                     </div>
                 }
             </div>
