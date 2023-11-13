@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 
-
 import axios from "axios";
-
-
 
 function HomePage() {
     const [countriesArr, setCountriesArr] = useState(null);
@@ -19,6 +16,8 @@ function HomePage() {
             console.log(error);
           });
       }, []);
+
+      const getFlagImg = (alpha2Code) => `https://flagpedia.net/data/flags/icon/72x54/${alpha2Code.toLowerCase()}.png`;
 
     return (
         <div>
@@ -43,7 +42,15 @@ function HomePage() {
                                 key={country.alpha3Code} className="list-group-item list-group-item-action"
                                 to={`/${country.alpha3Code}`}
                             >
+                                {country.alpha2Code && (
+                                    <img
+                                        src={getFlagImg(country.alpha2Code)} alt={`Flag of ${country.name.common}`}
+                                        style={{ marginRight: '10px' }}
+                                    />
+                                )}
+                                <br></br>
                                 {country.name.common}
+                                
                             </Link>
                         ))}
                 </div>
