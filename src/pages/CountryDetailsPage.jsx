@@ -1,12 +1,12 @@
-import axios from "axios";
+import axios from "axios"
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function CountryDetails() {
 
-const {countryId} = useParams()
+    const { countryId } = useParams()
 
-const [countryDetails, setCountryDetails] = useState({})
+    const [countryDetails, setCountryDetails] = useState(null)
 
     useEffect(() => {
         axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
@@ -21,27 +21,27 @@ const [countryDetails, setCountryDetails] = useState({})
 
     console.log(countryDetails)
 
-
     return (
         <div>
-        <h1>Country Details</h1>
-        <h3>{countryDetails.capital}</h3>
-        <h3>{countryDetails.area}</h3>
-        <h1>{countryDetails.name.common}</h1>
-
-        { !countryDetails 
-        ? <p>Loading...</p>
-        : <div>
-            {/* <h1>{countryDetails.name.common}</h1> */}
-           
-            
-            {countryDetails.borders.map((border) => {
-                return ( 
-                        <h3>{border}</h3>
-                )
-            })}
-        </div>
-        }
+            <h1>Country Details</h1>
+            <div>
+                {!countryDetails
+                    ? <p>Loading...</p>
+                    : <div>
+                        <img src={`https://flagpedia.net/data/flags/icon/72x54/${countryDetails.alpha2Code.toLowerCase()}.png`} />
+                        <h1>{countryDetails.name.common}</h1>
+                        <h3>Capital: {countryDetails.capital}</h3>
+                        <h3>Area: {countryDetails.area} sqm</h3>
+                        {countryDetails.borders.map((border) => {
+                            return (
+                                <ul>
+                                    <Link to={`/${border}`}>{border}</Link>
+                                </ul>
+                            )
+                        })}
+                    </div>
+                }
+            </div>
         </div>
     )
 }
