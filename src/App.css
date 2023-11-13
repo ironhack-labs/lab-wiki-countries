@@ -2,3 +2,32 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.navBar {
+  background-color: #B0C4DE; 
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  font-size: 1.5rem;
+  padding-left: 40px;
+  padding: 15px;
+}
+
+.countriesBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid lightgray;
+  width: 400px;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.test a {
+  text-decoration: none;
+  color: black;
+}
