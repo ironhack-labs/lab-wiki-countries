@@ -2,6 +2,8 @@ import React from 'react';
 
 function CountryDetails() {
   return (
+
+    
     <div>
      
       <nav className="navbar navbar-dark bg-primary mb-3">
