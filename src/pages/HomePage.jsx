@@ -3,20 +3,19 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function HomePage() {
- 
- const [countries, setCountries] = useState([])
 
- useEffect(() => {
-    axios.get("https://ih-countries-api.herokuapp.com/countries")
-    .then((response) => {
-        console.log(response.data)
-       setCountries(response.data)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
- }, [])
- 
+    const [countries, setCountries] = useState([])
+
+    useEffect(() => {
+        axios.get("https://ih-countries-api.herokuapp.com/countries")
+            .then((response) => {
+                console.log(response.data)
+                setCountries(response.data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }, [])
 
     return (
         <div>
