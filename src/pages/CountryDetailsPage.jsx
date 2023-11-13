@@ -1,74 +1,80 @@
 import React from 'react';
+import { Routes, Route, useParams, Link } from 'react-router-dom';
+import axios from "axios";
+import { useEffect, useState } from 'react'
 
-function CountryDetails() {
-  return (
+function CountryDetails(props) {
+ 
+  const { alpha3Code } = useParams();
+  const [countryData, setCountryData] = useState(null);
 
-    
-    <div>
-     
-      <nav className="navbar navbar-dark bg-primary mb-3">
-        <div className="container">
-          <a className="navbar-brand" href="/">
-            WikiCountries
-          </a>
-        </div>
-      </nav>
+  useEffect(() => {
+    axios.get(`https://ih-countries-api.herokuapp.com/countries/${alpha3Code}`)
+      .then((response) => {
+        setCountryData(response.data);
+      })
+      .catch((error) => {
+        console.log(`Error getting country details for ${alpha3Code} from the API...`);
+        console.log(error);
+      });
+  }, [alpha3Code]);
 
-      
+return (
+  <div>
+
+    <nav className="navbar navbar-dark bg-primary mb-3">
       <div className="container">
-        <p style={{ fontSize: '24px', fontWeight: 'bold' }}>Country Details</p>
-
-        <h1>France</h1>
-
-        <table className="table">
-          <thead></thead>
-          <tbody>
-            <tr>
-              <td style={{ width: '30%' }}>Capital</td>
-              <td>Paris</td>
-            </tr>
-            <tr>
-              <td>Area</td>
-              <td>
-                551695 km<sup>2</sup>
-              </td>
-            </tr>
-            <tr>
-              <td>Borders</td>
-              <td>
-                <ul>
-                  <li>
-                    <a href="/AND">Andorra</a>
-                  </li>
-                  <li>
-                    <a href="/BEL">Belgium</a>
-                  </li>
-                  <li>
-                    <a href="/DEU">Germany</a>
-                  </li>
-                  <li>
-                    <a href="/ITA">Italy</a>
-                  </li>
-                  <li>
-                    <a href="/LUX">Luxembourg</a>
-                  </li>
-                  <li>
-                    <a href="/MCO">Monaco</a>
-                  </li>
-                  <li>
-                    <a href="/ESP">Spain</a>
-                  </li>
-                  <li>
-                    <a href="/CHE">Switzerland</a>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <a className="navbar-brand" href="/">
+          WikiCountries
+        </a>
       </div>
+    </nav>
+
+
+    <div className="container">
+      <p style={{ fontSize: '24px', fontWeight: 'bold' }}>Country Details</p>
+
+      {countryData
+        ? (<div>
+          <h1>{countryData.name.common}</h1>
+
+          <table className="table">
+            <thead></thead>
+            <tbody>
+              <tr>
+                <td style={{ width: '30%' }}>Capital</td>
+                <td>{countryData.capital}</td>
+              </tr>
+              <tr>
+                <td>Area</td>
+                <td>
+                  {countryData.area} km<sup>2</sup>
+                </td>
+              </tr>
+              <tr>
+                <td>Borders</td>
+                <td>
+                  <ul style={{ listStyle: 'none'}}>
+                    {countryData.borders.map((borderUrl) => (
+                      <li key={borderUrl}>
+                        <Link to={`/${borderUrl}`}>{borderUrl}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        )
+        : (<p>Loading...</p>)
+      }
     </div>
+  </div>
   );
 }
+    
 
-export default CountryDetails;
+
+    export default CountryDetails;

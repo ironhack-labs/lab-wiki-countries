@@ -8,12 +8,12 @@ function App() {
   return (
     <>
     <div className="App">
-      <h1>LAB | React WikiCountries</h1>
+      <h1>WikiCountries</h1>
     </div>
 
     <Routes>
     <Route path='/' element={<HomePage />} />
-    <Route path='/:countryId' element={<CountryDetailsPage />} />
+    <Route path="/:alpha3Code" element={<CountryDetailsPage />} />
   </Routes>
   </>
 
