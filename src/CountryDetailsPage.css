@@ -1,0 +1,25 @@
+.countryDetails {
+    display: inline-block;
+    padding: 10%;
+    list-style: none;
+    padding-top: 20px;
+}
+
+.listBorder {
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    
+}
+
+h1 {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+div img {
+    width: 50%;
+    height: auto;
+    padding-bottom: 30px;
+}
