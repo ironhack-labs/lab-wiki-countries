@@ -59,7 +59,7 @@ function HomePage() {
                 ? <p>loading...</p>
                 : countries.length && countries.map((countryDetails, index) => {
                   return (
-                    <Link to ={`${countryDetails.alpha3Code
+                    <Link to ={`/countries/${countryDetails.alpha3Code
                     }`} key={countryDetails._id}>
                       {console.log(countryDetails)}
                       <li  className="list-group-item list-group-item-action">
