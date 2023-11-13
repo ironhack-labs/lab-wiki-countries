@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function CountryDetails() {
   const { countryId } = useParams();
@@ -9,9 +9,8 @@ function CountryDetails() {
   useEffect(() => {
     axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
       .then((response) => {
-        setCountryDetails(response.data)
-        console.log(response.data)
-        // const selectedCountry = response.data.find((country) => country.alpha3Code === countryId);
+        setCountryDetails(response.data);
+        console.log(response.data);
       })
       .catch(error => {
         console.log('Error getting details from API...')
@@ -25,15 +24,25 @@ function CountryDetails() {
         <p>loading...</p>
       ) : (
         <>
-          <p>{countryId }</p>
+          <p>{countryId}</p>
           <h2>Country Details</h2>
-         
-            <div>
-              <h1>{countryDetails.name.common}</h1>
-              <p>Capital: {countryDetails.capital}</p>
-              <p>Area: {countryDetails.area} km<sup>2</sup></p>
-            </div>
-        
+          <div>
+            <h1>{countryDetails.name.common}</h1>
+            <p>Capital: {countryDetails.capital}</p>
+            <p>Area: {countryDetails.area} km<sup>2</sup></p>
+            {countryDetails.borders && (
+              <>
+                <p>Bordering countries:</p>
+                <ul>
+                  {countryDetails.borders.map((border) => (
+                    <li key={border}>
+                      <Link to={`/countries/${border}`}>{border}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
         </>
       )}
     </>
