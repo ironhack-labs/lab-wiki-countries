@@ -2,3 +2,16 @@
   margin: 0 auto;
   text-align: center;
 }
+
+#countries-grid {
+  width : 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.Country {
+  width : 25vw;
+
+}
