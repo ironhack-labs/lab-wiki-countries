@@ -1,6 +1,26 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
+
 function HomePage() {
+
+  const [countries, setCountries] = useState(null);
+
+  useEffect(() => {
+    axios.get("https://ih-countries-api.herokuapp.com/countries")
+      .then((response)=> {
+        setCountries(response.data)
+      } )
+      .catch((error) => {
+        console.log("Error getting countries from the API...")
+        console.log(error)
+      })
+  },[])
+
+  // console.log(countries)
+
   return (
     <>
       <h1>WikiCountries: Your Guide to the World</h1>
@@ -16,7 +36,7 @@ function HomePage() {
         <div className="container" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
           <h1 style={{ fontSize: '24px' }}>WikiCountries: Your Guide to the World</h1>
 
-          <div className="list-group">
+          {/* <div className="list-group">
             <Link to="/ABW" className="list-group-item list-group-item-action">🇦🇼 Aruba</Link>
             <Link to="/AFG" className="list-group-item list-group-item-action">🇦🇫 Afghanistan</Link>
             <Link to="/AGO" className="list-group-item list-group-item-action">🇦🇴 Angola</Link>
@@ -32,7 +52,23 @@ function HomePage() {
             <Link to="/FLK" className="list-group-item list-group-item-action">🇫🇰 Falkland Islands</Link>
             <Link to="/FRA" className="list-group-item list-group-item-action active">🇫🇷 France</Link>
             <Link to="/ZWE" className="list-group-item list-group-item-action">🇿🇼 Zimbabwe</Link>
+          </div> */}
+          <div className="container" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
+            <ul>
+              {countries === null
+                ? <p>loading...</p>
+                : countries.length && countries.map((countryDetails, index) => {
+                  return (
+                    <li key={countryDetails._id} className="list-group-item list-group-item-action">
+                      <p>{countryDetails.name.common}</p> 
+                    </li>
+                  )
+                })
+              }
+            </ul> 
           </div>
+          
+
         </div>
       </div>
     </>
