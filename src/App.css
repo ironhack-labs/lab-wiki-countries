@@ -2,3 +2,52 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.navbar {
+  background-color: #646dff;
+  padding: 20px;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.home-page, .country-details-page {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.home-page h1, .country-details-page h1 {
+  margin: 30px;
+}
+
+.countries-list {
+  background-color: #a9adf28c;
+  padding: 1px;
+  border: 2px solid #646dff;
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.countries-list img {
+  margin: 10px;
+}
+
+.countries-list p {
+  color: black;
+}
+
+.country-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #a9adf28c;
+  border: 2px solid #646dff;
+  margin: 30px;
+  padding: 20px;
+
+}
+
+.country-details img {
+  width: 100px;
+}
