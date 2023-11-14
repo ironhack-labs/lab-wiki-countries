@@ -11,8 +11,6 @@ function App() {
 
   const [countries, setCountries] = useState([])
   
-  let {alpha3Code} = useParams()
-  
   useEffect(() => {
     axios.get("https://ih-countries-api.herokuapp.com/countries")
     .then((response) => {
@@ -25,12 +23,13 @@ function App() {
     <>
     <div className="App">
     </div>
-    <CountriesList countriesArray={countries}/>
     <Routes>
+    <Route path="/" element={<CountriesList countriesArray={countries}/>}/>
     <Route path="/:alpha3Code" element={<CountryDetails countriesArray={countries}/>}/>
     </Routes>
     </>
   );
 }
+
 
 export default App;

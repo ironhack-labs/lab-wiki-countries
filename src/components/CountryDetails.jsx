@@ -1,4 +1,11 @@
+import axios from "axios";
+import { useParams } from "react-router-dom";
+
 function CountryDetails(props) {
+
+    axios.get("https://ih-countries-api.herokuapp.com/countries/:alpha3Code")
+
+
   return (
     <>
       <h1>Details of country</h1>
