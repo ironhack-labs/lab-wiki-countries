@@ -28,20 +28,37 @@ function CountryDetails() {
                     : <div className='country-details'>
                         <img src={`https://flagpedia.net/data/flags/icon/72x54/${countryDetails.alpha2Code.toLowerCase()}.png`} alt='country flag'/>
                         <h1>{countryDetails.name.common}</h1>
-                        <h2>Capital: {countryDetails.capital}</h2>
-                        <h2>Area: {countryDetails.area} km<sup>2</sup></h2>
-                        <h2>Borders:</h2>
-                        {countryDetails.borders.map((border) => {
-                            return (
-                                <NavLink to={`/${border}`}>
-                                    <h2>{border}</h2>
-                                </NavLink>
-                            )
-                        })}
+                        
+                        <table className='country-details-table'>
+                            <tbody>
+                                <tr>
+                                    <td>Capital:</td>
+                                    <td>{countryDetails.capital}</td>
+                                </tr>
+                                <tr>
+                                    <td>Area:</td>
+                                    <td>{countryDetails.area} km<sup>2</sup></td>
+                                </tr>
+                                <tr>
+                                    <td>Borders:</td>
+                                    <td>{countryDetails.borders.map((border) => {
+                                            return (
+                                                <NavLink to={`/${border}`}>
+                                                    <h2>{border}</h2>
+                                                </NavLink>
+                                            )
+                                        })}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
                       </div>
                 }
             </div>
-            <NavLink to='/'>Home</NavLink>
+            <NavLink to='/' className='nav-link'>
+                <p>Home</p>
+            </NavLink>
         </div>
     )
 }
