@@ -29,7 +29,7 @@ function CountryDetails() {
                         <img src={`https://flagpedia.net/data/flags/icon/72x54/${countryDetails.alpha2Code.toLowerCase()}.png`} alt='country flag'/>
                         <h1>{countryDetails.name.common}</h1>
                         <h2>Capital: {countryDetails.capital}</h2>
-                        <h2>Area: {countryDetails.area}m2</h2>
+                        <h2>Area: {countryDetails.area} km<sup>2</sup></h2>
                         <h2>Borders:</h2>
                         {countryDetails.borders.map((border) => {
                             return (
