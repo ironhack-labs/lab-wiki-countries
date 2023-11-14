@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import axios from "axios";
 
 function CountryDetails() {
+  console.log("CountryDetails invoked!")
   const { countryId } = useParams();
 
   const [countryDetails, setCountryDetails] = useState(null);
@@ -15,7 +16,7 @@ function CountryDetails() {
         setCountryDetails(response.data);
       })
       .catch((error) => console.log("error: ", error));
-  });
+  },[countryId]);
 
   return (
     <>
