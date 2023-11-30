@@ -1,7 +1,9 @@
 function Navbar() {
-    <nav>
-        "WikiCountries"
-    </nav>
-}
+    return (
+      <nav>
+        WikiCountries
+      </nav>
+    );
+  }
 
 export default Navbar;
