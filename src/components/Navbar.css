@@ -1,0 +1,11 @@
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-text {
+  font-size: 20px;
+  color: white !important;
+  margin: 20px;
+  padding-left: 20px;
+}
