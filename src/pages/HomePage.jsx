@@ -6,7 +6,7 @@ export default function HomePage() {
   const apiURL = 'https://ih-countries-api.herokuapp.com/countries';
   const [countries, setCountries] = useState([]);
 
-  useEffect((props) => {
+  useEffect(() => {
     axios.get(apiURL).then((resp) => setCountries(resp.data));
   }, []);
 

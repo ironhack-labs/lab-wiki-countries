@@ -1,24 +1,27 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 export default function CountryDetails() {
-  let { countryCode } = useParams();
-  const [countryInfo, setCountryInfo] = useState(null);
-  const API_URL = `https://ih-countries-api.herokuapp.com/countries/${countryCode}`;
+  let { alpha3Code } = useParams();
+  const [countryInfo, setCountryInfo] = useState({});
+  const [data, setData] = useState(true);
 
+  console.log('HALLO, ', alpha3Code);
   useEffect(() => {
-    axios.get(API_URL).then((res) => {
-      setCountryInfo(res.data);
+    const API_URL_INFO = `https://ih-countries-api.herokuapp.com/countries/`;
+    axios.get(API_URL_INFO + alpha3Code).then((resp) => {
+      setCountryInfo(resp.data);
+      setData(false);
     });
-  }, [countryCode]);
+  }, [alpha3Code]);
 
   return (
     <>
       <h2>Country Details</h2>
-      {!countryInfo && <h3>Country not found!</h3>}
+      {data && <h3>Country not found!</h3>}
 
-      {countryInfo && (
+      {!data && (
         <div>
           <h3>{countryInfo.name.common}</h3>
           <h4>Capital:</h4>
