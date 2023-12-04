@@ -2,3 +2,19 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.ava-font-light {
+  font-weight: 600;
+  color: white !important; 
+}
+
+.ava-font-dark {
+  font-weight: 600;
+  color: black !important; 
+}
+
+.margin-heading {
+  margin: 40px 0;
+}
+
+
