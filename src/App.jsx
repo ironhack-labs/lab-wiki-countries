@@ -1,9 +1,19 @@
 import "./App.css";
+import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
+import CountryDetailsPage from "./pages/CountryDetailsPage";
+import { Routes, Route } from 'react-router-dom'
+import Error from './pages/Error'
 
 function App() {
   return (
     <div className="App">
-      <h1>LAB | React WikiCountries</h1>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path='/:countryId' element={<CountryDetailsPage />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
     </div>
   );
 }
