@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import "./App.css";
+import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import CountriesList from "./components/CountriesList";
+import CountryDetails from "./components/CountryDetails";
+import { Routes, Route } from "react-router-dom";
+import axios from "axios";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const [countries, setCountries] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://ih-countries-api.herokuapp.com/countries");
+        response.data.sort((a, b) => a.alpha3Code.localeCompare(b.alpha3Code))
 
+        setCountries(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+
+
+
+  return <div className="App">
+    <Navbar />
+    <div className="container">
+      <div className="row">
+        <CountriesList countries={countries} />
+        <Routes>
+          <Route path="/:alpha3Code" element={<CountryDetails countries={countries} />} />
+        </Routes>
+      </div>
+    </div>
+  </div>;
+}
 export default App;
