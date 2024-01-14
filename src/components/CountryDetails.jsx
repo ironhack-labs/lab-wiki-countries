@@ -1,20 +1,44 @@
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-function CountryDetails(props) {
-
-    axios.get("https://ih-countries-api.herokuapp.com/countries/:alpha3Code")
-
-
+function CountryDetails() {
+const { id } = useParams()
+const [countryDetails, setCountryDetails] = useState(null)
+const navigate = useNavigate()
+  useEffect(() => {
+    axios.get(`https://ih-countries-api.herokuapp.com/countries/${id}`)
+    .then((response) => {
+      setCountryDetails(response.data)
+    })
+    .catch(error => error)
+  }, []);
   return (
-    <>
-      <h1>Details of country</h1>
-      <img src={`https://flagpedia.net/data/flags/icon/72x54/${props.country.alpha2Code.toLowerCase()}.png`}/>
-      <h1>{props.country.name.common}</h1>
-        <h2>Capital: {props.country.capital}</h2>
-        <h2>Area: {props.country.area}m2</h2>
-        <h2>Borders:</h2>                
-  </>
+    <div className="container">
+      <div className="details">
+                {countryDetails === null
+                    ? <p>Loading country details...</p>
+                    : <div>
+                        <h1>{countryDetails.name.common}</h1>
+                        <p>Capital: {countryDetails.capital}</p>
+                        <p>Area: {countryDetails.area} m²</p>
+                        {countryDetails.borders.length > 0 && <p>Borders:</p>}
+                        <div className="container">
+                        {countryDetails.borders.map((border) => {
+                          return (
+                                <Link className="link card" to={`/${border}`}>
+                                    <p>{border}</p>
+                                </Link>
+                              )
+                            })}
+                            </div>
+                            
+                    </div>
+                }
+                <button onClick={() => {navigate(-1)}}>Back</button>
+            </div>
+          
+  </div>
   );
 }
 export default CountryDetails;
