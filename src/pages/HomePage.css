@@ -1,0 +1,20 @@
+#HomePage {
+    padding: 32px 72px;
+}
+
+#HomePage > h1 {
+    margin-bottom: 20px;
+}
+
+#HomePage ul {
+    list-style: none;
+    padding: 0;
+}
+
+#HomePage ul li {
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+    padding: 12px;
+    font-size: 1.25rem;
+    max-width: 1000px;
+}
