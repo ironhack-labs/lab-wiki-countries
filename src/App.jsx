@@ -8,9 +8,14 @@ function App() {
    <>
       <Navbar/>
 
+      <Routes>
+        <Route path='/' element={<Homepage></Homepage>}></Route>
+      </Routes>
+
    </>
   );
 }
 
 export default App;
+
 
