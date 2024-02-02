@@ -1,0 +1,16 @@
+#CountryDetails {
+    padding: 12px 72px;
+}
+
+#CountryDetails .page-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+#CountryDetails .country-data .row {
+    border-bottom: 1px solid lightgray;
+    padding: 12px;
+    font-size: 1.25rem;
+}
