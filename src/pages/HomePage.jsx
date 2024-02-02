@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const [countries, setCountries] = useState([]);
@@ -19,7 +20,7 @@ function HomePage() {
         {countries.map((country) => {
           return (
             <li className="country-item" key={country._id}>
-              <span>{country.name.common}</span>
+              <Link to={country._id}>{country.name.common}</Link>
             </li>
           );
         })}
