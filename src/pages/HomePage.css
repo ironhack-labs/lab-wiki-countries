@@ -19,10 +19,7 @@
   max-width: 1000px;
 }
 
-.Link {
-  text-decoration: none;
-  color: white;
-}
+
 
 .country-item {
   display: flex;
@@ -33,4 +30,9 @@
 
 .country-item img {
   width: 5%;
+}
+
+.country-name {
+  text-decoration: none;
+  color: black;
 }

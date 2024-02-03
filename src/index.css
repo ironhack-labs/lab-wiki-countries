@@ -6,3 +6,7 @@
   display: flex;
 }
 
+.Link {
+  text-decoration: none;
+  color: white;
+}
