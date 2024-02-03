@@ -1,10 +1,16 @@
 import "./App.css";
+import { Route, Routes } from 'react-router-dom'
+import HomePage from "./pages/HomePage";
+import CountryDetails from "./pages/CountryDetailsPage";
 
 function App() {
   return (
-    <div className="App">
-      <h1>LAB | React WikiCountries</h1>
-    </div>
+    <>
+    <Routes>
+      <Route path="/" element={<HomePage></HomePage>}></Route>
+      <Route path="/:countryId" element={<CountryDetails></CountryDetails>}></Route>
+    </Routes>
+    </>
   );
 }
 
