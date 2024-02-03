@@ -18,12 +18,15 @@ function HomePage() {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <h1>WikiCountries</h1>
       {countriesData.map((country) => {
         return (
-          <div key={country._id}>
-            <Link to={`/${country.alpha3Code}`}>
+          <div key={country._id} className="list-group">
+            <Link
+              to={`/${country.alpha3Code}`}
+              className="list-group-item list-group-item-action"
+            >
               <img
                 src={` https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
                 alt=""
@@ -33,7 +36,7 @@ function HomePage() {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 

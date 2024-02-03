@@ -22,29 +22,42 @@ function CountryDetails() {
   }, [alpha3]);
 
   return (
-    <>
-      <h1>Country Details</h1>
+    <div className="container">
+      <p style={{ fontSize: "24px", fontWeight: "bold" }}>Country Details</p>
       {oneCountryData.length === 0 && <p>Loading Data..</p>}
       {oneCountryData.length !== 0 && (
-        <div>
-          <img
-            src={` https://flagpedia.net/data/flags/icon/72x54/${oneCountryData.alpha2Code.toLowerCase()}.png`}
-            alt=""
-          />
-          <h4>{oneCountryData.name.common}</h4>
-          <p>Capital: {oneCountryData.capital[0]}</p>
-          <p>Area: {oneCountryData.area}km</p>
-          <p>Borders:</p>
-          {oneCountryData.borders.map((border) => {
-            return (
-              <Link key={border} to={`/${border}`}>
-                <p> {border} </p>
-              </Link>
-            );
-          })}
+        <div className="country-container">
+          <div className="country-data">
+            <img
+              src={` https://flagpedia.net/data/flags/icon/72x54/${oneCountryData.alpha2Code.toLowerCase()}.png`}
+              alt=""
+            />
+            <h4>{oneCountryData.name.common}</h4>
+            <p>
+              <span className="label">Capital</span>:{" "}
+              {oneCountryData.capital[0]}
+            </p>
+            <p>
+              <span className="label">Area:</span> {oneCountryData.area}km²
+            </p>
+          </div>
+          <div className="borders">
+            <p>Borders:</p>
+            {oneCountryData.borders.map((border) => {
+              return (
+                <Link
+                  key={border}
+                  to={`/${border}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <p className="borderP"> {border} </p>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

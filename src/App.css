@@ -2,3 +2,53 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.country-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 4em;
+}
+
+.country-data{
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.country-data img{
+  width: 70px;
+
+}
+
+.borders{
+  display: flex;
+  gap: 5%;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.borders > p{
+  font-weight: 800;
+}
+
+.borderP {
+  color: black;
+  border: 1px solid black;
+  padding: 0.4em 0.6em;
+  border-radius: 15px;
+}
+
+.borderP:hover{
+  background-color: #0D6EFD;
+  color: white;
+  border: 1px solid #0D6EFD;
+}
+
+.label{
+  font-weight: 700;
+}
