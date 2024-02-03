@@ -11,7 +11,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<HomePage></HomePage>}></Route>
-        <Route path="/:alpha3Code" element={<CountryDetails></CountryDetails>}></Route>
+        <Route path="/:countryId" element={<CountryDetails></CountryDetails>}></Route>
       </Routes>
     </div>
   );
