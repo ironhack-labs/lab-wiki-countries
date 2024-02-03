@@ -28,6 +28,7 @@ function CountryDetails() {
     if(!country){
         return <div>Loading...</div>
     }
+    
 
     return(
         <div>
@@ -37,7 +38,9 @@ function CountryDetails() {
             <p>Capital: {country.capital}</p>
             <p>Area: {country.area} km²</p>
             <p>Borders: </p>
+           
             {country.borders.map((oneBorder)=>{
+              
                 
 
                 return(
