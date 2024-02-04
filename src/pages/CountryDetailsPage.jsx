@@ -22,7 +22,7 @@ function CountryDetails() {
     }
 
     return (
-        <div>
+        <div className="container mt-4">
             <h2>Country Details</h2>
             <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="" />
             <h3>Name: {country.name.common}</h3>
@@ -32,8 +32,8 @@ function CountryDetails() {
             
             {country.borders.length > 0 ? (
                 country.borders.map((oneBorder) => (
-                    <div key={oneBorder}>
-                        <Link to={`/${oneBorder}`}>
+                    <div key={oneBorder} className="container mt-4">
+                        <Link to={`/${oneBorder}`} className="btn btn-light">
                             <p>{oneBorder}</p>
                         </Link>
                     </div>
@@ -41,6 +41,10 @@ function CountryDetails() {
             ) : (
                 <p>None</p>
             )}
+
+            <Link to={"/"}>
+              <button className="btn btn-info" style={{marginTop:"30px"}}>Back to Homepage</button>
+            </Link>
         </div>
     )
 }

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 function HomePage() {
 
     const [countries,setCountries] = useState([])
+    const [searchQuery, setSearchQuery] = useState('')
+    
 
     useEffect(()=>{
         axios.get('https://ih-countries-api.herokuapp.com/countries')
@@ -17,15 +19,27 @@ function HomePage() {
         })
     }, [])
 
+    const filteredCountries = countries.filter((country)=> country.name.common.toLowerCase().startsWith(searchQuery.toLowerCase()))
+
+    function handleChange(e){
+        setSearchQuery(e.target.value)
+    }
+
     return(
         <div>
             <h1>WikiCountries: Your Guide to the World</h1>
-            {countries.map((country)=>{
+            <input
+         type="text"
+         placeholder="Search countries..."
+         value={searchQuery}
+         onChange={handleChange}
+         />
+            {filteredCountries.map((country)=>{
                 return(
-                <div key={country._id}>
-                  <Link to={`${country.alpha3Code}`}>
+                <div key={country._id} className="border border-light shadow p-3 mb-5 bg-white rounded">
+                  <Link style={{textDecoration:"none"}} to={`${country.alpha3Code}`}>
                     <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}></img>
-                    <p>{country.name.common}</p>
+                    <p className="country-name">{country.name.common}</p>
                   </Link>
                 </div>
                  
