@@ -3,6 +3,7 @@
   text-align: center;
 }
 
+
 .borderContainer{
 display: flex;
 justify-content: center;
@@ -14,6 +15,5 @@ flex-direction: column;
 
 }
 
-/* .coli{
-  text-decoration: none;
-} */
+
+
