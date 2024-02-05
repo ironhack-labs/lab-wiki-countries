@@ -2,3 +2,18 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.borderContainer{
+display: flex;
+justify-content: center;
+}
+
+.items{
+display: flex;
+flex-direction: column;
+
+}
+
+/* .coli{
+  text-decoration: none;
+} */
