@@ -11,7 +11,7 @@ function CountryDetails() {
 
     
     useEffect(() => {
-        // Get the project by id from the server
+        // Get the country by id from the server
         axios.get('https://ih-countries-api.herokuapp.com/countries/' + countryId)
         .then((response) => {
             console.log(response)
