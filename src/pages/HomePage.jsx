@@ -2,18 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-function HomePage() {
-  const [countries, setCountries] = useState();
-
-  useEffect(() => {
-    axios
-      .get(" https://ih-countries-api.herokuapp.com/countries")
-      .then((response) => {
-        console.log(response);
-        setCountries(response.data);
-      })
-      .catch((error) => console.error(error));
-  }, []);
+function HomePage(props) {
+  const { countries } = props;
 
   const countriesName = () => {
     return (
