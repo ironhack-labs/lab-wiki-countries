@@ -1,5 +1,7 @@
 function Navbar() {
-  return <nav>WikiCountries</nav>;
+  return (
+    <nav style={{ color: "white", backgroundColor: "blue" }}>WikiCountries</nav>
+  );
 }
 
 export default Navbar;
