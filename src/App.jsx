@@ -28,7 +28,7 @@ const [countries, setCountries] = useState([])
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage countries={countries} />} />
-        <Route path="/country/:countryId" element={<CountryDetails />} />
+        <Route path="/country/:countryId" element={<CountryDetails countries={countries} />} />
       </Routes>
     </div>
   );
