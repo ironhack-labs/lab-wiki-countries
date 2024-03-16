@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 
 function HomePage({ countries }) {
   return (
-    <div>
-      <h1>WikiCountries: Your Guide to the World</h1>
+    <div className="container" >
+      <h1 style={{fontSize: "24px"}}>WikiCountries: Your Guide to the World</h1>
+
+      <div className="list-group">
       {countries.map((country) => (
-        <Link key={country._id} to={`/country/${country.alpha3Code}`}>
+        <Link className="list-group-item list-group-item-action" key={country._id} to={`/country/${country.alpha3Code}`}>
           <h3>{country.name.common}</h3>
           <img
             key={country._id}
@@ -15,6 +17,12 @@ function HomePage({ countries }) {
           />
         </Link>
       ))}
+
+
+
+
+
+      </div>
     </div>
   );
 }

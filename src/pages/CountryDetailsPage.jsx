@@ -27,12 +27,52 @@ function CountryDetails({ countries }) {
   console.log(country);
 
   return (
-    <div>
-      <h1>Country Details</h1>
-        {Object.keys(country).length === 0 ? (<p>Loading...</p>) :( 
+    <div className="container">
+      <p style={{ fontSize: "24px", fontWeight: "bold" }}>Country Details</p>{" "}
+      {Object.keys(country).length === 0 ? (
+        <p>Loading...</p>
+      ) : (
         <div>
-        <h2>{country.name.common}</h2>
-        <img
+          <h1>{country.name.common}</h1>
+          <img
+            key={country._id}
+            className="country-img"
+            src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+            alt={country.name.common}
+          />
+          <table className="table">
+            <thead></thead>
+            <tbody>
+              <tr>
+                <td style={{ width: "30%" }}>Capital</td>
+                <td>{country.capital}</td>
+              </tr>
+              <tr>
+                <td>Area</td>
+                <td>
+                  {country.area} km
+                  <sup>2</sup>
+                </td>
+              </tr>
+              <tr>
+                <td>Borders</td>
+                <td>
+                  <ul>
+                    {country.borders.map((border) => (
+                      <li key={border} style={{listStyleType: "none"}}>
+                        <Link to={`/country/${border}`}>
+                          <h3>{border}</h3>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          {/* 
+          <img
             key={country._id}
             className="country-img"
             src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
@@ -40,13 +80,16 @@ function CountryDetails({ countries }) {
           />
           <h3>Capital : {country.capital}</h3>
           <h3>Area : {country.area}km2</h3>
-          <h3>Borders : {country.borders.map((border) => (
-        <Link key={border} to={`/country/${border}`}>
-          <h3>{border}</h3>
-        </Link>
-      ))}</h3>
-        </div>)
-         }
+          <h3>
+            Borders :{" "}
+            {country.borders.map((border) => (
+              <Link key={border} to={`/country/${border}`}>
+                <h3>{border}</h3>
+              </Link>
+            ))}
+          </h3> */}
+        </div>
+      )}
     </div>
   );
 }
