@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const countriesAPI = "https://ih-countries-api.herokuapp.com/countries";
 
@@ -14,6 +15,8 @@ function HomePage() {
     });
   }, []);
 
+  //const flag = `https://flagpedia.net/data/flags/icon/72x54/${countries.alpha2Code}.png`
+
   return (
     <div>
       <h2>WikiCountries: Your Guide to the World</h2>
@@ -21,7 +24,11 @@ function HomePage() {
         {countries.map((country) => {
           return (
             <li className="countries-list" key={country._id}>
-              {country.name.common}
+              <img
+                src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+                alt={country.name.common}
+              />
+              <Link to={`/${country.alpha3Code}`}>{country.name.common}</Link>
             </li>
           );
         })}
