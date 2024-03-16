@@ -24,11 +24,10 @@ const [countries, setCountries] = useState([])
 
   return (
     <div className="App">
-      <h1>LAB | React WikiCountries</h1>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage countries={countries} />} />
-        <Route path="/country/:countryId" element={<CountryDetails countries={countries} />} />
+        <Route path="/:countryId" element={<CountryDetails/>} />
       </Routes>
     </div>
   );

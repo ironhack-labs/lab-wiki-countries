@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
@@ -6,13 +6,9 @@ import { Link } from "react-router-dom";
 
 const apiURL = `https://ih-countries-api.herokuapp.com/countries`;
 
-function CountryDetails({ countries }) {
+function CountryDetails() {
   const countryCode = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
   const [country, setCountry] = useState({});
-
-  console.log(countryCode);
-  console.log(searchParams);
 
   useEffect(() => {
     axios.get(apiURL).then((response) => {
@@ -23,8 +19,6 @@ function CountryDetails({ countries }) {
       setCountry(country);
     });
   }, [countryCode]);
-
-  console.log(country);
 
   return (
     <div className="container">
@@ -59,8 +53,8 @@ function CountryDetails({ countries }) {
                 <td>
                   <ul>
                     {country.borders.map((border) => (
-                      <li key={border} style={{listStyleType: "none"}}>
-                        <Link to={`/country/${border}`}>
+                      <li key={border} style={{ listStyleType: "none" }}>
+                        <Link to={`/${border}`}>
                           <h3>{border}</h3>
                         </Link>
                       </li>
@@ -70,24 +64,6 @@ function CountryDetails({ countries }) {
               </tr>
             </tbody>
           </table>
-
-          {/* 
-          <img
-            key={country._id}
-            className="country-img"
-            src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
-            alt={country.name.common}
-          />
-          <h3>Capital : {country.capital}</h3>
-          <h3>Area : {country.area}km2</h3>
-          <h3>
-            Borders :{" "}
-            {country.borders.map((border) => (
-              <Link key={border} to={`/country/${border}`}>
-                <h3>{border}</h3>
-              </Link>
-            ))}
-          </h3> */}
         </div>
       )}
     </div>
