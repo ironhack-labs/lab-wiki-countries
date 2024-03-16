@@ -13,7 +13,7 @@ const apiURL = `https://ih-countries-api.herokuapp.com/countries`;
 
 function App() {
 
-const [countries, setCountries] = useState(apiURL)
+const [countries, setCountries] = useState([])
 
   useEffect(() => {
     axios.get(apiURL).then((response) => {
@@ -27,7 +27,7 @@ const [countries, setCountries] = useState(apiURL)
       <h1>LAB | React WikiCountries</h1>
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage countries={countries} />} />
         <Route path="/country/:countryId" element={<CountryDetails />} />
       </Routes>
     </div>
