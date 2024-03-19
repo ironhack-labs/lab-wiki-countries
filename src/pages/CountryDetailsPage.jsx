@@ -19,7 +19,9 @@ function CountryDetails({ country }) {
   const foundCountry = findCountry(country._id);
   console.log(foundCountry);*/
 
-  const uniqueCountry = country.find(({ alpha3Code }) => alpha3Code === countryId);
+  const uniqueCountry = country.find(
+    ({ alpha3Code }) => alpha3Code === countryId
+  );
 
   return (
     <>
@@ -45,7 +47,7 @@ function CountryDetails({ country }) {
                   <ul>
                     {uniqueCountry.borders.map((border) => {
                       return (
-                        <Link to={`/${border}`}>
+                        <Link key={border} to={`/${border}`}>
                           <li>{border}</li>
                         </Link>
                       );
