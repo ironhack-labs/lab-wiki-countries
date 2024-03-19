@@ -26,12 +26,11 @@ function CountryDetails({ country }) {
   return (
     <>
       {uniqueCountry && (
-        <div className="country-details">
-          <h2>{uniqueCountry.name.common}</h2>
-          <img src="" alt="" />
-          <p></p>
+        <div className="container">
+          <p> <b>Country Details</b></p>
+          <h1>{uniqueCountry.name.common}</h1>
 
-          <table>
+          <table className="table">
             <tbody>
               <tr>
                 <td>Capital</td>
@@ -42,13 +41,13 @@ function CountryDetails({ country }) {
                 <td>{uniqueCountry.area} km²</td>
               </tr>
               <tr>
-                <td>Borders</td>
-                <td>
+                <td >Borders</td>
+                <td >
                   <ul>
                     {uniqueCountry.borders.map((border) => {
                       return (
                         <Link key={border} to={`/${border}`}>
-                          <li>{border}</li>
+                          <li >{border}</li>
                         </Link>
                       );
                     })}

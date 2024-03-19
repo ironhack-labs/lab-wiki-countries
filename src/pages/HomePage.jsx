@@ -15,14 +15,17 @@ function HomePage({country}) {
   }, []);*/
 
   //const flag = `https://flagpedia.net/data/flags/icon/72x54/${countries.alpha2Code}.png`
-
+  const myStyle = {maxHeight: "90vh",overFlow: "scroll"};
   return (
-    <div>
+    
+
+    <div className="container" style={ myStyle }>
       <h2>WikiCountries: Your Guide to the World</h2>
-      <ul>
+      <div className="list-group">
+      <ul >
         {country.map((country) => {
           return (
-            <li className="countries-list" key={country._id}>
+            <li class="list-group-item list-group-item-action" key={country._id}>
               <img
                 src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
                 alt={country.name.common}
@@ -32,6 +35,7 @@ function HomePage({country}) {
           );
         })}
       </ul>
+      </div>
     </div>
   );
 }
