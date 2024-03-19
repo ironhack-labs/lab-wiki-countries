@@ -27,7 +27,7 @@ function CountryDetails({ country }) {
     <>
       {uniqueCountry && (
         <div className="container">
-          <p> <b>Country Details</b></p>
+          <p style={{ fontSize: "24px", fontWeight: "bold" }}> Country Details</p>
           <h1>{uniqueCountry.name.common}</h1>
 
           <table className="table">
