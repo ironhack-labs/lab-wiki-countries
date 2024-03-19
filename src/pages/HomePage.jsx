@@ -18,10 +18,9 @@ function HomePage() {
     return (
         <div className="container" style={{ maxHeight: "90vh", overflow: "scroll" }}>
             <h1 style={{ fontSize: "24px" }} >WikiCountries: Your Guide to the World</h1>
-            {/* <Link to={`/${country.name}`}> */}
-            <h1>{country.name}</h1>
-            {/*  </Link> */}
-
+            <Link to={`/country/${country.name}`}>
+                <h1>{country}</h1>
+            </Link>
         </div>
 
     )
