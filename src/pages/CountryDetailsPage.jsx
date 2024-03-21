@@ -1,30 +1,17 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-function CountryDetailsPage() {
-    const [country, setCountry] = useState('');
+function CountryDetails() {
+    const [country, setCountry] = useState({});
+
+    const { countryId } = useParams();
+
     useEffect(() => {
-        fetch('https://ih-countries-api.herokuapp.com/countries')
+        fetch(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
             .then(response => response.json())
             .then(data => {
-                setCountry(data.map((country) => {
-                    const alpha3Code = country.alpha3Code.toLowerCase()
-                    return <div key={country._id}>
-                        <h1 >{country.name.common}</h1>
-                        <p>Capital {country.capital} </p>
-                        <p>Area {country.area} </p>
-                        <p>Borders <ul>{country.borders.map((country, index) => <li><a href="" key={index}>{(country)}</a></li>)}</ul></p>
-
-                    </div>
-                }));
+                setCountry(data);
             })
-    }, []);
-    return (
-        <div className="container">
-            <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>Country Details</h1>
-            <div>{country}</div>
+            .catch(err => console.log(err));
+    }, [countryId]);
 
-        </div>
-    )
-}
-
-export default CountryDetailsPage
