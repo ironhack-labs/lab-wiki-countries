@@ -1,0 +1,37 @@
+.country-card {
+    width: 300px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .country-flag {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .country-content h1 {
+    margin-bottom: 10px;
+  }
+  
+  .country-content p {
+    margin-bottom: 5px;
+  }
+  
+  .country-borders {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .country-borders li {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
