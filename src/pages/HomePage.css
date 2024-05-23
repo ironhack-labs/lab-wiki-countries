@@ -1,0 +1,26 @@
+.container {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .heading {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .list-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: left;
+  }
