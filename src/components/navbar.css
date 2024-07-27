@@ -1,0 +1,13 @@
+.navbar {
+    background-color: hsl(180, 64%, 68%);
+    height: 80px;
+    
+}
+
+.container-top {
+    display: flex;
+    margin-left: 15px;
+  .navbar-brand{
+    font-size: 35px;
+  }
+}

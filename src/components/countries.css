@@ -1,0 +1,31 @@
+.container {
+    height: 90vh;
+    width: 900px;
+    overflow: scroll;
+}
+
+h1 {
+    font-size: 24px;
+}
+img {
+    height: 20px;
+    margin: 5px;
+}
+
+.list-group {
+    margin-right: 10px;
+    display: flex;
+    width: auto;
+}
+
+.page-title {
+    font-size: 30px;
+}
+.each-country {
+    flex-direction: column;
+}
+.list-group-item {
+    justify-content: center;
+    text-align: center;
+
+}
