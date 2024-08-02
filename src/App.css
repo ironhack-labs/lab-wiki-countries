@@ -2,3 +2,12 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.homepage-container {
+  max-height: 90vh;
+  overflow: scroll;
+}
+
+.homepage-container .list-group {
+  max-width: 90vw;
+}
