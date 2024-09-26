@@ -5,9 +5,76 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  
+  background-color:rgb(240, 230, 215) !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+nav {
+  border-bottom: 1px solid gray;
+  padding-bottom: 1%;
+  margin: 1%;
+  text-align:end;
+  text-transform: uppercase
+}
+
+h1 {
+  text-align: center;
+  font-weight: lighter;
+  text-transform: uppercase;
+  padding: 2%;
+}
+
+.card {
+  width: 20%;
+  margin: 1%;
+  padding: 1%;
+  border: 1px solid gray;
+  box-shadow: 5px 5px 5px gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+  font-weight: 350;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 40vw;
+  margin: 1%;
+  padding: 1%;
+  border: 1px solid gray;
+  box-shadow: 5px 5px 5px gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+}
+
+button {
+  margin: 3% !important;
 }
