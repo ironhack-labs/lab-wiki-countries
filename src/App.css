@@ -2,3 +2,7 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.hover:hover {
+  background-color: #0090aa;
+}
