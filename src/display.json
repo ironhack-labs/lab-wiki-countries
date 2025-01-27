@@ -1,0 +1,149 @@
+[
+    {
+        "name": {
+            "common": "Trinidad and Tobago",
+            "official": "Republic of Trinidad and Tobago",
+            "native": {
+                "eng": {
+                    "official": "Republic of Trinidad and Tobago",
+                    "common": "Trinidad and Tobago"
+                }
+            }
+        },
+        "tld": [
+            ".tt"
+        ],
+        "capital": [
+            "Port of Spain"
+        ],
+        "altSpellings": [
+            "TT",
+            "Republic of Trinidad and Tobago"
+        ],
+        "latlng": [
+            11,
+            -61
+        ],
+        "landlocked": false,
+        "borders": [],
+        "_id": "64876bdca694fd0002c2b686",
+        "alpha2Code": "TT",
+        "alpha3Code": "TTO",
+        "independent": true,
+        "status": "officially-assigned",
+        "unMember": true,
+        "currencies": {
+            "TTD": {
+                "name": "Trinidad and Tobago dollar",
+                "symbol": "$"
+            }
+        },
+        "idd": {
+            "root": "+1",
+            "suffixes": [
+                "868"
+            ]
+        },
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "languages": {
+            "eng": "English"
+        },
+        "translations": {
+            "ces": {
+                "official": "Republika Trinidad a Tobago",
+                "common": "Trinidad a Tobago"
+            },
+            "deu": {
+                "official": "Republik Trinidad und Tobago",
+                "common": "Trinidad und Tobago"
+            },
+            "est": {
+                "official": "Trinidadi ja Tobago Vabariik",
+                "common": "Trinidad ja Tobago"
+            },
+            "fin": {
+                "official": "Trinidadin ja Tobagon tasavalta",
+                "common": "Trinidad ja Tobago"
+            },
+            "fra": {
+                "official": "République de Trinité-et-Tobago",
+                "common": "Trinité-et-Tobago"
+            },
+            "hrv": {
+                "official": "Republika Trinidad i Tobago",
+                "common": "Trinidad i Tobago"
+            },
+            "hun": {
+                "official": "Trinidad és Tobago Köztársaság",
+                "common": "Trinidad és Tobago"
+            },
+            "ita": {
+                "official": "Repubblica di Trinidad e Tobago",
+                "common": "Trinidad e Tobago"
+            },
+            "jpn": {
+                "official": "トリニダード·トバゴ共和国",
+                "common": "トリニダード・トバゴ"
+            },
+            "kor": {
+                "official": "트리니다드 토바고 공화국",
+                "common": "트리니다드 토바고"
+            },
+            "nld": {
+                "official": "Republiek Trinidad en Tobago",
+                "common": "Trinidad en Tobago"
+            },
+            "per": {
+                "official": "جمهوری ترینیداد و توباگو",
+                "common": "ترینیداد و توباگو"
+            },
+            "pol": {
+                "official": "Trynidad i Tobago",
+                "common": "Trynidad i Tobago"
+            },
+            "por": {
+                "official": "República de Trinidad e Tobago",
+                "common": "Trinidade e Tobago"
+            },
+            "rus": {
+                "official": "Республика Тринидад и Тобаго",
+                "common": "Тринидад и Тобаго"
+            },
+            "slk": {
+                "official": "Republika Trinidad a Tobaga",
+                "common": "Trinidad a Tobago"
+            },
+            "spa": {
+                "official": "República de Trinidad y Tobago",
+                "common": "Trinidad y Tobago"
+            },
+            "swe": {
+                "official": "Republiken Trinidad och Tobago",
+                "common": "Trinidad och Tobago"
+            },
+            "urd": {
+                "official": "جمہوریہ ٹرینیڈاڈ و ٹوباگو",
+                "common": "ٹرینیڈاڈ و ٹوباگو"
+            },
+            "zho": {
+                "official": "特立尼达和多巴哥共和国",
+                "common": "特立尼达和多巴哥"
+            }
+        },
+        "area": 5130,
+        "demonyms": {
+            "eng": {
+                "f": "Trinidadian",
+                "m": "Trinidadian"
+            },
+            "fra": {
+                "f": "Trinidadienne",
+                "m": "Trinidadien"
+            }
+        },
+        "createdAt": "2023-06-12T19:02:52.260Z",
+        "updatedAt": "2023-06-12T19:02:52.260Z",
+        "__v": 0
+    }
+]
