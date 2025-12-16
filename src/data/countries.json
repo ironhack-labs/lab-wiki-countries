@@ -1,0 +1,202 @@
+[
+  {
+    "alpha2Code": "AD",
+    "alpha3Code": "AND",
+    "name": {
+      "common": "Andorra"
+    },
+    "capital": ["Andorra la Vella"],
+    "area": 468,
+    "borders": ["FRA", "ESP"]
+  },
+  {
+    "alpha2Code": "AE",
+    "alpha3Code": "ARE",
+    "name": {
+      "common": "United Arab Emirates"
+    },
+    "capital": ["Abu Dhabi"],
+    "area": 83600,
+    "borders": ["OMN", "SAU"]
+  },
+  {
+    "alpha2Code": "AF",
+    "alpha3Code": "AFG",
+    "name": {
+      "common": "Afghanistan"
+    },
+    "capital": ["Kabul"],
+    "area": 652230,
+    "borders": ["IRN", "PAK", "TKM", "UZB", "TJK", "CHN"]
+  },
+  {
+    "alpha2Code": "AL",
+    "alpha3Code": "ALB",
+    "name": {
+      "common": "Albania"
+    },
+    "capital": ["Tirana"],
+    "area": 28748,
+    "borders": ["MNE", "GRC", "MKD", "UNK"]
+  },
+  {
+    "alpha2Code": "AO",
+    "alpha3Code": "AGO",
+    "name": {
+      "common": "Angola"
+    },
+    "capital": ["Luanda"],
+    "area": 1246700,
+    "borders": ["COG", "COD", "ZMB", "NAM"]
+  },
+  {
+    "alpha2Code": "AR",
+    "alpha3Code": "ARG",
+    "name": {
+      "common": "Argentina"
+    },
+    "capital": ["Buenos Aires"],
+    "area": 2780400,
+    "borders": ["BOL", "BRA", "CHL", "PRY", "URY"]
+  },
+  {
+    "alpha2Code": "AM",
+    "alpha3Code": "ARM",
+    "name": {
+      "common": "Armenia"
+    },
+    "capital": ["Yerevan"],
+    "area": 29743,
+    "borders": ["AZE", "GEO", "IRN", "TUR"]
+  },
+  {
+    "alpha2Code": "AW",
+    "alpha3Code": "ABW",
+    "name": {
+      "common": "Aruba"
+    },
+    "capital": ["Oranjestad"],
+    "area": 180,
+    "borders": []
+  },
+  {
+    "alpha2Code": "AI",
+    "alpha3Code": "AIA",
+    "name": {
+      "common": "Anguilla"
+    },
+    "capital": ["The Valley"],
+    "area": 91,
+    "borders": []
+  },
+  {
+    "alpha2Code": "AX",
+    "alpha3Code": "ALA",
+    "name": {
+      "common": "Åland Islands"
+    },
+    "capital": ["Mariehamn"],
+    "area": 1580,
+    "borders": []
+  },
+  {
+    "alpha2Code": "BE",
+    "alpha3Code": "BEL",
+    "name": {
+      "common": "Belgium"
+    },
+    "capital": ["Brussels"],
+    "area": 30528,
+    "borders": ["FRA", "DEU", "LUX", "NLD"]
+  },
+  {
+    "alpha2Code": "DE",
+    "alpha3Code": "DEU",
+    "name": {
+      "common": "Germany"
+    },
+    "capital": ["Berlin"],
+    "area": 357114,
+    "borders": ["AUT", "BEL", "CZE", "DNK", "FRA", "LUX", "NLD", "POL", "CHE"]
+  },
+  {
+    "alpha2Code": "FR",
+    "alpha3Code": "FRA",
+    "name": {
+      "common": "France"
+    },
+    "capital": ["Paris"],
+    "area": 551695,
+    "borders": ["AND", "BEL", "DEU", "ITA", "LUX", "MCO", "ESP", "CHE"]
+  },
+  {
+    "alpha2Code": "IT",
+    "alpha3Code": "ITA",
+    "name": {
+      "common": "Italy"
+    },
+    "capital": ["Rome"],
+    "area": 301336,
+    "borders": ["AUT", "FRA", "SMR", "SVN", "CHE", "VAT"]
+  },
+  {
+    "alpha2Code": "LU",
+    "alpha3Code": "LUX",
+    "name": {
+      "common": "Luxembourg"
+    },
+    "capital": ["Luxembourg"],
+    "area": 2586,
+    "borders": ["BEL", "FRA", "DEU"]
+  },
+  {
+    "alpha2Code": "MC",
+    "alpha3Code": "MCO",
+    "name": {
+      "common": "Monaco"
+    },
+    "capital": ["Monaco"],
+    "area": 2.02,
+    "borders": ["FRA"]
+  },
+  {
+    "alpha2Code": "ES",
+    "alpha3Code": "ESP",
+    "name": {
+      "common": "Spain"
+    },
+    "capital": ["Madrid"],
+    "area": 505992,
+    "borders": ["AND", "FRA", "GIB", "PRT", "MAR"]
+  },
+  {
+    "alpha2Code": "CH",
+    "alpha3Code": "CHE",
+    "name": {
+      "common": "Switzerland"
+    },
+    "capital": ["Bern"],
+    "area": 41284,
+    "borders": ["AUT", "FRA", "ITA", "LIE", "DEU"]
+  },
+  {
+    "alpha2Code": "US",
+    "alpha3Code": "USA",
+    "name": {
+      "common": "United States"
+    },
+    "capital": ["Washington, D.C."],
+    "area": 9372610,
+    "borders": ["CAN", "MEX"]
+  },
+  {
+    "alpha2Code": "ZW",
+    "alpha3Code": "ZWE",
+    "name": {
+      "common": "Zimbabwe"
+    },
+    "capital": ["Harare"],
+    "area": 390757,
+    "borders": ["BWA", "MOZ", "ZAF", "ZMB"]
+  }
+]
