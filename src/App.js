@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 
 function App() {
   const [countries, setCountries] = useState(data);
+  console.log(countries)
 
   return (
     <div className="App">
